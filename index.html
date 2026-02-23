@@ -3,29 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="only light">
+    <meta name="color-scheme" content="dark">
     <title>The Burgess Principle</title>
+    <meta name="description" content="The Burgess Principle: a citizen-initiated legal doctrine establishing that facially defective warrants under the Rights of Entry (Gas and Electricity Boards) Act 1954 are void ab initio. The principle is free and may be cited by anyone.">
+    <meta property="og:title" content="The Burgess Principle">
+    <meta property="og:description" content="A citizen-initiated legal doctrine establishing that facially defective warrants under the Rights of Entry (Gas and Electricity Boards) Act 1954 are void ab initio, with downstream remedies for credit contamination and reasonable adjustments for protected characteristics.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ljbudgie.github.io/Burgessprinciple/">
     <style>
-        :root { color-scheme: only light; }
-        * { color: #1a1a1a !important; background-color: transparent !important; }
-        html, body { background-color: #ffffff !important; }
-        body { font-family: Arial, Helvetica, sans-serif; text-align: center; padding: 60px 20px; margin: 0; }
-        h1 { font-size: 28px; margin-bottom: 20px; color: #111111 !important; }
-        p { font-size: 16px; max-width: 600px; margin: 0 auto 30px; line-height: 1.6; color: #222222 !important; }
-        .footer { font-size: 13px; color: #444444 !important; margin-top: 50px; }
-        a { color: #0055aa !important; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        /* ── Reset & base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green-bright: #00ff41;
+            --green-mid:    #00cc33;
+            --green-dim:    #009922;
+            --green-glow:   #00ff41;
+            --bg:           #0a0a0a;
+            --font-mono:    'Courier New', 'Fira Mono', 'Consolas', monospace;
+        }
+
+        html, body {
+            background-color: var(--bg);
+            color: var(--green-mid);
+            font-family: var(--font-mono);
+            min-height: 100%;
+        }
+
+        /* ── Skip link ── */
+        .skip-link {
+            position: absolute;
+            top: -999px;
+            left: 0;
+            background: var(--bg);
+            color: var(--green-bright);
+            padding: 8px 16px;
+            z-index: 9999;
+            text-decoration: none;
+            border: 1px solid var(--green-dim);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ── Matrix rain canvas ── */
+        #matrix-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        /* ── Scanline overlay ── */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 3px,
+                rgba(0, 0, 0, 0.08) 3px,
+                rgba(0, 0, 0, 0.08) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ── Layout ── */
+        .page-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        main {
+            flex: 1;
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 0 40px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 40px;
+            border-top: 1px solid var(--green-dim);
+            font-size: 13px;
+            color: var(--green-dim);
+            line-height: 1.8;
+        }
+
+        /* ── Typography ── */
+        h1 {
+            font-size: clamp(22px, 5vw, 34px);
+            color: var(--green-bright);
+            text-shadow:
+                0 0 10px var(--green-glow),
+                0 0 22px var(--green-glow),
+                0 0 40px var(--green-glow);
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: var(--green-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 13px;
+            color: var(--green-bright);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px var(--green-glow);
+        }
+
+        section {
+            border: 1px solid var(--green-dim);
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            background: rgba(0, 255, 65, 0.03);
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--green-mid);
+        }
+
+        /* ── Links ── */
+        a {
+            color: var(--green-bright);
+            text-decoration: none;
+            text-shadow: 0 0 6px var(--green-glow);
+        }
+        a:hover, a:focus {
+            text-decoration: underline;
+            text-shadow: 0 0 12px var(--green-glow), 0 0 24px var(--green-glow);
+        }
+
+        /* ── Prompt decoration ── */
+        .prompt::before {
+            content: '> ';
+            color: var(--green-bright);
+        }
+
+        footer a { color: var(--green-mid); text-shadow: none; }
+        footer a:hover { color: var(--green-bright); text-shadow: 0 0 8px var(--green-glow); }
+
+        /* ── Reduced motion ── */
+        @media (prefers-reduced-motion: reduce) {
+            #matrix-canvas { display: none; }
+        }
     </style>
 </head>
 <body>
-    <h1>The Burgess Principle</h1>
-    <p>A citizen-initiated legal doctrine establishing that facially defective warrants under the Rights of Entry (Gas and Electricity Boards) Act 1954 are void ab initio, with downstream remedies for credit contamination and reasonable adjustments for protected characteristics.</p>
-    <p>The principle itself is free and may be cited by anyone. The methodology and toolkit are protected original works and available under licensed terms.</p>
-    <p>Site under development. Full resources and contact details will be available shortly.</p>
-    <div class="footer">
-        &copy; Lewis Burgess 2026. All rights reserved.<br>
-        Registered trademark application UK00004343685<br><br>
-        For licensing or media enquiries: <a href="mailto:lewis@burgessprinciple.co.uk">lewis@burgessprinciple.co.uk</a>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+    <div class="page-wrapper">
+        <header>
+            <h1>The Burgess Principle</h1>
+            <p class="tagline">// citizen-initiated legal doctrine //</p>
+        </header>
+
+        <main id="main">
+            <section aria-labelledby="what-it-is">
+                <h2 id="what-it-is">[01] What It Is</h2>
+                <p class="prompt">A citizen-initiated legal doctrine establishing that facially defective warrants under the Rights of Entry (Gas and Electricity Boards) Act 1954 are void <em>ab initio</em>, with downstream remedies for credit contamination and reasonable adjustments for protected characteristics.</p>
+            </section>
+
+            <section aria-labelledby="open-source">
+                <h2 id="open-source">[02] Open Source — Free to Cite</h2>
+                <p class="prompt">The principle itself is free and may be cited by anyone. Maximum truth reaching maximum people.</p>
+            </section>
+
+            <section aria-labelledby="methodology">
+                <h2 id="methodology">[03] Methodology &amp; Toolkit</h2>
+                <p class="prompt">The methodology and toolkit are protected original works and are available under licensed terms.</p>
+            </section>
+
+            <section aria-labelledby="status">
+                <h2 id="status">[04] Status</h2>
+                <p class="prompt">Site under development. Full resources and contact details will be available shortly.</p>
+            </section>
+        </main>
+
+        <footer>
+            &copy; Lewis Burgess 2026. All rights reserved.<br>
+            Registered trademark application UK00004343685<br><br>
+            For licensing or media enquiries: <a href="mailto:lewis@burgessprinciple.co.uk">lewis@burgessprinciple.co.uk</a>
+        </footer>
     </div>
+
+    <script>
+    (function () {
+        var canvas = document.getElementById('matrix-canvas');
+        if (!canvas) return;
+
+        // Respect reduced motion preference
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            canvas.style.display = 'none';
+            return;
+        }
+
+        var ctx = canvas.getContext('2d');
+        var cols, drops;
+        var fontSize = 14;
+
+        // Mix of katakana and latin characters
+        var chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&';
+
+        function resize() {
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
+            cols = Math.floor(canvas.width / fontSize);
+            drops = [];
+            for (var i = 0; i < cols; i++) {
+                drops[i] = Math.random() * -canvas.height / fontSize;
+            }
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = fontSize + 'px ' + "'Courier New', monospace";
+
+            for (var i = 0; i < cols; i++) {
+                var char = chars[Math.floor(Math.random() * chars.length)];
+                var x = i * fontSize;
+                var y = drops[i] * fontSize;
+
+                // Leading character is bright white-green
+                ctx.fillStyle = '#afffbc';
+                ctx.fillText(char, x, y);
+
+                // Trail characters in mid green
+                if (drops[i] > 1) {
+                    ctx.fillStyle = '#00cc33';
+                    ctx.fillText(chars[Math.floor(Math.random() * chars.length)], x, y - fontSize);
+                }
+
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i] += 0.5;
+            }
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        var raf;
+        function loop() { draw(); raf = requestAnimationFrame(loop); }
+        loop();
+    }());
+    </script>
 </body>
 </html>

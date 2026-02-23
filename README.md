@@ -10,9 +10,11 @@ The Burgess Principle establishes that facially defective warrants under the **R
 
 The principle itself is **free and may be cited by anyone**. The goal is maximum truth reaching maximum people.
 
-## Methodology & Toolkit
+## Methodology & Toolkit — Open Source
 
-The methodology and toolkit are protected original works and are available under licensed terms. For licensing enquiries, see the contact details below.
+The methodology and toolkit are **fully open source**, forever. Free for anyone to use, adapt, and build upon. No licensing required.
+
+Integrated with [OpenClaw](https://openclaw.im) — the open-source AI automation platform for law.
 
 ## Live Site
 
@@ -20,7 +22,7 @@ The methodology and toolkit are protected original works and are available under
 
 ## Contact
 
-For licensing or media enquiries: [lewis@burgessprinciple.co.uk](mailto:lewis@burgessprinciple.co.uk)
+For media enquiries: [lewis@burgessprinciple.co.uk](mailto:lewis@burgessprinciple.co.uk)
 
 ## Legal
 

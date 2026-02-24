@@ -409,10 +409,137 @@
         }
         footer span { color: var(--green-dim); }
 
+        /* ── Command Center ── */
+        .command-center {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .command-center .section-label {
+            margin-bottom: 8px;
+        }
+        .command-center-sub {
+            font-size: 0.8em;
+            color: var(--green-dim);
+            letter-spacing: 0.12em;
+            margin-bottom: 28px;
+        }
+        .cc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 720px) {
+            .cc-grid { grid-template-columns: 1fr; }
+        }
+        .cc-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 28px;
+            position: relative;
+        }
+        .cc-panel-title {
+            font-family: var(--mono);
+            font-size: 0.72em;
+            letter-spacing: 0.25em;
+            color: var(--green-dim);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+        .cc-form-group {
+            margin-bottom: 16px;
+        }
+        .cc-label {
+            display: block;
+            font-size: 0.72em;
+            letter-spacing: 0.18em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .cc-input {
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 0.88em;
+            padding: 9px 12px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .cc-input:focus {
+            border-color: var(--green-dim);
+            box-shadow: 0 0 8px var(--green-glow);
+        }
+        .cc-input::placeholder { color: var(--text-dim); }
+        .cc-doc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .btn-generate {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 0.8em;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 14px 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            position: relative;
+        }
+        .btn-generate:hover {
+            border-color: var(--green);
+            background: var(--green-glow);
+            box-shadow: 0 0 14px var(--green-glow);
+        }
+        .btn-generate .btn-doc-name {
+            color: var(--gold);
+            font-family: var(--display);
+            font-size: 1.05em;
+            letter-spacing: 0.08em;
+        }
+        .btn-generate .btn-doc-desc {
+            color: var(--text-dim);
+            font-size: 0.85em;
+            letter-spacing: 0.06em;
+            text-transform: none;
+        }
+        .cc-status {
+            font-size: 0.72em;
+            letter-spacing: 0.15em;
+            color: var(--green-dim);
+            margin-top: 16px;
+            min-height: 1.2em;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 600px) {
             .hero { padding: 48px 0 40px; }
             .scroll-frame { padding: 28px 20px; }
+        }
+
+        /* ── Print styles (generated documents) ── */
+        @media print {
+            body { background: #fff; color: #000; font-family: Georgia, serif; }
+            body::before { display: none; }
+            .print-doc { padding: 40px; font-size: 13pt; line-height: 1.8; }
+            .print-doc h1 { font-size: 16pt; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 20px; }
+            .print-doc .meta { margin-bottom: 24px; }
+            .print-doc p { margin-bottom: 12px; }
+            .print-doc ol { padding-left: 24px; }
+            .print-doc li { margin-bottom: 10px; }
+            .print-doc .sig-line { margin-top: 40px; border-top: 1px solid #000; padding-top: 8px; }
         }
     </style>
 </head>
@@ -465,7 +592,7 @@
                 </div>
                 <div class="module">
                     <div class="module-name">ENFORCER</div>
-                    <div class="module-status">NOTICES: ARMED</div>
+                    <div class="module-status">PARALEGAL: ONLINE</div>
                     <div class="module-bar"><div class="module-bar-fill" style="width:100%"></div></div>
                 </div>
             </div>
@@ -502,6 +629,9 @@
             <div class="section-label">▶ Action Center</div>
             <p style="font-size:0.9em; color:var(--text-dim);">Deploy the doctrine. Access the source. Spread the truth.</p>
             <div class="action-buttons">
+                <a href="#command-center" class="btn btn-primary">
+                    ⚡ Generate Documents
+                </a>
                 <a href="https://github.com/ljbudgie/Burgessprinciple" class="btn btn-primary" target="_blank" rel="noopener">
                     ⬇ Download the Code
                 </a>
@@ -593,6 +723,203 @@
 
         </div>
     </div>
+
+    <!-- ══════════════════════════════════════════
+         SOVEREIGN COMMAND CENTER — DIGITAL PARALEGAL
+    ══════════════════════════════════════════ -->
+    <section class="command-center" id="command-center">
+        <div class="container">
+            <div class="section-label">▶ Sovereign Command Center — Digital Paralegal</div>
+            <p class="command-center-sub">// SYSTEM ONLINE. WEAPONIZING DATA. //</p>
+            <div class="cc-grid">
+                <!-- Input Panel -->
+                <div class="cc-panel">
+                    <div class="cc-panel-title">► Input Your Details</div>
+                    <div class="cc-form-group">
+                        <label class="cc-label" for="cc-name">Full Name</label>
+                        <input class="cc-input" id="cc-name" type="text" placeholder="e.g. Jane Smith" autocomplete="name">
+                    </div>
+                    <div class="cc-form-group">
+                        <label class="cc-label" for="cc-address">Property Address</label>
+                        <input class="cc-input" id="cc-address" type="text" placeholder="e.g. 12 Example St, London, EC1A 1AA" autocomplete="street-address">
+                    </div>
+                    <div class="cc-form-group">
+                        <label class="cc-label" for="cc-supplier">Energy Supplier</label>
+                        <input class="cc-input" id="cc-supplier" type="text" placeholder="e.g. E.ON Next" autocomplete="organization">
+                    </div>
+                    <p id="cc-input-status" class="cc-status" aria-live="polite"></p>
+                </div>
+                <!-- Generate Panel -->
+                <div class="cc-panel">
+                    <div class="cc-panel-title">► Generate Defense Documents</div>
+                    <div class="cc-doc-list">
+                        <button class="btn-generate" id="btn-revocation" type="button">
+                            <span class="btn-doc-name">⚡ Notice of Implied Revocation</span>
+                            <span class="btn-doc-desc">Formal revocation of implied access rights &amp; void-warrant warning to your energy supplier.</span>
+                        </button>
+                        <button class="btn-generate" id="btn-dsar" type="button">
+                            <span class="btn-doc-name">🔍 DSAR Warrant Demand</span>
+                            <span class="btn-doc-desc">Data Subject Access Request demanding all warrant-related records held by your supplier.</span>
+                        </button>
+                    </div>
+                    <p id="cc-gen-status" class="cc-status" aria-live="polite"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    (function () {
+        'use strict';
+
+        function getInputs() {
+            var name     = document.getElementById('cc-name').value.trim();
+            var address  = document.getElementById('cc-address').value.trim();
+            var supplier = document.getElementById('cc-supplier').value.trim();
+            return { name: name, address: address, supplier: supplier };
+        }
+
+        function validateInputs(inputs) {
+            var missing = [];
+            if (!inputs.name)     missing.push('Full Name');
+            if (!inputs.address)  missing.push('Property Address');
+            if (!inputs.supplier) missing.push('Energy Supplier');
+            return missing;
+        }
+
+        function today() {
+            return new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function esc(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function buildRevocationDoc(inputs) {
+            var n = esc(inputs.name);
+            var a = esc(inputs.address);
+            var s = esc(inputs.supplier);
+            var dt = esc(today());
+            return '<div class="print-doc">'
+                + '<h1>Notice of Revocation of Implied Rights of Access</h1>'
+                + '<div class="meta">'
+                + '<p><strong>To:</strong><br>' + s + '</p>'
+                + '<p><strong>From:</strong><br>' + n + '<br>' + a + '</p>'
+                + '<p><strong>Date:</strong> ' + dt + '</p>'
+                + '<p><strong>RE: Revocation of Implied Rights of Access &amp; Notice Regarding Defective Warrants</strong></p>'
+                + '</div>'
+                + '<p><strong>TAKE NOTICE THAT:</strong></p>'
+                + '<ol>'
+                + '<li><strong>Revocation of Access:</strong> Any implied right of access to the property known as <strong>' + a + '</strong> ("the Property") for you, your employees, agents, or contractors is hereby formally <strong>REVOKED</strong>, effective immediately. This includes any right to approach the door to "knock and talk" or to enter the curtilage of the property for any purpose other than delivering postal mail.</li>'
+                + '<li><strong>Trespass Warning:</strong> Any entry onto the Property by your agents will constitute the tort of trespass. You will be held liable for all resulting damages.</li>'
+                + '<li><strong>Regarding Warrants of Entry:</strong> I am aware of the industry practice of obtaining "bulk warrants" under the <em>Rights of Entry (Gas and Electricity Boards) Act 1954</em>. I put you on strict notice that any warrant obtained without individual judicial consideration of the specific facts of my case will be treated as <strong>void <em>ab initio</em></strong> under the <strong>Burgess Principle</strong> and the authority of <em>R v Sussex Justices, Ex parte McCarthy</em> [1924] 1 KB 256. If you attempt to enter the Property relying on a bulk-issued warrant, I will consider this an act of <strong>Aggravated Trespass</strong> and <strong>Criminal Damage</strong> (if force is used).</li>'
+                + '<li><strong>Demand for Proof:</strong> Before any further action is taken, you must provide: (a) proof that a magistrate applied their judicial mind specifically to my account, and (b) the specific Information laid before the court regarding my property.</li>'
+                + '</ol>'
+                + '<p><strong>GOVERN YOURSELF ACCORDINGLY.</strong></p>'
+                + '<p>Sincerely,</p>'
+                + '<p class="sig-line">' + n + '</p>'
+                + '</div>';
+        }
+
+        function buildDsarDoc(inputs) {
+            var n = esc(inputs.name);
+            var a = esc(inputs.address);
+            var s = esc(inputs.supplier);
+            var dt = esc(today());
+            return '<div class="print-doc">'
+                + '<h1>Data Subject Access Request — Warrant Records</h1>'
+                + '<div class="meta">'
+                + '<p><strong>To: Data Protection Officer / Legal Team</strong><br>' + s + '</p>'
+                + '<p><strong>From:</strong><br>' + n + '<br>' + a + '</p>'
+                + '<p><strong>Date:</strong> ' + dt + '</p>'
+                + '<p><strong>RE: Data Subject Access Request under UK GDPR Article 15 / Data Protection Act 2018 — Warrant-Related Records</strong></p>'
+                + '</div>'
+                + '<p>I, <strong>' + n + '</strong>, hereby make a formal Data Subject Access Request (DSAR) pursuant to <strong>Article 15 of the UK GDPR</strong> and <strong>Schedule 2 of the Data Protection Act 2018</strong>.</p>'
+                + '<p>You are required to provide <strong>all personal data</strong> you hold relating to me, and in particular the following categories of data relating to any warrant sought or executed in connection with my property at <strong>' + a + '</strong>:</p>'
+                + '<ol>'
+                + '<li>All records of any application made to any magistrate or court for a warrant of entry under the <em>Rights of Entry (Gas and Electricity Boards) Act 1954</em> concerning my property or account.</li>'
+                + '<li>The full text of any "Information" laid before the court in support of a warrant application referencing my account or property.</li>'
+                + '<li>Records of any bulk or batch warrant application that included my property, and the identity of the court and magistrate who considered it.</li>'
+                + '<li>All internal correspondence, emails, and notes referring to warrant applications in relation to my account.</li>'
+                + '<li>Records of any third-party debt collection agents, warrant enforcement officers, or contractors instructed in connection with my account.</li>'
+                + '<li>All credit reference agency reports submitted by you that reference my account and any adverse entries arising from warrant or debt actions.</li>'
+                + '</ol>'
+                + '<p>Please supply all requested data within <strong>one calendar month</strong> of receipt of this request as required by law. Failure to comply will be reported to the <strong>Information Commissioner&rsquo;s Office</strong>.</p>'
+                + '<p>Sincerely,</p>'
+                + '<p class="sig-line">' + n + '</p>'
+                + '</div>';
+        }
+
+        function openPrintWindow(htmlBody, docTitle) {
+            var win = window.open('', '_blank');
+            if (!win) {
+                document.getElementById('cc-gen-status').textContent =
+                    '⚠ Pop-up blocked — please allow pop-ups and try again.';
+                return;
+            }
+            win.document.write(
+                '<!DOCTYPE html><html lang="en"><head>'
+                + '<meta charset="UTF-8">'
+                + '<title>' + esc(docTitle) + '</title>'
+                + '<style>'
+                + 'body{font-family:Georgia,serif;font-size:13pt;line-height:1.8;color:#000;background:#fff;margin:0;padding:40px;}'
+                + 'h1{font-size:16pt;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:20px;}'
+                + '.meta{margin-bottom:24px;}'
+                + 'p{margin-bottom:12px;}'
+                + 'ol{padding-left:24px;}'
+                + 'li{margin-bottom:10px;}'
+                + '.sig-line{margin-top:40px;border-top:1px solid #000;padding-top:8px;}'
+                + '</style>'
+                + '</head><body>'
+                + htmlBody
+                + '</body></html>'
+            );
+            win.document.close();
+            win.focus();
+            win.print();
+        }
+
+        document.getElementById('btn-revocation').addEventListener('click', function () {
+            generateDoc('revocation');
+        });
+        document.getElementById('btn-dsar').addEventListener('click', function () {
+            generateDoc('dsar');
+        });
+
+        function generateDoc(type) {
+            var inputs = getInputs();
+            var statusEl = document.getElementById('cc-gen-status');
+            var inputStatusEl = document.getElementById('cc-input-status');
+            var missing = validateInputs(inputs);
+
+            if (missing.length > 0) {
+                statusEl.textContent = '';
+                inputStatusEl.textContent = '⚠ Please fill in: ' + missing.join(', ') + '.';
+                document.getElementById('cc-name').focus();
+                return;
+            }
+
+            inputStatusEl.textContent = '';
+            statusEl.textContent = '// Generating document…';
+
+            var html, title;
+            if (type === 'revocation') {
+                html  = buildRevocationDoc(inputs);
+                title = 'Notice of Implied Revocation — ' + inputs.name;
+            } else {
+                html  = buildDsarDoc(inputs);
+                title = 'DSAR Warrant Demand — ' + inputs.name;
+            }
+
+            openPrintWindow(html, title);
+            statusEl.textContent = "✓ Document generated. Use your browser's Print → Save as PDF to save.";
+        }
+    }());
+    </script>
 
     <footer>
         <div class="container">

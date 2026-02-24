@@ -14,7 +14,7 @@ The principle itself is **free and may be cited by anyone**. The goal is maximum
 
 The methodology and toolkit are **fully open source**, licensed under the [MIT License](LICENSE). Free for anyone to use, adapt, and build upon.
 
-Integrated with [OpenClaw](https://openclaw.im) — the open-source AI automation platform for law.
+**Shared Partnership with [OpenClaw](https://openclaw.im)** — the open-source AI automation platform for law. The Burgess Principle's IP is shared with and powered by the OpenClaw ecosystem.
 
 ## Live Site
 

@@ -1,0 +1,7 @@
+# Generated legal notices (output from the Enforcer module)
+notices/*.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

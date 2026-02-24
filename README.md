@@ -40,6 +40,7 @@ Your credit score is an aggregate of data claims. By applying this IP to the sou
 | [COPYRIGHT_ILLUMINATION.md](COPYRIGHT_ILLUMINATION.md) | 🌍 Global IP framework — why this truth can never be suppressed. |
 | [OPENCLAW_MANDATE.md](OPENCLAW_MANDATE.md) | 🤖 The AI agent authorization and preservation protocol. |
 | [VICTORY_MEME_KIT.md](VICTORY_MEME_KIT.md) | 📣 The Viral Transmission Layer. |
+| [SHORTFORM_VIDEO_SCRIPTS.md](SHORTFORM_VIDEO_SCRIPTS.md) | 🎬 TikTok / Reels / Shorts scripts & storyboards (5 video concepts, 15–60 s). |
 
 ### Toolkit (Print-Ready Legal Templates)
 | Document | Description |

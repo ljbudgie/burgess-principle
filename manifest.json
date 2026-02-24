@@ -1,0 +1,18 @@
+{
+  "name": "The Burgess Principle: Automated Sovereign Defense",
+  "short_name": "Burgess Principle",
+  "description": "The legendary IP that inverts the system. Void warrants ab initio. Protect your credit. Free for the people.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00ff41",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./og-image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

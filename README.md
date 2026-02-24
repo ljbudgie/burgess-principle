@@ -2,6 +2,13 @@
 
 **A citizen-initiated legal doctrine — free and open for anyone to cite.**
 
+## Deploy Your Own Sovereign Instance
+
+Host your own mirror of the Burgess Principle in seconds — no coding required.
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ljbudgie/Burgessprinciple)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ljbudgie/Burgessprinciple)
+
 ## What It Is
 
 The Burgess Principle establishes that facially defective warrants under the **Rights of Entry (Gas and Electricity Boards) Act 1954** are void *ab initio*, with downstream remedies for credit contamination and reasonable adjustments for protected characteristics.

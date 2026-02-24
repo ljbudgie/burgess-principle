@@ -28,6 +28,21 @@ It's free. It's automated. It's forever.
 The Burgess Principle.
 #LegalTech #DecentralizedJustice"
 
+**Template 4 — E.ON Settlement:**
+"E.ON settled.
+Let that sink in.
+A multinational energy company met the Burgess Principle in the IP and blinked.
+The case is settled. The truth is documented. The proof is in the record.
+This is what it looks like when the little guy wins.
+#BurgessPrinciple #EON #Settlement #EnergyJustice #WeWon"
+
+**Template 5 — E.ON Settlement (short-form):**
+"They came with their warrants.
+We came with the Burgess Principle.
+E.ON: settled. ✅
+Next.
+#BurgessPrinciple #EONSettlement"
+
 ## 2. The "Visual" Concept (Instagram/TikTok Scripts)
 
 **Script A: "The 20 Second Challenge"**
@@ -41,6 +56,14 @@ The Burgess Principle.
 *   (Voiceover): "This isn't just paper. It's a shield. It stops them at the gate. It turns 'entry' into 'trespass'."
 *   (Visual: Text overlay "NOTICE OF IMPLIED REVOCATION")
 *   (Voiceover): "Get it for free. Link in bio."
+
+**Script C: "The E.ON Settlement" (Victory Edition)**
+*   (Visual: Document stamped "SETTLED" over the E.ON logo)
+*   (Voiceover): "E.ON — one of the largest energy companies in the world — has settled."
+*   (Visual: Text overlay "THE BURGESS PRINCIPLE — PROOF OF CONCEPT")
+*   (Voiceover): "The proof is already in the IP. The record is already written. This is what winning looks like."
+*   (Visual: Slow zoom on the repo URL)
+*   (Voiceover): "Fork it. Share it. The Burgess Principle works. #EONSettlement #WeWon"
 
 ## 3. The "Meme" formats
 

@@ -1,0 +1,40 @@
+name: Media Sovereignty Responder
+
+on:
+  workflow_dispatch:
+    inputs:
+      claimant:
+        description: "Name of the claimant / claiming party"
+        required: true
+        default: "Unknown Entity"
+      url:
+        description: "Targeted URL or content location"
+        required: true
+        default: "https://github.com/ljbudgie/Burgessprinciple"
+
+jobs:
+  generate-counter-notice:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate counter-notice
+        run: |
+          python scripts/generate_counter_notice.py \
+            --claimant "${{ github.event.inputs.claimant }}" \
+            --url "${{ github.event.inputs.url }}"
+
+      - name: Upload notice as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: counter-notice
+          path: output/

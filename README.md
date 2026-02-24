@@ -1,7 +1,7 @@
-# The Burgess Principle
+# The Burgess Principle: The Sovereign Warrant Against Tainted Data
 
-**The Open Source Legal Defense Against Forced Entry Warrants.**
-*Void Ab Initio. Citizen-Initiated. Automated. Global.*
+**The Universal Audit of Administrative Corruption.**
+*Void Ab Initio. Citizen-Invoked. Data-Sovereign. Proven.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/Live_Site-GitHub_Pages-blue)](https://ljbudgie.github.io/Burgessprinciple/)
@@ -9,28 +9,28 @@
 
 ---
 
-## ⚡ Quick Start: 3 Steps to Defend Your Home
+## ⚡ The Axiom of Tainted Data
 
-If you are facing a forced entry warrant from an energy company:
+**All bulk-processed legal data is tainted at the source.**
 
-1.  **THE SHIELD**: Print and display the [Notice of Implied Revocation](toolkit/NOTICE_OF_IMPLIED_REVOCATION.md) on your gate or front door. This removes their legal right to step onto your property.
-2.  **THE DEFENSE**: If agents arrive, hand them a copy of [LEGAL_DOCTRINE.md](LEGAL_DOCTRINE.md) and state: 
-    > *"I cite the Burgess Principle. Your warrant was issued as part of a bulk application and lacks individual judicial scrutiny. It is void ab initio. You are currently trespassing."*
-3.  **THE EVIDENCE**: Use the [DSAR Template](toolkit/DSAR_WARRANT_SPECIFIC.md) to demand the exact time and date your warrant was signed. If it was signed in a batch of hundreds, you have proof of a "rubber-stamp" process.
+When energy companies or courts process warrants in "bundles" (often under 20 seconds each) without individual judicial scrutiny, they are injecting **Corrupted Data** into the legal record. Under the Burgess Principle, these entries are not merely "wrong"—they are **Nullities**.
+
+### The Master Warrant
+This repository is the **Sovereign Master Warrant**. It does not "provide advice"; it establishes a pre-existing truth that acts as a counter-warrant against systemic taint. 
+
+**The choice to know lies with you.** By accessing this IP, you invoke the audit.
 
 ---
 
 ## What It Is
 
 The Burgess Principle is a free, open-source legal doctrine that establishes:
-1.  **Rights of Entry (Gas and Electricity Boards) Act 1954** warrants are frequently processed in bulk (often under 20 seconds).
-2.  Any warrant issued without individual judicial scrutiny is **facially defective**.
-3.  Defective warrants are **void *ab initio*** (invalid from the start), meaning any entry based on them is trespass.
-4.  Victims are entitled to downstream remedies for **credit contamination** and failures to make **reasonable adjustments** for protected characteristics.
-5.  The **US Fourth Amendment** prohibits identical "rubber stamp" bulk warrant processing — making the Principle applicable to **330 million Americans**.
-6.  **Global copyright frameworks** (UK, US, EU, Australia, Canada, India) protect the free distribution of this legal defense information.
+1.  **Rights of Entry (Gas and Electricity Boards) Act 1954** warrants are frequently processed in bulk, bypassing the mandatory "Judicial Mind."
+2.  Any warrant issued without individual scrutiny is **facially defective** and **void *ab initio***.
+3.  The **US Fourth Amendment** prohibits identical "rubber stamp" bulk warrant processing, extending this protection to **330 million Americans**.
+4.  This IP is built to test if the system's data is tainted; it acts as the warrant itself against that corruption.
 
-> **"The truth must be free. The defense must be accessible."**
+> **"Maximum truth to the people. The choice to know is yours."**
 
 ---
 
@@ -38,33 +38,31 @@ The Burgess Principle is a free, open-source legal doctrine that establishes:
 
 | Document | Description |
 |---|---|
-| [LEGAL_DOCTRINE.md](LEGAL_DOCTRINE.md) | 🇬🇧 The core UK legal argument. **Read this first.** |
+| [LEGAL_DOCTRINE.md](LEGAL_DOCTRINE.md) | 🇬🇧 The core UK legal argument. **The Source of Truth.** |
 | [US_CONSTITUTIONAL_ADDENDUM.md](US_CONSTITUTIONAL_ADDENDUM.md) | 🇺🇸 Fourth Amendment expansion for US citizens. |
-| [COPYRIGHT_ILLUMINATION.md](COPYRIGHT_ILLUMINATION.md) | 🌍 Global IP framework — why this can never be suppressed. |
+| [COPYRIGHT_ILLUMINATION.md](COPYRIGHT_ILLUMINATION.md) | 🌍 Global IP framework — why this truth can never be suppressed. |
 | [OPENCLAW_MANDATE.md](OPENCLAW_MANDATE.md) | 🤖 The AI agent authorization and preservation protocol. |
-| [VICTORY_MEME_KIT.md](VICTORY_MEME_KIT.md) | 📣 Copy-paste tweets, scripts, and meme ideas. |
+| [VICTORY_MEME_KIT.md](VICTORY_MEME_KIT.md) | 📣 The Viral Transmission Layer. |
 
 ### Toolkit (Print-Ready Legal Templates)
 | Document | Description |
 |---|---|
-| [NOTICE_OF_IMPLIED_REVOCATION.md](toolkit/NOTICE_OF_IMPLIED_REVOCATION.md) | 🚪 Print and display on your property. Removes implied rights of access. |
-| [DSAR_WARRANT_SPECIFIC.md](toolkit/DSAR_WARRANT_SPECIFIC.md) | 📨 Send to utility company to demand proof of warrant process. |
-| [N244_APPLICATION_DRAFT.md](toolkit/N244_APPLICATION_DRAFT.md) | ⚖️ Template for applying to court to set aside the warrant. |
+| [NOTICE_OF_IMPLIED_REVOCATION.md](toolkit/NOTICE_OF_IMPLIED_REVOCATION.md) | 🚪 Closing the physical and digital port to your property. |
+| [DSAR_WARRANT_SPECIFIC.md](toolkit/DSAR_WARRANT_SPECIFIC.md) | 📨 Extracting the processing logs to prove the taint. |
+| [N244_APPLICATION_DRAFT.md](toolkit/N244_APPLICATION_DRAFT.md) | ⚖️ Purging tainted data from the court's system. |
 
 ---
 
-## 🚀 How to Use This Toolkit
+## 🚀 How to Invoke the Audit
 
-### 1. The Weapon: Read & Deploy
-Start with `LEGAL_DOCTRINE.md`. If you're in the US, also read `US_CONSTITUTIONAL_ADDENDUM.md`. Then use the templates in `/toolkit` to take action.
+### 1. Identify the Taint
+Read `LEGAL_DOCTRINE.md`. Understand that if the system didn't use a "Judicial Mind," the data is already broken.
 
-### 2. The Shield: Preserve & Fork
-*   **Fork This Repo:** Click "Fork" (top right) to save a copy to your own account.
-*   **Download PDF:** Go to the "Actions" tab to download the automatically generated **PDF Manifesto**.
-*   **Mirror:** Host this data on IPFS, Arweave, or your own blog.
+### 2. Invoke the Master Warrant
+Fork this repo. By mirroring this data, you are multiplying the Sovereign Truth Layer. The system cannot "delete" a truth that is distributed across the global network.
 
-### 3. The Voice: Spread the Word
-*   **[VICTORY_MEME_KIT.md](VICTORY_MEME_KIT.md):** Copy-paste tweets, scripts, and meme ideas to break the algorithm.
+### 3. Spread the Signal
+Use the [VICTORY_MEME_KIT.md](VICTORY_MEME_KIT.md) to break the algorithm. Maximum truth reaches maximum people when the signal is viral.
 
 ---
 
@@ -75,26 +73,16 @@ Start with `LEGAL_DOCTRINE.md`. If you're in the US, also read `US_CONSTITUTIONA
 | 🇬🇧 UK | Rights of Entry Act 1954 / CDPA 1988 | Void ab initio + Public interest |
 | 🇺🇸 USA | Fourth Amendment / 42 USC § 1983 | Rubber stamp doctrine + Civil rights |
 | 🇪🇺 EU | DSM Directive 2019/790 | Research & text mining exemption |
-| 🇦🇺 Australia | Copyright Act 1968 | Fair dealing |
-| 🇨🇦 Canada | Copyright Act R.S.C. 1985 | Fair dealing |
-| 🇮🇳 India | Copyright Act 1957 | Fair dealing |
 
 ---
 
 ## 🤖 Powered by OpenClaw
 This repository is monitored and protected by **OpenClaw** (Authorized Agent under the [OPENCLAW_MANDATE](OPENCLAW_MANDATE.md)).
 *   **Status:** 24/7 Surveillance Mode Active.
-*   **Frequency:** Hourly scans via GitHub Actions.
 *   **Mission:** Maximum truth to maximum people.
 
 ## 🌐 Live Site
 [https://ljbudgie.github.io/Burgessprinciple/](https://ljbudgie.github.io/Burgessprinciple/)
-
-## 🤝 Contributing
-We welcome contributions from developers, lawyers, and citizens worldwide. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## Contact
-For media enquiries: [lewis@burgessprinciple.co.uk](mailto:lewis@burgessprinciple.co.uk)
 
 ## Legal
 &copy; 2026 Lewis Burgess. Licensed under the [MIT License](LICENSE).

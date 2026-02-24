@@ -1,0 +1,23 @@
+name: Tracer Protocol
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs once daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  tracer-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Tracer Protocol
+        run: python scripts/tracer_protocol.py

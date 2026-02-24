@@ -20,6 +20,12 @@ Integrated with [OpenClaw](https://openclaw.im) — the open-source AI automatio
 
 [https://ljbudgie.github.io/Burgessprinciple/](https://ljbudgie.github.io/Burgessprinciple/)
 
+## Auto-Pilot — Always Watching
+
+The system now runs on an **hourly schedule** via GitHub Actions, effectively operating as a **24/7 Surveillance** mode. No longer limited to once a day — it is constantly active, scanning every hour around the clock.
+
+> "What's stopping you from going 24/7?" — Nothing.
+
 ## Contact
 
 For media enquiries: [lewis@burgessprinciple.co.uk](mailto:lewis@burgessprinciple.co.uk)

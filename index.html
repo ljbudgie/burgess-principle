@@ -409,6 +409,165 @@
         }
         footer span { color: var(--green-dim); }
 
+        /* ── Inbox Sovereignty Scanner ── */
+        .inbox-scanner {
+            margin: 0 0 32px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            position: relative;
+        }
+        .inbox-scanner h2 {
+            font-family: var(--mono);
+            font-size: 0.82em;
+            letter-spacing: 0.2em;
+            color: var(--green-dim);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .scanner-input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: stretch;
+            margin-top: 16px;
+        }
+        .scanner-email-input {
+            flex: 1 1 240px;
+            background: #0a0a0a;
+            border: 1px solid var(--green-dim);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 0.88em;
+            padding: 12px 16px;
+            outline: none;
+            letter-spacing: 0.05em;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .scanner-email-input::placeholder { color: var(--text-dim); }
+        .scanner-email-input:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 10px var(--green-glow);
+        }
+        .btn-scanner {
+            background: transparent;
+            border: 2px solid var(--green);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 0.82em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 12px 28px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-scanner:hover {
+            background: var(--green-glow);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+        .btn-scanner:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .scanner-output {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            background: #070d07;
+            position: relative;
+            overflow: hidden;
+        }
+        .scanner-output.visible { display: block; }
+        .scan-lines-overlay {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(0,255,65,0.03) 3px,
+                rgba(0,255,65,0.03) 4px
+            );
+            pointer-events: none;
+        }
+        .scan-log {
+            font-family: var(--mono);
+            font-size: 0.8em;
+            color: var(--green-dim);
+            line-height: 1.9;
+            min-height: 80px;
+        }
+        .scan-log .log-line { display: block; }
+        .scan-log .log-line.warn { color: var(--red); font-weight: bold; }
+        .scan-log .log-line.gold { color: var(--gold); }
+        .scan-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1em;
+            background: var(--green);
+            vertical-align: text-bottom;
+            animation: blink-cursor 0.8s step-end infinite;
+        }
+        .sovereignty-code-block {
+            display: none;
+            margin-top: 18px;
+            background: #020802;
+            border: 1px solid var(--green-dim);
+            padding: 16px 18px;
+            position: relative;
+        }
+        .sovereignty-code-block.visible { display: block; }
+        .sovereignty-code-block pre {
+            font-family: var(--mono);
+            font-size: 0.82em;
+            color: var(--green);
+            white-space: pre-wrap;
+            word-break: break-all;
+            line-height: 1.7;
+        }
+        .sovereignty-code-block .code-label {
+            font-family: var(--mono);
+            font-size: 0.7em;
+            color: var(--text-dim);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: 1px solid var(--green-dim);
+            color: var(--green-dim);
+            font-family: var(--mono);
+            font-size: 0.7em;
+            letter-spacing: 0.1em;
+            padding: 4px 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover { color: var(--green); border-color: var(--green); }
+
+        @keyframes scan-sweep {
+            0%   { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scan-sweep-bar {
+            display: none;
+            position: absolute;
+            left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent);
+            animation: scan-sweep 1.2s linear infinite;
+        }
+        .scan-sweep-bar.active { display: block; }
+
         /* ── Responsive ── */
         @media (max-width: 600px) {
             .hero { padding: 48px 0 40px; }
@@ -591,8 +750,189 @@
                 <p><strong>📧 <a href="mailto:[REDACTED-EMAIL]">[REDACTED-EMAIL]</a></strong></p>
             </div>
 
+            <!-- ════════════════════════════════════
+                 [08] INBOX SOVEREIGNTY
+            ════════════════════════════════════ -->
+            <div class="inbox-scanner">
+                <h2>[08] Inbox Sovereignty — Invader Detection</h2>
+                <p style="font-size:0.9em; margin-bottom:6px;">Enter your email address to initiate a sovereign readiness check. True sovereignty means your credentials never leave your machine — this tool will generate the local Python command for you to run.</p>
+
+                <div class="scanner-input-row">
+                    <input
+                        type="email"
+                        id="sovereignEmailInput"
+                        class="scanner-email-input"
+                        placeholder="agent@yourdomain.com"
+                        aria-label="Email address to scan"
+                        autocomplete="email"
+                        spellcheck="false"
+                    />
+                    <button class="btn-scanner" id="initiateHunterBtn">
+                        ⚡ Initiate Inbox Hunter
+                    </button>
+                </div>
+
+                <div class="scanner-output" id="scannerOutput" role="log" aria-live="polite">
+                    <div class="scan-sweep-bar" id="scanSweepBar"></div>
+                    <div class="scan-lines-overlay"></div>
+                    <div class="scan-log" id="scanLog"></div>
+
+                    <div class="sovereignty-code-block" id="sovereigntyCodeBlock">
+                        <div class="code-label">// Run this locally — your credentials stay on your machine //</div>
+                        <button class="copy-btn" id="copyCodeBtn">Copy</button>
+                        <pre id="sovereigntyCodePre"></pre>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var scanLines = [
+                '> INITIALISING INBOX SOVEREIGNTY PROTOCOL...',
+                '> LOADING HUNTER MODULE...',
+                '> CONNECTING TO SOVEREIGN MESH...',
+                '> SCANNING EMAIL HEADERS...',
+                '> ANALYSING INVADER SIGNATURES...',
+                '> CROSS-REFERENCING THREAT DATABASE...',
+                '> COMPILING RESULTS...'
+            ];
+
+            var lineDelay = 320; // ms per line
+
+            function escapeHtml(str) {
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+            }
+
+            function isValidEmail(email) {
+                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+            }
+
+            function appendLine(logEl, text, className) {
+                var span = document.createElement('span');
+                span.className = 'log-line' + (className ? ' ' + className : '');
+                span.textContent = text;
+                logEl.appendChild(span);
+                logEl.appendChild(document.createTextNode('\n'));
+            }
+
+            function initiateSovereignScan() {
+                var emailInput = document.getElementById('sovereignEmailInput');
+                var btn        = document.getElementById('initiateHunterBtn');
+                var output     = document.getElementById('scannerOutput');
+                var logEl      = document.getElementById('scanLog');
+                var codeBlock  = document.getElementById('sovereigntyCodeBlock');
+                var codePre    = document.getElementById('sovereigntyCodePre');
+                var sweepBar   = document.getElementById('scanSweepBar');
+
+                var email = emailInput.value.trim();
+
+                if (!email) {
+                    emailInput.focus();
+                    return;
+                }
+                if (!isValidEmail(email)) {
+                    emailInput.focus();
+                    emailInput.style.borderColor = 'var(--red)';
+                    setTimeout(function () { emailInput.style.borderColor = ''; }, 1500);
+                    return;
+                }
+
+                // Reset state
+                btn.disabled = true;
+                logEl.innerHTML = '';
+                codeBlock.classList.remove('visible');
+                output.classList.add('visible');
+                sweepBar.classList.add('active');
+
+                // Animate scan lines
+                var i = 0;
+
+                function printNext() {
+                    if (i < scanLines.length) {
+                        appendLine(logEl, scanLines[i]);
+                        i++;
+                        setTimeout(printNext, lineDelay);
+                    } else {
+                        // Scan complete — show warning and code
+                        sweepBar.classList.remove('active');
+
+                        setTimeout(function () {
+                            appendLine(logEl, '');
+                            appendLine(logEl, '⚠  WARNING: EXTERNAL SCAN IMPOSSIBLE WITHOUT CONSENT.', 'warn');
+                            appendLine(logEl, '   TRUE SOVEREIGNTY REQUIRES LOCAL EXECUTION.', 'warn');
+                            appendLine(logEl, '');
+                            appendLine(logEl, '✔  TO EXECUTE SOVEREIGNTY, RUN THIS CODE LOCALLY:', 'gold');
+
+                            var safeEmail = email;
+                            codePre.textContent =
+                                '# 1. Clone the repository (if you haven\'t already):\n' +
+                                'git clone https://github.com/ljbudgie/Burgessprinciple.git\n' +
+                                'cd Burgessprinciple\n\n' +
+                                '# 2. Run the Inbox Hunter with your email address:\n' +
+                                'python clean_inbox.py --email ' + safeEmail + '\n\n' +
+                                '# Your credentials are entered interactively at runtime.\n' +
+                                '# They are never stored or transmitted.';
+
+                            document.getElementById('copyCodeBtn').setAttribute('data-code',
+                                'git clone https://github.com/ljbudgie/Burgessprinciple.git\n' +
+                                'cd Burgessprinciple\n' +
+                                'python clean_inbox.py --email ' + safeEmail
+                            );
+
+                            codeBlock.classList.add('visible');
+                            btn.disabled = false;
+                        }, 300);
+                    }
+                }
+
+                printNext();
+            }
+
+            function copyCode() {
+                var btn      = document.getElementById('copyCodeBtn');
+                var code     = btn.getAttribute('data-code') || document.getElementById('sovereigntyCodePre').textContent;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(code).then(function () {
+                        btn.textContent = 'Copied!';
+                        setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+                    }).catch(function () {
+                        execCommandCopy(btn, code);
+                    });
+                } else {
+                    execCommandCopy(btn, code);
+                }
+            }
+
+            function execCommandCopy(btn, code) {
+                var ta = document.createElement('textarea');
+                ta.value = code;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                btn.textContent = 'Copied!';
+                setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+            }
+
+            // Allow Enter key in the email input to trigger scan
+            document.getElementById('sovereignEmailInput').addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') { initiateSovereignScan(); }
+            });
+            document.getElementById('initiateHunterBtn').addEventListener('click', initiateSovereignScan);
+            document.getElementById('copyCodeBtn').addEventListener('click', copyCode);
+        }());
+    </script>
 
     <footer>
         <div class="container">

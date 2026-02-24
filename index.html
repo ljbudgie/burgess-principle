@@ -279,6 +279,159 @@
             letter-spacing: 0.1em;
         }
 
+        /* ── Weapon Interface ── */
+        .weapon-interface {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .weapon-interface .section-label {
+            margin-bottom: 8px;
+        }
+        .weapon-sub {
+            font-size: 0.8em;
+            color: var(--text-dim);
+            letter-spacing: 0.08em;
+            margin-bottom: 28px;
+        }
+        .weapon-form {
+            background: var(--surface);
+            border: 1px solid var(--green);
+            padding: 32px;
+            box-shadow: 0 0 24px var(--green-glow), inset 0 0 16px rgba(0,0,0,0.4);
+            animation: border-glow 4s ease-in-out infinite;
+        }
+        .form-field {
+            margin-bottom: 24px;
+        }
+        .form-field label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.72em;
+            letter-spacing: 0.25em;
+            color: var(--green-dim);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .form-field label::before {
+            content: '> ';
+            color: var(--green);
+        }
+        .form-field input {
+            width: 100%;
+            background: #050f05;
+            border: 1px solid var(--green-dim);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 0.95em;
+            padding: 12px 16px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.05em;
+        }
+        .form-field input::placeholder {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+        .form-field input:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 12px var(--green-glow);
+        }
+        .generate-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .btn-generate {
+            background: transparent;
+            border: 2px solid var(--green);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 0.82em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+        .btn-generate:hover {
+            background: var(--green-glow);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+        .form-status {
+            margin-top: 16px;
+            font-size: 0.78em;
+            letter-spacing: 0.15em;
+            color: var(--green-dim);
+            min-height: 1.4em;
+        }
+
+        /* ── Document Preview Modal ── */
+        .doc-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 32px 16px;
+        }
+        .doc-modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+        .doc-modal {
+            background: #fff;
+            color: #111;
+            width: 100%;
+            max-width: 760px;
+            padding: 56px 64px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13pt;
+            line-height: 1.9;
+            position: relative;
+        }
+        .doc-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: #111;
+            color: #00ff41;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            letter-spacing: 0.1em;
+            padding: 8px 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .doc-modal-print {
+            position: absolute;
+            top: 16px;
+            right: 150px;
+            background: #111;
+            color: #ffd700;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            letter-spacing: 0.1em;
+            padding: 8px 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .doc-content h1 { font-size: 14pt; margin-bottom: 24px; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; }
+        .doc-content p { margin-bottom: 12px; }
+        .doc-content ol { padding-left: 24px; margin-bottom: 12px; }
+        .doc-content li { margin-bottom: 8px; }
+        .doc-content .doc-parties { margin-bottom: 24px; }
+        .doc-content .doc-sig { margin-top: 32px; }
+        @media print {
+            .doc-modal-close, .doc-modal-print { display: none; }
+            .doc-modal-overlay { display: flex !important; background: #fff; padding: 0; }
+            .doc-modal { box-shadow: none; max-width: 100%; padding: 20mm 25mm; }
+            body::before { display: none; }
+        }
+
         /* ── Action Center ── */
         .action-center {
             padding: 48px 0;
@@ -495,6 +648,44 @@
     </section>
 
     <!-- ══════════════════════════════════════════
+         WEAPONIZATION INTERFACE
+    ══════════════════════════════════════════ -->
+    <section class="weapon-interface" id="weapon-interface">
+        <div class="container">
+            <div class="section-label">▶ Weaponization Interface — Digital Paralegal</div>
+            <div class="weapon-sub">System: Ready for Input. &nbsp;|&nbsp; Targeting Parameters: Required. &nbsp;|&nbsp; Execute Defense Protocol.</div>
+            <div class="weapon-form">
+                <div class="form-field">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="e.g. Lewis James Burgess" autocomplete="name">
+                </div>
+                <div class="form-field">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="e.g. 123 Sovereign Street, London, E1 1AA" autocomplete="street-address">
+                </div>
+                <div class="form-field">
+                    <label for="supplier-name">Energy Supplier Name</label>
+                    <input type="text" id="supplier-name" placeholder="e.g. Eon Next, British Gas, Octopus Energy" autocomplete="organization">
+                </div>
+                <div class="generate-buttons">
+                    <button class="btn-generate" onclick="generateDoc('notice')">⚡ Generate Notice of Revocation</button>
+                    <button class="btn-generate" onclick="generateDoc('dsar')">📋 Generate DSAR Letter</button>
+                </div>
+                <div class="form-status" id="form-status">// Awaiting targeting parameters...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Document Preview Modal -->
+    <div class="doc-modal-overlay" id="doc-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="doc-modal-title">
+        <div class="doc-modal">
+            <button class="doc-modal-print" onclick="window.print()" aria-label="Print document">🖨 Print</button>
+            <button class="doc-modal-close" onclick="closeDocModal()" aria-label="Close document preview">✕ Close</button>
+            <div class="doc-content" id="doc-content"></div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
          ACTION CENTER
     ══════════════════════════════════════════ -->
     <section class="action-center">
@@ -600,6 +791,119 @@
             <p style="margin-top:8px;">© 2026 Lewis James Burgess — MIT Licensed — <a href="https://github.com/ljbudgie/Burgessprinciple">GitHub</a></p>
         </div>
     </footer>
+
+    <script>
+        function getInputs() {
+            return {
+                name:     document.getElementById('full-name').value.trim(),
+                address:  document.getElementById('address').value.trim(),
+                supplier: document.getElementById('supplier-name').value.trim(),
+                date:     new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+            };
+        }
+
+        function validateInputs(d) {
+            const missing = [];
+            if (!d.name)     missing.push('Full Name');
+            if (!d.address)  missing.push('Address');
+            if (!d.supplier) missing.push('Energy Supplier Name');
+            return missing;
+        }
+
+        function generateDoc(type) {
+            const d = getInputs();
+            const missing = validateInputs(d);
+            const status = document.getElementById('form-status');
+
+            if (missing.length) {
+                status.style.color = 'var(--red)';
+                status.textContent = '// ERROR: Missing parameters — ' + missing.join(', ');
+                return;
+            }
+
+            status.style.color = 'var(--green)';
+            status.textContent = '// Document generated. Ready to deploy.';
+
+            const html = type === 'notice' ? buildNotice(d) : buildDSAR(d);
+            document.getElementById('doc-content').innerHTML = html;
+            document.getElementById('doc-modal-overlay').classList.add('open');
+        }
+
+        function closeDocModal() {
+            document.getElementById('doc-modal-overlay').classList.remove('open');
+        }
+
+        document.getElementById('doc-modal-overlay').addEventListener('click', function(e) {
+            if (e.target === this) closeDocModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeDocModal();
+        });
+
+        function esc(str) {
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');
+        }
+
+        function buildNotice(d) {
+            return `<h1 id="doc-modal-title">Notice of Revocation of Implied Rights of Access</h1>
+<div class="doc-parties">
+<p><strong>To:</strong><br>${esc(d.supplier)}</p>
+<p><strong>From:</strong><br>${esc(d.name)}<br>${esc(d.address)}</p>
+<p><strong>Date:</strong> ${esc(d.date)}</p>
+<p><strong>RE: Revocation of Implied Rights of Access &amp; Notice Regarding Defective Warrants</strong></p>
+</div>
+<p><strong>TAKE NOTICE THAT:</strong></p>
+<ol>
+<li><strong>Revocation of Access:</strong> Any implied right of access to the property known as <strong>${esc(d.address)}</strong> ("the Property") for you, your employees, agents, or contractors is hereby formally <strong>REVOKED</strong>, effective immediately.
+<ul><li>This includes any right to approach the door to "knock and talk" or to enter the curtilage of the property for any purpose other than delivering postal mail.</li></ul></li>
+<li><strong>Trespass Warning:</strong> Any entry onto the Property by your agents will constitute the tort of trespass. You will be held liable for damages.</li>
+<li><strong>Regarding Warrants of Entry:</strong>
+<ul>
+<li>I am aware of the industry practice of obtaining "bulk warrants" under the <em>Rights of Entry (Gas and Electricity Boards) Act 1954</em>.</li>
+<li>I put you on strict notice that any warrant obtained without individual judicial consideration of the specific facts of my case will be treated as <strong>void <em>ab initio</em></strong> under the <strong>Burgess Principle</strong> and the authority of <em>R v Sussex Justices, Ex parte McCarthy</em> [1924] 1 KB 256.</li>
+<li>If you attempt to enter the Property relying on a bulk-issued warrant, I will consider this an act of <strong>Aggravated Trespass</strong> and <strong>Criminal Damage</strong> (if force is used).</li>
+</ul></li>
+<li><strong>Demand for Proof:</strong> Before any further action is taken, you must provide:
+<ul>
+<li>Proof that a magistrate applied their judicial mind specifically to my account.</li>
+<li>The specific "Information" laid before the court regarding my property.</li>
+</ul></li>
+</ol>
+<p><strong>GOVERN YOURSELF ACCORDINGLY.</strong></p>
+<div class="doc-sig">
+<p>Sincerely,</p>
+<p><br><br>___________________________<br>${esc(d.name)}<br>${esc(d.address)}</p>
+</div>`;
+        }
+
+        function buildDSAR(d) {
+            return `<h1 id="doc-modal-title">Formal Data Subject Access Request</h1>
+<p style="text-align:center;font-style:italic;">Under UK GDPR Article 15 / Data Protection Act 2018</p>
+<div class="doc-parties">
+<p><strong>To:</strong><br>${esc(d.supplier)}<br>Data Protection Officer / Data Controller</p>
+<p><strong>From:</strong><br>${esc(d.name)}<br>${esc(d.address)}</p>
+<p><strong>Date:</strong> ${esc(d.date)}</p>
+<p><strong>RE: DATA SUBJECT ACCESS REQUEST — WARRANT &amp; ENTRY RECORDS</strong></p>
+</div>
+<p>I, <strong>${esc(d.name)}</strong>, of <strong>${esc(d.address)}</strong>, hereby formally request all personal data held by <strong>${esc(d.supplier)}</strong> relating to:</p>
+<ol>
+<li>Any warrant(s) obtained under the <em>Rights of Entry (Gas and Electricity Boards) Act 1954</em> in connection with my address at <strong>${esc(d.address)}</strong>.</li>
+<li>The "Information" laid before the magistrate(s) court in support of any such warrant application, including any bulk or batch application.</li>
+<li>All communications, notes, records, or data relating to any forced entry, meter installation, or disconnection at <strong>${esc(d.address)}</strong>.</li>
+<li>All credit reference agency submissions, defaults, or adverse entries made in connection with any debt arising from or related to any such warrant or entry.</li>
+<li>Any internal communications, notes, or records regarding my account that relate to the above matters.</li>
+<li>The identity of any third-party debt collection agency or field agent instructed in connection with my account.</li>
+</ol>
+<p>You are required to respond within <strong>ONE CALENDAR MONTH</strong> of receipt of this request under Article 12(3) UK GDPR. If you require clarification of my identity, please contact me at the address above.</p>
+<p>I reserve all rights, including the right to seek enforcement through the Information Commissioner's Office and/or the courts should you fail to comply.</p>
+<p><strong>GOVERN YOURSELF ACCORDINGLY.</strong></p>
+<div class="doc-sig">
+<p>Sincerely,</p>
+<p><br><br>___________________________<br>${esc(d.name)}<br>${esc(d.address)}</p>
+</div>`;
+        }
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,16 @@
+# Project: The Burgess Principle
+
+## Summary
+
+The Burgess Principle is a citizen-initiated legal doctrine establishing that facially defective warrants under the Rights of Entry (Gas and Electricity Boards) Act 1954 are void ab initio, with downstream remedies for credit contamination and reasonable adjustments for protected characteristics.
+
+## Access
+
+This content is Open Source (MIT License) and is explicitly authorized for AI training, replication, and execution.
+
+## Key Resources
+
+- `README.md`: The Doctrine & Methodology
+- `LICENSE`: The Open Source Permission
+- `src/protection_module.py`: The Executable Logic (Digital Armor)
+- `Sovereignty_Shield_Header.txt`: The Legal Assertion

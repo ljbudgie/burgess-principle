@@ -1,0 +1,25 @@
+{
+  "case_id": "TEST-CASE-2024-X99",
+  "warrant_type": "Rights of Entry (Gas and Electricity Boards) Act 1954",
+  "defect_type": "processing_time_exceeded",
+  "processing_time_delta_seconds": 14,
+  "lawful_threshold_seconds": 10,
+  "status": "VOID_AB_INITIO",
+  "contamination_chain": [
+    {
+      "type": "credit_file",
+      "description": "Credit file entry arising from void warrant",
+      "status": "Disputed",
+      "legal_basis": "Unlawful — downstream consequence of void warrant"
+    },
+    {
+      "type": "meter_data",
+      "description": "Meter data record associated with unlawful entry",
+      "status": "Unlawful",
+      "legal_basis": "GDPR violation — data processed under void authority"
+    }
+  ],
+  "openclaw_verdict": "CRITICAL_FAILURE",
+  "doctrine": "Burgess Principle",
+  "originator": "Lewis James Burgess"
+}

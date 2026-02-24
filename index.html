@@ -127,8 +127,9 @@
             document.getElementById('email-section').style.display = 'none';
         });
         document.getElementById('see-truth').addEventListener('click', function () {
-            var email = document.getElementById('email-input').value.trim();
-            if (email) {
+            var input = document.getElementById('email-input');
+            var email = input.value.trim();
+            if (email && input.validity.valid) {
                 sessionStorage.setItem('bp_email', email);
                 window.location.href = 'truth.html';
             }

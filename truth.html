@@ -188,6 +188,11 @@
                 setTimeout(function () {
                     document.getElementById('copy-btn').textContent = 'copy to clipboard';
                 }, 2000);
+            }).catch(function () {
+                document.getElementById('copy-btn').textContent = 'copy failed';
+                setTimeout(function () {
+                    document.getElementById('copy-btn').textContent = 'copy to clipboard';
+                }, 2000);
             });
         });
     </script>

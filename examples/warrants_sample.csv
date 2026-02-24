@@ -1,0 +1,11 @@
+warrant_id,act,issuing_court,issue_date,subject_address,facial_validity,protected_characteristics,reasonable_adjustment,notes
+W-1001,Rights of Entry (Gas and Electricity Boards) Act 1954,Westminster Magistrates' Court,2024-03-15,12 Elm Street London E1 1AA,true,no,,Valid warrant — all fields present and correct
+W-1002,Rights of Entry (Gas and Electricity Boards) Act 1954,Manchester Magistrates' Court,2024-04-02,7 Oak Avenue Manchester M1 2BB,true,yes,Large-print documents provided,Valid — protected characteristics noted with adjustment
+W-1003,Gas Act 1986,Birmingham Magistrates' Court,2024-05-10,3 Pine Road Birmingham B2 3CC,true,no,,Wrong Act cited — should be 1954 Act
+W-1004,Rights of Entry (Gas and Electricity Boards) Act 1954,,2024-06-18,55 Maple Lane Leeds LS1 4DD,false,no,,Missing issuing court and flagged invalid
+W-1005,Rights of Entry (Gas and Electricity Boards) Act 1954,Bristol Magistrates' Court,2024-07-22,,true,no,,Subject address blank
+W-1006,Rights of Entry (Gas and Electricity Boards) Act 1954,Liverpool Magistrates' Court,2024-08-05,9 Cedar Close Liverpool L3 5EE,true,yes,none,Protected characteristics present but no reasonable adjustment recorded
+W-1007,Rights of Entry (Gas and Electricity Boards) Act 1954,Sheffield Magistrates' Court,2024-09-11,21 Birch Way Sheffield S4 6FF,true,no,,Valid warrant — all fields present and correct
+W-1008,,Leeds Magistrates' Court,2024-10-30,44 Willow Drive Leeds LS2 7GG,true,no,,Act field is missing entirely
+W-1009,Rights of Entry (Gas and Electricity Boards) Act 1954,Nottingham Magistrates' Court,2024-11-14,8 Sycamore Street Nottingham NG1 8HH,defective,yes,,Flagged defective and missing reasonable adjustment
+W-1010,Rights of Entry (Gas and Electricity Boards) Act 1954,Cardiff Magistrates' Court,2025-01-20,16 Ash Court Cardiff CF10 9JJ,true,no,,Valid warrant — all fields present and correct

@@ -1,0 +1,24 @@
+name: Validate Defect Reports
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'defects/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate test zero-day defect report
+        run: python scripts/validate_defect.py defects/test_zero_day.json

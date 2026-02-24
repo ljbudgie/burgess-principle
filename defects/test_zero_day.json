@@ -1,0 +1,8 @@
+{
+  "defect_id": "OC-0001",
+  "reporter": "OpenClaw System",
+  "target_system": "Surveillance Network Alpha",
+  "severity": "critical",
+  "description": "Zero-day vulnerability detected in target system authentication layer allowing unauthorized access without credential validation.",
+  "date_logged": "2026-02-24"
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Burgess Principle — The Truth</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #000;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .email-line {
+            font-size: 0.9rem;
+            opacity: 0.5;
+            margin-bottom: 2rem;
+        }
+        .void {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #cc0000;
+            text-shadow: 0 0 30px #cc0000;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+        }
+        .harm {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        .harm span { color: #fff; font-weight: bold; }
+        .actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .action-btn {
+            padding: 0.7rem 1.8rem;
+            background: transparent;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background 0.3s, color 0.3s;
+        }
+        .action-btn:hover {
+            background: #00ff41;
+            color: #000;
+        }
+        #letter-box {
+            display: none;
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+        #letter-content {
+            background: #0a0a0a;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            padding: 1.2rem;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+        #copy-btn {
+            padding: 0.5rem 1.5rem;
+            background: #00ff41;
+            color: #000;
+            border: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        #copy-btn:hover { box-shadow: 0 0 10px #00ff41; }
+        .back-link {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+        .back-link a {
+            color: #00ff41;
+            opacity: 0.5;
+            text-decoration: none;
+        }
+        .back-link a:hover { opacity: 1; }
+        footer {
+            position: fixed;
+            bottom: 1rem;
+            font-size: 0.7rem;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-line" id="email-display"></div>
+    <div class="void">VOID</div>
+    <div class="harm">estimated harm: <span id="harm-amount"></span></div>
+    <div class="actions">
+        <button class="action-btn" id="btn-complaint">get complaint letter</button>
+        <button class="action-btn" id="btn-credit">clean your credit</button>
+    </div>
+    <div id="letter-box">
+        <div id="letter-content"></div>
+        <button id="copy-btn">copy to clipboard</button>
+    </div>
+    <div class="back-link"><a href="index.html">&larr; back to the door</a></div>
+    <footer>&copy; Lewis Burgess 2026</footer>
+
+    <script>
+        var email = sessionStorage.getItem('bp_email') || 'unknown';
+        document.getElementById('email-display').textContent = email;
+
+        /* simple hash from email string to generate a personalised harm figure */
+        function hashAmount(str) {
+            var h = 0;
+            for (var i = 0; i < str.length; i++) {
+                h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+            }
+            var base = Math.abs(h) % 9000 + 1000;
+            return base.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
+        }
+        var amount = hashAmount(email);
+        document.getElementById('harm-amount').textContent = amount;
+
+        var complaintLetter =
+            'Dear Sir/Madam,\n\n' +
+            'I am writing to make a formal complaint.\n\n' +
+            'A warrant was executed at my property under the Rights of Entry\n' +
+            '(Gas and Electricity Boards) Act 1954. Upon review, the warrant\n' +
+            'contains facial defects rendering it void ab initio.\n\n' +
+            'Under the Burgess Principle, all downstream consequences —\n' +
+            'including debt entries, credit reporting, and tariff changes —\n' +
+            'arising from a void warrant are themselves unlawful.\n\n' +
+            'I estimate the harm caused to me at ' + amount + '.\n\n' +
+            'I require:\n' +
+            '1. Immediate removal of all adverse credit data.\n' +
+            '2. Written confirmation that the warrant was void.\n' +
+            '3. Compensation for the harm outlined above.\n\n' +
+            'I expect a full response within 14 days.\n\n' +
+            'Yours faithfully,\n' +
+            email;
+
+        var creditLetter =
+            'Dear Credit Reference Agency,\n\n' +
+            'I am writing to request the removal of adverse data from\n' +
+            'my credit file.\n\n' +
+            'The data originates from action taken under a warrant issued\n' +
+            'pursuant to the Rights of Entry (Gas and Electricity Boards)\n' +
+            'Act 1954. That warrant is void ab initio due to facial defects.\n\n' +
+            'Under the Burgess Principle, downstream credit entries arising\n' +
+            'from a void warrant are unlawful and must be removed.\n\n' +
+            'Please remove all associated adverse entries immediately and\n' +
+            'confirm in writing within 14 days.\n\n' +
+            'Yours faithfully,\n' +
+            email;
+
+        function showLetter(text) {
+            document.getElementById('letter-content').textContent = text;
+            document.getElementById('letter-box').style.display = 'block';
+        }
+
+        document.getElementById('btn-complaint').addEventListener('click', function () {
+            showLetter(complaintLetter);
+        });
+        document.getElementById('btn-credit').addEventListener('click', function () {
+            showLetter(creditLetter);
+        });
+        document.getElementById('copy-btn').addEventListener('click', function () {
+            var text = document.getElementById('letter-content').textContent;
+            navigator.clipboard.writeText(text).then(function () {
+                document.getElementById('copy-btn').textContent = 'copied!';
+                setTimeout(function () {
+                    document.getElementById('copy-btn').textContent = 'copy to clipboard';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

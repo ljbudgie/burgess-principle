@@ -1,0 +1,27 @@
+name: Viral Meme Kit Automator
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_entity:
+        description: "Company name or X handle to target"
+        required: false
+        default: "Unknown Entity"
+
+jobs:
+  generate-memes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate memes
+        run: python scripts/meme_generator.py --target "${{ github.event.inputs.target_entity }}"

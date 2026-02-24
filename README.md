@@ -26,7 +26,9 @@ The system now runs on an **hourly schedule** via GitHub Actions, effectively op
 
 > "What's stopping you from going 24/7?" — Nothing.
 
-## Contact
+## Contact / Sovereign Command
+
+Sovereign Commander / Media Inquiries: **@lj20243** (X/Twitter)
 
 For media enquiries: [lewis@burgessprinciple.co.uk](mailto:lewis@burgessprinciple.co.uk)
 

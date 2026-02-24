@@ -16,6 +16,14 @@ The methodology and toolkit are **fully open source**, licensed under the [MIT L
 
 Integrated with [OpenClaw](https://openclaw.im) — the open-source AI automation platform for law.
 
+## Sovereign Preservation
+
+This intellectual property is designed to be indestructible and decentralized.
+
+1.  **Fork This Repo:** We encourage you to fork this repository to your own GitHub account.
+2.  **Offline Access:** A PDF Manifesto compiling all toolkit documents is automatically generated and can be downloaded from the "Actions" tab or releases.
+3.  **Decentralization:** The community is encouraged to host this data on IPFS, Arweave, and other censorship-resistant networks.
+
 ## Live Site
 
 [https://ljbudgie.github.io/Burgessprinciple/](https://ljbudgie.github.io/Burgessprinciple/)

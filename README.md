@@ -12,7 +12,7 @@ The principle itself is **free and may be cited by anyone**. The goal is maximum
 
 ## Methodology & Toolkit — Open Source
 
-The methodology and toolkit are **fully open source**, forever. Free for anyone to use, adapt, and build upon. No licensing required.
+The methodology and toolkit are **fully open source**, licensed under the [MIT License](LICENSE). Free for anyone to use, adapt, and build upon.
 
 Integrated with [OpenClaw](https://openclaw.im) — the open-source AI automation platform for law.
 
@@ -26,5 +26,5 @@ For media enquiries: [lewis@burgessprinciple.co.uk](mailto:lewis@burgessprincipl
 
 ## Legal
 
-&copy; Lewis Burgess 2026. All rights reserved.  
+&copy; 2026 Lewis Burgess. Licensed under the [MIT License](LICENSE).  
 Registered trademark application UK00004343685

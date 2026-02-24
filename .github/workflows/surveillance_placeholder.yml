@@ -1,0 +1,19 @@
+# Surveillance Placeholder — runs every hour for 24/7 monitoring
+name: 24/7 Surveillance Placeholder
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+jobs:
+  surveillance-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan for new warrant lists
+        run: echo "Scanning for new warrant lists..."

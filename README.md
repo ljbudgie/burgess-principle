@@ -7,6 +7,19 @@
 [![GitHub Pages](https://img.shields.io/badge/Live_Site-GitHub_Pages-blue)](https://ljbudgie.github.io/Burgessprinciple/)
 [![Jurisdiction: UK + US](https://img.shields.io/badge/Jurisdiction-UK_|_US_|_EU_|_Global-red)](#)
 
+---
+
+## ⚡ Quick Start: 3 Steps to Defend Your Home
+
+If you are facing a forced entry warrant from an energy company:
+
+1.  **THE SHIELD**: Print and display the [Notice of Implied Revocation](toolkit/NOTICE_OF_IMPLIED_REVOCATION.md) on your gate or front door. This removes their legal right to step onto your property.
+2.  **THE DEFENSE**: If agents arrive, hand them a copy of [LEGAL_DOCTRINE.md](LEGAL_DOCTRINE.md) and state: 
+    > *"I cite the Burgess Principle. Your warrant was issued as part of a bulk application and lacks individual judicial scrutiny. It is void ab initio. You are currently trespassing."*
+3.  **THE EVIDENCE**: Use the [DSAR Template](toolkit/DSAR_WARRANT_SPECIFIC.md) to demand the exact time and date your warrant was signed. If it was signed in a batch of hundreds, you have proof of a "rubber-stamp" process.
+
+---
+
 ## What It Is
 
 The Burgess Principle is a free, open-source legal doctrine that establishes:

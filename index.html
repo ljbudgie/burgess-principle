@@ -27,6 +27,10 @@
             --mono:      'Roboto Mono', 'Courier New', monospace;
             --serif:     'Merriweather', Georgia, serif;
             --display:   'Cinzel', 'Times New Roman', serif;
+            /* softer glassmorphism extras */
+            --glass-bg:  rgba(17,17,17,0.75);
+            --glass-border: rgba(0,255,65,0.18);
+            --card-radius: 14px;
         }
 
         html { scroll-behavior: smooth; }
@@ -162,7 +166,33 @@
             animation: pulse-green 1.5s ease-in-out infinite;
         }
 
-        /* ── Module Dashboard ── */
+        /* ── Simple Mode toggle ── */
+        .simple-toggle-wrap {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+        }
+        .simple-toggle {
+            background: transparent;
+            border: 1px solid var(--gold-dim);
+            color: var(--gold);
+            font-family: var(--mono);
+            font-size: 0.78em;
+            letter-spacing: 0.15em;
+            padding: 8px 22px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .simple-toggle:hover {
+            background: var(--gold-glow);
+            box-shadow: 0 0 16px var(--gold-glow);
+        }
+        /* elements that hide/show based on mode */
+        body.simple-mode .expert-only { display: none !important; }
+        body:not(.simple-mode) .simple-only { display: none !important; }
+
+        /* ── Command Center / Control Grid ── */
         .dashboard {
             padding: 48px 0;
             border-bottom: 1px solid var(--border);
@@ -175,54 +205,110 @@
             text-transform: uppercase;
             margin-bottom: 28px;
         }
-        .modules {
+        .control-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            gap: 20px;
         }
-        .module {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 20px;
+        .control-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius);
+            padding: 28px 20px 22px;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
-        .module::after {
+        .control-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px var(--green-glow), 0 0 0 1px var(--green-dim);
+        }
+        .control-card::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--green), transparent);
-            animation: scan-bar 2s linear infinite;
+            animation: scan-bar 2.5s linear infinite;
         }
-        .module-name {
+        .card-icon {
+            font-size: 2.6em;
+            line-height: 1;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 8px var(--green-glow));
+        }
+        .card-name {
             font-family: var(--display);
-            font-size: 1em;
+            font-size: 1.05em;
             color: var(--gold);
-            letter-spacing: 0.1em;
-            margin-bottom: 10px;
-        }
-        .module-status {
-            font-size: 0.75em;
-            color: var(--green);
             letter-spacing: 0.12em;
-            animation: pulse-green 2s ease-in-out infinite;
+            margin-bottom: 6px;
         }
-        .module-bar {
-            margin-top: 12px;
-            height: 3px;
-            background: var(--border);
+        .card-desc {
+            font-size: 0.72em;
+            color: var(--text-dim);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        /* Shield health ring (replaces progress bar) */
+        .shield-ring {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: bold;
+            color: var(--green);
+            letter-spacing: 0.05em;
             position: relative;
-            overflow: hidden;
         }
-        .module-bar-fill {
-            height: 100%;
-            background: var(--green);
-            animation: progress-fill 2.5s ease-out forwards;
+        .shield-ring svg {
+            position: absolute;
+            inset: 0;
+            transform: rotate(-90deg);
         }
-        .module:nth-child(2) .module-bar-fill { animation-delay: 0.3s; }
-        .module:nth-child(3) .module-bar-fill { animation-delay: 0.6s; }
-        .module:nth-child(4) .module-bar-fill { animation-delay: 0.9s; }
+        .shield-ring .ring-track {
+            fill: none;
+            stroke: var(--border);
+            stroke-width: 4;
+        }
+        .shield-ring .ring-fill {
+            fill: none;
+            stroke: var(--green);
+            stroke-width: 4;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1.5s ease-out;
+        }
+        .shield-ring .ring-label {
+            position: relative;
+            z-index: 1;
+        }
+        /* Simple mode status chip */
+        .simple-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+        }
+        .simple-badge.safe {
+            background: rgba(0,192,48,0.18);
+            color: var(--green);
+            border: 1px solid var(--green-dim);
+        }
+        .simple-badge.warn {
+            background: rgba(255,215,0,0.12);
+            color: var(--gold);
+            border: 1px solid var(--gold-dim);
+        }
 
         /* ── IP Core / Scroll ── */
         .ip-core {
@@ -324,6 +410,128 @@
             box-shadow: 0 0 20px var(--gold-glow);
         }
 
+        /* ── Wizard (Inbox Sovereignty) ── */
+        .wizard-steps {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            margin: 24px 0;
+        }
+        .wizard-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            padding: 18px 12px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            text-align: center;
+            opacity: 0.45;
+            transition: opacity 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .wizard-step.active {
+            opacity: 1;
+            box-shadow: 0 0 20px var(--green-glow);
+            border-color: var(--green-dim);
+        }
+        .wizard-step.done {
+            opacity: 1;
+            border-color: var(--gold-dim);
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .wizard-step.done .step-num {
+            background: rgba(0,192,48,0.2);
+            border-color: var(--gold-dim);
+            color: var(--gold);
+        }
+        .step-label {
+            font-size: 0.78em;
+            color: var(--text);
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+        }
+        .step-emoji {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+        }
+        .wizard-arrow {
+            align-self: center;
+            color: var(--green-dim);
+            font-size: 1.4em;
+            padding: 0 8px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 560px) {
+            .wizard-arrow { transform: rotate(90deg); }
+        }
+        .wizard-input-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        .wizard-email {
+            flex: 1 1 260px;
+            max-width: 360px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--green-dim);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-family: var(--mono);
+            font-size: 0.9em;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .wizard-email:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 12px var(--green-glow);
+        }
+        .wizard-email::placeholder { color: var(--text-dim); }
+        .btn-wizard {
+            background: rgba(0,255,65,0.1);
+            border: 2px solid var(--green);
+            color: var(--green);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: var(--mono);
+            font-size: 0.88em;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-wizard:hover {
+            background: rgba(0,255,65,0.2);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+        #wizard-feedback {
+            margin-top: 14px;
+            min-height: 22px;
+            font-size: 0.82em;
+            color: var(--green);
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
         /* ── Content sections ── */
         .content-grid {
             padding: 48px 0;
@@ -413,6 +621,11 @@
         @media (max-width: 600px) {
             .hero { padding: 48px 0 40px; }
             .scroll-frame { padding: 28px 20px; }
+            .control-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .control-card { padding: 20px 12px 16px; }
+            .card-icon { font-size: 2em; }
+            .wizard-steps { flex-direction: column; align-items: center; }
+            .wizard-arrow { transform: rotate(90deg); }
         }
     </style>
 </head>
@@ -433,41 +646,97 @@
         <div class="container">
             <div class="hero-eyebrow">// sovereign legal technology //</div>
             <h1 class="hero-headline">THE BURGESS PRINCIPLE:<br>SOVEREIGNTY DEFENSE SYSTEM</h1>
-            <p class="hero-sub">Automated Protection Against Void <em>Ab Initio</em> Warrants &amp; Credit Strike Contamination.<br>Citizen-initiated. Proven. Immutable.</p>
+            <p class="hero-sub expert-only">Automated Protection Against Void <em>Ab Initio</em> Warrants &amp; Credit Strike Contamination.<br>Citizen-initiated. Proven. Immutable.</p>
+            <p class="hero-sub simple-only">Your legal shield — made simple.<br>Big buttons. Clear steps. You're protected.</p>
             <div class="status-badge">
                 <span class="status-dot"></span>
                 SYSTEM ONLINE &nbsp;/&nbsp; DEFENSE ACTIVE
+            </div>
+            <div class="simple-toggle-wrap">
+                <button class="simple-toggle" id="simple-toggle-btn" aria-pressed="false">
+                    🔄 Switch to Simple Mode
+                </button>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════
-         MODULE STATUS DASHBOARD
+         COMMAND CENTER — CONTROL GRID
     ══════════════════════════════════════════ -->
     <section class="dashboard">
         <div class="container">
-            <div class="section-label">▶ Module Status Dashboard</div>
-            <div class="modules">
-                <div class="module">
-                    <div class="module-name">HUNTER</div>
-                    <div class="module-status">SCANNING... [ACTIVE]</div>
-                    <div class="module-bar"><div class="module-bar-fill" style="width:87%"></div></div>
+            <div class="section-label">▶ Command Center — Your Digital Armor</div>
+            <div class="control-grid">
+
+                <!-- HUNTER -->
+                <div class="control-card" title="Warrant Defect Scanner">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-name">HUNTER</div>
+                    <div class="card-desc expert-only">Warrant Defect Scanner<br>Binary logic tree for 1954 Act</div>
+                    <!-- Shield Health Ring -->
+                    <div class="shield-ring" aria-label="87% integrity">
+                        <svg viewBox="0 0 54 54" width="54" height="54" aria-hidden="true">
+                            <circle class="ring-track" cx="27" cy="27" r="23"/>
+                            <circle class="ring-fill" cx="27" cy="27" r="23"
+                                stroke-dasharray="144.51" stroke-dashoffset="18.79" data-pct="87"/>
+                        </svg>
+                        <span class="ring-label">87%</span>
+                    </div>
+                    <div class="expert-only" style="font-size:0.7em;color:var(--green);letter-spacing:0.12em;margin-top:4px;animation:pulse-green 2s ease-in-out infinite;">SCANNING… [ACTIVE]</div>
+                    <div class="simple-only" style="margin-top:8px;"><span class="simple-badge safe">✅ SAFE</span></div>
                 </div>
-                <div class="module">
-                    <div class="module-name">SHIELD</div>
-                    <div class="module-status">INTEGRITY: 100%</div>
-                    <div class="module-bar"><div class="module-bar-fill" style="width:100%"></div></div>
+
+                <!-- SHIELD -->
+                <div class="control-card" title="Integrity Protection">
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-name">SHIELD</div>
+                    <div class="card-desc expert-only">Contamination Chain Mapper<br>Traces downstream consequences</div>
+                    <div class="shield-ring" aria-label="100% integrity">
+                        <svg viewBox="0 0 54 54" width="54" height="54" aria-hidden="true">
+                            <circle class="ring-track" cx="27" cy="27" r="23"/>
+                            <circle class="ring-fill" cx="27" cy="27" r="23"
+                                stroke-dasharray="144.51" stroke-dashoffset="0" data-pct="100"/>
+                        </svg>
+                        <span class="ring-label">100%</span>
+                    </div>
+                    <div class="expert-only" style="font-size:0.7em;color:var(--green);letter-spacing:0.12em;margin-top:4px;animation:pulse-green 2s ease-in-out infinite;">INTEGRITY: 100%</div>
+                    <div class="simple-only" style="margin-top:8px;"><span class="simple-badge safe">✅ SAFE</span></div>
                 </div>
-                <div class="module">
-                    <div class="module-name">TRACER</div>
-                    <div class="module-status">FORENSICS: READY</div>
-                    <div class="module-bar"><div class="module-bar-fill" style="width:100%"></div></div>
+
+                <!-- TRACER -->
+                <div class="control-card" title="Forensics & Evidence Chain">
+                    <div class="card-icon">🔗</div>
+                    <div class="card-name">TRACER</div>
+                    <div class="card-desc expert-only">Credit Harm Calculator<br>Forensics &amp; evidence chain</div>
+                    <div class="shield-ring" aria-label="100% integrity">
+                        <svg viewBox="0 0 54 54" width="54" height="54" aria-hidden="true">
+                            <circle class="ring-track" cx="27" cy="27" r="23"/>
+                            <circle class="ring-fill" cx="27" cy="27" r="23"
+                                stroke-dasharray="144.51" stroke-dashoffset="0" data-pct="100"/>
+                        </svg>
+                        <span class="ring-label">100%</span>
+                    </div>
+                    <div class="expert-only" style="font-size:0.7em;color:var(--green);letter-spacing:0.12em;margin-top:4px;animation:pulse-green 2s ease-in-out infinite;">FORENSICS: READY</div>
+                    <div class="simple-only" style="margin-top:8px;"><span class="simple-badge safe">✅ SAFE</span></div>
                 </div>
-                <div class="module">
-                    <div class="module-name">ENFORCER</div>
-                    <div class="module-status">NOTICES: ARMED</div>
-                    <div class="module-bar"><div class="module-bar-fill" style="width:100%"></div></div>
+
+                <!-- ENFORCER -->
+                <div class="control-card" title="Legal Notice Deployment">
+                    <div class="card-icon">⚖️</div>
+                    <div class="card-name">ENFORCER</div>
+                    <div class="card-desc expert-only">Regulatory Complaint Builder<br>Notices armed &amp; ready</div>
+                    <div class="shield-ring" aria-label="100% integrity">
+                        <svg viewBox="0 0 54 54" width="54" height="54" aria-hidden="true">
+                            <circle class="ring-track" cx="27" cy="27" r="23"/>
+                            <circle class="ring-fill" cx="27" cy="27" r="23"
+                                stroke-dasharray="144.51" stroke-dashoffset="0" data-pct="100"/>
+                        </svg>
+                        <span class="ring-label">100%</span>
+                    </div>
+                    <div class="expert-only" style="font-size:0.7em;color:var(--green);letter-spacing:0.12em;margin-top:4px;animation:pulse-green 2s ease-in-out infinite;">NOTICES: ARMED</div>
+                    <div class="simple-only" style="margin-top:8px;"><span class="simple-badge safe">✅ SAFE</span></div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -591,6 +860,42 @@
                 <p><strong>📧 <a href="mailto:[REDACTED-EMAIL]">[REDACTED-EMAIL]</a></strong></p>
             </div>
 
+            <div class="section" id="inbox-sovereignty">
+                <h2>[08] 📬 Inbox Sovereignty — Clean Your Record</h2>
+                <p class="expert-only">Use the three-step process below to submit your email, retrieve your sovereign key, and begin the inbox-clean procedure.</p>
+                <p class="simple-only" style="font-size:1em; color:var(--text);">Three easy steps to protect your email. Just follow the arrows! 👇</p>
+
+                <!-- Wizard -->
+                <div class="wizard-steps" id="wizard" role="group" aria-label="Inbox Sovereignty Steps">
+                    <div class="wizard-step active" id="step-1">
+                        <div class="step-emoji">📧</div>
+                        <div class="step-num">1</div>
+                        <div class="step-label">Enter<br>Your Email</div>
+                    </div>
+                    <div class="wizard-arrow" aria-hidden="true">→</div>
+                    <div class="wizard-step" id="step-2">
+                        <div class="step-emoji">🔑</div>
+                        <div class="step-num">2</div>
+                        <div class="step-label">Get<br>Your Key</div>
+                    </div>
+                    <div class="wizard-arrow" aria-hidden="true">→</div>
+                    <div class="wizard-step" id="step-3">
+                        <div class="step-emoji">✅</div>
+                        <div class="step-num">3</div>
+                        <div class="step-label">Clean<br>Your Inbox</div>
+                    </div>
+                </div>
+
+                <div class="wizard-input-row">
+                    <input class="wizard-email" type="email" id="wizard-email"
+                           placeholder="your@email.com" aria-label="Your email address">
+                    <button class="btn-wizard" id="wizard-btn" disabled>
+                        ▶ Start
+                    </button>
+                </div>
+                <div id="wizard-feedback" role="status" aria-live="polite"></div>
+            </div>
+
         </div>
     </div>
 
@@ -601,5 +906,63 @@
         </div>
     </footer>
 
+    <script>
+    (function () {
+        // ── Simple Mode Toggle ──────────────────────────────
+        const toggleBtn = document.getElementById('simple-toggle-btn');
+        toggleBtn.addEventListener('click', function () {
+            const isSimple = document.body.classList.toggle('simple-mode');
+            toggleBtn.textContent = isSimple ? '📋 Switch to Expert Mode' : '🔄 Switch to Simple Mode';
+            toggleBtn.setAttribute('aria-pressed', isSimple ? 'true' : 'false');
+        });
+
+        // ── Inbox Sovereignty Wizard ────────────────────────
+        let wizardPhase = 1;
+        const emailInput = document.getElementById('wizard-email');
+        const wizardBtn  = document.getElementById('wizard-btn');
+        const feedback   = document.getElementById('wizard-feedback');
+
+        emailInput.addEventListener('input', function () {
+            wizardBtn.disabled = !emailInput.validity.valid || wizardPhase !== 1;
+        });
+
+        wizardBtn.addEventListener('click', function () {
+            if (wizardPhase === 1) {
+                document.getElementById('step-1').classList.remove('active');
+                document.getElementById('step-1').classList.add('done');
+                document.getElementById('step-2').classList.add('active');
+                feedback.textContent = '✅ Email received. Generating your sovereign key…';
+                wizardBtn.textContent = '🔑 Get My Key';
+                wizardPhase = 2;
+            } else if (wizardPhase === 2) {
+                document.getElementById('step-2').classList.remove('active');
+                document.getElementById('step-2').classList.add('done');
+                document.getElementById('step-3').classList.add('active');
+                feedback.textContent = '🔑 Key generated! Your inbox is now being cleaned…';
+                wizardBtn.textContent = '🧹 Clean Inbox';
+                wizardPhase = 3;
+            } else if (wizardPhase === 3) {
+                document.getElementById('step-3').classList.remove('active');
+                document.getElementById('step-3').classList.add('done');
+                feedback.textContent = '🎉 Done! Your inbox sovereignty is active for ' + emailInput.value.trim();
+                wizardBtn.textContent = '✅ Complete';
+                wizardBtn.disabled = true;
+                wizardPhase = 4;
+            }
+        });
+
+        // ── Animate shield rings on load ────────────────────
+        document.querySelectorAll('.ring-fill').forEach(function (circle) {
+            const pct    = parseFloat(circle.dataset.pct) / 100;
+            const circ   = 2 * Math.PI * 23; // r=23 → ~144.51
+            const offset = circ * (1 - pct);
+            circle.style.strokeDashoffset = circ;
+            requestAnimationFrame(function () {
+                circle.style.transition = 'stroke-dashoffset 1.5s ease-out';
+                circle.style.strokeDashoffset = offset;
+            });
+        });
+    }());
+    </script>
 </body>
 </html>

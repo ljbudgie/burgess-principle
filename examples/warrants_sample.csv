@@ -1,0 +1,9 @@
+warrant_id,issuing_authority,issue_date,property_address,utility_type,statutory_basis,officer_name,signature_present,date_on_warrant
+W-001,Magistrates Court,2024-01-15,12 Oak Street London E1 2AB,Gas,Rights of Entry (Gas and Electricity Boards) Act 1954,J. Smith,yes,2024-01-15
+W-002,Magistrates Court,2024-02-03,45 Maple Avenue Manchester M1 3CD,Electricity,Rights of Entry (Gas and Electricity Boards) Act 1954,A. Jones,no,
+W-003,County Court,2024-02-20,8 Birch Lane Birmingham B2 4EF,Gas,Rights of Entry (Gas and Electricity Boards) Act 1954,R. Brown,yes,2024-02-20
+W-004,Magistrates Court,2024-03-10,22 Cedar Road Leeds LS1 5GH,Electricity,Rights of Entry (Gas and Electricity Boards) Act 1954,P. Davis,yes,
+W-005,Magistrates Court,2024-03-18,99 Pine Close Bristol BS3 6IJ,Gas,Rights of Entry (Gas and Electricity Boards) Act 1954,L. Wilson,no,2024-03-18
+W-006,Magistrates Court,2024-04-05,3 Ash Way Sheffield S4 7KL,Electricity,Rights of Entry (Gas and Electricity Boards) Act 1954,M. Taylor,yes,2024-04-05
+W-007,County Court,2024-04-22,67 Elm Drive Liverpool L5 8MN,Gas,Rights of Entry (Gas and Electricity Boards) Act 1954,C. Anderson,yes,2024-04-22
+W-008,Magistrates Court,2024-05-01,14 Willow Place Newcastle NE1 9OP,Electricity,Rights of Entry (Gas and Electricity Boards) Act 1954,T. Harris,no,

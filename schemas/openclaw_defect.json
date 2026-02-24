@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenClaw Defect Report",
+  "description": "Schema for reporting a systemic defect via the OpenClaw framework.",
+  "type": "object",
+  "required": [
+    "defect_id",
+    "reporter",
+    "target_system",
+    "description",
+    "severity",
+    "date_logged"
+  ],
+  "properties": {
+    "defect_id": {
+      "type": "string",
+      "description": "Unique identifier for the defect report."
+    },
+    "reporter": {
+      "type": "string",
+      "description": "Name or identifier of the party reporting the defect."
+    },
+    "target_system": {
+      "type": "string",
+      "description": "The system or entity the defect pertains to."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the defect."
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["Critical", "High", "Medium", "Low", "Void Ab Initio"],
+      "description": "Severity level of the defect."
+    },
+    "date_logged": {
+      "type": "string",
+      "description": "ISO 8601 date when the defect was logged (e.g. 2026-02-24)."
+    }
+  },
+  "additionalProperties": true
+}

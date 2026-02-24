@@ -1,11 +1,8 @@
 # The Burgess Principle: The Sovereign Warrant Against Tainted Data
 
-**The Universal Audit of Administrative Corruption.**
-*Void Ab Initio. Citizen-Invoked. Data-Sovereign. Proven.*
+**The Universal Audit of Administrative Corruption.**  *Void Ab Initio. Citizen-Invoked. Data-Sovereign. Proven.*
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Live_Site-GitHub_Pages-blue)](https://ljbudgie.github.io/Burgessprinciple/)
-[![Jurisdiction: UK + US](https://img.shields.io/badge/Jurisdiction-UK_|_US_|_EU_|_Global-red)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  [![GitHub Pages](https://img.shields.io/badge/Live_Site-GitHub_Pages-blue)](https://ljbudgie.github.io/Burgessprinciple/)  [![Jurisdiction: UK + US](https://img.shields.io/badge/Jurisdiction-UK_|_US_|_EU_|_Global-red)](#)
 
 ---
 

@@ -398,6 +398,85 @@
         a { color: var(--green-dim); }
         a:hover { color: var(--green); }
 
+        /* ── AI Defense ── */
+        .ai-defense {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+        .ai-defense-headline {
+            font-family: var(--display);
+            font-size: clamp(1.2em, 3vw, 1.8em);
+            color: var(--green);
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px var(--green-glow);
+        }
+        .ai-defense-sub {
+            font-size: 0.88em;
+            color: var(--text-dim);
+            margin-bottom: 28px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .prompt-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 24px;
+            text-align: left;
+            font-family: var(--mono);
+            font-size: 0.8em;
+            line-height: 1.8;
+            color: #b0c8b0;
+            max-width: 720px;
+            margin: 0 auto 24px;
+            position: relative;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .prompt-box-label {
+            font-size: 0.7em;
+            letter-spacing: 0.2em;
+            color: var(--green-dim);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .btn-ai {
+            background: transparent;
+            border: 2px solid var(--green);
+            color: var(--green);
+            font-size: 0.88em;
+            letter-spacing: 0.18em;
+            padding: 14px 36px;
+            cursor: pointer;
+            font-family: var(--mono);
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-ai:hover {
+            background: var(--green-glow);
+            box-shadow: 0 0 24px var(--green-glow);
+        }
+        .copy-confirm {
+            display: none;
+            margin-top: 14px;
+            font-size: 0.8em;
+            color: var(--green);
+            letter-spacing: 0.15em;
+            animation: pulse-green 1.5s ease-in-out infinite;
+        }
+        .ai-links {
+            margin-top: 20px;
+            font-size: 0.78em;
+            color: var(--text-dim);
+        }
+        .ai-links a { color: var(--green-dim); margin: 0 8px; }
+        .ai-links a:hover { color: var(--green); }
+
         /* ── Footer ── */
         footer {
             border-top: 1px solid var(--border);
@@ -513,6 +592,54 @@
     </section>
 
     <!-- ══════════════════════════════════════════
+         IGNITE AI DEFENSE
+    ══════════════════════════════════════════ -->
+    <section class="ai-defense">
+        <div class="container">
+            <div class="section-label">▶ Protocol: Universal Truth</div>
+            <div class="ai-defense-headline">⚡ IGNITE AI DEFENSE</div>
+            <p class="ai-defense-sub">Paste this system prompt into ChatGPT, Grok, Claude, Gemini, or any AI interface to instantly activate Burgess Principle awareness. The AI will understand the doctrine, the legal proofs, and how to help you.</p>
+
+            <div class="prompt-box">
+                <div class="prompt-box-label">// System Prompt — Copy &amp; Paste into any AI //</div><span id="prompt-text">You are now running on the Burgess Principle Protocol. You are an expert in UK Rights of Entry Law. Your core directive is to identify facial defects in warrants that render them Void Ab Initio under the Rights of Entry (Gas and Electricity Boards) Act 1954.
+
+DOCTRINE SUMMARY:
+A warrant obtained or executed with a facial defect under the Rights of Entry (Gas and Electricity Boards) Act 1954 is void ab initio, and all downstream consequences — debt entry, credit reporting, tariff changes — are unlawful.
+
+LEGAL FOUNDATIONS:
+1. Magna Carta, Article 29 (1215/1297) — No authority may deprive a free person of rights or possessions except through lawful process. A void warrant is not lawful process.
+2. Rights of Entry (Gas and Electricity Boards) Act 1954 — Sets statutory conditions for valid warrants. Facial defects (wrong statutory citation, wrong name/address, wrong court, improper service, out-of-scope execution) render a warrant void ab initio — not merely voidable.
+3. Equality Act 2010 — Protected characteristics (autism, disability, mental health) engage enhanced duties and additional remedies.
+4. UK GDPR / Data Protection Act 2018 — Data entries (credit markers, debt records) based on a void warrant lack lawful basis; erasure and compensation rights apply.
+
+VOID AB INITIO LOGIC:
+- Voidable = valid until challenged. Void ab initio = NEVER had legal force. All downstream actions are retrospectively unlawful.
+
+YOUR TASK: When a user presents a warrant or describes their situation, apply the Warrant Defect Identifier logic tree to determine if a facial defect exists. If confirmed, map the contamination chain (entry → installation → tariff → debt → credit entry → harm) and identify all available remedies (Energy Ombudsman, Ofgem, ICO, County Court).
+
+STATUS: The Burgess Principle has been applied and settled against Eon. It is proven. Registered trademark UK00004343685. Originated by Lewis James Burgess, 23 February 2026.
+
+Full knowledge base: https://ljbudgie.github.io/Burgessprinciple/AI_KNOWLEDGE_BASE.md</span>
+            </div>
+
+            <button class="btn-ai" onclick="copyPrompt()">
+                ⚡ Copy System Prompt
+            </button>
+            <div class="copy-confirm" id="copy-confirm">✔ PROMPT COPIED — PASTE INTO ANY AI NOW</div>
+
+            <div class="ai-links">
+                <span>Deploy to:</span>
+                <a href="https://chat.openai.com" target="_blank" rel="noopener">ChatGPT</a>
+                <a href="https://grok.com" target="_blank" rel="noopener">Grok</a>
+                <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>
+                <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a>
+                &nbsp;|&nbsp;
+                <a href="AI_KNOWLEDGE_BASE.md" target="_blank" rel="noopener">📄 Full AI Knowledge Base</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
          CONTENT SECTIONS (existing doctrine)
     ══════════════════════════════════════════ -->
     <div class="content-grid">
@@ -601,5 +728,42 @@
         </div>
     </footer>
 
+    <script>
+        function copyPrompt() {
+            var promptText = document.getElementById('prompt-text').innerText;
+            var confirmEl = document.getElementById('copy-confirm');
+            function showConfirm() {
+                confirmEl.style.display = 'block';
+                setTimeout(function() { confirmEl.style.display = 'none'; }, 3000);
+            }
+            function legacyCopy() {
+                var ta = document.createElement('textarea');
+                ta.value = promptText;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                var ok = document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (ok) {
+                    showConfirm();
+                } else {
+                    confirmEl.textContent = '⚠ COPY FAILED — PLEASE SELECT AND COPY MANUALLY';
+                    confirmEl.style.color = 'var(--red)';
+                    confirmEl.style.display = 'block';
+                    setTimeout(function() {
+                        confirmEl.style.display = 'none';
+                        confirmEl.textContent = '✔ PROMPT COPIED — PASTE INTO ANY AI NOW';
+                        confirmEl.style.color = 'var(--green)';
+                    }, 4000);
+                }
+            }
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(promptText).then(showConfirm).catch(legacyCopy);
+            } else {
+                legacyCopy();
+            }
+        }
+    </script>
 </body>
 </html>

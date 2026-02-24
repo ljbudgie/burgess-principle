@@ -1,0 +1,74 @@
+{
+  "schema_id": "burgess_principle_contamination_map_v1",
+  "description": "Logic map linking tainted warrant defects to their downstream data contamination impacts across affected systems.",
+  "mappings": [
+    {
+      "source_defect_id": "bulk_processing_artifact",
+      "impacted_systems": {
+        "credit_reference_agencies": {
+          "status": "Disputed/Inaccurate",
+          "action": "Flag associated CCJ or default entries for dispute; data derived from a tainted warrant is inaccurate under UK GDPR Art. 5(1)(d)."
+        },
+        "supplier_databases": {
+          "status": "Void Entry",
+          "action": "Mark meter installation and debt records as void; entry originated from an unlawful forced-entry event."
+        },
+        "smart_meter_data": {
+          "status": "Unlawful Installation",
+          "action": "Flag smart meter as installed without lawful authority; all consumption data collected is potentially inadmissible."
+        }
+      }
+    },
+    {
+      "source_defect_id": "facial_defect_signature",
+      "impacted_systems": {
+        "credit_reference_agencies": {
+          "status": "Disputed/Inaccurate",
+          "action": "Flag associated CCJ or default entries for dispute; underlying warrant is void ab initio due to absence of genuine judicial authorisation."
+        },
+        "supplier_databases": {
+          "status": "Void Entry",
+          "action": "Mark meter installation and debt records as void; no lawful basis for forced entry existed."
+        },
+        "smart_meter_data": {
+          "status": "Unlawful Installation",
+          "action": "Flag smart meter as installed without lawful authority; warrant bearing no genuine judicial signature is void."
+        }
+      }
+    },
+    {
+      "source_defect_id": "jurisdiction_mismatch",
+      "impacted_systems": {
+        "credit_reference_agencies": {
+          "status": "Disputed/Inaccurate",
+          "action": "Flag associated CCJ or default entries for dispute; warrant issued outside correct jurisdiction has no legal force."
+        },
+        "supplier_databases": {
+          "status": "Void Entry",
+          "action": "Mark meter installation and debt records as void; out-of-area warrant cannot authorise entry."
+        },
+        "smart_meter_data": {
+          "status": "Unlawful Installation",
+          "action": "Flag smart meter as installed without lawful authority; jurisdictional defect renders the authorising warrant void."
+        }
+      }
+    },
+    {
+      "source_defect_id": "venue_data_missing",
+      "impacted_systems": {
+        "credit_reference_agencies": {
+          "status": "Disputed/Inaccurate",
+          "action": "Flag associated CCJ or default entries for dispute; absence of verifiable court venue prevents confirmation of lawful authorisation."
+        },
+        "supplier_databases": {
+          "status": "Void Entry",
+          "action": "Mark meter installation and debt records as void; unverifiable warrant cannot support lawful forced entry."
+        },
+        "smart_meter_data": {
+          "status": "Unlawful Installation",
+          "action": "Flag smart meter as installed without lawful authority; missing venue data makes judicial authorisation unverifiable."
+        }
+      }
+    }
+  ]
+}

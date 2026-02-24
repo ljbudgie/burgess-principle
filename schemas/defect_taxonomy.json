@@ -1,0 +1,35 @@
+{
+  "schema_id": "burgess_principle_defect_taxonomy_v1",
+  "description": "A dictionary of technical defects that render source warrant data tainted and void ab initio.",
+  "defects": {
+    "bulk_processing_artifact": {
+      "id": "bulk_processing_artifact",
+      "label": "Bulk Processing Artifact",
+      "description": "Timestamps indicating less than 60 seconds of judicial review time per case, evidencing bulk/batch processing without individual scrutiny.",
+      "detection_signal": "review_duration_seconds < 60",
+      "legal_basis": "Rights of Entry (Gas and Electricity Boards) Act 1954; rubber-stamp doctrine"
+    },
+    "facial_defect_signature": {
+      "id": "facial_defect_signature",
+      "label": "Facial Defect Signature",
+      "description": "Missing or robo-signed judicial authorisation — warrant lacks a genuine, individualised judicial signature.",
+      "detection_signal": "judicial_signature == null OR judicial_signature == 'auto_generated'",
+      "legal_basis": "Rights of Entry (Gas and Electricity Boards) Act 1954; Fourth Amendment (US)",
+      "jurisdiction_scope": ["UK", "US"]
+    },
+    "jurisdiction_mismatch": {
+      "id": "jurisdiction_mismatch",
+      "label": "Jurisdiction Mismatch",
+      "description": "Warrant issued by a court outside the area in which the subject property is located.",
+      "detection_signal": "issuing_court_area != property_area",
+      "legal_basis": "Rights of Entry (Gas and Electricity Boards) Act 1954 s.2"
+    },
+    "venue_data_missing": {
+      "id": "venue_data_missing",
+      "label": "Venue Data Missing",
+      "description": "Warrant record lacks specific court location data, making judicial authorisation unverifiable.",
+      "detection_signal": "court_venue == null OR court_venue == ''",
+      "legal_basis": "Civil Procedure Rules; disclosure obligations"
+    }
+  }
+}

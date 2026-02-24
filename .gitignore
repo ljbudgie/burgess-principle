@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment / secrets
+.env
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/

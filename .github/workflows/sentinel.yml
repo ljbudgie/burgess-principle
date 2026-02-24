@@ -1,0 +1,32 @@
+name: The Sentinel (24/7 Tracer Protocol)
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  sentinel:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install required Python packages
+        run: pip install requests beautifulsoup4
+
+      - name: Run hunting script
+        run: python tracer/tracer.py
+
+      - name: Upload defect report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Daily-Defect-Report
+          path: defect_report.json

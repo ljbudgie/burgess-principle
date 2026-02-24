@@ -1,0 +1,3 @@
+# Triggered Workflow
+
+This is an empty commit trigger for the sentinel.yml workflow.

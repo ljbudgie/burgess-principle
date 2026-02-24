@@ -304,6 +304,7 @@
             text-decoration: none;
             cursor: pointer;
             transition: all 0.2s ease;
+            border: none;
         }
         .btn-primary {
             background: transparent;
@@ -322,6 +323,135 @@
         .btn-secondary:hover {
             background: var(--gold-glow);
             box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        /* ── Tactical Input Console ── */
+        .console {
+            margin-top: 40px;
+            border: 1px solid var(--green);
+            background: var(--surface);
+            padding: 32px;
+            text-align: left;
+            animation: border-glow 4s ease-in-out infinite;
+        }
+        .console-header {
+            font-family: var(--mono);
+            font-size: 0.72em;
+            letter-spacing: 0.3em;
+            color: var(--green);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+        .console-header span {
+            animation: pulse-green 2s ease-in-out infinite;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group label {
+            font-size: 0.72em;
+            letter-spacing: 0.2em;
+            color: var(--green-dim);
+            text-transform: uppercase;
+        }
+        .form-group input,
+        .form-group select {
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            color: var(--green);
+            font-family: var(--mono);
+            font-size: 0.85em;
+            padding: 10px 14px;
+            outline: none;
+            transition: border-color 0.2s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 8px var(--green-glow);
+        }
+        .form-group select option { background: #0a0a0a; }
+        .form-full { grid-column: 1 / -1; }
+        .btn-generate {
+            margin-top: 20px;
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 0.88em;
+            border: 2px solid var(--green) !important;
+            color: var(--green);
+            background: transparent;
+            cursor: pointer;
+            letter-spacing: 0.2em;
+        }
+        .btn-generate:hover {
+            background: var(--green-glow);
+            box-shadow: 0 0 24px var(--green-glow);
+        }
+        #notice-output {
+            display: none;
+            margin-top: 28px;
+            border: 1px solid var(--gold-dim);
+            padding: 28px;
+            background: #0d0d08;
+            position: relative;
+        }
+        #notice-output .notice-title {
+            font-family: var(--display);
+            font-size: 0.9em;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        #notice-output pre {
+            font-family: var(--mono);
+            font-size: 0.82em;
+            color: var(--text);
+            white-space: pre-wrap;
+            word-break: break-word;
+            line-height: 1.8;
+        }
+        .btn-print {
+            margin-top: 16px;
+            width: 100%;
+            justify-content: center;
+            padding: 12px;
+            font-size: 0.82em;
+            border: 2px solid var(--gold-dim) !important;
+            color: var(--gold);
+            background: transparent;
+            cursor: pointer;
+            letter-spacing: 0.15em;
+        }
+        .btn-print:hover {
+            background: var(--gold-glow);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+        @media print {
+            body > *:not(.action-center) { display: none !important; }
+            .action-center { border: none; padding: 0; }
+            .console-header, .btn-generate, .btn-print,
+            .action-buttons, .console > p { display: none !important; }
+            #notice-output { display: block !important; border: 1px solid #ccc; background: #fff; color: #000; }
+            #notice-output pre { color: #000; }
+            #notice-output .notice-title { color: #000; }
         }
 
         /* ── Content sections ── */
@@ -495,7 +625,7 @@
     </section>
 
     <!-- ══════════════════════════════════════════
-         ACTION CENTER
+         ACTION CENTER — TACTICAL INPUT CONSOLE
     ══════════════════════════════════════════ -->
     <section class="action-center">
         <div class="container">
@@ -509,8 +639,250 @@
                     📜 Read the Doctrine
                 </a>
             </div>
+
+            <!-- Tactical Input Console -->
+            <div class="console">
+                <div class="console-header">▶ Tactical Input Console &nbsp;/&nbsp; <span>NOTICE GENERATOR ONLINE</span></div>
+                <form id="defense-form" onsubmit="return false;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" placeholder="e.g. Jane Smith" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-name">Supplier / Authority Name</label>
+                            <input type="text" id="supplier-name" placeholder="e.g. British Gas">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group form-full">
+                            <label for="address">Your Address</label>
+                            <input type="text" id="address" placeholder="e.g. 1 Example Street, Town, AB1 2CD" autocomplete="street-address">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sector">Sector</label>
+                            <select id="sector">
+                                <option value="energy">Energy</option>
+                                <option value="water">Water</option>
+                                <option value="council">Council Tax</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notice-date">Date</label>
+                            <input type="date" id="notice-date">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-generate" onclick="generateNotice()">
+                        ⚡ GENERATE NOTICE
+                    </button>
+                </form>
+
+                <div id="notice-output">
+                    <div class="notice-title" id="notice-title"></div>
+                    <pre id="notice-text"></pre>
+                    <button type="button" class="btn btn-print" onclick="window.print()">
+                        🖨 PRINT / SAVE AS PDF
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
+
+    <script>
+    (function () {
+        // Pre-fill today's date
+        var d = document.getElementById('notice-date');
+        if (d) d.value = new Date().toISOString().slice(0, 10);
+
+        function pad(v) { return v ? v.trim() : '[NOT PROVIDED]'; }
+
+        var templates = {
+            energy: function (name, address, supplier, date) {
+                return [
+                    'FORMAL NOTICE OF LEGAL CHALLENGE',
+                    'Rights of Entry (Gas and Electricity Boards) Act 1954',
+                    '',
+                    'Date: ' + date,
+                    '',
+                    'TO:',
+                    supplier,
+                    '',
+                    'FROM:',
+                    name,
+                    address,
+                    '',
+                    'RE: VOID AB INITIO — WARRANT OF ENTRY CHALLENGE',
+                    '',
+                    'TAKE NOTICE THAT:',
+                    '',
+                    '1. I, ' + name + ', the occupier of the above address, hereby formally',
+                    '   challenge the validity of any warrant of entry obtained or to be',
+                    '   obtained against the property at ' + address + '.',
+                    '',
+                    '2. LEGAL BASIS: Any warrant issued under the Rights of Entry (Gas and',
+                    '   Electricity Boards) Act 1954 without individual judicial scrutiny',
+                    '   applied to the specific facts of this account is VOID AB INITIO.',
+                    '',
+                    '3. BULK WARRANT DEFECT: Industry practice of presenting warrant',
+                    '   applications in bulk (commonly hundreds per session) renders it',
+                    '   mathematically impossible for a magistrate to apply the requisite',
+                    '   judicial mind to each individual case, as required by law.',
+                    '',
+                    '4. AUTHORITY: R v Sussex Justices, Ex parte McCarthy [1924] 1 KB 256.',
+                    '   Justice must not only be done but must manifestly be seen to be done.',
+                    '',
+                    '5. DEMAND: You are required within 14 days to provide:',
+                    '   (a) Proof that a magistrate applied individual judicial consideration',
+                    '       to the specific facts of this account;',
+                    '   (b) A copy of the specific "Information" laid before the court.',
+                    '',
+                    '6. WARNING: Any entry relying on a bulk-issued warrant constitutes',
+                    '   trespass. Any damage caused constitutes criminal damage. This notice',
+                    '   will be relied upon in any subsequent legal proceedings.',
+                    '',
+                    'GOVERN YOURSELF ACCORDINGLY.',
+                    '',
+                    'Signed: ______________________________',
+                    '',
+                    name,
+                    address,
+                    'Date: ' + date
+                ].join('\n');
+            },
+
+            water: function (name, address, supplier, date) {
+                return [
+                    'FORMAL NOTICE OF LEGAL CHALLENGE',
+                    'Water Industry Act 1991 — Section 174',
+                    '',
+                    'Date: ' + date,
+                    '',
+                    'TO:',
+                    supplier,
+                    '',
+                    'FROM:',
+                    name,
+                    address,
+                    '',
+                    'RE: SECTION 174 CHALLENGE — AUTHORITY TO ENTER / CARRY OUT WORKS',
+                    '',
+                    'TAKE NOTICE THAT:',
+                    '',
+                    '1. I, ' + name + ', the occupier of the property at ' + address + ',',
+                    '   hereby invoke my rights under the Water Industry Act 1991 and',
+                    '   formally challenge your authority to enter or carry out works at',
+                    '   the above premises.',
+                    '',
+                    '2. LEGAL BASIS: Section 174 of the Water Industry Act 1991 creates',
+                    '   criminal liability for the obstruction of authorised persons. However,',
+                    '   this section presupposes that the authority to act is itself lawful.',
+                    '   Where such authority is not established, no valid obligation to',
+                    '   permit entry arises.',
+                    '',
+                    '3. DEMAND FOR AUTHORITY: You are required within 14 days to produce:',
+                    '   (a) Documentary evidence of your statutory authority to enter this',
+                    '       specific property;',
+                    '   (b) Identification of the specific provision under which you claim',
+                    '       a right of entry;',
+                    '   (c) Evidence that any court order obtained was issued following',
+                    '       individual consideration of the facts relating to this property.',
+                    '',
+                    '4. RESERVATION OF RIGHTS: I reserve all rights and remedies at law.',
+                    '   Any unlawful entry will be treated as trespass and reported to',
+                    '   the relevant regulatory authority.',
+                    '',
+                    'GOVERN YOURSELF ACCORDINGLY.',
+                    '',
+                    'Signed: ______________________________',
+                    '',
+                    name,
+                    address,
+                    'Date: ' + date
+                ].join('\n');
+            },
+
+            council: function (name, address, supplier, date) {
+                return [
+                    'FORMAL NOTICE OF LEGAL CHALLENGE',
+                    'Local Government Finance Act 1992 — Liability Order Authenticity',
+                    '',
+                    'Date: ' + date,
+                    '',
+                    'TO:',
+                    supplier,
+                    '',
+                    'FROM:',
+                    name,
+                    address,
+                    '',
+                    'RE: CHALLENGE TO LIABILITY ORDER AUTHENTICITY',
+                    '',
+                    'TAKE NOTICE THAT:',
+                    '',
+                    '1. I, ' + name + ', the occupier of ' + address + ', formally challenge',
+                    '   the authenticity and procedural validity of any Liability Order',
+                    '   issued or sought against me under the Local Government Finance Act 1992.',
+                    '',
+                    '2. LEGAL BASIS: Schedule 4 of the Local Government Finance Act 1992',
+                    '   and the Council Tax (Administration and Enforcement) Regulations 1992',
+                    '   (SI 1992/613) require that Liability Orders be obtained by way of',
+                    '   a properly constituted Magistrates\' Court application following',
+                    '   service of a valid demand notice and reminder notice.',
+                    '',
+                    '3. DEMAND FOR EVIDENCE: You are required within 14 days to provide:',
+                    '   (a) Certified copies of all notices served (demand, reminder, final);',
+                    '   (b) Proof of valid service of those notices at the correct address;',
+                    '   (c) Certified copy of any Liability Order, including the court seal',
+                    '       and the date of the Magistrates\' Court hearing;',
+                    '   (d) Confirmation that the Liability Order was granted following',
+                    '       individual consideration and not as part of a bulk application.',
+                    '',
+                    '4. RIGHT TO CHALLENGE: I reserve the right to apply to the Magistrates\'',
+                    "   Court to set aside any Liability Order that was not properly obtained.",
+                    '',
+                    '5. RESERVE OF RIGHTS: Any enforcement action taken on the basis of a',
+                    '   defective or unsubstantiated Liability Order will be resisted and',
+                    '   reported to the relevant Local Government Ombudsman.',
+                    '',
+                    'GOVERN YOURSELF ACCORDINGLY.',
+                    '',
+                    'Signed: ______________________________',
+                    '',
+                    name,
+                    address,
+                    'Date: ' + date
+                ].join('\n');
+            }
+        };
+
+        var titles = {
+            energy:  'ENERGY — RIGHTS OF ENTRY ACT 1954 CHALLENGE NOTICE',
+            water:   'WATER — WATER INDUSTRY ACT 1991 (S.174) CHALLENGE NOTICE',
+            council: 'COUNCIL TAX — LIABILITY ORDER CHALLENGE NOTICE'
+        };
+
+        window.generateNotice = function () {
+            var name     = pad(document.getElementById('full-name').value);
+            var address  = pad(document.getElementById('address').value);
+            var supplier = pad(document.getElementById('supplier-name').value);
+            var sector   = document.getElementById('sector').value;
+            var date     = document.getElementById('notice-date').value || new Date().toISOString().slice(0, 10);
+
+            var fn = templates[sector];
+            if (!fn) return;
+
+            var text = fn(name, address, supplier, date);
+            document.getElementById('notice-title').textContent = titles[sector];
+            document.getElementById('notice-text').textContent  = text;
+
+            var out = document.getElementById('notice-output');
+            out.style.display = 'block';
+            out.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+    }());
+    </script>
 
     <!-- ══════════════════════════════════════════
          CONTENT SECTIONS (existing doctrine)

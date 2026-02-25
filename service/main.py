@@ -1,7 +1,5 @@
-from fastapi import FastAPI
+# xAI-hybrid Purification Service
 
-app = FastAPI()
+This is the main entry point for the xAI-hybrid Purification Service.
 
-@app.get("/xai-hybrid-core")
-async def read_root():
-    return {"message": "Welcome to the xAI-Hybrid Core public endpoint!"}
+# Implementation here

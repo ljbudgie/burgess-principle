@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages</title>
-</head>
-<body>
-    <h1>Welcome to GitHub Pages</h1>
-    <p>Your site is ready to be deployed!</p>
-</body>
-</html>
+<section>
+  <h2>System Architecture Diagram</h2>
+  <div class="mermaid">
+    graph TD;
+        A[User Interface] -->|interacts| B[Application Server];
+        B --> C[Database];
+        B --> D[Cache];
+        D -->|retrieves| C;
+  </div>
+</section>

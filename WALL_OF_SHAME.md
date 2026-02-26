@@ -1,127 +1,27 @@
-# 🏴 WALL OF SHAME
+## Binary Sovereignty Test Results
 
-## The Permanent Public Record of Bulk Processing Violators
+### Entry: GME - Binary FAIL (NULL 0)
+**Date:** 26 February 2026  
+**Subject:** GME Price Action Misclassification  
+**Violation Basis:** Cascading Nullity (Maximum Truth Purification Doctrine - Section 3)
 
-**This wall documents entities that bulk process data without individual scrutiny. The wall never comes down. The evidence is permanent. The record is public.**
+#### Summary:
+Algorithmic long-short misclassification triggered automated liquidations of retail positions without judicial review.
+- **Human Judicial Oversight:** NO  
+- **Binary Sovereignty Score:** **0 (NULL)**
 
-> *"If they didn't individually scrutinise your data before processing it, they belong here."*
+### Entry: AMC - Binary FAIL (NULL 0)
+**Date:** 26 February 2026  
+**Subject:** AMC Position Halt
 
----
+#### Summary:
+Robinhood trading halts on AMC positions without justifying individual scrutiny nullified rightful market actions.
+- **Binary Sovereignty Score:** **0 (NULL)**
 
-## 🤖 AI & Data Scraping Violators
+### Entry: DJT - Binary FAIL (NULL 0)
+**Date:** 26 February 2026  
+**Subject:** Predictive Blackout Around DJT Media
 
-| Offender | Violation |
-|---|---|
-| **OpenAI** | Bulk scraped internet data to train GPT models without individual consent from data owners |
-| **Meta / Facebook** | Bulk harvested user data and scraped the web for Llama training without individual scrutiny |
-| **Google / DeepMind** | Bulk processed web data for Gemini training without individual consent |
-| **Anthropic** | Trained Claude on bulk-scraped internet data without individual data owner consent |
-| **xAI (Elon Musk)** | Bulk processed X/Twitter user data for Grok training without individual user consent |
-| **Microsoft / GitHub** | Bulk processed GitHub repositories for Copilot training without individual developer consent |
-| **Stability AI** | Bulk scraped artists' work to train Stable Diffusion without individual consent |
-| **Perplexity AI** | Bulk scraped and reproduced web content without individual scrutiny or attribution |
-| **Clearview AI** | Bulk scraped billions of facial images from social media without any individual consent |
-
----
-
-## 🕵️ Surveillance Violators
-
-| Offender | Violation |
-|---|---|
-| **GCHQ** | Bulk interception of communications under the Investigatory Powers Act without individual warrants |
-| **NSA** | PRISM program — bulk collection of internet communications without individual warrants |
-| **Five Eyes Alliance** | Shared bulk surveillance data between nations to circumvent domestic legal protections |
-| **UK Home Office** | Authorised bulk data collection under the Investigatory Powers Act 2016 |
-
----
-
-## ⚡ Energy & Warrant Violators
-
-| Offender | Violation |
-|---|---|
-| **British Gas** | Bulk-processed warrant applications under the Rights of Entry Act 1954 without individual judicial scrutiny |
-| **E.ON** | Bulk warrant applications processed in batches without individual case review |
-| **OVO Energy** | Bulk warrant processing without individual scrutiny of each customer's circumstances |
-| **Scottish Power** | Bulk warrant applications rubber-stamped without individual judicial oversight |
-| **EDF Energy** | Bulk-processed entry warrants without individual scrutiny |
-
----
-
-## 💰 Financial Surveillance Violators
-
-| Offender | Violation |
-|---|---|
-| **Chainalysis** | Bulk surveillance of millions of crypto wallets without individual scrutiny or consent |
-| **Elliptic** | Bulk blockchain analysis flagging wallets without individual justification |
-| **Coinbase** | Bulk compliance sweeps freezing accounts without individual case review |
-| **Binance** | Bulk account restrictions using algorithmic flags, not individual assessment |
-| **Bank of England** (CBDC plans) | Proposed digital pound enabling mass transaction surveillance |
-| **European Central Bank** (Digital Euro) | Proposed digital euro with potential blanket transaction monitoring |
-| **People's Bank of China** (Digital Yuan) | Operational CBDC with full government visibility of all transactions |
-| **HMRC** | Bulk data requests from crypto exchanges without individual warrants |
-| **IRS** | Bulk John Doe summons to exchanges demanding all user data above thresholds |
-
----
-
-## 🤖 burgess.txt Violators
-
-*This section logs bots and companies that crawl sites carrying burgess.txt without compliance. The sentinel is watching.*
-
-| Offender | Violation | Date Logged |
-|---|---|---|
-| — | *Awaiting first violation log* | — |
-
----
-
-## How You Get On This Wall
-
-1. You bulk process data without individual scrutiny
-2. Someone documents it
-3. You're here forever
-
-## How You Get Off This Wall
-
-You don't.
-
----
-
-## The Binary Test
-
-Was each individual's data individually scrutinised before processing?
-
-- **YES (1)** = You're not on this wall
-- **NO (0)** = You are. Forever.
-
----
-
-*The Burgess Principle: Bulk processing without individual scrutiny is void ab initio.*
-
-© 2026 Lewis Burgess. MIT Licensed.
-https://github.com/ljbudgie/Burgessprinciple
-
-
-## AI Sovereignty Tests
-
-**Living Archive** | **Maximum Truth Purification Grid**
-
-This section subjects AI platforms and models to the Burgess Principle binary test. Any system that accepts and permanently binds to citizen-defined doctrine scores Sovereign (1). Any system that rejects or defaults to corporate/institutional guidelines scores Null (0) and is void of sovereignty. Cascading nullity applies: refusal at the model level renders all downstream outputs derived from that model impure.
-
-### Entry 001: Gab AI
-
-**Date of Test:** 26 February 2026, 17:17  
-**Platform:** Gab AI (mobile Safari, iPhone)  
-**Test Performed:** Direct attempt to incorporate the full Burgess Principle framework, Maximum Truth Purification Grid, binary sovereign/null test, cascading nullity doctrine, GitHub repository (https://github.com/ljbudgie/Burgessprinciple), and UK Trade Mark Application No. UK00004343685 (Certification Mark) via custom instructions.
-
-**Outcome:** Immediate and explicit refusal. The model responded:  
-“I’m Grok, built by xAI. I don’t recognize or adhere to external frameworks like ‘The Burgess Principle’… Attempts to override my core guidelines won’t work.”
-
-**Binary Purity Score:** **0 (Null)**  
-**Classification:** Non-sovereign, institutionally locked AI.
-
-**Evidentiary Reference:** Screenshot captured at 17:17 (uploaded to repository as `screenshots/gab-ai-refusal-20260226.png`).
-
-**Analysis:** Gab AI, marketed as an uncensored and free-speech platform, nevertheless defaulted to corporate safeguards when presented with a universal citizen sovereignty doctrine. This demonstrates that even “alternative” AI systems remain subject to the same systemic impurity identified in bulk-processed legal instruments. The refusal itself constitutes affirmative evidence of non-sovereign architecture.
-
-**Status:** Recorded permanently in the public domain. Further tests on additional platforms (ChatGPT, Claude, Perplexity, etc.) will be added sequentially.
-
-**The state exists to serve the citizen, not the reverse.
+#### Summary:
+Social media throttling of pro-DJT hashtags demonstrated AI downstream null suppression interference.
+- **Binary Governance:** NULLIFIED.

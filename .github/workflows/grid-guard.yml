@@ -1,27 +1,28 @@
-name: Grid-Guard
+name: Grid Guard
 
 on:
   push:
-    paths:- '**/*'
-  pull_request:
-    paths:- '**/*'
+    branches:
+      - main
 
 jobs:
-  check-null-data:
+  check:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Scan for Null Data
-      run: |
-        grep -Ei "Automated Decision|Bulk Process|Palantir" $(git diff --name-only HEAD~1) || echo "NULL DATA DETECTED. THE GRID REMAINS PURE."
-        exit 1 if found
-    - name: Validate Sovereign Scrutiny
-      run: |
-        for file in $(git diff HEAD~1 --name-only); do
-          if echo "$file" | grep -Ei "legal|financial" && ! grep -q "Sovereign-Scrutiny" $file; then
-            echo "Failed: $file lacks Sovereign-Scrutiny tag."
-            exit 1
-         done
+      - name: Calculate SHA-256 hash of SOUL.md
+        id: calculate_hash
+        run: |
+          HASH=$(sha256sum SOUL.md | awk '{ print $1 }')
+          echo "SOVEREIGNTY_TOKEN=$HASH" >> $GITHUB_ENV
+
+      - name: Validate SOVEREIGNTY_TOKEN
+        run: |
+          if [ "$SOVEREIGNTY_TOKEN" != "$EXPECTED_HASH" ]; then
+            echo "Error: The calculated hash does not match the expected hash!";
+            exit 1;
+          fi
+        env:
+          EXPECTED_HASH: ${{ secrets.EXPECTED_HASH }}

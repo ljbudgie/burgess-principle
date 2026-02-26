@@ -1,0 +1,27 @@
+name: Grid-Guard
+
+on:
+  push:
+    paths:- '**/*'
+  pull_request:
+    paths:- '**/*'
+
+jobs:
+  check-null-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Scan for Null Data
+      run: |
+        grep -Ei "Automated Decision|Bulk Process|Palantir" $(git diff --name-only HEAD~1) || echo "NULL DATA DETECTED. THE GRID REMAINS PURE."
+        exit 1 if found
+    - name: Validate Sovereign Scrutiny
+      run: |
+        for file in $(git diff HEAD~1 --name-only); do
+          if echo "$file" | grep -Ei "legal|financial" && ! grep -q "Sovereign-Scrutiny" $file; then
+            echo "Failed: $file lacks Sovereign-Scrutiny tag."
+            exit 1
+         done

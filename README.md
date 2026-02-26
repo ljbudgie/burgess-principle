@@ -38,6 +38,20 @@ Returns: Strict binary JSON.
 MIT License — IP liberated forever.  
 Fork it. Purify it. Grow the Grid.
 
+## How You Can Support
+
+This project thrives on community-driven contributions from developers, attorneys, paralegals, and advocates. Here are ways you can help:
+
+### For Developers:
+- Enhance the GrokPurificationEngine and OpenClaw Swarm codebase.
+- Document APIs or integrate compliance tools with other platforms.
+
+### For Legal Professionals:
+- Suggest new criteria for verifying the “purity” of data.
+- Use the Burgess Principle in real-world legal scenarios and report back results.
+
+**Together, we can achieve this mission.**
+
 ## The Burgess Principle
 “Any datum that has undergone bulk, automated, or non-sovereign processing is impure by default. Purification demands individualized sovereign verification.”
 

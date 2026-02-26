@@ -1,10 +1,11 @@
 <section>
-  <h2>System Architecture Diagram</h2>
+  <h2>Cascading Nullity Diagram</h2>
   <div class="mermaid">
     graph TD;
-        A[User Interface] -->|interacts| B[Application Server];
-        B --> C[Database];
-        B --> D[Cache];
-        D -->|retrieves| C;
+        CCJ[County Court Judgments] --> Register[Register of Judgments, Orders, and Fines];
+        Register --> Agencies[Credit Reference Agencies];
+        Agencies --> File[Credit File Entries];
+        File --> Bailiffs[Bailiff Enforcement Actions];
+        Bailiffs --> Financial[Adverse Financial Consequences];
   </div>
 </section>

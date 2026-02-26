@@ -1,0 +1,28 @@
+name: Daily Truth Purification
+on:
+  schedule:
+    - cron: '0 21 * * *' # Runs daily at 9 PM UTC (after market close)
+  workflow_dispatch: # Allows you to run it manually for fun
+
+jobs:
+  purify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log Algorithmic Nullity
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          # We use a simple curl to get prices (Low IQ, High Efficiency)
+          DJT=$(curl -s "https://query1.finance.yahoo.com/v8/finance/chart/DJT" | jq '.chart.result[0].meta.regularMarketPrice')
+          GME=$(curl -s "https://query1.finance.yahoo.com/v8/finance/chart/GME" | jq '.chart.result[0].meta.regularMarketPrice')
+          
+          echo "| $DATE | DJT | \\$DJT | NULL (0) | Automated price suppression; void ab initio. |" >> WALL_OF_SHAME.md
+          echo "| $DATE | GME | \\$GME | NULL (0) | Non-sovereign algorithmic 'hammering' detected. |" >> WALL_OF_SHAME.md
+      
+      - name: Commit to the Grid
+        run: |
+          git config --global user.name "Sovereign-Bot"
+          git config --global user.email "bot@burgessprinciple.com"
+          git add WALL_OF_SHAME.md
+          git commit -m "Auto-Purification Log: $DATE [NULL (0)]"
+          git push

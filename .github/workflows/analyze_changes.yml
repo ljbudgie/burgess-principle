@@ -9,6 +9,8 @@ on:
 jobs:
   analyze:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
@@ -29,4 +31,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add OPENCLAW_MANDATE.md
         git diff --cached --quiet || git commit -m "Updated OPENCLAW_MANDATE.md with analysis results"
-        git push || echo "Nothing to push"
+        git diff --cached --quiet && echo "No changes to push" || git push

@@ -15,7 +15,6 @@ def main():
     engine = GrokPurificationEngine()
     print("xAI-hybrid Purification Service initialised.")
     # Implementation here: accept input data and run purification
-    return engine
 
 
 if __name__ == "__main__":

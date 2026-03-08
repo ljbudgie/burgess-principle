@@ -1,4 +1,6 @@
 import logging
+import os
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
@@ -20,7 +22,13 @@ async def handle_unknown(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     await update.message.reply_text('Sorry, I did not understand that command.')
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token('YOUR_TOKEN_HERE').build()
+    token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    if not token:
+        raise RuntimeError(
+            "TELEGRAM_BOT_TOKEN environment variable is not set. "
+            "Please set it to your Telegram bot token before running."
+        )
+    application = ApplicationBuilder().token(token).build()
 
     # Command handler for /start
     application.add_handler(CommandHandler('start', start))

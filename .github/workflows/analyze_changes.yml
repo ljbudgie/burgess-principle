@@ -1,1 +1,34 @@
-name: Analyze Changes\n\non:\n  push:\n    paths:\n      - 'OPENCLAW_MANDATE.md'\n      - 'clawbot.py'\n      - 'other_important_file_1'\n      - 'other_important_file_2'\n\njobs:\n  analyze:\n    runs-on: ubuntu-latest\n    \n    steps:\n    - name: Checkout repository\n      uses: actions/checkout@v2\n    \n    - name: Run analysis script\n      run: |\n        python3 path/to/your/analyze_script.py # Modify to the correct path\n\n    - name: Update OPENCLAW_MANDATE.md\n      run: |\n        echo "New analysis results..." >> OPENCLAW_MANDATE.md # Customize this line as needed\n    \n    - name: Commit changes\n      run: |\n        git config --local user.email \"action@github.com\"\n        git config --local user.name \"GitHub Action\"\n        git add OPENCLAW_MANDATE.md\n        git commit -m \"Updated OPENCLAW_MANDATE.md with new analysis results\"\n\n    - name: Create issue update\n      run: |\n        # Add code here to log changes to an issue or PR, using GitHub CLI or API\n
+name: Analyze Changes
+
+on:
+  push:
+    paths:
+      - 'OPENCLAW_MANDATE.md'
+      - 'clawbot.py'
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run analysis
+      run: |
+        echo "Analyzing changes to monitored files..."
+        # Add analysis script here when ready
+
+    - name: Update OPENCLAW_MANDATE.md
+      run: |
+        echo "Analysis results logged at $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> OPENCLAW_MANDATE.md
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add OPENCLAW_MANDATE.md
+        git diff --cached --quiet || git commit -m "Updated OPENCLAW_MANDATE.md with analysis results"
+        git diff --cached --quiet && echo "No changes to push" || git push

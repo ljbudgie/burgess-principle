@@ -1,19 +1,68 @@
 # 🔍 TRACER PROTOCOL: DEFECT SCHEMA LIBRARY
+#
+# This library defines the specific "Facial Defects" that render a corporate
+# warrant or contract Void Ab Initio under the Burgess Principle.  The tracer
+# module uses these definitions to hunt for evidence of administrative taint.
 
-This library defines the specific "Facial Defects" that render a corporate warrant or contract Void Ab Initio under the Burgess Principle. The `tracer.py` module uses these definitions to hunt for evidence of administrative taint.
+"""TRACER — defect schema definitions for the Burgess Principle."""
 
-### [ DEFECT 01 ] Bulk Approval Without Scrutiny
-*   **Description:** Warrants processed in batches without individual judicial review.
-*   **The Axiom:** Violates "The Judicial Mind." If a judge did not scrutinize the specific facts of the individual case, the resulting data is a `0` (NULL).
 
-### [ DEFECT 02 ] Rubber-Stamping
-*   **Description:** Reliance on supplier affidavits without independent verification.
-*   **The Axiom:** The court acts as a processing center rather than an independent judiciary, transferring corporate assumptions directly into legal mandates.
+# Each defect is a dict with an id, title, description, and axiom.
+DEFECT_SCHEMA = [
+    {
+        "id": "DEFECT_01",
+        "title": "Bulk Approval Without Scrutiny",
+        "description": (
+            "Warrants processed in batches without individual judicial review."
+        ),
+        "axiom": (
+            "Violates 'The Judicial Mind.' If a judge did not scrutinize the "
+            "specific facts of the individual case, the resulting data is a 0 (NULL)."
+        ),
+    },
+    {
+        "id": "DEFECT_02",
+        "title": "Rubber-Stamping",
+        "description": (
+            "Reliance on supplier affidavits without independent verification."
+        ),
+        "axiom": (
+            "The court acts as a processing center rather than an independent "
+            "judiciary, transferring corporate assumptions directly into legal mandates."
+        ),
+    },
+    {
+        "id": "DEFECT_03",
+        "title": "Procedural Lies / Errors",
+        "description": (
+            "False safety claims (e.g., claiming a gas leak to force entry) or "
+            "incomplete addresses used to expedite the warrant process."
+        ),
+        "axiom": (
+            "Fraud vitiates all. Any procedural lie introduced at the source "
+            "renders all downstream actions invalid."
+        ),
+    },
+    {
+        "id": "DEFECT_04",
+        "title": "Downstream Taint Propagation",
+        "description": (
+            "Defects from the above categories cascading into credit agencies, "
+            "billing systems, or high court enforcement records."
+        ),
+        "axiom": "A corrupted source (0) can only produce corrupted outputs.",
+    },
+]
 
-### [ DEFECT 03 ] Procedural Lies / Errors
-*   **Description:** False safety claims (e.g., claiming a gas leak to force entry) or incomplete addresses used to expedite the warrant process.
-*   **The Axiom:** Fraud vitiates all. Any procedural lie introduced at the source renders all downstream actions invalid.
 
-### [ DEFECT 04 ] Downstream Taint Propagation
-*   **Description:** Defects from the above categories cascading into credit agencies, billing systems, or high court enforcement records.
-*   **The Axiom:** A corrupted source (`0`) can only produce corrupted outputs.
+def get_defect(defect_id):
+    """Return the defect definition matching *defect_id*, or ``None``."""
+    for defect in DEFECT_SCHEMA:
+        if defect["id"] == defect_id:
+            return defect
+    return None
+
+
+def list_defects():
+    """Return a list of all known defect IDs."""
+    return [d["id"] for d in DEFECT_SCHEMA]

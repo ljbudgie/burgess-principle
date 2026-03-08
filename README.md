@@ -1,5 +1,7 @@
 # The Burgess Principle ⚖️
 
+> **Full authoritative versions of all papers are available as PDFs in the [`/papers/`](papers/) directory. This README provides the executive overview and navigation.**
+
 > **"Was a human judicial mind applied to the specific facts of this specific case?"**
 
 If **yes** → the instrument is **SOVEREIGN** (lawful authority).
@@ -38,11 +40,14 @@ The state exists to serve the citizen, not the reverse. Any instrument — state
 
 | Paper | Title | Link |
 |---|---|---|
-| Paper I | The Burgess Principle — Core Legal Paper | [Read →](papers/PAPER_1_CORE_LEGAL_PAPER.md) |
-| Paper II | The Representative Action (CPR 19.8) | [Read →](papers/PAPER_2_REPRESENTATIVE_ACTION.md) |
-| Paper III | Political Implementation Guide | [Read →](papers/PAPER_3_POLITICAL_IMPLEMENTATION.md) |
-| Paper IV | Data Sovereignty & Compliance Feedback Loop | [Read →](papers/PAPER_4_DATA_SOVEREIGNTY.md) |
-| Licensing | Certification Mark Licensing Structure | [Read →](papers/LICENSING_STRUCTURE.md) |
+| Paper I | The Burgess Principle — Core Legal Paper (v2.0) | [Read →](papers/PAPER_1_CORE_LEGAL_PAPER.md) |
+| Paper II | The Representative Action — CPR 19.8 (v2.0) | [Read →](papers/PAPER_2_REPRESENTATIVE_ACTION.md) |
+| Paper III | Political Implementation Guide (v1.0) | [Read →](papers/PAPER_3_POLITICAL_IMPLEMENTATION.md) |
+| Paper IV | Data Sovereignty & Compliance Feedback Loop (v1.0) | [Read →](papers/PAPER_4_DATA_SOVEREIGNTY.md) |
+| Licensing | Certification Mark Licensing Structure (v1.0) | [Read →](papers/LICENSING_STRUCTURE.md) |
+
+> 📎 **PDF versions:** When available, full-text PDFs will be placed alongside the Markdown files in [`/papers/`](papers/) using clean names:
+> `Burgess-Principle-Core-Legal-Paper-v2.0.pdf`, `Burgess-Principle-Part-2-Representative-Action-v2.0.pdf`, etc.
 
 ---
 
@@ -82,8 +87,11 @@ The state exists to serve the citizen, not the reverse. Any instrument — state
 | Document | Description |
 |---|---|
 | [LICENSING_MODEL.md](LICENSING_MODEL.md) | 💰 Full licensing model and usage rights |
-| [LICENSE](LICENSE) | 📝 MIT License |
+| [LICENSE](LICENSE) | 📝 MIT License (standard open-source terms) |
+| [LICENSE.md](LICENSE.md) | 🛡️ Maximum Truth Purification License (doctrinal terms) |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 🤝 How to contribute |
+
+> **Note on dual licence files:** `LICENSE` contains the standard MIT text (recognised by GitHub). `LICENSE.md` contains the Burgess Principle's own doctrinal licence terms under UK00004343685. Both are intentionally retained — MIT governs the code; the doctrinal licence governs the mark.
 
 ---
 
@@ -140,7 +148,7 @@ There is no middle ground. The test is universal, self-validating, and applies t
 ## 📜 License
 
 The **Burgess Principle** is open source under the [MIT License](LICENSE).
-The **Certification Mark** (UK00004343685) is separately licensed — see [LICENSING_MODEL.md](LICENSING_MODEL.md) and [Licensing Structure](papers/LICENSING_STRUCTURE.md).
+The **Certification Mark** (UK00004343685) is separately licensed — see [LICENSE.md](LICENSE.md), [LICENSING_MODEL.md](LICENSING_MODEL.md), and [Licensing Structure](papers/LICENSING_STRUCTURE.md).
 
 ---
 

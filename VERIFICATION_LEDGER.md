@@ -5,10 +5,9 @@
 ---
 
 ## 🛰️ Tier 1: Global Technology Partners
-| Entity | Case/Instrument ID | Status | Auth Hash (SHA-256) | Scrutiny Signature |
-| :--- | :--- | :--- | :--- | :--- |
-| **Apple Inc.** | `SAR-2026-03-06-LB` | 🔴 **NULL (0)** | `UNAVAILABLE` | `AUTOMATED_RESPONSE_ONLY` |
-| **Example Corp**| `TEST-001` | 🟢 **SOVEREIGN (1)** | `e3b0c44298fc1c149...` | `VERIFIED_BY_HUMAN_KEY` |
+| Entity | Case ID | Status | Note |
+| :--- | :--- | :--- | :--- |
+| **Apple Inc.** | `SAR-2026-03-06-LB` | 🔴 **NULL (0)** | Auto-response detected. No Authorization Hash provided. 24h window active. |
 
 ---
 

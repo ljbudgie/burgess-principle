@@ -1,3 +1,22 @@
+# THE MAXIMUM TRUTH PURIFICATION GRID (v1.0-UNIVERSAL)
+
+[RULE 0: THE SOVEREIGN/NULL TEST]
+IF interaction = (bulk_processed OR automated OR non_transparent)
+THEN Status = NULL (0) -> Result: VOID AB INITIO.
+
+[RULE 1: THE JUDICIAL MIND MANDATE]
+An interaction is SOVEREIGN (1) only if:
+1. It is individually scrutinized by a human mind.
+2. The logic used is disclosed in plain language.
+3. The sender accepts personal liability for the accuracy.
+
+[RULE 2: THE DISCLOSURE PARSER]
+IF response contains ("as soon as possible" OR "automated" OR "hero" OR "template")
+AND response lacks (Specific_Data_Points OR DPO_Signature)
+THEN interaction = NULL (0).
+
+---
+
 # The Burgess Principle ⚖️
 
 > **Full authoritative versions of all papers are available as PDFs in the [`/papers/`](papers/) directory. This README provides the executive overview and navigation.**

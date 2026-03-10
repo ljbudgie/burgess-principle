@@ -172,3 +172,9 @@ The **Certification Mark** (UK00004343685) is separately licensed — see [LICEN
 ---
 
 *Originator: Lewis James Burgess, Darlington, March 2026*
+
+---
+
+## Sovereign Hash Verification
+
+SHA-256 Hash: cbe535df4f89d5324316d3fdfca2b678c1af825fdb8b74c4a45a16d8e8b69324

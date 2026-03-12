@@ -96,6 +96,7 @@ The administrative machinery has substituted hidden digital metadata for soverei
 
 | Document | Description |
 |---|---|
+| [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md) | 🔴 LIVE: Real-time tracking of systemic defaults and metadata discoveries |
 | [PRINCIPLE.md](PRINCIPLE.md) | 📜 The Proof Point Strategy — live operational log |
 | [LEGAL_DOCTRINE.md](LEGAL_DOCTRINE.md) | ⚖️ Full legal doctrine and case law foundation |
 | [SOUL.md](SOUL.md) | 🔥 The soul and intent behind the principle |

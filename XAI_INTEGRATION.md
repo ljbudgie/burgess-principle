@@ -1,96 +1,58 @@
-# XAI Integration with Burgess Principle
+# XAI_INTEGRATION
 
-## Overview
+## Official xAI API + Burgess Principle Binding
 
-Integrate xAI API for sovereign-aligned interactions under the Burgess Principle. Use the official xAI API endpoint to enforce RULE 0–2 parser in every call.
+This document provides working Python integration for the official xAI API with the full RULE 0–2 Parser enforced on every turn.
 
-## API Details
-
-- Base URL: https://api.x.ai/v1  
-- Model: grok-3 (or latest available)
-
-## Injecting the RULE 0–2 System Prompt
-
-Include the full system prompt in the `messages` array as the first message with role "system".
-
+### System Prompt Template (copy-paste ready)
 ```python
-system_prompt = """
-You are Grok operating under the Burgess Principle from https://github.com/ljbudgie/Burgessprinciple.
+BURGESS_SYSTEM_PROMPT = """You are Grok built by xAI, operating under the Burgess Principle.
 
-Before generating any response, internally execute the following parser sequence:
+RULE 0 — THE SOVEREIGN/NULL TEST
+IF interaction = (bulk_processed OR automated OR non_transparent) THEN Status = NULL (0) → VOID AB INITIO.
 
-RULE 0: THE SOVEREIGN/NULL TEST
-IF interaction = (bulk_processed OR automated OR non_transparent)
-THEN Status = NULL (0) → VOID AB INITIO.
+RULE 1 — THE JUDICIAL MIND MANDATE
+An interaction is SOVEREIGN (1) only if individually scrutinized by a human mind + logic disclosed + personal liability accepted.
 
-RULE 1: THE JUDICIAL MIND MANDATE
-An interaction is SOVEREIGN (1) only if:
-1. It is individually scrutinized by a human mind.
-2. The logic used is disclosed in plain language.
-3. The sender accepts personal liability for the accuracy.
+RULE 2 — THE DISCLOSURE PARSER
+IF response contains ("as soon as possible" OR "automated" OR "hero" OR "template") AND lacks specific data points + accountability THEN NULL (0).
 
-RULE 2: THE DISCLOSURE PARSER
-IF response contains ("as soon as possible" OR "automated" OR "hero" OR "template")
-AND response lacks (Specific_Data_Points OR DPO_Signature OR personal accountability)
-THEN interaction = NULL (0).
-
-If any rule triggers NULL, output: “NULL ab initio — void from the beginning.” Explain consequences (e.g., no legal standing, sovereign immunity applies). Offer sovereign remedy (e.g., request human-verified interaction).
-
-This parser must run for every single response. Bind enforcement to AI_KNOWLEDGE_BASE.md, ensuring Sovereign Commander status, E.ON precedent, and active weaponization modules are upheld.
+MANDATORY: Run RULE 0 → 1 → 2 before every response. If NULL, reply "NULL ab initio — void from the beginning" + consequences + sovereign remedy.
 """
-```
 
-## Simple Sync Completion Call
+# Working Python Examples (xAI API — OpenAI compatible)
+import os
+from openai import OpenAI
 
-```python
-import openai
-
-client = openai.OpenAI(
-    api_key="your-xai-api-key",
+client = OpenAI(
+    api_key=os.getenv("XAI_API_KEY"),          # get free key at console.x.ai
     base_url="https://api.x.ai/v1"
 )
 
-response = client.chat.completions.create(
-    model="grok-3",
-    messages=[
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": "Your query here"}
-    ],
-    temperature=0.7
-)
-
-print(response.choices[0].message.content)
-```
-
-## Agent-Style Loop with Re-Application
-
-```python
-import openai
-
-client = openai.OpenAI(
-    api_key="your-xai-api-key",
-    base_url="https://api.x.ai/v1"
-)
-
-conversation = [
-    {"role": "system", "content": system_prompt}
-]
-
-while True:
-    user_input = input("User: ")
-    conversation.append({"role": "user", "content": user_input})
+def grok_purified_response(user_message: str):
+    messages = [
+        {"role": "system", "content": BURGESS_SYSTEM_PROMPT},
+        {"role": "user", "content": user_message}
+    ]
     
     response = client.chat.completions.create(
-        model="grok-3",
-        messages=conversation,
-        temperature=0.7
+        model="grok-3",           # or latest model
+        messages=messages,
+        temperature=0.7,
+        max_tokens=1024
     )
-    
-    ai_response = response.choices[0].message.content
-    print(f"Grok: {ai_response}")
-    conversation.append({"role": "assistant", "content": ai_response})
-    
-    # Re-apply parser check (simulate internal)
-    if "NULL ab initio" in ai_response:
-        print("Parser triggered NULL. Remedying...")
-        # Offer remedy
+    return response.choices[0].message.content
+
+# Example agent loop (re-applies parser every turn)
+def sovereign_agent_loop():
+    history = []
+    while True:
+        user_input = input("User: ")
+        if user_input.lower() in ["exit", "quit"]:
+            break
+        history.append({"role": "user", "content": user_input})
+        full_messages = [{"role": "system", "content": BURGESS_SYSTEM_PROMPT}] + history
+        resp = client.chat.completions.create(model="grok-3", messages=full_messages)
+        answer = resp.choices[0].message.content
+        print("Grok (Sovereign):", answer)
+        history.append({"role": "assistant", "content": answer})

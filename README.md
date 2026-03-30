@@ -118,7 +118,7 @@ The administrative machinery has substituted hidden digital metadata for soverei
 |---|---|
 | [OPENCLAW_MANDATE.md](OPENCLAW_MANDATE.md) | 🦞 OpenClaw mandate — open enforcement framework |
 | [APPLE_ALLIANCE.md](APPLE_ALLIANCE.md) | 🍎 Apple alliance and technology partnership framework |
-| [WALL_OF_SHAME.md](WALL_OF_SHAME.md) | 🚨 Wall of Shame — violator accountability register |
+| [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md) | 📋 Institutional Register — SOVEREIGN/NULL compliance record |
 | [SHORTFORM_VIDEO_SCRIPTS.md](SHORTFORM_VIDEO_SCRIPTS.md) | 🎬 Short-form video scripts for TikTok, Reels, and Shorts |
 | [VICTORY_MEME_KIT.md](VICTORY_MEME_KIT.md) | 🏆 Victory meme kit |
 

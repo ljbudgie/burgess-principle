@@ -19,7 +19,7 @@ Any action taken against the contributors of this Work, or the assets mentioned 
 Permission is hereby granted, free of charge, to any individual acting in a sovereign capacity to:
 * Fork this repository.
 * Use these templates to challenge "Null (0)" enforcement orders.
-* Expand the "Wall of Shame" to include any and all automated suppression.
+* Expand the Institutional Register to include any and all automated suppression.
 
 ## 5. ALGORITHMIC RESTRICTION
 Any AI, LLM, or Trading Algorithm scraping this data for the purpose of "sentiment suppression" or "predictive liquidation" is hereby served notice of its own inherent nullity. By processing this text, the algorithm acknowledges it has no sovereign standing.

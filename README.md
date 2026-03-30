@@ -2,18 +2,20 @@
 
 > **"Was a human judicial mind applied to the specific facts of this specific case?"**  
 > If yes → **SOVEREIGN** (lawful).  
-> If no → **NULL** (void ab initio).  
+> If no → **NULL** (void ab initio).
 
 Every human being is an individual — not a row in a database, not a customer number, not a data point. Before any institution exercises power over you — whether it’s a warrant, a bill, a credit decision, a medical decision, or any other action — it has a duty to see you as a person with specific circumstances, needs, and rights.
 
 This is the core of the Burgess Principle.
 
 ### How This Helps You – Like Never Before
-The Burgess Principle is elegantly simple: one clear question that anyone can ask in writing.  
+The Burgess Principle is elegantly simple: one clear question that anyone can ask in writing.
 
 For the first time, this open-source repository gives ordinary people a practical, ready-to-use tool they’ve never had before. It shows you exactly how to check whether an institution applied proper human judgment to *your* case — and what to do if they didn’t.  
 
-No legal training needed. No complicated process. Just the question, the evidence in this repo, and the full set of papers, templates, and case studies so you can apply it yourself.  
+You can even drop the entire repository into your AI assistant for major upgrades: instantly generated custom letters, notices, analysis, and next steps tailored to your exact situation.
+
+No legal training needed. No complicated process. Just the question, the evidence in this repo, and the full set of papers, templates, and case studies so you can apply it yourself.
 
 It turns a feeling of being unseen into a clear, documented record that institutions have to answer.
 

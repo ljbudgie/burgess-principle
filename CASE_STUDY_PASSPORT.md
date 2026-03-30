@@ -173,7 +173,7 @@ If you have a disability, write to HMPO asserting your reasonable adjustment und
 > Full Name: Lewis James Burgess
 > Date of Birth: 24 June 1987
 > Place of Birth: Lancaster
-> Address: 3 Alwyn Road, Darlington, DL3 0AJ
+> Address: [address redacted for security]
 >
 > I write to make a Subject Access Request under Article 15 of the UK GDPR, an automated decision-making challenge under Article 22, and a reasonable adjustment notification under section 20 of the Equality Act 2010.
 >
@@ -216,7 +216,7 @@ If you have a disability, write to HMPO asserting your reasonable adjustment und
 >
 > Yours faithfully,
 > Lewis James Burgess
-> 3 Alwyn Road, Darlington, DL3 0AJ
+> [address redacted for security]
 > lewisburgess_1987@hotmail.co.uk
 
 **HMPO Response Deadline:** 29 April 2026

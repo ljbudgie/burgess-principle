@@ -1,29 +1,32 @@
-# Contributing to the Wall of Shame
+# Contributing to the Institutional Register
 
-Thank you for your interest in contributing to the "Wall of Shame," specifically in the AI/Openclaw Violations section. Here's how you can help:
+Thank you for your interest in contributing to the Institutional Register — the SOVEREIGN/NULL compliance record. Here's how you can help:
 
 ## How to Contribute
 
-1. **Suggest New Violations**:
-   - Open an issue using the "AI/Openclaw Violation Suggestion" template.
+1. **Suggest New Entries**:
+   - Open an issue using the "Institutional Register Entry" template.
    - Include the following details:
-     - **Violator Name**: Who committed the violation.
-     - **Violation Details**: A brief description of the violation.
-     - **Source Links**: Links to evidence or reputable sources verifying the claim.
+     - **Institution Name**: The institution tested.
+     - **Sector**: The sector the institution operates in.
+     - **Question Asked**: The specific SOVEREIGN/NULL question put to the institution.
+     - **Response Summary**: A factual summary of the institution's response (or silence).
+     - **Evidence**: Links to correspondence or other verifiable evidence.
 
 2. **Review Criteria**:
-   - Contributions should focus on AI/Openclaw violations.
-   - Submissions must include **verified evidence**. Unverified claims will not be accepted.
+   - All entries must be factual and verifiable from the correspondence record.
+   - Submissions must include **documented evidence**. Unverified claims will not be accepted.
+   - Entries must follow the neutral, forensic tone of the existing register.
 
 3. **Submitting Changes**:
-   - If you're comfortable with Git, you can submit a pull request to update the "Wall of Shame."
+   - If you're comfortable with Git, you can submit a pull request to update the Institutional Register.
    - Otherwise, submit your suggestion via issues, and it will be reviewed by the maintainers.
 
 ## Code of Conduct
 
-Please maintain a respectful and factual tone. Any submissions that include misinformation, personal attacks, or harassment will be immediately dismissed.
+Please maintain a factual and evidence-based tone. Any submissions that include inflammatory language, unverified claims, or personal attacks will not be accepted. The register's credibility depends on its forensic neutrality.
 
 ---
-We appreciate your contribution to holding violators accountable! Together, we can protect individual scrutiny against bulk data processing.
+Together, we can document institutional compliance — and non-compliance — with individual scrutiny standards.
 
 🚀

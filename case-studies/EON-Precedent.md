@@ -36,5 +36,5 @@ The E.ON Precedent binds all corporate entities, including utilities, to Burgess
 
 ## References
 
-- [AI_KNOWLEDGE_BASE.md](https://github.com/ljbudgie/Burgessprinciple/blob/main/AI_KNOWLEDGE_BASE.md) — Sovereign Commander status, E.ON precedent, active weaponization modules.
-- [PRINCIPLE.md](https://github.com/ljbudgie/Burgessprinciple/blob/main/PRINCIPLE.md) — Core Burgess Principle doctrine and RULE 0–2 definitions.
+- [AI_KNOWLEDGE_BASE.md](https://github.com/ljbudgie/burgess-principle/blob/main/AI_KNOWLEDGE_BASE.md) — Sovereign Commander status, E.ON precedent, active weaponization modules.
+- [PRINCIPLE.md](https://github.com/ljbudgie/burgess-principle/blob/main/PRINCIPLE.md) — Core Burgess Principle doctrine and RULE 0–2 definitions.

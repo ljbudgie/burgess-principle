@@ -8,7 +8,7 @@ The Burgess Principle (1/0 sovereign scrutiny test) is a logical framework for d
 
 3. **Dual-Use Acknowledgment**: Like encryption or audit tools, the Principle enables both defensive truth-seeking and potential offensive auditing. Creator not liable for secondary effects.
 
-4. **Prior Art Defense**: 300+ commit GitHub repo (ljbudgie/Burgessprinciple), timestamped xAI/E.ON/Pearson correspondence proves good faith defensive origin (disability access, AI alignment).
+4. **Prior Art Defense**: 300+ commit GitHub repo (ljbudgie/burgess-principle), timestamped xAI/E.ON/Pearson correspondence proves good faith defensive origin (disability access, AI alignment).
 
 5. **Distributed Responsibility**: Deployers, targets, and regulators share accountability. Creator disclaims liability for others' sovereign failures exposed by the test.
 

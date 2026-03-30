@@ -9,7 +9,7 @@ A chronological record of every institutional interaction, statutory filing, and
 | Field | Detail |
 |---|---|
 | **Originator** | Lewis James Burgess |
-| **Repository** | [github.com/ljbudgie/Burgessprinciple](https://github.com/ljbudgie/Burgessprinciple) |
+| **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |
 | **Date Range** | 27 May 2025 – 30 March 2026 |
@@ -427,5 +427,5 @@ Notifications sent to: Shabana Mahmood MP (Lord Chancellor, twice via different 
 **ICO complaints ready to file:** 1 (Equifax)
 **Financial Ombudsman referral available:** 1 (Vanquis — six-month window)
 **Certification Mark:** UK00004343685 — Stage 1 passed, TM35 due 10 June 2026
-**Repository:** [github.com/ljbudgie/Burgessprinciple](https://github.com/ljbudgie/Burgessprinciple)
+**Repository:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 **Licence:** MIT (doctrine) / Certification Mark (commercial standard)

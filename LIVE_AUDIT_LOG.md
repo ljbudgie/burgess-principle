@@ -54,6 +54,7 @@ A chronological record of every institutional interaction, statutory filing, and
 | **DSARs pending** | 7 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO) |
 | **Ombudsman referrals ready to file** | 1 (British Gas — pending 3 April 2026 deadline) |
 | **LGO referral ready to file** | 1 (Darlington Borough Council) |
+| **ICO complaints filed** | 1 (Apple — filed 18 March 2026) |
 | **ICO complaints ready to file** | 1 (Equifax) |
 | **Financial Ombudsman referral available** | 1 (Vanquis — six-month window from 26 March 2026) |
 
@@ -78,14 +79,16 @@ A chronological record of every institutional interaction, statutory filing, and
 **Sector:** Technology
 **Key Contact:** Katie (case handler)
 **Case-ID:** 18800092
-**Status:** Active
+**Status:** Active — ICO complaint filed 18 March 2026
 **SOVEREIGN/NULL Finding:** NULL — template responses without individual engagement with specific points.
 
-- DSAR filed. Case-ID 18800092 assigned to handler Katie. Deadline: 6 April 2026.
-- Six specific points raised, including Polymarket geo-restriction (Article 22 UK GDPR), law enforcement disclosure, and Siri data training.
-- Katie responded: "refer to previous email" — twice. No substantive engagement with any of the six points.
-- **Deadline:** 6 April 2026.
-- **Next action:** ICO complaint if no substantive response by deadline.
+- 6 March 2026: Detailed Subject Access Request submitted to Apple's Data Protection Officer under Article 15 UK GDPR. Specified categories included records of third-party data sharing, law enforcement disclosures, automated decision-making applied to account, and whether data has been used for AI training. Also contained formal complaint under Article 22 UK GDPR regarding geo-restricted App Store content (Polymarket) applied as blanket policy without individual consideration. Written confirmation of reasonable adjustments under Equality Act 2010 requested. Case-ID 18800092 assigned to handler Katie. Deadline: 6 April 2026.
+- 16 March 2026: Apple responded with template email directing to self-service privacy portal, reproduced extracts from its privacy policy, and provided single-sentence response to Article 22 complaint stating Apple does not believe it takes decisions involving algorithms or profiling that produce legal effects. Response did not address specific categories of data requested, did not engage with specific example raised, did not confirm whether data had been disclosed to law enforcement, did not confirm reasonable adjustments, and did not acknowledge the formal complaint.
+- 16 March 2026: Complainant replied with detailed point-by-point response identifying six specific matters outstanding, each tied to a named provision of UK GDPR. Set out precisely what had not been addressed and requested substantive responses by statutory deadline of 6 April 2026.
+- 18 March 2026: Apple responded with two-sentence email stating: "We would kindly refer you to our previous email." No further substantive engagement offered.
+- 18 March 2026: Formal complaint filed with ICO under Article 77 UK GDPR. Six grounds of complaint: (1) failure to provide complete DSAR response — directing to self-service portal does not discharge Article 15 obligations for specific categories including Article 15(1)(c) disclosures to third parties and law enforcement, and Article 15(1)(h) automated decision-making logic; (2) failure to provide meaningful information about automated decision-making under Article 15(1)(h) and failure to engage with Article 22 complaint regarding geo-restricted content; (3) failure to confirm whether personal data disclosed to law enforcement, intelligence service, or government body; (4) failure to acknowledge or separately log formal complaint; (5) failure to provide written confirmation of reasonable adjustments under Equality Act 2010; (6) when inadequacy of initial response identified in detail, sole response was referral back to email already identified as non-compliant. Full correspondence chain attached.
+- **Deadline:** 6 April 2026 (DSAR statutory deadline).
+- **Next action:** Await ICO investigation outcome. Monitor for Apple substantive response by 6 April 2026.
 
 ---
 
@@ -402,7 +405,7 @@ Notifications sent to: Shabana Mahmood MP (Lord Chancellor, twice via different 
 | 3 April 2026 | Phonak / Sonova | DSAR response due |
 | 3 April 2026 | Durham Constabulary | Await SAR response |
 | 4 April 2026 | Trading 212 | DSAR response due |
-| 6 April 2026 | Apple | DSAR response due |
+| 6 April 2026 | Apple | DSAR response due (ICO complaint filed 18 March 2026) |
 | 6 April 2026 | X / Twitter | DSAR response due |
 | 29 April 2026 | HMPO | DSAR response due |
 | 6 May 2026 | Energy Ombudsman (E.ON) | Decision due — case EG021819-26 |
@@ -420,6 +423,7 @@ Notifications sent to: Shabana Mahmood MP (Lord Chancellor, twice via different 
 **DSARs pending:** 7 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO)
 **Ombudsman referrals ready to file:** 1 (British Gas — pending 3 April deadline)
 **LGO referral ready to file:** 1 (Darlington Borough Council)
+**ICO complaints filed:** 1 (Apple — filed 18 March 2026)
 **ICO complaints ready to file:** 1 (Equifax)
 **Financial Ombudsman referral available:** 1 (Vanquis — six-month window)
 **Certification Mark:** UK00004343685 — Stage 1 passed, TM35 due 10 June 2026

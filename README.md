@@ -8,10 +8,19 @@ Every human being is an individual — not a row in a database, not a customer n
 
 This is the core of the Burgess Principle.
 
+### How This Helps You – Like Never Before
+The Burgess Principle is elegantly simple: one clear question that anyone can ask in writing.  
+
+For the first time, this open-source repository gives ordinary people a practical, ready-to-use tool they’ve never had before. It shows you exactly how to check whether an institution applied proper human judgment to *your* case — and what to do if they didn’t.  
+
+No legal training needed. No complicated process. Just the question, the evidence in this repo, and the full set of papers, templates, and case studies so you can apply it yourself.  
+
+It turns a feeling of being unseen into a clear, documented record that institutions have to answer.
+
 ### Origin Story
 This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On 27 May 2025, enforcement agents drilled open his front door and replaced the locks under Warrant RE99022, issued by Birmingham Magistrates’ Court. The warrant was unsigned on its face. The names of three magistrates appeared only in the hidden PDF metadata.
 
-That incident showed a wider pattern: decisions were being made through automated bulk systems without individual human review of the specific facts. The same hearing loss that created communication barriers became the reason the documents and processes were examined closely. What emerged was a simple, binary test for whether institutional actions are lawful.
+That incident showed a wider pattern: decisions were being made through automated bulk systems without individual human review of the specific facts. The same hearing loss that created communication barriers became the reason the documents and processes were examined closely. What emerged was this simple, binary test.
 
 ### The Binary Test
 - **SOVEREIGN**: A named individual reviewed the specific facts of the case and accepted responsibility for the decision.  
@@ -27,7 +36,7 @@ As of 30 March 2026 the principle has been applied to 16 institutions:
 
 UK Magistrates’ Courts issued 536,139 energy warrants in 18 months through the same bulk CSV process with minimal individual oversight.  
 
-Full details and the complete institutional register are in [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md) and [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md).
+Full details are in [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md) and [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md).
 
 ### Mission
 The state and private institutions exist to serve the citizen. Any exercise of authority over an individual should involve individual human scrutiny of the specific facts.

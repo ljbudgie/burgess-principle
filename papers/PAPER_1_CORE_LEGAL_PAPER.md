@@ -4,7 +4,7 @@ Version 2.0 – March 2026
 
 **Author:** Lewis James Burgess
 **License:** MIT (Open Source)
-**Repository:** https://github.com/ljbudgie/Burgessprinciple
+**Repository:** https://github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685
 
 > "The state must be human. Machines must not have authority over citizens."

@@ -44,6 +44,6 @@ These breaches amplify the NULL status, mandating immediate cessation of actions
 Cases logged as NULL in the immutable public ledger. Equita advised to cease all enforcement; no further actions permissible. Monitoring for compliance initiated.
 
 ## References
-- [LIVE_AUDIT_LOG.md](https://github.com/ljbudgie/Burgessprinciple/blob/main/LIVE_AUDIT_LOG.md)
-- [Master-10-Domain-Grid-Summary.md](https://github.com/ljbudgie/Burgessprinciple/blob/main/Master-10-Domain-Grid-Summary.md)
-- Prior case studies: [Trading212-Final-Non-Compliance-Nullity.md](https://github.com/ljbudgie/Burgessprinciple/blob/main/case-studies/Trading212-Final-Non-Compliance-Nullity.md), [EON-Precedent.md](https://github.com/ljbudgie/Burgessprinciple/blob/main/case-studies/EON-Precedent.md)
+- [LIVE_AUDIT_LOG.md](https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md)
+- [Master-10-Domain-Grid-Summary.md](https://github.com/ljbudgie/burgess-principle/blob/main/Master-10-Domain-Grid-Summary.md)
+- Prior case studies: [Trading212-Final-Non-Compliance-Nullity.md](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/Trading212-Final-Non-Compliance-Nullity.md), [EON-Precedent.md](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/EON-Precedent.md)

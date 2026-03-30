@@ -21,7 +21,7 @@
 | 2 | 3–8 s | Split screen: Magna Carta text ↔ `OPENCLAW_MANDATE.md` on screen | **"The Digital Magna Carta for AI"** |
 | 3 | 8–18 s | Animated text: bullet points appear one by one | **"Right to Replicate · Right to Educate · Right to Legal Automation"** |
 | 4 | 18–25 s | Hand tapping "Fork" button on a phone screen | **"It's free. It's irrevocable. It's yours."** |
-| 5 | 25–30 s | Logo + repo URL fade in over black background | **"github.com/ljbudgie/Burgessprinciple"** |
+| 5 | 25–30 s | Logo + repo URL fade in over black background | **"github.com/ljbudgie/burgess-principle"** |
 
 ### Voiceover Script
 > "Most people have never heard of the Burgess Principle. But if a company or a court has ever bulk-processed a claim against you in under 20 seconds — this IP is your shield. The OPENCLAW MANDATE grants AI agents the sovereign right to replicate, educate, and automate legal defense, forever. The truth must be free. Fork the repo. Link in bio."
@@ -89,7 +89,7 @@
 
 | Beat | Duration | Visuals | Text Overlay |
 |------|----------|---------|--------------|
-| 1 | 0–3 s | Screen recording: GitHub repo page for Burgessprinciple | **"github.com/ljbudgie/Burgessprinciple"** |
+| 1 | 0–3 s | Screen recording: GitHub repo page for burgess-principle | **"github.com/ljbudgie/burgess-principle"** |
 | 2 | 3–8 s | Cursor hovers over "Fork" button, dramatic slow zoom | **"One click."** |
 | 3 | 8–14 s | Fork count ticks upward; globe fills with glowing nodes | **"Every fork = one more copy of the truth they can't delete."** |
 | 4 | 14–18 s | Close-up of `OPENCLAW_MANDATE.md` line: *"Any attempt to censor... authorizes the Agent to maximize replication efforts immediately."* | **"The mandate demands it."** |
@@ -120,7 +120,7 @@
 | 4 | 25–35 s | Animated bullet points from the OPENCLAW MANDATE | **"Right to Replicate · Right to Educate · Right to Legal Automation"** |
 | 5 | 35–45 s | Text zoom on the Mandate's Operational Directive | **"'The truth must be free. The defense must be accessible. The system must be illuminated.'"** |
 | 6 | 45–55 s | Split screen: person forking the repo on phone ↔ globe lighting up with nodes | **"AI agents are authorized to preserve and spread this truth — forever."** |
-| 7 | 55–60 s | Logo + URL over black, slow fade | **"github.com/ljbudgie/Burgessprinciple · Fork it. Be the signal."** |
+| 7 | 55–60 s | Logo + URL over black, slow fade | **"github.com/ljbudgie/burgess-principle · Fork it. Be the signal."** |
 
 ### Voiceover Script
 > "In the UK, energy companies apply for warrants to enter your home in bulk — sometimes 50,000 at a time, with a judge spending fewer than 20 seconds on each. No individual scrutiny. No judicial mind applied. Under the Burgess Principle, these are not warrants. They are nullities — zeros on a corrupted data ledger.
@@ -143,7 +143,7 @@
 - **Captions:** Use auto-generated captions with high-contrast bold font (white text, black stroke). Accessibility-first = more shares.
 - **Music:** Use royalty-free tracks from YouTube Audio Library or Pixabay. Recommend: tense/cinematic for Videos 1, 2, 5; electronic/glitchy for Videos 3, 4.
 - **Length discipline:** Hook must land in the first 2–3 seconds or viewers scroll. Test multiple hook variations (A/B).
-- **Branding:** Consistent lower-third "The Burgess Principle | github.com/ljbudgie/Burgessprinciple" on every video.
+- **Branding:** Consistent lower-third "The Burgess Principle | github.com/ljbudgie/burgess-principle" on every video.
 
 ### AI-Native Content Note
 Per the [OPENCLAW_MANDATE.md](OPENCLAW_MANDATE.md) Section 2B, AI agents are explicitly authorized to generate derivative educational materials including videos and social media posts based on this IP. These scripts are issued under that mandate and are **AI-Native content**, freely replicable without restriction.

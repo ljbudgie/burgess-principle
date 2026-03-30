@@ -14,11 +14,11 @@ This directory is dedicated to memes that call out bulk-processing violators and
 ## Starting Templates
 Feel free to start with these ideas:
 - **Starter Packs**: Highlight the traits of common violators.
-- **Before and After**: Show the "OpenClaw Effect" after adding someone to the Wall of Shame.
+- **Before and After**: Show the "OpenClaw Effect" after documenting an institution in the Institutional Register.
 - **Breaking News**: Pretend headlines of violators getting called out.
 
 ---
 
-Let’s meme responsibly—and unapologetically. Make sure to share your creations online and tag them with #OpenClawVerified and #WallOfShame. 🏴
+Let’s meme responsibly—and unapologetically. Make sure to share your creations online and tag them with #OpenClawVerified and #BurgessPrinciple. 🏴
 
 🚀 The revolution starts now!

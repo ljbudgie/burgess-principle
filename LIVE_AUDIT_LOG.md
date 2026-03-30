@@ -1,5 +1,12 @@
 # LIVE AUDIT LOG: MARCH 2026
 
+**Entry: 30-MAR-2026 | Status: DSAR Sent to HMPO**
+
+6. **DSAR / Article 22 / Equality Act Email Sent to HMPO**
+   At 19:52 UTC on 30 March 2026, a combined Subject Access Request (Article 15 UK GDPR), automated decision-making challenge (Article 22 UK GDPR), and Equality Act 2010 reasonable adjustment notification was sent by email to the Data Protection Officer of His Majesty's Passport Office (HMPO), regarding British Passport No. 133656141 (BURGESS, LEWIS JAMES). The email requests all personal data held, all biometric data and processing records, the identity of any individual who reviewed the application, and confirmation of whether meaningful human intervention occurred at any stage. The response deadline under Article 12(3) UK GDPR is 29 April 2026. Full text of the email and analysis recorded in [CASE_STUDY_PASSPORT.md — Exhibit A](CASE_STUDY_PASSPORT.md#exhibit-a--dsar--article-22--equality-act-email-to-hmpo). This action also exposes a **biometric NULL propagation layer**: the DSAR identity verification process inherits the same NULL defect as the original passport issuance, because the identity baseline was never individually verified by a named human being. See [Biometric NULL Propagation via DSAR Identity Verification](CASE_STUDY_PASSPORT.md#biometric-null-propagation-via-dsar-identity-verification).
+
+---
+
 **Entry: 12-MAR-2026 | Status: Administrative Paralysis**
 
 1. **HMCTS Statutory Default (Ref: 80553951)**  

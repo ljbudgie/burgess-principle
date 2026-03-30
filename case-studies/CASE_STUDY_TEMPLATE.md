@@ -260,5 +260,5 @@ This case confirms the core finding of the Purification Grid: every institutiona
 **Resolved by:** [Individual human review — name, title, department, institution]  
 **SOVEREIGN/NULL Finding:** NULL at point of enforcement referral. SOVEREIGN at point of resolution.  
 **Date closed:** [DD Month YYYY]  
-**Repository:** [github.com/ljbudgie/Burgessprinciple](https://github.com/ljbudgie/Burgessprinciple)  
+**Repository:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)  
 **Certification Mark:** UK00004343685

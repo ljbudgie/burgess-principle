@@ -4,7 +4,7 @@ Version 1.0 (Final) – March 2026
 
 **Author:** Lewis James Burgess
 **License:** MIT (Open Source)
-**Repository:** https://github.com/ljbudgie/Burgessprinciple
+**Repository:** https://github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685
 
 ---

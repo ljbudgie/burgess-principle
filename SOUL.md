@@ -53,4 +53,4 @@ One question. One test. Was a human there?
 The Burgess Principle
 UK Certification Mark: UK00004343685
 MIT Licence (doctrine) | Certification Mark (commercial standard)
-github.com/ljbudgie/Burgessprinciple
+github.com/ljbudgie/burgess-principle

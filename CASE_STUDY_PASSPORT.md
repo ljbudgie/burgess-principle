@@ -273,5 +273,5 @@ The Article 22 UK GDPR challenge and the Equality Act section 20 assertion provi
 **Case Status:** ONGOING
 **SOVEREIGN/NULL Finding:** NULL at point of issuance — no named individual reviewed the application or accepted liability for the identity determination.
 **Date opened:** 30 March 2026
-**Repository:** [github.com/ljbudgie/Burgessprinciple](https://github.com/ljbudgie/Burgessprinciple)
+**Repository:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 **Certification Mark:** UK00004343685

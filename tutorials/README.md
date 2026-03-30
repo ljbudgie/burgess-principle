@@ -198,7 +198,7 @@ That's all it takes to start. One question. One email. One institution. The fram
 ---
 
 **The Burgess Principle — Tutorials and Citizen's Guide**
-Repository: [github.com/ljbudgie/Burgessprinciple](https://github.com/ljbudgie/Burgessprinciple)
+Repository: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 Certification Mark: UK00004343685
 Licence: MIT (doctrine) | Certification Mark (commercial standard)
 

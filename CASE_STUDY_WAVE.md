@@ -140,5 +140,5 @@ Any citizen facing automated enforcement should ask one question: did a human be
 **Resolved by:** Individual human review (Erica, Wave Customer Service, Complex Queries)
 **SOVEREIGN/NULL Finding:** NULL at point of enforcement referral. SOVEREIGN at point of resolution.
 **Date closed:** 30 March 2026
-**Repository:** github.com/ljbudgie/Burgessprinciple
+**Repository:** github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685

@@ -41,5 +41,5 @@ No legal training is required. No fee is charged.
 
 One question. Was a human there?
 
-Repository: [github.com/ljbudgie/Burgessprinciple](https://github.com/ljbudgie/Burgessprinciple)
+Repository: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 Certification Mark: UK00004343685

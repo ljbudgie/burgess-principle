@@ -222,4 +222,4 @@ SOVEREIGN findings are documented with equal weight in this register. The framew
 
 ## Maintenance
 
-This register is maintained as part of the live audit trail at github.com/ljbudgie/Burgessprinciple. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
+This register is maintained as part of the live audit trail at github.com/ljbudgie/burgess-principle. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.

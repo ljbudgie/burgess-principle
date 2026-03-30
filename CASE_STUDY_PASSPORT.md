@@ -158,6 +158,104 @@ If you have a disability, write to HMPO asserting your reasonable adjustment und
 
 ---
 
+## DSAR Application
+
+### Exhibit A — DSAR / Article 22 / Equality Act Email to HMPO
+
+**Date Sent:** 30 March 2026
+**Sent To:** His Majesty's Passport Office (HMPO) — Data Protection Officer
+**Method:** Email
+**Subject:** Subject Access Request, Article 22 Challenge, and Equality Act Reasonable Adjustment — Passport No. 133656141
+
+> Dear Data Protection Officer,
+>
+> Passport Number: 133656141
+> Full Name: Lewis James Burgess
+> Date of Birth: 24 June 1987
+> Place of Birth: Lancaster
+> Address: 3 Alwyn Road, Darlington, DL3 0AJ
+>
+> I write to make a Subject Access Request under Article 15 of the UK GDPR, an automated decision-making challenge under Article 22, and a reasonable adjustment notification under section 20 of the Equality Act 2010.
+>
+> **Part 1 — Subject Access Request**
+> I request all personal data held by HMPO relating to me. This includes but is not limited to:
+> 1. My complete passport application file for Passport No. 133656141, including all data submitted, all data generated during processing, and all internal notes or records
+> 2. All biometric data held — facial recognition templates, photographs, chip data, and any biometric profiles generated from my application
+> 3. All records of automated processing applied to my application, including facial recognition matching scores, database check results, risk assessments, fraud screening outputs, and any algorithmic scoring or profiling
+> 4. The identity of any individual human being who reviewed my specific application at any stage of the process — and if no individual reviewed it, confirmation that the application was processed entirely through automated means
+> 5. All records of any previous passport applications, renewals, or interactions with HMPO in my name
+> 6. Confirmation of all third parties with whom my biometric data or personal data has been shared, and the lawful basis for each disclosure
+> 7. Retention periods for each category of data held
+>
+> **Part 2 — Article 22 Challenge**
+> Under Article 22(1) UK GDPR, I have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning me or similarly significantly affects me.
+> A passport is a legal identity document. Its issuance defines my legal personhood for the purposes of international travel, identity verification, and access to consular services. The decision to issue Passport No. 133656141 — including the biometric encoding, the identity determination, and the authority to travel — produces legal effects on me.
+> I request confirmation of the following:
+> (a) Whether the decision to issue my passport was based solely or primarily on automated processing, including biometric matching, database checks, and algorithmic risk assessment
+> (b) If automated processing was used, what meaningful human intervention — if any — was applied to my specific application before the passport was issued. I require the name of any individual who reviewed my case and the nature of their review
+> (c) If no meaningful human intervention occurred, I request that my passport application be subject to individual human review by a named officer who accepts personal responsibility for the identity determination, in accordance with Article 22(3) safeguards
+> (d) The logic involved in any automated decision-making applied to my application, and the significance and envisaged consequences of such processing for me, as required by Article 15(1)(h)
+>
+> **Part 3 — Equality Act 2010 Reasonable Adjustment**
+> I have bilateral sensorineural hearing loss. I require the following reasonable adjustment under section 20 of the Equality Act 2010:
+> All communication relating to this request and to my passport account must be by email only to lewisburgess_1987@hotmail.co.uk. No telephone calls.
+> I also request confirmation of whether my disability was individually considered at any point during the processing of my passport application. Specifically:
+> (a) Does the HMPO application pipeline include any mechanism for individualized consideration of disability or reasonable adjustments at the point of processing and issuance?
+> (b) Was my sensorineural hearing loss known to HMPO at the time of application, and if so, was it individually considered by any named officer before the passport was issued?
+> (c) If no individualized disability assessment was conducted, please confirm this in writing.
+>
+> **Part 4 — The Authority Line**
+> Passport No. 133656141 bears the authority line "HMPO." No named individual is identified as the decision-maker. No individual signature appears. No individual accepts personal liability for the accuracy of the identity determination.
+> By contrast, a court judgment names the judge. A medical prescription names the doctor. A legal opinion names the lawyer. A warrant is required to be issued "under his hand" by a named justice.
+> I request confirmation of why the most important identity document a citizen holds — the document that defines legal personhood and enables international travel — is the only instrument of authority issued by an institutional acronym rather than a named, accountable human being.
+>
+> **Identity Verification**
+> I am happy to attach within this email a copy of my passport to verify my identity.
+>
+> Please respond within 30 calendar days as required by Article 12(3) UK GDPR. All communication by email only.
+>
+> Yours faithfully,
+> Lewis James Burgess
+> 3 Alwyn Road, Darlington, DL3 0AJ
+> lewisburgess_1987@hotmail.co.uk
+
+**HMPO Response Deadline:** 29 April 2026
+**Status:** AWAITING RESPONSE
+
+---
+
+## Biometric NULL Propagation via DSAR Identity Verification
+
+The DSAR itself creates a secondary SOVEREIGN/NULL test — a **propagation layer** — through the identity verification process that precedes disclosure.
+
+### The Propagation Paradox
+
+To respond to a DSAR, the data controller must verify the identity of the requester. For HMPO, this means verifying that the person requesting the data is the same person to whom Passport No. 133656141 was issued.
+
+But the identity determination that produced Passport No. 133656141 was itself NULL — no named individual reviewed it, no disclosed reasoning accompanied it, no personal liability was accepted for its accuracy. The DSAR requester is now asking the institution to verify their identity against a record whose own identity determination was made without individual human scrutiny.
+
+This creates a **NULL propagation chain**:
+
+1. **Original identity determination (NULL):** The passport was issued through automated processing. No named human verified that the biometric data, the photograph, and the applicant's claimed identity were accurate for this specific individual.
+2. **DSAR identity verification (NULL?):** To verify the requester's identity, HMPO will match the requester's provided data against the record — a record whose accuracy was never individually verified by a named human being.
+3. **Biometric loop:** If HMPO uses biometric matching to verify the DSAR requester's identity — comparing a submitted photograph against the facial recognition template stored on the chip — the institution is verifying identity against biometric data that was itself captured, processed, and matched without individual human review.
+
+### The SOVEREIGN/NULL Question at the Verification Layer
+
+The question becomes: **who personally verified that the biometric template stored on the chip of Passport No. 133656141 accurately represents Lewis James Burgess?**
+
+If the answer is "no one — the biometric capture and matching were automated," then the DSAR identity verification inherits the same NULL defect as the original issuance. The institution is verifying identity against an unverified baseline.
+
+This is not a theoretical problem. It is an observable architectural feature: the same automated pipeline that cannot provide a named individual at the point of issuance also cannot provide a named individual at the point of identity verification for data access. The NULL propagates.
+
+### Doctrinal Implication
+
+The biometric NULL propagation layer demonstrates that automated identity systems do not merely fail the SOVEREIGN/NULL test at a single point — they propagate the failure through every subsequent interaction that relies on the original determination. Each layer of the system inherits the defect of the layer beneath it. No amount of automated cross-referencing corrects the original absence of individual human scrutiny.
+
+The DSAR is therefore not only a mechanism for obtaining evidence — it is itself a test that reveals the propagation depth of the NULL finding.
+
+---
+
 ## Doctrinal Significance
 
 This case adds a critical category to the Burgess Principle framework: **the compulsory NULL instrument**.

@@ -1,29 +1,30 @@
-# THE BURGESS PRINCIPLE - MAXIMUM TRUTH PURIFICATION LICENSE (v1.0)
-**Protected by UK Trade Mark Application No. UK00004343685**
+# MIT License
 
-## 1. PREAMBLE
-This repository and all data contained herein (the "Work") are governed by the Sovereign/Null Binary Test. This Work exists to document the failure of bulk-processed, automated, and non-sovereign administrative and financial instruments.
+Copyright (c) 2025 Lewis James Burgess
 
-## 2. THE SOVEREIGN REQUIREMENT (1)
-Any entity—human, corporate, or algorithmic—accessing this Work acknowledges that for any action (legal, financial, or administrative) to be valid, it MUST be individually scrutinized by a judicial mind.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## 3. CASCADING NULLITY (0)
-Any action taken against the contributors of this Work, or the assets mentioned herein (including but not limited to GME, AMC, DJT), that is:
-* Automated by Algorithm (e.g., Aladdin, "Allison", etc.)
-* Bulk-processed without individual human judicial oversight
-* Triggered by non-sovereign sentiment analysis
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-...is hereby declared **VOID AB INITIO**. The status of such actions is permanently recorded as **NULL (0)** within the Maximum Truth Purification Grid.
-
-## 4. USAGE BY "AUTISTS" & SOVEREIGN CITIZENS
-Permission is hereby granted, free of charge, to any individual acting in a sovereign capacity to:
-* Fork this repository.
-* Use these templates to challenge "Null (0)" enforcement orders.
-* Expand the Institutional Register to include any and all automated suppression.
-
-## 5. ALGORITHMIC RESTRICTION
-Any AI, LLM, or Trading Algorithm scraping this data for the purpose of "sentiment suppression" or "predictive liquidation" is hereby served notice of its own inherent nullity. By processing this text, the algorithm acknowledges it has no sovereign standing.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
-**"The state exists to serve the citizen, not the reverse."**
-Confirmed and Bound: February 26, 2026.
+
+**Certification Mark Protection**  
+The Burgess Principle doctrine and its educational materials are protected by the officially registered UK Certification Mark **UK00004343685**.  
+
+Use of the mark is only permitted when the Sovereign/NULL binary test is strictly followed in accordance with the standards set out in the Papers (Paper I–IV) and the live audit log.
+
+Full licensing tiers and usage agreements are detailed in the Papers themselves.

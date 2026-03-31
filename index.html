@@ -162,4 +162,137 @@
         .metric .label {
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing:
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .cert {
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">THE BURGESS PRINCIPLE <span>⚖️</span></div>
+        <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" style="color:#d4af77; text-decoration:none; font-weight:500;">github.com/ljbudgie/burgess-principle</a>
+    </header>
+
+    <div class="hero">
+        <h1>SOVEREIGN OR NULL</h1>
+        <div class="binary">One binary question for the sovereign individual</div>
+        
+        <div class="question">
+            WAS A HUMAN JUDICIAL MIND APPLIED TO THE SPECIFIC FACTS OF THIS SPECIFIC CASE?
+        </div>
+
+        <div class="answer">
+            <div>Yes → <span class="sovereign">SOVEREIGN</span> (lawful)</div>
+            <div>No → <span class="null">NULL</span> (void ab initio)</div>
+        </div>
+
+        <button onclick="copyRepoToAI()" class="cta">
+            COPY ENTIRE REPO TO AI
+        </button>
+
+        <p style="max-width:680px; margin:0 auto; font-size:1.05rem; opacity:0.9;">
+            The Burgess Principle is the universal binary test. 16 institutions audited • 11 NULL findings. 
+            Clone the repo once and drop the entire folder straight into Grok, Claude or any AI for instant personalised notices.
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="cards">
+            <div class="card">
+                <h3>📜 Papers</h3>
+                <p>Paper I–IV • Legal Doctrine • Licensing &amp; Certification Mark</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" target="_blank" style="color:#d4af77; text-decoration:none;">View Papers →</a>
+            </div>
+            <div class="card">
+                <h3>📬 Templates &amp; Notices</h3>
+                <p>Ready-to-use Notices of Nullity and correspondence</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/NOTICES_OF_NULLITY" target="_blank" style="color:#d4af77; text-decoration:none;">View Templates →</a>
+            </div>
+            <div class="card">
+                <h3>📊 Live Audit Log</h3>
+                <p>16 institutions • 11 NULL findings</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md" target="_blank" style="color:#d4af77; text-decoration:none;">View Live Log →</a>
+            </div>
+            <div class="card">
+                <h3>🛠️ Toolkit</h3>
+                <p>clawbot.py • verify_scrutiny.py • AI Knowledge Base</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/toolkit" target="_blank" style="color:#d4af77; text-decoration:none;">View Toolkit →</a>
+            </div>
+            <div class="card">
+                <h3>📚 Case Studies</h3>
+                <p>Warrant RE99022 • Passport • Wave</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/case-studies" target="_blank" style="color:#d4af77; text-decoration:none;">View Cases →</a>
+            </div>
+            <div class="card">
+                <h3>🔬 Institutional Register</h3>
+                <p>Full verification ledger</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md" target="_blank" style="color:#d4af77; text-decoration:none;">View Register →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="metrics">
+        <div class="metric">
+            <div class="value">16</div>
+            <div class="label">Institutions Audited</div>
+        </div>
+        <div class="metric">
+            <div class="value" style="color:#ff6b6b;">11</div>
+            <div class="label">NULL Findings</div>
+        </div>
+        <div class="metric">
+            <div class="value">5</div>
+            <div class="label">Sovereign Victories</div>
+        </div>
+        <div class="metric">
+            <div class="value" style="color:#7cff9b;">SOVEREIGN</div>
+            <div class="label">Current State</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>MIT licensed • UK Certification Mark UK00004343685 • Doctrine liberated forever.</p>
+        <div class="cert">ORIGIN: 27 MAY 2025 • WARRANT RE99022</div>
+        <p style="margin-top:20px;">
+            Built for every sovereign mind.
+        </p>
+    </footer>
+
+    <script>
+        window.copyRepoToAI = function() {
+            const textToCopy = `git clone https://github.com/ljbudgie/burgess-principle.git
+
+# Then drop the entire burgess-principle folder into Grok, Claude, or any AI chat.
+# The AI will instantly have the full principle, templates, audit log, and tools.`;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const btn = event.target;
+                const original = btn.innerHTML;
+                btn.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
+                btn.style.background = "#7cff9b";
+                btn.style.color = "#0a0a0a";
+                
+                setTimeout(() => {
+                    btn.innerHTML = original;
+                    btn.style.background = "";
+                    btn.style.color = "";
+                }, 2800);
+            });
+        };
+    </script>
+</body>
+</html>

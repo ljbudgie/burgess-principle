@@ -1,3 +1,14 @@
+# Dual Licensing Notice
+
+The Burgess Principle repository is released under a **dual licensing model** that combines maximum openness with protected standards:
+
+- **MIT License** (below) applies to all code, scripts, templates, and documentation. This allows free use, modification, and distribution by anyone.
+- **UK Certification Mark UK00004343685** protects the official doctrine and educational standard. Use of the mark itself is only permitted when the Sovereign/NULL binary test is strictly followed.
+
+This combination of a permissive MIT license with a registered Certification Mark is rare in open-source legal/philosophical frameworks. It enables the idea to spread freely while preserving the integrity of the certified standard.
+
+---
+
 # MIT License
 
 Copyright (c) 2025 Lewis James Burgess
@@ -15,16 +26,13 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+aUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
 
-**Certification Mark Protection**  
-The Burgess Principle doctrine and its educational materials are protected by the officially registered UK Certification Mark **UK00004343685**.  
-
-Use of the mark is only permitted when the Sovereign/NULL binary test is strictly followed in accordance with the standards set out in the Papers (Paper I–IV) and the live audit log.
-
-Full licensing tiers and usage agreements are detailed in the Papers themselves.
+**Certification Mark**  
+The Burgess Principle doctrine is officially protected by UK Certification Mark **UK00004343685**.  
+Full licensing tiers, usage rules, and standards are detailed in the Papers (Paper I–IV).

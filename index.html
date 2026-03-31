@@ -13,7 +13,7 @@
     <meta property="og:description" content="Universal binary framework for the sovereign individual. One question decides everything. 16 institutions audited • 11 NULL. Copy the entire repo into Grok/Claude for instant personalised notices.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://burgess-principle.vercel.app">
-    <meta property="og:image" content="https://github.com/ljbudgie/burgess-principle/raw/main/quantum-logo-preview.png"> <!-- replace with your actual banner if you add one -->
+    <meta property="og:image" content="https://github.com/ljbudgie/burgess-principle/raw/main/quantum-logo-preview.png">
     <meta property="og:site_name" content="Burgess Principle">
 
     <!-- Twitter -->
@@ -54,7 +54,7 @@
             pointer-events: none;
         }
 
-        /* === ORIGINAL QUANTUM UI (preserved 100%) === */
+        /* === YOUR ORIGINAL QUANTUM UI (preserved 100%) === */
         #identity {
             position: fixed;
             top: 24px; left: 28px;
@@ -194,7 +194,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* === NEW: HERO CONTENT PANEL (responsive + aligned) === */
         .content-panel {
             position: relative;
             z-index: 10;
@@ -274,13 +273,11 @@
 </head>
 <body>
 
-    <!-- Quantum background canvases (your original magic) -->
     <canvas id="c0"></canvas>
     <canvas id="c1"></canvas>
     <canvas id="c2"></canvas>
     <canvas id="c3"></canvas>
 
-    <!-- Your original identity block (kept verbatim) -->
     <div id="identity">
         <h1>THE BURGESS PRINCIPLE</h1>
         <div class="sub">
@@ -290,27 +287,24 @@
         </div>
     </div>
 
-    <!-- Your original state block -->
     <div id="state-block">
         <div id="collapse-label">EIGENVALUE STATE</div>
         <div id="collapse-state" class="s">SOVEREIGN</div>
     </div>
 
-    <!-- Your original equations sidebar (kept verbatim) -->
     <div id="equations">
         <div class="eq">Ψ = α|SOVEREIGN⟩ + β|NULL⟩<span>│α│² + │β│² = 1</span></div>
         <div class="eq">H|ψ⟩ = E|ψ⟩<span>anyons · braids · topological protection</span></div>
         <div class="eq">B(x) = 1 ⇔ human judicial mind applied</div>
     </div>
 
-    <!-- Axiom (kept) -->
     <div id="axiom">
         ONE BINARY QUESTION • 16 INSTITUTIONS AUDITED • 11 NULL
     </div>
 
-    <!-- Controls + NEW CTAs -->
+    <!-- FIXED BUTTON WITH ID -->
     <div id="controls">
-        <button class="btn" onclick="copyRepoToAI()">COPY ENTIRE REPO TO AI</button>
+        <button id="copy-btn" class="btn" onclick="copyRepoToAI()">COPY ENTIRE REPO TO AI</button>
         <button class="btn" onclick="window.open('https://github.com/ljbudgie/burgess-principle','_blank')">VIEW FULL REPO ON GITHUB</button>
     </div>
 
@@ -319,7 +313,6 @@
         <button class="btn" onclick="window.open('https://github.com/ljbudgie/burgess-principle/tree/main/templates','_blank')">TEMPLATES &amp; NOTICES</button>
     </div>
 
-    <!-- HERO CONTENT PANEL (new, practical, aligned with repo) -->
     <div class="content-panel">
         <h1>SOVEREIGN OR NULL</h1>
         <div class="binary">WAS A HUMAN JUDICIAL MIND APPLIED TO THE SPECIFIC FACTS OF THIS SPECIFIC CASE?</div>
@@ -361,7 +354,6 @@
         </p>
     </div>
 
-    <!-- Metrics bar (enhanced with live numbers) -->
     <div id="metrics">
         <div class="metric">
             <div class="m-label">INSTITUTIONS AUDITED</div>
@@ -385,7 +377,6 @@
         </div>
     </div>
 
-    <!-- Certification mark (kept) -->
     <div id="cert">
         <div class="cert-mark">
             UK00004343685<br>
@@ -394,17 +385,13 @@
     </div>
 
     <script>
-        // Your original quantum canvas animations are preserved — just paste your existing script here if you had one.
-        // For completeness, here's a minimal version that keeps the vibe (feel free to replace with your full canvas code):
         const canvases = document.querySelectorAll('canvas');
         canvases.forEach((c, i) => {
             c.width = window.innerWidth;
             c.height = window.innerHeight;
             const ctx = c.getContext('2d');
-            let particles = [];
             function animate() {
                 ctx.clearRect(0,0,c.width,c.height);
-                // simple quantum particle field
                 ctx.strokeStyle = i === 0 ? '#00e8ff' : i === 1 ? '#ff2952' : '#f0c040';
                 ctx.globalAlpha = 0.15;
                 for (let x = 0; x < 80; x++) {
@@ -418,22 +405,29 @@
             animate();
         });
 
+        // FIXED COPY BUTTON FUNCTION
         window.copyRepoToAI = function() {
             const cmd = "git clone https://github.com/ljbudgie/burgess-principle.git && echo '✅ Repo copied — now drop the entire folder into Grok or Claude for instant personalised notices!'";
             navigator.clipboard.writeText(cmd).then(() => {
-                const orig = event.target.innerHTML;
-                event.target.innerHTML = "✅ COPIED TO CLIPBOARD!";
-                setTimeout(() => { event.target.innerHTML = orig; }, 2200);
+                const btn = document.getElementById('copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = "✅ COPIED TO CLIPBOARD!";
+                btn.style.color = "#f0c040";
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.color = "";
+                }, 2200);
+            }).catch(() => {
+                alert("Copy failed — please copy this manually:\ngit clone https://github.com/ljbudgie/burgess-principle.git");
             });
         };
 
-        // Make collapse-state pulse
+        // Pulse the collapse-state
         setInterval(() => {
             const state = document.getElementById('collapse-state');
             state.style.opacity = state.style.opacity === '1' ? '0.4' : '1';
         }, 1800);
 
-        // Responsive resize
         window.addEventListener('resize', () => {
             const canvases = document.querySelectorAll('canvas');
             canvases.forEach(c => {

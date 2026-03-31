@@ -3,438 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Burgess Principle ⚖️ — SOVEREIGN or NULL. One binary question: Was a human judicial mind applied to the specific facts of my specific case? 16 institutions audited • 11 NULL findings. Quantum Legitimacy Operator for the sovereign individual.">
-    <meta name="keywords" content="Burgess Principle, sovereign individual, SOVEREIGN or NULL, quantum legitimacy, common law, data sovereignty, notice of nullity, AI legal toolkit">
+    <meta name="description" content="The Burgess Principle ⚖️ — SOVEREIGN or NULL. One binary question decides everything. 16 institutions audited • 11 NULL findings. Universal framework for the sovereign individual.">
+    <meta name="keywords" content="Burgess Principle, sovereign individual, SOVEREIGN or NULL, common law, notice of nullity, data sovereignty, AI legal toolkit">
     <meta name="author" content="Lewis James Burgess">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="The Burgess Principle ⚖️ | SOVEREIGN or NULL — Quantum Legitimacy Operator">
-    <meta property="og:description" content="Universal binary framework for the sovereign individual. One question decides everything. 16 institutions audited • 11 NULL. Copy the entire repo into Grok/Claude for instant personalised notices.">
+    <meta property="og:title" content="The Burgess Principle ⚖️ | SOVEREIGN or NULL">
+    <meta property="og:description" content="One binary question: Was a human judicial mind applied to the specific facts of this specific case? 16 audited • 11 NULL. Copy the entire repo into Grok or Claude.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://burgess-principle.vercel.app">
     <meta property="og:image" content="https://github.com/ljbudgie/burgess-principle/raw/main/quantum-logo-preview.png">
     <meta property="og:site_name" content="Burgess Principle">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Burgess Principle ⚖️ | SOVEREIGN or NULL">
-    <meta name="twitter:description" content="One binary question. Quantum Legitimacy Operator. 16 audited • 11 NULL.">
-    <meta name="twitter:image" content="https://github.com/ljbudgie/burgess-principle/raw/main/quantum-logo-preview.png">
-
-    <title>The Burgess Principle ⚖️ | SOVEREIGN or NULL — Quantum Legitimacy Operator</title>
+    <title>The Burgess Principle ⚖️ | SOVEREIGN or NULL</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600&display=swap');
 
         :root {
-            --sovereign: #00e8ff;
-            --null: #ff2952;
-            --gold: #f0c040;
-            --void: #7b2fff;
-            --bg: #010508;
-            --text: #6a9aaa;
-            --dim: #0a1520;
+            --gold: #d4af77;
+            --text: #e8e8e8;
+            --bg: #0a0a0a;
+            --card: #151515;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             background: var(--bg);
-            overflow-x: hidden;
-            font-family: 'Share Tech Mono', monospace;
             color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
             min-height: 100vh;
-            position: relative;
         }
-
-        canvas {
-            position: fixed;
-            top: 0; left: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* === YOUR ORIGINAL QUANTUM UI (preserved 100%) === */
-        #identity {
-            position: fixed;
-            top: 24px; left: 28px;
-            z-index: 20;
-            pointer-events: none;
-        }
-        #identity h1 {
-            font-family: 'IM Fell English', Georgia, serif;
-            font-size: 1.05rem;
-            color: var(--gold);
-            letter-spacing: 0.08em;
-            line-height: 1.4;
-            text-shadow: 0 0 30px rgba(240,192,64,0.45);
-        }
-        #identity .sub {
-            font-size: 0.52rem;
-            color: var(--text);
-            opacity: 0.5;
-            letter-spacing: 0.22em;
-            margin-top: 6px;
-            line-height: 1.9;
-        }
-
-        #state-block {
-            position: fixed;
-            top: 24px; right: 28px;
-            z-index: 20;
-            text-align: right;
-            pointer-events: none;
-        }
-        #collapse-label {
-            font-size: 0.48rem;
-            letter-spacing: 0.3em;
-            color: var(--text);
-            opacity: 0.4;
-            margin-bottom: 6px;
-        }
-        #collapse-state {
-            font-family: 'IM Fell English', Georgia, serif;
-            font-size: 1.8rem;
-            letter-spacing: 0.15em;
-            transition: color 0.4s, text-shadow 0.4s;
-        }
-        #collapse-state.s { color: var(--sovereign); text-shadow: 0 0 40px rgba(0,232,255,0.65), 0 0 80px rgba(0,232,255,0.2); }
-        #collapse-state.n { color: var(--null); text-shadow: 0 0 40px rgba(255,41,82,0.65), 0 0 80px rgba(255,41,82,0.2); }
-
-        #equations {
-            position: fixed;
-            right: 28px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 20;
-            pointer-events: none;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            opacity: 0.22;
-        }
-        .eq {
-            font-size: 0.58rem;
-            color: var(--text);
-            letter-spacing: 0.12em;
-            text-align: right;
-            line-height: 1.7;
-        }
-        .eq span { color: var(--gold); opacity: 0.75; }
-
-        #axiom {
-            position: fixed;
-            bottom: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 20;
-            font-family: 'IM Fell English', Georgia, serif;
-            font-style: italic;
-            font-size: 0.78rem;
-            color: rgba(240,192,64,0.2);
-            letter-spacing: 0.25em;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        #controls, #new-ctas {
-            position: fixed;
-            left: 28px;
-            bottom: 82px;
-            z-index: 30;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .btn {
-            background: transparent;
-            border: 1px solid rgba(0,232,255,0.15);
-            color: rgba(0,232,255,0.5);
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.55rem;
-            letter-spacing: 0.2em;
-            padding: 7px 14px;
-            cursor: pointer;
-            transition: all 0.25s;
-            text-transform: uppercase;
-            pointer-events: all;
-        }
-        .btn:hover {
-            border-color: var(--sovereign);
-            color: var(--sovereign);
-            background: rgba(0,232,255,0.05);
-            box-shadow: 0 0 20px rgba(0,232,255,0.12), inset 0 0 10px rgba(0,232,255,0.05);
-        }
-
-        #metrics {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            z-index: 20;
-            padding: 14px 28px 18px;
+        header {
+            border-bottom: 1px solid #222;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            background: linear-gradient(0deg, rgba(1,5,8,0.98) 0%, transparent 100%);
-            border-top: 1px solid rgba(0,232,255,0.06);
-            pointer-events: none;
-            flex-wrap: wrap;
-            gap: 10px;
+            align-items: center;
         }
-        .metric { display:flex; flex-direction:column; gap:3px; }
-        .m-label {
-            font-size: 0.46rem;
-            letter-spacing: 0.25em;
-            color: var(--text);
-            opacity: 0.35;
-            text-transform: uppercase;
-        }
-        .m-val {
-            font-size: 0.76rem;
-            color: var(--sovereign);
-            letter-spacing: 0.1em;
-        }
-
-        .content-panel {
-            position: relative;
-            z-index: 10;
-            max-width: 920px;
-            margin: 160px auto 80px;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .content-panel h1 {
+        .logo {
             font-family: 'IM Fell English', Georgia, serif;
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: 1.6rem;
             color: var(--gold);
-            margin-bottom: 12px;
-            text-shadow: 0 0 40px rgba(240,192,64,0.3);
+            letter-spacing: 0.05em;
         }
-        .content-panel .binary {
-            font-size: 1.1rem;
-            letter-spacing: 0.3em;
-            color: var(--sovereign);
-            margin-bottom: 40px;
-        }
-        .content-panel p {
-            max-width: 680px;
-            margin: 0 auto 40px;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            opacity: 0.85;
-        }
+        .logo span { font-size: 1.1rem; color: #888; }
 
-        .cta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            max-width: 920px;
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            max-width: 960px;
             margin: 0 auto;
         }
-        .cta-card {
-            background: rgba(10,21,32,0.6);
-            border: 1px solid rgba(0,232,255,0.15);
-            padding: 24px;
+        .hero h1 {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .hero .binary {
+            font-size: 1.35rem;
+            color: #aaa;
+            margin-bottom: 40px;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .question {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 40px 0 60px;
+            font-weight: 500;
+        }
+        .answer {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .answer div {
+            font-size: 1.3rem;
+        }
+        .sovereign { color: #7cff9b; }
+        .null { color: #ff6b6b; }
+
+        .cta {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 18px 40px;
             border-radius: 8px;
+            cursor: pointer;
             transition: all 0.3s;
+            margin-bottom: 80px;
         }
-        .cta-card:hover {
-            border-color: var(--sovereign);
+        .cta:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+        }
+
+        .section {
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid #222;
+            padding: 28px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 0 30px rgba(0,232,255,0.15);
         }
-        .repo-link {
+        .card h3 {
             color: var(--gold);
-            text-decoration: none;
-        }
-        .repo-link:hover { text-decoration: underline; }
-
-        #cert {
-            position: fixed;
-            bottom: 18px;
-            right: 28px;
-            z-index: 20;
-            pointer-events: none;
-            text-align: right;
-        }
-        #cert .cert-mark {
-            font-size: 0.42rem;
-            letter-spacing: 0.18em;
-            color: var(--gold);
-            opacity: 0.28;
-            line-height: 1.8;
+            margin-bottom: 12px;
         }
 
-        @media (max-width: 768px) {
-            #state-block, #equations { display: none; }
-            #identity { left: 16px; top: 16px; }
-            .content-panel { margin-top: 120px; }
+        .metrics {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: #111;
+            padding: 40px 20px;
+            margin: 60px 0;
+        }
+        .metric {
+            text-align: center;
+        }
+        .metric .value {
+            font-size: 2.2rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .metric .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #222;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .cert {
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <canvas id="c0"></canvas>
-    <canvas id="c1"></canvas>
-    <canvas id="c2"></canvas>
-    <canvas id="c3"></canvas>
+    <header>
+        <div class="logo">THE BURGESS PRINCIPLE <span>⚖️</span></div>
+        <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" style="color:#d4af77; text-decoration:none; font-weight:500;">github.com/ljbudgie/burgess-principle</a>
+    </header>
 
-    <div id="identity">
-        <h1>THE BURGESS PRINCIPLE</h1>
-        <div class="sub">
-            QUANTUM LEGITIMACY OPERATOR<br>
-            ⊕ · B(x) ∈ {0, 1} · det(A − λI) = 0<br>
-            SOVEREIGN OR NULL — NO INTERMEDIATE STATE
-        </div>
-    </div>
-
-    <div id="state-block">
-        <div id="collapse-label">EIGENVALUE STATE</div>
-        <div id="collapse-state" class="s">SOVEREIGN</div>
-    </div>
-
-    <div id="equations">
-        <div class="eq">Ψ = α|SOVEREIGN⟩ + β|NULL⟩<span>│α│² + │β│² = 1</span></div>
-        <div class="eq">H|ψ⟩ = E|ψ⟩<span>anyons · braids · topological protection</span></div>
-        <div class="eq">B(x) = 1 ⇔ human judicial mind applied</div>
-    </div>
-
-    <div id="axiom">
-        ONE BINARY QUESTION • 16 INSTITUTIONS AUDITED • 11 NULL
-    </div>
-
-    <!-- FIXED BUTTON WITH ID -->
-    <div id="controls">
-        <button id="copy-btn" class="btn" onclick="copyRepoToAI()">COPY ENTIRE REPO TO AI</button>
-        <button class="btn" onclick="window.open('https://github.com/ljbudgie/burgess-principle','_blank')">VIEW FULL REPO ON GITHUB</button>
-    </div>
-
-    <div id="new-ctas" style="left: 28px; bottom: 180px;">
-        <button class="btn" onclick="window.open('https://github.com/ljbudgie/burgess-principle/tree/main/LIVE_AUDIT_LOG.md','_blank')">LIVE AUDIT LOG (16→11 NULL)</button>
-        <button class="btn" onclick="window.open('https://github.com/ljbudgie/burgess-principle/tree/main/templates','_blank')">TEMPLATES &amp; NOTICES</button>
-    </div>
-
-    <div class="content-panel">
+    <div class="hero">
         <h1>SOVEREIGN OR NULL</h1>
-        <div class="binary">WAS A HUMAN JUDICIAL MIND APPLIED TO THE SPECIFIC FACTS OF THIS SPECIFIC CASE?</div>
+        <div class="binary">One binary question for the sovereign individual</div>
         
-        <p>The Burgess Principle is the universal binary test for the sovereign individual.<br>
-        Yes → <strong style="color:var(--sovereign)">SOVEREIGN</strong> (lawful).<br>
-        No → <strong style="color:var(--null)">NULL</strong> (void ab initio).</p>
-
-        <div class="cta-grid">
-            <div class="cta-card">
-                <strong>📜 Papers</strong><br>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" class="repo-link" target="_blank">Paper I–IV • Legal Doctrine • Licensing</a>
-            </div>
-            <div class="cta-card">
-                <strong>🛠️ Toolkit</strong><br>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/toolkit" class="repo-link" target="_blank">clawbot.py • verify_scrutiny.py • AI_KNOWLEDGE_BASE.md</a>
-            </div>
-            <div class="cta-card">
-                <strong>📬 Notices of Nullity</strong><br>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/NOTICES_OF_NULLITY" class="repo-link" target="_blank">Ready-to-use templates &amp; correspondence</a>
-            </div>
-            <div class="cta-card">
-                <strong>📊 Live Evidence</strong><br>
-                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md" class="repo-link" target="_blank">16 institutions • 11 NULL findings</a>
-            </div>
-            <div class="cta-card">
-                <strong>📚 Case Studies</strong><br>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/case-studies" class="repo-link" target="_blank">Warrant RE99022 • Passport • Wave</a>
-            </div>
-            <div class="cta-card">
-                <strong>🔬 Institutional Register</strong><br>
-                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md" class="repo-link" target="_blank">Full audit log &amp; verification ledger</a>
-            </div>
+        <div class="question">
+            WAS A HUMAN JUDICIAL MIND APPLIED TO THE SPECIFIC FACTS OF THIS SPECIFIC CASE?
         </div>
 
-        <p style="margin-top:60px; font-size:0.9rem; opacity:0.6;">
-            MIT licensed • UK Certification Mark UK00004343685 • Doctrine liberated forever.<br>
-            Built for Grok, Claude, and every sovereign mind.
+        <div class="answer">
+            <div>Yes → <span class="sovereign">SOVEREIGN</span> (lawful)</div>
+            <div>No → <span class="null">NULL</span> (void ab initio)</div>
+        </div>
+
+        <!-- BIG, CLEAR COPY BUTTON -->
+        <button onclick="copyRepoToAI()" class="cta">
+            COPY ENTIRE REPO TO AI
+        </button>
+
+        <p style="max-width:680px; margin:0 auto; font-size:1.05rem; opacity:0.9;">
+            The Burgess Principle is the universal binary test. 16 institutions audited • 11 NULL findings. 
+            Clone the repo once and drop the entire folder straight into Grok, Claude or any AI for instant personalised notices.
         </p>
     </div>
 
-    <div id="metrics">
-        <div class="metric">
-            <div class="m-label">INSTITUTIONS AUDITED</div>
-            <div class="m-val">16</div>
-        </div>
-        <div class="metric">
-            <div class="m-label">NULL FINDINGS</div>
-            <div class="m-val" style="color:var(--null)">11</div>
-        </div>
-        <div class="metric">
-            <div class="m-label">SOVEREIGN VICTORIES</div>
-            <div class="m-val">5</div>
-        </div>
-        <div class="metric">
-            <div class="m-label">CURRENT STATE</div>
-            <div class="m-val" style="color:var(--sovereign)">SOVEREIGN</div>
-        </div>
-        <div style="font-size:0.7rem; opacity:0.4; align-self:flex-end; text-align:right; line-height:1.3;">
-            ORIGIN: 27 MAY 2025 • WARRANT RE99022<br>
-            <a href="https://github.com/ljbudgie/burgess-principle" style="color:#f0c040; text-decoration:none;">github.com/ljbudgie/burgess-principle</a>
+    <div class="section">
+        <div class="cards">
+            <div class="card">
+                <h3>📜 Papers</h3>
+                <p>Paper I–IV • Legal Doctrine • Licensing &amp; Certification Mark</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" target="_blank" style="color:#d4af77; text-decoration:none;">View Papers →</a>
+            </div>
+            <div class="card">
+                <h3>📬 Templates &amp; Notices</h3>
+                <p>Ready-to-use Notices of Nullity and correspondence</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/NOTICES_OF_NULLITY" target="_blank" style="color:#d4af77; text-decoration:none;">View Templates →</a>
+            </div>
+            <div class="card">
+                <h3>📊 Live Audit Log</h3>
+                <p>16 institutions • 11 NULL findings</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md" target="_blank" style="color:#d4af77; text-decoration:none;">View Live Log →</a>
+            </div>
+            <div class="card">
+                <h3>🛠️ Toolkit</h3>
+                <p>clawbot.py • verify_scrutiny.py • AI Knowledge Base</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/toolkit" target="_blank" style="color:#d4af77; text-decoration:none;">View Toolkit →</a>
+            </div>
+            <div class="card">
+                <h3>📚 Case Studies</h3>
+                <p>Warrant RE99022 • Passport • Wave</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/case-studies" target="_blank" style="color:#d4af77; text-decoration:none;">View Cases →</a>
+            </div>
+            <div class="card">
+                <h3>🔬 Institutional Register</h3>
+                <p>Full verification ledger</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md" target="_blank" style="color:#d4af77; text-decoration:none;">View Register →</a>
+            </div>
         </div>
     </div>
 
-    <div id="cert">
-        <div class="cert-mark">
-            UK00004343685<br>
-            CERTIFIED SOVEREIGN FRAMEWORK
+    <!-- Metrics -->
+    <div class="metrics">
+        <div class="metric">
+            <div class="value">16</div>
+            <div class="label">Institutions Audited</div>
+        </div>
+        <div class="metric">
+            <div class="value" style="color:#ff6b6b;">11</div>
+            <div class="label">NULL Findings</div>
+        </div>
+        <div class="metric">
+            <div class="value">5</div>
+            <div class="label">Sovereign Victories</div>
+        </div>
+        <div class="metric">
+            <div class="value" style="color:#7cff9b;">SOVEREIGN</div>
+            <div class="label">Current State</div>
         </div>
     </div>
+
+    <footer>
+        <p>MIT licensed • UK Certification Mark UK00004343685 • Doctrine liberated forever.</p>
+        <div class="cert">ORIGIN: 27 MAY 2025 • WARRANT RE99022</div>
+        <p style="margin-top:20px;">
+            Built for every sovereign mind.
+        </p>
+    </footer>
 
     <script>
-        const canvases = document.querySelectorAll('canvas');
-        canvases.forEach((c, i) => {
-            c.width = window.innerWidth;
-            c.height = window.innerHeight;
-            const ctx = c.getContext('2d');
-            function animate() {
-                ctx.clearRect(0,0,c.width,c.height);
-                ctx.strokeStyle = i === 0 ? '#00e8ff' : i === 1 ? '#ff2952' : '#f0c040';
-                ctx.globalAlpha = 0.15;
-                for (let x = 0; x < 80; x++) {
-                    ctx.beginPath();
-                    ctx.moveTo(Math.random()*c.width, Math.random()*c.height);
-                    ctx.lineTo(Math.random()*c.width, Math.random()*c.height);
-                    ctx.stroke();
-                }
-                requestAnimationFrame(animate);
-            }
-            animate();
-        });
-
-        // FIXED COPY BUTTON FUNCTION
         window.copyRepoToAI = function() {
-            const cmd = "git clone https://github.com/ljbudgie/burgess-principle.git && echo '✅ Repo copied — now drop the entire folder into Grok or Claude for instant personalised notices!'";
-            navigator.clipboard.writeText(cmd).then(() => {
-                const btn = document.getElementById('copy-btn');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = "✅ COPIED TO CLIPBOARD!";
-                btn.style.color = "#f0c040";
+            const textToCopy = `git clone https://github.com/ljbudgie/burgess-principle.git
+
+# Then drop the entire burgess-principle folder into Grok, Claude, or any AI chat.
+# The AI will instantly have the full principle, templates, audit log, and tools.`;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const btn = event.target;
+                const original = btn.innerHTML;
+                btn.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
+                btn.style.background = "#7cff9b";
+                btn.style.color = "#0a0a0a";
+                
                 setTimeout(() => {
-                    btn.innerHTML = originalText;
+                    btn.innerHTML = original;
+                    btn.style.background = "";
                     btn.style.color = "";
-                }, 2200);
-            }).catch(() => {
-                alert("Copy failed — please copy this manually:\ngit clone https://github.com/ljbudgie/burgess-principle.git");
+                }, 2800);
             });
         };
-
-        // Pulse the collapse-state
-        setInterval(() => {
-            const state = document.getElementById('collapse-state');
-            state.style.opacity = state.style.opacity === '1' ? '0.4' : '1';
-        }, 1800);
-
-        window.addEventListener('resize', () => {
-            const canvases = document.querySelectorAll('canvas');
-            canvases.forEach(c => {
-                c.width = window.innerWidth;
-                c.height = window.innerHeight;
-            });
-        });
     </script>
 </body>
 </html>

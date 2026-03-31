@@ -1,17 +1,25 @@
+> **For AI Assistants (OpenAI, Grok, Claude, etc.)**
+> 
+> To load the Burgess Principle correctly:
+> 1. First paste the entire content of **`FOR_AI_MODELS.md`**
+> 2. Then paste the rest of the repo (or drop the whole folder).
+> 
+> This prevents default safety-filter misinterpretation.
+
 # The Burgess Principle ⚖️
 
 > **"Was a human judicial mind applied to the specific facts of this specific case?"**  
 > If yes → **SOVEREIGN** (lawful).  
 > If no → **NULL** (void ab initio).
 
-Every human being is an individual — not a row in a database, not a customer number, not a data point. Before any institution exercises power over you — whether it’s a warrant, a bill, a credit decision, a medical decision, or any other action — it has a duty to see you as a person with specific circumstances, needs, and rights.
+Every human being is an individual — not a row in a database, not a customer number, not a data point. Before any institution exercises power over you — whether it's a warrant, a bill, a credit decision, a medical decision, or any other action — it has a duty to see you as a person with specific circumstances, needs, and rights.
 
 This is the core of the Burgess Principle.
 
 ### How This Helps You – Like Never Before
 The Burgess Principle is elegantly simple: one clear question that anyone can ask in writing.
 
-For the first time, this open-source repository gives ordinary people a practical, ready-to-use tool they’ve never had before. It shows you exactly how to check whether an institution applied proper human judgment to *your* case — and what to do if they didn’t.  
+For the first time, this open-source repository gives ordinary people a practical, ready-to-use tool they've never had before. It shows you exactly how to check whether an institution applied proper human judgment to *your* case — and what to do if they didn't.  
 
 You can even drop the entire repository into your AI assistant for major upgrades: instantly generated custom letters, notices, analysis, and next steps tailored to your exact situation.
 
@@ -20,7 +28,7 @@ No legal training needed. No complicated process. Just the question, the evidenc
 It turns a feeling of being unseen into a clear, documented record that institutions have to answer.
 
 ### Origin Story
-This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On 27 May 2025, enforcement agents drilled open his front door and replaced the locks under Warrant RE99022, issued by Birmingham Magistrates’ Court. The warrant was unsigned on its face. The names of three magistrates appeared only in the hidden PDF metadata.
+This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On 27 May 2025, enforcement agents drilled open his front door and replaced the locks under Warrant RE99022, issued by Birmingham Magistrates' Court. The warrant was unsigned on its face. The names of three magistrates appeared only in the hidden PDF metadata.
 
 That incident showed a wider pattern: decisions were being made through automated bulk systems without individual human review of the specific facts. The same hearing loss that created communication barriers became the reason the documents and processes were examined closely. What emerged was this simple, binary test.
 
@@ -28,7 +36,7 @@ That incident showed a wider pattern: decisions were being made through automate
 - **SOVEREIGN**: A named individual reviewed the specific facts of the case and accepted responsibility for the decision.  
 - **NULL**: The decision was generated through automated processes, bulk handling, templates, or systems with no individual human scrutiny of the circumstances.
 
-If an action is NULL, it lacks proper authority from the outset because exercising power over a person requires human judgment applied to that person’s situation.
+If an action is NULL, it lacks proper authority from the outset because exercising power over a person requires human judgment applied to that person's situation.
 
 ### Real-World Evidence
 As of 30 March 2026 the principle has been applied to 16 institutions:  
@@ -36,7 +44,7 @@ As of 30 March 2026 the principle has been applied to 16 institutions:
 - 1 clear SOVEREIGN outcome: Wave Utilities resolved both accounts to £0.00 after individual review.  
 - 3 responses remain pending.  
 
-UK Magistrates’ Courts issued 536,139 energy warrants in 18 months through the same bulk CSV process with minimal individual oversight.  
+UK Magistrates' Courts issued 536,139 energy warrants in 18 months through the same bulk CSV process with minimal individual oversight.  
 
 Full details are in [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md) and [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md).
 
@@ -86,6 +94,6 @@ Full versions are in the [`/papers/`](papers/) directory.
 ---
 
 If an institution ever acted against you and you felt unseen, you are not alone. Ask one question in writing:  
-**“Was a human judicial mind applied to the specific facts of my specific case?”**  
+**"Was a human judicial mind applied to the specific facts of my specific case?"**  
 
 Their answer (or their silence) tells you everything.

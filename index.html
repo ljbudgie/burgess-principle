@@ -310,18 +310,20 @@
 
 # Then drop the entire burgess-principle folder into Grok, Claude, or any AI chat.
 # The AI will instantly have the full principle, templates, audit log, and tools.`;
-            
+
+            const buttonEl = event?.currentTarget || event?.target || null;
             navigator.clipboard.writeText(textToCopy).then(() => {
-                const btn = event.target;
-                const original = btn.innerHTML;
-                btn.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
-                btn.style.background = "#7cff9b";
-                btn.style.color = "#0a0a0a";
-                
+                if (!buttonEl) return;
+
+                const original = buttonEl.innerHTML;
+                buttonEl.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
+                buttonEl.style.background = "#7cff9b";
+                buttonEl.style.color = "#0a0a0a";
+
                 setTimeout(() => {
-                    btn.innerHTML = original;
-                    btn.style.background = "";
-                    btn.style.color = "";
+                    buttonEl.innerHTML = original;
+                    buttonEl.style.background = "";
+                    buttonEl.style.color = "";
                 }, 2800);
             });
         };

@@ -176,7 +176,7 @@ This case demonstrates the complete Burgess Principle cycle from NULL to SOVEREI
 
 The automated system generated [months/weeks] of enforcement, [N] premises attendances, disconnection threats, and £[total] in fees. **One human review resolved everything.** The cost of the absent human was measured in distress, business disruption, and nearly £[amount] in unjustified charges. The cost of the present human was one email exchange.
 
-This is the universal pattern documented across the Purification Grid: the NULL path is always more expensive, more harmful, and less effective than the SOVEREIGN path. (See [PAPER_1_CORE_LEGAL_PAPER.md](../papers/PAPER_1_CORE_LEGAL_PAPER.md) — Abstract: bulk-processing enforcement costs £3.3–10 billion annually.)
+This is the universal pattern documented across the Compliance Verification Grid: the NULL path is always more expensive, more harmful, and less effective than the SOVEREIGN path. (See [PAPER_1_CORE_LEGAL_PAPER.md](../papers/PAPER_1_CORE_LEGAL_PAPER.md) — Abstract: bulk-processing enforcement costs £3.3–10 billion annually.)
 
 ---
 
@@ -248,11 +248,11 @@ Ask it in writing. Require a written answer. Document the response.
 
 ---
 
-## Lesson for the Purification Grid
+## Lesson for the Compliance Verification Grid
 
 [One-paragraph insight tying the case to the universal binary and broader framework.]
 
-This case confirms the core finding of the Purification Grid: every institutional enforcement chain that begins without individual human judicial scrutiny — a sovereign mind applying facts, law, disability adjustments, and proportionality to this specific case — defaults to NULL, void from the beginning. The automated system could not perform the most basic function of justice: seeing the individual. It processed a threshold, not a person. When a single human being finally looked, every error was visible, every charge was unjustified, and every threat was unnecessary. The cost of the missing human was measured in [months] of enforcement, [£amount] in wrongful charges, [N] premises attendances at a disabled person's [business/home], and [N] hours of the complainant's life diverted to defending against a system that never checked whether it was right. The cost of the present human was one exchange. That is the binary. That is the principle. It is replicable across every sector, every institution, and every automated enforcement chain documented in this repository.
+This case confirms the core finding of the Compliance Verification Grid: every institutional enforcement chain that begins without individual human judicial scrutiny — a sovereign mind applying facts, law, disability adjustments, and proportionality to this specific case — defaults to NULL, void from the beginning. The automated system could not perform the most basic function of justice: seeing the individual. It processed a threshold, not a person. When a single human being finally looked, every error was visible, every charge was unjustified, and every threat was unnecessary. The cost of the missing human was measured in [months] of enforcement, [£amount] in wrongful charges, [N] premises attendances at a disabled person's [business/home], and [N] hours of the complainant's life diverted to defending against a system that never checked whether it was right. The cost of the present human was one exchange. That is the binary. That is the principle. It is replicable across every sector, every institution, and every automated enforcement chain documented in this repository.
 
 ---
 

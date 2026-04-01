@@ -24,41 +24,55 @@ No sarcasm, no anger — just friendly, shareable reminders that we’re all ind
 Here are the quickest ways to make your own Burgess Principle memes:
 
 1. **Grok Imagine (built into this AI – my favourite)**  
-   Just paste one of the prompts below into Grok (or any Grok-powered chat). It creates the image instantly.  
-   → Example prompt:  
-   “Create a friendly cartoon meme in two panels. Top panel: a tired robot stamping ‘APPROVED’ on a huge stack of identical files. Bottom panel: a friendly human with a magnifying glass carefully reading one single file. Clean white background, gentle colours, text at the bottom: ‘Was a human actually looking at MY specific case? – Burgess Principle #BurgessPrinciple’”
+   Just paste one of the prompts below into Grok. It creates the image instantly.
 
 2. **Canva (free, no sign-up needed for basics)**  
-   Go to canva.com → search “meme” → pick a template → swap in the text and images. Super quick on phone or desktop.
+   Go to canva.com → search “meme” → pick a template → swap in the text and images.
 
 3. **Imgflip (completely free, no account)**  
-   imgflip.com/memegenerator → choose a popular template (like “Distracted Boyfriend” or “Change My Mind”) → add your Burgess Principle caption.
+   imgflip.com/memegenerator → choose a popular template → add your Burgess Principle caption.
 
 4. **Kapwing or Mematic (mobile apps)**  
-   Great for quick phone edits — add text, stickers, and the Burgess Principle question in seconds.
+   Great for quick phone edits.
 
-5. **AI prompt pack (copy-paste ready)**  
-   Drop any of these prompts into Grok, Claude, or ChatGPT + image generator:  
-   - “Gentle two-panel meme: robot conveyor belt vs caring human at a desk. Caption: ‘Bulk processed or actually seen? Burgess Principle’”  
-   - “Friendly cartoon of a person waving at a computer saying ‘I’m not a number!’ Caption: ‘Could a real human please look at my specific situation? #BurgessPrinciple’”  
-   - “Split image: left side conveyor belt of files, right side one file being read by a person. Warm colours, positive vibe.”
+5. **Advanced AI Meme Prompt Engineering Guide**  
+   Good prompt engineering is what turns a basic image into a clear, friendly, on-brand meme that actually gets shared.  
+   It makes Grok Imagine (or any AI image tool) produce better composition, warmer colours, consistent style, and the exact respectful tone we want.
+
+   **Quick prompt engineering tips for memes:**
+   - Always start with “Create a friendly cartoon meme” or “Gentle two-panel meme”  
+   - Say exactly what the two panels show  
+   - Mention “warm colours, positive vibe, clean white background”  
+   - End with the caption and “#BurgessPrinciple”  
+   - Add “in the style of simple, wholesome internet memes” if you want that classic look
+
+   **Ready-to-copy AI prompts (copy and paste straight into Grok Imagine):**
+
+   1. “Create a friendly two-panel cartoon meme. Top panel: tired robot stamping ‘APPROVED’ on a huge pile of identical files. Bottom panel: smiling human with magnifying glass carefully reading one single file. Warm colours, clean white background, positive vibe. Caption at the bottom: ‘Was a human actually looking at MY specific case? – Burgess Principle #BurgessPrinciple’”
+
+   2. “Gentle two-panel meme in warm cartoon style. Left panel: conveyor belt of identical boxes rushing past a robot. Right panel: one box being gently opened and read by a caring person at a desk. Clean layout, friendly colours. Text: ‘Bulk processed or actually seen? Burgess Principle #BurgessPrinciple’”
+
+   3. “Friendly meme showing a person waving at a computer screen saying ‘I’m not a number!’ Soft colours, positive expression. Caption: ‘Could a real human please look at my specific situation? #BurgessPrinciple’”
+
+   4. “Simple split-image meme. Left side: robot with stamp on mountain of paperwork. Right side: human giving personal attention to one document. Warm, approachable style. Text at bottom: ‘One simple question that changes everything – Burgess Principle #BurgessPrinciple’”
+
+   5. “Wholesome cartoon meme: frustrated person looking at a computer that says ‘Processed by AI’. Next panel: happy person receiving a handwritten note from a real team member. Caption: ‘The Burgess Principle – because every person deserves human attention #BurgessPrinciple’”
+
+   6. “Two-panel meme in clean, modern style. Top: stack of files with ‘AUTO’ stamp. Bottom: one file open with a kind human reading it. Gentle colours. Text: ‘Was a human member of the team able to personally review the specific facts of MY situation? #BurgessPrinciple’”
+
+   7. “Positive meme with a friendly robot handing a file to a human. Text: ‘Even better when a real person looks at it personally – Burgess Principle #BurgessPrinciple’”
+
+   8. “Classic ‘Distracted Boyfriend’ meme style but wholesome. Boyfriend looking at ‘Human Review’, girlfriend labelled ‘Automated System’. Caption: ‘Choose the Burgess Principle way #BurgessPrinciple’”
+
+   9. “Simple text meme on clean background: big question mark over a robot, then a heart over a human. Text: ‘The Burgess Principle in one picture #BurgessPrinciple’”
+
+   10. “Uplifting two-panel meme. Before: person feeling invisible in a giant database. After: person smiling because a real human reviewed their case. Caption: ‘Seen, not scanned – Burgess Principle #BurgessPrinciple’”
 
 ### Example meme ideas (text version)
 1. **The “Seen or Scanned?” meme**  
-   Top panel: Robot stamping “APPROVED” on a huge pile of papers  
-   Bottom panel: Friendly human looking at one single file with a magnifying glass  
-   Caption: “Was a human actually looking at MY specific case? (Burgess Principle)”
+   (Same as prompt 1 above)
 
-2. **The “I’m not a number” meme**  
-   Classic “I’m not a number, I’m a free man!” style  
-   Caption: “Or at least… could a real human please look at my specific situation? #BurgessPrinciple”
-
-3. **The “Bulk vs Personal” meme**  
-   Split image: Left = conveyor belt of identical boxes (Automated)  
-   Right = one box being carefully opened by a person (Human review)  
-   Caption: “One simple question that changes everything.”
-
-If you create any new memes, feel free to add them to this folder (images or text versions) and open a pull request — I’ll review them personally with the same care as everything else in the repo.
+If you create any new memes, feel free to add the image files to this folder and open a pull request — I’ll review them personally with the same care as everything else in the repo.
 
 Take care,  
 LJ

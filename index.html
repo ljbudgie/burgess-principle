@@ -232,7 +232,7 @@
                 <div>No → <span class="null">NULL</span> (void ab initio)</div>
             </div>
 
-            <button onclick="copyRepoToAI(event)" class="cta" aria-label="Copy git clone command for the Burgess Principle repository">
+            <button class="cta" aria-label="Copy git clone command for the Burgess Principle repository">
                 COPY ENTIRE REPO TO AI
             </button>
 
@@ -305,30 +305,43 @@
     </footer>
 
     <script>
-        window.copyRepoToAI = function(event) {
-            const textToCopy = `git clone https://github.com/ljbudgie/burgess-principle.git
+        (function() {
+            const attachCopyHandler = () => {
+                const buttonEl = document.querySelector('.cta');
+                if (!buttonEl) {
+                    console.warn('Copy CTA button not found.');
+                    return;
+                }
+                buttonEl.addEventListener('click', copyRepoToAI);
+            };
+
+            function copyRepoToAI(event) {
+                const textToCopy = `git clone https://github.com/ljbudgie/burgess-principle.git
 
 # Then drop the entire burgess-principle folder into Grok, Claude, or any AI chat.
 # The AI will instantly have the full principle, templates, audit log, and tools.`;
 
-            const buttonEl = event?.currentTarget || event?.target || document.querySelector('.cta');
-            if (!buttonEl) {
-                console.warn('Copy CTA button not found.');
-                return;
-            }
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const original = buttonEl.innerHTML;
-                buttonEl.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
-                buttonEl.style.background = "#7cff9b";
-                buttonEl.style.color = "#0a0a0a";
+                const buttonEl = event?.currentTarget || event?.target;
+                if (!buttonEl) {
+                    console.warn('Copy CTA button not found.');
+                    return;
+                }
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const original = buttonEl.innerHTML;
+                    buttonEl.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
+                    buttonEl.style.background = "#7cff9b";
+                    buttonEl.style.color = "#0a0a0a";
 
-                setTimeout(() => {
-                    buttonEl.innerHTML = original;
-                    buttonEl.style.background = "";
-                    buttonEl.style.color = "";
-                }, 2800);
-            });
-        };
+                    setTimeout(() => {
+                        buttonEl.innerHTML = original;
+                        buttonEl.style.background = "";
+                        buttonEl.style.color = "";
+                    }, 2800);
+                });
+            }
+
+            attachCopyHandler();
+        })();
     </script>
 </body>
 </html>

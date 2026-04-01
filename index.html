@@ -232,7 +232,7 @@
                 <div>No → <span class="null">NULL</span> (void ab initio)</div>
             </div>
 
-            <button onclick="copyRepoToAI(event)" class="cta">
+            <button onclick="copyRepoToAi(event)" class="cta">
                 COPY ENTIRE REPO TO AI
             </button>
 
@@ -305,13 +305,13 @@
     </footer>
 
     <script>
-        window.copyRepoToAI = function(event) {
+        window.copyRepoToAi = function(event) {
             const textToCopy = `git clone https://github.com/ljbudgie/burgess-principle.git
 
 # Then drop the entire burgess-principle folder into Grok, Claude, or any AI chat.
 # The AI will instantly have the full principle, templates, audit log, and tools.`;
 
-            const buttonEl = event?.currentTarget || event?.target || null;
+            const buttonEl = event?.currentTarget || event?.target;
             navigator.clipboard.writeText(textToCopy).then(() => {
                 if (!buttonEl) return;
 

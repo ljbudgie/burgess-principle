@@ -17,4 +17,4 @@ To move from **NULL** to **SOVEREIGN**, the entity must provide:
 2. **Sovereign Signature:** A cryptographic signature from a Human Judicial Mind (Lead Counsel/DPO).
 3. **Public Commit:** This ledger must be updated via a pull request to reflect the 24-hour verification window.
 
-> **Note:** Any instrument not listed as SOVEREIGN (1) in this ledger is considered **Void ab initio** under the Maximum Truth Purification Grid.
+> **Note:** Any instrument not listed as SOVEREIGN (1) in this ledger is considered **Void ab initio** under the Maximum Truth Compliance Verification Grid.

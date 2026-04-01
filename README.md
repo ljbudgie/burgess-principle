@@ -17,11 +17,14 @@ That simple, respectful question is at the heart of everything here.
 Every human being is an individual — not a number in a database, not a customer reference, not a data point. Before any institution makes a decision that affects you (a warrant, a bill, a credit score, a medical choice, a ban, anything), it should actually see *you* and the unique circumstances of your case.
 
 ### How This Helps You
-The Burgess Principle gives ordinary people a clear, practical way to ask for that human attention — and to get a written record if it wasn’t given.
+The Burgess Principle gives ordinary people a clear, practical way to ask for that human attention — and to get a written record if it wasn't given.
 
-You don’t need legal training. Just the one question, the ready-to-use templates, and the real-world examples in this repo.
+You don't need legal training. Just the one question, the ready-to-use templates, and the real-world examples in this repo.
 
 You can even drop the whole repository into any AI assistant and get personalised letters, notices and next steps tailored to your exact situation.
+
+### How Is This Different?
+Similar tools exist — mostly single-purpose templates from charities or official bodies. What makes the Burgess Principle different is that it gives you one simple question you can ask any institution, combined with ready-to-use letters that already include your legal rights under the Equality Act, GDPR, and more. It's designed to be dropped straight into any AI so you get personalised help in seconds.
 
 ### Origin Story
 This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On **27 May 2025**, enforcement agents drilled open his rear patio door under Warrant RE99022. That experience showed how many decisions today are made through automated bulk systems with little or no individual human review. What started as a personal moment of feeling unseen became a simple tool that anyone can use.
@@ -33,7 +36,7 @@ This principle was developed by Lewis James Burgess, a deaf barber from Darlingt
 
 Real-world results so far (as of 30 March 2026):  
 - Applied to 16 institutions  
-- 11 returned “no individual human review” findings  
+- 11 returned "no individual human review" findings  
 - 1 clear positive outcome: Wave Utilities resolved both accounts to £0.00 after personal review  
 - 3 responses still pending  
 
@@ -70,10 +73,10 @@ Full versions are in the [`/papers/`](papers/) directory (and linked in the full
 
 ---
 
-If you’ve ever felt unseen by a system, you’re not alone.
+If you've ever felt unseen by a system, you're not alone.
 
 Ask one simple question in writing:  
-**“Was a human member of the team able to personally review the specific facts of my situation?”**
+**"Was a human member of the team able to personally review the specific facts of my situation?"**
 
 Their answer (or silence) tells you everything.
 

@@ -13,6 +13,7 @@ Every template is built around one simple idea: helping you ask any organisation
 - `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review (very effective)
 - `FOI_WITH_BURGESS_PRINCIPLE.md` ← perfect for councils, courts, public bodies
 - `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for any automated decision
+- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← perfect for autistic people requesting reasonable adjustments (email-only + human review)
 - `data_sovereignty_request.md`
 - `institutional_scrutiny_template.md`
 - `sovereignty_declaration.md`

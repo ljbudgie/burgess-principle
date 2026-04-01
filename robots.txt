@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Tell crawlers where to find the full list of pages
+Sitemap: https://burgess-principle.vercel.app/sitemap.xml

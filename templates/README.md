@@ -4,12 +4,15 @@ Hi 👋
 
 Welcome to the templates folder.
 
-This is where you’ll find ready-to-use letters, notices and follow-up documents, all written in the same calm, polite and respectful style we use throughout the Burgess Principle project.
+This is where you'll find ready-to-use letters, notices and follow-up documents, all written in the same calm, polite and respectful style we use throughout the Burgess Principle project.
 
 Every template is built around one simple idea: helping you ask any organisation to give **your specific situation** the proper human attention it deserves.
 
 ### Most-used templates
-- **`NOTICE_OF_NULLITY.md`** ← this is the one most people start with
+- `REQUEST_FOR_HUMAN_REVIEW.md` ← the gentle all-purpose one
+- `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review (very effective)
+- `FOI_WITH_BURGESS_PRINCIPLE.md` ← perfect for councils, courts, public bodies
+- `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for any automated decision
 - `data_sovereignty_request.md`
 - `institutional_scrutiny_template.md`
 - `sovereignty_declaration.md`
@@ -26,7 +29,7 @@ Every template is built around one simple idea: helping you ask any organisation
 
 All templates are released under the MIT licence — feel free to use them, adapt them, and share them freely.
 
-If something doesn’t feel quite right or you’d like a version written in a particular tone, just let me know. I’m happy to help improve them.
+If something doesn't feel quite right or you'd like a version written in a particular tone, just let me know. I'm happy to help improve them.
 
 Made with care,  
 Lewis (Mr Burgess)

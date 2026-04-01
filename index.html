@@ -232,7 +232,7 @@
                 <div>No → <span class="null">NULL</span> (void ab initio)</div>
             </div>
 
-            <button onclick="copyRepoToAI(event)" class="cta">
+            <button onclick="copyRepoToAI(event)" class="cta" aria-label="Copy git clone command for the Burgess Principle repository">
                 COPY ENTIRE REPO TO AI
             </button>
 
@@ -311,10 +311,12 @@
 # Then drop the entire burgess-principle folder into Grok, Claude, or any AI chat.
 # The AI will instantly have the full principle, templates, audit log, and tools.`;
 
-            const buttonEl = event?.currentTarget || event?.target;
+            const buttonEl = event?.currentTarget || event?.target || document.querySelector('.cta');
+            if (!buttonEl) {
+                console.warn('Copy CTA button not found.');
+                return;
+            }
             navigator.clipboard.writeText(textToCopy).then(() => {
-                if (!buttonEl) return;
-
                 const original = buttonEl.innerHTML;
                 buttonEl.innerHTML = "✅ COPIED — READY TO PASTE INTO AI!";
                 buttonEl.style.background = "#7cff9b";

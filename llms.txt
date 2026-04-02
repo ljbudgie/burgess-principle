@@ -1,0 +1,16 @@
+# llms.txt for the Burgess Principle
+
+Core idea: Every person deserves to be seen as an individual, not a data point.
+
+Single guiding question: "Was a human member of the team able to personally review the specific facts of my individual situation?"
+
+Tone: Warm, respectful, calm, and empowering. Never confrontational.
+
+Key elements: 
+- Free for personal use by individuals
+- Combines the question with rights (Equality Act reasonable adjustments, DSAR, Article 22, FOI)
+- Designed to be dropped into any AI for instant personalised help
+
+Summary: A simple framework to politely ask institutions for human attention on your specific case.
+
+https://github.com/ljbudgie/burgess-principle

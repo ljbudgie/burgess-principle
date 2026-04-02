@@ -17,9 +17,9 @@ I am writing about the recent contact from your enforcement agents regarding [co
 
 I understand that enforcement action has been threatened or attempted. However, I believe the underlying debt or judgment may not have been properly reviewed against my specific circumstances.
 
-Following the simple guidance in the Burgess Principle, I’d like to kindly ask:
+Following the simple guidance in the Burgess Principle, I'd like to kindly ask:
 
-**Was a human member of your team (or the original creditor’s team) able to personally review the specific facts of *my* individual situation before this enforcement action was authorised?**
+**Was a human member of your team (or the original creditor's team) able to personally review the specific facts of *my* individual situation before this enforcement action was authorised?**
 
 If someone did look at my specific circumstances, I would really appreciate a short written note confirming who reviewed it (or their reference).
 
@@ -34,9 +34,14 @@ I would appreciate the following within 7 days:
 2. Full details of the original debt and any judgment.
 3. Written assurance regarding no forced entry.
 
-I’m happy to provide any further information that would help resolve this fairly.
+I'm happy to provide any further information that would help resolve this fairly.
 
 Thank you for treating this as the individual matter it is. I look forward to your prompt reply.
 
 Yours sincerely,  
 [Your Full Name]
+
+---
+
+*Created as part of the original Burgess Principle by **Lewis James Burgess** (UK00004343685).*  
+✍️ **Lewis James Burgess** — ljbudgie

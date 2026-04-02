@@ -36,6 +36,31 @@ You can even drop the whole repository into any AI assistant and get personalise
 ### How Is This Different?
 Similar tools exist — mostly single-purpose templates from charities or official bodies. What makes the Burgess Principle different is that it gives you one simple question you can ask any institution, combined with ready-to-use letters that already include your legal rights under the Equality Act, GDPR, and more. It's designed to be dropped straight into any AI so you get personalised help in seconds.
 
+### 🌍 Does This Work Outside the UK?
+Yes — completely.
+
+The question at the heart of this repository:
+
+> "Was a human member of the team able to personally review the specific facts of my situation?"
+
+…works in any country, in any language, against any institution. It requires no legal training and no knowledge of UK law.
+
+The legal references in the templates (GDPR, Equality Act 2010, DSAR, Article 22) are UK boosters — they add extra leverage for people in the UK. But every country has its own equivalents, and the core question stands entirely on its own without them.
+
+If you're outside the UK: simply use the question and the templates as written, and replace any UK legal references with your local equivalents. The table below is a starting point.
+
+### 🗺️ Global Legal Equivalents (Quick Reference)
+
+| Right | UK | USA | EU | Australia | Canada |
+|---|---|---|---|---|---|
+| Access your personal data | DSAR / GDPR | CCPA (California) / Privacy Act | GDPR Article 15 | Privacy Act 1988 | PIPEDA |
+| Challenge automated decisions | GDPR Article 22 | Limited (sector-specific) | GDPR Article 22 | APPs (limited) | PIPEDA s.4.9 |
+| Request human review | Article 22 + DPA 2018 | FTC Act / sector rules | GDPR Article 22 | Privacy Act | PIPEDA |
+| Disability / access rights | Equality Act 2010 | ADA 1990 | EU Accessibility Act | Disability Discrimination Act | AODA (Ontario) |
+| Freedom of Information | FOIA 2000 | FOIA 1966 | National FOI laws | FOI Act 1982 | Access to Information Act |
+
+> **Note:** Laws vary by state, province, and sector. This table is a signpost, not legal advice.
+
 ### Origin Story
 This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On **27 May 2025**, enforcement agents drilled open his rear patio door under Warrant RE99022. That experience showed how many decisions today are made through automated bulk systems with little or no individual human review. What started as a personal moment of feeling unseen became a simple tool that anyone can use.
 

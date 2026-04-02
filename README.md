@@ -8,6 +8,16 @@ This helps the AI understand the warm, human-first approach we use throughout.
 
 ---
 
+## About This Repository
+
+**This is the original Burgess Principle repository**, created by Lewis James Burgess in 2025–2026.
+
+It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of thoughtful iterations on an iPhone. The goal has always been to keep it simple, respectful, and genuinely useful for ordinary people — never heavy, never confrontational.
+
+Everything here is designed so that real individuals can politely ask institutions to treat them as human beings rather than data points.
+
+---
+
 # The Burgess Principle ⚖️
 
 **"Was a human member of the team able to personally review the specific facts of *my* situation?"**

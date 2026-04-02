@@ -9,16 +9,13 @@ This is where you'll find ready-to-use letters, notices and follow-up documents,
 Every template is built around one simple idea: helping you ask any organisation to give **your specific situation** the proper human attention it deserves.
 
 ### Most-used templates
-- `REQUEST_FOR_HUMAN_REVIEW.md` ← the gentle all-purpose one
+- `GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md` ← **the new universal dispute letter** (works for *any* institution — Scottish Power, councils, bailiffs, banks, credit agencies, courts, utilities, platforms, etc. — just add the name and a couple of details)
+- `REQUEST_FOR_HUMAN_REVIEW.md` ← the gentle all-purpose letter
 - `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review (very effective)
-- `FOI_WITH_BURGESS_PRINCIPLE.md` ← perfect for councils, courts, public bodies
+- `FOI_WITH_BURGESS_PRINCIPLE.md` ← perfect for councils, courts and public bodies
+- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← for autistic people and reasonable adjustments (email-only + human review)
 - `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for any automated decision
-- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← perfect for autistic people requesting reasonable adjustments (email-only + human review)
-- `data_sovereignty_request.md`
-- `institutional_scrutiny_template.md`
-- `sovereignty_declaration.md`
-- `acknowledgment_email_template.txt`
-- `ai_prompt_for_notices.txt` (handy prompt you can give to any AI)
+- `acknowledgment_email_template.txt` ← polite follow-ups
 
 ### How to use them
 1. Open the template that best matches what you need.

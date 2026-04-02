@@ -15,9 +15,9 @@ I hope this email finds you well.
 
 I am writing about the recent [council tax bill / PCN / enforcement notice] with reference [insert reference number if known].
 
-The correspondence appears to have been sent to “the occupier” or contains details that do not fully match my individual circumstances.
+The correspondence appears to have been sent to "the occupier" or contains details that do not fully match my individual circumstances.
 
-Following the simple guidance in the Burgess Principle, I’d like to kindly ask:
+Following the simple guidance in the Burgess Principle, I'd like to kindly ask:
 
 **Was a human member of your team able to personally review the specific facts of *my* individual situation before this demand or enforcement action was issued?**
 
@@ -32,10 +32,15 @@ Please treat this as a formal dispute. I would appreciate the following informat
 2. Confirmation of any evidence considered specific to my situation.
 3. Written assurance that enforcement action is paused while this is reviewed.
 
-I’m happy to provide any further details that would help.
+I'm happy to provide any further details that would help.
 
 Thank you for treating this as the individual matter it is. I look forward to your reply.
 
 Yours sincerely,  
 [Your Full Name]  
 [Your Reference Number if known]
+
+---
+
+*Created as part of the original Burgess Principle by Lewis James Burgess (UK00004343685).*  
+✍️ **Lewis James Burgess** | @ljbudgie

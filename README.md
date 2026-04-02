@@ -8,6 +8,12 @@ This helps the AI understand the warm, human-first approach we use throughout.
 
 ---
 
+**This is the original Burgess Principle**, created by Lewis James Burgess (Darlington, UK — Certification Mark UK00004343685).
+
+It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.
+
+---
+
 ## About This Repository
 
 **This is the original Burgess Principle repository**, created by Lewis James Burgess in 2025–2026.

@@ -19,7 +19,7 @@ I am writing about the recent decision regarding my [PIP / Universal Credit / ES
 
 I believe the decision may not have fully taken into account my specific circumstances.
 
-Following the simple guidance in the Burgess Principle, I’d like to kindly ask:
+Following the simple guidance in the Burgess Principle, I'd like to kindly ask:
 
 **Was a human member of the decision-making team able to personally review the specific facts of *my* individual situation before this decision was made?**
 
@@ -32,11 +32,16 @@ I am also requesting reasonable adjustments under the Equality Act 2010 if appli
 Please treat this as a formal request for **Mandatory Reconsideration**.
 
 I have attached:
-- [List your supporting evidence, e.g. medical letters, carer’s statement, etc.]
+- [List your supporting evidence, e.g. medical letters, carer's statement, etc.]
 
-I’m happy to provide any further information that would help.
+I'm happy to provide any further information that would help.
 
 Thank you for taking the time to look at my individual circumstances. I look forward to your reply within the usual timeframe.
 
 Yours sincerely,  
 [Your Full Name]
+
+---
+
+*Created as part of the original Burgess Principle by Lewis James Burgess (UK00004343685).*  
+*© Lewis James Burgess. All rights reserved.*

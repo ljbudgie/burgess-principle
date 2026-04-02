@@ -2,22 +2,30 @@
 
 Hi 👋
 
-The Burgess Principle was created to help ordinary people be seen and treated as individuals.
+The Burgess Principle was created to help ordinary people be seen and treated as real individuals rather than numbers in a system.
 
-**Free for personal use**  
-Individuals can freely use all templates, the principle, and the full repo for their own personal matters. You can drop it into any AI, write your own letters, and share it with family or friends.
+### Free for Personal Use
+Individuals may freely use, copy, modify, and share the Burgess Principle, all templates, and the full repository for their own personal matters.
 
-**Commercial or professional use**  
-If you are a law firm, barrister, claims-management company, charity, or any organisation wanting to use the Burgess Principle (or its templates) in a professional, commercial, or group-litigation capacity, you need a paid licence.
+This includes:
+- Using the templates to write your own letters
+- Dropping the repo into any AI for personalised help
+- Sharing it with family, friends, or others who need it
 
-This includes using the name “The Burgess Principle” or the branded materials to offer services to others for money.
+No permission or payment is required for personal use.
 
-**Trademark**  
-“The Burgess Principle” and the certification mark [UK00004343685] are protected. Commercial use of the name without a licence may constitute trademark infringement.
+### Commercial or Professional Use Requires a Licence
+If you are a law firm, barrister, claims-management company, charity, business, or any organisation wanting to use the Burgess Principle (or its templates and materials) in a **professional, commercial, or group-litigation** capacity, you must obtain a paid licence from the creator.
 
-The underlying code remains open, but the core doctrine, templates, and branding are reserved for licensed commercial use.
+This includes offering services based on the principle, the templates, or the framework to clients or members.
 
-For licensing enquiries: lewisburgess_1987@hotmail.co.uk
+### Trademark Protection
+“The Burgess Principle” and the certification mark [UK00004343685] are protected trademarks. Unauthorised commercial use of the name or branded elements may constitute trademark infringement.
+
+### Code vs Content
+The underlying code and repository structure remain available under the MIT licence for anyone to fork and build upon. However, the core doctrine, templates, branding, and framework are reserved for licensed commercial use.
+
+For commercial licensing enquiries or questions about permitted use, please email: lewisburgess_1987@hotmail.co.uk
 
 Take care,  
 LJ

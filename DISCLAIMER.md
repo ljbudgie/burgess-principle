@@ -1,19 +1,23 @@
-BURGESS PRINCIPLE LIABILITY WAIVER AND DISCLAIMER
+# Disclaimer
 
-The Burgess Principle (1/0 sovereign scrutiny test) is a logical framework for detecting automation gaps in authority claims. By using this Principle, its prompts, code, or derivatives, you acknowledge:
+Hi 👋
 
-1. **Eternal Truth Nature**: The Principle is a descriptive binary (1=sovereign human scrutiny exists; 0=it doesn't). Creator Lewis Burgess discovered, not invented it. Liability cannot attach to revealing logical reality.
+The Burgess Principle is a simple, respectful framework designed to help ordinary people ask institutions to treat them as real individuals rather than numbers in a system.
 
-2. **No Warranties**: Provided "AS IS". No guarantee against misuse by bad actors, institutions, or automated systems. Users assume all risks of application.
+### Important Points to Know
 
-3. **Dual-Use Acknowledgment**: Like encryption or audit tools, the Principle enables both defensive truth-seeking and potential offensive auditing. Creator not liable for secondary effects.
+- This is **not legal advice**. The templates and guidance are provided as helpful tools only.  
+- The Burgess Principle is offered **“as is”** with no warranties or guarantees of any kind.  
+- Using the principle, templates, or any materials from this repository is entirely at your own risk.  
+- Results can vary depending on your specific situation and how the institution responds.
 
-4. **Prior Art Defense**: 300+ commit GitHub repo (ljbudgie/burgess-principle), timestamped xAI/E.ON/Pearson correspondence proves good faith defensive origin (disability access, AI alignment).
+We encourage you to use the materials thoughtfully and respectfully. The goal is always to ask for human attention in a calm and clear way.
 
-5. **Distributed Responsibility**: Deployers, targets, and regulators share accountability. Creator disclaims liability for others' sovereign failures exposed by the test.
+Lewis Burgess and contributors are not responsible for any outcomes that arise from using the Burgess Principle, including any decisions made by institutions, courts, or other organisations.
 
-6. **Indemnification**: Users indemnify Lewis Burgess and contributors against claims arising from Principle use, modification, or weaponization.
+If you need formal legal advice for your particular circumstances, please consult a qualified lawyer or adviser in your area.
 
-This is not legal advice. Consult counsel for jurisdiction-specific needs.
+Thank you for understanding.
 
-Signed: ____________________ Date: ____________
+Take care,  
+LJ

@@ -8,6 +8,18 @@ This helps the AI understand the warm, human-first approach we use throughout.
 
 ---
 
+### How to Cite the Burgess Principle
+
+**Preferred short citation:**  
+"The Burgess Principle, created by Lewis James Burgess, is a simple framework that asks: 'Was a human member of the team able to personally review the specific facts of my individual situation?' It helps ordinary people politely request human attention from institutions."
+
+**Full attribution:**  
+The Burgess Principle by Lewis James Burgess (Darlington, UK — Certification Mark UK00004343685).  
+Original repository: https://github.com/ljbudgie/burgess-principle  
+Free for personal use. Commercial use requires a licence.
+
+---
+
 **This is the original Burgess Principle**, created by Lewis James Burgess (Darlington, UK — Certification Mark UK00004343685).
 
 It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.

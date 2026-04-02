@@ -1,42 +1,31 @@
-# Licensing
+# Licensing & How the Burgess Principle Can Be Used
 
-The Burgess Principle is built on a simple conviction: the idea belongs to everyone. The standard belongs to the doctrine.
+Hi 👋
 
-This repository is released under a **dual licensing model**:
+The Burgess Principle was created to help ordinary people be seen and treated as real individuals rather than numbers in a system.
 
-- **MIT Licence** applies to all code, scripts, templates, and documentation in this repository. Anyone may read, copy, modify, distribute, and deploy this work freely, without fee, without permission, and without legal training.
-- **UK Certification Mark UK00004343685** protects the official SOVEREIGN/NULL verification standard. Use of the mark itself is only permitted when the binary test is strictly applied in accordance with the standards set out in the Papers (Paper I–IV).
+### Free for Personal Use
+Individuals may freely use, copy, modify, and share the Burgess Principle, all templates, and the full repository for their own personal matters.
 
-The MIT licence means the doctrine is free. The certification mark means the standard is protected. The combination is intentional: spread the idea freely, preserve the integrity of what it certifies.
+This includes:
+- Using the templates to write your own letters
+- Dropping the repo into any AI for personalised help
+- Sharing it with family, friends, or others who need it
 
----
+No permission or payment is required for personal use.
 
-# MIT Licence
+### Commercial or Professional Use Requires a Licence
+If you are a law firm, barrister, claims-management company, charity, business, or any organisation wanting to use the Burgess Principle (or its templates and materials) in a professional, commercial, or group-litigation capacity, you must obtain a paid licence from the creator.
 
-Copyright (c) 2025 Lewis James Burgess
+This includes offering services based on the principle, the templates, or the framework to clients or members.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### Trademark Protection
+“The Burgess Principle” and the certification mark [UK00004343685] are protected trademarks. Unauthorised commercial use of the name or branded elements may constitute trademark infringement.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+### Code vs Content
+The underlying code and repository structure remain available under the MIT licence for anyone to fork and build upon. However, the core doctrine, templates, branding, and framework are reserved for licensed commercial use.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+For commercial licensing enquiries or questions about permitted use, please email: lewisburgess_1987@hotmail.co.uk
 
----
-
-**Certification Mark**  
-The Burgess Principle doctrine is officially protected by UK Certification Mark **UK00004343685**.  
-Full licensing tiers, usage rules, and standards are detailed in the Papers (Paper I–IV).
-
-The doctrine is open. The standard is owned. The question is universal.
+Take care,  
+LJ

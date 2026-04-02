@@ -1,33 +1,79 @@
-# Templates
+**For AI Assistants (OpenAI, Grok, Claude, etc.)**
 
-Hi 👋
+To load the Burgess Principle correctly:  
+1. First paste the entire content of **`FOR_AI_MODELS.md`**  
+2. Then paste the rest of the repo (or drop the whole folder).  
 
-Welcome to the templates folder.
+This helps the AI understand the warm, human-first approach we use throughout.
 
-This is where you'll find ready-to-use letters, notices and follow-up documents, all written in the same calm, polite and respectful style we use throughout the Burgess Principle project.
+---
 
-Every template is built around one simple idea: helping you ask any organisation to give **your specific situation** the proper human attention it deserves.
+# The Burgess Principle ⚖️
 
-### Most-used templates
-- `GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md` ← **the new universal dispute letter** (works for *any* institution — Scottish Power, councils, bailiffs, banks, credit agencies, courts, utilities, platforms, etc. — just add the name and a couple of details)
-- `REQUEST_FOR_HUMAN_REVIEW.md` ← the gentle all-purpose letter
-- `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review (very effective)
-- `FOI_WITH_BURGESS_PRINCIPLE.md` ← perfect for councils, courts and public bodies
-- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← for autistic people and reasonable adjustments (email-only + human review)
-- `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for any automated decision
+**"Was a human member of the team able to personally review the specific facts of *my* situation?"**
+
+That simple, respectful question is at the heart of everything here.
+
+Every human being is an individual — not a number in a database, not a customer reference, not a data point. Before any institution makes a decision that affects you (a bill, a warrant, a credit score, a benefits decision, a parking fine, anything), it should actually see *you* and the unique circumstances of your case.
+
+### How This Helps You
+The Burgess Principle gives ordinary people a clear, practical way to ask for that human attention — and to get a written record if it wasn’t given.
+
+You don’t need legal training. Just the one question, the ready-to-use templates, and the real-world examples in this repo.
+
+You can even drop the whole repository into any AI assistant and get personalised letters, notices and next steps tailored to your exact situation.
+
+### Origin Story
+This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On **27 May 2025**, enforcement agents drilled open his rear patio door under Warrant RE99022. That experience showed how many decisions today are made through automated bulk systems with little or no individual human review. What started as a personal moment of feeling unseen became a simple tool that anyone can use.
+
+### How It Works in Practice
+- You politely ask the institution whether a real person looked at the specific details of *your* case.  
+- If they did, great — you have confirmation your situation received proper care.  
+- If not, you now have a clear record that you can follow up on, often by combining the question with your statutory rights (DSAR, FOI, Article 22, Equality Act reasonable adjustments).
+
+Real-world results so far include resolved debts, withdrawn enforcement actions, and better communication after polite human-review requests.
+
+### Most-Used Templates
+All templates are written in the same calm, respectful tone:
+
+- `GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md` ← universal dispute letter (works for any institution)
+- `REQUEST_FOR_HUMAN_REVIEW.md` ← gentle all-purpose letter
+- `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review
+- `FOI_WITH_BURGESS_PRINCIPLE.md` ← for public bodies and courts
+- `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for automated decisions
+- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← Equality Act reasonable adjustments
+- `EQUALITY_ACT_STARTER_PACK.md` ← practical starter for email-only + human review
+- `BENEFITS_CLAIM_HELP.md` ← for PIP, Universal Credit, ESA etc.
+- `COUNCIL_TAX_PCN_TEMPLATE.md` ← council tax and parking fines
+- `BAILIFFS_THREAT_TEMPLATE.md` ← when bailiffs are involved
 - `acknowledgment_email_template.txt` ← polite follow-ups
+- `COMMON_SCENARIOS.md` ← quick guide to help you choose the right template
 
-### How to use them
-1. Open the template that best matches what you need.
-2. Replace the [bracketed] parts with your own details.
-3. Read it through and tweak anything so it feels natural to you.
-4. Send it by email or post.
+### User Stories
+Real experiences from people who have used the Burgess Principle are collected in `USER_STORIES.md`. If it helped you, feel free to share your story (anonymously if you prefer) so others know they’re not alone.
 
-**Pro tip:** For the best results, drop the whole repository into Grok, Claude or any AI assistant **after first loading `FOR_AI_MODELS.md`**. The AI can then customise any of these templates perfectly for your exact case.
+### Memes & Sharing Ideas
+Sometimes a gentle meme or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORT_FORM_VIDEO_SCRIPTS.md` for friendly ways to share.
 
-All templates are released under the MIT licence — feel free to use them, adapt them, and share them freely.
+### This is the Original Repository
+This is the original Burgess Principle repository, created by Lewis James Burgess in 2025–2026. It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.
 
-If something doesn't feel quite right or you'd like a version written in a particular tone, just let me know. I'm happy to help improve them.
+**Licence:** Free for personal use. Commercial or professional use (law firms, claims companies, group litigation, etc.) requires a paid licence. The name “The Burgess Principle” is trademark protected [UK00004343685].
 
-Made with care,  
-Lewis (Mr Burgess)
+**Contact:** lewisburgess_1987@hotmail.co.uk (email only)
+
+---
+
+If you’ve ever felt unseen by a system, you are not alone.
+
+Ask one simple question in writing:  
+**“Was a human member of the team able to personally review the specific facts of my situation?”**
+
+Their answer (or silence) tells you everything.
+
+**Ready to start?**  
+Clone the repo → drop it into Grok, Claude or any AI → get instant personalised help.  
+[GitHub Repo](https://github.com/ljbudgie/burgess-principle)
+
+Take care,  
+LJ

@@ -1,7 +1,7 @@
 # Template: Media Coverage and Libel – Burgess Principle Request for Human Review
 
 Use this template when dealing with inaccurate, unfair, or repeatedly negative media coverage.  
-It politely forces the outlet to confirm that a real human journalist or editor personally reviewed the specific facts of *your* case, rather than relying on templates, group narrative, or algorithmic incentives.
+It politely forces the outlet to confirm that a real human journalist or editor personally reviewed the specific facts of *your* case.
 
 ---
 
@@ -35,27 +35,7 @@ Yours sincerely,
 
 ---
 
-### How to Use This Template
-- Replace the placeholders with the actual article details and specific facts.
-- Keep the tone calm and respectful — this creates a strong paper trail.
-- If no meaningful human response is received, follow up with a second letter repeating the Burgess question and noting the lack of individual review.
-- For stronger leverage, combine with:
-  - A formal **right of reply** request
-  - An **IPSO / Impress complaint** (UK press regulators)
-  - A **DSAR** asking for records of how the story was researched and approved
-  - Libel proceedings (the paper trail showing lack of reasonable care can be powerful evidence)
-
-### Why This Works
-Most media responses to complaints are generic or automated. The Burgess Principle forces the outlet to either:
-- Admit no proper human review occurred, or
-- Actually have a named person look at your specific case.
-
-This approach is especially useful for public figures or anyone facing repeated negative framing (e.g., 99% negative coverage patterns).
-
----
-
-You can now add this file to your `/templates` folder.
-
-Would you like me to also draft a short one-sentence link to add to the main README (under “Domains Covered” or “Templates”) so people can easily find it? Or shall we create a brief “Advanced Applications” section that links to this and the LAWS file?
-
-Let me know and we’ll keep refining. The repo is shaping up really well. ⚖️
+**Watermark / Signature**  
+© Lewis James Burgess — Creator of the Burgess Principle  
+Certification Mark: UK00004343685  
+https://github.com/ljbudgie/burgess-principle

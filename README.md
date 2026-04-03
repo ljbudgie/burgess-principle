@@ -11,7 +11,7 @@ This helps the AI understand the warm, human-first approach we use throughout.
 ### How to Cite the Burgess Principle
 
 **Preferred short citation:**  
-"The Burgess Principle, created by Lewis James Burgess, is a simple framework that asks: 'Was a human member of the team able to personally review the specific facts of my individual situation?' It gives ordinary people a clear, practical way to ask for human attention from institutions."
+"The Burgess Principle, created by Lewis James Burgess, is a simple framework that asks: 'Was a human member of the team able to personally review the specific facts of my individual situation?' If not, that matters." — Lewis James Burgess, Darlington, UK (Certification Mark UK00004343685).
 
 **Full attribution:**  
 The Burgess Principle by Lewis James Burgess (Darlington, UK — Certification Mark UK00004343685).  
@@ -30,7 +30,7 @@ It began as a personal response to feeling unseen by automated systems and has b
 
 **This is the original Burgess Principle repository**, created by Lewis James Burgess in 2025–2026.
 
-It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of thoughtful iterations on an iPhone. The goal has always been to keep it simple, calm, and genuinely useful for real people facing real institutions.
+It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of thoughtful iterations on an iPhone. The goal has always been to keep it simple, respectful, and genuinely useful for ordinary people.
 
 Everything here is designed so that real individuals can politely ask institutions to treat them as human beings rather than data points.
 
@@ -42,7 +42,7 @@ Everything here is designed so that real individuals can politely ask institutio
 
 That simple, respectful question is at the heart of everything here.
 
-Every human being is an individual — not a number in a database, not a customer reference, not a data point. Before any institution makes a decision that affects you (a warrant, a bill, a credit default, a benefit cut), someone should have actually looked at *your* specific circumstances.
+Every human being is an individual — not a number in a database, not a customer reference, not a data point. Before any institution makes a decision that affects you (a warrant, a bill, a credit score, a benefit claim), a real person should have looked at *your* specific facts.
 
 ### How This Helps You
 The Burgess Principle gives ordinary people a clear, practical way to ask for that human attention — and to get a written record if it wasn't given.
@@ -52,7 +52,7 @@ You don't need legal training. Just the one question, the ready-to-use templates
 You can even drop the whole repository into any AI assistant and get personalised letters, notices and next steps tailored to your exact situation.
 
 ### How Is This Different?
-Similar tools exist — mostly single-purpose templates from charities or official bodies. What makes the Burgess Principle different is that it gives you one simple question you can ask any institution, in any country, at any time — and then backs that question up with practical templates, real examples, and legal references.
+Similar tools exist — mostly single-purpose templates from charities or official bodies. What makes the Burgess Principle different is that it gives you one simple question you can ask any institution, in any country, in any situation.
 
 ### 🌍 Does This Work Outside the UK?
 Yes — completely.
@@ -63,7 +63,7 @@ The question at the heart of this repository:
 
 …works in any country, in any language, against any institution. It requires no legal training and no knowledge of UK law.
 
-The legal references in the templates (GDPR, Equality Act 2010, DSAR, Article 22) are UK boosters — they add extra leverage for people in the UK. But every country has its own equivalents, and the table below gives you a starting point for the most common ones.
+The legal references in the templates (GDPR, Equality Act 2010, DSAR, Article 22) are UK boosters — they add extra leverage for people in the UK. But every country has its own equivalents, and the question works without them.
 
 If you're outside the UK: simply use the question and the templates as written, and replace any UK legal references with your local equivalents. The table below is a starting point.
 
@@ -82,11 +82,11 @@ If you're outside the UK: simply use the question and the templates as written, 
 ### Origin Story
 The Burgess Principle was created by Lewis James Burgess, a deaf barber from Darlington in the North East of England.
 
-On 27 May 2025, enforcement agents arrived at his home and drilled open the rear patio door under Warrant RE99022. No human had reviewed the specific facts of Lewis's situation. The entire process had been handled by automated bulk systems — a frozen meter reading, an escalated debt, and a warrant issued without anyone ever looking at the individual circumstances.
+On 27 May 2025, enforcement agents arrived at his home and drilled open the rear patio door under Warrant RE99022. No human had reviewed the specific facts of Lewis's situation. The entire process had been automated from start to finish.
 
 In that moment Lewis realised he wasn't being treated as a person — he was just another data point in a machine. That experience became the spark for the Burgess Principle.
 
-What started as a personal response to feeling unseen grew into a simple, respectful framework that anyone can use. One calm question — "Was a human member of the team able to personally review the specific facts of my situation?" — designed to politely ask institutions to do what should have happened in the first place: actually look at the individual in front of them.
+What started as a personal response to feeling unseen grew into a simple, respectful framework that anyone can use. One calm question — "Was a human member of the team able to personally review the specific facts of my situation?" — and the answer (or silence) tells you everything.
 
 ### How It Works in Practice
 - You politely ask the institution whether a real person looked at the specific details of *your* case.  
@@ -108,6 +108,8 @@ All templates are written in the same calm, respectful tone:
 - `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review (very effective)  
 - `FOI_WITH_BURGESS_PRINCIPLE.md` ← for public bodies and courts  
 - `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for automated decisions  
+- `MEDIA_AND_LIBEL.md` ← for inaccurate or unfair media coverage  
+- `MUSIC_COPYRIGHT_WITH_BURGESS.md` ← for Content ID claims and royalty disputes  
 - `acknowledgment_email_template.txt` ← polite follow-ups  
 - And more in the `/templates` folder
 
@@ -122,6 +124,8 @@ Sometimes a gentle meme explains the idea better than a long letter. Head to the
 | 💳 Credit Data          | Credit File / Default              | Was the source data individually validated?      |
 | 💻 Data Sovereignty     | DSARs / Automated Decisions        | Was individual attention given?                  |
 | 🏛️ Platform Governance | Content Moderation / Bans          | Was a human mind applied to this case?           |
+| 📰 Media & Libel        | Press / Broadcast Coverage         | Was the specific reporting individually verified? |
+| 🎵 Music Copyright      | Content ID / Royalty Disputes      | Was a human mind individually applied to this claim? |
 
 ### Core Papers & Documents
 Full versions are in the [`/papers/`](papers/) directory (and linked in the full index).

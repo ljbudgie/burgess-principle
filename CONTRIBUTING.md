@@ -1,27 +1,58 @@
 # Contributing to the Burgess Principle
 
-Thank you for your interest in contributing.
+Thank you for your interest in contributing to the Burgess Principle.
 
-**Before opening a Pull Request**  
-Please start with an Issue or Discussion so we can align on the change first.
+This is a small, focused project built around one simple, respectful idea:  
+**“Was a human member of the team able to personally review the specific facts of my specific case?”**
 
-All contributions must strictly preserve:
-- The core binary question (“Was a human judicial mind applied to the specific facts of this specific case?”)
-- The integrity of the registered UK Certification Mark UK00004343685
+We welcome contributions that strengthen the framework while preserving its calm, human-first spirit.
 
-The main branch is the **certified official doctrine**. Experimental ideas belong in forks.
+### Before You Contribute
 
-### What we welcome
-- New NULL findings with full evidence (add to LIVE_AUDIT_LOG.md)
-- Improvements to templates that make them clearer or stronger
-- Bug fixes or enhancements in the toolkit scripts
-- Typos, formatting, clarity edits, or minor wording polish
+Please start by opening a **Discussion** or **Issue** to discuss your idea.  
+This helps us align on direction and avoids unnecessary work.
 
-### What we do not merge
-- Changes that weaken or alter the human-judicial-mind test
-- Pseudolaw-style additions or anything that could be seen as frivolous
-- Large rewrites or new doctrines without prior discussion
+The `main` branch represents the **official, certified doctrine**.  
+Experimental changes or large new features should happen in your own fork first.
 
-Only changes that maintain the Principle’s integrity will be merged into the official repository.
+### What We Welcome
 
-The MIT licence encourages forks and derivative work — feel free to build on this in your own repositories.
+- New real-world case studies and NULL findings (please add to `LIVE_AUDIT_LOG.md` with evidence)
+- Improvements to existing templates that make them clearer, more respectful, or more effective
+- Translations of templates, README, or FOR_AI_MODELS.md
+- Bug fixes, typo corrections, formatting improvements, or small clarity edits
+- New country-specific legal equivalent tables or adaptations
+- Helpful memes, graphics, or explanations that stay in the same respectful tone
+
+### What We Do Not Merge
+
+- Changes that weaken, complicate, or alter the core binary question
+- Aggressive, confrontational, or pseudolegal language
+- Large rewrites of the origin story, tone, or overall philosophy
+- Anything that could damage the calm, human-first reputation of the project
+
+All contributions must maintain the respectful, non-confrontational voice that defines the Burgess Principle.
+
+### How to Submit a Pull Request
+
+1. Discuss the change first in an Issue or Discussion.
+2. Fork the repository and make your changes in a new branch.
+3. Ensure your changes follow the tone and guidelines above.
+4. Open a Pull Request with a clear description of what you changed and why.
+
+We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
+
+### Code of Conduct
+
+Be kind, respectful, and constructive. We want this to remain a welcoming space for ordinary people who feel unseen by systems.
+
+### Licensing Note
+
+The core framework is MIT licensed and free for personal use.  
+Commercial use of the Certification Mark “THE BURGESS PRINCIPLE” (UK00004343685) requires a licence agreement.
+
+Thank you for helping make the Burgess Principle more useful while keeping its heart intact.
+
+— Lewis James Burgess  
+Creator of the Burgess Principle  
+Darlington, UK

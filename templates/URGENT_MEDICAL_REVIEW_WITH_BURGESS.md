@@ -1,38 +1,42 @@
-# Template: Urgent Medical Review – Burgess Principle Request for Human Attention
+# Template: Urgent Medical Review – Abnormal White Blood Cells
 
-Use this when you or a loved one is seriously ill, in pain, or deteriorating, and the healthcare system is not giving proper individual attention (delayed appointments, automated triage, ignored symptoms, etc.).
+Use this when abnormal white blood cell results (high, low, or abnormal pattern) are not being reviewed promptly, especially if the patient is elderly, disabled, or vulnerable.
 
 ---
 
-**Subject:** Urgent Request for Human Review – My [or My Father’s / My Loved One’s] Specific Medical Situation
+**Subject:** Urgent Request for Clinical Review and Reasonable Adjustments – Abnormal White Blood Cells in My Case
 
-Dear [GP Surgery / Hospital Department / NHS Trust / Healthcare Provider] Team,
+Dear [GP Surgery / Hospital Department / NHS Trust] Team,
 
-I am writing because [I / my father / my loved one] is currently experiencing a serious medical situation that requires urgent individual attention.
+I am writing because I [or my loved one] is currently experiencing a serious medical situation involving abnormal white blood cell counts.
 
-I respectfully ask for written confirmation on this single binary question in line with the Burgess Principle:
+I respectfully ask for written confirmation on this single binary question:
 
-**“Was a human member of the team able to personally review the specific facts of this specific case before any decision on care, prioritisation, or next steps was reached?”**
+**“Was a qualified clinician able to personally review the specific facts of this specific case before any decision on prioritisation or next steps was reached?”**
 
 The specific facts of this case are:
 
-• [Name] has been experiencing [brief, factual description of symptoms and how long they have been going on].  
-• This is causing significant pain, distress, and risk of further deterioration.  
-• Previous requests for [appointment / investigation / treatment / review] have not resulted in timely individual attention.
+• Abnormal white blood cell results were noted on [date of blood test], showing [brief factual description, e.g. “elevated/low/abnormal pattern”].
+• I [or my loved one] am experiencing [list key symptoms, e.g. fatigue, recurrent infections, bruising, weight loss, etc.].
+• This is causing significant distress and risk of further deterioration.
+• As [an elderly / disabled / vulnerable] patient with [any protected characteristic or vulnerability, e.g. hearing loss or other disability], I [or my loved one] is entitled to reasonable adjustments under the Equality Act 2010 (sections 20 and 29) so that this specific case receives timely individual **clinical** review rather than being processed through standard automated triage or waiting lists.
 
-I am not asking for special treatment beyond what is medically appropriate. I am simply requesting that a real human clinician with judgment has personally reviewed the specific facts of this case, rather than relying solely on automated triage systems, waiting lists, or standard protocols that may not account for the urgency or individual circumstances.
+I fully respect clinical prioritisation based on need. I am simply requesting that a qualified clinician with medical judgment has personally reviewed the specific facts of this case — including the abnormal blood results, symptoms, and any vulnerability — rather than relying solely on protocols or waiting list systems.
 
-Given the seriousness of the situation, I would be grateful for a response within 48–72 hours confirming:
+Given the potential seriousness of abnormal white blood cells and the legal duty to make reasonable adjustments, I would be grateful for a response within **48–72 hours** confirming:
 
-1. That a named clinician has personally reviewed this specific case.  
-2. The outcome of that review and the immediate next steps (e.g. urgent appointment, investigation, or treatment plan).
+1. That a named qualified clinician has personally reviewed this specific case.  
+2. The outcome of that clinical review and the immediate next steps (e.g. urgent appointment, further investigations, or specialist referral).
 
-Thank you for treating [name] as a real person who deserves to be seen and helped when they are unwell.
+If a timely individual clinical review is not possible, please explain why and provide a clear escalation pathway.
+
+Thank you for treating me [or my loved one] as a real person who deserves to be seen and helped when unwell.
 
 Yours sincerely,  
 [Your Full Name]  
-[Relationship to the patient, e.g. Son / Daughter / Carer]  
-[Contact phone and email]
+[Relationship to the patient if advocating for someone else, e.g. Son / Daughter / Carer]  
+[Contact phone and email]  
+[NHS number or date of birth if helpful]
 
 ---
 

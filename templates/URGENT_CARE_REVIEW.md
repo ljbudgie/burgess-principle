@@ -1,8 +1,7 @@
----
 ## Guidance Note for Urgent Medical Review Template
 
 **When to use this template**  
-Use this when you or a loved one is seriously ill, in significant pain, or showing signs of deterioration, and the healthcare system is not providing timely individual attention (delayed appointments, automated triage, ignored symptoms, etc.).
+Use this when you or a loved one is seriously ill, in significant pain, or showing signs of deterioration, and the healthcare system is not providing timely individual attention (delayed appointments, automated triage, or generic responses).
 
 **Tips for best results**
 - Keep the symptom description factual and brief — focus on what is happening and how it is affecting daily life.
@@ -19,7 +18,7 @@ Remember: the goal is to get the person seen and helped as quickly as possible.
 
 # Template: Urgent Care Review – Request for Timely Human Attention
 
-Use this when you or a loved one is seriously ill, in significant pain, or deteriorating, and the healthcare system is not providing timely individual attention (delayed appointments, automated triage, ignored symptoms, etc.).
+Use this when you or a loved one is seriously ill, in significant pain, or deteriorating, and the healthcare system is not providing timely individual attention (delayed appointments, automated triage, or generic responses).
 
 ---
 
@@ -39,7 +38,7 @@ The specific facts of this case are:
 • This is causing significant pain, distress, and risk of further deterioration.
 • Previous requests for [appointment / investigation / treatment / review] have not resulted in timely individual attention.
 
-I am not asking for special treatment beyond what is medically appropriate. I am simply requesting that a qualified clinician with medical judgment has personally reviewed the specific facts of this specific case.
+I am not asking for special treatment beyond what is medically appropriate. I am simply requesting that a qualified clinician with medical judgment has personally reviewed the specific facts of this case.
 
 Given the seriousness of the situation, I would be grateful for a response within **48–72 hours** confirming:
 

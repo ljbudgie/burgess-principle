@@ -14,10 +14,10 @@ This register documents every institution that has been tested under The Burgess
 
 | Metric | Count |
 |---|---|
-| Total institutions tested | 16 |
+| Total institutions tested | 17 |
 | NULL findings | 11 |
 | SOVEREIGN findings | 1 (Wave — at point of resolution) |
-| Pending responses | 3 |
+| Pending responses | 4 |
 | No data held (clean negative) | 1 |
 | Parliamentary contacts documented | 5 |
 
@@ -187,28 +187,41 @@ This register documents every institution that has been tested under The Burgess
 
 ---
 
+### 17. Reddit Inc.
+
+- **Sector:** Social Media / Content Platform
+- **Date First Contacted:** 4 April 2026
+- **Question Asked:** Was a human member of the Reddit team able to personally review the specific facts of the individual situation before the account was restricted / shadowbanned / filtered, preventing posts about the Burgess Principle repo from being visible or sendable?
+- **Response Summary:** Pending — formal email sent 4 April 2026 to Reddit Team / Moderation / Trust & Safety.
+- **Specific Facts:** Every post about the repo shows "post insights unavailable." Unable to send modmail or post in relevant communities (r/opensource, r/privacy, r/SideProject, etc.). No notification, warning, or human-reviewed explanation provided. Restriction began immediately after attempting to share the open-source project.
+- **Legal Basis:** UK GDPR Article 22 (automated decision-making) and Article 15 (right of access). Reasonable adjustment requested for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only communication).
+- **Finding:** Pending — awaiting response.
+- **Status:** Formal Burgess Principle application sent. Awaiting human response to the binary question.
+
+---
+
 ## Parliamentary Contacts
 
 The following contacts are documented for completeness. These are not formal institutional challenges under the framework.
 
-### 17. Lola McEvoy MP (Constituency MP, PPS to SCMS)
+### 18. Lola McEvoy MP (Constituency MP, PPS to SCMS)
 
 - **Response:** No substantive reply to multiple emails. Office sent police to complainant's home 30 March 2026 in connection with statutory correspondence.
 - **Status:** Formal complaint documented. Durham Constabulary SAR filed. Parliamentary Commissioner for Standards referral reserved.
 
-### 18. Prime Minister's Office
+### 19. Prime Minister's Office
 
 - **Response:** Automated acknowledgements from parliamentary email and No.10 contact form. No substantive engagement.
 
-### 19. Shabana Mahmood MP (Lord Chancellor)
+### 20. Shabana Mahmood MP (Lord Chancellor)
 
 - **Response:** No response to two emails via different channels.
 
-### 20. Lord Pearson of Rannoch
+### 21. Lord Pearson of Rannoch
 
 - **Response:** No response to two emails via different channels.
 
-### 21. Other Parliamentary (Nick Timothy MP, Luke Charters MP, Rupert Lowe MP)
+### 22. Other Parliamentary (Nick Timothy MP, Luke Charters MP, Rupert Lowe MP)
 
 - **Response:** No response from any contact.
 

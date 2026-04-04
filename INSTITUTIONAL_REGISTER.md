@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding. As of March 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally.
+This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding. As of 4 April 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally.
 
 ---
 
@@ -14,10 +14,10 @@ This register documents every institution that has been tested under The Burgess
 
 | Metric | Count |
 |---|---|
-| Total institutions tested | 17 |
+| Total institutions tested | 18 |
 | NULL findings | 11 |
 | SOVEREIGN findings | 1 (Wave — at point of resolution) |
-| Pending responses | 4 |
+| Pending responses | 5 |
 | No data held (clean negative) | 1 |
 | Parliamentary contacts documented | 5 |
 
@@ -34,8 +34,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** **NULL** — warrant unsigned, bulk-processed via CSV batch, en bloc granting, no individual judicial scrutiny.
 - **Status:** Energy Ombudsman investigation active. Ruling due by 6 May 2026.
 
----
-
 ### 2. HMCTS / Birmingham Magistrates' Court
 
 - **Sector:** Courts and Tribunals
@@ -43,8 +41,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Andrew Fletcher (Justices' Legal Adviser) confirmed warrants are sent digitally to the energy company to print. CSV batch applications. Dip sampling 5/100. En bloc granting.
 - **Finding:** **NULL** — systemic. 536,139 energy warrants in 18 months processed through same architecture.
 - **Status:** Admission documented. Evidence submitted to Energy Ombudsman.
-
----
 
 ### 3. British Gas (Centrica)
 
@@ -55,8 +51,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** **NULL** — automated billing on defective meter, expired contract, unagreed tariff, enforcement without individual review, eight Equality Act breaches.
 - **Status:** Patel deadline 3 April 2026. Ombudsman referral ready to file. Centrica DSAR extended to 8 June 2026 — bodycam footage confirmed for six visits.
 
----
-
 ### 4. Darlington Borough Council
 
 - **Sector:** Local Government
@@ -64,8 +58,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Jenni Gamble (Law & Governance Division) confirmed at Stage 2 that PCN enforcement "does not involve a judge" — described as "legislative design." Chris Knox disclaimed both CCJs. Lee Downey refused to log four-part complaint twice.
 - **Finding:** **NULL** — enforcement confirmed by council's own legal division to operate without judicial involvement.
 - **Status:** Stage 2 complete. LGO referral ready to file.
-
----
 
 ### 5. Equifax
 
@@ -75,8 +67,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** **NULL** — case closed by automated system without individual review.
 - **Status:** ICO complaint ready to file. Durkin v DSG Retail authority (£8,000 per entry).
 
----
-
 ### 6. Northumbrian Water
 
 - **Sector:** Water
@@ -84,8 +74,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Letter asserting CCJ was "lawfully obtained" — no contract produced. Refused reasonable adjustment. Refused suppression unless court-directed.
 - **Finding:** **NULL** — CCJ obtained without evidenced contract, no individual review of whether debt was owed.
 - **Status:** Seven-section challenge sent. DSAR filed.
-
----
 
 ### 7. Wave Utilities
 
@@ -95,8 +83,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** **NULL** at point of enforcement referral. **SOVEREIGN** at point of resolution — Erica individually reviewed both accounts and resolved all issues in one exchange.
 - **Status:** RESOLVED. Both accounts at £0.00. £795.14 in fees and interest removed. iC&R pulled back. Full case study: [CASE_STUDY_WAVE.md](CASE_STUDY_WAVE.md)
 
----
-
 ### 8. iC&R
 
 - **Sector:** Debt Collection
@@ -104,8 +90,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Confirmed they act as data processor on behalf of Wave. Do not determine validity of debt.
 - **Finding:** **NULL** — attended premises and threatened disconnection based on instruction from Wave's automated system without independent verification.
 - **Status:** Pulled back by Wave. No further action.
-
----
 
 ### 9. Trading 212
 
@@ -115,8 +99,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** **NULL** — DSAR response generated without addressing specific forensic requests. MiFID II record-keeping obligations not met.
 - **Status:** DSAR deadline 4 April 2026. ICO complaint and FCA referral ready if no substantive response.
 
----
-
 ### 10. Apple
 
 - **Sector:** Consumer Technology
@@ -124,8 +106,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Katie responded "refer to previous email" twice. Six specific points remain unanswered.
 - **Finding:** **NULL** — template responses without individual engagement.
 - **Status:** DSAR deadline 6 April 2026. ICO email filed.
-
----
 
 ### 11. Phonak / Sonova
 
@@ -135,8 +115,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** Pending — awaiting DSAR response.
 - **Status:** DSAR deadline 3 April 2026.
 
----
-
 ### 12. TV Licensing / BBC
 
 - **Sector:** Broadcasting / Enforcement
@@ -144,8 +122,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Vessela Simeonova requested identity verification and scope. Substantive SAR in progress.
 - **Finding:** Pending — awaiting DSAR response.
 - **Status:** SAR scoped and identity documents provided. 30-day clock running.
-
----
 
 ### 13. X / Twitter
 
@@ -155,8 +131,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** Pending.
 - **Status:** DSAR deadline 6 April 2026.
 
----
-
 ### 14. Vanquis
 
 - **Sector:** Consumer Credit
@@ -164,8 +138,6 @@ This register documents every institution that has been tested under The Burgess
 - **Response Summary:** Final response sent to wrong address (110 Stooperdale Avenue). Stated "The Burgess Principle does not exist in UK law." Called and left voicemail four days after email-only adjustment asserted for deafness.
 - **Finding:** **NULL** — wrong address processed, voicemail sent after reasonable adjustment notification, no individual review of account before contact.
 - **Status:** Financial Ombudsman referral window open (six months from final response dated 26 March 2026).
-
----
 
 ### 15. Palantir
 
@@ -175,8 +147,6 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** No data held — documented baseline. Proper institutional response.
 - **Status:** CLOSED. No further action.
 
----
-
 ### 16. HMPO (His Majesty's Passport Office)
 
 - **Sector:** Identity Documents
@@ -185,15 +155,13 @@ This register documents every institution that has been tested under The Burgess
 - **Finding:** NULL (provisional) — authority line reads "HMPO" with no named individual.
 - **Status:** DSAR filed. Response deadline 29 April 2026. Full case study: [CASE_STUDY_PASSPORT.md](CASE_STUDY_PASSPORT.md)
 
----
-
 ### 17. Reddit Inc.
 
 - **Sector:** Social Media / Content Platform
 - **Date First Contacted:** 4 April 2026
 - **Question Asked:** Was a human member of the Reddit team able to personally review the specific facts of the individual situation before the account was restricted / shadowbanned / filtered, preventing posts about the Burgess Principle repo from being visible or sendable?
 - **Response Summary:** Pending — formal email sent 4 April 2026 to Reddit Team / Moderation / Trust & Safety.
-- **Specific Facts:** Every post about the repo shows "post insights unavailable." Unable to send modmail or post in relevant communities (r/opensource, r/privacy, r/SideProject, etc.). No notification, warning, or human-reviewed explanation provided. Restriction began immediately after attempting to share the open-source project.
+- **Specific Facts:** Every post about the repo shows “post insights unavailable.” Unable to send modmail or post in relevant communities (r/opensource, r/privacy, r/SideProject, etc.). No notification, warning, or human-reviewed explanation provided. Restriction began immediately after attempting to share the open-source project.
 - **Legal Basis:** UK GDPR Article 22 (automated decision-making) and Article 15 (right of access). Reasonable adjustment requested for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only communication).
 - **Finding:** Pending — awaiting response.
 - **Status:** Formal Burgess Principle application sent. Awaiting human response to the binary question.
@@ -236,3 +204,6 @@ SOVEREIGN findings are documented with equal weight in this register. The framew
 ## Maintenance
 
 This register is maintained as part of the live audit trail at github.com/ljbudgie/burgess-principle. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
+
+**Last updated:** 4 April 2026  
+**Maintained by** Lewis James Burgess under the Burgess Principle.

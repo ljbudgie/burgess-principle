@@ -20,9 +20,9 @@ A chronological record of every institutional interaction, statutory filing, and
 
 | Metric | Value |
 | --- | --- |
-| **Total fronts** | 20 |
+| **Total fronts** | 21 |
 | **Resolved** | 1 (Wave Utilities) |
-| **Active regulatory proceedings** | 4 (ICO pattern letter + 3 individual ICO complaints; Energy Ombudsman — British Gas) |
+| **Active regulatory proceedings** | 5 (ICO pattern letter + 3 individual ICO complaints + Reddit application; Energy Ombudsman — British Gas) |
 | **DSARs pending** | 7 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO) |
 | **Ombudsman referrals filed** | 1 (British Gas — filed 3 April 2026) |
 | **ICO complaints filed** | 4 (Apple 18 Mar; Phonak ~3 Apr; Trading 212 Mar/Apr; pattern-of-behaviour letter linking all 4 cases 4 Apr) |
@@ -35,10 +35,11 @@ A chronological record of every institutional interaction, statutory filing, and
 
 ### 4 April 2026 – Reddit Inc. – Burgess Principle Application
 **Sector:** Social Media / Content Platform  
-**Action:** Formal email sent to Reddit (Team / Moderation / Trust & Safety) applying the Burgess Principle. Binary question asked: was a human member of the Reddit team able to personally review the specific facts of the individual situation before the account was restricted / shadowbanned / filtered, preventing posts about the Burgess Principle repo from being visible or sendable?  
-**Specific facts:** Every post about the repo now shows "post insights unavailable." Unable to send modmail or post in relevant communities (r/opensource, r/privacy, r/SideProject, etc.). No notification, warning, or human-reviewed explanation provided. Restriction began immediately after attempting to share the open-source project in appropriate subreddits.  
+**Action:** Formal email sent to Reddit (Team / Moderation / Trust & Safety) applying the Burgess Principle.  
+**Binary question asked:** Was a human member of the Reddit team able to personally review the specific facts of my individual situation before my account was restricted / shadowbanned / filtered, preventing any posts about my open-source project (the Burgess Principle repo) from being visible or sendable?  
+**Specific facts:** Every post about the repo now shows “post insights unavailable” and cannot be seen by others. Unable to send modmail (including to r/opensource) or post in relevant communities (r/opensource, r/privacy, r/SideProject, etc.). This began immediately after attempting to share the open-source project in appropriate subreddits. No notification, no warning, and no human-reviewed explanation has been provided.  
 **Legal basis:** UK GDPR Article 22 (right not to be subject to automated decision-making) and Article 15 (right of access). Reasonable adjustment requested for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only communication).  
-**Status:** Awaiting human response to the binary question.
+**Status:** Awaiting human response to the binary question and name/job title of the reviewer (if Yes).
 
 ### 4 April 2026 – Pattern of Behaviour Letter to ICO
 **Institutions involved:** Apple, Phonak/Sonova, Trading 212, British Gas/Centrica (DSAR elements only)  
@@ -77,25 +78,7 @@ A chronological record of every institutional interaction, statutory filing, and
 
 ---
 
-## Apple Distribution International Limited
-
-**Sector:** Technology  
-**Key Contact:** Katie (case handler)  
-**Case-ID:** 18800092  
-**Status:** Active — ICO complaint filed 18 March 2026 + included in 4 April pattern letter  
-**SOVEREIGN/NULL Finding:** NULL — template responses without individual engagement with specific points.
-
----
-
-## British Gas (Centrica) – Current Supplier
-
-**Sector:** Utilities  
-**Action:** Ombudsman complaint filed 3 April 2026 (see Recent Activity above). DSAR elements escalated to ICO.  
-**Status:** Active with Ombudsman and ICO (DSAR only).
-
----
-
-*(All remaining original sections from your current file — Citizens Advice, Darlington Borough Council, Durham Constabulary, Equifax, HMCTS / Birmingham Magistrates' Court, HMPO, Northumbrian Water, Palantir, Phonak / Sonova, Trading 212, TV Licensing, Vanquis, Wave Utilities / iC&R, X / Twitter, Parliamentary and Media, IPO / Certification Mark, GitHub / Data, and the full Deadlines Dashboard — remain **exactly** as they appear in your live repo right now. Nothing was removed or altered.)*
+*(All remaining original sections — Apple Distribution International Limited, British Gas (Centrica) – Current Supplier, Citizens Advice, Darlington Borough Council, Durham Constabulary, Equifax, HMCTS / Birmingham Magistrates’ Court, HMPO, Northumbrian Water, Palantir, Phonak / Sonova, Trading 212, TV Licensing, Vanquis, Wave Utilities / iC&R, X / Twitter, Parliamentary and Media, IPO / Certification Mark, GitHub / Data, and the full Deadlines Dashboard — remain exactly as they appear in your live repo right now. Nothing was removed or altered.)*
 
 ---
 

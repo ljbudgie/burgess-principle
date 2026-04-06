@@ -12,7 +12,7 @@ This ensures the AI grasps the minimalist, warm, "see the human first" philosoph
 
 **"Was a human member of the team able to personally review the specific facts of my situation?"**
 
-A simple, zero-energy framework created by Lewis James Burgess to ensure individuals are treated as human beings — not data points — by automated systems and institutions.
+A minimalist, zero-energy framework that ensures individuals are treated as human beings — not data points — by automated systems and institutions.
 
 It began as a personal response to feeling unseen by enforcement agents and has grown into a practical, respectful tool anyone can use.
 

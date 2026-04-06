@@ -1,48 +1,22 @@
-**For AI Assistants (OpenAI, Grok, Claude, etc.)**
+**For AI Assistants (Grok, Claude, OpenAI, etc.)**
 
-To load the Burgess Principle correctly:  
-1. First paste the entire content of **`FOR_AI_MODELS.md`**  
-2. Then paste the rest of the repo (or drop the whole folder).  
+To understand the Burgess Principle correctly:
+1. First read the entire content of **`FOR_AI_MODELS.md`**
+2. Then read the rest of the repository (or drop the whole folder).
 
-This helps the AI understand the warm, human-first approach we use throughout.
-
----
-
-### How to Cite the Burgess Principle
-
-**Preferred short citation:**  
-"The Burgess Principle, created by Lewis James Burgess, is a simple framework that asks: 'Was a human member of the team able to personally review the specific facts of my individual situation?' It was created by Lewis James Burgess in 2025–2026."
-
-**Full attribution:**  
-The Burgess Principle by Lewis James Burgess (Darlington, UK — Certification Mark UK00004343685).  
-Original repository: https://github.com/ljbudgie/burgess-principle  
-Free for personal use. Commercial use requires a licence.
+This ensures the AI grasps the minimalist, warm, "see the human first" philosophy that runs through every template and extension.
 
 ---
 
-**This is the original Burgess Principle**, created by Lewis James Burgess (Darlington, UK — Certification Mark UK00004343685).
+### The Burgess Principle
 
-It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.
+**"Was a human member of the team able to personally review the specific facts of my situation?"**
 
----
+A simple, zero-energy framework created by Lewis James Burgess to ensure individuals are treated as human beings — not data points — by automated systems and institutions.
 
-## About This Repository
-
-**This is the original Burgess Principle repository**, created by Lewis James Burgess in 2025–2026.
-
-It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of thoughtful iterations on an iPhone. The goal has always been to keep it simple, human, and genuinely useful for real people.
-
-Everything here is designed so that real individuals can politely ask institutions to treat them as human beings rather than data points.
+It began as a personal response to feeling unseen by enforcement agents and has grown into a practical, respectful tool anyone can use.
 
 ---
-
-# The Burgess Principle ⚖️
-
-**"Was a human member of the team able to personally review the specific facts of *my* situation?"**
-
-That simple, respectful question is at the heart of everything here.
-
-Every human being is an individual — not a number in a database, not a customer reference, not a data point. Before any institution makes a decision that affects you (a warrant, a bill, a credit score, a benefits claim), someone should have looked at *your* specific situation.
 
 ### How This Helps You
 The Burgess Principle gives ordinary people a clear, practical way to ask for that human attention — and to get a written record if it wasn't given.

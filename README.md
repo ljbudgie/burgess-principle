@@ -54,7 +54,7 @@ If you're outside the UK: simply use the question and the templates as written, 
 > **Note:** Laws vary by state, province, and sector. This table is a signpost, not legal advice.
 
 ### Origin Story
-The Burgess Principle was created by Lewis James Burgess, a deaf barber from Darlington in the North East of England.
+The Burgess Principle was created by Lewis James Burgess, a deaf citizen from Darlington in the North East of England.
 
 On 27 May 2025, enforcement agents arrived at his home and drilled open the rear patio door under Warrant RE99022. No human had reviewed the specific facts of Lewis's situation. The entire process had been automated.
 

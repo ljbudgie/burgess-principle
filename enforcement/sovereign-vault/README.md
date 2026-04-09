@@ -40,3 +40,24 @@ const challenge = await vault.challenge();
 
 // Export a tribunal-ready, independently verifiable bundle
 const exportBundle = await vault.exportRecord();
+Installation
+cd enforcement/sovereign-vault
+npm install
+npm run build
+Full source is in src/index.ts.
+This layer is entirely optional.
+The Burgess Principle works powerfully with just the calm templates and a respectful request for human review.
+The sovereign vault simply adds extra strength — cryptographic proof — when you need it.
+Back to the Burgess Principle
+Commit it with a message like: `Update sovereign-vault README with clean quick start and installation`
+
+---
+
+After you commit this, the sovereign-vault folder will look complete and professional.
+
+### Final small step (optional but nice)
+
+If you want, add this one line to `CONTRIBUTING.md` (under the contributions section):
+
+```markdown
+- Optional enforcement components like the sovereign-vault cryptographic layer that add mathematical accountability while preserving the calm, human-first tone.

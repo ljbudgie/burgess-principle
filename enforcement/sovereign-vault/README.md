@@ -14,6 +14,9 @@ await vault.storeFacts({ situation: "...", requestedAction: "..." });
 const commitment = await vault.generateCommitment();
 await vault.receiveReceipt(signedReceipt);
 const bundle = await vault.exportRecord();
+```
 
-Full source: src/index.ts
-This layer is optional.
+Full source: `src/index.ts`.
+This layer is optional — the Burgess Principle works without it, but the vault
+adds on-device encryption and tamper-evident receipts for users who want
+cryptographic proof of their verification results.

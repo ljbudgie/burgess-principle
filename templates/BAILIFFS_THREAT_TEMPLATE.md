@@ -44,4 +44,4 @@ Yours sincerely,
 ---
 
 *Created as part of the original Burgess Principle (UK00004343685).*  
-✍️ The Burgess Principle — ljbudgie
+✍️ The Burgess Principle (UK00004343685)

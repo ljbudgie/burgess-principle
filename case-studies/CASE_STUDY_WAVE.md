@@ -15,7 +15,7 @@ Wave Utilities referred two water accounts to debt collection agent iC&R through
 
 ## Background
 
-[Redacted — the complainant] operates a business at [redacted address]. The complainant has bilateral sensorineural hearing loss and has asserted email-only communication as a reasonable adjustment under section 20 of the Equality Act 2010.
+[The complainant] operates a business at [redacted address]. The complainant has bilateral sensorineural hearing loss and has asserted email-only communication as a reasonable adjustment under section 20 of the Equality Act 2010.
 
 Wave Utilities (NWG Business Limited) held two accounts for the same premises: account 31694322001 and account 31694322002, each with a separate meter. Both accounts were opened on 15 April 2016 and migrated automatically from Northumbrian Water at the retail market opening on 1 April 2017. No signed contract exists — the complainant is on a deemed contract under Ofwat's Retail Exit Code.
 

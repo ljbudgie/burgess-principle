@@ -49,6 +49,32 @@ class TestVerificationResult:
         with pytest.raises(AttributeError):
             SOVEREIGN.value = 42  # type: ignore[misc]
 
+    def test_sovereign_description(self):
+        assert SOVEREIGN.description == "Individual Scrutiny Verified."
+
+    def test_null_description(self):
+        assert NULL.description == "Information Mismatch / Bulk Noise."
+
+    def test_null_immutable(self):
+        with pytest.raises(AttributeError):
+            NULL.label = "CHANGED"  # type: ignore[misc]
+
+    def test_sovereign_and_null_are_distinct(self):
+        assert SOVEREIGN is not NULL
+        assert SOVEREIGN != NULL
+
+    def test_custom_result_truthy_when_value_one(self):
+        custom = VerificationResult(value=1, label="X", description="Y")
+        assert bool(custom) is True
+
+    def test_custom_result_falsy_when_value_zero(self):
+        custom = VerificationResult(value=0, label="X", description="Y")
+        assert bool(custom) is False
+
+    def test_custom_result_falsy_when_value_non_one(self):
+        custom = VerificationResult(value=2, label="X", description="Y")
+        assert bool(custom) is False
+
 
 # ---------------------------------------------------------------------------
 # verify_instrument — happy path
@@ -69,6 +95,45 @@ class TestVerifyInstrumentHappyPath:
     def test_uppercase_hash_accepted(self):
         result = verify_instrument(SAMPLE_TEXT, SAMPLE_HASH.upper())
         assert result is SOVEREIGN
+
+    def test_mixed_case_hash_accepted(self):
+        mixed = "".join(
+            c.upper() if i % 2 else c for i, c in enumerate(SAMPLE_HASH)
+        )
+        result = verify_instrument(SAMPLE_TEXT, mixed)
+        assert result is SOVEREIGN
+
+    def test_different_texts_produce_different_results(self):
+        text_a = "Hello"
+        text_b = "World"
+        assert verify_instrument(text_a, _hash(text_a)) is SOVEREIGN
+        assert verify_instrument(text_b, _hash(text_a)) is NULL
+
+    def test_unicode_text_verified(self):
+        text = "日本語テスト 🇬🇧"
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_whitespace_only_text_is_accepted(self):
+        text = "   "
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_multiline_text_verified(self):
+        text = "Line 1\nLine 2\nLine 3"
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_very_long_text_verified(self):
+        text = "x" * 100_000
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_returns_singleton_sovereign(self):
+        """verify_instrument returns the module-level SOVEREIGN object."""
+        result = verify_instrument(SAMPLE_TEXT, SAMPLE_HASH)
+        assert result is SOVEREIGN
+
+    def test_returns_singleton_null(self):
+        """verify_instrument returns the module-level NULL object."""
+        result = verify_instrument(SAMPLE_TEXT, "b" * 64)
+        assert result is NULL
 
 
 # ---------------------------------------------------------------------------
@@ -100,6 +165,34 @@ class TestVerifyInstrumentValidation:
         with pytest.raises(ValueError, match="64-character hexadecimal"):
             verify_instrument(SAMPLE_TEXT, "g" * 64)
 
+    def test_int_provided_hash_raises_type_error(self):
+        with pytest.raises(TypeError, match="provided_hash must be a string"):
+            verify_instrument(SAMPLE_TEXT, 12345)  # type: ignore[arg-type]
+
+    def test_list_reasoning_text_raises_type_error(self):
+        with pytest.raises(TypeError, match="reasoning_text must be a string"):
+            verify_instrument(["text"], SAMPLE_HASH)  # type: ignore[arg-type]
+
+    def test_hash_too_long_raises_value_error(self):
+        with pytest.raises(ValueError, match="64-character hexadecimal"):
+            verify_instrument(SAMPLE_TEXT, "a" * 65)
+
+    def test_hash_63_chars_raises_value_error(self):
+        with pytest.raises(ValueError, match="64-character hexadecimal"):
+            verify_instrument(SAMPLE_TEXT, "a" * 63)
+
+    def test_hash_with_spaces_raises_value_error(self):
+        with pytest.raises(ValueError, match="64-character hexadecimal"):
+            verify_instrument(SAMPLE_TEXT, "a" * 32 + " " * 32)
+
+    def test_hash_with_0x_prefix_raises_value_error(self):
+        with pytest.raises(ValueError, match="64-character hexadecimal"):
+            verify_instrument(SAMPLE_TEXT, "0x" + "a" * 62)
+
+    def test_bool_provided_hash_raises_type_error(self):
+        with pytest.raises(TypeError, match="provided_hash must be a string"):
+            verify_instrument(SAMPLE_TEXT, True)  # type: ignore[arg-type]
+
 
 # ---------------------------------------------------------------------------
 # CLI (main)
@@ -124,3 +217,42 @@ class TestCLI:
         main([SAMPLE_TEXT, "a" * 64])
         captured = capsys.readouterr()
         assert "NULL" in captured.out
+
+    def test_sovereign_output_has_checkmark(self, capsys):
+        main([SAMPLE_TEXT, SAMPLE_HASH])
+        captured = capsys.readouterr()
+        assert "✅" in captured.out
+
+    def test_null_output_has_cross(self, capsys):
+        main([SAMPLE_TEXT, "a" * 64])
+        captured = capsys.readouterr()
+        assert "❌" in captured.out
+
+    def test_error_output_goes_to_stderr(self, capsys):
+        main(["", SAMPLE_HASH])
+        captured = capsys.readouterr()
+        assert "Error:" in captured.err
+        assert captured.out == ""
+
+    def test_sovereign_output_includes_description(self, capsys):
+        main([SAMPLE_TEXT, SAMPLE_HASH])
+        captured = capsys.readouterr()
+        assert "Individual Scrutiny Verified." in captured.out
+
+    def test_null_output_includes_description(self, capsys):
+        main([SAMPLE_TEXT, "a" * 64])
+        captured = capsys.readouterr()
+        assert "Information Mismatch / Bulk Noise." in captured.out
+
+    def test_sovereign_output_includes_value(self, capsys):
+        main([SAMPLE_TEXT, SAMPLE_HASH])
+        captured = capsys.readouterr()
+        assert "(1)" in captured.out
+
+    def test_null_output_includes_value(self, capsys):
+        main([SAMPLE_TEXT, "a" * 64])
+        captured = capsys.readouterr()
+        assert "(0)" in captured.out
+
+    def test_invalid_hash_exits_two(self):
+        assert main([SAMPLE_TEXT, "not-a-hash"]) == 2

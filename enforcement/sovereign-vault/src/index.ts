@@ -1,4 +1,5 @@
 import { sha256 } from '@noble/hashes/sha256';
+import { bytesToHex } from '@noble/hashes/utils';
 import { ed25519 } from '@noble/curves/ed25519';
 import CryptoJS from 'crypto-js';
 
@@ -23,7 +24,7 @@ export class SovereignVault {
   private key: string;
 
   constructor(passphrase: string) {
-    this.key = sha256(passphrase).toString();
+    this.key = bytesToHex(sha256(passphrase));
   }
 
   async storeFacts(facts: Facts): Promise<void> {
@@ -36,7 +37,7 @@ export class SovereignVault {
 
   async generateCommitment(): Promise<string> {
     if (!this.encryptedVault) throw new Error("No facts stored yet");
-    const commitment = sha256(this.encryptedVault).toString();
+    const commitment = bytesToHex(sha256(this.encryptedVault));
     return commitment;
   }
 
@@ -56,7 +57,7 @@ export class SovereignVault {
   }
 
   private async verifySignature(message: string, signature: string, pubKey?: string): Promise<boolean> {
-    if (!pubKey) return true;
+    if (!pubKey) throw new Error("Receipt must include a reviewer public key for verification");
     try {
       const msgBytes = new TextEncoder().encode(message);
       const sigBytes = Uint8Array.from(atob(signature), c => c.charCodeAt(0));

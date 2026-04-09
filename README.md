@@ -180,7 +180,7 @@ For most everyday situations the warm, human-first templates are all you need.
 
 When you want an extra layer of mathematical accountability — something that creates clear, independently verifiable proof — there is an optional enforcement tool.
 
-It lives in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault).
+It lives in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault/README.md).
 
 This small library (`iris-gate-person`) keeps all your personal details on your own device and lets organisations send you signed receipts stating whether a real human reviewed the specific facts of *your* case.
 

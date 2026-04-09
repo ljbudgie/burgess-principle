@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "burgess-principle"
+version = "0.1.0"
+description = "The Burgess Principle — human scrutiny verification toolkit"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+verify-scrutiny = "verify_scrutiny:main"
+
+[tool.setuptools]
+py-modules = ["verify_scrutiny"]
+packages = ["tracer", "tests"]

@@ -2,7 +2,7 @@
 **How Existing Regulatory Frameworks Enable Individual Reclamation of Data Value at Scale**
 March 2026
 
-**Author:** Lewis James Burgess
+**Author:** [Redacted]
 **License:** MIT (Open Source)
 **Repository:** https://github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685
@@ -28,5 +28,5 @@ Proprietary algorithms in hearing aids (AutoSense OS, first-fit, invisible layer
 ---
 
 **Full authoritative version** of this paper is available as a separate PDF in this repository.
-Contact: lewisburgess_1987@hotmail.co.uk (email only)
-Originator: Lewis James Burgess, Darlington, March 2026
+Contact: Open an issue on the repository.
+Originator: The Burgess Principle, March 2026

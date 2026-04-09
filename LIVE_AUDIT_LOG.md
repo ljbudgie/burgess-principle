@@ -8,7 +8,7 @@ A chronological record of every institutional interaction, statutory filing, and
 
 | Field | Detail |
 | --- | --- |
-| **Originator** | Lewis James Burgess |
+| **Originator** | [Redacted] |
 | **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |
@@ -63,7 +63,7 @@ A chronological record of every institutional interaction, statutory filing, and
 
 ### 3 April 2026 – British Gas (Centrica) – Energy Ombudsman complaint
 **Sector:** Utilities (**current supplier** — distinct from original E.ON incident of 27 May 2025)  
-**Action:** Full complaint filed with the Energy Ombudsman regarding defective meter 0681410S, £1,806 demand (bill 811992368), enforcement breaches at business premises (LJ Barbers), Equality Act[...]  
+**Action:** Full complaint filed with the Energy Ombudsman regarding defective meter 0681410S, £1,806 demand (bill 811992368), enforcement breaches at business premises, Equality Act[...]  
 **Status:** Active with Energy Ombudsman (main complaint) and ICO (DSAR elements).
 
 ### 3 April 2026 – Sonova UK Limited (trading as Phonak) – ICO complaint
@@ -82,7 +82,7 @@ A chronological record of every institutional interaction, statutory filing, and
 
 **Date:** 27 May 2025  
 **Institution:** E.ON / E.ON Field Debt Solutions (**distinct from current British Gas complaint**)  
-**Location:** [Redacted], Darlington  
+**Location:** [Redacted]  
 **Warrant Reference:** RE99022 (Warrant Application 11160-544079), issued 16 May 2025, Birmingham Magistrates' Court  
 
 * 27 May 2025: E.ON Field Debt Solutions forced entry to residential property under Warrant Application 11160-544079. Locksmith drilled rear patio door locks while occupant was at work. Locks repl[...]  
@@ -98,4 +98,4 @@ A chronological record of every institutional interaction, statutory filing, and
 
 **End of Log**  
 Last updated: 7 April 2026  
-Maintained by Lewis James Burgess under the Burgess Principle.
+Maintained under the Burgess Principle.

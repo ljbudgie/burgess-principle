@@ -72,13 +72,9 @@ Similar tools exist — mostly single-purpose templates from charities or offici
 
 ## Origin Story
 
-The Burgess Principle was created by **Lewis James Burgess**, a deaf citizen from Darlington in the North East of England.
+The Burgess Principle grew out of a real experience with automated enforcement — a situation where no human had reviewed the specific facts before action was taken.
 
-On 27 May 2025, enforcement agents arrived at his home and drilled open the rear patio door under Warrant RE99022. No human had reviewed the specific facts of Lewis's situation. The entire process had been automated.
-
-In that moment Lewis realised he wasn't being treated as a person — he was just another data point in a machine. That experience became the spark for the Burgess Principle.
-
-What started as a personal response to feeling unseen grew into a simple, respectful framework that anyone can use. One calm question — *"Was a human member of the team able to personally review the specific facts of my situation?"* — built on an iPhone, one iteration at a time.
+That moment of feeling unseen became the spark for a simple, respectful framework that anyone can use. One calm question — *"Was a human member of the team able to personally review the specific facts of my situation?"* — built one iteration at a time.
 
 ---
 
@@ -249,10 +245,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ## Licence & Contact
 
-**Author:** Lewis James Burgess, Darlington  
 **Licence:** [MIT](LICENSE.md) (free for everyone to use and adapt)  
 **Certification Mark:** UK00004343685  
-**Contact:** [lewisburgess_1987@hotmail.co.uk](mailto:lewisburgess_1987@hotmail.co.uk) (email only)  
 **Website:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app)
 
 ---

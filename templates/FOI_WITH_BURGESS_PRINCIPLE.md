@@ -12,7 +12,7 @@ I hope you’re doing well.
 I am making a formal request under the **Freedom of Information Act 2000** for the following information:
 
 [Clearly list what you want, e.g.  
-• Copy of the full warrant/application file RE99022 including any human reviewer notes  
+• Copy of the full warrant/application file [your warrant reference number] including any human reviewer notes  
 • Internal policy on how individual human scrutiny is applied before warrants are issued  
 • Number of warrants issued via bulk CSV process in the last 12 months]
 

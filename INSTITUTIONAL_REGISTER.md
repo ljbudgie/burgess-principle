@@ -135,7 +135,7 @@ This register documents every institution that has been tested under The Burgess
 
 - **Sector:** Consumer Credit
 - **Question Asked:** Who individually reviewed the complainant's account before sending correspondence to the wrong address and calling after reasonable adjustment notification?
-- **Response Summary:** Final response sent to wrong address (110 Stooperdale Avenue). Stated "The Burgess Principle does not exist in UK law." Called and left voicemail four days after email-only adjustment asserted for deafness.
+- **Response Summary:** Final response sent to wrong address ([redacted address]). Stated "The Burgess Principle does not exist in UK law." Called and left voicemail four days after email-only adjustment asserted for deafness.
 - **Finding:** **NULL** — wrong address processed, voicemail sent after reasonable adjustment notification, no individual review of account before contact.
 - **Status:** Financial Ombudsman referral window open (six months from final response dated 26 March 2026).
 
@@ -150,7 +150,7 @@ This register documents every institution that has been tested under The Burgess
 ### 16. HMPO (His Majesty's Passport Office)
 
 - **Sector:** Identity Documents
-- **Question Asked:** Who individually reviewed the complainant's passport application before issuing Passport No. 133656141? Was meaningful human intervention applied to the biometric processing?
+- **Question Asked:** Who individually reviewed the complainant's passport application before issuing Passport No. [redacted]? Was meaningful human intervention applied to the biometric processing?
 - **Response Summary:** Pending — DSAR, Article 22 challenge, and Equality Act assertion sent 30 March 2026.
 - **Finding:** NULL (provisional) — authority line reads "HMPO" with no named individual.
 - **Status:** DSAR filed. Response deadline 29 April 2026. Full case study: [CASE_STUDY_PASSPORT.md](CASE_STUDY_PASSPORT.md)
@@ -206,4 +206,4 @@ SOVEREIGN findings are documented with equal weight in this register. The framew
 This register is maintained as part of the live audit trail at github.com/ljbudgie/burgess-principle. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
 
 **Last updated:** 4 April 2026  
-**Maintained by** Lewis James Burgess under the Burgess Principle.
+**Maintained by** the Burgess Principle maintainer.

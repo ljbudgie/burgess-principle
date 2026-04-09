@@ -2,7 +2,7 @@
 **UK Certification Mark UK00004343685**
 Version 1.0 – March 2026
 
-**Author:** Lewis James Burgess
+**Author:** [Redacted]
 **License:** MIT (Open Source)
 **Repository:** https://github.com/ljbudgie/burgess-principle
 
@@ -35,5 +35,5 @@ First-mover advantage applies.
 ---
 
 **Full authoritative versions** of all papers are available as separate PDFs in this repository.
-Contact: lewisburgess_1987@hotmail.co.uk (email only)
-Originator: Lewis James Burgess, Darlington, March 2026
+Contact: Open an issue on the repository.
+Originator: The Burgess Principle, March 2026

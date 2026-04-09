@@ -41,6 +41,6 @@ Yours sincerely,
 ---
 
 **Watermark / Signature**  
-© Lewis James Burgess — Creator of the Burgess Principle  
+© The Burgess Principle  
 Certification Mark: UK00004343685  
 https://github.com/ljbudgie/burgess-principle

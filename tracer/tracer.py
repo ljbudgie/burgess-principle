@@ -6,9 +6,22 @@
 
 """TRACER — defect schema definitions for the Burgess Principle."""
 
+from __future__ import annotations
+
+from typing import TypedDict
+
+
+class Defect(TypedDict):
+    """Schema for a single scrutiny defect."""
+
+    id: str
+    title: str
+    description: str
+    axiom: str
+
 
 # Each defect is a dict with an id, title, description, and axiom.
-DEFECT_SCHEMA = [
+DEFECT_SCHEMA: list[Defect] = [
     {
         "id": "DEFECT_01",
         "title": "Bulk Approval Without Scrutiny",
@@ -55,7 +68,7 @@ DEFECT_SCHEMA = [
 ]
 
 
-def get_defect(defect_id):
+def get_defect(defect_id: str) -> Defect | None:
     """Return the defect definition matching *defect_id*, or ``None``."""
     for defect in DEFECT_SCHEMA:
         if defect["id"] == defect_id:
@@ -63,6 +76,6 @@ def get_defect(defect_id):
     return None
 
 
-def list_defects():
+def list_defects() -> list[str]:
     """Return a list of all known defect IDs."""
     return [d["id"] for d in DEFECT_SCHEMA]

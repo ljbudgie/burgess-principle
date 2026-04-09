@@ -19,4 +19,4 @@ verify-scrutiny = "verify_scrutiny:main"
 
 [tool.setuptools]
 py-modules = ["verify_scrutiny"]
-packages = ["tracer", "tests"]
+packages = ["tracer"]

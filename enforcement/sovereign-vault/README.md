@@ -10,8 +10,10 @@ Lightweight TypeScript library. Keeps facts private on-device. Sends only SHA-25
 import { SovereignVault } from './src/index.js';
 
 const vault = new SovereignVault("your-strong-passphrase");
-
 await vault.storeFacts({ situation: "...", requestedAction: "..." });
 const commitment = await vault.generateCommitment();
 await vault.receiveReceipt(signedReceipt);
 const bundle = await vault.exportRecord();
+
+Full source: src/index.ts
+This layer is optional.

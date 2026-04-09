@@ -53,6 +53,5 @@ Commercial use of the Certification Mark “THE BURGESS PRINCIPLE” (UK00004343
 
 Thank you for helping make the Burgess Principle more useful while keeping its heart intact.
 
-— Lewis James Burgess  
-Creator of the Burgess Principle  
-Darlington, UK
+— The Burgess Principle Maintainer  
+Creator of the Burgess Principle

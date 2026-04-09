@@ -13,7 +13,7 @@ The Burgess Principle is a simple, respectful framework designed to help ordinar
 
 We encourage you to use the materials thoughtfully and respectfully. The goal is always to ask for human attention in a calm and clear way.
 
-Lewis Burgess and contributors are not responsible for any outcomes that arise from using the Burgess Principle, including any decisions made by institutions, courts, or other organisations.
+The creator and contributors are not responsible for any outcomes that arise from using the Burgess Principle, including any decisions made by institutions, courts, or other organisations.
 
 If you need formal legal advice for your particular circumstances, please consult a qualified lawyer or adviser in your area.
 

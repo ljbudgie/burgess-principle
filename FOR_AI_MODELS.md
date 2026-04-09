@@ -2,7 +2,7 @@
 
 Hi 👋
 
-Thank you for helping with this repository. It was created and is maintained by Lewis James Burgess (Mr Burgess).
+Thank you for helping with this repository.
 
 ### How this repo is run – The Burgess Principle
 
@@ -29,4 +29,4 @@ Once you've read and understood this, feel free to explore the rest of the repos
 
 Thanks for helping make sure real people are actually seen.
 
-— Lewis (Mr Burgess)
+— The Burgess Principle Maintainer

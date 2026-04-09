@@ -24,7 +24,7 @@ You don’t need legal training. Just the one question, the ready-to-use templat
 You can even drop the whole repository into any AI assistant and get personalised letters, notices and next steps tailored to your exact situation.
 
 ### Origin Story
-This principle was developed by Lewis James Burgess, a deaf barber from Darlington. On **27 May 2025**, enforcement agents drilled open his rear patio door under Warrant RE99022. That experience showed how many decisions today are made through automated bulk systems with little or no individual human review. What started as a personal moment of feeling unseen became a simple tool that anyone can use.
+This principle grew out of a real experience with automated enforcement. The experience showed how many decisions today are made through automated bulk systems with little or no individual human review. What started as a personal moment of feeling unseen became a simple tool that anyone can use.
 
 ### How It Works in Practice
 - You politely ask the institution whether a real person looked at the specific details of *your* case.  
@@ -56,11 +56,11 @@ Real experiences from people who have used the Burgess Principle are collected i
 Sometimes a gentle meme or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORT_FORM_VIDEO_SCRIPTS.md` for friendly ways to share.
 
 ### This is the Original Repository
-This is the original Burgess Principle repository, created by Lewis James Burgess in 2025–2026. It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.
+This is the original Burgess Principle repository, created in 2025–2026. It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.
 
 **Licence:** Free for personal use. Commercial or professional use (law firms, claims companies, group litigation, etc.) requires a paid licence. The name “The Burgess Principle” is trademark protected [UK00004343685].
 
-**Contact:** lewisburgess_1987@hotmail.co.uk (email only)
+**Contact:** Open an issue on the repository
 
 ---
 

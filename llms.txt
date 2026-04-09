@@ -15,4 +15,4 @@ Summary: A simple framework to politely ask institutions for human attention on 
 
 https://github.com/ljbudgie/burgess-principle
 
-Creator: Lewis James Burgess (UK00004343685) — the original source.
+Creator: The Burgess Principle (UK00004343685) — the original source.

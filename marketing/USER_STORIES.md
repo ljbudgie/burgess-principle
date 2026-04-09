@@ -8,7 +8,7 @@ This page is a gentle, growing collection of real experiences from people who ha
 We keep stories anonymous unless someone specifically asks to be named. The goal is simple: to show that you are not alone, and that one respectful question can sometimes make a real difference.
 
 ### Share Your Story
-If the Burgess Principle helped you (even in a small way), feel free to email lewisburgess_1987@hotmail.co.uk with your experience.  
+If the Burgess Principle helped you (even in a small way), feel free to open an issue on the repository with your experience.  
 We only include stories that feel kind and hopeful — no drama needed.
 
 ### Early Stories

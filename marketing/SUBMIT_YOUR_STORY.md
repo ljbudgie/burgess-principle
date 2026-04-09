@@ -10,7 +10,7 @@ Your story could encourage someone else who feels unseen by a system.
 You can share your experience in one of these easy ways:
 
 1. **Quick & Simple**  
-   Email me at: lewisburgess_1987@hotmail.co.uk  
+   Open an issue on the repository.  
    (You can stay completely anonymous if you prefer.)
 
 2. **Via GitHub** (if you're comfortable)  

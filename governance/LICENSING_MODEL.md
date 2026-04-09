@@ -25,7 +25,7 @@ This includes offering services based on the principle, the templates, or the fr
 ### Code vs Content
 The underlying code and repository structure remain available under the MIT licence for anyone to fork and build upon. However, the core doctrine, templates, branding, and framework are reserved for licensed commercial use.
 
-For commercial licensing enquiries or questions about permitted use, please email: lewisburgess_1987@hotmail.co.uk
+For commercial licensing enquiries or questions about permitted use, please open an issue on the repository.
 
 Take care,  
 LJ

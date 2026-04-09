@@ -42,6 +42,16 @@ All contributions must maintain the respectful, non-confrontational voice that d
 
 We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
 
+### Good First Issues
+
+Looking for a way to help? Here are some approachable starting points:
+
+- **New country templates** — Adapt existing templates with legal references for your country (e.g. Australia, Canada, India).
+- **Translations** — Translate the README, templates, or FOR_AI_MODELS.md into another language.
+- **More tests** — Add edge-case tests for `verify_scrutiny.py` or `tracer/tracer.py`.
+- **Subfolder documentation** — Improve or create README files in subdirectories to help newcomers navigate.
+- **Case studies** — Document your own experience using the Burgess Principle (see [CASE_STUDY_TEMPLATE](case-studies/CASE_STUDY_TEMPLATE.md)).
+
 ### Code of Conduct
 
 Be kind, respectful, and constructive. We want this to remain a welcoming space for ordinary people who feel unseen by systems.

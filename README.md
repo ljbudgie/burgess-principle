@@ -10,12 +10,22 @@
 
 <p align="center">
   <a href="LICENSE.md"><img src="https://img.shields.io/badge/licence-MIT-green.svg" alt="MIT Licence"></a>
+  <a href="https://github.com/ljbudgie/burgess-principle/actions/workflows/ci.yml"><img src="https://github.com/ljbudgie/burgess-principle/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/github/last-commit/ljbudgie/burgess-principle.svg" alt="Last Commit">
   <img src="https://img.shields.io/badge/UK_Certification_Mark-UK00004343685-blue.svg" alt="UK Certification Mark">
   <img src="https://img.shields.io/badge/works-worldwide-orange.svg" alt="Works Worldwide">
 </p>
 
 <p align="center">
   A minimalist, zero-energy framework that ensures individuals are treated as human beings — not data points — by automated systems and institutions.
+</p>
+
+<h3 align="center">Why This Matters</h3>
+
+<p align="center">
+  Every day, automated systems make decisions about real people — debt enforcement, benefits, credit scores, content moderation — without a single human reviewing the specific facts.<br>
+  The Burgess Principle gives you <strong>one calm question</strong> that cuts through all of it.<br>
+  No legal training required. No confrontation. Just a clear, written record that speaks for itself.
 </p>
 
 ---

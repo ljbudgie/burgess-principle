@@ -2,7 +2,7 @@
 **A cross-party framework for restoring the human in government**
 Version 1.0 (Final) – March 2026
 
-**Author:** Lewis James Burgess
+**Author:** [Redacted]
 **License:** MIT (Open Source)
 **Repository:** https://github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685
@@ -21,5 +21,5 @@ This document provides the political toolkit: draft PQs, EDMs, template letters,
 ---
 
 **Full authoritative version** of this paper is available as a separate PDF in this repository.
-Contact: lewisburgess_1987@hotmail.co.uk (email only)
-Originator: Lewis James Burgess, Darlington, March 2026
+Contact: Open an issue on the repository.
+Originator: The Burgess Principle, March 2026

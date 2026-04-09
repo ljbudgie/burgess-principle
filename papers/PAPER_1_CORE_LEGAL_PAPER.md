@@ -2,7 +2,7 @@
 **A Universal Binary Test for Legitimate Authority**
 Version 2.0 – March 2026
 
-**Author:** Lewis James Burgess
+**Author:** [Redacted]
 **License:** MIT (Open Source)
 **Repository:** https://github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685
@@ -11,7 +11,6 @@ Version 2.0 – March 2026
 > — Simon Thorley, Liberal Democrat, Darlington
 
 > "The state exists to serve the citizen, not the reverse."
-> — Lewis James Burgess
 
 ---
 
@@ -51,12 +50,12 @@ Adopting the principle is a return to first principles — saving billions and r
 
 ## 1. The Originating Case
 
-On 25 May 2025, E.ON Next executed forced entry at the Darlington home of Lewis Burgess under warrant Application 11160-544079 (RE99022), issued unsigned by Birmingham Magistrates' Court on 16 May 2025. Metadata reveals automatic name assignment without judicial scrutiny — a systemic defect in HMCTS infrastructure.
+On 25 May 2025, E.ON Next executed forced entry at a residential property under warrant Application 11160-544079 (RE99022), issued unsigned by Birmingham Magistrates' Court on 16 May 2025. Metadata reveals automatic name assignment without judicial scrutiny — a systemic defect in HMCTS infrastructure.
 
 *Full originating case and remaining sections preserved in original PDF.*
 
 ---
 
 **Full authoritative version** of this paper is available as a separate PDF in this repository.
-Contact: lewisburgess_1987@hotmail.co.uk (email only)
-Originator: Lewis James Burgess, Darlington, March 2026
+Contact: Open an issue on the repository.
+Originator: The Burgess Principle, March 2026

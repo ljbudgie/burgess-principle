@@ -31,4 +31,4 @@ Yours sincerely,
 
 ---
 
-*Created as part of the original Burgess Principle by Lewis James Burgess (UK00004343685).*
+*Created as part of the original Burgess Principle (UK00004343685).*

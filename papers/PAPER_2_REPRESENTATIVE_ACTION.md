@@ -2,7 +2,7 @@
 **Why Billions Must Be Returned to the People of the United Kingdom**
 Version 2.0 – March 2026
 
-**Author:** Lewis James Burgess
+**Author:** [Redacted]
 **License:** MIT (Open Source)
 **Repository:** https://github.com/ljbudgie/burgess-principle
 **Certification Mark:** UK00004343685
@@ -34,5 +34,5 @@ Redress is due — and must be delivered efficiently via representative action.
 ---
 
 **Full authoritative version** of this paper is available as a separate PDF in this repository.
-Contact: lewisburgess_1987@hotmail.co.uk (email only)
-Originator: Lewis James Burgess, Darlington, March 2026
+Contact: Open an issue on the repository.
+Originator: The Burgess Principle, March 2026

@@ -1,6 +1,6 @@
 # Case Study: Wave Utilities — Automated Debt Enforcement Against a Disabled Customer
 
-**Case Reference:** Wave / iC&R / LJ Barbers — Accounts 31694322001 & 31694322002
+**Case Reference:** Wave / iC&R — Accounts 31694322001 & 31694322002
 **Date Resolved:** 30 March 2026
 **Sector:** Water Retail (Non-Household)
 **Outcome:** Both accounts cleared to £0.00. £795.14 in fees and interest removed. All enforcement ceased. Reasonable adjustments recorded.
@@ -15,9 +15,9 @@ Wave Utilities referred two water accounts to debt collection agent iC&R through
 
 ## Background
 
-Lewis James Burgess operates LJ Barbers at 26A Duke Street, Darlington, DL3 7AQ. He has bilateral sensorineural hearing loss and has asserted email-only communication as a reasonable adjustment under section 20 of the Equality Act 2010.
+[Redacted — the complainant] operates a business at [redacted address]. The complainant has bilateral sensorineural hearing loss and has asserted email-only communication as a reasonable adjustment under section 20 of the Equality Act 2010.
 
-Wave Utilities (NWG Business Limited) held two accounts for the same premises: account 31694322001 (26A Duke Street) and account 31694322002 (First Floor, 26A Duke Street), each with a separate meter. Both accounts were opened on 15 April 2016 and migrated automatically from Northumbrian Water at the retail market opening on 1 April 2017. No signed contract exists — the complainant is on a deemed contract under Ofwat's Retail Exit Code.
+Wave Utilities (NWG Business Limited) held two accounts for the same premises: account 31694322001 and account 31694322002, each with a separate meter. Both accounts were opened on 15 April 2016 and migrated automatically from Northumbrian Water at the retail market opening on 1 April 2017. No signed contract exists — the complainant is on a deemed contract under Ofwat's Retail Exit Code.
 
 iC&R, an accredited entity acting strictly as a data processor on behalf of Wave, was instructed to pursue the debt. iC&R attended the complainant's business premises and threatened disconnection of water supply. Kenny Allport of Wave Credit & Collections authored a letter dated 3 March 2026 demanding £518.88, applying £6.24 late payment interest under the Late Payment of Commercial Debts (Interest) Act 1998, threatening disconnection within 7 days, and threatening litigation.
 

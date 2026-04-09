@@ -1,39 +1,144 @@
-**For AI Assistants (Grok, Claude, OpenAI, etc.)**
+<p align="center">
+  <img src="banner.jpg.png" alt="The Burgess Principle — Human Attention, Not Just Data" width="100%">
+</p>
 
-To understand the Burgess Principle correctly:
+<h1 align="center">The Burgess Principle</h1>
 
-1) First read the entire content of **FOR_AI_MODELS.md**
-2) Then read the rest of the repository (or drop the whole folder).
+<p align="center">
+  <strong>"Was a human member of the team able to personally review the specific facts of my situation?"</strong>
+</p>
 
-This ensures the AI grasps the minimalist, warm, "see the human first" philosophy that runs through every template and extension.
+<p align="center">
+  <a href="LICENSE.md"><img src="https://img.shields.io/badge/licence-MIT-green.svg" alt="MIT Licence"></a>
+  <img src="https://img.shields.io/badge/UK_Certification_Mark-UK00004343685-blue.svg" alt="UK Certification Mark">
+  <img src="https://img.shields.io/badge/works-worldwide-orange.svg" alt="Works Worldwide">
+</p>
+
+<p align="center">
+  A minimalist, zero-energy framework that ensures individuals are treated as human beings — not data points — by automated systems and institutions.
+</p>
 
 ---
 
-### The Burgess Principle
+## Table of Contents
 
-**"Was a human member of the team able to personally review the specific facts of my situation?"**
-
-A minimalist, zero-energy framework that ensures individuals are treated as human beings — not data points — by automated systems and institutions.
-
-It began as a personal response to feeling unseen by enforcement agents and has grown into a practical, respectful tool anyone can use.
+- [How This Helps You](#how-this-helps-you)
+- [Quick Start](#quick-start)
+- [How Is This Different?](#how-is-this-different)
+- [Origin Story](#origin-story)
+- [How It Works in Practice](#how-it-works-in-practice)
+- [Ready-to-Use Templates](#ready-to-use-templates)
+- [Domains Covered](#domains-covered)
+- [Works Worldwide](#-does-this-work-outside-the-uk)
+- [Global Legal Equivalents](#️-global-legal-equivalents-quick-reference)
+- [Advanced Applications](#advanced-applications)
+- [Cryptographic Enforcement Layer](#cryptographic-enforcement-layer-optional)
+- [Case Studies](#case-studies)
+- [Core Papers & Documents](#core-papers--documents)
+- [Tutorials & Toolkit](#tutorials--toolkit)
+- [Memes Corner](#memes-corner)
+- [Contributing](#contributing)
+- [Licence & Contact](#licence--contact)
+- [For AI Assistants](#for-ai-assistants)
 
 ---
 
-### How This Helps You
+## How This Helps You
 
-The Burgess Principle gives ordinary people a clear, practical way to ask for that human attention — and to get a written record if it wasn't given.
+The Burgess Principle gives ordinary people a clear, practical way to ask for human attention — and to get a written record if it wasn't given.
 
 You don't need legal training. Just the one question, the ready-to-use templates, and the real-world examples in this repo.
 
 You can even drop the whole repository into any AI assistant and get personalised letters, notices and next steps tailored to your exact situation.
 
-### How Is This Different?
+---
 
-Similar tools exist — mostly single-purpose templates from charities or official bodies. What makes the Burgess Principle different is that it gives you one simple question you can ask any institution, in any context, in any country.
+## Quick Start
 
-### 🌍 Does This Work Outside the UK?
+1. **Clone or download** this repository.
+2. **Pick a template** from the [`/templates`](./templates) folder that fits your situation.
+3. **Fill in your details** and send the letter to the institution.
+4. **Or drop the whole repo** into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant and ask for personalised help.
 
-Yes — completely.
+That's it. One question. One letter. A written record that speaks for itself.
+
+---
+
+## How Is This Different?
+
+Similar tools exist — mostly single-purpose templates from charities or official bodies. What makes the Burgess Principle different is that it gives you **one simple question** you can ask **any institution**, in **any context**, in **any country**.
+
+---
+
+## Origin Story
+
+The Burgess Principle was created by **Lewis James Burgess**, a deaf citizen from Darlington in the North East of England.
+
+On 27 May 2025, enforcement agents arrived at his home and drilled open the rear patio door under Warrant RE99022. No human had reviewed the specific facts of Lewis's situation. The entire process had been automated.
+
+In that moment Lewis realised he wasn't being treated as a person — he was just another data point in a machine. That experience became the spark for the Burgess Principle.
+
+What started as a personal response to feeling unseen grew into a simple, respectful framework that anyone can use. One calm question — *"Was a human member of the team able to personally review the specific facts of my situation?"* — built on an iPhone, one iteration at a time.
+
+---
+
+## How It Works in Practice
+
+1. You **politely ask** the institution whether a real person looked at the specific details of *your* case.
+2. If they did — great. You have confirmation your situation received proper care.
+3. If not — you now have a **clear written record** that you can follow up on, often by combining the question with your statutory rights (DSAR, FOI, Article 22).
+
+### Real-World Results (as of 30 March 2026)
+
+| Metric | Count |
+| --- | --- |
+| Institutions contacted | 16 |
+| "No individual human review" findings | 11 |
+| Positive outcomes | 1 — Wave Utilities resolved both accounts to £0.00 |
+| Responses pending | 3 |
+
+Full details are in [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md) and [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md).
+
+---
+
+## Ready-to-Use Templates
+
+All templates are written in the same calm, respectful tone. Browse the full collection in [`/templates`](./templates).
+
+| Template | Use Case |
+| --- | --- |
+| [REQUEST_FOR_HUMAN_REVIEW.md](templates/REQUEST_FOR_HUMAN_REVIEW.md) | Gentle all-purpose letter |
+| [DSAR_WITH_BURGESS_PRINCIPLE.md](templates/DSAR_WITH_BURGESS_PRINCIPLE.md) | Combines DSAR + human review (very effective) |
+| [FOI_WITH_BURGESS_PRINCIPLE.md](templates/FOI_WITH_BURGESS_PRINCIPLE.md) | For public bodies and courts |
+| [ARTICLE_22_WITH_BURGESS_PRINCIPLE.md](templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) | For automated decisions |
+| [EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md](templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md) | For disability and reasonable adjustments |
+| [MEDIA_AND_LIBEL.md](templates/MEDIA_AND_LIBEL.md) | For inaccurate or unfair media coverage |
+| [MUSIC_COPYRIGHT_WITH_BURGESS.md](templates/MUSIC_COPYRIGHT_WITH_BURGESS.md) | For Content ID claims and royalty disputes |
+| [COUNCIL_TAX_PCN_TEMPLATE.md](templates/COUNCIL_TAX_PCN_TEMPLATE.md) | For council tax or penalty charge notices |
+| [BENEFITS_CLAIM_HELP.md](templates/BENEFITS_CLAIM_HELP.md) | For benefits claim disputes |
+| [acknowledgment_email_template.txt](templates/acknowledgment_email_template.txt) | Polite follow-up email |
+
+> **Tip:** Don't know which template to use? Drop the whole repo into an AI assistant and describe your situation — it will pick the right one for you.
+
+---
+
+## Domains Covered
+
+| Domain | Example Instrument | The Simple Question |
+| --- | --- | --- |
+| ⚖️ Enforcement Law | Warrant / CCJ / Debt Claim | Was a human mind individually applied? |
+| 🏥 Medical Devices | Hearing Aid / Algorithmic Fitting | Was a clinical mind individually applied? |
+| 💳 Credit Data | Credit File / Default | Was the source data individually validated? |
+| 💻 Data Sovereignty | DSARs / Automated Decisions | Was individual attention given? |
+| 🏛️ Platform Governance | Content Moderation / Bans | Was a human mind applied to this case? |
+| 📰 Media & Libel | Press / Broadcast Coverage | Was the specific reporting individually verified? |
+| 🎵 Music Copyright | Content ID / Royalty Disputes | Was a human mind individually applied to this claim? |
+
+---
+
+## 🌍 Does This Work Outside the UK?
+
+**Yes — completely.**
 
 The question at the heart of this repository:
 
@@ -41,11 +146,13 @@ The question at the heart of this repository:
 
 …works in any country, in any language, against any institution. It requires no legal training and no knowledge of UK law.
 
-The legal references in the templates (GDPR, Equality Act 2010, DSAR, Article 22) are UK boosters — they add extra leverage for people in the UK. But every country has its own equivalents, and the question works without any of them.
+The legal references in the templates (GDPR, Equality Act 2010, DSAR, Article 22) are **UK boosters** — they add extra leverage for people in the UK. But every country has its own equivalents, and the question works without any of them.
 
 If you're outside the UK: simply use the question and the templates as written, and replace any UK legal references with your local equivalents. The table below is a starting point.
 
-### 🗺️ Global Legal Equivalents (Quick Reference)
+---
+
+## 🗺️ Global Legal Equivalents (Quick Reference)
 
 | Right | UK | USA | EU | Australia | Canada |
 | --- | --- | --- | --- | --- | --- |
@@ -55,47 +162,23 @@ If you're outside the UK: simply use the question and the templates as written, 
 | Disability / access rights | Equality Act 2010 | ADA 1990 | EU Accessibility Act | Disability Discrimination Act | AODA (Ontario) |
 | Freedom of Information | FOIA 2000 | FOIA 1966 | National FOI laws | FOI Act 1982 | Access to Information Act |
 
-> Note: Laws vary by state, province, and sector. This table is a signpost, not legal advice.
+> **Note:** Laws vary by state, province, and sector. This table is a signpost, not legal advice.
 
-### Origin Story
+---
 
-The Burgess Principle was created by Lewis James Burgess, a deaf citizen from Darlington in the North East of England.
+## Advanced Applications
 
-On 27 May 2025, enforcement agents arrived at his home and drilled open the rear patio door under Warrant RE99022. No human had reviewed the specific facts of Lewis's situation. The entire process had been automated.
+The Burgess Principle is designed to work at every scale — from everyday bureaucracy to high-stakes domains where automated decisions have serious consequences.
 
-In that moment Lewis realised he wasn't being treated as a person — he was just another data point in a machine. That experience became the spark for the Burgess Principle.
+- **Media & Libel** — For inaccurate, unfair, or repeatedly negative media coverage. Forces outlets to confirm meaningful human review of the specific facts.
+- **Music Copyright** — For wrongful Content ID claims, blocked monetisation, or royalty disputes. Ensures a human reviewer examines the specific track and claim.
+- **Laws, Warfare & Autonomous Systems** — For drone targeting, Lethal Autonomous Weapon Systems (LAWS), and other military/AI contexts where individual human oversight is critical.
 
-What started as a personal response to feeling unseen grew into a simple, respectful framework that anyone can use. One calm question — "Was a human member of the team able to personally review the specific facts of my situation?" — built on an iPhone, one iteration at a time.
+These advanced templates maintain the same calm, respectful tone while adapting the core question to more complex environments.
 
-### How It Works in Practice
+---
 
-- You politely ask the institution whether a real person looked at the specific details of *your* case.
-- If they did, great — you have confirmation your situation received proper care.
-- If not, you now have a clear record that you can follow up on, often by combining the question with your statutory rights (DSAR, FOI, Article 22).
-
-Real-world results so far (as of 30 March 2026):
-
-- Applied to 16 institutions
-- 11 returned "no individual human review" findings
-- 1 clear positive outcome: Wave Utilities resolved both accounts to £0.00 after personal review
-- 3 responses still pending
-
-Full details are in [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md) and [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md).
-
-### Ready-to-Use Templates
-
-All templates are written in the same calm, respectful tone:
-
-- REQUEST_FOR_HUMAN_REVIEW.md ← gentle all-purpose letter
-- DSAR_WITH_BURGESS_PRINCIPLE.md ← combines DSAR + human review (very effective)
-- FOI_WITH_BURGESS_PRINCIPLE.md ← for public bodies and courts
-- ARTICLE_22_WITH_BURGESS_PRINCIPLE.md ← for automated decisions
-- MEDIA_AND_LIBEL.md ← for inaccurate or unfair media coverage
-- MUSIC_COPYRIGHT_WITH_BURGESS.md ← for Content ID claims and royalty disputes
-- acknowledgment_email_template.txt ← polite follow-ups
-- And more in the `/templates` folder
-
-### Cryptographic Enforcement Layer (Optional)
+## Cryptographic Enforcement Layer (Optional)
 
 For most everyday situations the warm, human-first templates are all you need.
 
@@ -109,55 +192,104 @@ It feels like a calm, optional backup — never aggressive, always under your co
 
 See the [Sovereign Personal Vault README](./enforcement/sovereign-vault/README.md) for a gentle introduction and quick-start example.
 
-### Memes Corner
+---
 
-Sometimes a gentle meme explains the idea better than a long letter. Head to the `/memes` folder for shareable images, psychology insights, famous meme templates, and easy AI prompts to create your own.
+## Case Studies
 
-### Domains Covered
+Real-world examples of the Burgess Principle in action:
 
-| Domain | Example Instrument | The Simple Question |
-| --- | --- | --- |
-| ⚖️ Enforcement Law | Warrant / CCJ / Debt Claim | Was a human mind individually applied? |
-| 🏥 Medical Devices | Hearing Aid / Algorithmic Fitting | Was a clinical mind individually applied? |
-| 💳 Credit Data | Credit File / Default | Was the source data individually validated? |
-| 💻 Data Sovereignty | DSARs / Automated Decisions | Was individual attention given? |
-| 🏛️ Platform Governance | Content Moderation / Bans | Was a human mind applied to this case? |
-| 📰 Media & Libel | Press / Broadcast Coverage | Was the specific reporting individually verified? |
-| 🎵 Music Copyright | Content ID / Royalty Disputes | Was a human mind individually applied to this claim? |
+- [Wave Utilities](case-studies/CASE_STUDY_WAVE.md) — Both accounts resolved to £0.00 after personal review
+- [Passport Office](case-studies/CASE_STUDY_PASSPORT.md)
+- [E.ON Precedent](case-studies/EON-Precedent.md)
+- [Equita Multiple Nullity](case-studies/Equita-Multiple-Nullity-20Mar2026.md)
+- [Credit File Contradiction](case-studies/credit-file-contradiction.md)
 
-### Advanced Applications
-
-The Burgess Principle is designed to work at every scale — from everyday bureaucracy to high-stakes domains where automated decisions have serious consequences.
-
-- **Media & Libel** — For inaccurate, unfair, or repeatedly negative media coverage. Forces outlets to confirm meaningful human review of the specific facts.
-- **Music Copyright** — For wrongful Content ID claims, blocked monetisation, or royalty disputes. Ensures a human reviewer examines the specific track and claim.
-- **Laws, Warfare & Autonomous Systems** — For drone targeting, Lethal Autonomous Weapon Systems (LAWS), and other military/AI contexts where individual human oversight is critical.
-
-These advanced templates maintain the same calm, respectful tone while adapting the core question to more complex environments.
-
-Contributions in these areas are welcome, provided they preserve the human-first spirit of the project. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Core Papers & Documents
-
-Full versions are in the `/papers/` directory (and linked in the full index).
-
-**Author:** Lewis James Burgess, Darlington  
-**Licence:** MIT (free for everyone to use and adapt)  
-**Contact:** [lewisburgess_1987@hotmail.co.uk](mailto:lewisburgess_1987@hotmail.co.uk) (email only)
+Want to submit your own? See the [Case Study Template](case-studies/CASE_STUDY_TEMPLATE.md).
 
 ---
 
-If you've ever felt unseen by a system, you're not alone.
+## Core Papers & Documents
 
-Ask one simple question in writing:  
-**"Was a human member of the team able to personally review the specific facts of my situation?"**
+In-depth analysis and doctrine — full versions are in the [`/papers`](./papers) directory.
 
-Their answer (or silence) tells you everything.
+| Paper | Topic |
+| --- | --- |
+| [Core Legal Paper](papers/PAPER_1_CORE_LEGAL_PAPER.md) | The foundational legal argument |
+| [Representative Action](papers/PAPER_2_REPRESENTATIVE_ACTION.md) | Group litigation and representative actions |
+| [Political Implementation](papers/PAPER_3_POLITICAL_IMPLEMENTATION.md) | Policy and political pathways |
+| [Data Sovereignty](papers/PAPER_4_DATA_SOVEREIGNTY.md) | Data rights and digital autonomy |
+| [Medical Device Doctrine](papers/MEDICAL_DEVICE_DOCTRINE.md) | Algorithmic medical devices |
+| [US Constitutional Addendum](papers/US_CONSTITUTIONAL_ADDENDUM.md) | Application to US constitutional law |
+| [Responses to Critiques](papers/RESPONSES_TO_CRITIQUES.md) | Addressing common objections |
 
-Ready to start?  
-Clone the repo → drop it into Grok, Claude or any AI → get instant personalised help.
+---
 
-**GitHub Repo** • Live Website
+## Tutorials & Toolkit
 
-Take care,  
-LJ
+- [Tutorials](./tutorials) — Step-by-step guides for getting started
+- [Toolkit](./toolkit) — AI integration, knowledge base, and ready-made prompts for AI assistants
+- [User Stories](USER_STORIES.md) — Real experiences from real people
+- [Submit Your Story](marketing/SUBMIT_YOUR_STORY.md) — Share how the Burgess Principle helped you
+
+---
+
+## Memes Corner
+
+Sometimes a gentle meme explains the idea better than a long letter. Head to the [`/memes`](./memes) folder for shareable images, psychology insights, famous meme templates, and easy AI prompts to create your own.
+
+---
+
+## Contributing
+
+Contributions are welcome — provided they preserve the calm, human-first spirit of the project.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
+
+---
+
+## Licence & Contact
+
+**Author:** Lewis James Burgess, Darlington  
+**Licence:** [MIT](LICENSE.md) (free for everyone to use and adapt)  
+**Certification Mark:** UK00004343685  
+**Contact:** [lewisburgess_1987@hotmail.co.uk](mailto:lewisburgess_1987@hotmail.co.uk) (email only)  
+**Website:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app)
+
+---
+
+<p align="center">
+  <em>If you've ever felt unseen by a system, you're not alone.</em>
+</p>
+
+<p align="center">
+  Ask one simple question in writing:<br>
+  <strong>"Was a human member of the team able to personally review the specific facts of my situation?"</strong>
+</p>
+
+<p align="center">
+  Their answer (or silence) tells you everything.
+</p>
+
+<p align="center">
+  <strong>Ready to start?</strong><br>
+  Clone the repo → drop it into Grok, Claude or any AI → get instant personalised help.
+</p>
+
+<p align="center">
+  Take care,<br>
+  LJ
+</p>
+
+---
+
+<details>
+<summary><strong>For AI Assistants</strong> (Grok, Claude, OpenAI, etc.)</summary>
+
+To understand the Burgess Principle correctly:
+
+1. First read the entire content of **[FOR_AI_MODELS.md](FOR_AI_MODELS.md)**
+2. Then read the rest of the repository (or drop the whole folder).
+
+This ensures the AI grasps the minimalist, warm, "see the human first" philosophy that runs through every template and extension.
+
+</details>

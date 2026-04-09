@@ -33,6 +33,7 @@
 - [Global Legal Equivalents](#️-global-legal-equivalents-quick-reference)
 - [Advanced Applications](#advanced-applications)
 - [Cryptographic Enforcement Layer](#cryptographic-enforcement-layer-optional)
+- [Python Toolkit](#python-toolkit)
 - [Case Studies](#case-studies)
 - [Core Papers & Documents](#core-papers--documents)
 - [Tutorials & Toolkit](#tutorials--toolkit)
@@ -187,6 +188,41 @@ This small library (`iris-gate-person`) keeps all your personal details on your 
 It feels like a calm, optional backup — never aggressive, always under your control.
 
 See the [Sovereign Personal Vault README](./enforcement/sovereign-vault/README.md) for a gentle introduction and quick-start example.
+
+---
+
+## Python Toolkit
+
+This repo includes lightweight Python tooling for verifiable scrutiny checks:
+
+- **`verify_scrutiny.py`** — Hardened verification tool using constant-time comparison, input validation, and a structured `VerificationResult` dataclass. Includes an argparse CLI (exit codes: `0` = SOVEREIGN, `1` = NULL, `2` = bad input).
+- **`tracer/`** — Defect-tracing utilities for tracking scrutiny gaps.
+- **`enforcement/sovereign-vault/`** — The `iris-gate-person` cryptographic library for signed, personal-vault receipts.
+
+### Installation
+
+```bash
+git clone https://github.com/ljbudgie/burgess-principle.git
+cd burgess-principle
+pip install -r requirements.txt
+```
+
+### Usage
+
+```bash
+python verify_scrutiny.py --help
+```
+
+### Tests
+
+Nineteen pytest tests cover result types, security, validation, CLI behaviour, and edge cases.
+
+```bash
+pip install pytest
+pytest -q
+```
+
+All tests pass on the latest `main` branch.
 
 ---
 

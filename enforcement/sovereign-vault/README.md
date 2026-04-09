@@ -15,4 +15,3 @@ await vault.storeFacts({ situation: "...", requestedAction: "..." });
 const commitment = await vault.generateCommitment();
 await vault.receiveReceipt(signedReceipt);
 const bundle = await vault.exportRecord();
-

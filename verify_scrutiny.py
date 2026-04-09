@@ -82,6 +82,8 @@ def verify_instrument(
         If *reasoning_text* is empty or *provided_hash* is not a valid
         64-character hexadecimal string.
     """
+    # --- Input validation ------------------------------------------------
+    # Reject non-string types early to provide clear error messages.
     if not isinstance(reasoning_text, str):
         raise TypeError(
             f"reasoning_text must be a string, got {type(reasoning_text).__name__}"
@@ -92,6 +94,7 @@ def verify_instrument(
         )
     if not reasoning_text:
         raise ValueError("reasoning_text must not be empty")
+    # SHA-256 digests are exactly 64 hex characters.
     if len(provided_hash) != 64 or not all(
         c in "0123456789abcdefABCDEF" for c in provided_hash
     ):
@@ -99,6 +102,8 @@ def verify_instrument(
             "provided_hash must be a 64-character hexadecimal string"
         )
 
+    # Compute SHA-256 of the reasoning text for comparison against the
+    # claimed Sovereign Hash.
     calculated_hash = hashlib.sha256(reasoning_text.encode()).hexdigest()
 
     # Constant-time comparison to prevent timing side-channel attacks.

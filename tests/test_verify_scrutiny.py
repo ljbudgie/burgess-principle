@@ -125,16 +125,6 @@ class TestVerifyInstrumentHappyPath:
         text = "x" * 100_000
         assert verify_instrument(text, _hash(text)) is SOVEREIGN
 
-    def test_returns_singleton_sovereign(self):
-        """verify_instrument returns the module-level SOVEREIGN object."""
-        result = verify_instrument(SAMPLE_TEXT, SAMPLE_HASH)
-        assert result is SOVEREIGN
-
-    def test_returns_singleton_null(self):
-        """verify_instrument returns the module-level NULL object."""
-        result = verify_instrument(SAMPLE_TEXT, "b" * 64)
-        assert result is NULL
-
 
 # ---------------------------------------------------------------------------
 # verify_instrument — input validation

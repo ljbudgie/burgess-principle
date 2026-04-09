@@ -23,6 +23,7 @@ await vault.storeFacts({
   requestedAction: "..."
 });
 
+// Generate and send only the commitment (fingerprint only)
 const commitment = await vault.generateCommitment();
 
 // Later when you receive their signed receipt:
@@ -30,7 +31,3 @@ await vault.receiveReceipt(signedReceipt);
 
 // Export a tribunal-ready bundle
 const bundle = await vault.exportRecord();
-Full source is in src/index.ts.
-This layer is entirely optional. The Burgess Principle stands strong with just the calm templates. The sovereign vault adds cryptographic proof when you need it.
-Back to the Burgess Principle
----

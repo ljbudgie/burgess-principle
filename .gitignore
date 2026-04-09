@@ -26,3 +26,4 @@ Thumbs.db
 
 # Node (if applicable)
 node_modules/
+.coverage

@@ -215,7 +215,7 @@ python verify_scrutiny.py --help
 
 ### Tests
 
-Nineteen pytest tests cover result types, security, validation, CLI behaviour, and edge cases.
+Eighty pytest tests (47 in `test_verify_scrutiny` and 33 in `test_tracer`) cover result types, security, validation, CLI behaviour, and edge cases.
 
 ```bash
 pip install pytest

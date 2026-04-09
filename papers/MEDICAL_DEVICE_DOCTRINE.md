@@ -106,6 +106,6 @@ That checkbox is the named magistrate. That checkbox turns every fitting from NU
 
 ---
 
-*© 2026 Lewis James Burgess. MIT Licensed.*
+*© 2026 The Burgess Principle. MIT Licensed.*
 *UK Certification Mark UK00004343685*
 *github.com/ljbudgie/burgess-principle

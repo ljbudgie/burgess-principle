@@ -1,3 +1,21 @@
+# Sovereign Personal Vault
+
+**Optional cryptographic enforcement layer** for the Burgess Principle.
+
+This is a lightweight, standalone TypeScript library (`iris-gate-person`) that acts as quiet mathematical backup when the gentle templates aren't enough.
+
+It keeps every sensitive detail of your situation private on your own device, while letting you create a tamper-evident record that clearly shows whether a real human reviewed the specific facts of *your* case.
+
+### How it works
+
+- Store your private facts locally (never leaves your device).
+- Generate and send only a SHA-256 commitment (cryptographic fingerprint).
+- Receive a signed Ed25519 receipt: **SOVEREIGN** (a human personally reviewed your specific situation) or **NULL** (no specific human review — automated/generic).
+- All data is stored in an AES-256-GCM encrypted vault on your device.
+- You can `challenge()` a NULL receipt or `exportRecord()` a complete, independently verifiable bundle ready for tribunals or courts.
+
+It works standalone or alongside the main Iris agent.
+
 ### Quick start
 
 ```ts
@@ -7,13 +25,18 @@ const vault = new SovereignVault("your-strong-passphrase");
 
 await vault.storeFacts({
   situation: "Full details of my case here...",
-  requestedAction: "..."
+  requestedAction: "...",
+  evidence: "..."          // optional
 });
 
+// Generate and send only the commitment (fingerprint only)
 const commitment = await vault.generateCommitment();
-// Send only this commitment to the organisation
 
-// Later when you receive a signed receipt:
-await vault.receiveReceipt(signedReceipt);
+// Later, receive and store their signed receipt
+await vault.receiveReceipt(signedReceiptFromOrganisation);
 
-const bundle = await vault.exportRecord();   // tribunal-ready
+// Challenge a NULL decision if needed
+const challenge = await vault.challenge();
+
+// Export a tribunal-ready, independently verifiable bundle
+const exportBundle = await vault.exportRecord();

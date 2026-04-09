@@ -8,7 +8,7 @@ Thank you for helping with this repository.
 
 This whole project is built around one simple, respectful question:
 
-**"Was a human judicial mind applied to the specific facts of this specific case?"**
+**"Was a human member of the team able to personally review the specific facts of my situation?"**
 
 In plain English: before any organisation (court, utility company, bank, platform, hospital, etc.) exercises power over a real person, a real human being should have personally looked at the individual circumstances of that specific case and taken responsibility for the decision.
 

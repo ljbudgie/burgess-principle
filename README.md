@@ -30,6 +30,12 @@
 
 ---
 
+> **🆕 First time here?** Go to **[START_HERE.md](START_HERE.md)** — it will point you to the right place in under a minute.
+>
+> **Need help right now?** Clone or download this repo → drop it into [Grok](https://grok.com), [Claude](https://claude.ai), or any AI assistant → get instant personalised help. Or pick a [template](./templates) and send it today.
+
+---
+
 ## Table of Contents
 
 - [How This Helps You](#how-this-helps-you)

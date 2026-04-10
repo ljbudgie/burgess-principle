@@ -16,6 +16,7 @@ This policy covers:
 
 - The core verification logic (`verify_scrutiny.py`, `api.py`)
 - The cryptographic enforcement layer (`enforcement/sovereign-vault/`)
+- The on-chain claims protocol (`onchain-protocol/`)
 - The tracer module (`tracer/`)
 - The project website (`index.html`)
 - CI/CD configuration (`.github/workflows/`)

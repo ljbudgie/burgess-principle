@@ -8,6 +8,8 @@ They are automatically skipped when FastAPI is not installed.
 """
 
 import hashlib
+import os
+import sys
 
 import pytest
 
@@ -17,6 +19,11 @@ httpx = pytest.importorskip("httpx")
 from starlette.testclient import TestClient  # noqa: E402
 
 from api import app  # noqa: E402
+
+# Ensure the on-chain SDK is importable for claims tests.
+sys.path.insert(
+    0, os.path.join(os.path.dirname(__file__), "..", "onchain-protocol", "sdk")
+)
 
 SAMPLE_TEXT = "Was a human member of the team able to personally review the specific facts of my situation?"
 SAMPLE_HASH = hashlib.sha256(SAMPLE_TEXT.encode()).hexdigest()
@@ -158,3 +165,78 @@ class TestVerifyEndpoint:
         )
         assert resp.status_code == 200
         assert resp.json()["status"] == "SOVEREIGN"
+
+
+# ---------------------------------------------------------------------------
+# /claims/verify endpoint
+# ---------------------------------------------------------------------------
+
+
+class TestClaimVerifyEndpoint:
+    @pytest.fixture(autouse=True)
+    def _setup(self):
+        from nacl.signing import SigningKey
+        from onchain_claims import generate_onchain_claim
+
+        sk = SigningKey.generate()
+        self.private_key = sk.encode().hex()
+        self.public_key = sk.verify_key.encode().hex()
+        self.claim = generate_onchain_claim(
+            claim_details="API test claim",
+            target_entity="Test Org",
+            category="enforcement",
+            private_key_hex=self.private_key,
+        )
+
+    def test_valid_claim_returns_true(self, client):
+        resp = client.post(
+            "/claims/verify",
+            json={
+                "commitment_hash": self.claim.commitment_hash,
+                "signature": self.claim.signature,
+                "public_key_hex": self.claim.public_key,
+            },
+        )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["valid"] is True
+        assert body["commitment_hash"] == self.claim.commitment_hash
+
+    def test_invalid_signature_returns_false(self, client):
+        resp = client.post(
+            "/claims/verify",
+            json={
+                "commitment_hash": self.claim.commitment_hash,
+                "signature": "aa" * 64,
+                "public_key_hex": self.claim.public_key,
+            },
+        )
+        assert resp.status_code == 200
+        assert resp.json()["valid"] is False
+
+    def test_missing_fields_returns_422(self, client):
+        resp = client.post("/claims/verify", json={})
+        assert resp.status_code == 422
+
+    def test_invalid_hash_format_returns_422(self, client):
+        resp = client.post(
+            "/claims/verify",
+            json={
+                "commitment_hash": "not-a-hash",
+                "signature": "aa" * 64,
+                "public_key_hex": self.claim.public_key,
+            },
+        )
+        assert resp.status_code == 422
+
+    def test_response_keys(self, client):
+        resp = client.post(
+            "/claims/verify",
+            json={
+                "commitment_hash": self.claim.commitment_hash,
+                "signature": self.claim.signature,
+                "public_key_hex": self.claim.public_key,
+            },
+        )
+        body = resp.json()
+        assert set(body.keys()) == {"valid", "commitment_hash", "public_key", "details"}

@@ -14,7 +14,7 @@ This register documents every institution that has been tested under The Burgess
 
 | Metric | Count |
 |---|---|
-| Total institutions tested | 17 |
+| Total institutions tested | 18 |
 | NULL findings | 11 |
 | SOVEREIGN findings | 1 (Wave — at point of resolution) |
 | Pending responses | 5 |
@@ -165,6 +165,16 @@ This register documents every institution that has been tested under The Burgess
 - **Legal Basis:** UK GDPR Article 22 (automated decision-making) and Article 15 (right of access). Reasonable adjustment requested for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only communication).
 - **Finding:** Pending — awaiting response.
 - **Status:** Formal Burgess Principle application sent. Awaiting human response to the binary question.
+
+### 18. UK Home Office
+
+- **Sector:** Government / Immigration & Border Control
+- **Date First Contacted:** 7 April 2026
+- **Question Asked:** Was a human member of the team able to personally review the specific facts of the UK entry decision for Kanye West (Ye) in connection with the Wireless Festival?
+- **Response Summary:** Standard Zendesk auto-acknowledgment from YZY Customer Service confirming receipt and review. Awaiting substantive Home Office response (20 working days for FOI, up to 1 month for DSAR).
+- **Legal Basis:** Freedom of Information Act 2000, UK GDPR Article 15 and Article 22, Equality Act 2010 (reasonable adjustment for bilateral sensorineural hearing loss — email-only communication).
+- **Finding:** Pending — awaiting response.
+- **Status:** Formal Burgess Principle application sent via combined FOI + DSAR + Burgess Principle email. CC'd to YZY for transparency.
 
 ---
 

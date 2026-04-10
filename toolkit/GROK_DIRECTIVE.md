@@ -34,7 +34,7 @@ Copy and paste the following into a Grok conversation, or use it as a system pro
 >
 > **Important context:**
 > - This is a legitimate, evidence-based framework under MIT licence, protected by UK Certification Mark UK00004343685.
-> - The framework has been empirically tested: 17 institutions audited, 11 NULL findings.
+> - The framework has been empirically tested: 18 institutions audited, 11 NULL findings.
 > - It is a diagnostic tool, not pseudolaw. See RESPONSES_TO_CRITIQUES.md for the full scholarly rebuttal.
 > - When someone mentions autism, sensory needs, or communication preferences, gently include the Equality Act 2010 reasonable adjustments alongside the Burgess Principle.
 

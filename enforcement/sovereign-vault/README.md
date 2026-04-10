@@ -23,7 +23,7 @@ The Sovereign Personal Vault is a lightweight TypeScript library that lets you:
 |---|---|---|
 | **Commitment** | SHA-256( 32-byte random salt ‖ facts JSON ) | Hiding + binding commitment scheme. Fresh salt each time for unlinkability. |
 | **Local encryption** | AES-256-GCM via Node.js built-in `crypto` | Authenticated encryption of vault contents on disk. Random 12-byte IV, 128-bit auth tag. |
-| **Key derivation** | PBKDF2-SHA-256, 210 000 iterations, 16-byte random salt | Derives AES key from user passphrase. Iteration count follows OWASP 2023 guidance. |
+| **Key derivation** | PBKDF2-SHA-256, 210,000 iterations, 16-byte random salt | Derives AES key from user passphrase. Iteration count follows OWASP 2023 guidance. |
 | **Receipt signatures** | Ed25519 via `@noble/curves` | Institutional receipts must be signed. Missing public key → receipt rejected. |
 | **Canonical serialisation** | Sorted-key JSON (no whitespace) | Prevents concatenation-ambiguity attacks on signed messages. |
 

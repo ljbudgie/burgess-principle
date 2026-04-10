@@ -151,6 +151,8 @@ All templates are written in the same calm, respectful tone. Browse the full col
 
 If you want to send an enquiry without revealing any personal facts, the Sovereign Personal Vault lets you share only a SHA-256 commitment hash — no details leave your device. As of [v0.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.3.0), the vault uses audited, production-grade cryptography with zero third-party dependencies beyond `@noble/*`.
 
+**What the v0.3.0 audit fixed:** An internal security review found eight problems in the original vault code — including a deprecated encryption library, a weak method of turning your passphrase into an encryption key, and the fact that receipts from institutions were accepted even when they weren't signed. Every problem was fixed. The old code is fully replaced. If you use the vault today, the cryptography underneath it has been reviewed, corrected, and tested. See [SECURITY.md](SECURITY.md) for full details.
+
 | | Without the vault | With the vault |
 | --- | --- | --- |
 | What you send | A template with your details filled in | Only a SHA-256 hash — your facts stay on your device |

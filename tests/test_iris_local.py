@@ -243,7 +243,7 @@ class TestChatEndpoint:
             json={"messages": [{"role": "user", "content": "hi"}]},
         )
         assert response.status_code == 500
-        assert "OOM" in response.json()["error"]
+        assert "inference failed" in response.json()["error"]
 
     def test_messages_filtering(self):
         """Only user and assistant messages with content are forwarded."""
@@ -268,7 +268,7 @@ class TestChatEndpoint:
         )
 
         call_kwargs = self.mock_llm.create_chat_completion.call_args
-        api_messages = call_kwargs.kwargs.get("messages") or call_kwargs[1].get("messages")
+        api_messages = call_kwargs.kwargs["messages"]
         assert api_messages[0]["role"] == "system"
         assert api_messages[0]["content"] == self.system_prompt
         user_assistant_msgs = [m for m in api_messages if m["role"] != "system"]

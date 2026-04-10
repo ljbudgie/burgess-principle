@@ -3,54 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Iris — AI Companion for the Burgess Principle. Ask the one question that matters.">
+    <meta name="description" content="The Burgess Principle — a framework for holding institutions accountable. Was a human member of the team able to personally review the specific facts of my situation?">
     <meta name="author" content="The Burgess Principle">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://burgess-principle.vercel.app">
 
-    <meta property="og:title" content="Iris — The Burgess Principle">
-    <meta property="og:description" content="AI Companion for the Burgess Principle. UK Certification Mark UK00004343685.">
+    <meta property="og:title" content="The Burgess Principle — Was a human there?">
+    <meta property="og:description" content="A calm, respectful framework for holding institutions accountable. UK Certification Mark UK00004343685. Talk to Iris, browse templates, or explore real-world case studies.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://burgess-principle.vercel.app">
+    <meta property="og:site_name" content="The Burgess Principle">
 
-    <title>Iris — The Burgess Principle</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Burgess Principle — Was a human there?">
+    <meta name="twitter:description" content="A calm, respectful framework for holding institutions accountable. Talk to Iris, your AI companion.">
+
+    <title>The Burgess Principle — Was a human there?</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
 
     <style>
         :root {
             --gold: #d4af77;
+            --gold-bright: #e8c992;
             --gold-dim: rgba(212, 175, 119, 0.15);
             --green: #5cb85c;
             --green-dim: rgba(92, 184, 92, 0.15);
+            --blue: #5b9bd5;
+            --blue-dim: rgba(91, 155, 213, 0.12);
+            --red: #d9534f;
+            --red-dim: rgba(217, 83, 79, 0.10);
             --text: #e8e8e8;
             --text-dim: #999;
+            --text-muted: #666;
             --bg: #0a0a0a;
             --bg-chat: #111;
             --bg-input: #1a1a1a;
             --bg-user: #1e1e1e;
             --bg-iris: #141414;
+            --bg-card: #111;
+            --bg-card-hover: #161616;
             --border: #222;
+            --border-subtle: #1a1a1a;
             --radius: 12px;
+            --radius-lg: 16px;
+            --max-content: 1080px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             background: var(--bg);
             color: var(--text);
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.6;
+        }
+
+        /* ================================================================== */
+        /* LANDING PAGE                                                       */
+        /* ================================================================== */
+        #landingView {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Top nav bar                                                        */
+        /* ------------------------------------------------------------------ */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+
+        .top-nav-inner {
+            max-width: var(--max-content);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .top-nav-brand {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1.15rem;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .top-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .top-nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: color 0.15s;
+        }
+
+        .top-nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--bg) !important;
+            padding: 6px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            transition: opacity 0.15s;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover { opacity: 0.85; }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Hero                                                               */
+        /* ------------------------------------------------------------------ */
+        .hero {
+            text-align: center;
+            padding: 100px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 119, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            color: var(--gold);
+            background: var(--gold-dim);
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 119, 0.2);
+            margin-bottom: 24px;
+            letter-spacing: 0.03em;
+        }
+
+        .hero h1 {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 3rem;
+            color: var(--text);
+            font-weight: normal;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--bg);
+            padding: 12px 32px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.15s, transform 0.1s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover { opacity: 0.85; }
+        .btn-primary:active { transform: scale(0.97); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            padding: 12px 32px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            background: var(--gold-dim);
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Section shared                                                     */
+        /* ------------------------------------------------------------------ */
+        .section {
+            padding: 80px 24px;
+            max-width: var(--max-content);
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            max-width: var(--max-content);
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 2rem;
+            color: var(--text);
+            font-weight: normal;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Binary test visual                                                 */
+        /* ------------------------------------------------------------------ */
+        .binary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 700px;
+        }
+
+        .binary-card {
+            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .binary-card-sovereign {
+            background: linear-gradient(135deg, rgba(92, 184, 92, 0.06) 0%, transparent 100%);
+            border-color: rgba(92, 184, 92, 0.2);
+        }
+
+        .binary-card-null {
+            background: linear-gradient(135deg, rgba(217, 83, 79, 0.06) 0%, transparent 100%);
+            border-color: rgba(217, 83, 79, 0.2);
+        }
+
+        .binary-finding {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .binary-card-sovereign .binary-finding { color: var(--green); }
+        .binary-card-null .binary-finding { color: var(--red); }
+
+        .binary-meaning {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Stats bar                                                          */
+        /* ------------------------------------------------------------------ */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 48px 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Template cards                                                     */
+        /* ------------------------------------------------------------------ */
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .template-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: border-color 0.2s, background 0.2s, transform 0.15s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .template-card:hover {
+            border-color: var(--gold);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .template-card-icon {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .template-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .template-card-desc {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Case study cards                                                   */
+        /* ------------------------------------------------------------------ */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: border-color 0.2s, background 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .case-card:hover {
+            border-color: var(--gold);
+            background: var(--bg-card-hover);
+        }
+
+        .case-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .case-card-entity {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .case-card-finding {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .finding-null {
+            color: var(--red);
+            background: var(--red-dim);
+            border: 1px solid rgba(217, 83, 79, 0.2);
+        }
+
+        .finding-sovereign {
+            color: var(--green);
+            background: var(--green-dim);
+            border: 1px solid rgba(92, 184, 92, 0.2);
+        }
+
+        .case-card-outcome {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Features row                                                       */
+        /* ------------------------------------------------------------------ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .feature-icon { font-size: 1.8rem; margin-bottom: 14px; }
+
+        .feature-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* CTA banner                                                         */
+        /* ------------------------------------------------------------------ */
+        .cta-section {
+            text-align: center;
+            padding: 80px 24px;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 119, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 2rem;
+            color: var(--text);
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Footer                                                             */
+        /* ------------------------------------------------------------------ */
+        .site-footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .site-footer p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .site-footer a {
+            color: var(--text-dim);
+            text-decoration: none;
+        }
+
+        .site-footer a:hover { color: var(--gold); }
+
+        /* ================================================================== */
+        /* CHAT VIEW                                                          */
+        /* ================================================================== */
+        #chatView {
+            display: none;
             height: 100vh;
+            flex-direction: column;
+        }
+
+        #chatView.active {
+            display: flex;
+        }
+
+        #landingView.hidden {
+            display: none;
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* Chat sidebar                                                       */
+        /* ------------------------------------------------------------------ */
+        .chat-layout {
+            flex: 1;
             display: flex;
             overflow: hidden;
         }
 
-        /* ------------------------------------------------------------------ */
-        /* Sidebar                                                            */
-        /* ------------------------------------------------------------------ */
         .sidebar {
             width: 260px;
             background: var(--bg);
@@ -202,6 +736,32 @@
             font-size: 1.1rem;
             color: var(--gold);
             font-weight: normal;
+        }
+
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn:hover {
+            border-color: var(--gold);
+            color: var(--text);
         }
 
         .privacy-badge {
@@ -356,6 +916,78 @@
         .message-content { white-space: pre-wrap; }
         .message-content a { color: var(--gold); }
 
+        /* Markdown rendering styles for Iris responses */
+        .message-iris .message-content { white-space: normal; }
+        .message-iris .message-content p { margin-bottom: 12px; }
+        .message-iris .message-content p:last-child { margin-bottom: 0; }
+        .message-iris .message-content strong { color: var(--text); font-weight: 600; }
+        .message-iris .message-content em { color: var(--text-dim); }
+        .message-iris .message-content ul,
+        .message-iris .message-content ol { margin: 8px 0 12px 20px; }
+        .message-iris .message-content li { margin-bottom: 4px; }
+        .message-iris .message-content code {
+            background: rgba(212, 175, 119, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: var(--gold-bright);
+        }
+        .message-iris .message-content pre {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        .message-iris .message-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text);
+        }
+        .message-iris .message-content blockquote {
+            border-left: 3px solid var(--gold);
+            padding: 8px 16px;
+            margin: 10px 0;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+        .message-iris .message-content h1,
+        .message-iris .message-content h2,
+        .message-iris .message-content h3 {
+            font-family: 'IM Fell English', Georgia, serif;
+            color: var(--gold);
+            font-weight: normal;
+            margin: 16px 0 8px;
+        }
+        .message-iris .message-content h1 { font-size: 1.3rem; }
+        .message-iris .message-content h2 { font-size: 1.15rem; }
+        .message-iris .message-content h3 { font-size: 1.05rem; }
+        .message-iris .message-content table {
+            border-collapse: collapse;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 0.85rem;
+        }
+        .message-iris .message-content th,
+        .message-iris .message-content td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .message-iris .message-content th {
+            background: var(--bg-input);
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .message-iris .message-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 16px 0;
+        }
+
         .message-error {
             color: #e88;
             background: rgba(200, 60, 60, 0.08);
@@ -476,6 +1108,34 @@
         /* Responsive                                                         */
         /* ------------------------------------------------------------------ */
         @media (max-width: 768px) {
+            /* Landing page mobile */
+            .top-nav-links { display: none; }
+            .top-nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 56px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                padding: 16px 24px;
+                gap: 12px;
+            }
+            .nav-hamburger { display: block; }
+
+            .hero { padding: 60px 20px 50px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-sub { font-size: 0.95rem; }
+
+            .binary-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .template-grid { grid-template-columns: 1fr; }
+            .case-grid { grid-template-columns: 1fr; }
+            .stats-bar { gap: 28px; }
+            .section { padding: 50px 20px; }
+
+            /* Chat mobile */
             .sidebar {
                 position: fixed;
                 left: -280px;
@@ -511,93 +1171,510 @@
 </head>
 <body>
 
-    <!-- Mobile overlay -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- ================================================================== -->
+    <!-- LANDING PAGE                                                       -->
+    <!-- ================================================================== -->
+    <div id="landingView">
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-brand">
-            <h1>Iris</h1>
-            <p>AI Companion for the Burgess Principle</p>
-        </div>
-
-        <div class="sidebar-question">
-            "Was a human member of the team able to personally review the specific facts of <em>my</em> situation?"
-        </div>
-
-        <div class="sidebar-privacy">
-            <span class="privacy-icon">🛡️</span>
-            <div class="privacy-title">Local-First Mode Active</div>
-            <div class="privacy-desc">Conversations stay on your hardware. Nothing is stored on any server.</div>
-        </div>
-
-        <ul class="sidebar-links">
-            <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/">📄 Templates</a></li>
-            <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/enforcement/sovereign-vault/">🔒 Sovereign Vault</a></li>
-            <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/onchain-protocol/spec.md">⛓️ On-Chain Protocol</a></li>
-            <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md">📋 Audit Log</a></li>
-            <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/">📖 Case Studies</a></li>
-            <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">👋 Start Here</a></li>
-        </ul>
-
-        <div class="sidebar-actions">
-            <button class="sidebar-action-btn" id="exportBtn" disabled title="Export your conversation as a Markdown file">📥 Export conversation</button>
-            <button class="sidebar-action-btn" id="clearBtn" disabled title="Clear chat and start fresh">🗑️ Clear chat</button>
-        </div>
-
-        <div class="sidebar-footer">
-            UK Certification Mark: UK00004343685<br>
-            <a href="https://github.com/ljbudgie/burgess-principle">GitHub Repository</a> · <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LICENSE.md">MIT Licence</a>
-        </div>
-    </aside>
-
-    <!-- Main chat -->
-    <main class="main">
-        <header class="chat-header">
-            <div style="display:flex;align-items:center;gap:12px;">
-                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
-                <h2>Iris</h2>
+        <!-- Top navigation -->
+        <nav class="top-nav">
+            <div class="top-nav-inner">
+                <a href="#" class="top-nav-brand" onclick="showLanding(); return false;">The Burgess Principle</a>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation">☰</button>
+                <ul class="top-nav-links" id="navLinks">
+                    <li><a href="#binary-test">The Test</a></li>
+                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="#" class="nav-cta" onclick="showChat(); return false;">Talk to Iris →</a></li>
+                </ul>
             </div>
-            <span class="privacy-badge"><span class="privacy-dot"></span> Local-first · your data stays with you</span>
-        </header>
+        </nav>
 
-        <div class="messages" id="messages">
-            <div class="welcome" id="welcome">
-                <h3>Hello, I'm Iris</h3>
-                <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
-                <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
-                <div class="welcome-suggestions">
-                    <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
-                    <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
-                    <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
-                    <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
-                    <button class="suggestion" data-prompt="I have a disability and an institution hasn't made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
-                    <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">UK Certification Mark: UK00004343685</div>
+            <h1>Was a human <em>there?</em></h1>
+            <p class="hero-sub">
+                A calm, respectful framework that helps ordinary people hold institutions accountable by asking one question: did a real human being actually look at my case?
+            </p>
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="showChat()">💬 Talk to Iris</button>
+                <a class="btn-secondary" href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md" target="_blank" rel="noopener">📖 Start Here</a>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">18</div>
+                <div class="stat-label">Institutions audited</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">11</div>
+                <div class="stat-label">NULL findings</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">35+</div>
+                <div class="stat-label">Ready-to-use templates</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">MIT</div>
+                <div class="stat-label">Free &amp; open source</div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- The Binary Test -->
+        <section class="section" id="binary-test">
+            <div class="section-label">The Core</div>
+            <h2 class="section-title">The Binary Test</h2>
+            <p class="section-desc">
+                Every finding under the Burgess Principle resolves to one of two outcomes. Before the institution acted on you — was a human there?
+            </p>
+            <div class="binary-grid">
+                <div class="binary-card binary-card-sovereign">
+                    <div class="binary-finding">SOVEREIGN</div>
+                    <p class="binary-meaning">A human mind was individually applied to the specific facts. The action was considered. It may still be wrong — but it was human.</p>
+                </div>
+                <div class="binary-card binary-card-null">
+                    <div class="binary-finding">NULL</div>
+                    <p class="binary-meaning">No individual human review took place. The instrument carries no lawful authority from inception. The system processed — nobody decided.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="input-area">
-            <div class="input-wrap">
-                <textarea id="userInput" placeholder="Describe your situation…" rows="1"></textarea>
-                <button id="sendBtn" disabled>Send</button>
+        <hr class="section-divider">
+
+        <!-- Features -->
+        <section class="section" id="features">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Three layers of protection</h2>
+            <p class="section-desc">
+                From a simple question to cryptographic proof — choose the level that suits your situation.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-title">Templates &amp; Letters</div>
+                    <p class="feature-desc">35+ ready-to-send templates for disputes, DSARs, FOI requests, Equality Act adjustments, and more. No legal training needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Sovereign Personal Vault</div>
+                    <p class="feature-desc">On-device AES-256-GCM encryption, SHA-256 commitments, and Ed25519-signed receipts. Mathematical proof, stored on your hardware.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⛓️</div>
+                    <div class="feature-title">On-Chain Claims</div>
+                    <p class="feature-desc">Post a compact commitment fingerprint to an EVM L2. Global timestamping and verifiability — no personal data touches the blockchain.</p>
+                </div>
             </div>
-            <p class="input-disclaimer">Iris is sovereign by design — your conversation lives only in your browser. Only the current message is sent for processing; nothing is stored server-side.</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Templates -->
+        <section class="section" id="templates">
+            <div class="section-label">Get Started</div>
+            <h2 class="section-title">Templates for every situation</h2>
+            <p class="section-desc">
+                Pick the template that matches your situation. Or ask Iris to write a personalised letter for you.
+            </p>
+            <div class="template-grid">
+                <a class="template-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/REQUEST_FOR_HUMAN_REVIEW.md" target="_blank" rel="noopener">
+                    <div class="template-card-icon">🔍</div>
+                    <div class="template-card-title">Request for Human Review</div>
+                    <p class="template-card-desc">Ask any organisation whether a human reviewed your case.</p>
+                </a>
+                <a class="template-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener">
+                    <div class="template-card-icon">📄</div>
+                    <div class="template-card-title">General Dispute</div>
+                    <p class="template-card-desc">A universal dispute letter for any institution or decision.</p>
+                </a>
+                <a class="template-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/COUNCIL_TAX_PCN_TEMPLATE.md" target="_blank" rel="noopener">
+                    <div class="template-card-icon">🏛️</div>
+                    <div class="template-card-title">Council Tax / Penalty Charge</div>
+                    <p class="template-card-desc">Challenge a council tax or PCN decision that wasn't individually reviewed.</p>
+                </a>
+                <a class="template-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/BENEFITS_CLAIM_HELP.md" target="_blank" rel="noopener">
+                    <div class="template-card-icon">🤝</div>
+                    <div class="template-card-title">Benefits Claim</div>
+                    <p class="template-card-desc">When a benefits decision feels wrong and nobody reviewed your circumstances.</p>
+                </a>
+                <a class="template-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/BAILIFFS_THREAT_TEMPLATE.md" target="_blank" rel="noopener">
+                    <div class="template-card-icon">🚪</div>
+                    <div class="template-card-title">Bailiff / Enforcement</div>
+                    <p class="template-card-desc">Respond to enforcement agents who may be acting on unreviewed decisions.</p>
+                </a>
+                <a class="template-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/DSAR_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener">
+                    <div class="template-card-icon">📋</div>
+                    <div class="template-card-title">Data Subject Access Request</div>
+                    <p class="template-card-desc">Find out what data an organisation holds on you and how decisions were made.</p>
+                </a>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Case Studies -->
+        <section class="section" id="case-studies">
+            <div class="section-label">Real Results</div>
+            <h2 class="section-title">Case studies</h2>
+            <p class="section-desc">
+                The framework has been applied to real institutional interactions — with documented outcomes.
+            </p>
+            <div class="case-grid">
+                <a class="case-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_WAVE.md" target="_blank" rel="noopener">
+                    <div class="case-card-header">
+                        <span class="case-card-entity">Wave Utilities</span>
+                        <span class="case-card-finding finding-sovereign">SOVEREIGN</span>
+                    </div>
+                    <p class="case-card-outcome">Both accounts resolved to £0.00 after a single human review. The principle worked exactly as designed.</p>
+                </a>
+                <a class="case-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_PASSPORT.md" target="_blank" rel="noopener">
+                    <div class="case-card-header">
+                        <span class="case-card-entity">Passport Office</span>
+                        <span class="case-card-finding finding-null">NULL</span>
+                    </div>
+                    <p class="case-card-outcome">Article 22 challenge to automated passport issuance. No individual human review took place.</p>
+                </a>
+                <a class="case-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EON.md" target="_blank" rel="noopener">
+                    <div class="case-card-header">
+                        <span class="case-card-entity">E.ON Next</span>
+                        <span class="case-card-finding finding-null">NULL</span>
+                    </div>
+                    <p class="case-card-outcome">Forced entry under unsigned warrant challenged. No named person authorised the action.</p>
+                </a>
+                <a class="case-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EQUITA.md" target="_blank" rel="noopener">
+                    <div class="case-card-header">
+                        <span class="case-card-entity">Equita</span>
+                        <span class="case-card-finding finding-null">NULL</span>
+                    </div>
+                    <p class="case-card-outcome">Five enforcement cases with disability gatekeeping. System ignored communication needs.</p>
+                </a>
+                <a class="case-card" href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_CREDIT_FILE.md" target="_blank" rel="noopener">
+                    <div class="case-card-header">
+                        <span class="case-card-entity">Equifax</span>
+                        <span class="case-card-finding finding-null">NULL</span>
+                    </div>
+                    <p class="case-card-outcome">Credit file entries registered without individual verification. No human reviewed the data.</p>
+                </a>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Ready to ask the question?</h2>
+            <p>Iris helps you apply the Burgess Principle — calmly, practically, and on your terms. Your data stays with you.</p>
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="showChat()">💬 Talk to Iris</button>
+                <a class="btn-secondary" href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener">⭐ View on GitHub</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>
+                <strong>The Burgess Principle</strong> · UK Certification Mark: UK00004343685<br>
+                <a href="https://github.com/ljbudgie/burgess-principle">GitHub</a> ·
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LICENSE.md">MIT Licence</a> ·
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/SOUL.md">Soul</a> ·
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/CONTRIBUTING.md">Contributing</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- CHAT VIEW                                                          -->
+    <!-- ================================================================== -->
+    <div id="chatView">
+
+        <!-- Mobile overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="chat-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-brand">
+                    <h1>Iris</h1>
+                    <p>AI Companion for the Burgess Principle</p>
+                </div>
+
+                <div class="sidebar-question">
+                    "Was a human member of the team able to personally review the specific facts of <em>my</em> situation?"
+                </div>
+
+                <div class="sidebar-privacy">
+                    <span class="privacy-icon">🛡️</span>
+                    <div class="privacy-title">Local-First Mode Active</div>
+                    <div class="privacy-desc">Conversations stay on your hardware. Nothing is stored on any server.</div>
+                </div>
+
+                <ul class="sidebar-links">
+                    <li><a href="#" onclick="showLanding(); return false;">🏠 Home</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/" target="_blank" rel="noopener">📄 Templates</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/enforcement/sovereign-vault/" target="_blank" rel="noopener">🔒 Sovereign Vault</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/onchain-protocol/spec.md" target="_blank" rel="noopener">⛓️ On-Chain Protocol</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md" target="_blank" rel="noopener">📋 Audit Log</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/" target="_blank" rel="noopener">📖 Case Studies</a></li>
+                    <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md" target="_blank" rel="noopener">👋 Start Here</a></li>
+                </ul>
+
+                <div class="sidebar-actions">
+                    <button class="sidebar-action-btn" id="exportBtn" disabled title="Export your conversation as a Markdown file">📥 Export conversation</button>
+                    <button class="sidebar-action-btn" id="clearBtn" disabled title="Clear chat and start fresh">🗑️ Clear chat</button>
+                </div>
+
+                <div class="sidebar-footer">
+                    UK Certification Mark: UK00004343685<br>
+                    <a href="https://github.com/ljbudgie/burgess-principle">GitHub Repository</a> · <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LICENSE.md">MIT Licence</a>
+                </div>
+            </aside>
+
+            <!-- Main chat -->
+            <main class="main">
+                <header class="chat-header">
+                    <div class="chat-header-left">
+                        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+                        <button class="back-btn" onclick="showLanding()" title="Back to home page">← Home</button>
+                        <h2>Iris</h2>
+                    </div>
+                    <span class="privacy-badge"><span class="privacy-dot"></span> Local-first · your data stays with you</span>
+                </header>
+
+                <div class="messages" id="messages">
+                    <div class="welcome" id="welcome">
+                        <h3>Hello, I'm Iris</h3>
+                        <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
+                        <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
+                        <div class="welcome-suggestions">
+                            <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
+                            <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
+                            <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
+                            <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
+                            <button class="suggestion" data-prompt="I have a disability and an institution hasn't made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
+                            <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="input-wrap">
+                        <textarea id="userInput" placeholder="Describe your situation…" rows="1"></textarea>
+                        <button id="sendBtn" disabled>Send</button>
+                    </div>
+                    <p class="input-disclaimer">Iris is sovereign by design — your conversation lives only in your browser. Only the current message is sent for processing; nothing is stored server-side.</p>
+                </div>
+            </main>
         </div>
-    </main>
+    </div>
 
     <script>
+        // ================================================================== //
+        // Lightweight Markdown renderer (no external dependencies)           //
+        // ================================================================== //
+        const renderMarkdown = (function() {
+            /**
+             * Convert a Markdown string to safe HTML.
+             * Handles: headings, bold, italic, inline code, code blocks,
+             * blockquotes, unordered/ordered lists, links, tables, and hrs.
+             */
+            function escapeForHtml(str) {
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+            }
+
+            function renderInline(text) {
+                // Code spans (must come first to avoid other transforms inside code)
+                text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+                // Bold+italic
+                text = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+                // Bold
+                text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                // Italic
+                text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+                // Links [text](url)
+                text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(_m, linkText, url) {
+                    var safeUrl = url.replace(/[^a-zA-Z0-9/:._~?#@!$&'()*+,;=%\[\]-]/g, '');
+                    if (/^javascript:/i.test(safeUrl)) return linkText;
+                    return '<a href="' + safeUrl + '" target="_blank" rel="noopener">' + linkText + '</a>';
+                });
+                return text;
+            }
+
+            return function renderMarkdown(src) {
+                if (!src) return '';
+
+                var lines = src.split('\n');
+                var html = [];
+                var i = 0;
+
+                while (i < lines.length) {
+                    var line = lines[i];
+
+                    // Fenced code block
+                    if (/^```/.test(line)) {
+                        var codeLines = [];
+                        i++;
+                        while (i < lines.length && !/^```/.test(lines[i])) {
+                            codeLines.push(escapeForHtml(lines[i]));
+                            i++;
+                        }
+                        i++; // skip closing ```
+                        html.push('<pre><code>' + codeLines.join('\n') + '</code></pre>');
+                        continue;
+                    }
+
+                    // Table (line with | separators, followed by a separator row)
+                    if (/^\|/.test(line) && i + 1 < lines.length && /^\|[\s:|-]+\|/.test(lines[i + 1])) {
+                        var tableHtml = '<table>';
+                        // Header
+                        var headers = line.split('|').filter(function(c) { return c.trim() !== ''; });
+                        tableHtml += '<tr>';
+                        for (var h = 0; h < headers.length; h++) {
+                            tableHtml += '<th>' + renderInline(headers[h].trim()) + '</th>';
+                        }
+                        tableHtml += '</tr>';
+                        i += 2; // skip header + separator
+                        // Body rows
+                        while (i < lines.length && /^\|/.test(lines[i])) {
+                            var cells = lines[i].split('|').filter(function(c) { return c.trim() !== ''; });
+                            tableHtml += '<tr>';
+                            for (var c = 0; c < cells.length; c++) {
+                                tableHtml += '<td>' + renderInline(cells[c].trim()) + '</td>';
+                            }
+                            tableHtml += '</tr>';
+                            i++;
+                        }
+                        tableHtml += '</table>';
+                        html.push(tableHtml);
+                        continue;
+                    }
+
+                    // HR
+                    if (/^---+$/.test(line.trim()) || /^\*\*\*+$/.test(line.trim())) {
+                        html.push('<hr>');
+                        i++;
+                        continue;
+                    }
+
+                    // Headings
+                    var headingMatch = line.match(/^(#{1,3})\s+(.+)/);
+                    if (headingMatch) {
+                        var level = headingMatch[1].length;
+                        html.push('<h' + level + '>' + renderInline(headingMatch[2]) + '</h' + level + '>');
+                        i++;
+                        continue;
+                    }
+
+                    // Blockquote
+                    if (/^>\s?/.test(line)) {
+                        var quoteLines = [];
+                        while (i < lines.length && /^>\s?/.test(lines[i])) {
+                            quoteLines.push(lines[i].replace(/^>\s?/, ''));
+                            i++;
+                        }
+                        html.push('<blockquote>' + renderInline(quoteLines.join(' ')) + '</blockquote>');
+                        continue;
+                    }
+
+                    // Unordered list
+                    if (/^[\-\*]\s+/.test(line)) {
+                        var listItems = [];
+                        while (i < lines.length && /^[\-\*]\s+/.test(lines[i])) {
+                            listItems.push('<li>' + renderInline(lines[i].replace(/^[\-\*]\s+/, '')) + '</li>');
+                            i++;
+                        }
+                        html.push('<ul>' + listItems.join('') + '</ul>');
+                        continue;
+                    }
+
+                    // Ordered list
+                    if (/^\d+\.\s+/.test(line)) {
+                        var olItems = [];
+                        while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
+                            olItems.push('<li>' + renderInline(lines[i].replace(/^\d+\.\s+/, '')) + '</li>');
+                            i++;
+                        }
+                        html.push('<ol>' + olItems.join('') + '</ol>');
+                        continue;
+                    }
+
+                    // Empty line
+                    if (line.trim() === '') {
+                        i++;
+                        continue;
+                    }
+
+                    // Regular paragraph
+                    var paraLines = [];
+                    while (i < lines.length && lines[i].trim() !== '' && !/^[#>\-\*|`]/.test(lines[i]) && !/^\d+\.\s+/.test(lines[i]) && !/^---/.test(lines[i])) {
+                        paraLines.push(lines[i]);
+                        i++;
+                    }
+                    html.push('<p>' + renderInline(paraLines.join(' ')) + '</p>');
+                }
+
+                return html.join('\n');
+            };
+        })();
+
+        // ================================================================== //
+        // View switching (landing ↔ chat)                                   //
+        // ================================================================== //
+        const landingView = document.getElementById('landingView');
+        const chatView    = document.getElementById('chatView');
+
+        function showChat() {
+            landingView.classList.add('hidden');
+            chatView.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('userInput').focus();
+        }
+
+        function showLanding() {
+            chatView.classList.remove('active');
+            landingView.classList.remove('hidden');
+            document.body.style.overflow = '';
+            // Close mobile sidebar if open
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('open');
+            window.scrollTo(0, 0);
+        }
+
         // ------------------------------------------------------------------ //
+        // Mobile nav hamburger                                               //
+        // ------------------------------------------------------------------ //
+        document.getElementById('navHamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('#navLinks a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // ================================================================== //
         // Backend detection — same UI, different backend                     //
-        // ------------------------------------------------------------------ //
+        // ================================================================== //
         const _isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
         const API_CHAT_URL = _isLocal
             ? `${window.location.origin}/api/chat`
             : '/api/chat';
 
-        // ------------------------------------------------------------------ //
+        // ================================================================== //
         // DOM references                                                     //
-        // ------------------------------------------------------------------ //
+        // ================================================================== //
         const messagesEl  = document.getElementById('messages');
         const welcomeEl   = document.getElementById('welcome');
         const userInput   = document.getElementById('userInput');
@@ -805,6 +1882,7 @@
                                 const parsed = JSON.parse(data);
                                 if (parsed.content) {
                                     fullText += parsed.content;
+                                    // Show raw text while streaming for performance
                                     contentEl.textContent = fullText;
                                     messagesEl.scrollTop = messagesEl.scrollHeight;
                                 }
@@ -812,6 +1890,10 @@
                         }
                     }
                 }
+
+                // Render final response as Markdown
+                contentEl.innerHTML = renderMarkdown(fullText);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
 
                 conversationHistory.push({ role: 'assistant', content: fullText });
                 updateActionButtons();

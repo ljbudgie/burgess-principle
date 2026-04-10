@@ -73,6 +73,44 @@ The framework has been applied to real institutional interactions. See the [case
 
 ---
 
+## Cryptographic Enforcement Layer (Optional)
+
+The [Sovereign Personal Vault](enforcement/sovereign-vault/) gives you on-device encryption, SHA-256 commitments, and Ed25519-signed receipts — mathematical proof that an institution did (or did not) apply human review. You don't need it to use the Burgess Principle, but it's there for anyone who wants verifiable, tamper-evident records.
+
+As of v0.4.0, the Sovereign Personal Vault now includes a minimal on-chain protocol layer. Users generate claims off-chain exactly as before, then post only a compact commitment fingerprint (SHA-256 hash + Ed25519 signature + minimal metadata) to an EVM L2. The chain provides neutral timestamping and public verifiability — no personal data ever touches the blockchain. See [onchain-protocol/spec.md](onchain-protocol/spec.md) and the [v0.4.0 release notes](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.4.0) for details.
+
+### On-Chain Burgess Claims (v0.4.0)
+
+Every demand for human scrutiny becomes a globally verifiable, tamper-proof artifact — while full facts stay encrypted in your local Vault.
+
+```python
+from onchain_claims import generate_onchain_claim, verify_onchain_receipt
+
+# Generate a claim ready for on-chain posting
+claim = generate_onchain_claim(
+    claim_details="My council tax was sent to enforcement without human review",
+    target_entity="Example Council",
+    category="enforcement",
+    private_key_hex="<your-ed25519-private-key-hex>",
+)
+# claim.commitment_hash, claim.signature, claim.to_json()
+
+# Verify an on-chain receipt
+result = verify_onchain_receipt(
+    commitment_hash="<from-chain>",
+    signature="<from-chain>",
+    public_key_hex="<claimant-pubkey>",
+)
+# result.valid, result.details
+```
+
+```
+Local Vault              Commitment              EVM L2                 Verifiable
+(encrypted facts)   →    Fingerprint         →   (hash + sig only)  →  Receipt
+```
+
+---
+
 ## Repository map
 
 | Path | What's inside |

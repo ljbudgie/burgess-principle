@@ -63,9 +63,14 @@ These resources are for people who want to explore the framework, doctrine, and 
 | [`LIVE_AUDIT_LOG.md`](LIVE_AUDIT_LOG.md) | Chronological record of every institutional interaction and finding |
 | [`INSTITUTIONAL_REGISTER.md`](INSTITUTIONAL_REGISTER.md) | Every institution tested, with sector, response, and SOVEREIGN/NULL finding |
 | [`/case-studies`](./case-studies) | Real-world examples and outcomes |
-| [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools |
+| [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools (Sovereign Personal Vault) |
+| [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims — post commitment fingerprints to an EVM L2 for public verifiability (v0.4.0) |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |
 | [`/marketing`](./marketing) | Commercial strategy, user stories, and outreach |
+
+### 6. I want cryptographic proof or on-chain verification
+
+The [Sovereign Personal Vault](enforcement/sovereign-vault/) lets you generate commitments and signed receipts entirely on your own device. As of v0.4.0, you can also post a compact commitment fingerprint (hash + signature, no personal data) to an EVM L2 for neutral timestamping and public verifiability. The binary test — SOVEREIGN or NULL — stays the same; the on-chain layer simply makes it globally auditable. See [onchain-protocol/spec.md](onchain-protocol/spec.md) for the protocol and [CHANGELOG.md](CHANGELOG.md) for details.
 
 ---
 

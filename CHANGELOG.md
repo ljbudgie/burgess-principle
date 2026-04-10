@@ -4,6 +4,28 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## v0.7.0 — Website Upgrade (10 April 2026)
+
+**The Vercel site is no longer just a chat window — it's a full project landing page with Iris built in.**
+
+### Added
+- **Landing page** — visitors now see a proper hero section, the binary test (SOVEREIGN / NULL) visualised as cards, key stats (18 institutions audited, 11 NULL findings, 35+ templates), template showcase cards, case study highlights with findings, and feature overview (Templates, Vault, On-Chain).
+- **Markdown rendering** — Iris chat responses now render as rich HTML (headings, bold, italic, code blocks, tables, lists, blockquotes, links) instead of plain text. Uses a lightweight built-in renderer with no external dependencies.
+- **Navigation** — smooth view switching between the landing page and the Iris chat. "Talk to Iris" CTA buttons, "← Home" back button in chat header, and sidebar home link.
+- **Top navigation bar** — sticky nav with section anchors (The Test, Templates, Case Studies), GitHub link, and prominent "Talk to Iris" CTA. Mobile hamburger menu.
+- **Template showcase** — six template cards (Human Review, General Dispute, Council Tax, Benefits, Bailiff, DSAR) with icons and descriptions, linking to the GitHub templates.
+- **Case study cards** — five real-world case studies (Wave, Passport Office, E.ON, Equita, Equifax) with SOVEREIGN/NULL finding badges and outcome summaries.
+- **Improved meta tags** — richer Open Graph and Twitter Card metadata for better link sharing previews.
+
+### Changed
+- `index.html` refactored from chat-only to a two-view single-page app (landing + chat).
+- Chat sidebar now includes a "🏠 Home" link back to the landing page.
+- Chat header now includes a "← Home" button for easy navigation.
+- CSS expanded with new design tokens (`--gold-bright`, `--blue`, `--red`, `--bg-card`, etc.) and responsive grid layouts.
+- Mobile layout improved for both landing page sections and chat view.
+
+---
+
 ## v0.6.0 — Sovereign Local Mode & Hardening (10 April 2026)
 
 **Iris can now run entirely on your own hardware — no cloud, no API keys, no data leaving your device.**

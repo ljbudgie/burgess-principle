@@ -31,7 +31,7 @@ That lived experience became the foundation for a calm, evidence-based framework
 
 - **Licence:** MIT — free for anyone to use and adapt.
 - **Certification Mark:** UK00004343685 (registered, TM35 paid).
-- **Empirical record:** 17 institutions audited, 11 NULL findings with full reference numbers. See [LIVE_AUDIT_LOG.md](../LIVE_AUDIT_LOG.md).
+- **Empirical record:** 18 institutions audited, 11 NULL findings with full reference numbers. See [LIVE_AUDIT_LOG.md](../LIVE_AUDIT_LOG.md).
 - **Scholarly rebuttal:** [RESPONSES_TO_CRITIQUES.md](../papers/RESPONSES_TO_CRITIQUES.md) addresses pseudolaw concerns in full.
 
 ---

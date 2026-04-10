@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Burgess Principle — a simple, respectful way to ask institutions to treat you as a real person.">
-    <meta name="keywords" content="Burgess Principle, human review, reasonable adjustments, Equality Act, data sovereignty">
+    <meta name="description" content="The Burgess Principle — a simple, respectful way to ask institutions to treat you as a real person. Free templates, case studies, and AI-first tools.">
+    <meta name="keywords" content="Burgess Principle, human review, reasonable adjustments, Equality Act, data sovereignty, SOVEREIGN, NULL, automated decisions, GDPR, Article 22">
     <meta name="author" content="The Burgess Principle">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://burgess-principle.vercel.app">
@@ -41,12 +41,13 @@
 
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            background: var(--bg, #0a0a0a);
-            color: var(--text, #e8e8e8);
+            background: var(--bg);
+            color: var(--text);
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.6;
             min-height: 100vh;
         }
+        a { color: var(--gold); }
         header {
             border-bottom: 1px solid #222;
             padding: 20px 40px;
@@ -57,28 +58,39 @@
         .logo {
             font-family: 'IM Fell English', Georgia, serif;
             font-size: 1.6rem;
-            color: var(--gold, #d4af77);
+            color: var(--gold);
             letter-spacing: 0.05em;
         }
         .logo span { font-size: 1.1rem; color: #888; }
-        .header-link { color: var(--gold, #d4af77); text-decoration: none; font-weight: 500; }
+        .header-link { color: var(--gold); text-decoration: none; font-weight: 500; }
 
+        /* Badges */
+        .badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .badges img { height: 22px; }
+
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 100px 20px 80px;
+            padding: 80px 20px 60px;
             max-width: 960px;
             margin: 0 auto;
         }
         .hero h1 {
             font-family: 'IM Fell English', Georgia, serif;
             font-size: clamp(2.8rem, 6vw, 4.5rem);
-            color: var(--gold, #d4af77);
+            color: var(--gold);
             margin-bottom: 16px;
         }
         .hero .subtitle {
             font-size: 1.35rem;
             color: #aaa;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             max-width: 760px;
             margin-left: auto;
             margin-right: auto;
@@ -86,14 +98,14 @@
         .question {
             font-size: clamp(1.1rem, 3.5vw, 1.5rem);
             color: #fff;
-            margin: 40px 0 60px;
+            margin: 40px 0 50px;
             font-weight: 500;
         }
         .cta {
             display: inline-block;
             background: transparent;
-            border: 2px solid var(--gold, #d4af77);
-            color: var(--gold, #d4af77);
+            border: 2px solid var(--gold);
+            color: var(--gold);
             font-size: 1.1rem;
             font-weight: 600;
             padding: 18px 40px;
@@ -103,10 +115,9 @@
             margin-bottom: 20px;
         }
         .cta:hover {
-            background: var(--gold, #d4af77);
-            color: #0a0a0a;
+            background: var(--gold);
+            color: var(--bg);
         }
-
         .hero-description {
             max-width: 680px;
             margin: 0 auto;
@@ -114,38 +125,56 @@
             opacity: 0.9;
         }
 
+        /* Sections */
         .section {
             padding: 60px 40px;
             max-width: 1100px;
             margin: 0 auto;
         }
+        .section-title {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 2rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Cards */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
         .card {
-            background: var(--card, #151515);
+            background: var(--card);
             border: 1px solid #222;
             padding: 28px;
             border-radius: 8px;
             transition: transform 0.2s;
         }
-        .card:hover {
-            transform: translateY(-4px);
-        }
+        .card:hover { transform: translateY(-4px); }
         .card h3 {
-            color: var(--gold, #d4af77);
+            color: var(--gold);
             margin-bottom: 12px;
         }
+        .card p { color: #bbb; margin-bottom: 12px; }
         .card-link {
-            color: var(--gold, #d4af77);
+            color: var(--gold);
             text-decoration: none;
             display: inline-block;
             min-height: 48px;
             line-height: 48px;
         }
 
+        /* Metrics */
         .metrics {
             display: flex;
             justify-content: center;
@@ -153,14 +182,12 @@
             gap: 40px;
             background: #111;
             padding: 40px 20px;
-            margin: 60px 0;
+            margin: 0;
         }
-        .metric {
-            text-align: center;
-        }
+        .metric { text-align: center; }
         .metric .value {
             font-size: 2.2rem;
-            color: var(--gold, #d4af77);
+            color: var(--gold);
             font-weight: 600;
         }
         .metric .label {
@@ -170,20 +197,125 @@
             color: #888;
         }
 
+        /* Narrative blocks */
+        .narrative {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .narrative p {
+            color: #bbb;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+        .narrative .highlight {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid #333;
+            color: var(--gold);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #1a1a1a;
+            color: #ccc;
+        }
+        tr:hover td { background: #111; }
+
+        /* Quick Start */
+        .quick-start {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .step {
+            text-align: center;
+            padding: 24px;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+        .step h4 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .step p { color: #aaa; font-size: 0.95rem; }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid #222;
+            margin: 0;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
             border-top: 1px solid #222;
             font-size: 0.9rem;
             color: #666;
         }
-        .footer-tagline {
-            margin-top: 20px;
+        footer a { color: var(--gold); text-decoration: none; }
+        .footer-mark {
+            margin-bottom: 12px;
+            color: #888;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .footer-tagline { margin-top: 20px; }
+
+        /* Origin quote */
+        blockquote {
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+            margin: 24px auto;
+            max-width: 700px;
+            color: #aaa;
+            font-style: italic;
+            text-align: left;
         }
 
         @media (max-width: 600px) {
             header { flex-direction: column; gap: 12px; padding: 16px 20px; text-align: center; }
             .section { padding: 40px 20px; }
+            .hero { padding: 60px 20px 40px; }
+            .narrative { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -191,13 +323,22 @@
 
     <header role="banner">
         <div class="logo">THE BURGESS PRINCIPLE <span>⚖️</span></div>
-        <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" class="header-link">github.com/ljbudgie/burgess-principle</a>
+        <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener" class="header-link">github.com/ljbudgie/burgess-principle</a>
     </header>
 
+    <!-- Hero -->
     <main class="hero" role="main">
         <h1>The Burgess Principle</h1>
         <div class="subtitle">One simple, respectful question</div>
-        
+
+        <div class="badges">
+            <img src="https://img.shields.io/badge/licence-MIT-green.svg" alt="MIT Licence">
+            <img src="https://github.com/ljbudgie/burgess-principle/actions/workflows/ci.yml/badge.svg" alt="CI">
+            <img src="https://img.shields.io/github/last-commit/ljbudgie/burgess-principle.svg" alt="Last Commit">
+            <img src="https://img.shields.io/badge/UK_Certification_Mark-UK00004343685-blue.svg" alt="UK Certification Mark">
+            <img src="https://img.shields.io/badge/works-worldwide-orange.svg" alt="Works Worldwide">
+        </div>
+
         <div class="question">
             Was a human member of the team able to personally review the specific facts of <em>my</em> situation?
         </div>
@@ -207,40 +348,16 @@
         </button>
 
         <p class="hero-description">
-            The Burgess Principle helps ordinary people politely ask institutions to treat them as real individuals rather than data points. 
-            It’s free, open-source, and designed to be dropped straight into any AI for instant personalised letters and notices.
+            The Burgess Principle helps ordinary people politely ask institutions to treat them as real individuals rather than data points.
+            It's free, open-source, and designed to be dropped straight into any AI for instant personalised letters and notices.
         </p>
     </main>
 
-    <section class="section" aria-label="Repository resources">
-        <div class="cards">
-            <div class="card">
-                <h3>📜 Papers</h3>
-                <p>Core legal papers, licensing, and certification mark</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" target="_blank" class="card-link">View Papers →</a>
-            </div>
-            <div class="card">
-                <h3>📊 Live Audit Log</h3>
-                <p>Real institutions tested • Real outcomes recorded</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md" target="_blank" class="card-link">View Live Log →</a>
-            </div>
-            <div class="card">
-                <h3>📋 Templates</h3>
-                <p>Ready-to-use, respectful letters for everyday situations</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/templates" target="_blank" class="card-link">View Templates →</a>
-            </div>
-            <div class="card">
-                <h3>📚 User Stories</h3>
-                <p>Real experiences from people who have used it</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/marketing/USER_STORIES.md" target="_blank" class="card-link">View Stories →</a>
-            </div>
-        </div>
-    </section>
-
+    <!-- Metrics -->
     <section class="metrics" role="list" aria-label="Audit statistics">
         <div class="metric" role="listitem">
-            <div class="value">16</div>
-            <div class="label">Institutions Audited</div>
+            <div class="value">18</div>
+            <div class="label">Institutions Tested</div>
         </div>
         <div class="metric" role="listitem">
             <div class="value">11</div>
@@ -248,13 +365,373 @@
         </div>
         <div class="metric" role="listitem">
             <div class="value">1</div>
-            <div class="label">Positive Outcomes</div>
+            <div class="label">SOVEREIGN Finding</div>
+        </div>
+        <div class="metric" role="listitem">
+            <div class="value">5</div>
+            <div class="label">Pending Responses</div>
         </div>
     </section>
 
+    <!-- Why This Matters -->
+    <div class="narrative">
+        <h2 class="section-title">Why This Matters</h2>
+        <p>
+            Every day, automated systems make decisions about real people — debt enforcement, benefits, credit scores, content moderation — without a single human reviewing the specific facts.
+        </p>
+        <p class="highlight">
+            The Burgess Principle gives you one calm question that cuts through all of it.
+        </p>
+        <p>
+            No legal training required. No confrontation. Just a clear, written record that speaks for itself.
+        </p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Quick Start -->
+    <section class="section" aria-label="Quick Start">
+        <h2 class="section-title">Quick Start</h2>
+        <p class="section-subtitle">Four steps from zero to a written record that speaks for itself.</p>
+        <div class="quick-start">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Clone or download</h4>
+                <p>Get the repository onto your device — or just use the button above to copy the command.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Pick a template</h4>
+                <p>Choose from 30+ ready-to-use, respectful letter templates in the <a href="https://github.com/ljbudgie/burgess-principle/tree/main/templates" target="_blank" rel="noopener">/templates</a> folder.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Fill in your details</h4>
+                <p>Personalise the template with your name, the institution, and the specific facts of your situation.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Or drop into AI</h4>
+                <p>Paste the whole repo into <a href="https://grok.com" target="_blank" rel="noopener">Grok</a>, <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a>, or any AI assistant for instant personalised help.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Resource Cards -->
+    <section class="section" aria-label="Repository resources">
+        <h2 class="section-title">Explore the Repository</h2>
+        <p class="section-subtitle">Everything is free, open-source, and built with the same calm, respectful tone.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>📋 Templates</h3>
+                <p>30+ ready-to-use letters for human review requests, DSARs, FOI, Article 22, Equality Act, bailiffs, benefits, council tax, and more.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/templates" target="_blank" rel="noopener" class="card-link">View Templates →</a>
+            </div>
+            <div class="card">
+                <h3>📊 Live Audit Log</h3>
+                <p>Chronological record of every institutional interaction, statutory filing, and SOVEREIGN/NULL finding.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md" target="_blank" rel="noopener" class="card-link">View Live Log →</a>
+            </div>
+            <div class="card">
+                <h3>🏛️ Institutional Register</h3>
+                <p>Factual record of every institution tested under the framework, with sector, response, and SOVEREIGN/NULL finding.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md" target="_blank" rel="noopener" class="card-link">View Register →</a>
+            </div>
+            <div class="card">
+                <h3>📜 Papers &amp; Doctrine</h3>
+                <p>Core legal paper, representative action, political implementation, data sovereignty, medical devices, US constitutional addendum, and critique responses.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" target="_blank" rel="noopener" class="card-link">View Papers →</a>
+            </div>
+            <div class="card">
+                <h3>📁 Case Studies</h3>
+                <p>Real-world outcomes — Wave Utilities (resolved to £0), Passport Office, E.ON Next, Equita, Equifax, and a template for your own.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/case-studies" target="_blank" rel="noopener" class="card-link">View Case Studies →</a>
+            </div>
+            <div class="card">
+                <h3>📚 Tutorials &amp; Guide</h3>
+                <p>Step-by-step citizen's guide: how to challenge any action, file a SAR, assert reasonable adjustments, and understand findings.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/tutorials" target="_blank" rel="noopener" class="card-link">View Tutorials →</a>
+            </div>
+            <div class="card">
+                <h3>🤖 AI Toolkit</h3>
+                <p>Knowledge base, Grok directive, ready-made prompts, and XAI integration for AI assistants to help you instantly.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/toolkit" target="_blank" rel="noopener" class="card-link">View Toolkit →</a>
+            </div>
+            <div class="card">
+                <h3>🔐 Enforcement &amp; Vault</h3>
+                <p>Optional cryptographic enforcement layer — the iris-gate-person library for signed, personal-vault receipts proving human review.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/enforcement/sovereign-vault" target="_blank" rel="noopener" class="card-link">View Vault →</a>
+            </div>
+            <div class="card">
+                <h3>🐍 Python Toolkit</h3>
+                <p>Hardened verification tool (verify_scrutiny.py), FastAPI endpoint, defect-tracing utilities, and 90 pytest tests.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/verify_scrutiny.py" target="_blank" rel="noopener" class="card-link">View Code →</a>
+            </div>
+            <div class="card">
+                <h3>💬 User Stories</h3>
+                <p>Real experiences from people who have used the Burgess Principle — and a template to submit your own.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/marketing/USER_STORIES.md" target="_blank" rel="noopener" class="card-link">View Stories →</a>
+            </div>
+            <div class="card">
+                <h3>😂 Memes Corner</h3>
+                <p>Shareable images, psychology insights, famous meme templates, and AI prompts to spread the word with humour.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/memes" target="_blank" rel="noopener" class="card-link">View Memes →</a>
+            </div>
+            <div class="card">
+                <h3>👋 Start Here</h3>
+                <p>New to the Burgess Principle? This guide will point you to the right place in under a minute.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md" target="_blank" rel="noopener" class="card-link">Start Here →</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Domains Covered -->
+    <section class="section" aria-label="Domains Covered">
+        <h2 class="section-title">Domains Covered</h2>
+        <p class="section-subtitle">One question — seven domains — any institution.</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domain</th>
+                        <th>Example</th>
+                        <th>The Question</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>⚖️ Enforcement Law</td>
+                        <td>Warrant / CCJ / Debt Claim</td>
+                        <td>Was a human mind individually applied?</td>
+                    </tr>
+                    <tr>
+                        <td>🏥 Medical Devices</td>
+                        <td>Hearing Aid / Algorithmic Fitting</td>
+                        <td>Was a clinical mind individually applied?</td>
+                    </tr>
+                    <tr>
+                        <td>💳 Credit Data</td>
+                        <td>Credit File / Default</td>
+                        <td>Was the source data individually validated?</td>
+                    </tr>
+                    <tr>
+                        <td>💻 Data Sovereignty</td>
+                        <td>DSARs / Automated Decisions</td>
+                        <td>Was individual attention given?</td>
+                    </tr>
+                    <tr>
+                        <td>🏛️ Platform Governance</td>
+                        <td>Content Moderation / Bans</td>
+                        <td>Was a human mind applied to this case?</td>
+                    </tr>
+                    <tr>
+                        <td>📰 Media &amp; Libel</td>
+                        <td>Press / Broadcast Coverage</td>
+                        <td>Was the specific reporting individually verified?</td>
+                    </tr>
+                    <tr>
+                        <td>🎵 Music Copyright</td>
+                        <td>Content ID / Royalty Disputes</td>
+                        <td>Was a human mind individually applied to this claim?</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Case Studies -->
+    <section class="section" aria-label="Case Studies">
+        <h2 class="section-title">Case Studies</h2>
+        <p class="section-subtitle">Real-world examples of the Burgess Principle in action.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>💧 Wave Utilities</h3>
+                <p>Both accounts resolved to £0.00 after personal review. The first fully resolved case.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_WAVE.md" target="_blank" rel="noopener" class="card-link">Read Case Study →</a>
+            </div>
+            <div class="card">
+                <h3>🛂 Passport Office</h3>
+                <p>Automated passport issuance without named human reviewer — Article 22 challenge ongoing.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_PASSPORT.md" target="_blank" rel="noopener" class="card-link">Read Case Study →</a>
+            </div>
+            <div class="card">
+                <h3>⚡ E.ON Next</h3>
+                <p>Forced entry under unsigned warrant without individual judicial review — Energy Ombudsman active.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EON.md" target="_blank" rel="noopener" class="card-link">Read Case Study →</a>
+            </div>
+            <div class="card">
+                <h3>🚪 Equita</h3>
+                <p>Five enforcement cases with disability gatekeeping — ongoing challenge.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EQUITA.md" target="_blank" rel="noopener" class="card-link">Read Case Study →</a>
+            </div>
+            <div class="card">
+                <h3>📊 Equifax</h3>
+                <p>CCJ entries registered without individual verification — credit file challenge ongoing.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_CREDIT_FILE.md" target="_blank" rel="noopener" class="card-link">Read Case Study →</a>
+            </div>
+            <div class="card">
+                <h3>📝 Submit Yours</h3>
+                <p>Used the Burgess Principle yourself? Submit your own case study using the template.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_TEMPLATE.md" target="_blank" rel="noopener" class="card-link">Case Study Template →</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Works Worldwide -->
+    <section class="section" aria-label="Works Worldwide">
+        <h2 class="section-title">🌍 Works Worldwide</h2>
+        <p class="section-subtitle">
+            The question works in any country, in any language, against any institution. The UK legal references are optional boosters —
+            every country has equivalents.
+        </p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Right</th>
+                        <th>UK</th>
+                        <th>USA</th>
+                        <th>EU</th>
+                        <th>Australia</th>
+                        <th>Canada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Access your personal data</td>
+                        <td>DSAR / GDPR</td>
+                        <td>CCPA (California) / Privacy Act</td>
+                        <td>GDPR Article 15</td>
+                        <td>Privacy Act 1988</td>
+                        <td>PIPEDA</td>
+                    </tr>
+                    <tr>
+                        <td>Challenge automated decisions</td>
+                        <td>GDPR Article 22</td>
+                        <td>Limited (sector-specific)</td>
+                        <td>GDPR Article 22</td>
+                        <td>APPs (limited)</td>
+                        <td>PIPEDA s.4.9</td>
+                    </tr>
+                    <tr>
+                        <td>Request human review</td>
+                        <td>Article 22 + DPA 2018</td>
+                        <td>FTC Act / sector rules</td>
+                        <td>GDPR Article 22</td>
+                        <td>Privacy Act</td>
+                        <td>PIPEDA</td>
+                    </tr>
+                    <tr>
+                        <td>Disability / access rights</td>
+                        <td>Equality Act 2010</td>
+                        <td>ADA 1990</td>
+                        <td>EU Accessibility Act</td>
+                        <td>Disability Discrimination Act</td>
+                        <td>AODA (Ontario)</td>
+                    </tr>
+                    <tr>
+                        <td>Freedom of Information</td>
+                        <td>FOIA 2000</td>
+                        <td>FOIA 1966</td>
+                        <td>National FOI laws</td>
+                        <td>FOI Act 1982</td>
+                        <td>Access to Information Act</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Origin Story -->
+    <section class="section" aria-label="Origin Story">
+        <h2 class="section-title">Origin Story</h2>
+        <div class="narrative" style="padding: 0;">
+            <p>
+                The Burgess Principle grew out of a real experience with automated enforcement — a situation where no human had reviewed the specific facts before action was taken.
+            </p>
+            <blockquote>
+                That moment of feeling unseen became the spark for a simple, respectful framework that anyone can use. One calm question — built one iteration at a time.
+            </blockquote>
+            <p>
+                This framework was not built in a university, a law firm, or a policy institute. It was built by an ordinary person whose home was broken into under a warrant that nobody signed.
+                He read the warrant because the system assumed nobody would. He found the defect because the system assumed nobody could. He built the framework because the system assumed nobody would try.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Core Papers -->
+    <section class="section" aria-label="Core Papers and Documents">
+        <h2 class="section-title">Core Papers &amp; Documents</h2>
+        <p class="section-subtitle">In-depth analysis and doctrine.</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paper</th>
+                        <th>Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_1_CORE_LEGAL_PAPER.md" target="_blank" rel="noopener">Core Legal Paper</a></td>
+                        <td>The foundational legal argument</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_2_REPRESENTATIVE_ACTION.md" target="_blank" rel="noopener">Representative Action</a></td>
+                        <td>Group litigation and representative actions</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_3_POLITICAL_IMPLEMENTATION.md" target="_blank" rel="noopener">Political Implementation</a></td>
+                        <td>Policy and political pathways</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_4_DATA_SOVEREIGNTY.md" target="_blank" rel="noopener">Data Sovereignty</a></td>
+                        <td>Data rights and digital autonomy</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/MEDICAL_DEVICE_DOCTRINE.md" target="_blank" rel="noopener">Medical Device Doctrine</a></td>
+                        <td>Algorithmic medical devices</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/US_CONSTITUTIONAL_ADDENDUM.md" target="_blank" rel="noopener">US Constitutional Addendum</a></td>
+                        <td>Application to US constitutional law</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/ljbudgie/burgess-principle/blob/main/papers/RESPONSES_TO_CRITIQUES.md" target="_blank" rel="noopener">Responses to Critiques</a></td>
+                        <td>Addressing common objections</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer role="contentinfo">
-        <p>Free for personal use • Commercial use requires a licence</p>
+        <div class="footer-mark">
+            UK Certification Mark: UK00004343685 &nbsp;•&nbsp; Classes 41, 42, 45
+        </div>
+        <div class="footer-links">
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/LICENSE.md" target="_blank" rel="noopener">MIT Licence</a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/DISCLAIMER.md" target="_blank" rel="noopener">Disclaimer</a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md" target="_blank" rel="noopener">For AI Models</a>
+            <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p>Free for personal use &nbsp;•&nbsp; Commercial use requires a licence</p>
         <div class="footer-tagline">
+            <em>If you've ever felt unseen by a system, you're not alone.</em><br>
             Built with care for every person who has ever felt unseen.
         </div>
     </footer>

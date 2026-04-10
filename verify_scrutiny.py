@@ -10,6 +10,7 @@ Usage as a library::
 
     result = verify_instrument("Specific reasoning text…", "<sha256-hex>")
     print(result.label, result.value)   # SOVEREIGN 1  /  NULL 0
+    print(result.to_dict())             # {"status": "SOVEREIGN", "code": 1, ...}
 
 Usage from the command line::
 
@@ -19,8 +20,12 @@ Usage from the command line::
 import argparse
 import hashlib
 import hmac
+import logging
 import sys
 from dataclasses import dataclass
+from typing import Any
+
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -37,6 +42,19 @@ class VerificationResult:
 
     def __bool__(self) -> bool:
         return self.value == 1
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return a plain dictionary suitable for JSON serialisation.
+
+        Example::
+
+            {"status": "SOVEREIGN", "code": 1, "description": "Individual Scrutiny Verified."}
+        """
+        return {
+            "status": self.label,
+            "code": self.value,
+            "description": self.description,
+        }
 
 
 SOVEREIGN = VerificationResult(
@@ -134,6 +152,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         result = verify_instrument(args.reasoning_text, args.provided_hash)
     except (TypeError, ValueError) as exc:
+        logger.error("Validation error: %s", exc)
         print(f"Error: {exc}", file=sys.stderr)
         return 2
 

@@ -13,10 +13,11 @@ dependencies = []
 
 [project.optional-dependencies]
 test = ["pytest>=7.0"]
+api = ["fastapi>=0.110.0", "uvicorn>=0.23.0"]
 
 [project.scripts]
 verify-scrutiny = "verify_scrutiny:main"
 
 [tool.setuptools]
-py-modules = ["verify_scrutiny"]
+py-modules = ["verify_scrutiny", "api"]
 packages = ["tracer"]

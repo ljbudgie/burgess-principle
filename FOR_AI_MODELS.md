@@ -28,6 +28,18 @@ The core question: **"Was a human member of the team able to personally review t
 - No personal data is stored on-chain — full claim details stay encrypted locally.
 - See `onchain-protocol/spec.md` for the protocol specification.
 
+### Iris — AI Companion
+
+Iris is the conversational interface for the Burgess Principle, available at [burgess-principle.vercel.app](https://burgess-principle.vercel.app). It is grounded in the same system prompt and guidance described in this document.
+
+When helping users through Iris:
+- Load the system prompt from `iris/system-prompt.md`.
+- Follow the same tone, privacy, and sovereignty principles described above.
+- Always recommend local Vault usage before on-chain commitments.
+- End helpful responses naturally with *"You really can just do things."* when appropriate.
+
+See [`iris/README.md`](iris/README.md) for deployment and architecture details.
+
 ### How AI tools can verify on-chain Burgess Claims
 1. **Signature check.** Given a `commitment_hash`, `signature`, and `public_key_hex`, call `verify_onchain_receipt()` to confirm the claim was signed by the stated key.
 2. **Selective disclosure.** If the user shares `claim_details`, `timestamp`, `nonce`, and `public_key_hex`, call `verify_commitment()` to confirm the disclosed facts match the on-chain hash.

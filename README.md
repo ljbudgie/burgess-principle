@@ -29,6 +29,16 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 
 ---
 
+## Meet Iris
+
+**[Iris](https://burgess-principle.vercel.app)** is the AI companion for the Burgess Principle — a calm, conversational interface that helps you apply the binary test, generate personalised templates, and walk through the Sovereign Personal Vault. Your data stays with you; Iris only helps.
+
+👉 **[Talk to Iris →](https://burgess-principle.vercel.app)**
+
+For architecture and deployment details, see [`iris/README.md`](iris/README.md).
+
+---
+
 ## Quick start
 
 **If you need help right now**, head straight to the [templates](./templates) folder and pick the one that matches your situation. You don't need to read anything else first. Or drop the whole repo into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant — describe what happened and it will write a personalised letter for you.
@@ -124,6 +134,7 @@ Local Vault              Commitment              EVM L2                 Verifiab
 | [`INSTITUTIONAL_REGISTER.md`](INSTITUTIONAL_REGISTER.md) | Every institution tested, with sector, response, and finding |
 | [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools (Sovereign Personal Vault) |
 | [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims Protocol — smart contracts, SDK, and examples |
+| [`/iris`](./iris) | Iris — AI companion interface (system prompt, examples, deployment) |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |
 | [`SOUL.md`](SOUL.md) | The philosophy behind the framework |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute — including good first issues |

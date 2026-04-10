@@ -4,7 +4,7 @@ Welcome 👋
 
 If you're feeling stressed, overwhelmed, or unseen by a system — you're in the right place.
 
-> **Need help right now?** Pick a [template](./templates) that matches your situation and send it today. You don't need to read anything else first. Or clone the repo and drop it into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant — describe what happened and it will write a personalised letter for you.
+> **Need help right now?** Talk to **[Iris](https://burgess-principle.vercel.app)**, the AI companion for the Burgess Principle — or pick a [template](./templates) that matches your situation and send it today. You don't need to read anything else first. You can also clone the repo and drop it into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant — describe what happened and it will write a personalised letter for you.
 
 The Burgess Principle gives you **one calm question** to ask any institution:
 
@@ -12,7 +12,7 @@ The Burgess Principle gives you **one calm question** to ask any institution:
 
 That's it. No legal training. No confrontation. Just a clear, written record that speaks for itself.
 
-You can also explore the principle on the website: **[burgess-principle.vercel.app](https://burgess-principle.vercel.app)**
+You can also explore the principle on the website and talk to **Iris**, the AI companion: **[burgess-principle.vercel.app](https://burgess-principle.vercel.app)**
 
 ---
 

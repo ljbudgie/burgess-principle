@@ -23,6 +23,8 @@
         :root {
             --gold: #d4af77;
             --gold-dim: rgba(212, 175, 119, 0.15);
+            --green: #5cb85c;
+            --green-dim: rgba(92, 184, 92, 0.15);
             --text: #e8e8e8;
             --text-dim: #999;
             --bg: #0a0a0a;
@@ -111,6 +113,61 @@
             color: var(--gold);
         }
 
+        .sidebar-privacy {
+            background: var(--green-dim);
+            border: 1px solid rgba(92, 184, 92, 0.25);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .sidebar-privacy .privacy-icon { font-size: 1.1rem; }
+
+        .sidebar-privacy .privacy-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--green);
+            margin-top: 2px;
+        }
+
+        .sidebar-privacy .privacy-desc {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .sidebar-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-action-btn {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 7px 12px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s;
+            text-align: left;
+        }
+
+        .sidebar-action-btn:hover {
+            border-color: var(--gold);
+            color: var(--text);
+        }
+
+        .sidebar-action-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
         .sidebar-footer {
             font-size: 0.7rem;
             color: #555;
@@ -149,11 +206,28 @@
 
         .privacy-badge {
             font-size: 0.7rem;
-            color: var(--text-dim);
-            background: var(--bg-input);
-            padding: 4px 10px;
+            color: var(--green);
+            background: var(--green-dim);
+            padding: 4px 12px;
             border-radius: 20px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(92, 184, 92, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .privacy-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         /* ------------------------------------------------------------------ */
@@ -165,7 +239,8 @@
             padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 8px;
+            scroll-behavior: smooth;
         }
 
         .welcome {
@@ -177,6 +252,7 @@
             text-align: center;
             gap: 16px;
             padding: 40px 20px;
+            animation: fadeIn 0.5s ease;
         }
 
         .welcome h3 {
@@ -189,8 +265,18 @@
         .welcome p {
             font-size: 0.95rem;
             color: var(--text-dim);
-            max-width: 480px;
+            max-width: 520px;
             line-height: 1.6;
+        }
+
+        .welcome .privacy-note {
+            font-size: 0.8rem;
+            color: var(--green);
+            background: var(--green-dim);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(92, 184, 92, 0.2);
+            max-width: 480px;
         }
 
         .welcome-suggestions {
@@ -199,6 +285,7 @@
             gap: 8px;
             justify-content: center;
             margin-top: 8px;
+            max-width: 560px;
         }
 
         .suggestion {
@@ -207,9 +294,10 @@
             color: var(--text-dim);
             padding: 10px 16px;
             border-radius: 10px;
+            font-family: inherit;
             font-size: 0.8rem;
             cursor: pointer;
-            transition: border-color 0.15s, color 0.15s;
+            transition: border-color 0.2s, color 0.2s, transform 0.15s;
             max-width: 240px;
             text-align: left;
         }
@@ -217,28 +305,41 @@
         .suggestion:hover {
             border-color: var(--gold);
             color: var(--text);
+            transform: translateY(-1px);
         }
 
         .message {
-            padding: 16px 20px;
+            padding: 14px 18px;
             border-radius: var(--radius);
             max-width: 720px;
-            width: 100%;
+            width: fit-content;
             font-size: 0.9rem;
             line-height: 1.7;
-            white-space: pre-wrap;
             word-wrap: break-word;
+            animation: messageIn 0.3s ease;
+        }
+
+        @keyframes messageIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
         }
 
         .message-user {
             background: var(--bg-user);
             align-self: flex-end;
             border: 1px solid var(--border);
+            border-bottom-right-radius: 4px;
         }
 
         .message-iris {
             background: var(--bg-iris);
             align-self: flex-start;
+            border-bottom-left-radius: 4px;
         }
 
         .message-label {
@@ -252,7 +353,23 @@
         .message-user .message-label { color: var(--text-dim); }
         .message-iris .message-label { color: var(--gold); }
 
+        .message-content { white-space: pre-wrap; }
         .message-content a { color: var(--gold); }
+
+        .message-error {
+            color: #e88;
+            background: rgba(200, 60, 60, 0.08);
+            border: 1px solid rgba(200, 60, 60, 0.2);
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            align-self: flex-start;
+            max-width: 720px;
+            animation: messageIn 0.3s ease;
+        }
+
+        .message-error a { color: var(--gold); }
 
         .typing-indicator {
             display: inline-flex;
@@ -307,6 +424,7 @@
             min-height: 44px;
             max-height: 120px;
             line-height: 1.5;
+            transition: border-color 0.2s;
         }
 
         .input-wrap textarea::placeholder { color: #555; }
@@ -322,7 +440,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            transition: opacity 0.15s;
+            transition: opacity 0.15s, transform 0.1s;
             flex-shrink: 0;
         }
 
@@ -332,6 +450,7 @@
         }
 
         .input-wrap button:hover:not(:disabled) { opacity: 0.85; }
+        .input-wrap button:active:not(:disabled) { transform: scale(0.97); }
 
         .input-disclaimer {
             font-size: 0.65rem;
@@ -383,6 +502,10 @@
 
             .message { max-width: 100%; }
             .input-wrap { max-width: 100%; }
+
+            .welcome h3 { font-size: 1.4rem; }
+            .welcome-suggestions { flex-direction: column; align-items: center; }
+            .suggestion { max-width: 100%; }
         }
     </style>
 </head>
@@ -402,6 +525,12 @@
             "Was a human member of the team able to personally review the specific facts of <em>my</em> situation?"
         </div>
 
+        <div class="sidebar-privacy">
+            <span class="privacy-icon">🛡️</span>
+            <div class="privacy-title">Local-First Mode Active</div>
+            <div class="privacy-desc">Conversations stay on your hardware. Nothing is stored on any server.</div>
+        </div>
+
         <ul class="sidebar-links">
             <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/">📄 Templates</a></li>
             <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/enforcement/sovereign-vault/">🔒 Sovereign Vault</a></li>
@@ -410,6 +539,11 @@
             <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/">📖 Case Studies</a></li>
             <li><a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">👋 Start Here</a></li>
         </ul>
+
+        <div class="sidebar-actions">
+            <button class="sidebar-action-btn" id="exportBtn" disabled title="Export your conversation as a Markdown file">📥 Export conversation</button>
+            <button class="sidebar-action-btn" id="clearBtn" disabled title="Clear chat and start fresh">🗑️ Clear chat</button>
+        </div>
 
         <div class="sidebar-footer">
             UK Certification Mark: UK00004343685<br>
@@ -424,18 +558,21 @@
                 <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
                 <h2>Iris</h2>
             </div>
-            <span class="privacy-badge">🔒 Your data stays with you</span>
+            <span class="privacy-badge"><span class="privacy-dot"></span> Local-first · your data stays with you</span>
         </header>
 
         <div class="messages" id="messages">
             <div class="welcome" id="welcome">
                 <h3>Hello, I'm Iris</h3>
-                <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms. Your conversation stays in your browser. Nothing is stored.</p>
+                <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
+                <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
                 <div class="welcome-suggestions">
                     <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
                     <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
                     <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
                     <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
+                    <button class="suggestion" data-prompt="I have a disability and an institution hasn't made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
+                    <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
                 </div>
             </div>
         </div>
@@ -445,7 +582,7 @@
                 <textarea id="userInput" placeholder="Describe your situation…" rows="1"></textarea>
                 <button id="sendBtn" disabled>Send</button>
             </div>
-            <p class="input-disclaimer">Iris helps you create sovereign claims. Your full facts remain in your local Vault. On-chain posts contain only cryptographic commitments.</p>
+            <p class="input-disclaimer">Iris is sovereign by design — your conversation lives only in your browser. Only the current message is sent for processing; nothing is stored server-side.</p>
         </div>
     </main>
 
@@ -457,6 +594,8 @@
         const welcomeEl   = document.getElementById('welcome');
         const userInput   = document.getElementById('userInput');
         const sendBtn     = document.getElementById('sendBtn');
+        const exportBtn   = document.getElementById('exportBtn');
+        const clearBtn    = document.getElementById('clearBtn');
         const sidebar     = document.getElementById('sidebar');
         const overlay     = document.getElementById('sidebarOverlay');
         const sidebarBtn  = document.getElementById('sidebarToggle');
@@ -504,6 +643,77 @@
         });
 
         // ------------------------------------------------------------------ //
+        // Update sidebar action buttons state                                //
+        // ------------------------------------------------------------------ //
+        function updateActionButtons() {
+            const hasMessages = conversationHistory.length > 0;
+            exportBtn.disabled = !hasMessages;
+            clearBtn.disabled = !hasMessages;
+        }
+
+        // ------------------------------------------------------------------ //
+        // Export conversation as Markdown                                     //
+        // ------------------------------------------------------------------ //
+        exportBtn.addEventListener('click', () => {
+            if (conversationHistory.length === 0) return;
+
+            let md = '# Iris Conversation Export\n\n';
+            md += `> Exported on ${new Date().toLocaleString()}\n\n`;
+            md += '---\n\n';
+
+            for (const msg of conversationHistory) {
+                const label = msg.role === 'user' ? '**You**' : '**Iris**';
+                md += `${label}:\n\n${msg.content}\n\n---\n\n`;
+            }
+
+            md += '*Exported from [Iris — The Burgess Principle](https://burgess-principle.vercel.app). Conversations are local-first and sovereign by design.*\n';
+
+            const blob = new Blob([md], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `iris-conversation-${Date.now()}.md`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // ------------------------------------------------------------------ //
+        // Clear chat                                                         //
+        // ------------------------------------------------------------------ //
+        clearBtn.addEventListener('click', () => {
+            if (conversationHistory.length === 0) return;
+            conversationHistory = [];
+            messagesEl.innerHTML = '';
+            // Re-add the welcome screen
+            const welcome = document.createElement('div');
+            welcome.className = 'welcome';
+            welcome.id = 'welcome';
+            welcome.innerHTML = `
+                <h3>Hello, I'm Iris</h3>
+                <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
+                <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
+                <div class="welcome-suggestions">
+                    <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
+                    <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
+                    <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
+                    <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
+                    <button class="suggestion" data-prompt="I have a disability and an institution hasn't made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
+                    <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
+                </div>
+            `;
+            messagesEl.appendChild(welcome);
+            // Re-bind suggestion buttons
+            welcome.querySelectorAll('.suggestion').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    userInput.value = btn.dataset.prompt;
+                    userInput.dispatchEvent(new Event('input'));
+                    sendMessage();
+                });
+            });
+            updateActionButtons();
+        });
+
+        // ------------------------------------------------------------------ //
         // Send message                                                       //
         // ------------------------------------------------------------------ //
         async function sendMessage() {
@@ -511,11 +721,13 @@
             if (!text || isStreaming) return;
 
             // Hide welcome
-            if (welcomeEl) welcomeEl.remove();
+            const currentWelcome = document.getElementById('welcome');
+            if (currentWelcome) currentWelcome.remove();
 
             // Add user message
             appendMessage('You', text, 'user');
             conversationHistory.push({ role: 'user', content: text });
+            updateActionButtons();
 
             userInput.value = '';
             userInput.style.height = 'auto';
@@ -538,7 +750,22 @@
 
                 if (!response.ok) {
                     const err = await response.json().catch(() => ({}));
-                    throw new Error(err.error || `Request failed (${response.status})`);
+                    const errorMsg = err.error || `Request failed (${response.status})`;
+
+                    // Check for configuration errors and show a friendly inline message
+                    if (response.status === 503 && errorMsg.includes('IRIS_API_KEY')) {
+                        irisEl.remove();
+                        appendError(
+                            '⚙️ Iris is not yet configured.\n\n' +
+                            'The IRIS_API_KEY environment variable needs to be set in the Vercel project settings. ' +
+                            'If you\'re the site owner, add it under Settings → Environment Variables in your ' +
+                            '<a href="https://vercel.com" target="_blank" rel="noopener">Vercel dashboard</a>.\n\n' +
+                            'For setup instructions, see the <a href="https://github.com/ljbudgie/burgess-principle/blob/main/iris/README.md" target="_blank" rel="noopener">Iris README</a>.'
+                        );
+                        throw new Error('__handled__');
+                    }
+
+                    throw new Error(errorMsg);
                 }
 
                 // Stream SSE response
@@ -574,9 +801,12 @@
                 }
 
                 conversationHistory.push({ role: 'assistant', content: fullText });
+                updateActionButtons();
 
             } catch (err) {
-                contentEl.textContent = 'I wasn\'t able to respond just now. ' + err.message;
+                if (err.message !== '__handled__') {
+                    contentEl.textContent = 'I wasn\'t able to respond just now. ' + err.message;
+                }
             }
 
             isStreaming = false;
@@ -590,7 +820,19 @@
         function appendMessage(label, text, type) {
             const el = document.createElement('div');
             el.className = `message message-${type}`;
-            el.innerHTML = `<div class="message-label">${label}</div><div class="message-content">${escapeHtml(text)}</div>`;
+            el.innerHTML = `<div class="message-label">${escapeHtml(label)}</div><div class="message-content">${escapeHtml(text)}</div>`;
+            messagesEl.appendChild(el);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+            return el;
+        }
+
+        // ------------------------------------------------------------------ //
+        // Append an error/info message (supports HTML)                       //
+        // ------------------------------------------------------------------ //
+        function appendError(html) {
+            const el = document.createElement('div');
+            el.className = 'message-error';
+            el.innerHTML = html;
             messagesEl.appendChild(el);
             messagesEl.scrollTop = messagesEl.scrollHeight;
             return el;

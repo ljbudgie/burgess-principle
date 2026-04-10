@@ -53,7 +53,11 @@ class handler(BaseHTTPRequestHandler):  # noqa: N801 — Vercel requires this na
             self.wfile.write(
                 json.dumps(
                     {
-                        "error": "Iris is not yet configured. The IRIS_API_KEY environment variable must be set in the Vercel project settings."
+                        "error": (
+                            "Iris is not yet configured. "
+                            "The IRIS_API_KEY environment variable must be set in the Vercel project settings. "
+                            "See iris/README.md for setup instructions."
+                        )
                     }
                 ).encode()
             )

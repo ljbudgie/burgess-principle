@@ -50,6 +50,7 @@
 - [Advanced Applications](#advanced-applications)
 - [Cryptographic Enforcement Layer](#cryptographic-enforcement-layer-optional)
 - [Python Toolkit](#python-toolkit)
+- [Integrations](#integrations)
 - [Case Studies](#case-studies)
 - [Core Papers & Documents](#core-papers--documents)
 - [Tutorials & Toolkit](#tutorials--toolkit)
@@ -241,6 +242,14 @@ pytest -q
 ```
 
 All tests pass on the latest `main` branch.
+
+---
+
+## Integrations
+
+A quick-reference list of every open-source tool and library the framework depends on — with a one-line explanation of why each is chosen.
+
+See **[INTEGRATIONS.md](INTEGRATIONS.md)** for the full table.
 
 ---
 

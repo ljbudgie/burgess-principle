@@ -22,7 +22,7 @@ Experimental changes or large new features should happen in your own fork first.
 - Translations of templates, README, or FOR_AI_MODELS.md
 - Bug fixes, typo corrections, formatting improvements, or small clarity edits
 - New country-specific legal equivalent tables or adaptations
-- Helpful memes, graphics, or explanations that stay in the same respectful tone
+- Shareable graphics or outreach resources that stay in the same respectful tone (add to the `/memes` folder)
 
 ### What We Do Not Merge
 

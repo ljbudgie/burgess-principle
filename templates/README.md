@@ -51,8 +51,8 @@ All templates are written in the same calm, respectful tone:
 ### User Stories
 Real experiences from people who have used the Burgess Principle are collected in [`marketing/USER_STORIES.md`](../marketing/USER_STORIES.md). If it helped you, feel free to share your story (anonymously if you prefer) so others know they’re not alone.
 
-### Memes & Sharing Ideas
-Sometimes a gentle meme or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORTFORM_VIDEO_SCRIPTS.md` for friendly ways to share.
+### Community Outreach & Sharing Ideas
+Sometimes a gentle, shareable graphic or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORTFORM_VIDEO_SCRIPTS.md` for friendly ways to share. These resources are kept separate from the core legal and advocacy toolkit.
 
 ### This is the Original Repository
 This is the original Burgess Principle repository, created in 2025–2026. It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.

@@ -90,7 +90,7 @@ The question works in any country, in any language, against any institution. No 
 - verify_scrutiny.py — Hardened verification tool with constant-time comparison, input validation, structured logging, and CLI
 - api.py — Optional FastAPI wrapper exposing verify_instrument as a REST endpoint (POST /verify)
 - tracer/ — Defect-tracing utilities for tracking scrutiny gaps
-- enforcement/sovereign-vault/ — The iris-gate-person cryptographic library with Commitment-Only Mode for signed, personal-vault receipts
+- enforcement/sovereign-vault/ — Sovereign Personal Vault (v0.3.0): AES-256-GCM encryption, PBKDF2-SHA-256 (210,000 iterations), Ed25519 signed receipts, canonical JSON serialisation, zero third-party crypto beyond @noble/*
 
 ## Tutorials and Toolkit
 

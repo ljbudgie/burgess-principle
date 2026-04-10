@@ -23,7 +23,7 @@ Each entry is something the repository already depends on. If you're contributin
 | Hashing & KDF | [@noble/hashes](https://github.com/paulmillr/noble-hashes) | Audited, zero-dependency JS hashing and PBKDF2 key derivation — no native bindings required. |
 | Elliptic curves | [@noble/curves](https://github.com/paulmillr/noble-curves) | Audited, zero-dependency EC signatures for signed vault receipts. |
 | Authenticated encryption | [Node.js crypto](https://nodejs.org/api/crypto.html) (built-in) | AES-256-GCM via the standard library — no third-party dependency needed. |
-| TypeScript compiler | [TypeScript](https://github.com/microsoft/TypeScript) | Adds type safety to the `iris-gate-person` vault library. |
+| TypeScript compiler | [TypeScript](https://github.com/microsoft/TypeScript) | Adds type safety to the Sovereign Personal Vault library. |
 
 ## CI / CD & Hosting
 

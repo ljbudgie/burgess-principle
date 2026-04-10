@@ -14,6 +14,7 @@ dependencies = []
 [project.optional-dependencies]
 test = ["pytest>=7.0"]
 api = ["fastapi>=0.110.0", "uvicorn>=0.23.0"]
+onchain = ["PyNaCl>=1.5.0"]
 
 [project.scripts]
 verify-scrutiny = "verify_scrutiny:main"

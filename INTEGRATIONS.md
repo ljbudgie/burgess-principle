@@ -25,6 +25,19 @@ Each entry is something the repository already depends on. If you're contributin
 | Authenticated encryption | [Node.js crypto](https://nodejs.org/api/crypto.html) (built-in) | AES-256-GCM via the standard library — no third-party dependency needed. |
 | TypeScript compiler | [TypeScript](https://github.com/microsoft/TypeScript) | Adds type safety to the Sovereign Personal Vault library. |
 
+## On-Chain Claims Protocol (Python)
+
+| Capability | Tool | Why it's chosen |
+| --- | --- | --- |
+| Ed25519 signing | [PyNaCl](https://github.com/pyca/pynacl) | Audited Python binding to libsodium — Ed25519 key generation, signing, and verification for on-chain claim receipts. |
+
+## Smart Contracts (Solidity)
+
+| Capability | Tool | Why it's chosen |
+| --- | --- | --- |
+| On-chain registry | [Solidity ^0.8.20](https://github.com/ethereum/solidity) | Industry-standard smart contract language for EVM L2 deployment (Base, Arbitrum, Optimism). |
+| Build & deploy | [Foundry](https://github.com/foundry-rs/foundry) (recommended) | Fast, minimal toolchain for compiling and deploying Solidity contracts. |
+
 ## CI / CD & Hosting
 
 | Capability | Tool | Why it's chosen |

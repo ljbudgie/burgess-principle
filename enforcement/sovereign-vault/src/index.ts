@@ -92,6 +92,17 @@ export interface SignedReceipt {
   organisation: string;
 }
 
+export interface OnchainClaim {
+  commitmentHash: string;
+  signature: string;
+  publicKey: string;
+  target: string;
+  category: string;
+  expiry: number;
+  timestamp: string;
+  nonce: string;
+}
+
 // ---------- Vault ----------
 
 export class SovereignVault {
@@ -181,6 +192,63 @@ export class SovereignVault {
       exportDate: new Date().toISOString(),
       note: 'This bundle is cryptographically verifiable. SOVEREIGN receipts prove a human reviewed the specific facts.',
     };
+  }
+
+  /**
+   * Generate a compact on-chain claim object ready for posting to the
+   * BurgessClaimsRegistry smart contract.
+   *
+   * The returned object contains only the minimal fingerprint (commitment
+   * hash + Ed25519 signature + metadata).  Full claim details remain
+   * encrypted in the local vault.
+   *
+   * @param privateKey  Ed25519 private key (32 bytes) for signing the commitment.
+   * @param target      The institution or system being addressed.
+   * @param category    Claim category (e.g. "enforcement", "dispute").
+   * @param expiry      Optional expiry timestamp (seconds since epoch, 0 = no expiry).
+   */
+  async generateOnchainClaim(
+    privateKey: Uint8Array,
+    target: string,
+    category: string,
+    expiry: number = 0,
+  ): Promise<OnchainClaim> {
+    if (!target) throw new Error('target must not be empty');
+    if (!category) throw new Error('category must not be empty');
+    const commitment = await this.generateCommitment();
+    const commitmentBytes = new TextEncoder().encode(commitment);
+    const signature = ed25519.sign(commitmentBytes, privateKey);
+    const publicKey = ed25519.getPublicKey(privateKey);
+
+    return {
+      commitmentHash: commitment,
+      signature: bytesToHex(signature),
+      publicKey: bytesToHex(publicKey),
+      target,
+      category,
+      expiry,
+      timestamp: new Date().toISOString(),
+      nonce: this.getCommitmentSalt(),
+    };
+  }
+
+  /**
+   * Verify an on-chain claim receipt by checking the Ed25519 signature
+   * over the commitment hash against the provided public key.
+   */
+  static verifyOnchainReceipt(
+    commitmentHash: string,
+    signatureHex: string,
+    publicKeyHex: string,
+  ): boolean {
+    try {
+      const message = new TextEncoder().encode(commitmentHash);
+      const signature = hexToBytes(signatureHex);
+      const publicKey = hexToBytes(publicKeyHex);
+      return ed25519.verify(signature, message, publicKey);
+    } catch {
+      return false;
+    }
   }
 
   private getDecryptedData(): { receipts?: SignedReceipt[]; [key: string]: unknown } {

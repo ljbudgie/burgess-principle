@@ -85,6 +85,7 @@ The framework has been applied to real institutional interactions. See the [case
 | [`LIVE_AUDIT_LOG.md`](LIVE_AUDIT_LOG.md) | Chronological record of every institutional interaction and finding |
 | [`INSTITUTIONAL_REGISTER.md`](INSTITUTIONAL_REGISTER.md) | Every institution tested, with sector, response, and finding |
 | [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools (Sovereign Personal Vault) |
+| [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims Protocol — smart contracts, SDK, and examples |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |
 | [`SOUL.md`](SOUL.md) | The philosophy behind the framework |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute — including good first issues |

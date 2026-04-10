@@ -56,6 +56,7 @@
 - [Tutorials & Toolkit](#tutorials--toolkit)
 - [Memes Corner](#memes-corner)
 - [Contributing](#contributing)
+- [Releases](#releases)
 - [Licence & Contact](#licence--contact)
 - [For AI Assistants](#for-ai-assistants)
 
@@ -303,6 +304,17 @@ Sometimes a gentle meme explains the idea better than a long letter. Head to the
 Contributions are welcome — provided they preserve the calm, human-first spirit of the project.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
+
+---
+
+## Releases
+
+| Version | Highlights |
+| --- | --- |
+| [v0.2.0 – Commitment-Only Mode](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0) | Commitment-only mode (send a single SHA-256 hash instead of personal facts), fresh commitments by default, placeholder-based templates, improved unlinkability guidance. |
+| [v0.1.0 – Initial Release](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0) | Core binary predicate (SOVEREIGN / NULL), calm ready-to-use templates, optional cryptographic enforcement layer, hardened Python toolkit with 90+ tests, papers, case studies, AI toolkit, and CI pipeline. |
+
+See [all releases](https://github.com/ljbudgie/burgess-principle/releases) for full changelogs.
 
 ---
 

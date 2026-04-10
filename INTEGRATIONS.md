@@ -44,7 +44,15 @@ Each entry is something the repository already depends on. If you're contributin
 | --- | --- | --- |
 | Continuous integration | [GitHub Actions](https://github.com/features/actions) | Built into GitHub — runs pytest across Python 3.11, 3.12 and 3.13 on every push and PR. |
 | Dependency updates | [Dependabot](https://github.com/dependabot) | Automated PRs for GitHub Actions version bumps. |
-| Web hosting | [Vercel](https://vercel.com) | Zero-config static hosting for the landing page at `burgess-principle.vercel.app`. |
+| Web hosting | [Vercel](https://vercel.com) | Zero-config hosting for the Iris chat interface and serverless API at `burgess-principle.vercel.app`. |
+
+## Iris — Conversational AI Interface
+
+| Capability | Tool | Why it's chosen |
+| --- | --- | --- |
+| Chat API | [OpenAI Python SDK](https://github.com/openai/openai-python) | OpenAI-compatible client used to connect to xAI (Grok), OpenAI, or Anthropic APIs via a single interface. |
+| Serverless runtime | [Vercel Python Runtime](https://vercel.com/docs/functions/runtimes/python) | Lightweight serverless function that serves the Iris chat endpoint without additional infrastructure. |
+| Streaming | Server-Sent Events (SSE) | Native browser support for real-time streaming — no WebSocket overhead or additional dependencies. |
 
 ## AI Integration
 

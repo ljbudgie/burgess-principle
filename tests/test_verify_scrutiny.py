@@ -75,6 +75,18 @@ class TestVerificationResult:
         custom = VerificationResult(value=2, label="X", description="Y")
         assert bool(custom) is False
 
+    def test_sovereign_to_dict(self):
+        d = SOVEREIGN.to_dict()
+        assert d == {"status": "SOVEREIGN", "code": 1, "description": "Individual Scrutiny Verified."}
+
+    def test_null_to_dict(self):
+        d = NULL.to_dict()
+        assert d == {"status": "NULL", "code": 0, "description": "Information Mismatch / Bulk Noise."}
+
+    def test_custom_to_dict(self):
+        custom = VerificationResult(value=1, label="X", description="Y")
+        assert custom.to_dict() == {"status": "X", "code": 1, "description": "Y"}
+
 
 # ---------------------------------------------------------------------------
 # verify_instrument — happy path
@@ -246,3 +258,9 @@ class TestCLI:
 
     def test_invalid_hash_exits_two(self):
         assert main([SAMPLE_TEXT, "not-a-hash"]) == 2
+
+    def test_error_triggers_logging(self, caplog):
+        import logging
+        with caplog.at_level(logging.ERROR, logger="verify_scrutiny"):
+            main(["", SAMPLE_HASH])
+        assert "Validation error" in caplog.text

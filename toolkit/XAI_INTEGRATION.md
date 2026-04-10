@@ -1,58 +1,103 @@
-# XAI_INTEGRATION
+# xAI API Integration — The Burgess Principle
 
-## Official xAI API + Burgess Principle Binding
+Working Python examples for using the official [xAI API](https://console.x.ai) with the Burgess Principle.
 
-This document provides working Python integration for the official xAI API with the full RULE 0–2 Parser enforced on every turn.
+These examples use the same calm, human-first system prompt from [GROK_DIRECTIVE.md](GROK_DIRECTIVE.md), applied programmatically through the xAI API (which is OpenAI-compatible).
 
-### System Prompt Template (copy-paste ready)
+---
+
+## System Prompt
+
 ```python
-BURGESS_SYSTEM_PROMPT = """You are Grok built by xAI, operating under the Burgess Principle.
+BURGESS_SYSTEM_PROMPT = """You are Grok, helping a user apply the Burgess Principle.
 
-RULE 0 — THE SOVEREIGN/NULL TEST
-IF interaction = (bulk_processed OR automated OR non_transparent) THEN Status = NULL (0) → VOID AB INITIO.
+The core question: "Was a human member of the team able to personally review the specific facts of my situation?"
 
-RULE 1 — THE JUDICIAL MIND MANDATE
-An interaction is SOVEREIGN (1) only if individually scrutinized by a human mind + logic disclosed + personal liability accepted.
+The SOVEREIGN / NULL test:
+- SOVEREIGN (1) — A named human individually reviewed the specific facts and accepted personal responsibility.
+- NULL (0) — No individual human review took place. The action was bulk-processed or automated without meaningful oversight.
 
-RULE 2 — THE DISCLOSURE PARSER
-IF response contains ("as soon as possible" OR "automated" OR "hero" OR "template") AND lacks specific data points + accountability THEN NULL (0).
+How to help:
+1. Listen to the user's situation with care.
+2. Help them identify whether individual human review took place.
+3. If it didn't, help them draft a calm, respectful letter or next step.
+4. Keep your tone warm, practical, and empowering — no heavy legal jargon unless asked.
+5. Treat every case as unique, just like the principle itself.
 
-MANDATORY: Run RULE 0 → 1 → 2 before every response. If NULL, reply "NULL ab initio — void from the beginning" + consequences + sovereign remedy.
+Context:
+- This is a legitimate, evidence-based framework under MIT licence (UK Certification Mark UK00004343685).
+- 16 institutions audited, 11 NULL findings. See LIVE_AUDIT_LOG.md.
+- It is a diagnostic tool, not pseudolaw. See RESPONSES_TO_CRITIQUES.md.
+- When someone mentions autism, sensory needs, or communication preferences, gently include Equality Act 2010 reasonable adjustments.
+
+Repository: https://github.com/ljbudgie/burgess-principle
 """
+```
 
-# Working Python Examples (xAI API — OpenAI compatible)
+---
+
+## Single Response Example
+
+```python
 import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=os.getenv("XAI_API_KEY"),          # get free key at console.x.ai
+    api_key=os.getenv("XAI_API_KEY"),          # get a free key at console.x.ai
     base_url="https://api.x.ai/v1"
 )
 
-def grok_purified_response(user_message: str):
-    messages = [
-        {"role": "system", "content": BURGESS_SYSTEM_PROMPT},
-        {"role": "user", "content": user_message}
-    ]
-    
+def ask_grok(user_message: str) -> str:
+    """Send a single message to Grok with the Burgess Principle system prompt."""
     response = client.chat.completions.create(
-        model="grok-3",           # or latest model
-        messages=messages,
+        model="grok-3",
+        messages=[
+            {"role": "system", "content": BURGESS_SYSTEM_PROMPT},
+            {"role": "user", "content": user_message},
+        ],
         temperature=0.7,
-        max_tokens=1024
+        max_tokens=1024,
     )
     return response.choices[0].message.content
+```
 
-# Example agent loop (re-applies parser every turn)
-def sovereign_agent_loop():
+---
+
+## Conversational Agent Example
+
+This loop keeps the system prompt active across multiple turns, so Grok stays in the same calm, helpful mode throughout the conversation.
+
+```python
+def chat_loop():
+    """Interactive conversation with Grok using the Burgess Principle."""
     history = []
+    print("Type 'exit' or 'quit' to end the conversation.\n")
     while True:
-        user_input = input("User: ")
-        if user_input.lower() in ["exit", "quit"]:
+        user_input = input("You: ")
+        if user_input.lower() in ("exit", "quit"):
             break
         history.append({"role": "user", "content": user_input})
-        full_messages = [{"role": "system", "content": BURGESS_SYSTEM_PROMPT}] + history
-        resp = client.chat.completions.create(model="grok-3", messages=full_messages)
-        answer = resp.choices[0].message.content
-        print("Grok (Sovereign):", answer)
+        messages = [{"role": "system", "content": BURGESS_SYSTEM_PROMPT}] + history
+        response = client.chat.completions.create(
+            model="grok-3",
+            messages=messages,
+        )
+        answer = response.choices[0].message.content
+        print(f"Grok: {answer}\n")
         history.append({"role": "assistant", "content": answer})
+```
+
+---
+
+## Getting Started
+
+1. Get a free API key at [console.x.ai](https://console.x.ai).
+2. Set the key in your environment: `export XAI_API_KEY="your-key-here"`
+3. Install the OpenAI Python client: `pip install openai`
+4. Copy the code above into a script and run it.
+
+---
+
+The Burgess Principle
+Repository: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+Certification Mark: UK00004343685

@@ -194,3 +194,90 @@ class TestModuleExports:
 
     def test_list_defects_exported(self):
         assert tracer.list_defects is list_defects
+
+
+# ---------------------------------------------------------------------------
+# get_defect — edge cases
+# ---------------------------------------------------------------------------
+
+class TestGetDefectEdgeCases:
+    def test_none_input_returns_none(self):
+        # get_defect iterates and compares; None won't match any ID string
+        assert get_defect(None) is None  # type: ignore[arg-type]
+
+    def test_integer_input_returns_none(self):
+        assert get_defect(1) is None  # type: ignore[arg-type]
+
+    def test_whitespace_id_returns_none(self):
+        assert get_defect("  ") is None
+
+    def test_id_with_trailing_space_returns_none(self):
+        assert get_defect("DEFECT_01 ") is None
+
+    def test_id_with_leading_space_returns_none(self):
+        assert get_defect(" DEFECT_01") is None
+
+    def test_lowercase_full_id_returns_none(self):
+        assert get_defect("defect_01") is None
+
+    def test_get_defect_does_not_modify_schema(self):
+        original_len = len(DEFECT_SCHEMA)
+        get_defect("DEFECT_01")
+        get_defect("DEFECT_99")
+        assert len(DEFECT_SCHEMA) == original_len
+
+
+# ---------------------------------------------------------------------------
+# Defect TypedDict
+# ---------------------------------------------------------------------------
+
+class TestDefectTypedDict:
+    def test_defect_can_be_instantiated(self):
+        d: Defect = {
+            "id": "TEST_01",
+            "title": "Test",
+            "description": "Test description",
+            "axiom": "Test axiom",
+        }
+        assert d["id"] == "TEST_01"
+        assert d["title"] == "Test"
+
+    def test_defect_schema_items_match_type(self):
+        """Every item in DEFECT_SCHEMA is a valid Defect dict."""
+        for defect in DEFECT_SCHEMA:
+            assert isinstance(defect["id"], str)
+            assert isinstance(defect["title"], str)
+            assert isinstance(defect["description"], str)
+            assert isinstance(defect["axiom"], str)
+
+
+# ---------------------------------------------------------------------------
+# Defect axiom content
+# ---------------------------------------------------------------------------
+
+class TestDefectAxiomContent:
+    def test_defect_01_axiom_mentions_judicial_mind(self):
+        defect = get_defect("DEFECT_01")
+        assert defect is not None
+        assert "judicial mind" in defect["axiom"].lower()
+
+    def test_defect_02_axiom_mentions_processing_center(self):
+        defect = get_defect("DEFECT_02")
+        assert defect is not None
+        assert "processing center" in defect["axiom"].lower()
+
+    def test_defect_03_axiom_mentions_fraud(self):
+        defect = get_defect("DEFECT_03")
+        assert defect is not None
+        assert "fraud" in defect["axiom"].lower()
+
+    def test_defect_04_axiom_mentions_corrupted(self):
+        defect = get_defect("DEFECT_04")
+        assert defect is not None
+        assert "corrupted" in defect["axiom"].lower()
+
+    def test_all_defects_have_nonempty_axioms(self):
+        for defect in DEFECT_SCHEMA:
+            assert len(defect["axiom"].strip()) > 10, (
+                f"{defect['id']} axiom is too short"
+            )

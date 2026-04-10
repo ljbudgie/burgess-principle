@@ -264,3 +264,125 @@ class TestCLI:
         with caplog.at_level(logging.ERROR, logger="verify_scrutiny"):
             main(["", SAMPLE_HASH])
         assert "Validation error" in caplog.text
+
+
+# ---------------------------------------------------------------------------
+# CLI — edge cases
+# ---------------------------------------------------------------------------
+
+class TestCLIEdgeCases:
+    def test_main_with_none_argv_triggers_argparse(self):
+        """main(None) delegates to sys.argv; argparse errors out."""
+        import sys
+        original = sys.argv
+        try:
+            sys.argv = ["verify_scrutiny"]
+            with pytest.raises(SystemExit) as exc_info:
+                main(None)
+            assert exc_info.value.code == 2  # argparse exits with code 2
+        finally:
+            sys.argv = original
+
+    def test_invalid_hash_error_message_goes_to_stderr(self, capsys):
+        main([SAMPLE_TEXT, "not-a-hash"])
+        captured = capsys.readouterr()
+        assert "Error:" in captured.err
+        assert "64-character hexadecimal" in captured.err
+
+    def test_type_error_from_cli_impossible_via_argparse(self):
+        """argparse always passes strings, so TypeError path is not hit via CLI."""
+        # Verifying that both args as strings never raise TypeError
+        result = main(["any-text", "a" * 64])
+        assert result in (0, 1)
+
+
+# ---------------------------------------------------------------------------
+# VerificationResult — edge cases
+# ---------------------------------------------------------------------------
+
+class TestVerificationResultEdgeCases:
+    def test_equality_same_values(self):
+        a = VerificationResult(value=1, label="SOVEREIGN", description="test")
+        b = VerificationResult(value=1, label="SOVEREIGN", description="test")
+        assert a == b
+
+    def test_inequality_different_values(self):
+        a = VerificationResult(value=1, label="A", description="test")
+        b = VerificationResult(value=0, label="A", description="test")
+        assert a != b
+
+    def test_hashable(self):
+        """Frozen dataclasses should be hashable."""
+        s = {SOVEREIGN, NULL}
+        assert len(s) == 2
+
+    def test_repr_contains_fields(self):
+        r = repr(SOVEREIGN)
+        assert "SOVEREIGN" in r
+        assert "1" in r
+
+    def test_to_dict_returns_new_dict_each_call(self):
+        d1 = SOVEREIGN.to_dict()
+        d2 = SOVEREIGN.to_dict()
+        assert d1 == d2
+        assert d1 is not d2
+
+    def test_negative_value_is_falsy(self):
+        custom = VerificationResult(value=-1, label="X", description="Y")
+        assert bool(custom) is False
+
+
+# ---------------------------------------------------------------------------
+# verify_instrument — additional edge cases
+# ---------------------------------------------------------------------------
+
+class TestVerifyInstrumentEdgeCases:
+    def test_special_characters_verified(self):
+        text = "tab\there\nnewline\r\nwindows"
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_null_byte_in_text(self):
+        text = "before\x00after"
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_empty_hash_raises_value_error(self):
+        with pytest.raises(ValueError, match="64-character hexadecimal"):
+            verify_instrument(SAMPLE_TEXT, "")
+
+    def test_bytes_reasoning_text_raises_type_error(self):
+        with pytest.raises(TypeError, match="reasoning_text must be a string"):
+            verify_instrument(b"bytes", SAMPLE_HASH)  # type: ignore[arg-type]
+
+    def test_dict_reasoning_text_raises_type_error(self):
+        with pytest.raises(TypeError, match="reasoning_text must be a string"):
+            verify_instrument({"key": "val"}, SAMPLE_HASH)  # type: ignore[arg-type]
+
+    def test_float_provided_hash_raises_type_error(self):
+        with pytest.raises(TypeError, match="provided_hash must be a string"):
+            verify_instrument(SAMPLE_TEXT, 3.14)  # type: ignore[arg-type]
+
+    def test_bytes_provided_hash_raises_type_error(self):
+        with pytest.raises(TypeError, match="provided_hash must be a string"):
+            verify_instrument(SAMPLE_TEXT, b"abc")  # type: ignore[arg-type]
+
+    def test_single_character_text_verified(self):
+        text = "x"
+        assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+    def test_hash_with_newline_raises_value_error(self):
+        with pytest.raises(ValueError, match="64-character hexadecimal"):
+            verify_instrument(SAMPLE_TEXT, "a" * 63 + "\n")
+
+    def test_all_zero_hash_returns_null(self):
+        result = verify_instrument(SAMPLE_TEXT, "0" * 64)
+        assert result is NULL
+
+    def test_all_f_hash_returns_null(self):
+        result = verify_instrument(SAMPLE_TEXT, "f" * 64)
+        assert result is NULL
+
+    def test_idempotent_calls(self):
+        """Calling verify_instrument twice with same args gives same result."""
+        r1 = verify_instrument(SAMPLE_TEXT, SAMPLE_HASH)
+        r2 = verify_instrument(SAMPLE_TEXT, SAMPLE_HASH)
+        assert r1 is r2

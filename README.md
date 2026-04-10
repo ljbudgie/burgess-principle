@@ -252,7 +252,7 @@ Real-world examples of the Burgess Principle in action:
 - [Passport Office](case-studies/CASE_STUDY_PASSPORT.md) — Automated passport issuance without named human reviewer (Ongoing)
 - [E.ON Next](case-studies/CASE_STUDY_EON.md) — Forced entry under unsigned warrant without individual judicial review (Ongoing)
 - [Equita](case-studies/CASE_STUDY_EQUITA.md) — Five enforcement cases with disability gatekeeping (Ongoing)
-- [Credit File Contradiction](case-studies/CASE_STUDY_CREDIT_FILE.md) — CCJ entries registered without individual verification (Ongoing)
+- [Equifax](case-studies/CASE_STUDY_CREDIT_FILE.md) — CCJ entries registered without individual verification (Ongoing)
 
 Want to submit your own? See the [Case Study Template](case-studies/CASE_STUDY_TEMPLATE.md).
 

@@ -30,6 +30,8 @@ Experimental changes or large new features should happen in your own fork first.
 - Aggressive, confrontational, or pseudolegal language
 - Large rewrites of the origin story, tone, or overall philosophy
 - Anything that could damage the calm, human-first reputation of the project
+- **Unrelated application code** — Do not bundle full-stack demos, e-commerce prototypes, payment integrations, or other standalone applications into a PR. Each PR should be focused on one concern that directly strengthens the Burgess Principle. If you're building something cool with the Principle, that's great — but it belongs in your own repository, not here.
+- **Code with unreviewed security risks** — Contributions that introduce XSS, injection, hardcoded secrets, input-manipulation vulnerabilities, or other security issues will not be merged. Please review your own code for common vulnerabilities before submitting.
 
 All contributions must maintain the respectful, non-confrontational voice that defines the Burgess Principle.
 
@@ -38,7 +40,9 @@ All contributions must maintain the respectful, non-confrontational voice that d
 1. Discuss the change first in an Issue or Discussion.
 2. Fork the repository and make your changes in a new branch.
 3. Ensure your changes follow the tone and guidelines above.
-4. Open a Pull Request with a clear description of what you changed and why.
+4. **Keep your PR focused.** One concern per PR. Do not bundle unrelated features, demos, or prototypes — even if they're interesting. A focused PR is easier to review, less likely to introduce security issues, and more likely to be merged.
+5. **Review your code for security issues** before submitting. Check for XSS, injection, hardcoded secrets, and input-manipulation risks.
+6. Open a Pull Request with a clear description of what you changed and why. The PR template will guide you through the required checklist.
 
 We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
 

@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding. As of 4 April 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally.
+This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding. As of 7 April 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally.
 
 ---
 
@@ -14,7 +14,7 @@ This register documents every institution that has been tested under The Burgess
 
 | Metric | Count |
 |---|---|
-| Total institutions tested | 18 |
+| Total institutions tested | 17 |
 | NULL findings | 11 |
 | SOVEREIGN findings | 1 (Wave — at point of resolution) |
 | Pending responses | 5 |
@@ -216,5 +216,5 @@ To move from **NULL** to **SOVEREIGN**, the entity must provide:
 
 This register is maintained as part of the live audit trail at github.com/ljbudgie/burgess-principle. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
 
-**Last updated:** 4 April 2026  
+**Last updated:** 7 April 2026  
 **Maintained by** the Burgess Principle maintainer.

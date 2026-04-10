@@ -46,6 +46,19 @@ All contributions must maintain the respectful, non-confrontational voice that d
 
 We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
 
+### Cryptographic Standards (Vault Contributions)
+
+Contributions that touch the Sovereign Personal Vault (`enforcement/sovereign-vault/`) must meet the v0.3.0 cryptographic baseline. In summary:
+
+- **AES-256-GCM only** for symmetric encryption. AES-CBC and other modes are not accepted.
+- **PBKDF2-SHA-256 at ≥ 210,000 iterations** with per-encryption random salt for key derivation.
+- **Ed25519 only** for receipt signatures via `@noble/curves`. Unsigned receipts must be rejected.
+- **Canonical sorted-key JSON** (no whitespace) for all signed payloads.
+- **Hex encoding** for binary-to-text conversions. `atob`/`btoa` base64 is not accepted.
+- **No cryptographic dependencies** beyond `@noble/hashes`, `@noble/curves`, and Node.js built-in `crypto`.
+
+See [SECURITY.md](SECURITY.md) for the full rationale and the list of eight vulnerabilities the v0.3.0 review resolved.
+
 ### Good First Issues
 
 Looking for a way to help? Here are some approachable starting points:

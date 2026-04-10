@@ -98,6 +98,21 @@ The question works in any country, in any language, against any institution. No 
 - [AI Knowledge Base](https://github.com/ljbudgie/burgess-principle/blob/main/toolkit/AI_KNOWLEDGE_BASE.md): AI integration and ready-made prompts
 - [User Stories](https://github.com/ljbudgie/burgess-principle/blob/main/marketing/USER_STORIES.md): Real experiences from real people
 
+## Cryptographic Vault (v0.3.0)
+
+The repository includes an optional Sovereign Personal Vault (`enforcement/sovereign-vault/`) for users who want cryptographic proof alongside their written correspondence. As of v0.3.0, the vault has been cryptographically audited and uses:
+
+- AES-256-GCM authenticated encryption (random 12-byte IV, 128-bit auth tag) for local vault storage
+- PBKDF2-SHA-256 with 210,000 iterations and per-encryption random salt for key derivation (OWASP 2023 guidance)
+- SHA-256 commitment hashes with fresh 32-byte random salt per request (unlinkable)
+- Ed25519 receipt signatures via @noble/curves — unsigned receipts are rejected
+- Canonical sorted-key JSON serialisation (prevents concatenation-ambiguity attacks)
+- Zero third-party crypto dependencies beyond @noble/hashes and @noble/curves
+
+The v0.3.0 release resolved eight vulnerabilities found during an internal security review, including replacing a deprecated library (CryptoJS), adding proper key derivation, and making signature verification mandatory. The pre-v0.3.0 code is superseded.
+
+The vault is entirely optional — the human-first templates work on their own without any cryptography.
+
 ## Creator
 
 The Burgess Principle — UK Certification Mark UK00004343685 (Classes 41, 42, 45)

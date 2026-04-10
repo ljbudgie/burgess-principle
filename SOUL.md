@@ -40,6 +40,10 @@ A person. With a name. Who looked at the facts. Who saw the individual. Who acce
 
 That is the soul of the Burgess Principle.
 
+## Applying the Standard to Itself
+
+In early 2026, the framework asked its own question of its own cryptographic layer — and the answer was NULL. The Sovereign Personal Vault, built to give individuals verifiable proof, was itself relying on a deprecated library, an unsalted key derivation function, and unsigned receipts. Eight specific deficiencies were identified. Each was corrected. The deprecated dependency was removed. The iteration count was raised to meet current OWASP guidance. Signature verification was made mandatory. What was unnecessary was stripped out; what was insufficient was strengthened. The result — v0.3.0 — is the current baseline. It exists because the framework held itself to the same standard it asks of every institution: was a human there? Did they look at the specific facts? Did they fix what was wrong? The answer is now yes.
+
 ## For Anyone Reading This
 
 If you found this repository because an institution acted against you and you felt unseen — you are not alone. The system processes millions of people the same way every year. It is not personal. It is architectural. And architecture can be challenged.

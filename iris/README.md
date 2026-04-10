@@ -8,13 +8,14 @@ It helps users apply the binary test, generate personalised templates, walk thro
 
 ## How It Works
 
-Iris is a lightweight chat interface powered by:
+Iris is part of a two-view single-page site powered by:
 
-- A static frontend (`index.html`) with a clean, modern chat UI.
+- A **landing page** with project overview, binary test visualisation, template showcase, and case study cards.
+- A **chat interface** (`index.html`) with Markdown rendering and a clean, modern design.
 - A Vercel serverless function (`api/chat.py`) that proxies requests to an OpenAI-compatible API.
 - A system prompt (`iris/system-prompt.md`) that grounds every response in the Burgess Principle.
 
-The system prompt includes the full project philosophy, binary test, template references, Vault guidance, on-chain protocol, tone, and privacy guardrails.
+The landing page introduces visitors to the framework. The "Talk to Iris" CTA switches to the chat view, where Iris responses are rendered as rich Markdown (headings, bold, code blocks, tables, lists, links).
 
 ---
 

@@ -1,0 +1,194 @@
+# Sovereign Mode — Run Iris Locally
+
+Sovereign Mode lets you run Iris entirely on your own hardware. **No data leaves your device.** No cloud API keys, no external servers, no telemetry. Your conversations stay on your machine.
+
+This is an addition to the existing cloud deployment — you choose which mode to use.
+
+---
+
+## What You Need
+
+- A computer with at least **8 GB of RAM** (16 GB recommended).
+- **Python 3.11 or later** installed.
+- A **GGUF model file** (the install script can download one for you).
+- About **3 GB of free disk space** for the model.
+
+Sovereign Mode works on macOS, Linux, and Windows — including Raspberry Pi 4/5 (with reduced speed).
+
+---
+
+## Quick Start
+
+### 1. Install dependencies
+
+Choose your platform:
+
+**macOS:**
+```bash
+bash scripts/install-macos.sh
+```
+
+**Linux (Debian/Ubuntu):**
+```bash
+bash scripts/install-linux.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\install-windows.ps1
+```
+
+Each script installs Python dependencies and downloads a small default model (~2.2 GB) if you don't have one already.
+
+### 2. Start Iris
+
+```bash
+python3 iris-local.py
+```
+
+Iris will load the model, start a local server, and open the chat interface in your browser at `http://localhost:8000`.
+
+That's it. You're running Iris with zero cloud dependency.
+
+---
+
+## Configuration
+
+Settings live in `iris-config.json` in the project root:
+
+```json
+{
+    "model_path": "models/model.gguf",
+    "context_size": 2048,
+    "port": 8000,
+    "gpu_acceleration": false
+}
+```
+
+| Setting | What it does | Default |
+|---|---|---|
+| `model_path` | Path to your GGUF model file | `models/model.gguf` |
+| `context_size` | How many tokens of conversation the model can see at once | `2048` |
+| `port` | Which port the local server runs on | `8000` |
+| `gpu_acceleration` | Use your GPU for faster inference (requires compatible hardware) | `false` |
+
+You can also override settings from the command line:
+
+```bash
+python3 iris-local.py --model models/mistral-7b.gguf --port 9000 --gpu
+```
+
+Run `python3 iris-local.py --help` for all options.
+
+---
+
+## Recommended Models
+
+Any GGUF-format model works. Here are good starting points:
+
+| Model | Size | Best for |
+|---|---|---|
+| **Phi-3 Mini 4K Q4** | ~2.2 GB | Laptops, quick responses, low memory |
+| **Mistral 7B Instruct Q4** | ~4.1 GB | Good balance of quality and speed |
+| **Llama 3 8B Instruct Q4** | ~4.7 GB | Highest quality on consumer hardware |
+
+The install scripts download Phi-3 Mini by default. To use a different model:
+
+1. Download the GGUF file from [Hugging Face](https://huggingface.co/models?search=gguf).
+2. Place it in the `models/` directory (or anywhere on your system).
+3. Update `model_path` in `iris-config.json` or pass `--model` on the command line.
+
+---
+
+## GPU Acceleration
+
+If you have a compatible GPU (NVIDIA with CUDA, Apple Silicon with Metal), you can speed up inference significantly:
+
+1. Install the GPU-enabled version of llama-cpp-python. See the [llama-cpp-python installation guide](https://github.com/abetlen/llama-cpp-python#installation) for your platform.
+2. Set `"gpu_acceleration": true` in `iris-config.json` or pass `--gpu` on the command line.
+
+On Apple Silicon Macs, Metal acceleration is usually automatic with the standard pip install.
+
+---
+
+## How It Works
+
+Sovereign Mode runs a lightweight local HTTP server that replaces the cloud API:
+
+```
+┌──────────────────────────────────────────────────────────┐
+│                     Your Browser                         │
+│                                                          │
+│  index.html ─── Same chat UI as the cloud version        │
+│       │                                                  │
+│       └── Detects localhost → routes to local server      │
+│                                                          │
+└────────────────────┬─────────────────────────────────────┘
+                     │  http://localhost:8000/api/chat
+                     ▼
+         ┌───────────────────────┐
+         │   iris-local.py       │
+         │   (FastAPI server)    │
+         │                       │
+         │  • Loads system prompt│
+         │  • Runs inference     │
+         │  • Streams response   │
+         │  • No network calls   │
+         └───────────┬───────────┘
+                     │
+                     ▼
+         ┌───────────────────────┐
+         │   GGUF Model          │
+         │   (on your disk)      │
+         │   via llama-cpp-python│
+         └───────────────────────┘
+```
+
+- The same `index.html` serves both modes. It detects whether it's running on localhost and routes API calls accordingly.
+- The system prompt (`iris/system-prompt.md`) is loaded from disk — identical to the cloud version.
+- The local server is stateless between sessions. No conversation data is saved unless you use the export button in the UI.
+- No telemetry, no analytics, no phone-home behaviour of any kind.
+
+---
+
+## Privacy
+
+- **No data leaves your device.** All inference happens locally.
+- **No API keys needed.** The model runs directly on your hardware.
+- **No server-side storage.** The local server processes and forgets.
+- **No telemetry.** Zero tracking, zero analytics, zero network calls.
+- **Your model, your data, your hardware.** Full sovereignty.
+
+---
+
+## Troubleshooting
+
+**"Model file not found"**
+Download a GGUF model and place it at the path shown in the error. The install scripts do this automatically.
+
+**Slow responses**
+Try a smaller model (Phi-3 Mini), reduce `context_size` to 1024, or enable GPU acceleration.
+
+**Out of memory**
+Use a smaller quantised model (Q4 variants use less RAM than Q8) or reduce `context_size`.
+
+**Port already in use**
+Change the port: `python3 iris-local.py --port 9001`
+
+**GPU not detected**
+You may need to reinstall llama-cpp-python with GPU support. See the [llama-cpp-python docs](https://github.com/abetlen/llama-cpp-python#installation).
+
+---
+
+## Comparison: Local vs Cloud
+
+| | Sovereign (Local) | Cloud (Vercel) |
+|---|---|---|
+| **Privacy** | No data leaves your device | Messages sent to external API for inference |
+| **Cost** | Free after model download | Requires API key (may have usage costs) |
+| **Speed** | Depends on your hardware | Fast (cloud GPU) |
+| **Quality** | Good (7B–8B models) | Excellent (Grok, GPT-4, etc.) |
+| **Setup** | Run install script + start | Deploy to Vercel + set API key |
+| **Offline** | Works without internet | Requires internet |
+
+Both modes use the same UI and the same system prompt. Choose based on your priorities.

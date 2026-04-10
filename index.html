@@ -588,6 +588,14 @@
 
     <script>
         // ------------------------------------------------------------------ //
+        // Backend detection — same UI, different backend                     //
+        // ------------------------------------------------------------------ //
+        const _isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        const API_CHAT_URL = _isLocal
+            ? `${window.location.origin}/api/chat`
+            : '/api/chat';
+
+        // ------------------------------------------------------------------ //
         // DOM references                                                     //
         // ------------------------------------------------------------------ //
         const messagesEl  = document.getElementById('messages');
@@ -745,7 +753,7 @@
             contentEl.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
 
             try {
-                const response = await fetch('/api/chat', {
+                const response = await fetch(API_CHAT_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ messages: conversationHistory }),

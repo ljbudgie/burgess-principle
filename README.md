@@ -35,7 +35,25 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 
 🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.
 
+Iris runs in two modes — you choose:
+
+| Mode | How it works |
+|---|---|
+| **☁️ Cloud** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app) — hosted on Vercel, uses an external AI model (Grok/OpenAI). Quick to use, no setup required. |
+| **🏠 Sovereign (Local)** | Runs entirely on your own hardware. No data leaves your device. No API keys, no cloud, no telemetry. See **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)** for setup. |
+
+### Cloud mode (default)
+
 👉 **[Talk to Iris →](https://burgess-principle.vercel.app)**
+
+### Sovereign mode (local)
+
+```bash
+bash scripts/install-linux.sh   # or install-macos.sh / install-windows.ps1
+python3 iris-local.py
+```
+
+Full instructions: **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)**
 
 For architecture and deployment details, see [`iris/README.md`](iris/README.md).
 
@@ -137,6 +155,7 @@ Local Vault              Commitment              EVM L2                 Verifiab
 | [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools (Sovereign Personal Vault) |
 | [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims Protocol — smart contracts, SDK, and examples |
 | [`/iris`](./iris) | Iris — AI companion interface (system prompt, examples, deployment) |
+| [`SOVEREIGN_MODE.md`](SOVEREIGN_MODE.md) | Run Iris locally on your own hardware — setup guide |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |
 | [`SOUL.md`](SOUL.md) | The philosophy behind the framework |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute — including good first issues |

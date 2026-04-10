@@ -1,0 +1,6 @@
+{
+    "model_path": "models/model.gguf",
+    "context_size": 2048,
+    "port": 8000,
+    "gpu_acceleration": false
+}

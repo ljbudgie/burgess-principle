@@ -30,3 +30,6 @@ node_modules/
 
 # Sovereign Vault — private commitment opening values
 .commitment-opening.json
+
+# Local model files (large GGUF files)
+models/

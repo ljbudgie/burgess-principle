@@ -211,7 +211,8 @@ See the [Sovereign Personal Vault README](./enforcement/sovereign-vault/README.m
 
 This repo includes lightweight Python tooling for verifiable scrutiny checks:
 
-- **`verify_scrutiny.py`** — Hardened verification tool using constant-time comparison, input validation, and a structured `VerificationResult` dataclass. Includes an argparse CLI (exit codes: `0` = SOVEREIGN, `1` = NULL, `2` = bad input).
+- **`verify_scrutiny.py`** — Hardened verification tool using constant-time comparison, input validation, and a structured `VerificationResult` dataclass. Includes a `to_dict()` helper for JSON serialisation, structured logging, and an argparse CLI (exit codes: `0` = SOVEREIGN, `1` = NULL, `2` = bad input).
+- **`api.py`** — Optional FastAPI wrapper that exposes `verify_instrument` as a REST endpoint (`POST /verify`). Install the API dependencies with `pip install -e ".[api]"` and run with `uvicorn api:app --reload`.
 - **`tracer/`** — Defect-tracing utilities for tracking scrutiny gaps.
 - **`enforcement/sovereign-vault/`** — The `iris-gate-person` cryptographic library for signed, personal-vault receipts.
 
@@ -220,7 +221,8 @@ This repo includes lightweight Python tooling for verifiable scrutiny checks:
 ```bash
 git clone https://github.com/ljbudgie/burgess-principle.git
 cd burgess-principle
-pip install -r requirements.txt
+pip install -e .            # core library only
+pip install -e ".[api]"     # include FastAPI endpoint
 ```
 
 ### Usage
@@ -231,10 +233,10 @@ python verify_scrutiny.py --help
 
 ### Tests
 
-Eighty pytest tests (47 in `test_verify_scrutiny` and 33 in `test_tracer`) cover result types, security, validation, CLI behaviour, and edge cases.
+Ninety pytest tests (51 in `test_verify_scrutiny`, 33 in `test_tracer`, and 6 in `test_api`) cover result types, security, validation, CLI behaviour, API responses, and edge cases.
 
 ```bash
-pip install pytest
+pip install -e ".[test]"
 pytest -q
 ```
 

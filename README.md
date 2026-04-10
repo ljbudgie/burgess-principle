@@ -64,7 +64,6 @@
 - [Tutorials & Toolkit](#tutorials--toolkit)
 - [Memes Corner](#memes-corner)
 - [Contributing](#contributing)
-- [Releases](#releases)
 - [Licence & Contact](#licence--contact)
 - [For AI Assistants](#for-ai-assistants)
 
@@ -315,15 +314,6 @@ Sometimes a gentle meme explains the idea better than a long letter. Head to the
 Contributions are welcome — provided they preserve the calm, human-first spirit of the project.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
-
----
-
-## Releases
-
-- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0">v0.2.0 – Commitment-Only Mode</a> — Fresh commitments and minimal disclosure workflow
-- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0">v0.1.0 – Initial Release</a> — Core human-first protocol
-
-See [all releases](https://github.com/ljbudgie/burgess-principle/releases) for full changelogs.
 
 ---
 

@@ -4,16 +4,18 @@
 
 > **You do not need this to use the Burgess Principle.** The human-first templates and the one-question approach work perfectly on their own. This vault is for people who want an extra layer of mathematical proof — without revealing any personal details.
 
-Since **v0.2.0**, the vault supports **Commitment-Only Mode**: you send a single SHA-256 hash instead of personal facts. Generate a fresh commitment for every request so that no two messages can be linked together. A standalone generator and a placeholder template make this easy to use from a phone or laptop with no setup.
+The key capability in **v0.2.0** is **Commitment-Only Mode**: send a single SHA-256 hash instead of personal facts. No details leave your device. Generate a fresh commitment for every request so that no two messages can ever be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
 
 ## What it does
 
 The Sovereign Personal Vault is a lightweight TypeScript library that lets you:
 
-1. **Generate a commitment** — a SHA-256 hash of your facts that you can share with an institution without revealing any personal details. **Generate a fresh commitment for every request** — never reuse a hash.
+1. **Generate a commitment** — a SHA-256 hash of your facts that you can share with an institution without revealing any personal details.
 2. **Store the facts of your case** — encrypted on your own device (AES-256-GCM). Nothing leaves your machine.
 3. **Receive a signed receipt** — the institution returns an Ed25519-signed response saying whether a real human reviewed your specific case (`SOVEREIGN`) or not (`NULL`).
 4. **Export a tamper-evident record** — a bundle you can keep, share, or present as evidence.
+
+> **Golden rule:** Generate a **fresh** commitment for every request. Never reuse a hash.
 
 ## Who is this for?
 
@@ -23,25 +25,25 @@ The Sovereign Personal Vault is a lightweight TypeScript library that lets you:
 
 ## How to use
 
-### Generate a fresh commitment for every request
+### Why a fresh commitment every time?
 
-Each commitment is a one-time hash. If you reuse the same hash across different emails or AI prompts, someone could link those messages together and build a profile. A fresh commitment for every interaction means every request stands alone — no correlation, no trail, no pattern.
+Each commitment is a one-time hash. Reusing the same hash across different emails or AI prompts would let someone link those messages together and build a profile. A fresh commitment for every interaction means every request stands alone — no correlation, no trail, no pattern.
 
 Think of it like a sealed envelope: one set of facts, one seal. Open a new envelope for the next conversation.
 
 ### On your phone (no setup needed)
 
-You don't need Node.js, a terminal, or any build tools. All you need is a way to generate a SHA-256 hash of some text. Here's the simplest path:
+You don't need Node.js, a terminal, or any build tools. All you need is a way to generate a SHA-256 hash of some text.
 
-1. **Write your facts** in a plain text note on your phone.  
+1. **Write your facts** in a plain text note on your phone.
    > Example: *"I received a council tax bill on 3 March 2026 for a property I moved into on 1 January 2026. The bill covers the previous occupant's period."*
 
-2. **Add a fresh random salt** — type a long random string at the start of your note (mash the keyboard, use a password manager, anything unpredictable). This stops anyone guessing your facts from the hash.  
+2. **Add a fresh random salt** — type a long random string at the start of your note (mash the keyboard, use a password manager, anything unpredictable). This stops anyone guessing your facts from the hash.
    > Example: `k7Qz9xPmW4...your facts here...`
 
 3. **Hash it.** Open any free SHA-256 tool in your mobile browser (search "SHA-256 online") and paste in the full text (salt + facts). Copy the resulting hash.
 
-4. **Use the placeholder template.** Open [`COMMITMENT_ONLY_PLACEHOLDER.md`](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md), fill in the details, and replace `[COMMITMENT_HASH]` with the hash you just copied.
+4. **Use the placeholder template.** Open [COMMITMENT_ONLY_PLACEHOLDER.md](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md), fill in the details, and replace `[COMMITMENT_HASH]` with the hash you just copied.
 
 5. **Keep your facts and salt private.** Only share the hash. If you ever need to prove what the hash covers, you can reveal the original text.
 

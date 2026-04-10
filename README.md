@@ -103,14 +103,14 @@ That moment of feeling unseen became the spark for a simple, respectful framewor
 2. If they did — great. You have confirmation your situation received proper care.
 3. If not — you now have a **clear written record** that you can follow up on, often by combining the question with your statutory rights (DSAR, FOI, Article 22).
 
-### Real-World Results (as of 30 March 2026)
+### Real-World Results (as of 4 April 2026)
 
 | Metric | Count |
 | --- | --- |
-| Institutions contacted | 16 |
+| Institutions contacted | 17 |
 | "No individual human review" findings | 11 |
 | Positive outcomes | 1 — Wave Utilities resolved both accounts to £0.00 |
-| Responses pending | 3 |
+| Responses pending | 5 |
 
 Full details are in [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md) and [INSTITUTIONAL_REGISTER.md](INSTITUTIONAL_REGISTER.md).
 

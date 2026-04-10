@@ -1,10 +1,12 @@
-# Memes
+# Community Outreach — Shareable Graphics & Memes
 
 Hi 👋
 
-Welcome to the memes corner of the Burgess Principle project.
+Welcome to the community outreach corner of the Burgess Principle project.
 
-The idea is simple: sometimes a gentle, light-hearted meme can explain the principle better than a long letter ever could. We all love a good meme — they travel fast, make people smile, and help the message reach everyday folks who might otherwise never hear about it.
+> **Note:** This folder is a supplementary outreach layer — it is separate from the core legal templates, enforcement tools, and advocacy resources. The light-hearted tone here is intentional to make the principle approachable for everyday audiences, while the serious advocacy work lives in the rest of the repository.
+
+The idea is simple: sometimes a gentle, light-hearted graphic can explain the principle better than a long letter ever could. Shareable images travel fast, make people smile, and help the message reach everyday folks who might otherwise never hear about it.
 
 ### Contents
 

@@ -54,4 +54,20 @@ Each entry is something the repository already depends on. If you're contributin
 
 ---
 
+## Verifying On-Chain Burgess Claims
+
+External systems — AI assistants, exchanges, DAOs, regulators — can verify on-chain Burgess Claims using the open-source SDK or by reading the smart contract directly.
+
+| Step | Method | What it proves |
+| --- | --- | --- |
+| Signature verification | `verify_onchain_receipt(commitment_hash, signature, public_key_hex)` | The claim was signed by the stated Ed25519 key. |
+| Commitment verification | `verify_commitment(claim_details, timestamp, nonce, public_key_hex, expected_hash)` | The disclosed facts match the on-chain fingerprint (selective disclosure). |
+| Temporal ordering | Read `blockTimestamp` from `getClaim(claimId)` on the smart contract | The claim existed at that block time. |
+
+No personal data is stored on-chain. Verifiers only ever see hashes, signatures, and metadata — full claim details stay encrypted in the user's local Vault unless they choose to disclose.
+
+See [onchain-protocol/spec.md](onchain-protocol/spec.md) for the full protocol specification and [onchain-protocol/examples/vault_to_chain.py](onchain-protocol/examples/vault_to_chain.py) for a working example.
+
+---
+
 > **Contributing a new integration?** Please keep it minimal. Only add a tool if the framework genuinely depends on it. See [CONTRIBUTING.md](CONTRIBUTING.md) for tone and guidelines.

@@ -113,6 +113,12 @@ This way, the AI never sees your actual commitment — and can never link it to 
 | `package.json` | Node.js package configuration |
 | `tsconfig.json` | TypeScript compiler settings |
 
+## On-Chain Extension (v0.4.0)
+
+As of v0.4.0, the Sovereign Personal Vault connects to the [Burgess Claims Protocol](../../onchain-protocol/spec.md) — a minimal on-chain layer that lets you post a compact commitment fingerprint (SHA-256 hash + Ed25519 signature + metadata) to an EVM L2. The chain provides neutral timestamping and public verifiability; no personal data ever touches the blockchain.
+
+The off-chain workflow remains identical. You generate claims locally, encrypt them in your Vault, and decide whether to post the fingerprint on-chain. See [onchain-protocol/examples/vault_to_chain.py](../../onchain-protocol/examples/vault_to_chain.py) for a working end-to-end example.
+
 ## Remember
 
 This layer is **completely optional**. The Burgess Principle works without it. The vault simply adds on-device encryption and tamper-evident receipts for users who want cryptographic proof of their verification results.

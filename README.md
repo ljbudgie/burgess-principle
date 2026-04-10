@@ -243,7 +243,7 @@ This repo includes lightweight Python tooling for verifiable scrutiny checks. Yo
 4. Run: `python verify_scrutiny.py "Your reasoning text here" "the-expected-sha256-hash"`
 5. The tool will print ✅ SOVEREIGN (the text was individually reviewed) or ❌ NULL (it wasn't).
 
-This repo includes lightweight Python tooling for verifiable scrutiny checks:
+### Tools included
 
 - **`verify_scrutiny.py`** — Hardened verification tool using constant-time comparison, input validation, and a structured `VerificationResult` dataclass. Includes a `to_dict()` helper for JSON serialisation, structured logging, and an argparse CLI (exit codes: `0` = SOVEREIGN, `1` = NULL, `2` = bad input).
 - **`api.py`** — Optional FastAPI wrapper that exposes `verify_instrument` as a REST endpoint (`POST /verify`). Install the API dependencies with `pip install -e ".[api]"` and run with `uvicorn api:app --reload`.

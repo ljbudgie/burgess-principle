@@ -11,6 +11,16 @@ We keep stories anonymous unless someone specifically asks to be named. The goal
 If the Burgess Principle helped you (even in a small way), feel free to open an issue on the repository with your experience.  
 We only include stories that feel kind and hopeful — no drama needed.
 
+### The Originating Case (May 2025)
+The originating case. Enforcement agents arrived at a residential property with no individual human review of the circumstances. This moment of being treated as invisible led to the creation of the Burgess Principle — one simple question that asks institutions to actually look at the specific facts of a person's case.
+
+Outcome: Inspired the full framework and has since been used in multiple regulatory complaints (ICO pattern letter, Energy Ombudsman, etc.).
+
+### Wave Utilities (Early 2026)
+Applied the principle to two accounts with billing errors and automated enforcement. After sending a Burgess-style request for human review, a senior customer service representative personally reviewed the cases.
+
+Outcome: Both accounts resolved to £0.00 after human intervention. Positive outcome recorded in the audit log.
+
 ### Early Stories
 
 **Story 1 – Energy Bill & CCJ**  

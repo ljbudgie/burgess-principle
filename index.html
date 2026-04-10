@@ -40,6 +40,7 @@
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
         body {
             background: var(--bg);
             color: var(--text);
@@ -48,6 +49,21 @@
             min-height: 100vh;
         }
         a { color: var(--gold); }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            background: var(--gold);
+            color: var(--bg);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 100;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 8px; }
         header {
             border-bottom: 1px solid #222;
             padding: 20px 40px;
@@ -63,6 +79,72 @@
         }
         .logo span { font-size: 1.1rem; color: #888; }
         .header-link { color: var(--gold); text-decoration: none; font-weight: 500; }
+
+        /* Page navigation */
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            padding: 12px 20px;
+            background: #111;
+            border-bottom: 1px solid #222;
+            font-size: 0.88rem;
+        }
+        .page-nav a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .page-nav a:hover { color: var(--gold); }
+
+        /* Scenarios */
+        .scenarios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .scenario {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: var(--card);
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .scenario:hover { transform: translateY(-3px); border-color: var(--gold); }
+        .scenario-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+        .scenario-text h4 { color: #fff; margin-bottom: 4px; font-size: 0.95rem; }
+        .scenario-text p { color: #aaa; font-size: 0.85rem; margin: 0; }
+
+        /* Secondary CTA */
+        .cta-secondary {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 12px 28px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            min-height: 48px;
+            line-height: 24px;
+        }
+        .cta-secondary:hover { border-color: var(--gold); }
+        .cta-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
 
         /* Badges */
         .badges {
@@ -316,18 +398,32 @@
             .section { padding: 40px 20px; }
             .hero { padding: 60px 20px 40px; }
             .narrative { padding: 40px 20px; }
+            .page-nav { gap: 6px 14px; font-size: 0.82rem; }
+            .cta-row { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
 
     <header role="banner">
         <div class="logo">THE BURGESS PRINCIPLE <span>⚖️</span></div>
         <a href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener" class="header-link">github.com/ljbudgie/burgess-principle</a>
     </header>
 
+    <nav class="page-nav" aria-label="Page sections">
+        <a href="#scenarios">Common Scenarios</a>
+        <a href="#quick-start">Quick Start</a>
+        <a href="#resources">Resources</a>
+        <a href="#domains">Domains</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#worldwide">Works Worldwide</a>
+        <a href="#origin">Origin Story</a>
+    </nav>
+
     <!-- Hero -->
-    <main class="hero" role="main">
+    <main class="hero" role="main" id="main">
         <h1>The Burgess Principle</h1>
         <div class="subtitle">One simple, respectful question</div>
 
@@ -343,9 +439,14 @@
             Was a human member of the team able to personally review the specific facts of <em>my</em> situation?
         </div>
 
-        <button class="cta" aria-label="Copy repository clone instructions to clipboard">
-            COPY ENTIRE REPO TO AI
-        </button>
+        <div class="cta-row">
+            <button class="cta" aria-label="Copy repository clone instructions to clipboard">
+                COPY ENTIRE REPO TO AI
+            </button>
+            <a href="https://github.com/ljbudgie/burgess-principle/tree/main/templates" target="_blank" rel="noopener" class="cta-secondary" aria-label="Browse templates on GitHub">
+                Browse Templates on GitHub →
+            </a>
+        </div>
 
         <p class="hero-description">
             The Burgess Principle helps ordinary people politely ask institutions to treat them as real individuals rather than data points.
@@ -389,8 +490,81 @@
 
     <hr class="divider">
 
+    <!-- Common Scenarios -->
+    <section class="section" id="scenarios" aria-label="Common Scenarios">
+        <h2 class="section-title">What's Your Situation?</h2>
+        <p class="section-subtitle">Find the right template for what you're dealing with — no technical knowledge needed.</p>
+        <div class="scenarios">
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/REQUEST_FOR_HUMAN_REVIEW.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">✉️</div>
+                <div class="scenario-text">
+                    <h4>General request for human review</h4>
+                    <p>Works for almost any situation — a polite, all-purpose starting point.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">⚖️</div>
+                <div class="scenario-text">
+                    <h4>Dispute with any organisation</h4>
+                    <p>Universal dispute letter for bills, fines, or decisions you want to challenge.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/COUNCIL_TAX_PCN_TEMPLATE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">🏛️</div>
+                <div class="scenario-text">
+                    <h4>Council tax or penalty charge</h4>
+                    <p>For council tax bills, arrears, or penalty charge notices from local authorities.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/BENEFITS_CLAIM_HELP.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">🤝</div>
+                <div class="scenario-text">
+                    <h4>Benefits claim dispute</h4>
+                    <p>For PIP, Universal Credit, ESA — includes mandatory reconsideration guidance.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/BAILIFFS_THREAT_TEMPLATE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">🚪</div>
+                <div class="scenario-text">
+                    <h4>Bailiff threat or visit</h4>
+                    <p>When bailiffs are threatening or have visited — covers forced entry concerns.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/DSAR_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">🔍</div>
+                <div class="scenario-text">
+                    <h4>See all data held about you</h4>
+                    <p>Data subject access request (DSAR) combined with a human review request.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/FOI_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">📄</div>
+                <div class="scenario-text">
+                    <h4>Freedom of Information request</h4>
+                    <p>For public bodies, courts, and councils — combines FOI with human review.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">🤖</div>
+                <div class="scenario-text">
+                    <h4>Automated decision affecting you</h4>
+                    <p>Challenge a purely automated decision under Article 22 GDPR.</p>
+                </div>
+            </a>
+            <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md" target="_blank" rel="noopener" class="scenario">
+                <div class="scenario-icon">♿</div>
+                <div class="scenario-text">
+                    <h4>Disability adjustments</h4>
+                    <p>Equality Act reasonable adjustments — includes email-only communication request.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <hr class="divider">
+
     <!-- Quick Start -->
-    <section class="section" aria-label="Quick Start">
+    <section class="section" id="quick-start" aria-label="Quick Start">
         <h2 class="section-title">Quick Start</h2>
         <p class="section-subtitle">Four steps from zero to a written record that speaks for itself.</p>
         <div class="quick-start">
@@ -420,14 +594,29 @@
     <hr class="divider">
 
     <!-- Resource Cards -->
-    <section class="section" aria-label="Repository resources">
+    <section class="section" id="resources" aria-label="Repository resources">
         <h2 class="section-title">Explore the Repository</h2>
         <p class="section-subtitle">Everything is free, open-source, and built with the same calm, respectful tone.</p>
         <div class="cards">
             <div class="card">
+                <h3>👋 Start Here</h3>
+                <p>New to the Burgess Principle? This guide will point you to the right place in under a minute.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md" target="_blank" rel="noopener" class="card-link">Start Here →</a>
+            </div>
+            <div class="card">
                 <h3>📋 Templates</h3>
                 <p>30+ ready-to-use letters for human review requests, DSARs, FOI, Article 22, Equality Act, bailiffs, benefits, council tax, and more.</p>
                 <a href="https://github.com/ljbudgie/burgess-principle/tree/main/templates" target="_blank" rel="noopener" class="card-link">View Templates →</a>
+            </div>
+            <div class="card">
+                <h3>📚 Tutorials &amp; Guide</h3>
+                <p>Step-by-step citizen's guide: how to challenge any action, file a SAR, assert reasonable adjustments, and understand findings.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/tutorials" target="_blank" rel="noopener" class="card-link">View Tutorials →</a>
+            </div>
+            <div class="card">
+                <h3>📁 Case Studies</h3>
+                <p>Real-world outcomes — Wave Utilities (resolved to £0), Passport Office, E.ON Next, Equita, Equifax, and a template for your own.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/case-studies" target="_blank" rel="noopener" class="card-link">View Case Studies →</a>
             </div>
             <div class="card">
                 <h3>📊 Live Audit Log</h3>
@@ -440,24 +629,19 @@
                 <a href="https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md" target="_blank" rel="noopener" class="card-link">View Register →</a>
             </div>
             <div class="card">
-                <h3>📜 Papers &amp; Doctrine</h3>
-                <p>Core legal paper, representative action, political implementation, data sovereignty, medical devices, US constitutional addendum, and critique responses.</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" target="_blank" rel="noopener" class="card-link">View Papers →</a>
-            </div>
-            <div class="card">
-                <h3>📁 Case Studies</h3>
-                <p>Real-world outcomes — Wave Utilities (resolved to £0), Passport Office, E.ON Next, Equita, Equifax, and a template for your own.</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/case-studies" target="_blank" rel="noopener" class="card-link">View Case Studies →</a>
-            </div>
-            <div class="card">
-                <h3>📚 Tutorials &amp; Guide</h3>
-                <p>Step-by-step citizen's guide: how to challenge any action, file a SAR, assert reasonable adjustments, and understand findings.</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/tutorials" target="_blank" rel="noopener" class="card-link">View Tutorials →</a>
+                <h3>💬 User Stories</h3>
+                <p>Real experiences from people who have used the Burgess Principle — and a template to submit your own.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/marketing/USER_STORIES.md" target="_blank" rel="noopener" class="card-link">View Stories →</a>
             </div>
             <div class="card">
                 <h3>🤖 AI Toolkit</h3>
                 <p>Knowledge base, Grok directive, ready-made prompts, and XAI integration for AI assistants to help you instantly.</p>
                 <a href="https://github.com/ljbudgie/burgess-principle/tree/main/toolkit" target="_blank" rel="noopener" class="card-link">View Toolkit →</a>
+            </div>
+            <div class="card">
+                <h3>📜 Papers &amp; Doctrine</h3>
+                <p>Core legal paper, representative action, political implementation, data sovereignty, medical devices, US constitutional addendum, and critique responses.</p>
+                <a href="https://github.com/ljbudgie/burgess-principle/tree/main/papers" target="_blank" rel="noopener" class="card-link">View Papers →</a>
             </div>
             <div class="card">
                 <h3>🔐 Enforcement &amp; Vault</h3>
@@ -470,19 +654,9 @@
                 <a href="https://github.com/ljbudgie/burgess-principle/blob/main/verify_scrutiny.py" target="_blank" rel="noopener" class="card-link">View Code →</a>
             </div>
             <div class="card">
-                <h3>💬 User Stories</h3>
-                <p>Real experiences from people who have used the Burgess Principle — and a template to submit your own.</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/marketing/USER_STORIES.md" target="_blank" rel="noopener" class="card-link">View Stories →</a>
-            </div>
-            <div class="card">
                 <h3>📣 Community Outreach</h3>
                 <p>Shareable graphics, outreach ideas, and AI prompts to help spread the word in an approachable way.</p>
                 <a href="https://github.com/ljbudgie/burgess-principle/tree/main/memes" target="_blank" rel="noopener" class="card-link">View Resources →</a>
-            </div>
-            <div class="card">
-                <h3>👋 Start Here</h3>
-                <p>New to the Burgess Principle? This guide will point you to the right place in under a minute.</p>
-                <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md" target="_blank" rel="noopener" class="card-link">Start Here →</a>
             </div>
         </div>
     </section>
@@ -490,7 +664,7 @@
     <hr class="divider">
 
     <!-- Domains Covered -->
-    <section class="section" aria-label="Domains Covered">
+    <section class="section" id="domains" aria-label="Domains Covered">
         <h2 class="section-title">Domains Covered</h2>
         <p class="section-subtitle">One question — seven domains — any institution.</p>
         <div class="table-wrapper">
@@ -546,7 +720,7 @@
     <hr class="divider">
 
     <!-- Case Studies -->
-    <section class="section" aria-label="Case Studies">
+    <section class="section" id="case-studies" aria-label="Case Studies">
         <h2 class="section-title">Case Studies</h2>
         <p class="section-subtitle">Real-world examples of the Burgess Principle in action.</p>
         <div class="cards">
@@ -586,7 +760,7 @@
     <hr class="divider">
 
     <!-- Works Worldwide -->
-    <section class="section" aria-label="Works Worldwide">
+    <section class="section" id="worldwide" aria-label="Works Worldwide">
         <h2 class="section-title">🌍 Works Worldwide</h2>
         <p class="section-subtitle">
             The question works in any country, in any language, against any institution. The UK legal references are optional boosters —
@@ -653,7 +827,7 @@
     <hr class="divider">
 
     <!-- Origin Story -->
-    <section class="section" aria-label="Origin Story">
+    <section class="section" id="origin" aria-label="Origin Story">
         <h2 class="section-title">Origin Story</h2>
         <div class="narrative" style="padding: 0;">
             <p>

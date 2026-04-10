@@ -62,7 +62,7 @@ The question works in any country, in any language, against any institution. No 
 
 ## Real-World Results
 
-- 16 institutions audited
+- 17 institutions audited
 - 11 NULL findings (no individual human review)
 - 1 positive outcome — Wave Utilities resolved both accounts to £0.00
 - Full details: [LIVE_AUDIT_LOG.md](https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md) and [INSTITUTIONAL_REGISTER.md](https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md)

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "burgess-principle"
-version = "0.2.0"
+version = "0.6.0"
 description = "The Burgess Principle — human scrutiny verification toolkit"
 readme = "README.md"
 license = "MIT"

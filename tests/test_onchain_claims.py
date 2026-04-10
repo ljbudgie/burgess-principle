@@ -20,7 +20,10 @@ from onchain_claims import (
     VALID_CATEGORIES,
     OnchainClaim,
     VerificationResult,
+    _canonical_claim_json,
     _compute_commitment,
+    _validate_hex_string,
+    _validate_non_empty_string,
     generate_onchain_claim,
     verify_commitment,
     verify_onchain_receipt,
@@ -582,3 +585,260 @@ class TestFullRoundtrip:
             public_key_hex=claim.public_key,
             expected_hash=claim.commitment_hash,
         )
+
+
+# ---------------------------------------------------------------------------
+# _canonical_claim_json
+# ---------------------------------------------------------------------------
+
+class TestCanonicalClaimJson:
+    def test_returns_valid_json(self):
+        result = _canonical_claim_json("details", "2026-01-01T00:00:00Z", "aa" * 32, "bb" * 32)
+        data = json.loads(result)
+        assert isinstance(data, dict)
+
+    def test_contains_expected_keys(self):
+        result = _canonical_claim_json("my claim", "ts", "aa" * 32, "bb" * 32)
+        data = json.loads(result)
+        assert set(data.keys()) == {"claim_details", "nonce", "public_key", "timestamp"}
+
+    def test_values_preserved(self):
+        result = _canonical_claim_json("hello", "2026-01-01", "cc" * 32, "dd" * 32)
+        data = json.loads(result)
+        assert data["claim_details"] == "hello"
+        assert data["timestamp"] == "2026-01-01"
+        assert data["nonce"] == "cc" * 32
+        assert data["public_key"] == "dd" * 32
+
+    def test_keys_are_sorted(self):
+        result = _canonical_claim_json("x", "y", "aa" * 32, "bb" * 32)
+        data = json.loads(result)
+        keys = list(data.keys())
+        assert keys == sorted(keys)
+
+    def test_compact_separators(self):
+        result = _canonical_claim_json("x", "y", "aa" * 32, "bb" * 32)
+        # Compact JSON should not have spaces after : or ,
+        assert ": " not in result
+        assert ", " not in result
+
+    def test_deterministic(self):
+        r1 = _canonical_claim_json("a", "b", "cc" * 32, "dd" * 32)
+        r2 = _canonical_claim_json("a", "b", "cc" * 32, "dd" * 32)
+        assert r1 == r2
+
+    def test_different_inputs_produce_different_json(self):
+        r1 = _canonical_claim_json("a", "b", "cc" * 32, "dd" * 32)
+        r2 = _canonical_claim_json("x", "b", "cc" * 32, "dd" * 32)
+        assert r1 != r2
+
+
+# ---------------------------------------------------------------------------
+# _validate_hex_string
+# ---------------------------------------------------------------------------
+
+class TestValidateHexString:
+    def test_valid_hex_passes(self):
+        _validate_hex_string("aabb", "test")
+
+    def test_valid_hex_with_expected_length(self):
+        _validate_hex_string("aa" * 32, "test", expected_length=64)
+
+    def test_non_string_raises_type_error(self):
+        with pytest.raises(TypeError, match="test must be a string"):
+            _validate_hex_string(123, "test")  # type: ignore[arg-type]
+
+    def test_none_raises_type_error(self):
+        with pytest.raises(TypeError, match="test must be a string"):
+            _validate_hex_string(None, "test")  # type: ignore[arg-type]
+
+    def test_empty_string_raises_value_error(self):
+        with pytest.raises(ValueError, match="test must not be empty"):
+            _validate_hex_string("", "test")
+
+    def test_non_hex_raises_value_error(self):
+        with pytest.raises(ValueError, match="valid hexadecimal"):
+            _validate_hex_string("not-hex!", "test")
+
+    def test_wrong_length_raises_value_error(self):
+        with pytest.raises(ValueError, match="exactly 64"):
+            _validate_hex_string("aa" * 16, "test", expected_length=64)
+
+    def test_no_length_check_when_none(self):
+        # Should pass for any valid hex string regardless of length
+        _validate_hex_string("aabb", "test", expected_length=None)
+        _validate_hex_string("aa" * 100, "test", expected_length=None)
+
+    def test_error_includes_field_name(self):
+        with pytest.raises(TypeError, match="my_field"):
+            _validate_hex_string(42, "my_field")  # type: ignore[arg-type]
+
+    def test_bytes_raises_type_error(self):
+        with pytest.raises(TypeError, match="must be a string"):
+            _validate_hex_string(b"aabb", "test")  # type: ignore[arg-type]
+
+
+# ---------------------------------------------------------------------------
+# _validate_non_empty_string
+# ---------------------------------------------------------------------------
+
+class TestValidateNonEmptyString:
+    def test_valid_string_passes(self):
+        _validate_non_empty_string("hello", "test")
+
+    def test_non_string_raises_type_error(self):
+        with pytest.raises(TypeError, match="test must be a string"):
+            _validate_non_empty_string(123, "test")  # type: ignore[arg-type]
+
+    def test_empty_string_raises_value_error(self):
+        with pytest.raises(ValueError, match="test must not be empty"):
+            _validate_non_empty_string("", "test")
+
+    def test_whitespace_only_raises_value_error(self):
+        with pytest.raises(ValueError, match="test must not be empty"):
+            _validate_non_empty_string("   ", "test")
+
+    def test_tabs_only_raises_value_error(self):
+        with pytest.raises(ValueError, match="must not be empty"):
+            _validate_non_empty_string("\t\t", "test")
+
+    def test_none_raises_type_error(self):
+        with pytest.raises(TypeError, match="must be a string"):
+            _validate_non_empty_string(None, "test")  # type: ignore[arg-type]
+
+    def test_list_raises_type_error(self):
+        with pytest.raises(TypeError, match="must be a string"):
+            _validate_non_empty_string(["text"], "test")  # type: ignore[arg-type]
+
+    def test_error_includes_field_name(self):
+        with pytest.raises(TypeError, match="my_field"):
+            _validate_non_empty_string(42, "my_field")  # type: ignore[arg-type]
+
+
+# ---------------------------------------------------------------------------
+# verify_commitment — validation edge cases
+# ---------------------------------------------------------------------------
+
+class TestVerifyCommitmentValidation:
+    def test_empty_claim_details_raises(self):
+        with pytest.raises(ValueError, match="claim_details"):
+            verify_commitment(
+                claim_details="",
+                timestamp="2026-01-01",
+                nonce="aa" * 32,
+                public_key_hex="bb" * 32,
+                expected_hash="cc" * 32,
+            )
+
+    def test_empty_timestamp_raises(self):
+        with pytest.raises(ValueError, match="timestamp"):
+            verify_commitment(
+                claim_details="test",
+                timestamp="",
+                nonce="aa" * 32,
+                public_key_hex="bb" * 32,
+                expected_hash="cc" * 32,
+            )
+
+    def test_invalid_nonce_raises(self):
+        with pytest.raises(ValueError, match="nonce"):
+            verify_commitment(
+                claim_details="test",
+                timestamp="2026-01-01",
+                nonce="not-hex",
+                public_key_hex="bb" * 32,
+                expected_hash="cc" * 32,
+            )
+
+    def test_invalid_public_key_raises(self):
+        with pytest.raises(ValueError, match="public_key_hex"):
+            verify_commitment(
+                claim_details="test",
+                timestamp="2026-01-01",
+                nonce="aa" * 32,
+                public_key_hex="short",
+                expected_hash="cc" * 32,
+            )
+
+    def test_invalid_expected_hash_raises(self):
+        with pytest.raises(ValueError, match="expected_hash"):
+            verify_commitment(
+                claim_details="test",
+                timestamp="2026-01-01",
+                nonce="aa" * 32,
+                public_key_hex="bb" * 32,
+                expected_hash="not-hex",
+            )
+
+    def test_non_string_claim_details_raises(self):
+        with pytest.raises(TypeError, match="claim_details"):
+            verify_commitment(
+                claim_details=123,  # type: ignore[arg-type]
+                timestamp="2026-01-01",
+                nonce="aa" * 32,
+                public_key_hex="bb" * 32,
+                expected_hash="cc" * 32,
+            )
+
+
+# ---------------------------------------------------------------------------
+# OnchainClaim — immutability
+# ---------------------------------------------------------------------------
+
+class TestOnchainClaimImmutability:
+    def test_frozen_dataclass(self):
+        claim = generate_onchain_claim(
+            claim_details="Test",
+            target_entity="Org",
+            category="enforcement",
+            private_key_hex=PRIVATE_KEY,
+        )
+        with pytest.raises(AttributeError):
+            claim.commitment_hash = "tampered"  # type: ignore[misc]
+
+    def test_frozen_signature(self):
+        claim = generate_onchain_claim(
+            claim_details="Test",
+            target_entity="Org",
+            category="enforcement",
+            private_key_hex=PRIVATE_KEY,
+        )
+        with pytest.raises(AttributeError):
+            claim.signature = "tampered"  # type: ignore[misc]
+
+
+# ---------------------------------------------------------------------------
+# VerificationResult — attributes
+# ---------------------------------------------------------------------------
+
+class TestVerificationResultAttributes:
+    def test_valid_true_result(self):
+        r = VerificationResult(valid=True, commitment_hash="aa" * 32, public_key="bb" * 32, details="ok")
+        assert r.valid is True
+        assert r.details == "ok"
+
+    def test_valid_false_result(self):
+        r = VerificationResult(valid=False, commitment_hash="aa" * 32, public_key="bb" * 32, details="bad")
+        assert r.valid is False
+
+    def test_frozen(self):
+        r = VerificationResult(valid=True, commitment_hash="aa" * 32, public_key="bb" * 32, details="ok")
+        with pytest.raises(AttributeError):
+            r.valid = False  # type: ignore[misc]
+
+
+# ---------------------------------------------------------------------------
+# VALID_CATEGORIES
+# ---------------------------------------------------------------------------
+
+class TestValidCategories:
+    def test_is_frozenset(self):
+        assert isinstance(VALID_CATEGORIES, frozenset)
+
+    def test_contains_expected_categories(self):
+        expected = {"enforcement", "dispute", "oversight", "disclosure", "dao", "exchange"}
+        assert VALID_CATEGORIES == expected
+
+    def test_immutable(self):
+        with pytest.raises(AttributeError):
+            VALID_CATEGORIES.add("new")  # type: ignore[attr-defined]

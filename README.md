@@ -31,6 +31,13 @@
 
 ---
 
+### Releases
+
+- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0">v0.2.0 – Commitment-Only Mode</a> — Fresh commitments and minimal disclosure workflow
+- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0">v0.1.0 – Initial Release</a> — Core human-first protocol
+
+---
+
 > **🆕 First time here?** Go to **[START_HERE.md](START_HERE.md)** — it will point you to the right place in under a minute.
 >
 > **Need help right now?** Clone or download this repo → drop it into [Grok](https://grok.com), [Claude](https://claude.ai), or any AI assistant → get instant personalised help. Or pick a [template](./templates) and send it today.
@@ -313,10 +320,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ## Releases
 
-| Version | Highlights |
-| --- | --- |
-| [v0.2.0 – Commitment-Only Mode](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0) | Commitment-only mode (send a single SHA-256 hash instead of personal facts), fresh commitments by default, placeholder-based templates, improved unlinkability guidance. |
-| [v0.1.0 – Initial Release](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0) | Core binary predicate (SOVEREIGN / NULL), calm ready-to-use templates, optional cryptographic enforcement layer, hardened Python toolkit with 90+ tests, papers, case studies, AI toolkit, and CI pipeline. |
+- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0">v0.2.0 – Commitment-Only Mode</a> — Fresh commitments and minimal disclosure workflow
+- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0">v0.1.0 – Initial Release</a> — Core human-first protocol
 
 See [all releases](https://github.com/ljbudgie/burgess-principle/releases) for full changelogs.
 

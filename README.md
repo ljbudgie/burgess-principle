@@ -63,7 +63,7 @@
 - [Core Papers & Documents](#core-papers--documents)
 - [Related Protocols](#related-protocols)
 - [Tutorials & Toolkit](#tutorials--toolkit)
-- [Memes Corner](#memes-corner)
+- [Community Outreach](#community-outreach)
 - [Contributing](#contributing)
 - [Licence & Contact](#licence--contact)
 - [For AI Assistants](#for-ai-assistants)
@@ -321,9 +321,9 @@ In short: those systems prove *who you are* privately; Burgess proves *whether y
 
 ---
 
-## Memes Corner
+## Community Outreach
 
-Sometimes a gentle meme explains the idea better than a long letter. Head to the [`/memes`](./memes) folder for shareable images, psychology insights, famous meme templates, and easy AI prompts to create your own.
+The [`/memes`](./memes) folder contains shareable graphics, outreach ideas, and AI prompts designed to help spread the Burgess Principle in an approachable way. These resources are kept separate from the core legal and advocacy toolkit so the project's serious mission stays front and centre.
 
 ---
 

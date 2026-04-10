@@ -30,7 +30,7 @@ This is a strength. Most people who face automated enforcement, algorithmic deci
 
 ### "Biggest limitation: still generic underneath"
 
-The Burgess Principle is deliberately domain-agnostic at its core because the question it asks — *"Was a human there?"* — is universally applicable. However, the repository is not generic in practice. It contains domain-specific templates (enforcement law, medical devices, credit data, platform governance, media and libel, music copyright, council tax, benefits claims), domain-specific case studies with verified outcomes, a cryptographic enforcement layer for mathematically verifiable proof, and a Python verification toolkit with 80 passing tests.
+The Burgess Principle is deliberately domain-agnostic at its core because the question it asks — *"Was a human there?"* — is universally applicable. However, the repository is not generic in practice. It contains domain-specific templates (enforcement law, medical devices, credit data, platform governance, media and libel, music copyright, council tax, benefits claims), domain-specific case studies with verified outcomes, a cryptographic enforcement layer (v0.3.0: AES-256-GCM, PBKDF2-SHA-256, Ed25519 signed receipts) for mathematically verifiable proof, and a Python verification toolkit with 90 passing tests.
 
 Generality at the principle level is an architectural choice: it allows the framework to apply across jurisdictions, industries, and institutional types without modification. The specificity lives in the templates, the case studies, and the audit log — which together provide the concrete, evidence-backed detail that distinguishes this project from a generic accountability checklist.
 

@@ -33,6 +33,7 @@
 
 ### Releases
 
+- <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.3.0">v0.3.0 – Cryptographic Audit</a> — AES-256-GCM, PBKDF2-SHA-256 (210,000 iterations), Ed25519 signed receipts, canonical JSON, zero third-party crypto beyond @noble/*
 - <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0">v0.2.0 – Commitment-Only Mode</a> — Fresh commitments and minimal disclosure workflow
 - <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0">v0.1.0 – Initial Release</a> — Core human-first protocol
 
@@ -148,15 +149,26 @@ All templates are written in the same calm, respectful tone. Browse the full col
 
 ## Cryptographic Enforcement Layer (Optional)
 
-If you want to send an enquiry without revealing any personal facts, this optional tool lets you share only a SHA-256 hash — no details leave your device.
+If you want to send an enquiry without revealing any personal facts, the Sovereign Personal Vault lets you share only a SHA-256 commitment hash — no details leave your device. As of [v0.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.3.0), the vault uses audited, production-grade cryptography with zero third-party dependencies beyond `@noble/*`.
 
 | | Without the vault | With the vault |
 | --- | --- | --- |
 | What you send | A template with your details filled in | Only a SHA-256 hash — your facts stay on your device |
 | Privacy | Institution sees your personal facts | Institution sees nothing but the hash |
-| Proof | Your written record | Written record + tamper-evident cryptographic receipt |
+| Proof | Your written record | Written record + Ed25519-signed, tamper-evident cryptographic receipt |
 
-**How it works:** The small TypeScript library in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault) generates a fresh commitment for every request so that no two messages can be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
+**Cryptographic primitives (v0.3.0):**
+
+| Primitive | Detail |
+| --- | --- |
+| Local encryption | AES-256-GCM (authenticated encryption, random 12-byte IV, 128-bit auth tag) |
+| Key derivation | PBKDF2-SHA-256 with 210,000 iterations and per-encryption random salt (OWASP 2023) |
+| Commitment | SHA-256 with fresh 32-byte random salt per request (unlinkable) |
+| Receipt signatures | Ed25519 — unsigned receipts are rejected |
+| Serialisation | Canonical sorted-key JSON (prevents concatenation-ambiguity attacks) |
+| Dependencies | `@noble/hashes`, `@noble/curves`, Node.js built-in `crypto` — nothing else |
+
+**How it works:** The TypeScript library in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault) generates a fresh commitment for every request so that no two messages can be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
 
 For most everyday situations the warm, human-first templates are all you need. The vault is a calm, optional backup — always under your control. See the [Sovereign Personal Vault README](./enforcement/sovereign-vault/README.md) for a gentle introduction and quick-start example.
 
@@ -225,7 +237,7 @@ This repo includes lightweight Python tooling for verifiable scrutiny checks:
 - **`verify_scrutiny.py`** — Hardened verification tool using constant-time comparison, input validation, and a structured `VerificationResult` dataclass. Includes a `to_dict()` helper for JSON serialisation, structured logging, and an argparse CLI (exit codes: `0` = SOVEREIGN, `1` = NULL, `2` = bad input).
 - **`api.py`** — Optional FastAPI wrapper that exposes `verify_instrument` as a REST endpoint (`POST /verify`). Install the API dependencies with `pip install -e ".[api]"` and run with `uvicorn api:app --reload`.
 - **`tracer/`** — Defect-tracing utilities for tracking scrutiny gaps.
-- **`enforcement/sovereign-vault/`** — The `iris-gate-person` cryptographic library for signed, personal-vault receipts.
+- **`enforcement/sovereign-vault/`** — Sovereign Personal Vault: AES-256-GCM encryption, PBKDF2 key derivation, Ed25519 signed receipts ([v0.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.3.0)).
 
 ### Installation
 
@@ -306,7 +318,7 @@ Several established anonymous credential systems share goals with the Burgess Pr
 
 **Where they overlap:** All of these — like the Burgess Principle — put the individual in control of what is revealed and to whom. Privacy, minimal disclosure, and the ability to prove something without over-sharing are common threads.
 
-**Where Burgess diverges:** The protocols above are general-purpose anonymous credential systems designed for broad identity and attribute verification. The Burgess Principle is narrower: it exists to answer one question — *did a real human review the specific facts of my case?* It uses minimal, optional cryptography (a single SHA-256 commitment, a lightweight TypeScript library) rather than heavy proof systems. It is forkable, readable, and designed so that anyone — with or without technical background — can use it immediately.
+**Where Burgess diverges:** The protocols above are general-purpose anonymous credential systems designed for broad identity and attribute verification. The Burgess Principle is narrower: it exists to answer one question — *did a real human review the specific facts of my case?* It uses targeted, auditable cryptography (SHA-256 commitments, AES-256-GCM encryption, PBKDF2 key derivation, Ed25519 signed receipts) rather than heavy proof systems. It is forkable, readable, and designed so that anyone — with or without technical background — can use it immediately.
 
 In short: those systems prove *who you are* privately; Burgess proves *whether you were seen*.
 

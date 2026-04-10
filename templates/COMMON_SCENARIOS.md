@@ -13,7 +13,7 @@ Here’s a quick guide to help you (and the AI) choose the right template:
 | Situation                                      | Recommended Template                                      | Notes |
 |-----------------------------------------------|-----------------------------------------------------------|-------|
 | General dispute with any organisation         | `GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`              | Universal starting point |
-| Need email-only contact / reasonable adjustments | `EQUALITY_ACT_STARTER_PACK.md`                           | Best for autistic or disabled users |
+| Need email-only contact / reasonable adjustments | `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`                 | Best for autistic or disabled users |
 | Benefits decision (PIP, Universal Credit, ESA)| `BENEFITS_CLAIM_HELP.md`                                 | Includes Mandatory Reconsideration |
 | Council tax bill, arrears or PCN              | `COUNCIL_TAX_PCN_TEMPLATE.md`                            | Local authority demands |
 | Bailiffs threatening or visiting              | `BAILIFFS_THREAT_TEMPLATE.md`                            | Forced entry concerns |

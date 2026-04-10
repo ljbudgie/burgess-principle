@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.jpg.png" alt="The Burgess Principle — Human Attention, Not Just Data" width="100%">
+  <img src="banner.png" alt="The Burgess Principle — Human Attention, Not Just Data" width="100%">
 </p>
 
 <h1 align="center">The Burgess Principle</h1>
@@ -116,7 +116,7 @@ That moment of feeling unseen became the spark for a simple, respectful framewor
 
 | Metric | Count |
 | --- | --- |
-| Institutions contacted | 17 |
+| Institutions contacted | 18 |
 | "No individual human review" findings | 11 |
 | Positive outcomes | 1 — Wave Utilities resolved both accounts to £0.00 |
 | Responses pending | 5 |
@@ -234,7 +234,16 @@ These advanced templates maintain the same calm, respectful tone while adapting 
 
 ## Python Toolkit
 
-This repo includes lightweight Python tooling for verifiable scrutiny checks:
+This repo includes lightweight Python tooling for verifiable scrutiny checks. You need Python 3.10 or later installed on your computer — no other dependencies are required for the core tool.
+
+**Quick start (plain English):**
+1. Download or clone this repository to your computer.
+2. Open a terminal (Command Prompt on Windows, Terminal on Mac/Linux).
+3. Navigate to the `burgess-principle` folder.
+4. Run: `python verify_scrutiny.py "Your reasoning text here" "the-expected-sha256-hash"`
+5. The tool will print ✅ SOVEREIGN (the text was individually reviewed) or ❌ NULL (it wasn't).
+
+### Tools included
 
 - **`verify_scrutiny.py`** — Hardened verification tool using constant-time comparison, input validation, and a structured `VerificationResult` dataclass. Includes a `to_dict()` helper for JSON serialisation, structured logging, and an argparse CLI (exit codes: `0` = SOVEREIGN, `1` = NULL, `2` = bad input).
 - **`api.py`** — Optional FastAPI wrapper that exposes `verify_instrument` as a REST endpoint (`POST /verify`). Install the API dependencies with `pip install -e ".[api]"` and run with `uvicorn api:app --reload`.

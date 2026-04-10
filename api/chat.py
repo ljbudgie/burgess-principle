@@ -140,3 +140,4 @@ class handler(BaseHTTPRequestHandler):  # noqa: N801 — Vercel requires this na
 
     def log_message(self, format, *args):  # noqa: A002
         """Suppress default stderr logging in serverless context."""
+        pass

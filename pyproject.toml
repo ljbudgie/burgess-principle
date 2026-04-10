@@ -12,7 +12,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
-test = ["pytest>=7.0"]
+test = ["pytest>=7.0", "PyNaCl>=1.5.0"]
 api = ["fastapi>=0.110.0", "uvicorn>=0.23.0"]
 onchain = ["PyNaCl>=1.5.0"]
 

@@ -184,17 +184,19 @@ def create_app(system_prompt: str) -> FastAPI:
                     "Connection": "keep-alive",
                 },
             )
-        except Exception as exc:
+        except Exception:
             return JSONResponse(
-                {"error": f"Model inference failed: {exc}"}, status_code=500
+                {"error": "Model inference failed. Check the server logs for details."},
+                status_code=500,
             )
 
     # Serve index.html at root
     @app.get("/")
     async def serve_index():
         index_path = _ROOT / "index.html"
+        content = index_path.read_bytes()
         return StreamingResponse(
-            open(index_path, "rb"),  # noqa: SIM115
+            iter([content]),
             media_type="text/html",
         )
 

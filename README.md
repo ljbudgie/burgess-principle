@@ -103,7 +103,7 @@ That moment of feeling unseen became the spark for a simple, respectful framewor
 2. If they did — great. You have confirmation your situation received proper care.
 3. If not — you now have a **clear written record** that you can follow up on, often by combining the question with your statutory rights (DSAR, FOI, Article 22).
 
-### Real-World Results (as of 4 April 2026)
+### Real-World Results (as of 7 April 2026)
 
 | Metric | Count |
 | --- | --- |
@@ -131,6 +131,7 @@ All templates are written in the same calm, respectful tone. Browse the full col
 | [MUSIC_COPYRIGHT_WITH_BURGESS.md](templates/MUSIC_COPYRIGHT_WITH_BURGESS.md) | For Content ID claims and royalty disputes |
 | [COUNCIL_TAX_PCN_TEMPLATE.md](templates/COUNCIL_TAX_PCN_TEMPLATE.md) | For council tax or penalty charge notices |
 | [BENEFITS_CLAIM_HELP.md](templates/BENEFITS_CLAIM_HELP.md) | For benefits claim disputes |
+| [COMMITMENT_ONLY_PLACEHOLDER.md](templates/COMMITMENT_ONLY_PLACEHOLDER.md) | Commitment-only letter (send a hash, not personal facts) |
 | [acknowledgment_email_template.txt](templates/acknowledgment_email_template.txt) | Polite follow-up email |
 
 > **Tip:** Don't know which template to use? Drop the whole repo into an AI assistant and describe your situation — it will pick the right one for you.
@@ -202,6 +203,8 @@ When you want an extra layer of mathematical accountability — something that c
 It lives in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault).
 
 This small library (`iris-gate-person`) keeps all your personal details on your own device and lets organisations send you signed receipts stating whether a real human reviewed the specific facts of *your* case.
+
+**Commitment-only mode (v0.2.0):** You can now send only a single SHA-256 hash — no personal facts leave your device. Generate a fresh commitment for every request so that no two messages can be linked together. A standalone generator (`src/generate-commitment.ts`) and a placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
 
 It feels like a calm, optional backup — never aggressive, always under your control.
 

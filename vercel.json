@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(robots\\.txt|sitemap\\.xml|llms\\.txt|banner\\.jpg\\.png)", "destination": "/$1" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }

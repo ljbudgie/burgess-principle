@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Tell crawlers where to find the full list of pages
 Sitemap: https://burgess-principle.vercel.app/sitemap.xml

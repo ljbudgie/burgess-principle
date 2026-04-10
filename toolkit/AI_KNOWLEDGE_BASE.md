@@ -53,7 +53,7 @@ This repository includes several practical tools — all built in the same calm,
 - **Tracer** — Defect-tracing utilities for tracking scrutiny gaps. See [`/tracer`](../tracer).
 - **Verification CLI** — `verify_scrutiny.py` for structured SOVEREIGN/NULL checks.
 - **API** — Optional FastAPI endpoint for programmatic verification.
-- **Cryptographic Vault** — Optional signed receipts via [`/enforcement/sovereign-vault`](../enforcement/sovereign-vault).
+- **Cryptographic Vault** — Optional signed receipts with Commitment-Only Mode via [`/enforcement/sovereign-vault`](../enforcement/sovereign-vault).
 
 ---
 

@@ -15,7 +15,7 @@ All notable changes to this project are documented in this file.
 - Solidity contract for EVM L2 chains (Base, Arbitrum, Optimism) — stores only commitment hashes, signatures, and metadata on-chain.
 - TypeScript vault extended with `generateOnchainClaim()` and `verifyOnchainReceipt()` methods.
 - New `/claims/verify` API endpoint for verifying on-chain claim receipts.
-- 41 new tests for the on-chain claims SDK (roundtrip, validation, selective disclosure).
+- 46 new tests for the on-chain claims SDK and API endpoint (roundtrip, validation, selective disclosure).
 - End-to-end example (`onchain-protocol/examples/vault_to_chain.py`).
 - Deployment guide for Base Sepolia, Arbitrum Sepolia, and Optimism Sepolia testnets.
 - Updated `README.md`, `INTEGRATIONS.md`, `FOR_AI_MODELS.md` with on-chain protocol documentation.

@@ -159,10 +159,10 @@ Memes work best when they're shared. Here are a few tips for getting the Burgess
 - `#EqualityAct` (when relevant to disability/adjustments)
 
 **Best platforms:**
-- **X (Twitter)** — Great for short captions and quick shares. Keep the caption under 280 characters.
+- **X (Twitter)** — Great for short captions and quick shares. Keep the caption concise for maximum impact.
 - **Instagram** — Perfect for visual memes. Use hashtags in the first comment to keep the caption clean.
 - **LinkedIn** — Good for reaching professionals and decision-makers. Add a line of context about why human review matters.
-- **Reddit** — Share in relevant communities (e.g. r/legaladviceuk, r/disability, r/dataisbeautiful).
+- **Reddit** — Share in relevant communities (e.g. r/legaladviceuk, r/disability, r/ConsumerRights).
 - **Facebook** — Groups related to consumer rights, disability advocacy, or local community pages.
 
 **Tone reminder:** Always keep it warm and respectful — even when the meme is funny. The Burgess Principle wins hearts, not arguments.

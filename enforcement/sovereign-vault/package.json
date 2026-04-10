@@ -1,6 +1,6 @@
 {
   "name": "iris-gate-person",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Sovereign Personal Vault — optional cryptographic enforcement layer for the Burgess Principle",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

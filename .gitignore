@@ -27,3 +27,6 @@ Thumbs.db
 # Node (if applicable)
 node_modules/
 .coverage
+
+# Sovereign Vault — private commitment opening values
+.commitment-opening.json

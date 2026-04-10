@@ -604,6 +604,34 @@
         let isStreaming = false;
 
         // ------------------------------------------------------------------ //
+        // Welcome screen HTML (single source of truth for initial + reset)   //
+        // ------------------------------------------------------------------ //
+        const WELCOME_HTML = `
+            <h3>Hello, I'm Iris</h3>
+            <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
+            <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
+            <div class="welcome-suggestions">
+                <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
+                <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
+                <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
+                <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
+                <button class="suggestion" data-prompt="I have a disability and an institution hasn&amp;#39;t made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
+                <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
+            </div>
+        `;
+
+        /** Bind suggestion button click handlers within a container element. */
+        function bindSuggestionButtons(container) {
+            container.querySelectorAll('.suggestion').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    userInput.value = btn.dataset.prompt;
+                    userInput.dispatchEvent(new Event('input'));
+                    sendMessage();
+                });
+            });
+        }
+
+        // ------------------------------------------------------------------ //
         // Sidebar toggle (mobile)                                            //
         // ------------------------------------------------------------------ //
         sidebarBtn.addEventListener('click', () => {
@@ -632,15 +660,9 @@
         });
 
         // ------------------------------------------------------------------ //
-        // Suggestion buttons                                                 //
+        // Suggestion buttons (initial welcome screen)                       //
         // ------------------------------------------------------------------ //
-        document.querySelectorAll('.suggestion').forEach(btn => {
-            btn.addEventListener('click', () => {
-                userInput.value = btn.dataset.prompt;
-                userInput.dispatchEvent(new Event('input'));
-                sendMessage();
-            });
-        });
+        bindSuggestionButtons(document);
 
         // ------------------------------------------------------------------ //
         // Update sidebar action buttons state                                //
@@ -684,32 +706,13 @@
             if (conversationHistory.length === 0) return;
             conversationHistory = [];
             messagesEl.innerHTML = '';
-            // Re-add the welcome screen
+            // Re-add the welcome screen using the shared template
             const welcome = document.createElement('div');
             welcome.className = 'welcome';
             welcome.id = 'welcome';
-            welcome.innerHTML = `
-                <h3>Hello, I'm Iris</h3>
-                <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
-                <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
-                <div class="welcome-suggestions">
-                    <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
-                    <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
-                    <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
-                    <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
-                    <button class="suggestion" data-prompt="I have a disability and an institution hasn't made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
-                    <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
-                </div>
-            `;
+            welcome.innerHTML = WELCOME_HTML;
             messagesEl.appendChild(welcome);
-            // Re-bind suggestion buttons
-            welcome.querySelectorAll('.suggestion').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    userInput.value = btn.dataset.prompt;
-                    userInput.dispatchEvent(new Event('input'));
-                    sendMessage();
-                });
-            });
+            bindSuggestionButtons(welcome);
             updateActionButtons();
         });
 
@@ -762,7 +765,9 @@
                             '<a href="https://vercel.com" target="_blank" rel="noopener">Vercel dashboard</a>.\n\n' +
                             'For setup instructions, see the <a href="https://github.com/ljbudgie/burgess-principle/blob/main/iris/README.md" target="_blank" rel="noopener">Iris README</a>.'
                         );
-                        throw new Error('__handled__');
+                        const handled = new Error(errorMsg);
+                        handled.handled = true;
+                        throw handled;
                     }
 
                     throw new Error(errorMsg);
@@ -804,7 +809,7 @@
                 updateActionButtons();
 
             } catch (err) {
-                if (err.message !== '__handled__') {
+                if (!err.handled) {
                     contentEl.textContent = 'I wasn\'t able to respond just now. ' + err.message;
                 }
             }

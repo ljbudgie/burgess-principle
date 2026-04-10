@@ -201,6 +201,17 @@ SOVEREIGN findings are documented with equal weight in this register. The framew
 
 ---
 
+## Verification Protocol
+
+To move from **NULL** to **SOVEREIGN**, the entity must provide:
+1. **Authorization Hash:** A SHA-256 hash of the specific reasoning used for the individual case.
+2. **Sovereign Signature:** A cryptographic signature from a Human Judicial Mind (Lead Counsel/DPO).
+3. **Public Commit:** This register must be updated via a pull request to reflect the 24-hour verification window.
+
+> **Note:** Any instrument not listed as SOVEREIGN (1) in this register is considered **Void ab initio** under the Maximum Truth Compliance Verification Grid.
+
+---
+
 ## Maintenance
 
 This register is maintained as part of the live audit trail at github.com/ljbudgie/burgess-principle. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.

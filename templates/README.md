@@ -50,7 +50,7 @@ All templates are written in the same calm, respectful tone:
 - `COMMON_SCENARIOS.md` ← quick guide to help you choose the right template
 
 ### User Stories
-Real experiences from people who have used the Burgess Principle are collected in `USER_STORIES.md`. If it helped you, feel free to share your story (anonymously if you prefer) so others know they’re not alone.
+Real experiences from people who have used the Burgess Principle are collected in [`marketing/USER_STORIES.md`](../marketing/USER_STORIES.md). If it helped you, feel free to share your story (anonymously if you prefer) so others know they’re not alone.
 
 ### Memes & Sharing Ideas
 Sometimes a gentle meme or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORT_FORM_VIDEO_SCRIPTS.md` for friendly ways to share.

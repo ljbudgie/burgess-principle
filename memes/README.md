@@ -6,6 +6,21 @@ Welcome to the memes corner of the Burgess Principle project.
 
 The idea is simple: sometimes a gentle, light-hearted meme can explain the principle better than a long letter ever could. We all love a good meme — they travel fast, make people smile, and help the message reach everyday folks who might otherwise never hear about it.
 
+### Contents
+
+- [What these memes are for](#what-these-memes-are-for)
+- [Meme Psychology – Why This Works](#meme-psychology--why-this-works)
+- [Famous Meme Templates for Gentle Advocacy](#famous-meme-templates-for-gentle-advocacy)
+- [Easy Meme Creation Tools](#easy-meme-creation-tools-free--beginner-friendly)
+- [Prompt Engineering Tips](#prompt-engineering-tips)
+- [Example Meme Ideas (text version)](#example-meme-ideas-text-version)
+- [Accessibility Tips for Memes](#accessibility-tips-for-memes)
+- [Sharing on Social Media](#sharing-on-social-media)
+- [Equality Act + Burgess Principle](#equality-act--burgess-principle-for-autistic-people--reasonable-adjustments)
+- [Contributing a Meme](#contributing-a-meme)
+
+---
+
 ### What these memes are for
 They gently remind people (and institutions) that real human attention matters.  
 Every meme is built around the same warm, respectful question at the heart of the project:
@@ -61,11 +76,98 @@ Here are some of the most popular and effective meme formats, adapted in a calm,
 These famous templates are proven to travel well because people already recognise them — they just need the Burgess Principle twist to become gentle advocacy.
 
 ### Easy Meme Creation Tools (free & beginner-friendly)
-(… the rest of the tools and prompt engineering section from before stays exactly the same …)
 
-### Example meme ideas (text version)
+You don't need design skills or expensive software. These free tools make it easy for anyone to create a meme in a few minutes:
+
+| Tool | What it does | Link |
+| --- | --- | --- |
+| **Canva** | Drag-and-drop designer with free meme templates | [canva.com](https://www.canva.com) |
+| **Imgflip** | Classic meme generator — pick a template, add text, done | [imgflip.com/memegenerator](https://imgflip.com/memegenerator) |
+| **Kapwing** | Online image and video editor, great for memes | [kapwing.com](https://www.kapwing.com) |
+| **Grok Imagine** | AI image generation — paste the prompts from this page directly | Available via [grok.com](https://grok.com) |
+| **Microsoft Designer** | Free AI-powered image creator from Microsoft | [designer.microsoft.com](https://designer.microsoft.com) |
+
+> **Tip:** The AI prompts listed alongside each meme template above are ready to paste straight into Grok Imagine or any AI image generator. No editing needed.
+
+---
+
+### Prompt Engineering Tips
+
+Getting the best results from AI image generators is easy once you know the pattern. Here are a few tips:
+
+1. **Be specific about the tone** — Always include words like "warm", "friendly", "wholesome", or "gentle" to keep the output on-brand.
+2. **Describe the layout** — Mention "two-panel", "four stages", "split image", or "top/bottom text" so the AI knows the structure you want.
+3. **Include the caption text** — Put the exact text you want in quotation marks inside the prompt.
+4. **Request clean, readable fonts** — Add "text in clean sans-serif font" or "large readable caption" to avoid messy text rendering.
+5. **Mention warm colours** — "Warm colours", "soft palette", or "friendly colour scheme" keeps everything visually welcoming.
+6. **Add the hashtag** — End your prompt with `#BurgessPrinciple` so it's baked into the design.
+
+> **Example prompt formula:**  
+> *"[Tone] [template name] meme. [Layout description]. [Label/caption text]. [Colour/style notes]. Caption: '[Your caption] #BurgessPrinciple'"*
+
+### Example Meme Ideas (text version)
+
+These are simple text-based meme concepts you can create using any of the tools above. Each one gently communicates the Burgess Principle.
+
 1. **The "Seen or Scanned?" meme**  
-   (Same as before)
+   Top text: "Your case was processed."  
+   Bottom text: "But was it *seen*?"  
+   Image: A pair of eyes looking warmly at a document vs. a barcode scanner.
+
+2. **The "One Question" meme**  
+   Single panel with bold text:  
+   "Before they acted… did a human actually look at *your* specific case?"  
+   Small text below: "That's the Burgess Principle. #BurgessPrinciple"
+
+3. **The "Computer Says No" meme**  
+   Panel 1: Robot stamping "DENIED" on a stack of papers.  
+   Panel 2: Friendly human picking up one paper and reading it carefully.  
+   Caption: "The difference one real person makes. #BurgessPrinciple"
+
+4. **The "Before & After" meme**  
+   Left: A person lost in a sea of identical grey envelopes.  
+   Right: The same person sitting across from a friendly reviewer who's reading their letter.  
+   Caption: "From data point to human being. #BurgessPrinciple"
+
+5. **The "Spot the Difference" meme**  
+   Two identical official letters side by side.  
+   One is labelled "Reviewed by a human" ✅. The other "Generated by a system" ❌.  
+   Caption: "Can you tell? You have the right to ask. #BurgessPrinciple"
+
+---
+
+### Accessibility Tips for Memes
+
+The Burgess Principle is about seeing every individual — so our memes should be accessible to every individual too.
+
+- **Alt text** — When posting a meme online, always add alt text describing the image and its caption. Screen readers rely on it.
+- **Readable fonts** — Use large, clean sans-serif fonts (e.g. Arial, Helvetica, or the platform default). Avoid decorative or handwritten fonts for caption text.
+- **High contrast** — Make sure text is easy to read against the background. White text with a dark outline works on almost any image.
+- **Colour-blind friendly** — Don't rely on colour alone to convey meaning. Use labels, shapes, or icons alongside colour.
+- **Keep it simple** — One clear message per meme. If you need two messages, make two memes.
+
+---
+
+### Sharing on Social Media
+
+Memes work best when they're shared. Here are a few tips for getting the Burgess Principle out there:
+
+**Hashtags to use:**
+- `#BurgessPrinciple` (always)
+- `#HumanReview`
+- `#SeenNotScanned`
+- `#EqualityAct` (when relevant to disability/adjustments)
+
+**Best platforms:**
+- **X (Twitter)** — Great for short captions and quick shares. Keep the caption concise for maximum impact.
+- **Instagram** — Perfect for visual memes. Use hashtags in the first comment to keep the caption clean.
+- **LinkedIn** — Good for reaching professionals and decision-makers. Add a line of context about why human review matters.
+- **Reddit** — Share in relevant communities (e.g. r/legaladviceuk, r/disability, r/ConsumerRights).
+- **Facebook** — Groups related to consumer rights, disability advocacy, or local community pages.
+
+**Tone reminder:** Always keep it warm and respectful — even when the meme is funny. The Burgess Principle wins hearts, not arguments.
+
+---
 
 ### Equality Act + Burgess Principle (for autistic people & reasonable adjustments)
 
@@ -81,9 +183,19 @@ These gentle memes help explain that the Burgess Principle and the Equality Act 
 
 3. "Uplifting cartoon meme: autistic person waving at a computer saying 'Email only please – it's a reasonable adjustment under the Equality Act'. A friendly human reviewer replies with a thumbs-up. Caption: 'Burgess Principle in action: a real human looking at my specific case #BurgessPrinciple'"
 
-Feel free to add any new images you create to this folder.
+---
 
-If you create any new memes, feel free to add the image files to this folder and open a pull request — I'll review them personally with the same care as everything else in the repo.
+### Contributing a Meme
+
+We'd love to see what you create! Here's how to contribute:
+
+1. **Create your meme** using any of the tools above (or your own favourite tool).
+2. **Check the tone** — warm, respectful, and gentle. No sarcasm or anger.
+3. **Add alt text** — write a short description of the image for accessibility.
+4. **Add the image file** to this `memes/` folder in your fork.
+5. **Open a pull request** with a short description of the meme and what it communicates.
+
+I'll review every contribution personally with the same care as everything else in the repo.
 
 Take care,  
 LJ

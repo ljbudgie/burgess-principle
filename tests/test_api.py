@@ -73,3 +73,88 @@ class TestVerifyEndpoint:
         )
         body = resp.json()
         assert body["description"] == "Individual Scrutiny Verified."
+
+    def test_null_response_includes_description(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT, "provided_hash": "b" * 64},
+        )
+        body = resp.json()
+        assert body["description"] == "Information Mismatch / Bulk Noise."
+
+    def test_uppercase_hash_returns_sovereign(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT, "provided_hash": SAMPLE_HASH.upper()},
+        )
+        assert resp.status_code == 200
+        assert resp.json()["status"] == "SOVEREIGN"
+
+    def test_missing_reasoning_text_returns_422(self, client):
+        resp = client.post(
+            "/verify",
+            json={"provided_hash": SAMPLE_HASH},
+        )
+        assert resp.status_code == 422
+
+    def test_missing_provided_hash_returns_422(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT},
+        )
+        assert resp.status_code == 422
+
+    def test_extra_fields_are_ignored(self, client):
+        resp = client.post(
+            "/verify",
+            json={
+                "reasoning_text": SAMPLE_TEXT,
+                "provided_hash": SAMPLE_HASH,
+                "extra_field": "should be ignored",
+            },
+        )
+        assert resp.status_code == 200
+        assert resp.json()["status"] == "SOVEREIGN"
+
+    def test_get_method_not_allowed(self, client):
+        resp = client.get("/verify")
+        assert resp.status_code == 405
+
+    def test_hash_too_short_returns_422(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT, "provided_hash": "abc123"},
+        )
+        assert resp.status_code == 422
+
+    def test_hash_too_long_returns_422(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT, "provided_hash": "a" * 65},
+        )
+        assert resp.status_code == 422
+
+    def test_non_hex_hash_returns_422(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT, "provided_hash": "g" * 64},
+        )
+        assert resp.status_code == 422
+
+    def test_response_keys(self, client):
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": SAMPLE_TEXT, "provided_hash": SAMPLE_HASH},
+        )
+        body = resp.json()
+        assert set(body.keys()) == {"status", "code", "description"}
+
+    def test_unicode_text_via_api(self, client):
+        text = "日本語テスト 🇬🇧"
+        text_hash = hashlib.sha256(text.encode()).hexdigest()
+        resp = client.post(
+            "/verify",
+            json={"reasoning_text": text, "provided_hash": text_hash},
+        )
+        assert resp.status_code == 200
+        assert resp.json()["status"] == "SOVEREIGN"

@@ -31,6 +31,26 @@ A chronological record of every institutional interaction, statutory filing, and
 
 ---
 
+## On-Chain Claims (v0.4.0)
+
+As of v0.4.0, Burgess Claims can be posted on-chain as compact commitment fingerprints. Below is an example testnet claim demonstrating the flow.
+
+### Example: Testnet Claim — Council Tax Enforcement (Simulated)
+
+| Field | Value |
+| --- | --- |
+| **Target** | Example Borough Council |
+| **Category** | `enforcement` |
+| **Network** | Base Sepolia (testnet) |
+| **Commitment hash** | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` (example) |
+| **Signature** | Ed25519, verifiable against claimant's public key |
+| **On-chain data** | Hash + signature + metadata only — no personal facts |
+| **Full details** | Encrypted in local Sovereign Vault |
+
+This entry is a simulated testnet example. Live on-chain claims will be recorded here as they are posted.
+
+---
+
 ## Recent Activity (Most Recent First)
 
 ### 7 April 2026 – UK Home Office & YZY – Burgess Principle Application

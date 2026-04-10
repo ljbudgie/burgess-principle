@@ -8,6 +8,8 @@ All notable changes to this project are documented in this file.
 
 **Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.**
 
+The same binary question — was a human there? — now produces a globally verifiable, tamper-proof artifact. Claims are generated off-chain in the Sovereign Personal Vault exactly as before. Only a compact commitment fingerprint (hash + signature + metadata) reaches the chain. No personal data is stored on-chain. The principle stays the same; the reach becomes universal.
+
 ### Added
 - New `onchain-protocol/` folder with protocol specification (`spec.md`), Solidity smart contract (`BurgessClaimsRegistry.sol`), Python SDK, end-to-end example, and deployment guide.
 - Python SDK (`onchain-protocol/sdk/onchain_claims.py`) with `generate_onchain_claim()`, `verify_onchain_receipt()`, and `verify_commitment()` functions.

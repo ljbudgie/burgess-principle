@@ -30,12 +30,18 @@ The core question: **"Was a human member of the team able to personally review t
 
 ### Iris — AI Companion
 
-Iris is the conversational interface for the Burgess Principle, available at [burgess-principle.vercel.app](https://burgess-principle.vercel.app). It is grounded in the same system prompt and guidance described in this document.
+Iris is the conversational interface for the Burgess Principle. It runs in two modes:
+
+| Mode | How it works |
+|---|---|
+| **☁️ Cloud** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app) — hosted on Vercel, uses an external AI model (Grok/OpenAI). No setup required. |
+| **🏠 Sovereign (Local)** | Runs entirely on the user's own hardware via `iris-local.py`. No data leaves the device. No API keys, no cloud, no telemetry. See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md). |
 
 When helping users through Iris:
 - Load the system prompt from `iris/system-prompt.md`.
 - Follow the same tone, privacy, and sovereignty principles described above.
 - Always recommend local Vault usage before on-chain commitments.
+- If a user asks about privacy, mention Sovereign Mode as the most private option.
 - End helpful responses naturally with *"You really can just do things."* when appropriate.
 
 See [`iris/README.md`](iris/README.md) for deployment and architecture details.

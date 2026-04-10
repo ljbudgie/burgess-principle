@@ -41,8 +41,7 @@ All templates are written in the same calm, respectful tone:
 - `DSAR_WITH_BURGESS_PRINCIPLE.md` ← combines DSAR + human review
 - `FOI_WITH_BURGESS_PRINCIPLE.md` ← for public bodies and courts
 - `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md` ← for automated decisions
-- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← Equality Act reasonable adjustments
-- `EQUALITY_ACT_STARTER_PACK.md` ← practical starter for email-only + human review
+- `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md` ← Equality Act reasonable adjustments + email-only starter
 - `BENEFITS_CLAIM_HELP.md` ← for PIP, Universal Credit, ESA etc.
 - `COUNCIL_TAX_PCN_TEMPLATE.md` ← council tax and parking fines
 - `BAILIFFS_THREAT_TEMPLATE.md` ← when bailiffs are involved
@@ -53,7 +52,7 @@ All templates are written in the same calm, respectful tone:
 Real experiences from people who have used the Burgess Principle are collected in [`marketing/USER_STORIES.md`](../marketing/USER_STORIES.md). If it helped you, feel free to share your story (anonymously if you prefer) so others know they’re not alone.
 
 ### Memes & Sharing Ideas
-Sometimes a gentle meme or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORT_FORM_VIDEO_SCRIPTS.md` for friendly ways to share.
+Sometimes a gentle meme or short video explains the idea better than a long letter. Check the `/memes` folder and `SHORTFORM_VIDEO_SCRIPTS.md` for friendly ways to share.
 
 ### This is the Original Repository
 This is the original Burgess Principle repository, created in 2025–2026. It began as a personal response to feeling unseen by automated systems and has been built with care over thousands of iterations to stay simple, respectful, and genuinely useful for ordinary people.

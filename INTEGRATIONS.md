@@ -20,9 +20,9 @@ Each entry is something the repository already depends on. If you're contributin
 
 | Capability | Tool | Why it's chosen |
 | --- | --- | --- |
-| Hashing | [@noble/hashes](https://github.com/paulmillr/noble-hashes) | Audited, zero-dependency JS hashing — no native bindings required. |
+| Hashing & KDF | [@noble/hashes](https://github.com/paulmillr/noble-hashes) | Audited, zero-dependency JS hashing and PBKDF2 key derivation — no native bindings required. |
 | Elliptic curves | [@noble/curves](https://github.com/paulmillr/noble-curves) | Audited, zero-dependency EC signatures for signed vault receipts. |
-| Legacy crypto helpers | [crypto-js](https://github.com/brix/crypto-js) | Widely adopted utility for supplementary crypto operations. |
+| Authenticated encryption | [Node.js crypto](https://nodejs.org/api/crypto.html) (built-in) | AES-256-GCM via the standard library — no third-party dependency needed. |
 | TypeScript compiler | [TypeScript](https://github.com/microsoft/TypeScript) | Adds type safety to the `iris-gate-person` vault library. |
 
 ## CI / CD & Hosting

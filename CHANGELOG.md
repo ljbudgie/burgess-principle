@@ -4,6 +4,30 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## v0.4.0 — On-Chain Burgess Claims Protocol (10 April 2026)
+
+**Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.**
+
+### Added
+- New `onchain-protocol/` folder with protocol specification (`spec.md`), Solidity smart contract (`BurgessClaimsRegistry.sol`), Python SDK, end-to-end example, and deployment guide.
+- Python SDK (`onchain-protocol/sdk/onchain_claims.py`) with `generate_onchain_claim()`, `verify_onchain_receipt()`, and `verify_commitment()` functions.
+- Ed25519 claim signing and verification via PyNaCl (optional dependency).
+- Solidity contract for EVM L2 chains (Base, Arbitrum, Optimism) — stores only commitment hashes, signatures, and metadata on-chain.
+- TypeScript vault extended with `generateOnchainClaim()` and `verifyOnchainReceipt()` methods.
+- New `/claims/verify` API endpoint for verifying on-chain claim receipts.
+- 41 new tests for the on-chain claims SDK (roundtrip, validation, selective disclosure).
+- End-to-end example (`onchain-protocol/examples/vault_to_chain.py`).
+- Deployment guide for Base Sepolia, Arbitrum Sepolia, and Optimism Sepolia testnets.
+- Updated `README.md`, `INTEGRATIONS.md`, `FOR_AI_MODELS.md` with on-chain protocol documentation.
+
+### Security
+- No personal data stored on-chain — only SHA-256 hashes and Ed25519 signatures.
+- Fresh random nonce per claim for unlinkability.
+- Constant-time comparison for commitment verification.
+- Follows existing cryptographic baseline from SECURITY.md.
+
+---
+
 ## v0.3.0 — Cryptographic Security Patch (10 April 2026)
 
 **Sovereign Personal Vault — Security Patch.** All users of v0.2.0 should upgrade.

@@ -50,8 +50,10 @@ Each entry is something the repository already depends on. If you're contributin
 
 | Capability | Tool | Why it's chosen |
 | --- | --- | --- |
-| Chat API | [OpenAI Python SDK](https://github.com/openai/openai-python) | OpenAI-compatible client used to connect to xAI (Grok), OpenAI, or Anthropic APIs via a single interface. |
+| Chat API (cloud) | [OpenAI Python SDK](https://github.com/openai/openai-python) | OpenAI-compatible client used to connect to xAI (Grok), OpenAI, or Anthropic APIs via a single interface. |
+| Chat API (local) | [llama-cpp-python](https://github.com/abetlen/llama-cpp-python) | Runs GGUF models locally for Sovereign Mode — zero cloud dependency, full privacy. |
 | Serverless runtime | [Vercel Python Runtime](https://vercel.com/docs/functions/runtimes/python) | Lightweight serverless function that serves the Iris chat endpoint without additional infrastructure. |
+| Local server | [FastAPI](https://github.com/fastapi/fastapi) + [Uvicorn](https://github.com/encode/uvicorn) | Powers the Sovereign Mode local HTTP server (`iris-local.py`). |
 | Streaming | Server-Sent Events (SSE) | Native browser support for real-time streaming — no WebSocket overhead or additional dependencies. |
 
 ## AI Integration

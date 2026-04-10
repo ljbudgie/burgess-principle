@@ -4,6 +4,31 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## v0.5.0 — Iris: AI Companion (10 April 2026)
+
+**Iris — a calm, conversational AI companion that helps users apply the Burgess Principle directly from the website.**
+
+The Vercel site at [burgess-principle.vercel.app](https://burgess-principle.vercel.app) is now a working chat interface. Iris applies the binary test, generates personalised templates, guides users through the Sovereign Personal Vault, and explains on-chain claims — all while keeping data sovereignty with the user.
+
+### Added
+- New `iris/` folder with system prompt (`system-prompt.md`), deployment notes (`README.md`), and example conversations.
+- Vercel serverless function (`api/chat.py`) that streams AI responses via Server-Sent Events using the OpenAI-compatible API.
+- Chat interface in `index.html` with sidebar navigation, privacy badge, suggestion buttons, and responsive mobile design.
+- System prompt grounding Iris in the full project philosophy, binary test, templates, Vault guidance, on-chain protocol, and privacy guardrails.
+- `vercel.json` updated with function configuration for the chat endpoint.
+- `requirements.txt` now includes `openai` dependency for the serverless function.
+- Updated `README.md` with "Meet Iris" section and repository map entry.
+- Updated `FOR_AI_MODELS.md` with Iris-specific guidance.
+- Updated `START_HERE.md` to recommend Iris as the conversational interface.
+- Updated `INTEGRATIONS.md` with Iris section and corrected Vercel hosting description.
+
+### Privacy
+- No persistent user data storage — conversation history exists only in the browser session.
+- System prompt enforces: "Your full facts remain in your local Vault. On-chain posts contain only cryptographic commitments."
+- API key is server-side only; never exposed to the client.
+
+---
+
 ## v0.4.0 — On-Chain Burgess Claims Protocol (10 April 2026)
 
 **Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.**

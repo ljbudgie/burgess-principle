@@ -4,18 +4,37 @@
 
 > **You do not need this to use the Burgess Principle.** The human-first templates and the one-question approach work perfectly on their own. This vault is for people who want an extra layer of mathematical proof — without revealing any personal details.
 
-The key capability in **v0.2.0** is **Commitment-Only Mode**: send a single SHA-256 hash instead of personal facts. No details leave your device. Generate a fresh commitment for every request so that no two messages can ever be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
+The key capability in **v0.3.0** is **Commitment-Only Mode**: send a single SHA-256 hash instead of personal facts. No details leave your device. Generate a fresh commitment for every request so that no two messages can ever be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
 
 ## What it does
 
 The Sovereign Personal Vault is a lightweight TypeScript library that lets you:
 
-1. **Generate a commitment** — a SHA-256 hash of your facts that you can share with an institution without revealing any personal details.
-2. **Store the facts of your case** — encrypted on your own device (AES-256-GCM). Nothing leaves your machine.
-3. **Receive a signed receipt** — the institution returns an Ed25519-signed response saying whether a real human reviewed your specific case (`SOVEREIGN`) or not (`NULL`).
+1. **Generate a commitment** — a SHA-256 hash of your facts (with a fresh random salt) that you can share with an institution without revealing any personal details.
+2. **Store the facts of your case** — encrypted on your own device with AES-256-GCM (authenticated encryption, PBKDF2-derived key). Nothing leaves your machine.
+3. **Receive a signed receipt** — the institution returns an Ed25519-signed response saying whether a real human reviewed your specific case (`SOVEREIGN`) or not (`NULL`). Every receipt **must** include a public key — unsigned receipts are rejected.
 4. **Export a tamper-evident record** — a bundle you can keep, share, or present as evidence.
 
 > **Golden rule:** Generate a **fresh** commitment for every request. Never reuse a hash.
+
+## Cryptographic details
+
+| Primitive | Implementation | Purpose |
+|---|---|---|
+| **Commitment** | SHA-256( 32-byte random salt ‖ facts JSON ) | Hiding + binding commitment scheme. Fresh salt each time for unlinkability. |
+| **Local encryption** | AES-256-GCM via Node.js built-in `crypto` | Authenticated encryption of vault contents on disk. Random 12-byte IV, 128-bit auth tag. |
+| **Key derivation** | PBKDF2-SHA-256, 210,000 iterations, 16-byte random salt | Derives AES key from user passphrase. Iteration count follows OWASP 2023 guidance. |
+| **Receipt signatures** | Ed25519 via `@noble/curves` | Institutional receipts must be signed. Missing public key → receipt rejected. |
+| **Canonical serialisation** | Sorted-key JSON (no whitespace) | Prevents concatenation-ambiguity attacks on signed messages. |
+
+### What changed in v0.3.0
+
+- **Replaced CryptoJS** (deprecated, AES-CBC, MD5-based KDF) with Node.js built-in AES-256-GCM.
+- **Proper KDF**: PBKDF2-SHA-256 with 210 000 iterations and per-encryption random salt, replacing a single unsalted SHA-256 hash of the passphrase.
+- **Commitment now hashes plaintext facts + fresh random salt**, not the ciphertext. Commitments are stable and verifiable.
+- **Receipt signature verification is mandatory**: receipts without a `reviewerPubKey` are rejected (previously silently accepted).
+- **Canonical JSON serialisation** for signed messages prevents concatenation ambiguity.
+- **Hex encoding** throughout (replaces fragile `atob`/`btoa` base64 decoding).
 
 ## Who is this for?
 
@@ -69,7 +88,8 @@ import { SovereignVault } from './src/index.js';
 const vault = new SovereignVault("your-strong-passphrase");
 await vault.storeFacts({ situation: "...", requestedAction: "..." });
 const commitment = await vault.generateCommitment();
-await vault.receiveReceipt(signedReceipt);
+const salt = vault.getCommitmentSalt(); // keep this to prove the commitment later
+await vault.receiveReceipt(signedReceipt); // must include reviewerPubKey
 const bundle = await vault.exportRecord();
 ```
 

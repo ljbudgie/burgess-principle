@@ -102,7 +102,7 @@ A chronological record of every institutional interaction, statutory filing, and
 
 ---
 
-*(Full institutional details for all tested entities — including Apple, British Gas/Centrica, Darlington Borough Council, E.ON Next, Equifax, HMCTS / Birmingham Magistrates' Court, HMPO, iC&R, Northumbrian Water, Palantir, Phonak/Sonova, Reddit, Trading 212, TV Licensing, Vanquis, Wave Utilities, and X/Twitter — are maintained in the [Institutional Register](INSTITUTIONAL_REGISTER.md).)*  
+*(Full institutional details for all tested entities — including Apple, British Gas/Centrica, Darlington Borough Council, E.ON Next, Equifax, HMCTS / Birmingham Magistrates' Court, HMPO, Home Office, iC&R, Northumbrian Water, Palantir, Phonak/Sonova, Reddit, Trading 212, TV Licensing, Vanquis, Wave Utilities, and X/Twitter — are maintained in the [Institutional Register](INSTITUTIONAL_REGISTER.md).)*  
 
 ---
 

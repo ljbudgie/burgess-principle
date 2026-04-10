@@ -61,6 +61,7 @@
 - [Integrations](#integrations)
 - [Case Studies](#case-studies)
 - [Core Papers & Documents](#core-papers--documents)
+- [Related Protocols](#related-protocols)
 - [Tutorials & Toolkit](#tutorials--toolkit)
 - [Memes Corner](#memes-corner)
 - [Contributing](#contributing)
@@ -291,6 +292,25 @@ In-depth analysis and doctrine — full versions are in the [`/papers`](./papers
 | [Medical Device Doctrine](papers/MEDICAL_DEVICE_DOCTRINE.md) | Algorithmic medical devices |
 | [US Constitutional Addendum](papers/US_CONSTITUTIONAL_ADDENDUM.md) | Application to US constitutional law |
 | [Responses to Critiques](papers/RESPONSES_TO_CRITIQUES.md) | Addressing common objections |
+
+---
+
+## Related Protocols
+
+Several established anonymous credential systems share goals with the Burgess Principle — privacy, selective disclosure, unlinkability, and user sovereignty:
+
+| Protocol | What It Does |
+| --- | --- |
+| **AnonCreds** (Hyperledger) | Privacy-preserving verifiable credentials with selective disclosure and predicate proofs. |
+| **BBS+ Signatures** | Multi-message signatures enabling unlinkable selective disclosure of individual fields. |
+| **CL-Signatures** | Camenisch–Lysyanskaya signatures underpinning many anonymous credential schemes. |
+| **Idemix** (IBM) | Full anonymous credential system built on CL-signatures with rich zero-knowledge proofs. |
+
+**Where they overlap:** All of these — like the Burgess Principle — put the individual in control of what is revealed and to whom. Privacy, minimal disclosure, and the ability to prove something without over-sharing are common threads.
+
+**Where Burgess diverges:** The protocols above are general-purpose anonymous credential systems designed for broad identity and attribute verification. The Burgess Principle is narrower: it exists to answer one question — *did a real human review the specific facts of my case?* It uses minimal, optional cryptography (a single SHA-256 commitment, a lightweight TypeScript library) rather than heavy proof systems. It is forkable, readable, and designed so that anyone — with or without technical background — can use it immediately.
+
+In short: those systems prove *who you are* privately; Burgess proves *whether you were seen*.
 
 ---
 

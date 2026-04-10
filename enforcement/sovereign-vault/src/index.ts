@@ -65,17 +65,13 @@ function aes256GcmDecrypt(packed: string, passphrase: string): string {
  * and immune to concatenation-ambiguity attacks.
  */
 function canonicalReceiptMessage(receipt: { commitment: string; type: string; date: string; organisation: string }): string {
+  const sortedKeys = ['commitment', 'date', 'organisation', 'type'] as const;
   return JSON.stringify({
     commitment: receipt.commitment,
     date: receipt.date,
     organisation: receipt.organisation,
     type: receipt.type,
-  }, Object.keys({
-    commitment: '',
-    date: '',
-    organisation: '',
-    type: '',
-  }).sort());
+  }, [...sortedKeys]);
 }
 
 // ---------- Public types ----------

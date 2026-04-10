@@ -41,9 +41,8 @@ These folders are for people who want to explore the framework, doctrine, and st
 
 | Folder | What's inside |
 | --- | --- |
-| [`/papers`](./papers) | In-depth legal and policy analysis |
-| [`/governance`](./governance) | Governance structure and certification |
-| [`/marketing`](./marketing) | Commercial strategy and outreach |
+| [`/papers`](./papers) | In-depth legal and policy analysis, licensing structure |
+| [`/marketing`](./marketing) | Commercial strategy, user stories, and outreach |
 | [`/case-studies`](./case-studies) | Real-world examples and outcomes |
 | [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |

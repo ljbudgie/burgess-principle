@@ -276,7 +276,7 @@ In-depth analysis and doctrine — full versions are in the [`/papers`](./papers
 
 - [Tutorials](./tutorials) — Step-by-step guides for getting started
 - [Toolkit](./toolkit) — AI integration, knowledge base, and ready-made prompts for AI assistants
-- [User Stories](USER_STORIES.md) — Real experiences from real people
+- [User Stories](marketing/USER_STORIES.md) — Real experiences from real people
 - [Submit Your Story](marketing/SUBMIT_YOUR_STORY.md) — Share how the Burgess Principle helped you
 
 ---

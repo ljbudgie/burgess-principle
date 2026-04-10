@@ -328,8 +328,8 @@ class TestVerificationResultEdgeCases:
         assert d1 is not d2
 
     def test_negative_value_is_falsy(self):
-        custom = VerificationResult(value=-1, label="X", description="Y")
-        assert bool(custom) is False
+        negative_value_result = VerificationResult(value=-1, label="X", description="Y")
+        assert bool(negative_value_result) is False
 
 
 # ---------------------------------------------------------------------------

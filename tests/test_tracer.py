@@ -276,8 +276,10 @@ class TestDefectAxiomContent:
         assert defect is not None
         assert "corrupted" in defect["axiom"].lower()
 
-    def test_all_defects_have_nonempty_axioms(self):
+    def test_all_defects_have_substantive_axioms(self):
+        # Axioms should be meaningful sentences, not just a few words
+        min_axiom_length = 10
         for defect in DEFECT_SCHEMA:
-            assert len(defect["axiom"].strip()) > 10, (
+            assert len(defect["axiom"].strip()) > min_axiom_length, (
                 f"{defect['id']} axiom is too short"
             )

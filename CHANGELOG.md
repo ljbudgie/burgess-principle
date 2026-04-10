@@ -4,6 +4,31 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## v0.6.0 — Sovereign Local Mode & Hardening (10 April 2026)
+
+**Iris can now run entirely on your own hardware — no cloud, no API keys, no data leaving your device.**
+
+This release adds Sovereign Local Mode for Iris, a modernised chat interface, and significantly expanded test coverage across the codebase.
+
+### Added
+- **Sovereign Local Mode** — `iris-local.py` runs Iris entirely on local hardware using GGUF models via `llama-cpp-python`. No API keys, no cloud, no telemetry. Full instructions in [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md).
+- Platform install scripts: `scripts/install-linux.sh`, `scripts/install-macos.sh`, `scripts/install-windows.ps1` — each installs dependencies and downloads a default model.
+- `iris-config.json` for local mode configuration (model path, context size, port, GPU acceleration).
+- `index.html` now auto-detects localhost and routes API calls to the local server when running in Sovereign Mode.
+- New `local` optional dependency group in `pyproject.toml` (`llama-cpp-python`, `fastapi`, `uvicorn`).
+- Modernised Iris chat UI with improved typography, local-first privacy badge, suggestion buttons, and responsive mobile layout (PR #207).
+- Shared welcome HTML extracted for consistency between cloud and local modes.
+- Comprehensive new tests for `api/chat.py` and `onchain_claims.py` covering edge cases, error handling, and coverage gaps (PR #208).
+- New `tests/test_iris_local.py` test suite for the sovereign local server.
+- 264 tests now passing (up from 218 in v0.5.0).
+
+### Changed
+- `README.md` updated with Sovereign Mode section, dual-mode table (Cloud vs Local), and quick-start commands.
+- `START_HERE.md` updated to mention sovereign local mode.
+- `iris/README.md` updated with local-first architecture diagram and privacy details.
+
+---
+
 ## v0.5.0 — Iris: AI Companion (10 April 2026)
 
 **Iris — a calm, conversational AI companion that helps users apply the Burgess Principle directly from the website.**

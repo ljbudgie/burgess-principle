@@ -20,6 +20,10 @@ The system prompt includes the full project philosophy, binary test, template re
 
 ## Deployment
 
+Iris runs in two modes — cloud and sovereign (local).
+
+### Cloud Mode (Vercel)
+
 Iris is deployed on [Vercel](https://vercel.com) as a serverless application.
 
 ### Environment Variables
@@ -46,6 +50,17 @@ pip install openai
 # Run the Vercel dev server (requires Vercel CLI)
 npx vercel dev
 ```
+
+### Sovereign Mode (Local)
+
+Sovereign Mode runs Iris entirely on your own hardware using a local GGUF model — no API keys, no cloud, no telemetry. See **[SOVEREIGN_MODE.md](../SOVEREIGN_MODE.md)** for full setup instructions.
+
+```bash
+bash scripts/install-linux.sh   # or install-macos.sh / install-windows.ps1
+python3 iris-local.py
+```
+
+The same `index.html` serves both modes — it auto-detects localhost and routes API calls to the local server. Configuration lives in `iris-config.json`.
 
 ---
 

@@ -52,11 +52,11 @@
 - [Origin Story](#origin-story)
 - [How It Works in Practice](#how-it-works-in-practice)
 - [Ready-to-Use Templates](#ready-to-use-templates)
+- [Cryptographic Enforcement Layer](#cryptographic-enforcement-layer-optional)
 - [Domains Covered](#domains-covered)
 - [Works Worldwide](#-does-this-work-outside-the-uk)
 - [Global Legal Equivalents](#️-global-legal-equivalents-quick-reference)
 - [Advanced Applications](#advanced-applications)
-- [Cryptographic Enforcement Layer](#cryptographic-enforcement-layer-optional)
 - [Python Toolkit](#python-toolkit)
 - [Integrations](#integrations)
 - [Case Studies](#case-studies)
@@ -146,6 +146,22 @@ All templates are written in the same calm, respectful tone. Browse the full col
 
 ---
 
+## Cryptographic Enforcement Layer (Optional)
+
+If you want to send an enquiry without revealing any personal facts, this optional tool lets you share only a SHA-256 hash — no details leave your device.
+
+| | Without the vault | With the vault |
+| --- | --- | --- |
+| What you send | A template with your details filled in | Only a SHA-256 hash — your facts stay on your device |
+| Privacy | Institution sees your personal facts | Institution sees nothing but the hash |
+| Proof | Your written record | Written record + tamper-evident cryptographic receipt |
+
+**How it works:** The small TypeScript library in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault) generates a fresh commitment for every request so that no two messages can be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
+
+For most everyday situations the warm, human-first templates are all you need. The vault is a calm, optional backup — always under your control. See the [Sovereign Personal Vault README](./enforcement/sovereign-vault/README.md) for a gentle introduction and quick-start example.
+
+---
+
 ## Domains Covered
 
 | Domain | Example Instrument | The Simple Question |
@@ -199,24 +215,6 @@ The Burgess Principle is designed to work at every scale — from everyday burea
 - **Laws, Warfare & Autonomous Systems** — For drone targeting, Lethal Autonomous Weapon Systems (LAWS), and other military/AI contexts where individual human oversight is critical.
 
 These advanced templates maintain the same calm, respectful tone while adapting the core question to more complex environments.
-
----
-
-## Cryptographic Enforcement Layer (Optional)
-
-For most everyday situations the warm, human-first templates are all you need.
-
-When you want an extra layer of mathematical accountability — something that creates clear, independently verifiable proof — there is an optional enforcement tool.
-
-It lives in [`/enforcement/sovereign-vault`](./enforcement/sovereign-vault).
-
-This small library (`iris-gate-person`) keeps all your personal details on your own device and lets organisations send you signed receipts stating whether a real human reviewed the specific facts of *your* case.
-
-**Commitment-only mode (v0.2.0):** You can now send only a single SHA-256 hash — no personal facts leave your device. Generate a fresh commitment for every request so that no two messages can be linked together. A standalone generator (`src/generate-commitment.ts`) and a placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
-
-It feels like a calm, optional backup — never aggressive, always under your control.
-
-See the [Sovereign Personal Vault README](./enforcement/sovereign-vault/README.md) for a gentle introduction and quick-start example.
 
 ---
 

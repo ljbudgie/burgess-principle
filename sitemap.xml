@@ -8,5 +8,11 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Optional: you can add any future pages here (e.g. if you ever add /papers or /about) -->
+  <!-- AI model discovery file -->
+  <url>
+    <loc>https://burgess-principle.vercel.app/llms.txt</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

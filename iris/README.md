@@ -49,27 +49,65 @@ npx vercel dev
 
 ---
 
-## Architecture
+## Local-First Architecture
+
+Iris is **local-first by design**. Conversations remain entirely in the user's browser unless the user explicitly sends a message that requires the backend for model inference. Nothing is stored server-side by default.
 
 ```
-index.html          →  Chat UI (vanilla HTML/CSS/JS)
-api/chat.py         →  Vercel serverless function (Python)
-iris/system-prompt.md →  System prompt (loaded at runtime)
+┌──────────────────────────────────────────────────────────┐
+│                     User's Browser                       │
+│                                                          │
+│  index.html ─── Chat UI (vanilla HTML/CSS/JS)            │
+│       │                                                  │
+│       ├── Conversation history (in-memory, client-side)  │
+│       ├── Export conversation (local download only)       │
+│       └── Clear chat (wipes in-memory state)             │
+│                                                          │
+│  ┌────────────────────────────────────────────────────┐   │
+│  │  🛡️  All state lives here. Nothing leaves without  │   │
+│  │     explicit user action (pressing Send).          │   │
+│  └────────────────────────────────────────────────────┘   │
+└────────────────────┬─────────────────────────────────────┘
+                     │  Only when user sends a message
+                     ▼
+         ┌───────────────────────┐
+         │   Vercel Serverless   │
+         │    api/chat.py        │
+         │                       │
+         │  • Loads system prompt│
+         │  • Forwards messages  │
+         │  • Streams response   │
+         │  • No storage         │
+         └───────────┬───────────┘
+                     │
+                     ▼
+         ┌───────────────────────┐
+         │   AI Model (Grok)     │
+         │   via OpenAI API      │
+         └───────────────────────┘
 ```
 
-The frontend sends user messages to `/api/chat`, which:
-1. Loads the system prompt from `iris/system-prompt.md`.
-2. Sends the conversation to the configured AI model.
-3. Streams the response back to the frontend via Server-Sent Events.
+### Data flow
+
+1. Conversation history is held **in-memory in the browser only**.
+2. When the user presses Send, the current message (plus conversation context) is sent to `/api/chat`.
+3. The serverless function adds the system prompt and forwards to the AI model.
+4. The response streams back via Server-Sent Events.
+5. **No data is persisted on any server.** The serverless function is stateless.
+6. Users can export their conversation locally as Markdown, or clear chat to wipe all state.
 
 ---
 
 ## Privacy
 
-- Iris helps create sovereign claims. Your full facts remain in your local Vault.
-- On-chain posts contain only cryptographic commitments.
-- No persistent user data storage without explicit consent.
-- Conversation history exists only in the browser session and is not stored server-side.
+Iris keeps everything on your hardware by default — **sovereign by design**.
+
+- **Local-first:** All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing.
+- **Minimal data transfer:** Only the current conversation context is sent to the backend. Full claim details never leave your device.
+- **No server-side storage:** The serverless function is stateless — it processes and forgets.
+- **User-controlled export:** You can download your conversation as a Markdown file locally. No cloud upload.
+- **On-chain commitments only:** If using on-chain claims, only cryptographic fingerprints (hash + signature) are posted. No personal data touches the blockchain.
+- **No tracking, no cookies, no analytics.**
 
 ---
 

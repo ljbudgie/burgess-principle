@@ -14,6 +14,8 @@ That's it. No legal training. No confrontation. Just a clear, written record tha
 
 You can also explore the principle on the website and talk to **Iris**, the AI companion: **[burgess-principle.vercel.app](https://burgess-principle.vercel.app)**
 
+> 🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversations stay in your browser. Nothing is stored on any server unless you explicitly send a message. You really can just do things.
+
 ---
 
 ## What do I do first?

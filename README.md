@@ -31,7 +31,9 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 
 ## Meet Iris
 
-**[Iris](https://burgess-principle.vercel.app)** is the AI companion for the Burgess Principle — a calm, conversational interface that helps you apply the binary test, generate personalised templates, and walk through the Sovereign Personal Vault. Your data stays with you; Iris only helps.
+**[Iris](https://burgess-principle.vercel.app)** is the AI companion for the Burgess Principle — a calm, conversational interface that helps you apply the binary test, generate personalised templates, and walk through the Sovereign Personal Vault.
+
+🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.
 
 👉 **[Talk to Iris →](https://burgess-principle.vercel.app)**
 

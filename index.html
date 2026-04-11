@@ -2093,6 +2093,7 @@
         const API_PROFILE_URL = _isLocal ? `${window.location.origin}/api/my-profile` : '';
         const VAULT_DB_NAME = 'burgess-principle-vault';
         const VAULT_DB_VERSION = 1;
+        const VAULT_VERSION = '1.0.0';
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
         const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
@@ -2324,7 +2325,7 @@
             const publicKeyHex = bytesToHex(publicKeyBytes);
             const keyFingerprint = (await sha256Hex(publicKeyBytes)).slice(0, 16);
             const profile = {
-                version: '1.0.0',
+                version: VAULT_VERSION,
                 name: payload.name,
                 handle: payload.handle || 'ljbudgie',
                 preferred_signature_block: payload.preferred_signature_block || `${payload.name} [Burgess Principle]`,
@@ -2746,7 +2747,7 @@
 
         async function exportVault() {
             const bundle = {
-                version: '1.0.0',
+                version: VAULT_VERSION,
                 exported_at: new Date().toISOString(),
                 profile: await loadStoredProfile(),
                 personalIdentitySummary: await vaultStore.getSetting(PERSONAL_IDENTITY_SUMMARY_KEY),

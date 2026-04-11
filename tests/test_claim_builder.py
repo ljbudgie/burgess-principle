@@ -7,6 +7,7 @@ import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import pytest
@@ -59,6 +60,16 @@ def test_classify_scenario_reads_fast_match_table():
         "I want to reference a hash, signature, receipt, or on-chain claim"
     )
     assert scenario["score"] > 0
+
+
+def test_module_raises_import_error_when_spec_loader_is_missing():
+    with patch.object(
+        claim_builder.importlib.util,
+        "spec_from_file_location",
+        return_value=SimpleNamespace(loader=None),
+    ):
+        with pytest.raises(ImportError, match="Could not load on-chain claims module"):
+            claim_builder._module()
 
 
 def test_public_helpers_generate_and_encrypt_claim(tmp_path):
@@ -226,6 +237,23 @@ def test_generate_commitment_uses_supplied_signing_key(tmp_path):
     ).valid is True
 
 
+def test_generate_commitment_raises_when_receipt_verification_fails(tmp_path):
+    profile = _build_profile(tmp_path)
+
+    with patch.object(
+        claim_builder._ONCHAIN_CLAIMS,
+        "verify_onchain_receipt",
+        return_value=SimpleNamespace(valid=False),
+    ):
+        with pytest.raises(ValueError, match="Generated commitment failed verification"):
+            claim_builder.generate_commitment(
+                "Human review request for my frozen exchange account.",
+                profile,
+                category="exchange",
+                target_entity=profile["institution_name"],
+            )
+
+
 def test_encrypt_to_vault_round_trips_payload_and_rejects_wrong_passphrase(tmp_path):
     profile = _build_profile(tmp_path)
     payload = {
@@ -265,7 +293,38 @@ def test_encrypt_to_vault_round_trips_payload_and_rejects_wrong_passphrase(tmp_p
         )
 
 
+def test_encrypt_to_vault_requires_passphrase(tmp_path):
+    profile = _build_profile(tmp_path)
+    profile.pop("vault_passphrase")
+
+    with pytest.raises(
+        ValueError,
+        match="profile must include vault_passphrase to save an encrypted letter",
+    ):
+        claim_builder.encrypt_to_vault(
+            {"created_at": "2026-04-11T12:00:00+00:00", "letter": "proof letter"},
+            profile,
+            "REQUEST_FOR_HUMAN_REVIEW.md",
+        )
+
+
 class TestAutoGenerateClaim:
+    @pytest.mark.parametrize(
+        ("user_query", "profile"),
+        [
+            ("", {}),
+            ("   ", {}),
+            (None, {}),  # type: ignore[arg-type]
+            ("Need a letter", None),  # type: ignore[arg-type]
+        ],
+    )
+    def test_rejects_invalid_inputs(self, user_query, profile):
+        with pytest.raises(
+            ValueError,
+            match="user_query must be a non-empty string and profile must be a dict",
+        ):
+            auto_generate_claim(user_query, profile)
+
     def test_crypto_exchange_flow_generates_signed_vault_record(self, tmp_path):
         profile = _build_profile(tmp_path)
 

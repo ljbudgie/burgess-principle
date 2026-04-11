@@ -213,9 +213,11 @@ def setup_personal_profile(
     if path.exists():
         profile = load_personal_profile(vault_passphrase, root=root)
         return {"created": False, "stored_path": str(path), "profile": summarize_personal_profile(profile)}
+    if not name:
+        raise ValueError("name must be a non-empty string")
 
     created_profile = build_personal_profile(
-        name=name or "",
+        name=name,
         handle=handle,
         preferred_signature_block=preferred_signature_block,
         private_key_hex=private_key_hex,

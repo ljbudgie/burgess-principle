@@ -2094,6 +2094,7 @@
         const VAULT_DB_NAME = 'burgess-principle-vault';
         const VAULT_DB_VERSION = 1;
         const VAULT_VERSION = '1.0.0';
+        // Keep 0.9.0 import support so earlier sovereign phone vault exports still restore cleanly.
         const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
@@ -2277,7 +2278,7 @@
 
         function hexToBytes(value) {
             if (typeof value !== 'string' || !/^[0-9a-f]+$/i.test(value) || value.length % 2 !== 0) {
-                throw new Error('Stored personal identity signature is invalid.');
+                throw new Error('Personal identity hex encoding is invalid.');
             }
             return new Uint8Array(value.match(/.{1,2}/g).map(chunk => parseInt(chunk, 16)));
         }
@@ -2784,7 +2785,9 @@
                 throw new Error('Invalid vault file.');
             }
             if (payload.version && !SUPPORTED_VAULT_IMPORT_VERSIONS.includes(payload.version)) {
-                throw new Error(`Unsupported vault version: ${payload.version}`);
+                throw new Error(
+                    `Unsupported vault version: ${payload.version}. Supported versions: ${SUPPORTED_VAULT_IMPORT_VERSIONS.join(', ')}`
+                );
             }
             if (payload.profile) {
                 await vaultStore.saveSetting('claim-profile', payload.profile);

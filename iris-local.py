@@ -196,7 +196,7 @@ def create_app(system_prompt: str) -> FastAPI:
         """Generate a sovereign local claim package from a user query and profile."""
         try:
             body = await request.json()
-        except Exception:
+        except (json.JSONDecodeError, UnicodeDecodeError):
             return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
 
         query = body.get("query")
@@ -217,7 +217,7 @@ def create_app(system_prompt: str) -> FastAPI:
                 else "Invalid claim generation request."
             )
             return JSONResponse({"error": error}, status_code=400)
-        except Exception:
+        except (OSError, RuntimeError):
             log.exception("Claim generation failed for local query.")
             return JSONResponse(
                 {"error": "Claim generation failed. Check the server logs for details."},

@@ -16,7 +16,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-_GENERATE_CLAIM_RESPONSE = {"letter": "# Letter", "commitment_hash": "abc123"}
+_MOCK_CLAIM_DATA = {"letter": "# Letter", "commitment_hash": "abc123"}
 
 # ---------------------------------------------------------------------------
 # Module-level import — load iris-local.py by path (it's not a package)
@@ -331,14 +331,14 @@ class TestGenerateClaimEndpoint:
     def test_successful_response_returns_claim_and_markdown(self):
         if not self.has_client:
             pytest.skip("starlette.testclient not available")
-        with patch.object(_mod, "auto_generate_claim", return_value=_GENERATE_CLAIM_RESPONSE) as mock_auto:
+        with patch.object(_mod, "auto_generate_claim", return_value=_MOCK_CLAIM_DATA) as mock_auto:
             response = self.client.post(
                 "/api/generate-claim",
                 json={"query": "Need a letter", "profile": {"vault_passphrase": "secret"}},
             )
         assert response.status_code == 200
         assert response.json() == {
-            "claim": _GENERATE_CLAIM_RESPONSE,
+            "claim": _MOCK_CLAIM_DATA,
             "letter_markdown": "# Letter",
         }
         mock_auto.assert_called_once_with(

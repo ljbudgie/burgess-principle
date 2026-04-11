@@ -30,6 +30,7 @@ _chat_mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_chat_mod)
 
 _load_system_prompt = _chat_mod._load_system_prompt
+_get_client = _chat_mod._get_client
 handler = _chat_mod.handler
 
 
@@ -405,4 +406,43 @@ class TestDoPostSuccess:
         # Each SSE data line should start with "data: "
         for line in lines:
             assert line.startswith("data: ")
+
+
+# ---------------------------------------------------------------------------
+# _get_client
+# ---------------------------------------------------------------------------
+
+class TestGetClient:
+    def test_returns_openai_client(self):
+        """_get_client creates an OpenAI client with env vars."""
+        mock_openai_cls = MagicMock()
+        mock_module = MagicMock(OpenAI=mock_openai_cls)
+        with patch.dict(os.environ, {"IRIS_API_KEY": "test-key", "IRIS_BASE_URL": "https://custom.api/v1"}):
+            with patch.dict("sys.modules", {"openai": mock_module}):
+                _get_client()
+        mock_openai_cls.assert_called_once_with(
+            api_key="test-key",
+            base_url="https://custom.api/v1",
+        )
+
+    def test_defaults_base_url(self):
+        """_get_client uses default base_url when IRIS_BASE_URL is unset."""
+        mock_openai_cls = MagicMock()
+        mock_module = MagicMock(OpenAI=mock_openai_cls)
+        env = {"IRIS_API_KEY": "key-123"}
+        with patch.dict(os.environ, env, clear=True):
+            with patch.dict("sys.modules", {"openai": mock_module}):
+                _get_client()
+        call_kwargs = mock_openai_cls.call_args
+        assert call_kwargs.kwargs["base_url"] == "https://api.x.ai/v1"
+
+    def test_empty_api_key_when_unset(self):
+        """_get_client passes empty string when IRIS_API_KEY is unset."""
+        mock_openai_cls = MagicMock()
+        mock_module = MagicMock(OpenAI=mock_openai_cls)
+        with patch.dict(os.environ, {}, clear=True):
+            with patch.dict("sys.modules", {"openai": mock_module}):
+                _get_client()
+        call_kwargs = mock_openai_cls.call_args
+        assert call_kwargs.kwargs["api_key"] == ""
 

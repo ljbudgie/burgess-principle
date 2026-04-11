@@ -48,6 +48,10 @@ All templates are written in the same calm, respectful tone:
 - `acknowledgment_email_template.txt` ← polite follow-ups
 - `COMMON_SCENARIOS.md` ← quick guide to help you choose the right template
 
+### New Templates for Cryptography & Cryptocurrency
+- `CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md` ← for exchange account freezes, withdrawal holds, source-of-funds checks, or compliance reviews
+- `CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md` ← for disputes where you want to reference a commitment hash, signature, receipt, or on-chain claim without exposing all personal details up front
+
 ### User Stories
 Real experiences from people who have used the Burgess Principle are collected in [`marketing/USER_STORIES.md`](../marketing/USER_STORIES.md). If it helped you, feel free to share your story (anonymously if you prefer) so others know they’re not alone.
 

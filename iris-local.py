@@ -26,6 +26,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from iris.claim_builder import auto_generate_claim, queue_onchain_fingerprint
+from iris.sovereign_profile import (
+    load_personal_profile_summary,
+    setup_personal_profile,
+)
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -126,9 +130,10 @@ def load_model(cfg: dict):
 # ---------------------------------------------------------------------------
 
 
-def create_app(system_prompt: str) -> FastAPI:
+def create_app(system_prompt: str, personal_profile: dict | None = None) -> FastAPI:
     """Build the FastAPI app that serves the local chat API."""
     app = FastAPI(title="Iris Local", docs_url=None, redoc_url=None)
+    app.state.personal_profile = personal_profile
 
     app.add_middleware(
         CORSMiddleware,
@@ -268,6 +273,56 @@ def create_app(system_prompt: str) -> FastAPI:
 
         return JSONResponse({"queued_fingerprint": queued}, status_code=202)
 
+    @app.get("/api/my-profile")
+    async def get_my_profile():
+        """Return the auto-loaded public sovereign profile summary."""
+        return JSONResponse({"profile": app.state.personal_profile})
+
+    @app.post("/api/my-profile/setup")
+    async def setup_my_profile(request: Request):
+        """Create or load the sovereign personal profile stored in the local vault."""
+        try:
+            body = await request.json()
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+
+        vault_passphrase = str(body.get("vault_passphrase", "")).strip()
+        if not vault_passphrase:
+            return JSONResponse(
+                {"error": "vault_passphrase must be a non-empty string."},
+                status_code=400,
+            )
+
+        existing_profile = load_personal_profile_summary()
+        name = str(body.get("name", "")).strip()
+        if existing_profile is None and not name:
+            return JSONResponse(
+                {"error": "name must be a non-empty string when creating a new profile."},
+                status_code=400,
+            )
+
+        try:
+            result = setup_personal_profile(
+                vault_passphrase=vault_passphrase,
+                name=name or None,
+                handle=str(body.get("handle", "ljbudgie")).strip() or "ljbudgie",
+                preferred_signature_block=str(body.get("preferred_signature_block", "")).strip() or None,
+                private_key_hex=str(body.get("private_key_hex", "")).strip() or None,
+            )
+        except FileNotFoundError:
+            return JSONResponse({"error": "No local personal profile exists yet."}, status_code=404)
+        except ValueError as exc:
+            return JSONResponse({"error": str(exc)}, status_code=400)
+        except OSError:
+            log.exception("Personal profile setup failed due to an I/O error.")
+            return JSONResponse(
+                {"error": "Personal profile setup failed. Check the server logs for details."},
+                status_code=500,
+            )
+
+        app.state.personal_profile = result["profile"]
+        return JSONResponse(result)
+
     # Serve index.html at root
     @app.get("/")
     async def serve_index():
@@ -344,7 +399,17 @@ def main(argv: list[str] | None = None) -> None:
     load_model(cfg)
 
     # Create app
-    app = create_app(system_prompt)
+    personal_profile = load_personal_profile_summary()
+    if personal_profile:
+        log.info(
+            "Loaded sovereign profile for %s (%s).",
+            personal_profile["name"],
+            personal_profile["key_fingerprint"],
+        )
+    else:
+        log.info("No sovereign personal profile found yet. Use Setup My Identity to create one.")
+
+    app = create_app(system_prompt, personal_profile=personal_profile)
 
     port = cfg["port"]
 

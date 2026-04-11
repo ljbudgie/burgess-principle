@@ -25,7 +25,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
-from iris.claim_builder import auto_generate_claim
+from iris.claim_builder import auto_generate_claim, queue_onchain_fingerprint
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -236,6 +236,34 @@ def create_app(system_prompt: str) -> FastAPI:
                 "letter_markdown": claim["letter"],
             }
         )
+
+    @app.post("/api/queue-onchain-fingerprint")
+    async def queue_onchain_claim_fingerprint(request: Request):
+        """Queue a minimal fingerprint package for privacy-first background posting."""
+        try:
+            body = await request.json()
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+
+        fingerprint = body.get("fingerprint")
+        if not isinstance(fingerprint, dict):
+            return JSONResponse(
+                {"error": "fingerprint must be an object."},
+                status_code=400,
+            )
+
+        try:
+            queued = queue_onchain_fingerprint(fingerprint)
+        except ValueError as exc:
+            return JSONResponse({"error": str(exc)}, status_code=400)
+        except OSError:
+            log.exception("Fingerprint queueing failed due to an I/O error.")
+            return JSONResponse(
+                {"error": "Fingerprint queueing failed. Check the server logs for details."},
+                status_code=500,
+            )
+
+        return JSONResponse({"queued_fingerprint": queued}, status_code=202)
 
     # Serve index.html at root
     @app.get("/")

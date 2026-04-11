@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Burgess Principle — a framework for holding institutions accountable. Was a human member of the team able to personally review the specific facts of my situation?">
+    <meta name="description" content="The Burgess Principle — a calm human-review framework with Iris, Sovereign Local Mode, phone-first claim flows, and Mirror Mode for local identity reflection.">
     <meta name="author" content="The Burgess Principle">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://burgess-principle.vercel.app">
@@ -13,10 +13,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://burgess-principle.vercel.app">
     <meta property="og:site_name" content="The Burgess Principle">
+    <meta property="og:image" content="https://burgess-principle.vercel.app/banner.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Burgess Principle — Was a human there?">
-    <meta name="twitter:description" content="A calm, respectful framework for holding institutions accountable. Talk to Iris, your AI companion.">
+    <meta name="twitter:description" content="A calm, respectful framework for holding institutions accountable. Talk to Iris, use Sovereign Local Mode, and enable Mirror Mode on your own hardware.">
+    <meta name="twitter:image" content="https://burgess-principle.vercel.app/banner.png">
     <meta name="theme-color" content="#0a0a0a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -203,6 +205,19 @@
             margin: 0 auto 40px;
             line-height: 1.7;
         }
+
+        .hero-note {
+            margin-top: 18px;
+            color: var(--text-dim);
+            font-size: 0.92rem;
+        }
+
+        .hero-note a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .hero-note a:hover { color: var(--gold-bright); }
 
         .hero-actions {
             display: flex;
@@ -1530,15 +1545,16 @@
 
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">UK Certification Mark: UK00004343685</div>
+            <div class="hero-badge">Latest release: v1.1.1 · Mirror Mode now available in Sovereign Local Mode</div>
             <h1>Was a human <em>there?</em></h1>
             <p class="hero-sub">
-                A calm, respectful framework that helps ordinary people hold institutions accountable by asking one question: did a real human being actually look at my case?
+                A calm, respectful framework that helps ordinary people hold institutions accountable by asking one question: did a real human being actually look at my case? Start instantly in the hosted site, or switch to Sovereign Local Mode for on-device claim flows and optional Mirror Mode.
             </p>
             <div class="hero-actions">
                 <button class="btn-primary" onclick="showChat()">💬 Talk to Iris</button>
                 <a class="btn-secondary" href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md" target="_blank" rel="noopener">📖 Start Here</a>
             </div>
+            <p class="hero-note">Read the <a href="https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1" target="_blank" rel="noopener">v1.1.1 release notes</a> or the <a href="https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md" target="_blank" rel="noopener">Sovereign Mode guide</a>.</p>
         </section>
 
         <!-- Stats -->
@@ -1600,7 +1616,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <div class="feature-title">Sovereign Personal Vault</div>
-                    <p class="feature-desc">On-device AES-256-GCM encryption, SHA-256 commitments, and Ed25519-signed receipts. Mathematical proof, stored on your hardware.</p>
+                    <p class="feature-desc">On-device encryption, SHA-256 commitments, Ed25519-signed receipts, and optional Mirror Mode so Iris can reuse your local sovereign profile on your hardware.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⛓️</div>
@@ -1706,7 +1722,7 @@
         <!-- CTA -->
         <section class="cta-section">
             <h2>Ready to ask the question?</h2>
-            <p>Iris helps you apply the Burgess Principle — calmly, practically, and on your terms. Your data stays with you.</p>
+            <p>Iris helps you apply the Burgess Principle — calmly, practically, and on your terms. Use the hosted site instantly or enable Mirror Mode locally so your device identity carries into new claim flows.</p>
             <div class="hero-actions">
                 <button class="btn-primary" onclick="showChat()">💬 Talk to Iris</button>
                 <a class="btn-secondary" href="https://github.com/ljbudgie/burgess-principle" target="_blank" rel="noopener">⭐ View on GitHub</a>
@@ -1803,8 +1819,8 @@
                 <div class="input-area">
                     <div class="voice-status" id="voiceStatus" role="status" aria-live="polite">Voice ready when your browser supports on-device speech recognition.</div>
                     <details class="claim-profile-panel" id="claimProfilePanel">
-                        <summary>Claim profile &amp; phone settings</summary>
-                        <p class="claim-profile-desc">Stored locally on this device so the phone can generate, sign, save, export, and restore sovereign claims offline.</p>
+                        <summary>Claim profile, Mirror Mode &amp; phone settings</summary>
+                        <p class="claim-profile-desc">Stored locally on this device so the phone can generate, sign, save, export, restore, and optionally mirror sovereign claims offline from your local identity.</p>
                         <div class="claim-profile-grid">
                             <div class="claim-field"><label for="profileIdentityName">Setup My Identity</label><input id="profileIdentityName" type="text" autocomplete="name" placeholder="Lewis"></div>
                             <div class="claim-field"><label for="profileIdentityHandle">Handle</label><input id="profileIdentityHandle" type="text" placeholder="ljbudgie"></div>
@@ -2125,6 +2141,7 @@
         const CLAIM_KEYWORDS_PATTERN = /(claim|freeze|froze|exchange|withdrawal|benefit|bailiff|penalty|review|human review)/i;
         const QUICK_ACTION_PROMPTS = {
             'new-claim': 'Please help me generate a new Burgess claim and save it to my sovereign vault.',
+            'mirror-claim': 'Please help me generate a new Burgess claim using Mirror Mode on this device.',
             'crypto-exchange': 'My crypto exchange just froze my account and blocked withdrawals. Please generate the right Burgess claim.',
             'direct-debit': 'A direct debit refund issue needs a human review. Please generate the right Burgess claim.',
             'benefits': 'My benefits decision needs a human review. Please generate the right Burgess claim.',
@@ -2188,6 +2205,20 @@
         function getMirrorGreeting(summary = personalIdentitySummary) {
             if (!isMirrorModeActive(summary)) return '';
             return summary.mirror_greeting || `Hey ${summary.name} — Mirror Mode active. What’s happening on your hardware?`;
+        }
+
+        function getMirrorClaimCtaLabel(summary = personalIdentitySummary) {
+            if (!isMirrorModeActive(summary)) return '+ New Claim';
+            return `Mirror Claim as ${summary.name}`;
+        }
+
+        function syncMirrorClaimCtas(summary = personalIdentitySummary) {
+            const label = getMirrorClaimCtaLabel(summary);
+            newClaimFab.textContent = label;
+            newClaimFab.setAttribute(
+                'aria-label',
+                isMirrorModeActive(summary) ? `Create a mirrored claim as ${summary.name}` : 'Create a new claim'
+            );
         }
 
         function getWelcomeHtml() {
@@ -2557,6 +2588,7 @@
             if (!speechRecognition || speechMode === 'idle') {
                 setVoiceStatus(greeting || DEFAULT_VOICE_STATUS, '');
             }
+            syncMirrorClaimCtas(personalIdentitySummary);
             if (conversationHistory.length === 0) {
                 renderWelcomeScreen();
             }
@@ -2963,6 +2995,9 @@
         });
 
         function getShortcutPrompt(shortcut) {
+            if (shortcut === 'mirror-claim' && isMirrorModeActive()) {
+                return `Please help me generate a new Burgess claim in Mirror Mode as ${personalIdentitySummary.name}, using my local sovereign profile on this device.`;
+            }
             return QUICK_ACTION_PROMPTS[shortcut] || QUICK_ACTION_PROMPTS['new-claim'];
         }
 

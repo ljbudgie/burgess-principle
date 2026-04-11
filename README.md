@@ -4,7 +4,7 @@
 
 One question. Binary test. Human review over automation.
 
-The Burgess Principle is a simple, respectful framework that helps ordinary people hold institutions accountable — by asking whether a real human being actually looked at their case. Today, the framework's AI companion, **Iris**, can run entirely on your own hardware in **Sovereign Local Mode**, generate complete claims on-device, and work as a phone-first installable PWA — no cloud, no API keys, no data leaving your device.
+The Burgess Principle is a simple, respectful framework that helps ordinary people hold institutions accountable — by asking whether a real human being actually looked at their case. Today, the framework's AI companion, **Iris**, can run entirely on your own hardware in **Sovereign Local Mode**, generate complete claims on-device, work as a phone-first installable PWA, and optionally activate **Mirror Mode** so local claim flows start from your own hardware-linked sovereign profile — no cloud, no API keys, no data leaving your device.
 
 **UK Certification Mark:** UK00004343685 — Classes 41, 42, 45
 **Live site & installable PWA:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)
@@ -22,6 +22,8 @@ The Burgess Principle is a simple, respectful framework that helps ordinary peop
 | **[v0.7.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.7.0)** | Financial & crypto expansion — new banking, crypto exchange, and cryptographic proof flows plus streamlined template discovery. |
 | **[v0.8.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.8.0)** | Iris Auto-Generator + Claim Builder — turn a natural-language scenario into a filled, signed, Vault-saved claim. |
 | **[v0.9.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0)** | Phone as Sovereign Advocate — installable mobile PWA, voice-first claim flow, and local phone vault workflow. |
+| **[v.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v.1.0)** | First Contact — personal sovereign identity setup for local-first claim workflows. |
+| **[v1.1.1](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1)** | Mirror Mode — local identity reflection, hardware-linked greeting flow, and documentation/site refresh for Sovereign Mode. |
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history.
 
@@ -54,6 +56,7 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 - Generates respectful letters and templates from a natural-language description of what happened
 - Helps you document interactions, build complete claims, and save them into your local Vault
 - Supports phone-first export/import flows, installable PWA shortcuts, and voice-led claim capture
+- Supports local personal identity setup and optional Mirror Mode so claim flows can start from your hardware-linked profile
 - Supports cryptographic signing and optional on-chain fingerprinting
 - Runs fully offline in Sovereign Mode while still offering a fast hosted cloud entry point
 
@@ -81,6 +84,7 @@ Full instructions: **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)**
 
 **Current highlights:**
 - Landing page + chat experience in one hosted site, with smooth switching between framework overview and Iris
+- Mirror Mode in Sovereign Local Mode — save a local Ed25519-backed profile once, then let Iris greet and frame local claim flows from your device identity
 - Automatic claim building, signing, and Vault save flows in Sovereign Local Mode
 - Installable phone experience with voice-first capture, local mobile vault workflow, and quick-start claim actions
 - Clear dual-mode architecture (Cloud vs Local), with Sovereign Mode remaining local-first
@@ -100,9 +104,9 @@ Run **Iris** — your conversational AI companion — entirely on your own hardw
 - Full GGUF model support via `llama-cpp-python`
 - Cross-platform install scripts (Linux/macOS/Windows)
 - Clean local chat UI with privacy badge
-- Phone setup path via installable PWA and local vault sync tools
+- Phone setup path via installable PWA, local vault sync tools, and optional Mirror Mode identity setup
 
-See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for setup (one-command install + `python3 iris-local.py`), including the **Phone Setup** section for the mobile PWA workflow.
+See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for setup (one-command install + `python3 iris-local.py`), including the **Phone Setup** and **Mirror Mode** sections for the mobile PWA workflow.
 
 ### ☁️ Cloud Mode
 
@@ -215,7 +219,7 @@ Local Vault              Commitment              EVM L2                 Verifiab
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute — including good first issues |
 | [`SECURITY.md`](SECURITY.md) | Security policy and cryptographic baseline |
 
-**Latest stable release:** [v0.9.0 — Phone as Sovereign Advocate](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0) (11 April 2026)
+**Latest stable release:** [v1.1.1 — Mirror Mode: Hardware Identity Reflection](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1) (11 April 2026)
 
 ---
 

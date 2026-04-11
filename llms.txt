@@ -3,6 +3,7 @@
 > A minimalist, human-first framework that helps individuals demand real human review from automated systems and institutions.
 
 Live site / PWA: https://burgess-principle.vercel.app
+Latest release: https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1
 Repository: https://github.com/ljbudgie/burgess-principle
 Licence: MIT (doctrine) | Certification Mark UK00004343685 (commercial standard)
 
@@ -87,11 +88,11 @@ The question works in any country, in any language, against any institution. No 
 
 ## Iris — AI Companion
 
-Iris is the conversational AI interface for the Burgess Principle. It lives inside the hosted site, helps users apply the binary test, generate personalised templates, build complete claims, and walk through the Sovereign Personal Vault.
+Iris is the conversational AI interface for the Burgess Principle. It lives inside the hosted site, helps users apply the binary test, generate personalised templates, build complete claims, walk through the Sovereign Personal Vault, and optionally use Mirror Mode in Sovereign Local Mode.
 
 Iris runs in two modes:
 - **Cloud mode** — hosted at [burgess-principle.vercel.app](https://burgess-principle.vercel.app), uses an external AI model. No setup required.
-- **Sovereign (local) mode** — runs entirely on your own hardware via `iris-local.py` and a local GGUF model. No data leaves your device. No API keys, no cloud, no telemetry. See [SOVEREIGN_MODE.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md).
+- **Sovereign (local) mode** — runs entirely on your own hardware via `iris-local.py` and a local GGUF model. No data leaves your device. No API keys, no cloud, no telemetry. Optional Mirror Mode lets Iris reuse your encrypted local sovereign profile and mirrored greeting. See [SOVEREIGN_MODE.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md).
 
 Both modes use the same UI and system prompt. The hosted experience acts as both a landing page and chat entry point, while the same interface auto-detects localhost for seamless sovereign local operation.
 

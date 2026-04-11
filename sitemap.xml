@@ -3,7 +3,7 @@
   <!-- Main homepage -->
   <url>
     <loc>https://burgess-principle.vercel.app/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- AI model discovery file -->
   <url>
     <loc>https://burgess-principle.vercel.app/llms.txt</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

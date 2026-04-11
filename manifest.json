@@ -1,0 +1,42 @@
+{
+  "name": "Iris — The Burgess Principle",
+  "short_name": "Iris",
+  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims entirely offline.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/banner.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Crypto exchange freeze",
+      "short_name": "Exchange freeze",
+      "description": "Start a Burgess Claim for an exchange freeze or withdrawal hold.",
+      "url": "/?shortcut=crypto-exchange",
+      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Direct debit refund",
+      "short_name": "Direct debit",
+      "description": "Start a Burgess Claim for a direct debit refund dispute.",
+      "url": "/?shortcut=direct-debit",
+      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Benefits review",
+      "short_name": "Benefits",
+      "description": "Start a Burgess Claim for a benefits review or dispute.",
+      "url": "/?shortcut=benefits",
+      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+    }
+  ]
+}

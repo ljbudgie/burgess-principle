@@ -408,6 +408,56 @@ class TestGenerateClaimEndpoint:
         assert "Claim generation failed" in response.json()["error"]
 
 
+class TestQueueOnchainFingerprintEndpoint:
+    @pytest.fixture(autouse=True)
+    def _setup_app(self):
+        app = create_app("test prompt")
+        try:
+            from starlette.testclient import TestClient
+            self.client = TestClient(app)
+            self.has_client = True
+        except ImportError:
+            self.has_client = False
+        yield
+
+    def test_requires_object_payload(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post("/api/queue-onchain-fingerprint", json={"fingerprint": []})
+        assert response.status_code == 400
+        assert response.json()["error"] == "fingerprint must be an object."
+
+    def test_returns_accepted_with_queue_metadata(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "queue_onchain_fingerprint",
+            return_value={"queue_id": "queued-1", "path": "/tmp/queued-1.json"},
+        ) as mock_queue:
+            response = self.client.post(
+                "/api/queue-onchain-fingerprint",
+                json={"fingerprint": {"commitment_hash": "0xproof", "signature": "0xsig", "public_key": "ab" * 32}},
+            )
+        assert response.status_code == 202
+        assert response.json() == {
+            "queued_fingerprint": {"queue_id": "queued-1", "path": "/tmp/queued-1.json"}
+        }
+        mock_queue.assert_called_once()
+
+    def test_value_error_returns_400(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "queue_onchain_fingerprint",
+            side_effect=ValueError("fingerprint must include commitment_hash, signature, and public_key"),
+        ):
+            response = self.client.post("/api/queue-onchain-fingerprint", json={"fingerprint": {}})
+        assert response.status_code == 400
+        assert "commitment_hash" in response.json()["error"]
+
+
 # ---------------------------------------------------------------------------
 # Index page
 # ---------------------------------------------------------------------------
@@ -427,6 +477,11 @@ class TestIndexPage:
         assert "Save to Sovereign Vault" in unescaped
         assert "Generate Commitment & Sign" in unescaped
         assert "Copy Final Letter" in unescaped
+        assert "+ New Claim" in unescaped
+        assert "Claim profile & phone settings" in unescaped
+        assert "voiceStatus" in response.text
+        assert "manifest.json" in response.text
+        assert "service-worker.js" in response.text
         assert "/api/generate-claim" in unescaped
 
 

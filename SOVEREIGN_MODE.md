@@ -54,6 +54,21 @@ That's it. You're running Iris with zero cloud dependency.
 
 ---
 
+## Phone Setup
+
+Once `python3 iris-local.py` is running, open `http://localhost:8000` on the phone you want to use as your daily sovereign advocate.
+
+1. Open the site in the mobile browser that lives on the device.
+2. Use **Add to Home Screen / Install App** so Iris launches in standalone mode.
+3. Tap **+ New Claim** to jump straight into the mobile claim builder.
+4. Open **Claim profile & phone settings** and save the local profile fields once.
+5. Set a Vault passphrase, then generate or save claims directly from the phone.
+6. Use **Export Vault** / **Import Vault** to move the encrypted phone vault between the phone and a laptop with a `.vault` file.
+
+The phone PWA keeps the claim profile, encrypted local vault copies, 14-day reminders, quick actions, and service-worker notifications on the device. Nothing is sent to any external service.
+
+---
+
 ## Configuration
 
 Settings live in `iris-config.json` in the project root:

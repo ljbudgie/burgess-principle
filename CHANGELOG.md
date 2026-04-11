@@ -1,50 +1,48 @@
 # Changelog — The Burgess Principle
 
-All notable changes to this project are documented in this file.
+All notable changes to this project will be documented in this file.  
+Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project uses [Semantic Versioning](https://semver.org/).
 
 ---
 
-## v0.7.0 — Website Upgrade (10 April 2026)
+## v0.6.0 — Sovereign Local Mode, Website Upgrade & Hardening (10 April 2026)
 
-**The Vercel site is no longer just a chat window — it's a full project landing page with Iris built in.**
+**Iris can now run entirely on your own hardware — and the Vercel site is now a full project landing page with Iris built in.**
 
-### Added
-- **Landing page** — visitors now see a proper hero section, the binary test (SOVEREIGN / NULL) visualised as cards, key stats (18 institutions audited, 11 NULL findings, 35+ templates), template showcase cards, case study highlights with findings, and feature overview (Templates, Vault, On-Chain).
-- **Markdown rendering** — Iris chat responses now render as rich HTML (headings, bold, italic, code blocks, tables, lists, blockquotes, links) instead of plain text. Uses a lightweight built-in renderer with no external dependencies.
-- **Navigation** — smooth view switching between the landing page and the Iris chat. "Talk to Iris" CTA buttons, "← Home" back button in chat header, and sidebar home link.
-- **Top navigation bar** — sticky nav with section anchors (The Test, Templates, Case Studies), GitHub link, and prominent "Talk to Iris" CTA. Mobile hamburger menu.
-- **Template showcase** — six template cards (Human Review, General Dispute, Council Tax, Benefits, Bailiff, DSAR) with icons and descriptions, linking to the GitHub templates.
-- **Case study cards** — five real-world case studies (Wave, Passport Office, E.ON, Equita, Equifax) with SOVEREIGN/NULL finding badges and outcome summaries.
-- **Improved meta tags** — richer Open Graph and Twitter Card metadata for better link sharing previews.
-
-### Changed
-- `index.html` refactored from chat-only to a two-view single-page app (landing + chat).
-- Chat sidebar now includes a "🏠 Home" link back to the landing page.
-- Chat header now includes a "← Home" button for easy navigation.
-- CSS expanded with new design tokens (`--gold-bright`, `--blue`, `--red`, `--bg-card`, etc.) and responsive grid layouts.
-- Mobile layout improved for both landing page sections and chat view.
-
----
-
-## v0.6.0 — Sovereign Local Mode & Hardening (10 April 2026)
-
-**Iris can now run entirely on your own hardware — no cloud, no API keys, no data leaving your device.**
-
-This release adds Sovereign Local Mode for Iris, a modernised chat interface, and significantly expanded test coverage across the codebase.
+This release adds Sovereign Local Mode for Iris, transforms the website from a chat-only window into a proper landing page, modernises the chat interface, and significantly expands test coverage across the codebase.
 
 ### Added
-- **Sovereign Local Mode** — `iris-local.py` runs Iris entirely on local hardware using GGUF models via `llama-cpp-python`. No API keys, no cloud, no telemetry. Full instructions in [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md).
+
+#### Sovereign Local Mode
+- `iris-local.py` runs Iris entirely on local hardware using GGUF models via `llama-cpp-python`. No API keys, no cloud, no telemetry. Full instructions in [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md).
 - Platform install scripts: `scripts/install-linux.sh`, `scripts/install-macos.sh`, `scripts/install-windows.ps1` — each installs dependencies and downloads a default model.
 - `iris-config.json` for local mode configuration (model path, context size, port, GPU acceleration).
-- `index.html` now auto-detects localhost and routes API calls to the local server when running in Sovereign Mode.
+- `index.html` auto-detects localhost and routes API calls to the local server when running in Sovereign Mode.
 - New `local` optional dependency group in `pyproject.toml` (`llama-cpp-python`, `fastapi`, `uvicorn`).
-- Modernised Iris chat UI with improved typography, local-first privacy badge, suggestion buttons, and responsive mobile layout (PR #207).
+
+#### Landing Page & Navigation
+- **Landing page** — hero section, the binary test (SOVEREIGN / NULL) visualised as cards, key stats (18 institutions audited, 11 NULL findings, 35+ templates), template showcase, case study highlights, and feature overview (Templates, Vault, On-Chain).
+- **Top navigation bar** — sticky nav with section anchors (The Test, Templates, Case Studies), GitHub link, and "Talk to Iris" CTA. Mobile hamburger menu.
+- **Template showcase** — six template cards (Human Review, General Dispute, Council Tax, Benefits, Bailiff, DSAR) with icons and descriptions, linking to the GitHub templates.
+- **Case study cards** — five real-world case studies (Wave, Passport Office, E.ON, Equita, Equifax) with SOVEREIGN/NULL finding badges and outcome summaries.
+- Smooth view switching between the landing page and Iris chat via "Talk to Iris" CTA buttons, "← Home" back button, and sidebar home link.
+
+#### Chat & UI Improvements
+- **Markdown rendering** — Iris chat responses now render as rich HTML (headings, bold, italic, code blocks, tables, lists, blockquotes, links) via a lightweight built-in renderer with no external dependencies.
+- Modernised Iris chat UI with improved typography, local-first privacy badge, suggestion buttons, and responsive mobile layout.
 - Shared welcome HTML extracted for consistency between cloud and local modes.
-- Comprehensive new tests for `api/chat.py` and `onchain_claims.py` covering edge cases, error handling, and coverage gaps (PR #208).
+- Richer Open Graph and Twitter Card metadata for better link sharing previews.
+
+#### Testing
+- Comprehensive new tests for `api/chat.py` and `onchain_claims.py` covering edge cases, error handling, and coverage gaps.
 - New `tests/test_iris_local.py` test suite for the sovereign local server.
 - 264 tests now passing (up from 218 in v0.5.0).
 
 ### Changed
+- `index.html` refactored from chat-only to a two-view single-page app (landing + chat).
+- CSS expanded with new design tokens (`--gold-bright`, `--blue`, `--red`, `--bg-card`, etc.) and responsive grid layouts.
+- Mobile layout improved for both landing page sections and chat view.
+- Chat sidebar now includes a "🏠 Home" link; chat header now includes a "← Home" button.
 - `README.md` updated with Sovereign Mode section, dual-mode table (Cloud vs Local), and quick-start commands.
 - `START_HERE.md` updated to mention sovereign local mode.
 - `iris/README.md` updated with local-first architecture diagram and privacy details.

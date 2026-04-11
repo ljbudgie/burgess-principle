@@ -2241,12 +2241,12 @@
             if (summary.mirror_custom_greeting) return summary.mirror_custom_greeting;
             const style = normalizeMirrorGreetingStyle(summary.mirror_greeting_style);
             if (style === 'warm_personal') {
-                return `Hello ${summary.name} — Mirror Mode is ready on this device.`;
+                return `Hello ${summary.name} — Mirror Mode active. The handshake continues: your energy + my structure = sovereign record.`;
             }
             if (style === 'minimal') {
                 return 'Mirror Mode active.';
             }
-            return `${summary.name} — local profile loaded.`;
+            return `${summary.name} — Mirror Mode active. The handshake continues on this device.`;
         }
 
         function getMirrorClaimCtaLabel(summary = personalIdentitySummary) {

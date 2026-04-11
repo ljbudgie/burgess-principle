@@ -4,7 +4,7 @@ Iris is the conversational AI interface for the Burgess Principle, hosted at [bu
 
 It helps users apply the binary test, generate personalised templates, walk through the Sovereign Personal Vault, create or verify on-chain claims, and optionally enable Mirror Mode in Sovereign Local Mode — all while keeping control and data sovereignty with the user.
 
-Iris now includes a guided onboarding flow for new users, persistent user profiles, Mirror Mode-aware local identity setup, intelligent template matching, and handling for ambiguous institutional responses.
+Iris now includes a guided onboarding flow for new users, persistent user profiles, Mirror Mode-aware local identity setup, digital-handshake framing, intelligent template matching, and handling for ambiguous institutional responses.
 
 ---
 
@@ -43,7 +43,7 @@ In Sovereign Local Mode, users can create an encrypted personal sovereign profil
 Mirror Mode currently provides:
 
 - Local identity setup with name, handle, preferred signature block, and Ed25519-backed public profile summary.
-- A mirrored greeting in the welcome screen when the local profile is active.
+- A mirrored greeting in the welcome screen when the local profile is active, framed as a continuation of the digital handshake.
 - Reuse of the local identity layer across claim/profile workflows without sending it to a cloud service.
 
 Mirror Mode remains optional and local-only.

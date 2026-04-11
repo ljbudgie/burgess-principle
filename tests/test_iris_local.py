@@ -31,7 +31,7 @@ _MOCK_PROFILE_SUMMARY = {
     "mirror_greeting_style": "neutral_professional",
     "mirror_custom_greeting": "",
     "mirror_reflection_scope": "vault_only",
-    "mirror_greeting": "Lewis — local profile loaded.",
+    "mirror_greeting": "Lewis — Mirror Mode active. The handshake continues on this device.",
 }
 
 # ---------------------------------------------------------------------------
@@ -197,6 +197,7 @@ class TestBuildRuntimeSystemPrompt:
         assert "Local Runtime Context" in prompt
         assert "Easy Mode is on" in prompt
         assert "Mirror greeting style: Neutral & Professional" in prompt
+        assert "Current config: easy_mode=true, mirror_greeting_style=neutral_professional, mirror_reflection_scope=vault_only." in prompt
         assert "Active local profile: Lewis." in prompt
 
     def test_includes_saved_local_user_profile_context(self):

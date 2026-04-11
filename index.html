@@ -2011,7 +2011,8 @@
                 let payload = {};
                 try {
                     payload = await response.json();
-                } catch {
+                } catch (err) {
+                    console.error('Claim endpoint returned invalid JSON.', err);
                     payload = { error: 'Invalid JSON response from server.' };
                 }
                 if (!response.ok) {

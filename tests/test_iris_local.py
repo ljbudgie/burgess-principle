@@ -18,6 +18,15 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 _MOCK_CLAIM_DATA = {"letter": "# Letter", "commitment_hash": "abc123"}
+_MOCK_PROFILE_SUMMARY = {
+    "name": "Lewis",
+    "handle": "ljbudgie",
+    "preferred_signature_block": "Lewis [Burgess Principle]",
+    "key_fingerprint": "abc123def4567890",
+    "public_key_hex": "ab" * 32,
+    "profile_signature": "cd" * 64,
+    "signed_at": "2026-04-11T20:45:15+00:00",
+}
 
 # ---------------------------------------------------------------------------
 # Module-level import — load iris-local.py by path (it's not a package)
@@ -490,6 +499,68 @@ class TestQueueOnchainFingerprintEndpoint:
         assert "Fingerprint queueing failed" in response.json()["error"]
 
 
+class TestMyProfileEndpoint:
+    @pytest.fixture(autouse=True)
+    def _setup_app(self):
+        app = create_app("test prompt", personal_profile=None)
+        try:
+            from starlette.testclient import TestClient
+            self.client = TestClient(app)
+            self.has_client = True
+        except ImportError:
+            self.has_client = False
+        yield
+
+    def test_get_returns_loaded_summary(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        app = create_app("test prompt", personal_profile=_MOCK_PROFILE_SUMMARY)
+        from starlette.testclient import TestClient
+
+        response = TestClient(app).get("/api/my-profile")
+        assert response.status_code == 200
+        assert response.json() == {"profile": _MOCK_PROFILE_SUMMARY}
+
+    def test_setup_requires_passphrase(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post("/api/my-profile/setup", json={"name": "Lewis"})
+        assert response.status_code == 400
+        assert "vault_passphrase" in response.json()["error"]
+
+    def test_setup_requires_name_for_first_profile(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=None):
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={"vault_passphrase": "secret"},
+            )
+        assert response.status_code == 400
+        assert "name must be a non-empty string" in response.json()["error"]
+
+    def test_setup_returns_profile_summary(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=None), patch.object(
+            _mod,
+            "setup_personal_profile",
+            return_value={
+                "created": True,
+                "stored_path": "/tmp/personal-profile.json",
+                "profile": _MOCK_PROFILE_SUMMARY,
+            },
+        ) as mock_setup:
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={"name": "Lewis", "vault_passphrase": "secret"},
+            )
+        assert response.status_code == 200
+        assert response.json()["created"] is True
+        assert response.json()["profile"] == _MOCK_PROFILE_SUMMARY
+        mock_setup.assert_called_once()
+
+
 # ---------------------------------------------------------------------------
 # Index page
 # ---------------------------------------------------------------------------
@@ -510,11 +581,13 @@ class TestIndexPage:
         assert "Generate Commitment & Sign" in unescaped
         assert "Copy Final Letter" in unescaped
         assert "+ New Claim" in unescaped
+        assert "Setup My Identity" in unescaped
         assert "Claim profile & phone settings" in unescaped
         assert "voiceStatus" in response.text
         assert "manifest.json" in response.text
         assert "service-worker.js" in response.text
         assert "/api/generate-claim" in unescaped
+        assert "/api/my-profile" in unescaped
 
 
 # ---------------------------------------------------------------------------

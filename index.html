@@ -1604,9 +1604,9 @@
                             </div>
                         </div>
                         <div class="claim-buttons">
-                            <button class="claim-action-btn" id="saveClaimBtn" type="button">Save to Sovereign Vault</button>
-                            <button class="claim-action-btn" id="generateCommitmentBtn" type="button">Generate Commitment &amp; Sign</button>
-                            <button class="claim-action-btn" id="copyLetterBtn" type="button">Copy Final Letter</button>
+                            <button class="claim-action-btn" id="saveClaimBtn" type="button" aria-label="Save claim to Sovereign Vault">Save to Sovereign Vault</button>
+                            <button class="claim-action-btn" id="generateCommitmentBtn" type="button" aria-label="Generate a fresh commitment and signature for this claim">Generate Commitment &amp; Sign</button>
+                            <button class="claim-action-btn" id="copyLetterBtn" type="button" aria-label="Copy the final generated letter">Copy Final Letter</button>
                         </div>
                         <div class="claim-status" id="claimStatus">Claim tools stay hidden until Iris finishes a local draft.</div>
                     </div>
@@ -1961,6 +1961,7 @@
                 await navigator.clipboard.writeText(text);
                 return;
             }
+            console.warn('Falling back to document.execCommand("copy").');
             const textarea = document.createElement('textarea');
             textarea.value = text;
             textarea.setAttribute('readonly', '');
@@ -2004,7 +2005,12 @@
                     }),
                 });
 
-                const payload = await response.json().catch(() => ({}));
+                let payload = {};
+                try {
+                    payload = await response.json();
+                } catch {
+                    payload = { error: 'Invalid JSON response from server.' };
+                }
                 if (!response.ok) {
                     throw new Error(payload.error || `Request failed (${response.status})`);
                 }

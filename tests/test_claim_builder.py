@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import sys
 from pathlib import Path
 
 from nacl.signing import SigningKey
@@ -19,6 +20,7 @@ _ONCHAIN_CLAIMS_PATH = (
 )
 _spec = importlib.util.spec_from_file_location("test_onchain_claims", _ONCHAIN_CLAIMS_PATH)
 _onchain_claims = importlib.util.module_from_spec(_spec)
+sys.modules[_spec.name] = _onchain_claims
 _spec.loader.exec_module(_onchain_claims)
 verify_onchain_receipt = _onchain_claims.verify_onchain_receipt
 

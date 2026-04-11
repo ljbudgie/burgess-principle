@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 import importlib.util
 import json
 import sys
@@ -50,6 +51,15 @@ def _assert_all_placeholders_resolved(text: str) -> None:
     assert claim_builder._PLACEHOLDER_RE.findall(text) == []
 
 
+@contextmanager
+def _fresh_scenario_rows_cache():
+    claim_builder._scenario_rows.cache_clear()
+    try:
+        yield
+    finally:
+        claim_builder._scenario_rows.cache_clear()
+
+
 def test_classify_scenario_reads_fast_match_table():
     scenario = claim_builder.classify_scenario(
         "I want to reference a hash, signature, receipt, or on-chain claim."
@@ -78,12 +88,9 @@ def test_scenario_rows_ignore_table_rows_without_template_links(tmp_path):
         encoding="utf-8",
     )
 
-    claim_builder._scenario_rows.cache_clear()
-    try:
+    with _fresh_scenario_rows_cache():
         with patch.object(claim_builder, "_SCENARIOS", scenarios_path):
             rows = claim_builder._scenario_rows()
-    finally:
-        claim_builder._scenario_rows.cache_clear()
 
     assert rows == (
         {

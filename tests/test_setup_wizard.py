@@ -7,10 +7,10 @@ from pathlib import Path
 
 import pytest
 
-MODULE_PATH = os.path.join(os.path.dirname(__file__), "..", "setup-wizard.py")
-spec = importlib.util.spec_from_file_location("setup_wizard", MODULE_PATH)
-setup_wizard_module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(setup_wizard_module)
+SETUP_WIZARD_MODULE_PATH = os.path.join(os.path.dirname(__file__), "..", "setup-wizard.py")
+setup_wizard_spec = importlib.util.spec_from_file_location("setup_wizard", SETUP_WIZARD_MODULE_PATH)
+setup_wizard_module = importlib.util.module_from_spec(setup_wizard_spec)
+setup_wizard_spec.loader.exec_module(setup_wizard_module)
 
 
 load_config = setup_wizard_module.load_config

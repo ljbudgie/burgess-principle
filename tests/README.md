@@ -24,6 +24,8 @@ pip install -e ".[test,api,onchain]"
 python -m pytest tests/
 ```
 
+Use `.[test,api,onchain]` for the full suite. If you only need the core non-API, non-onchain tests, `pip install -e ".[test]"` is enough for the smaller subset.
+
 The suite runs automatically on every push and pull request via [GitHub Actions CI](../.github/workflows/ci.yml).
 
 ## Adding new tests

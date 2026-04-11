@@ -1,0 +1,5 @@
+    1: """TRACER — defect-tracing utilities for the Burgess Principle."""
+       
+    1: from .tracer import DEFECT_SCHEMA, Defect, get_defect, list_defects
+       
+    1: __all__ = ["DEFECT_SCHEMA", "Defect", "get_defect", "list_defects"]

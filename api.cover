@@ -1,0 +1,141 @@
+    1: """Lightweight FastAPI wrapper for the Burgess Principle Binary Test.
+       
+       Start the server::
+       
+           uvicorn api:app --reload
+       
+       Then POST to ``/verify``::
+       
+           curl -X POST http://127.0.0.1:8000/verify \
+                -H "Content-Type: application/json" \
+                -d '{"reasoning_text": "...", "provided_hash": "..."}'
+       
+       Or POST to ``/claims/verify`` to verify an on-chain claim receipt::
+       
+           curl -X POST http://127.0.0.1:8000/claims/verify \
+                -H "Content-Type: application/json" \
+                -d '{"commitment_hash": "...", "signature": "...", "public_key_hex": "..."}'
+       
+       Requires the ``api`` optional dependency group::
+       
+           pip install -e ".[api]"
+       """
+       
+    1: from __future__ import annotations
+       
+    1: import sys
+    1: import os
+       
+    1: from fastapi import FastAPI
+    1: from pydantic import BaseModel, Field
+       
+    1: from verify_scrutiny import verify_instrument
+       
+    2: app = FastAPI(
+    1:     title="Burgess Principle Binary Test",
+    1:     description="SOVEREIGN / NULL verification API with optional on-chain claims support.",
+    1:     version="0.3.0",
+       )
+       
+       
+       # ---------------------------------------------------------------------------
+       # Request / response models
+       # ---------------------------------------------------------------------------
+       
+    2: class VerifyRequest(BaseModel):
+    1:     """Payload for the /verify endpoint."""
+       
+    2:     reasoning_text: str = Field(
+    1:         ..., min_length=1, description="The reasoning text to verify."
+           )
+    2:     provided_hash: str = Field(
+    1:         ...,
+    1:         min_length=64,
+    1:         max_length=64,
+    1:         pattern=r"^[0-9a-fA-F]{64}$",
+    1:         description="The expected SHA-256 hex-digest (Sovereign Hash).",
+           )
+       
+       
+    2: class VerifyResponse(BaseModel):
+    1:     """Structured result returned by the /verify endpoint."""
+       
+    1:     status: str
+    1:     code: int
+    1:     description: str
+       
+       
+    2: class ClaimVerifyRequest(BaseModel):
+    1:     """Payload for the /claims/verify endpoint."""
+       
+    2:     commitment_hash: str = Field(
+    1:         ...,
+    1:         min_length=64,
+    1:         max_length=64,
+    1:         pattern=r"^[0-9a-fA-F]{64}$",
+    1:         description="The SHA-256 commitment hash (64 hex characters).",
+           )
+    2:     signature: str = Field(
+    1:         ...,
+    1:         min_length=128,
+    1:         max_length=128,
+    1:         pattern=r"^[0-9a-fA-F]{128}$",
+    1:         description="The Ed25519 signature (128 hex characters / 64 bytes).",
+           )
+    2:     public_key_hex: str = Field(
+    1:         ...,
+    1:         min_length=64,
+    1:         max_length=64,
+    1:         pattern=r"^[0-9a-fA-F]{64}$",
+    1:         description="The claimant's Ed25519 public key (64 hex characters).",
+           )
+       
+       
+    2: class ClaimVerifyResponse(BaseModel):
+    1:     """Structured result returned by the /claims/verify endpoint."""
+       
+    1:     valid: bool
+    1:     commitment_hash: str
+    1:     public_key: str
+    1:     details: str
+       
+       
+       # ---------------------------------------------------------------------------
+       # Endpoints
+       # ---------------------------------------------------------------------------
+       
+    2: @app.post("/verify", response_model=VerifyResponse)
+    2: def verify(payload: VerifyRequest) -> VerifyResponse:
+           """Run the Burgess Principle Binary Test and return a structured result."""
+    8:     result = verify_instrument(payload.reasoning_text, payload.provided_hash)
+    8:     data = result.to_dict()
+    8:     return VerifyResponse(**data)
+       
+       
+    2: @app.post("/claims/verify", response_model=ClaimVerifyResponse)
+    2: def verify_claim(payload: ClaimVerifyRequest) -> ClaimVerifyResponse:
+           """Verify an on-chain Burgess Claim receipt (Ed25519 signature check).
+       
+           This endpoint checks that the Ed25519 signature over the commitment
+           hash is valid for the given public key.  It does **not** interact with
+           any blockchain — it performs the same cryptographic verification that
+           would be done off-chain after reading the claim from a contract.
+           """
+           # Lazy import to keep PyNaCl optional.
+    3:     sdk_path = os.path.join(os.path.dirname(__file__), "onchain-protocol", "sdk")
+    3:     if sdk_path not in sys.path:
+    1:         sys.path.insert(0, sdk_path)
+       
+    3:     from onchain_claims import verify_onchain_receipt
+       
+    6:     result = verify_onchain_receipt(
+    3:         commitment_hash=payload.commitment_hash,
+    3:         signature=payload.signature,
+    3:         public_key_hex=payload.public_key_hex,
+           )
+    6:     return ClaimVerifyResponse(
+    3:         valid=result.valid,
+    3:         commitment_hash=result.commitment_hash,
+    3:         public_key=result.public_key,
+    3:         details=result.details,
+           )

@@ -1,0 +1,676 @@
+    1: """Tests for iris-local.py — the sovereign local inference server.
+       
+       These tests cover configuration loading, system prompt loading,
+       CLI argument parsing, and the FastAPI app endpoints.
+       Model loading and actual inference are mocked.
+       """
+       
+    1: import argparse
+    1: import html
+    1: import importlib.util
+    1: import json
+    1: import os
+    1: import runpy
+    1: import sys
+    1: from pathlib import Path
+    1: from unittest.mock import MagicMock, patch
+       
+    1: import pytest
+       
+    1: _MOCK_CLAIM_DATA = {"letter": "# Letter", "commitment_hash": "abc123"}
+       
+       # ---------------------------------------------------------------------------
+       # Module-level import — load iris-local.py by path (it's not a package)
+       # ---------------------------------------------------------------------------
+    1: _MODULE_PATH = os.path.join(os.path.dirname(__file__), "..", "iris-local.py")
+    1: _spec = importlib.util.spec_from_file_location("iris_local", _MODULE_PATH)
+    1: _mod = importlib.util.module_from_spec(_spec)
+    1: _spec.loader.exec_module(_mod)
+       
+    1: load_config = _mod.load_config
+    1: load_system_prompt = _mod.load_system_prompt
+    1: load_model = _mod.load_model
+    1: parse_args = _mod.parse_args
+    1: create_app = _mod.create_app
+    1: main = _mod.main
+    1: _ROOT = _mod._ROOT
+    1: _CONFIG_PATH = _mod._CONFIG_PATH
+    1: _SYSTEM_PROMPT_PATH = _mod._SYSTEM_PROMPT_PATH
+       
+       
+       # ---------------------------------------------------------------------------
+       # load_system_prompt
+       # ---------------------------------------------------------------------------
+    2: class TestLoadSystemPrompt:
+    1:     def test_returns_string(self):
+    1:         prompt = load_system_prompt()
+    1:         assert isinstance(prompt, str)
+       
+    1:     def test_prompt_is_non_empty(self):
+    1:         prompt = load_system_prompt()
+    1:         assert len(prompt.strip()) > 0
+       
+    1:     def test_prompt_mentions_iris(self):
+    1:         prompt = load_system_prompt()
+    1:         assert "Iris" in prompt
+       
+    1:     def test_prompt_mentions_burgess_principle(self):
+    1:         prompt = load_system_prompt()
+    1:         assert "Burgess Principle" in prompt
+       
+       
+       # ---------------------------------------------------------------------------
+       # load_config
+       # ---------------------------------------------------------------------------
+    2: class TestLoadConfig:
+    1:     def test_defaults_without_config_file(self, tmp_path):
+               """When iris-config.json doesn't exist, defaults are used."""
+    2:         with patch.object(_mod, "_CONFIG_PATH", tmp_path / "nonexistent.json"):
+    1:             cfg = load_config()
+    1:         assert cfg["model_path"] == "models/model.gguf"
+    1:         assert cfg["context_size"] == 2048
+    1:         assert cfg["port"] == 8000
+    1:         assert cfg["gpu_acceleration"] is False
+       
+    1:     def test_reads_config_file(self, tmp_path):
+               """Values from iris-config.json override defaults."""
+    1:         config_file = tmp_path / "iris-config.json"
+    2:         config_file.write_text(json.dumps({
+    1:             "model_path": "custom/model.gguf",
+    1:             "port": 9090,
+               }))
+    2:         with patch.object(_mod, "_CONFIG_PATH", config_file):
+    1:             cfg = load_config()
+    1:         assert cfg["model_path"] == "custom/model.gguf"
+    1:         assert cfg["port"] == 9090
+               # Defaults preserved for unset values
+    1:         assert cfg["context_size"] == 2048
+    1:         assert cfg["gpu_acceleration"] is False
+       
+    1:     def test_cli_overrides_config_file(self, tmp_path):
+               """CLI arguments take priority over config file."""
+    1:         config_file = tmp_path / "iris-config.json"
+    1:         config_file.write_text(json.dumps({"port": 9090}))
+    2:         args = argparse.Namespace(
+    1:             model="cli-model.gguf",
+    1:             context=4096,
+    1:             port=7777,
+    1:             gpu=True,
+               )
+    2:         with patch.object(_mod, "_CONFIG_PATH", config_file):
+    1:             cfg = load_config(args)
+    1:         assert cfg["model_path"] == "cli-model.gguf"
+    1:         assert cfg["context_size"] == 4096
+    1:         assert cfg["port"] == 7777
+    1:         assert cfg["gpu_acceleration"] is True
+       
+    1:     def test_invalid_json_uses_defaults(self, tmp_path):
+               """Malformed config file falls back to defaults."""
+    1:         config_file = tmp_path / "iris-config.json"
+    1:         config_file.write_text("not valid json {{{")
+    2:         with patch.object(_mod, "_CONFIG_PATH", config_file):
+    1:             cfg = load_config()
+    1:         assert cfg["port"] == 8000
+       
+    1:     def test_cli_none_values_do_not_override(self, tmp_path):
+               """CLI args set to None don't override config file values."""
+    1:         config_file = tmp_path / "iris-config.json"
+    1:         config_file.write_text(json.dumps({"port": 5555}))
+    1:         args = argparse.Namespace(model=None, context=None, port=None, gpu=False)
+    2:         with patch.object(_mod, "_CONFIG_PATH", config_file):
+    1:             cfg = load_config(args)
+    1:         assert cfg["port"] == 5555
+       
+       
+       # ---------------------------------------------------------------------------
+       # parse_args
+       # ---------------------------------------------------------------------------
+    2: class TestParseArgs:
+    1:     def test_defaults(self):
+    1:         args = parse_args([])
+    1:         assert args.model is None
+    1:         assert args.context is None
+    1:         assert args.port is None
+    1:         assert args.gpu is False
+    1:         assert args.no_browser is False
+       
+    1:     def test_all_flags(self):
+    1:         args = parse_args([
+                   "--model", "test.gguf",
+                   "--context", "4096",
+                   "--port", "9000",
+                   "--gpu",
+                   "--no-browser",
+               ])
+    1:         assert args.model == "test.gguf"
+    1:         assert args.context == 4096
+    1:         assert args.port == 9000
+    1:         assert args.gpu is True
+    1:         assert args.no_browser is True
+       
+       
+       # ---------------------------------------------------------------------------
+       # FastAPI app — endpoint tests
+       # ---------------------------------------------------------------------------
+    2: class TestChatEndpoint:
+    1:     """Test the /api/chat endpoint with a mocked LLM."""
+       
+    2:     @pytest.fixture(autouse=True)
+    2:     def _setup_app(self):
+               """Create a test app with a mocked LLM."""
+    7:         self.system_prompt = "You are a test assistant."
+    7:         self.app = create_app(self.system_prompt)
+       
+               # Mock the global _llm
+    7:         self.mock_llm = MagicMock()
+    7:         _mod._llm = self.mock_llm
+       
+               # Import TestClient lazily (requires httpx)
+    7:         try:
+    7:             from starlette.testclient import TestClient
+    7:             self.client = TestClient(self.app)
+    7:             self.has_client = True
+               except ImportError:
+                   self.has_client = False
+       
+    7:         yield
+       
+    7:         _mod._llm = None
+       
+    1:     def test_invalid_json(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    2:         response = self.client.post(
+    1:             "/api/chat",
+    1:             content=b"not json",
+    1:             headers={"Content-Type": "application/json"},
+               )
+    1:         assert response.status_code == 400
+    1:         assert "Invalid JSON" in response.json()["error"]
+       
+    1:     def test_empty_messages(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    1:         response = self.client.post("/api/chat", json={"messages": []})
+    1:         assert response.status_code == 400
+    1:         assert "No messages" in response.json()["error"]
+       
+    1:     def test_missing_messages_key(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    1:         response = self.client.post("/api/chat", json={"data": "hello"})
+    1:         assert response.status_code == 400
+       
+    1:     def test_successful_stream(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+       
+    2:         self.mock_llm.create_chat_completion.return_value = iter([
+    1:             {"choices": [{"delta": {"content": "Hello"}}]},
+    1:             {"choices": [{"delta": {"content": " world"}}]},
+               ])
+       
+    2:         response = self.client.post(
+    1:             "/api/chat",
+    1:             json={"messages": [{"role": "user", "content": "Hi"}]},
+               )
+    1:         assert response.status_code == 200
+    1:         assert "text/event-stream" in response.headers["content-type"]
+       
+    1:         text = response.text
+    1:         assert "Hello" in text
+    1:         assert "world" in text
+    1:         assert "[DONE]" in text
+       
+    1:     def test_stream_skips_empty_deltas(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+       
+    2:         self.mock_llm.create_chat_completion.return_value = iter([
+    1:             {"choices": [{"delta": {}}]},
+    1:             {"choices": [{"delta": {"content": "response"}}]},
+               ])
+       
+    2:         response = self.client.post(
+    1:             "/api/chat",
+    1:             json={"messages": [{"role": "user", "content": "test"}]},
+               )
+    1:         assert response.status_code == 200
+    1:         assert "response" in response.text
+    1:         assert "[DONE]" in response.text
+       
+    1:     def test_model_failure_returns_500(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+       
+    1:         self.mock_llm.create_chat_completion.side_effect = RuntimeError("OOM")
+       
+    2:         response = self.client.post(
+    1:             "/api/chat",
+    1:             json={"messages": [{"role": "user", "content": "hi"}]},
+               )
+    1:         assert response.status_code == 500
+    1:         assert "inference failed" in response.json()["error"]
+       
+    1:     def test_messages_filtering(self):
+               """Only user and assistant messages with content are forwarded."""
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+       
+    2:         self.mock_llm.create_chat_completion.return_value = iter([
+    1:             {"choices": [{"delta": {"content": "ok"}}]},
+               ])
+       
+    2:         self.client.post(
+    1:             "/api/chat",
+    1:             json={
+    2:                 "messages": [
+    1:                     {"role": "user", "content": "Hello"},
+    1:                     {"role": "system", "content": "ignored"},
+    1:                     {"role": "assistant", "content": "Hi there"},
+    1:                     {"role": "user", "content": ""},
+    1:                     {"role": "tool", "content": "ignored"},
+                       ]
+                   },
+               )
+       
+    1:         call_kwargs = self.mock_llm.create_chat_completion.call_args
+    1:         api_messages = call_kwargs.kwargs["messages"]
+    1:         assert api_messages[0]["role"] == "system"
+    1:         assert api_messages[0]["content"] == self.system_prompt
+    4:         user_assistant_msgs = [m for m in api_messages if m["role"] != "system"]
+    1:         assert len(user_assistant_msgs) == 2
+    1:         assert user_assistant_msgs[0] == {"role": "user", "content": "Hello"}
+    1:         assert user_assistant_msgs[1] == {"role": "assistant", "content": "Hi there"}
+       
+       
+    2: class TestGenerateClaimEndpoint:
+    1:     """Test the /api/generate-claim endpoint."""
+       
+    2:     @pytest.fixture(autouse=True)
+    2:     def _setup_app(self):
+    8:         app = create_app("test prompt")
+    8:         try:
+    8:             from starlette.testclient import TestClient
+    8:             self.client = TestClient(app)
+    8:             self.has_client = True
+               except ImportError:
+                   self.has_client = False
+    8:         yield
+       
+    1:     def test_invalid_json(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    2:         response = self.client.post(
+    1:             "/api/generate-claim",
+    1:             content=b"not json",
+    1:             headers={"Content-Type": "application/json"},
+               )
+    1:         assert response.status_code == 400
+    1:         assert "Invalid JSON" in response.json()["error"]
+       
+    1:     def test_requires_non_empty_query(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    2:         response = self.client.post(
+    1:             "/api/generate-claim",
+    1:             json={"query": "   ", "profile": {}},
+               )
+    1:         assert response.status_code == 400
+    1:         assert "non-empty string" in response.json()["error"]
+       
+    1:     def test_requires_profile_object(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    2:         response = self.client.post(
+    1:             "/api/generate-claim",
+    1:             json={"query": "Need a letter", "profile": []},
+               )
+    1:         assert response.status_code == 400
+    1:         assert "object" in response.json()["error"]
+       
+    1:     def test_successful_response_returns_claim_and_markdown(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    2:         with patch.object(_mod, "auto_generate_claim", return_value=_MOCK_CLAIM_DATA) as mock_auto:
+    2:             response = self.client.post(
+    1:                 "/api/generate-claim",
+    1:                 json={"query": "Need a letter", "profile": {"vault_passphrase": "secret"}},
+                   )
+    1:         assert response.status_code == 200
+    2:         assert response.json() == {
+    1:             "claim": _MOCK_CLAIM_DATA,
+    1:             "letter_markdown": "# Letter",
+               }
+    2:         mock_auto.assert_called_once_with(
+    1:             "Need a letter",
+    1:             {"vault_passphrase": "secret"},
+               )
+       
+    1:     def test_value_error_returns_400(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    3:         with patch.object(
+    1:             _mod,
+    1:             "auto_generate_claim",
+    1:             side_effect=ValueError("profile must include vault_passphrase"),
+               ):
+    2:             response = self.client.post(
+    1:                 "/api/generate-claim",
+    1:                 json={"query": "Need a letter", "profile": {}},
+                   )
+    1:         assert response.status_code == 400
+    1:         assert "vault_passphrase" in response.json()["error"]
+       
+    1:     def test_other_value_error_returns_generic_400(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    3:         with patch.object(
+    1:             _mod,
+    1:             "auto_generate_claim",
+    1:             side_effect=ValueError("bad profile data"),
+               ):
+    2:             response = self.client.post(
+    1:                 "/api/generate-claim",
+    1:                 json={"query": "Need a letter", "profile": {}},
+                   )
+    1:         assert response.status_code == 400
+    1:         assert response.json()["error"] == "Invalid claim generation request."
+       
+    1:     def test_unexpected_failure_returns_500(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    3:         with patch.object(
+    1:             _mod,
+    1:             "auto_generate_claim",
+    1:             side_effect=RuntimeError("boom"),
+               ):
+    2:             response = self.client.post(
+    1:                 "/api/generate-claim",
+    1:                 json={"query": "Need a letter", "profile": {}},
+                   )
+    1:         assert response.status_code == 500
+    1:         assert "Claim generation failed" in response.json()["error"]
+       
+    1:     def test_io_failure_returns_500(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    3:         with patch.object(
+    1:             _mod,
+    1:             "auto_generate_claim",
+    1:             side_effect=OSError("disk full"),
+               ):
+    2:             response = self.client.post(
+    1:                 "/api/generate-claim",
+    1:                 json={"query": "Need a letter", "profile": {}},
+                   )
+    1:         assert response.status_code == 500
+    1:         assert "Claim generation failed" in response.json()["error"]
+       
+       
+    2: class TestQueueOnchainFingerprintEndpoint:
+    2:     @pytest.fixture(autouse=True)
+    2:     def _setup_app(self):
+    3:         app = create_app("test prompt")
+    3:         try:
+    3:             from starlette.testclient import TestClient
+    3:             self.client = TestClient(app)
+    3:             self.has_client = True
+               except ImportError:
+                   self.has_client = False
+    3:         yield
+       
+    1:     def test_requires_object_payload(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    1:         response = self.client.post("/api/queue-onchain-fingerprint", json={"fingerprint": []})
+    1:         assert response.status_code == 400
+    1:         assert response.json()["error"] == "fingerprint must be an object."
+       
+    1:     def test_returns_accepted_with_queue_metadata(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    3:         with patch.object(
+    1:             _mod,
+    1:             "queue_onchain_fingerprint",
+    1:             return_value={"queue_id": "queued-1", "path": "/tmp/queued-1.json"},
+    1:         ) as mock_queue:
+    2:             response = self.client.post(
+    1:                 "/api/queue-onchain-fingerprint",
+    1:                 json={"fingerprint": {"commitment_hash": "0xproof", "signature": "0xsig", "public_key": "ab" * 32}},
+                   )
+    1:         assert response.status_code == 202
+    2:         assert response.json() == {
+    1:             "queued_fingerprint": {"queue_id": "queued-1", "path": "/tmp/queued-1.json"}
+               }
+    1:         mock_queue.assert_called_once()
+       
+    1:     def test_value_error_returns_400(self):
+    1:         if not self.has_client:
+                   pytest.skip("starlette.testclient not available")
+    3:         with patch.object(
+    1:             _mod,
+    1:             "queue_onchain_fingerprint",
+    1:             side_effect=ValueError("fingerprint must include commitment_hash, signature, and public_key"),
+               ):
+    1:             response = self.client.post("/api/queue-onchain-fingerprint", json={"fingerprint": {}})
+    1:         assert response.status_code == 400
+    1:         assert "commitment_hash" in response.json()["error"]
+       
+       
+       # ---------------------------------------------------------------------------
+       # Index page
+       # ---------------------------------------------------------------------------
+    2: class TestIndexPage:
+    1:     def test_serves_index_html(self):
+    1:         app = create_app("test prompt")
+    1:         try:
+    1:             from starlette.testclient import TestClient
+    1:             client = TestClient(app)
+               except ImportError:
+                   pytest.skip("starlette.testclient not available")
+       
+    1:         response = client.get("/")
+    1:         assert response.status_code == 200
+    1:         unescaped = html.unescape(response.text)
+    1:         assert "Iris" in unescaped
+    1:         assert "Save to Sovereign Vault" in unescaped
+    1:         assert "Generate Commitment & Sign" in unescaped
+    1:         assert "Copy Final Letter" in unescaped
+    1:         assert "+ New Claim" in unescaped
+    1:         assert "Claim profile & phone settings" in unescaped
+    1:         assert "voiceStatus" in response.text
+    1:         assert "manifest.json" in response.text
+    1:         assert "service-worker.js" in response.text
+    1:         assert "/api/generate-claim" in unescaped
+       
+       
+       # ---------------------------------------------------------------------------
+       # load_model
+       # ---------------------------------------------------------------------------
+    2: class TestLoadModel:
+    1:     """Tests for the load_model function."""
+       
+    1:     def test_missing_model_file_exits(self, tmp_path):
+               """load_model exits with code 1 when the model file does not exist."""
+    1:         cfg = {"model_path": str(tmp_path / "nonexistent.gguf")}
+    2:         with pytest.raises(SystemExit) as exc_info:
+    1:             load_model(cfg)
+    1:         assert exc_info.value.code == 1
+       
+    1:     def test_relative_path_resolved_against_root(self, tmp_path):
+               """A relative model_path is resolved relative to _ROOT."""
+    1:         model_file = _ROOT / "models" / "fake.gguf"
+    1:         cfg = {"model_path": "models/fake.gguf"}
+               # Model file won't exist under _ROOT, so this should exit
+    2:         with pytest.raises(SystemExit) as exc_info:
+    1:             load_model(cfg)
+    1:         assert exc_info.value.code == 1
+       
+    1:     def test_absolute_path_used_directly(self, tmp_path):
+               """An absolute model_path is used as-is without prepending _ROOT."""
+    1:         abs_path = tmp_path / "model.gguf"
+    1:         cfg = {"model_path": str(abs_path)}
+               # File doesn't exist, so it should exit
+    2:         with pytest.raises(SystemExit) as exc_info:
+    1:             load_model(cfg)
+    1:         assert exc_info.value.code == 1
+       
+    1:     def test_successful_load_with_gpu(self, tmp_path):
+               """Successful model loading with GPU acceleration enabled."""
+    1:         model_file = tmp_path / "model.gguf"
+    1:         model_file.write_bytes(b"fake model data")
+       
+    1:         mock_llama_cls = MagicMock()
+    1:         mock_llama_instance = MagicMock()
+    1:         mock_llama_cls.return_value = mock_llama_instance
+       
+    1:         cfg = {
+    1:             "model_path": str(model_file),
+    1:             "context_size": 4096,
+    1:             "gpu_acceleration": True,
+               }
+    2:         with patch.dict("sys.modules", {"llama_cpp": MagicMock(Llama=mock_llama_cls)}):
+    1:             load_model(cfg)
+       
+    2:         mock_llama_cls.assert_called_once_with(
+    1:             model_path=str(model_file),
+    1:             n_ctx=4096,
+    1:             n_gpu_layers=-1,
+    1:             verbose=False,
+               )
+    1:         assert _mod._llm is mock_llama_instance
+       
+    1:     def test_successful_load_without_gpu(self, tmp_path):
+               """Successful model loading with GPU acceleration disabled."""
+    1:         model_file = tmp_path / "model.gguf"
+    1:         model_file.write_bytes(b"fake model data")
+       
+    1:         mock_llama_cls = MagicMock()
+    1:         mock_llama_instance = MagicMock()
+    1:         mock_llama_cls.return_value = mock_llama_instance
+       
+    1:         cfg = {
+    1:             "model_path": str(model_file),
+    1:             "context_size": 2048,
+    1:             "gpu_acceleration": False,
+               }
+    2:         with patch.dict("sys.modules", {"llama_cpp": MagicMock(Llama=mock_llama_cls)}):
+    1:             load_model(cfg)
+       
+    2:         mock_llama_cls.assert_called_once_with(
+    1:             model_path=str(model_file),
+    1:             n_ctx=2048,
+    1:             n_gpu_layers=0,
+    1:             verbose=False,
+               )
+       
+    1:     def test_default_context_size(self, tmp_path):
+               """When context_size is missing from config, default 2048 is used."""
+    1:         model_file = tmp_path / "model.gguf"
+    1:         model_file.write_bytes(b"fake model data")
+       
+    1:         mock_llama_cls = MagicMock()
+    1:         cfg = {"model_path": str(model_file)}
+    2:         with patch.dict("sys.modules", {"llama_cpp": MagicMock(Llama=mock_llama_cls)}):
+    1:             load_model(cfg)
+       
+    1:         call_kwargs = mock_llama_cls.call_args
+    1:         assert call_kwargs.kwargs["n_ctx"] == 2048
+       
+       
+       # ---------------------------------------------------------------------------
+       # main
+       # ---------------------------------------------------------------------------
+    2: class TestMain:
+    1:     """Tests for the main() orchestration function."""
+       
+    1:     def test_missing_system_prompt_exits(self, tmp_path):
+               """main exits with code 1 when the system prompt file is missing."""
+    2:         with patch.object(_mod, "_SYSTEM_PROMPT_PATH", tmp_path / "missing.md"):
+    2:             with pytest.raises(SystemExit) as exc_info:
+    1:                 main(["--no-browser"])
+    1:             assert exc_info.value.code == 1
+       
+    1:     def test_main_calls_uvicorn_run(self, tmp_path):
+               """main orchestrates config → prompt → model → app → uvicorn.run."""
+    1:         mock_uvicorn_run = MagicMock()
+    1:         mock_load_model = MagicMock()
+       
+    3:         with patch.object(_mod, "load_model", mock_load_model), \
+    2:              patch.object(_mod, "uvicorn") as mock_uvicorn:
+    1:             mock_uvicorn.run = mock_uvicorn_run
+    1:             main(["--no-browser", "--port", "9999"])
+       
+    1:         mock_load_model.assert_called_once()
+    1:         mock_uvicorn_run.assert_called_once()
+    1:         call_kwargs = mock_uvicorn_run.call_args
+    1:         assert call_kwargs.kwargs["port"] == 9999
+    1:         assert call_kwargs.kwargs["host"] == "127.0.0.1"
+       
+    1:     def test_browser_opens_when_not_suppressed(self):
+               """Without --no-browser, a browser timer is scheduled."""
+    1:         mock_timer = MagicMock()
+    1:         mock_load_model = MagicMock()
+       
+    4:         with patch.object(_mod, "load_model", mock_load_model), \
+    2:              patch.object(_mod, "uvicorn") as mock_uvicorn, \
+    2:              patch.object(_mod, "threading") as mock_threading:
+    1:             mock_uvicorn.run = MagicMock()
+    1:             mock_threading.Timer.return_value = mock_timer
+    1:             main([])
+       
+    1:         mock_threading.Timer.assert_called_once()
+    1:         assert mock_threading.Timer.call_args[0][0] == 1.5
+    1:         mock_timer.start.assert_called_once()
+       
+    1:     def test_browser_timer_callback_opens_local_url(self):
+               """The scheduled callback opens the configured localhost URL."""
+    1:         mock_load_model = MagicMock()
+       
+    5:         with patch.object(_mod, "load_model", mock_load_model), \
+    2:              patch.object(_mod, "uvicorn") as mock_uvicorn, \
+    2:              patch.object(_mod, "threading") as mock_threading, \
+    2:              patch.object(_mod, "webbrowser") as mock_webbrowser:
+    1:             mock_uvicorn.run = MagicMock()
+    1:             main(["--port", "8123"])
+    1:             _, open_browser = mock_threading.Timer.call_args[0]
+    1:             open_browser()
+       
+    1:         mock_webbrowser.open.assert_called_once_with("http://localhost:8123")
+       
+    1:     def test_no_browser_flag_skips_browser(self):
+               """With --no-browser, no browser timer is scheduled."""
+    1:         mock_load_model = MagicMock()
+       
+    4:         with patch.object(_mod, "load_model", mock_load_model), \
+    2:              patch.object(_mod, "uvicorn") as mock_uvicorn, \
+    2:              patch.object(_mod, "threading") as mock_threading:
+    1:             mock_uvicorn.run = MagicMock()
+    1:             main(["--no-browser"])
+       
+    1:         mock_threading.Timer.assert_not_called()
+       
+    1:     def test_module_main_guard_runs_main(self, monkeypatch, tmp_path):
+    1:         script_path = Path(__file__).resolve().parents[1] / "iris-local.py"
+    1:         model_path = tmp_path / "model.gguf"
+    1:         model_path.write_bytes(b"fake model data")
+    1:         mock_uvicorn = MagicMock()
+    1:         mock_llama_cls = MagicMock()
+       
+    2:         monkeypatch.setattr(
+    1:             sys,
+    1:             "argv",
+    1:             ["iris-local.py", "--no-browser", "--model", str(model_path)],
+               )
+       
+    3:         with patch.dict(
+    1:             sys.modules,
+    1:             {
+    1:                 "uvicorn": MagicMock(run=mock_uvicorn.run),
+    1:                 "llama_cpp": MagicMock(Llama=mock_llama_cls),
+                   },
+               ):
+    1:             runpy.run_path(str(script_path), run_name="__main__")
+       
+    1:         mock_uvicorn.run.assert_called_once()

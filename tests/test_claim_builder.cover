@@ -1,0 +1,450 @@
+    1: """Tests for the sovereign Iris claim builder."""
+       
+    1: from __future__ import annotations
+       
+    1: import importlib.util
+    1: import json
+    1: import sys
+    1: from datetime import datetime, timezone
+    1: from pathlib import Path
+    1: from types import SimpleNamespace
+    1: from unittest.mock import patch
+       
+    1: import pytest
+    1: from nacl.exceptions import CryptoError
+    1: from nacl.signing import SigningKey
+       
+    1: from iris import claim_builder
+    1: from iris.claim_builder import auto_generate_claim
+       
+    1: _ONCHAIN_CLAIMS_PATH = (
+    4:     Path(__file__).resolve().parents[1]
+    1:     / "onchain-protocol"
+    1:     / "sdk"
+    1:     / "onchain_claims.py"
+       )
+    1: _spec = importlib.util.spec_from_file_location("test_onchain_claims", _ONCHAIN_CLAIMS_PATH)
+    1: _onchain_claims = importlib.util.module_from_spec(_spec)
+    1: sys.modules[_spec.name] = _onchain_claims
+    1: _spec.loader.exec_module(_onchain_claims)
+    1: verify_onchain_receipt = _onchain_claims.verify_onchain_receipt
+       
+       
+    1: def _build_profile(tmp_path: Path) -> dict[str, str]:
+   11:     signing_key = SigningKey.generate()
+   11:     return {
+   11:         "full_name": "Alex Example",
+   11:         "email": "alex@example.com",
+   11:         "phone": "07123 456789",
+   11:         "institution_name": "Example Exchange",
+   11:         "team_name": "Compliance Team",
+   11:         "reference": "EX-12345",
+   11:         "wallet_address": "0x1234567890abcdef1234567890abcdef12345678",
+   11:         "transaction_hash": "0xabc123",
+   11:         "private_key_hex": signing_key.encode().hex(),
+   11:         "vault_passphrase": "correct horse battery staple",
+           }
+       
+       
+    1: def _assert_all_placeholders_resolved(text: str) -> None:
+    3:     assert claim_builder._PLACEHOLDER_RE.findall(text) == []
+       
+       
+    1: def test_classify_scenario_reads_fast_match_table():
+    2:     scenario = claim_builder.classify_scenario(
+    1:         "I want to reference a hash, signature, receipt, or on-chain claim."
+           )
+       
+    1:     assert scenario["template"] == "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md"
+    3:     assert scenario["situation"] == (
+    2:         "I want to reference a hash, signature, receipt, or on-chain claim"
+           )
+    1:     assert scenario["score"] > 0
+       
+       
+    1: def test_module_raises_import_error_when_spec_loader_is_missing():
+    3:     with patch.object(
+    1:         claim_builder.importlib.util,
+    1:         "spec_from_file_location",
+    1:         return_value=SimpleNamespace(loader=None),
+           ):
+    2:         with pytest.raises(ImportError, match="Could not load on-chain claims module"):
+    1:             claim_builder._module()
+       
+       
+    1: def test_public_helpers_generate_and_encrypt_claim(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    2:     template = claim_builder.load_template(
+    1:         "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md"
+           )
+    2:     filled = claim_builder.fill_placeholders(
+    1:         template,
+    1:         profile,
+    1:         {
+    1:             "date": "2026-04-11",
+    1:             "team_name": profile["team_name"],
+    1:             "target_entity": profile["institution_name"],
+    1:             "reference": profile["reference"],
+    1:             "query_summary": "The exchange froze my account.",
+    1:             "transaction_hashes": profile["transaction_hash"],
+    1:             "wallet_addresses": profile["wallet_address"],
+    1:             "full_name": profile["full_name"],
+    1:             "contact_details": f'{profile["email"]} | {profile["phone"]}',
+               },
+           )
+       
+    2:     claim = claim_builder.generate_commitment(
+    1:         filled,
+    1:         profile,
+    1:         category="exchange",
+    1:         target_entity=profile["institution_name"],
+           )
+    7:     assert verify_onchain_receipt(
+    4:         claim["commitment_hash"], claim["signature"], claim["public_key"]
+    3:     ).valid is True
+       
+    2:     with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:         vault = claim_builder.encrypt_to_vault(
+    1:             {"created_at": claim["timestamp"], "letter": filled, "onchain_claim": claim},
+    1:             profile,
+    1:             "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md",
+               )
+    1:     raw_record = json.loads(Path(vault["path"]).read_text(encoding="utf-8"))
+    2:     payload = json.loads(
+    2:         claim_builder._decrypt_vault_payload(
+    1:             raw_record["encrypted_payload"], profile["vault_passphrase"]
+               )
+           )
+    1:     assert payload["letter"] == filled
+       
+       
+    1: def test_fill_placeholders_supports_banking_template_labels():
+    1:     profile = {
+    1:         "full_name": "Alex Example",
+    1:         "bank_building_society_name": "Example Bank",
+    1:         "account_number_sort_code_if_relevant": "12-34-56 / 12345678",
+    1:         "contact_email": "alex@example.com",
+           }
+    1:     template = claim_builder.load_template("DIRECT_DEBIT_REFUND_WITH_BURGESS.md")
+    2:     filled = claim_builder.fill_placeholders(
+    1:         template,
+    1:         profile,
+    1:         {
+    1:             "date": "2026-04-11",
+    1:             "amount": "150.00",
+    1:             "company_organisation_name_or_reference": "Example Utilities Ltd",
+    2:             claim_builder._norm(
+    1:                 "refused the refund / investigated itself and rejected my claim / reversed the refund / pushed me to the Financial Ombudsman"
+    1:             ): "refused the refund",
+               },
+           )
+       
+    1:     assert "Dear Example Bank Complaints / Fraud / Customer Services Team," in filled
+    1:     assert "On 2026-04-11, a Direct Debit of £150.00 was taken" in filled
+    1:     assert "by Example Utilities Ltd." in filled
+    1:     assert "The bank has refused the refund." in filled
+    1:     assert "Alex Example" in filled
+    1:     assert "12-34-56 / 12345678" in filled
+    1:     assert "alex@example.com" in filled
+    1:     _assert_all_placeholders_resolved(filled)
+       
+       
+    1: def test_fill_placeholders_supports_crypto_exchange_template_context(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    2:     template = claim_builder.load_template(
+    1:         "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md"
+           )
+    3:     context = {
+    2:         **claim_builder._context(
+    1:             "The exchange froze my account and blocked withdrawals.", profile
+               ),
+    1:         "commitment_hash": "0xcommitment",
+    1:         "onchain_reference": "claim-123",
+           }
+    1:     filled = claim_builder.fill_placeholders(template, profile, context)
+       
+    1:     assert "**Date:**" in filled and context["date"] in filled
+    1:     assert profile["reference"] in filled
+    1:     assert profile["institution_name"] in filled
+    1:     assert "The exchange froze my account and blocked withdrawals." in filled
+    1:     assert profile["transaction_hash"] in filled
+    1:     assert profile["wallet_address"] in filled
+    1:     assert "0xcommitment" in filled
+    1:     assert "claim-123" in filled
+    1:     assert "Alex Example" in filled
+    1:     assert "alex@example.com | 07123 456789" in filled
+    1:     _assert_all_placeholders_resolved(filled)
+       
+       
+    1: def test_fill_placeholders_supports_cryptographic_proof_template_context(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    2:     template = claim_builder.load_template(
+    1:         "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md"
+           )
+    3:     context = {
+    2:         **claim_builder._context(
+    1:             "I need to share a verifiable proof for this frozen account review.",
+    1:             profile,
+               ),
+    1:         "signature_reference": "signed-proof / public-key",
+    1:         "commitment_hash": "0xproof",
+    1:         "onchain_reference": "tx-789",
+           }
+    1:     filled = claim_builder.fill_placeholders(template, profile, context)
+       
+    1:     assert profile["reference"] in filled
+    1:     assert profile["institution_name"] in filled
+    1:     assert "I need to share a verifiable proof for this frozen account review." in filled
+    1:     assert "0xproof" in filled
+    1:     assert "signed-proof / public-key" in filled
+    1:     assert "tx-789" in filled
+    1:     assert "Alex Example" in filled
+    1:     assert "alex@example.com | 07123 456789" in filled
+    1:     _assert_all_placeholders_resolved(filled)
+       
+       
+    1: def test_encrypt_to_vault_uses_default_sovereign_vault_directory(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    1:     profile["vault_path"] = "/etc/ignored-by-design"
+       
+    2:     with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:         claim_builder.encrypt_to_vault(
+    1:             {"created_at": "2026-04-11T00:00:00Z", "letter": "test", "onchain_claim": {}},
+    1:             profile,
+    1:             "REQUEST_FOR_HUMAN_REVIEW.md",
+               )
+    1:     vault_files = list((tmp_path / ".sovereign-vault").glob("*.json"))
+    1:     assert len(vault_files) == 1
+       
+       
+    1: def test_generate_commitment_uses_supplied_signing_key(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    2:     claim = claim_builder.generate_commitment(
+    1:         "Human review request for my frozen exchange account.",
+    1:         profile,
+    1:         category="exchange",
+    1:         target_entity=profile["institution_name"],
+           )
+       
+    8:     assert claim["public_key"] == SigningKey(
+    4:         bytes.fromhex(profile["private_key_hex"])
+    3:     ).verify_key.encode().hex()
+    1:     assert claim["target_entity"] == profile["institution_name"]
+    1:     assert claim["category"] == "exchange"
+    1:     assert "generated_private_key_hex" not in claim
+    7:     assert verify_onchain_receipt(
+    4:         claim["commitment_hash"], claim["signature"], claim["public_key"]
+    3:     ).valid is True
+       
+       
+    1: def test_generate_commitment_raises_when_receipt_verification_fails(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+       
+    3:     with patch.object(
+    1:         claim_builder._ONCHAIN_CLAIMS,
+    1:         "verify_onchain_receipt",
+    1:         return_value=SimpleNamespace(valid=False),
+           ):
+    2:         with pytest.raises(ValueError, match="Generated commitment failed verification"):
+    2:             claim_builder.generate_commitment(
+    1:                 "Human review request for my frozen exchange account.",
+    1:                 profile,
+    1:                 category="exchange",
+    1:                 target_entity=profile["institution_name"],
+                   )
+       
+       
+    1: def test_encrypt_to_vault_round_trips_payload_and_rejects_wrong_passphrase(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    1:     payload = {
+    1:         "created_at": "2026-04-11T12:00:00+00:00",
+    1:         "template": "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md",
+    1:         "letter": "proof letter",
+    1:         "onchain_claim": {
+    1:             "commitment_hash": "0xproof",
+    1:             "public_key": "ab" * 32,
+               },
+           }
+       
+    2:     with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:         vault = claim_builder.encrypt_to_vault(
+    1:             payload,
+    1:             profile,
+    1:             "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md",
+               )
+       
+    1:     raw_record = json.loads(Path(vault["path"]).read_text(encoding="utf-8"))
+    1:     assert raw_record["template"] == payload["template"]
+    1:     assert raw_record["created_at"] == payload["created_at"]
+    1:     assert raw_record["commitment_hash"] == "0xproof"
+    1:     assert raw_record["public_key"] == "ab" * 32
+    1:     assert payload["letter"] not in raw_record["encrypted_payload"]
+       
+    2:     decrypted_payload = json.loads(
+    2:         claim_builder._decrypt_vault_payload(
+    1:             raw_record["encrypted_payload"], profile["vault_passphrase"]
+               )
+           )
+    1:     assert decrypted_payload == payload
+       
+    2:     with pytest.raises(CryptoError):
+    2:         claim_builder._decrypt_vault_payload(
+    1:             raw_record["encrypted_payload"], "wrong passphrase"
+               )
+       
+       
+    1: def test_encrypt_to_vault_requires_passphrase(tmp_path):
+    1:     profile = _build_profile(tmp_path)
+    1:     profile.pop("vault_passphrase")
+       
+    3:     with pytest.raises(
+    1:         ValueError,
+    1:         match="profile must include vault_passphrase to save an encrypted letter",
+           ):
+    2:         claim_builder.encrypt_to_vault(
+    1:             {"created_at": "2026-04-11T12:00:00+00:00", "letter": "proof letter"},
+    1:             profile,
+    1:             "REQUEST_FOR_HUMAN_REVIEW.md",
+               )
+       
+       
+    1: def test_queue_onchain_fingerprint_persists_minimal_package(tmp_path):
+    2:     with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:         queued = claim_builder.queue_onchain_fingerprint(
+    1:             {
+    1:                 "commitment_hash": "0xproof",
+    1:                 "signature": "0xsig",
+    1:                 "public_key": "ab" * 32,
+    1:                 "target_entity": "Example Exchange",
+    1:                 "category": "exchange",
+                   }
+               )
+       
+    1:     payload = json.loads(Path(queued["path"]).read_text(encoding="utf-8"))
+    1:     assert payload["version"] == "0.9.0"
+    1:     assert payload["queue_id"] == queued["queue_id"]
+    1:     assert payload["fingerprint"]["commitment_hash"] == "0xproof"
+    1:     assert payload["fingerprint"]["signature"] == "0xsig"
+    1:     assert payload["fingerprint"]["public_key"] == "ab" * 32
+    1:     assert payload["fingerprint"]["target_entity"] == "Example Exchange"
+       
+       
+    1: def test_queue_onchain_fingerprint_requires_core_fields(tmp_path):
+    2:     with patch.object(claim_builder, "_ROOT", tmp_path):
+    3:         with pytest.raises(
+    1:             ValueError,
+    1:             match="fingerprint must include commitment_hash, signature, and public_key",
+               ):
+    1:             claim_builder.queue_onchain_fingerprint({"commitment_hash": "0xproof"})
+       
+       
+    2: class TestAutoGenerateClaim:
+    3:     @pytest.mark.parametrize(
+    1:         ("user_query", "profile"),
+    1:         [
+    1:             ("", {}),
+    1:             ("   ", {}),
+    1:             (None, {}),  # type: ignore[arg-type]
+    1:             ("Need a letter", None),  # type: ignore[arg-type]
+               ],
+           )
+    2:     def test_rejects_invalid_inputs(self, user_query, profile):
+   12:         with pytest.raises(
+    4:             ValueError,
+    4:             match="user_query must be a non-empty string and profile must be a dict",
+               ):
+    4:             auto_generate_claim(user_query, profile)
+       
+    1:     def test_crypto_exchange_flow_generates_signed_vault_record(self, tmp_path):
+    1:         profile = _build_profile(tmp_path)
+       
+    2:         with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:             result = auto_generate_claim(
+    1:                 "A crypto exchange froze my account and blocked withdrawals.",
+    1:                 profile,
+                   )
+       
+    3:         assert result["scenario"]["template"] == (
+    2:             "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md"
+               )
+    1:         assert "Alex Example" in result["letter"]
+    1:         assert "Example Exchange" in result["letter"]
+    1:         assert "0xabc123" in result["letter"]
+    1:         assert result["commitment_hash"] in result["onchain_notice"]
+    1:         assert result["unresolved_placeholders"] == []
+    5:         assert [action["label"] for action in result["ui_actions"]] == [
+                   "Save",
+                   "Generate Commitment",
+                   "Copy Letter",
+                   "On-Chain Notice",
+               ]
+       
+    2:         verification = verify_onchain_receipt(
+    1:             result["commitment_hash"],
+    1:             result["signature"],
+    1:             result["public_key"],
+               )
+    1:         assert verification.valid is True
+       
+    1:         vault_path = Path(result["vault_record"]["path"])
+    1:         assert vault_path.exists()
+    1:         raw_record = json.loads(vault_path.read_text(encoding="utf-8"))
+    1:         assert raw_record["commitment_hash"] == result["commitment_hash"]
+    1:         assert result["letter"] not in raw_record["encrypted_payload"]
+       
+    2:         decrypted_payload = claim_builder._decrypt_vault_payload(
+    1:             raw_record["encrypted_payload"],
+    1:             profile["vault_passphrase"],
+               )
+    1:         payload = json.loads(decrypted_payload)
+    1:         assert payload["letter"] == result["letter"]
+    1:         assert payload["onchain_claim"]["public_key"] == result["public_key"]
+       
+    1:     def test_missing_private_key_generates_one(self, tmp_path):
+    1:         profile = _build_profile(tmp_path)
+    1:         profile.pop("private_key_hex")
+       
+    2:         with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:             result = auto_generate_claim(
+    1:                 "Please help me ask for a human review of this account decision.",
+    1:                 profile,
+                   )
+       
+    1:         assert result["scenario"]["template"] == "REQUEST_FOR_HUMAN_REVIEW.md"
+    1:         assert len(result["generated_private_key_hex"]) == 64
+    1:         assert "Example Exchange" in result["letter"]
+       
+    1:     def test_cryptographic_proof_flow_generates_notice_and_vault_record(self, tmp_path):
+    1:         profile = _build_profile(tmp_path)
+    1:         profile["onchain_reference"] = "0xtxhash"
+       
+    2:         with patch.object(claim_builder, "_ROOT", tmp_path):
+    2:             result = auto_generate_claim(
+    1:                 "I need to reference a hash, signature, receipt, or on-chain claim.",
+    1:                 profile,
+                   )
+       
+    3:         assert result["scenario"]["template"] == (
+    2:             "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md"
+               )
+    1:         assert result["onchain_claim"]["target_entity"] == profile["institution_name"]
+    1:         assert result["commitment_hash"] in result["letter"]
+    1:         assert result["signature"] in result["letter"]
+    1:         assert profile["onchain_reference"] in result["letter"]
+    1:         assert result["commitment_hash"] in result["onchain_notice"]
+    1:         assert result["signature"] in result["onchain_notice"]
+    1:         assert result["unresolved_placeholders"] == []
+       
+    2:         raw_record = json.loads(
+    1:             Path(result["vault_record"]["path"]).read_text(encoding="utf-8")
+               )
+    2:         payload = json.loads(
+    2:             claim_builder._decrypt_vault_payload(
+    1:                 raw_record["encrypted_payload"], profile["vault_passphrase"]
+                   )
+               )
+    1:         assert payload["template"] == result["scenario"]["template"]
+    1:         assert payload["created_at"] == result["timestamp"]
+    6:         assert (
+    6:             datetime.fromisoformat(payload["created_at"]).tzinfo is timezone.utc
+               )

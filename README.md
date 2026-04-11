@@ -4,7 +4,7 @@
 
 One question. Binary test. Human review over automation.
 
-The Burgess Principle is a simple, respectful framework that helps ordinary people hold institutions accountable — by asking whether a real human being actually looked at their case. As of v0.6.0, the framework's AI companion, **Iris**, can run entirely on your own hardware in **Sovereign Local Mode** — no cloud, no API keys, no data leaving your device.
+The Burgess Principle is a simple, respectful framework that helps ordinary people hold institutions accountable — by asking whether a real human being actually looked at their case. As of v0.9.0, the framework's AI companion, **Iris**, can run entirely on your own hardware in **Sovereign Local Mode**, generate complete claims on-device, and work as a phone-first installable PWA — no cloud, no API keys, no data leaving your device.
 
 **UK Certification Mark:** UK00004343685 — Classes 41, 42, 45
 **Website:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)
@@ -17,7 +17,11 @@ The Burgess Principle is a simple, respectful framework that helps ordinary peop
 |---|---|
 | **[v0.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0)** | Initial release — binary test, 30+ templates, cryptographic vault, 90+ tests. |
 | **[v0.2.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0)** | Commitment-only mode — send a single hash instead of personal facts. |
+| **[v0.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.4.0)** | On-Chain Burgess Claims — optional EVM L2 commitment fingerprinting with no personal data on-chain. |
 | **[v0.6.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0)** | Sovereign Local Mode — run Iris entirely on your own hardware. No cloud, no telemetry. |
+| **[v0.7.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.7.0)** | Financial & crypto expansion — new banking, crypto exchange, and cryptographic proof flows plus streamlined template discovery. |
+| **[v0.8.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.8.0)** | Iris Auto-Generator + Claim Builder — turn a natural-language scenario into a filled, signed, Vault-saved claim. |
+| **[v0.9.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0)** | Phone as Sovereign Advocate — installable mobile PWA, voice-first claim flow, and local phone vault workflow. |
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history.
 
@@ -48,9 +52,10 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 **[Iris](https://burgess-principle.vercel.app)** is the practical interface for the Burgess Principle — a calm, conversational AI companion that helps you apply the framework:
 
 - Generates respectful letters and templates
-- Helps you document interactions
-- Manages your local Vault (in Sovereign Mode)
-- Runs fully offline in v0.6.0
+- Helps you document interactions and generate complete claims
+- Manages your local Vault (in Sovereign Mode), including phone-first export/import flows
+- Supports cryptographic signing and optional on-chain fingerprinting
+- Runs fully offline and can be installed as a phone-first PWA in v0.9.0
 
 🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing.
 
@@ -74,17 +79,17 @@ python3 iris-local.py
 
 Full instructions: **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)**
 
-**Key v0.6.0 improvements:**
-- Sovereign Local Mode with easy install scripts
-- Modernised UI + mobile responsiveness
-- 264 passing tests (hardened)
-- Clear dual-mode architecture (Cloud vs Local)
+**Key recent release improvements:**
+- v0.7.0 — banking, crypto exchange, and cryptographic proof templates with faster scenario routing
+- v0.8.0 — automatic claim building, signing, and Vault save flows in Sovereign Local Mode
+- v0.9.0 — installable phone experience, voice-first claim capture, and local mobile vault workflow
+- Clear dual-mode architecture (Cloud vs Local), with Sovereign Mode remaining local-first
 
 For architecture and deployment details, see [`iris/README.md`](iris/README.md).
 
 ---
 
-## Quick start (v0.6.0)
+## Quick start (v0.9.0)
 
 **Choose your mode:**
 
@@ -95,8 +100,9 @@ Run **Iris** — your conversational AI companion — entirely on your own hardw
 - Full GGUF model support via `llama-cpp-python`
 - Cross-platform install scripts (Linux/macOS/Windows)
 - Clean local chat UI with privacy badge
+- Phone setup path via installable PWA and local vault sync tools
 
-See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for setup (one-command install + `python3 iris-local.py`).
+See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for setup (one-command install + `python3 iris-local.py`), including the **Phone Setup** section for the mobile PWA workflow.
 
 ### ☁️ Cloud Mode
 
@@ -209,7 +215,7 @@ Local Vault              Commitment              EVM L2                 Verifiab
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute — including good first issues |
 | [`SECURITY.md`](SECURITY.md) | Security policy and cryptographic baseline |
 
-**Latest:** [v0.6.0 — Sovereign Local Mode & Hardening](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0) (10 April 2026)
+**Latest:** [v0.9.0 — Phone as Sovereign Advocate](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0) (11 April 2026)
 
 ---
 

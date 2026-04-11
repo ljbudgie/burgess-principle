@@ -900,10 +900,10 @@ class TestMain:
             mock_uvicorn.run = MagicMock()
             main(["--no-browser"])
 
-        mock_create_app.assert_called_once_with(
-            load_system_prompt(),
-            personal_profile=_MOCK_PROFILE_SUMMARY,
-        )
+        mock_create_app.assert_called_once()
+        assert mock_create_app.call_args.args[0] == load_system_prompt()
+        assert mock_create_app.call_args.kwargs["personal_profile"] == _MOCK_PROFILE_SUMMARY
+        assert mock_create_app.call_args.kwargs["runtime_config"]["easy_mode"] is True
 
     def test_module_main_guard_runs_main(self, monkeypatch, tmp_path):
         script_path = Path(__file__).resolve().parents[1] / "iris-local.py"

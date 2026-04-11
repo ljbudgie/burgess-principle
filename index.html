@@ -2217,7 +2217,7 @@
         const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
         const TRIGGER_EVAL_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes — how often the app checks triggers
         const PERIODIC_SYNC_INTERVAL_MS = 12 * 60 * 60 * 1000; // 12 hours — periodic background sync
-        const HUB_PBKDF2_ITERATIONS = 310000; // OWASP-recommended PBKDF2 iterations for hub key derivation
+        const HUB_PBKDF2_ITERATIONS = 310000; // Hub uses pre-shared high-entropy secret; vault passphrase uses 600000
         const ICE_GATHERING_TIMEOUT_MS = 5000; // WebRTC ICE gathering timeout
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
         const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
@@ -2394,6 +2394,11 @@
         // ------------------------------------------------------------------ //
         // IndexedDB vault with encrypted fallback                            //
         // ------------------------------------------------------------------ //
+        function generateSecureId(prefix) {
+            const hex = Array.from(crypto.getRandomValues(new Uint8Array(6)), b => b.toString(16).padStart(2, '0')).join('');
+            return `${prefix}-${Date.now()}-${hex}`;
+        }
+
         function toBase64(bytes) {
             let binary = '';
             bytes.forEach(byte => {
@@ -3748,7 +3753,7 @@
             if (!label) { triggersStatus.textContent = 'Please enter a label.'; return; }
             const type = triggerType.value;
             const trigger = {
-                id: `trigger-${Date.now()}-${Array.from(crypto.getRandomValues(new Uint8Array(6)), b => b.toString(16).padStart(2, '0')).join('')}`,
+                id: generateSecureId('trigger'),
                 label,
                 type,
                 enabled: true,
@@ -3958,7 +3963,7 @@
         }
 
         async function createP2pSessionCommitment(action) {
-            const sessionId = `p2p-${Date.now()}-${Array.from(crypto.getRandomValues(new Uint8Array(6)), b => b.toString(16).padStart(2, '0')).join('')}`;
+            const sessionId = generateSecureId('p2p');
             const data = JSON.stringify({ sessionId, action, timestamp: new Date().toISOString() });
             const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(data))))
                 .map(b => b.toString(16).padStart(2, '0')).join('');

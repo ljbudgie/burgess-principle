@@ -6,7 +6,9 @@ import importlib.util
 import json
 import sys
 from pathlib import Path
+from unittest.mock import patch
 
+import pytest
 from nacl.signing import SigningKey
 
 from iris import claim_builder
@@ -38,7 +40,6 @@ def _build_profile(tmp_path: Path) -> dict[str, str]:
         "transaction_hash": "0xabc123",
         "private_key_hex": signing_key.encode().hex(),
         "vault_passphrase": "correct horse battery staple",
-        "vault_path": str(tmp_path / "vault"),
     }
 
 
@@ -85,11 +86,12 @@ def test_public_helpers_generate_and_encrypt_claim(tmp_path):
         claim["commitment_hash"], claim["signature"], claim["public_key"]
     ).valid is True
 
-    vault = claim_builder.encrypt_to_vault(
-        {"created_at": claim["timestamp"], "letter": filled, "onchain_claim": claim},
-        profile,
-        "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md",
-    )
+    with patch.object(claim_builder, "_ROOT", tmp_path):
+        vault = claim_builder.encrypt_to_vault(
+            {"created_at": claim["timestamp"], "letter": filled, "onchain_claim": claim},
+            profile,
+            "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md",
+        )
     raw_record = json.loads(Path(vault["path"]).read_text(encoding="utf-8"))
     payload = json.loads(
         claim_builder._decrypt_vault_payload(
@@ -99,14 +101,29 @@ def test_public_helpers_generate_and_encrypt_claim(tmp_path):
     assert payload["letter"] == filled
 
 
+def test_encrypt_to_vault_uses_default_sovereign_vault_directory(tmp_path):
+    profile = _build_profile(tmp_path)
+    profile["vault_path"] = "/etc/ignored-by-design"
+
+    with patch.object(claim_builder, "_ROOT", tmp_path):
+        claim_builder.encrypt_to_vault(
+            {"created_at": "2026-04-11T00:00:00Z", "letter": "test", "onchain_claim": {}},
+            profile,
+            "REQUEST_FOR_HUMAN_REVIEW.md",
+        )
+    vault_files = list((tmp_path / ".sovereign-vault").glob("*.json"))
+    assert len(vault_files) == 1
+
+
 class TestAutoGenerateClaim:
     def test_crypto_exchange_flow_generates_signed_vault_record(self, tmp_path):
         profile = _build_profile(tmp_path)
 
-        result = auto_generate_claim(
-            "A crypto exchange froze my account and blocked withdrawals.",
-            profile,
-        )
+        with patch.object(claim_builder, "_ROOT", tmp_path):
+            result = auto_generate_claim(
+                "A crypto exchange froze my account and blocked withdrawals.",
+                profile,
+            )
 
         assert result["scenario"]["template"] == (
             "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md"
@@ -148,10 +165,11 @@ class TestAutoGenerateClaim:
         profile = _build_profile(tmp_path)
         profile.pop("private_key_hex")
 
-        result = auto_generate_claim(
-            "Please help me ask for a human review of this account decision.",
-            profile,
-        )
+        with patch.object(claim_builder, "_ROOT", tmp_path):
+            result = auto_generate_claim(
+                "Please help me ask for a human review of this account decision.",
+                profile,
+            )
 
         assert result["scenario"]["template"] == "REQUEST_FOR_HUMAN_REVIEW.md"
         assert len(result["generated_private_key_hex"]) == 64

@@ -144,8 +144,7 @@ def encrypt_to_vault(payload: Mapping[str, Any], profile: Mapping[str, Any], tem
         raise ValueError("profile must include vault_passphrase to save an encrypted letter")
     salt, nonce = os.urandom(16), os.urandom(SecretBox.NONCE_SIZE)
     key = _derive_key(passphrase, salt, SecretBox.KEY_SIZE)
-    vault_dir = Path(_pick(profile, "vault_path", "vault_dir") or (_ROOT / ".sovereign-vault")).expanduser()
-    vault_dir = vault_dir if vault_dir.is_absolute() else (_ROOT / vault_dir)
+    vault_dir = (_ROOT / ".sovereign-vault").resolve()
     vault_dir.mkdir(parents=True, exist_ok=True)
     record_id = uuid.uuid4().hex
     claim = payload.get("onchain_claim", {}) if isinstance(payload.get("onchain_claim"), Mapping) else {}

@@ -25,6 +25,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
+from iris.claim_builder import auto_generate_claim
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -189,6 +190,52 @@ def create_app(system_prompt: str) -> FastAPI:
                 {"error": "Model inference failed. Check the server logs for details."},
                 status_code=500,
             )
+
+    @app.post("/api/generate-claim")
+    async def generate_claim(request: Request):
+        """Generate a sovereign local claim package from a user query and profile."""
+        try:
+            body = await request.json()
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+
+        query = body.get("query")
+        profile = body.get("profile")
+        if not isinstance(query, str) or not query.strip():
+            return JSONResponse(
+                {"error": "query must be a non-empty string."}, status_code=400
+            )
+        if not isinstance(profile, dict):
+            return JSONResponse({"error": "profile must be an object."}, status_code=400)
+
+        try:
+            claim = auto_generate_claim(query, profile)
+        except ValueError as exc:
+            error = (
+                "profile must include vault_passphrase."
+                if "vault_passphrase" in str(exc)
+                else "Invalid claim generation request."
+            )
+            return JSONResponse({"error": error}, status_code=400)
+        except OSError:
+            log.exception("Claim generation failed for local query due to an I/O error.")
+            return JSONResponse(
+                {"error": "Claim generation failed. Check the server logs for details."},
+                status_code=500,
+            )
+        except RuntimeError:
+            log.exception("Claim generation failed for local query due to a runtime error.")
+            return JSONResponse(
+                {"error": "Claim generation failed. Check the server logs for details."},
+                status_code=500,
+            )
+
+        return JSONResponse(
+            {
+                "claim": claim,
+                "letter_markdown": claim["letter"],
+            }
+        )
 
     # Serve index.html at root
     @app.get("/")

@@ -22,7 +22,7 @@ The Burgess Principle is a simple, respectful framework that helps ordinary peop
 | **[v0.7.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.7.0)** | Financial & crypto expansion — new banking, crypto exchange, and cryptographic proof flows plus streamlined template discovery. |
 | **[v0.8.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.8.0)** | Iris Auto-Generator + Claim Builder — turn a natural-language scenario into a filled, signed, Vault-saved claim. |
 | **[v0.9.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0)** | Phone as Sovereign Advocate — installable mobile PWA, voice-first claim flow, and local phone vault workflow. |
-| **[v.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v.1.0)** | First Contact — personal sovereign identity setup for local-first claim workflows. |
+| **[v1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v.1.0)** | First Contact — personal sovereign identity setup for local-first claim workflows. |
 | **[v1.1.1](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1)** | Mirror Mode — local identity reflection, hardware-linked greeting flow, and documentation/site refresh for Sovereign Mode. |
 
 See [CHANGELOG.md](CHANGELOG.md) for the full history.

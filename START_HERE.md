@@ -33,8 +33,10 @@ Head to the [`/templates`](./templates) folder. Pick the one that matches your s
 - **[Freedom of Information request](templates/FOI_WITH_BURGESS_PRINCIPLE.md)**
 - **[Automated decision challenge (Article 22)](templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md)**
 - **[Equality Act / disability adjustments](templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md)**
+- **[Crypto exchange freeze / withdrawal hold](templates/CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md)**
+- **[Cryptographic proof / on-chain notice](templates/CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md)**
 
-Not sure which one? Check the **[Common Scenarios guide](templates/COMMON_SCENARIOS.md)** for a quick comparison, or drop the whole repo into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant and describe your situation — it will pick the right template for you.
+Not sure which one? Start with the **[templates index](templates/README.md)** or the **[Common Scenarios guide](templates/COMMON_SCENARIOS.md)** for a quick comparison, or drop the whole repo into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant and describe your situation — it will pick the right template for you.
 
 ### 2. I want to see real results first
 

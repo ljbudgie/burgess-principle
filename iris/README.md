@@ -47,6 +47,9 @@ Iris matches the right template to the user's situation instead of presenting th
 | Disability or access needs ignored | Equality Act Adjustments |
 | Wants to see what data is held | DSAR |
 | Challenging a public body | FOI |
+| Crypto exchange freeze, withdrawal hold, or source-of-funds review | Crypto Exchange Account Restriction |
+| Wants to reference a hash, signature, receipt, or on-chain claim | Cryptographic Proof and On-Chain Notice |
+| Wants maximum privacy with minimal disclosure | Commitment-Only Placeholder or Vault-first guidance |
 | Everything else | Request for Human Review (default) |
 
 ### Handling Ambiguous Responses
@@ -57,6 +60,14 @@ Institutions don't always give clear answers. Iris helps users assess ambiguity:
 - Asks whether a named individual confirmed personal review of the specific facts.
 - Records unclear findings as **NULL (provisional)** and recommends a follow-up letter.
 - Never records SOVEREIGN unless confirmed by a named individual.
+
+### Template Discovery
+
+Iris now mirrors the streamlined templates folder documentation:
+
+- [`templates/README.md`](../templates/README.md) is the main template index.
+- [`templates/COMMON_SCENARIOS.md`](../templates/COMMON_SCENARIOS.md) is the fast routing guide.
+- Crypto and on-chain flows always stay **Vault first, commitments second**.
 
 ---
 

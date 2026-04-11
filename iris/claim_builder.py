@@ -149,7 +149,7 @@ def encrypt_to_vault(payload: Mapping[str, Any], profile: Mapping[str, Any], tem
     record_id = uuid.uuid4().hex
     claim = payload.get("onchain_claim", {}) if isinstance(payload.get("onchain_claim"), Mapping) else {}
     encrypted = SecretBox(key).encrypt(json.dumps(dict(payload), separators=(",", ":"), sort_keys=True).encode("utf-8"), nonce)
-    metadata = {"version": "0.8.0", "mode": "sovereign-local", "record_id": record_id, "created_at": str(payload.get("created_at", "")), "template": template_name, "commitment_hash": str(claim.get("commitment_hash", "")), "public_key": str(claim.get("public_key", "")), "encrypted_payload": (salt + nonce + encrypted.ciphertext).hex()}
+    metadata = {"version": "1.1.1", "mode": "sovereign-local", "record_id": record_id, "created_at": str(payload.get("created_at", "")), "template": template_name, "commitment_hash": str(claim.get("commitment_hash", "")), "public_key": str(claim.get("public_key", "")), "encrypted_payload": (salt + nonce + encrypted.ciphertext).hex()}
     path = vault_dir / f"{record_id}.json"
     path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     return {"record_id": record_id, "path": str(path)}
@@ -174,7 +174,7 @@ def queue_onchain_fingerprint(fingerprint: Mapping[str, Any]) -> dict[str, str]:
     queue_dir.mkdir(parents=True, exist_ok=True)
     queue_id = uuid.uuid4().hex
     payload = {
-        "version": "0.9.0",
+        "version": "1.1.1",
         "queue_id": queue_id,
         "queued_at": datetime.now(timezone.utc).isoformat(),
         "fingerprint": {

@@ -1806,6 +1806,16 @@
                         <summary>Claim profile &amp; phone settings</summary>
                         <p class="claim-profile-desc">Stored locally on this device so the phone can generate, sign, save, export, and restore sovereign claims offline.</p>
                         <div class="claim-profile-grid">
+                            <div class="claim-field"><label for="profileIdentityName">Setup My Identity</label><input id="profileIdentityName" type="text" autocomplete="name" placeholder="Lewis"></div>
+                            <div class="claim-field"><label for="profileIdentityHandle">Handle</label><input id="profileIdentityHandle" type="text" placeholder="ljbudgie"></div>
+                            <div class="claim-field"><label for="profileIdentitySignature">Preferred signature block</label><input id="profileIdentitySignature" type="text" placeholder="Lewis [Burgess Principle]"></div>
+                            <div class="claim-field"><label for="profileIdentityPassphrase">Identity vault passphrase</label><input id="profileIdentityPassphrase" type="password" autocomplete="off" placeholder="Required to create or load your keypair"></div>
+                        </div>
+                        <div class="claim-profile-actions">
+                            <button class="sidebar-action-btn" id="setupIdentityBtn" type="button">🔐 Setup My Identity</button>
+                        </div>
+                        <div class="claim-profile-status" id="identityStatus">No personal sovereign profile loaded yet.</div>
+                        <div class="claim-profile-grid">
                             <div class="claim-field"><label for="profileFullName">Full name</label><input id="profileFullName" type="text" autocomplete="name" placeholder="Alex Example"></div>
                             <div class="claim-field"><label for="profileEmail">Email</label><input id="profileEmail" type="email" autocomplete="email" placeholder="alex@example.com"></div>
                             <div class="claim-field"><label for="profilePhone">Phone</label><input id="profilePhone" type="tel" autocomplete="tel" placeholder="07123 456789"></div>
@@ -2080,9 +2090,20 @@
         const API_CHAT_URL = _isLocal ? `${window.location.origin}/api/chat` : '/api/chat';
         const API_CLAIM_URL = _isLocal ? `${window.location.origin}/api/generate-claim` : '/api/generate-claim';
         const API_FINGERPRINT_QUEUE_URL = _isLocal ? `${window.location.origin}/api/queue-onchain-fingerprint` : '/api/queue-onchain-fingerprint';
+        const API_PROFILE_URL = _isLocal ? `${window.location.origin}/api/my-profile` : '';
         const VAULT_DB_NAME = 'burgess-principle-vault';
         const VAULT_DB_VERSION = 1;
+        const VAULT_VERSION = '1.0.0';
+        // Keep 0.9.0 import support so earlier sovereign phone vault exports still restore cleanly.
+        const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
+        const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
+        const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
+        const IDENTITY_FIELD_IDS = {
+            name: 'profileIdentityName',
+            handle: 'profileIdentityHandle',
+            preferred_signature_block: 'profileIdentitySignature',
+        };
         const PROFILE_FIELD_IDS = {
             full_name: 'profileFullName',
             email: 'profileEmail',
@@ -2118,7 +2139,10 @@
         const sidebarBtn = document.getElementById('sidebarToggle');
         const claimProfilePanel = document.getElementById('claimProfilePanel');
         const voiceStatus = document.getElementById('voiceStatus');
+        const identityStatus = document.getElementById('identityStatus');
         const profileStatus = document.getElementById('profileStatus');
+        const setupIdentityBtn = document.getElementById('setupIdentityBtn');
+        const profileIdentityPassphrase = document.getElementById('profileIdentityPassphrase');
         const saveProfileBtn = document.getElementById('saveProfileBtn');
         const exportVaultBtn = document.getElementById('exportVaultBtn');
         const importVaultBtn = document.getElementById('importVaultBtn');
@@ -2136,6 +2160,7 @@
         const queueFingerprintBtn = document.getElementById('queueFingerprintBtn');
         const claimActionButtons = [saveClaimBtn, generateCommitmentBtn, copyLetterBtn, queueFingerprintBtn];
         const shortcutButtons = Array.from(document.querySelectorAll('[data-claim-template]'));
+        const identityFields = Object.fromEntries(Object.entries(IDENTITY_FIELD_IDS).map(([key, id]) => [key, document.getElementById(id)]));
         const profileFields = Object.fromEntries(Object.entries(PROFILE_FIELD_IDS).map(([key, id]) => [key, document.getElementById(id)]));
 
         let conversationHistory = [];
@@ -2145,6 +2170,7 @@
         let speechRecognition = null;
         let speechMode = 'idle';
         let pendingInstallPrompt = null;
+        let personalIdentitySummary = null;
 
         // ------------------------------------------------------------------ //
         // Welcome screen HTML                                                //
@@ -2231,6 +2257,132 @@
                 iv: toBase64(iv),
                 ciphertext: toBase64(new Uint8Array(ciphertext)),
             };
+        }
+
+        async function decryptPayload(payload, passphrase) {
+            if (!payload || !payload.encrypted) {
+                return payload ? payload.payload : null;
+            }
+            const key = await deriveVaultKey(passphrase, fromBase64(payload.salt));
+            const plaintext = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv: fromBase64(payload.iv) },
+                key,
+                fromBase64(payload.ciphertext)
+            );
+            return JSON.parse(new TextDecoder().decode(plaintext));
+        }
+
+        function bytesToHex(bytes) {
+            return Array.from(bytes).map(byte => byte.toString(16).padStart(2, '0')).join('');
+        }
+
+        function hexToBytes(value) {
+            if (typeof value !== 'string' || !/^[0-9a-f]+$/i.test(value) || value.length % 2 !== 0) {
+                throw new Error('Personal identity hex encoding is invalid: expected an even-length hexadecimal string.');
+            }
+            return new Uint8Array(value.match(/.{1,2}/g).map(chunk => parseInt(chunk, 16)));
+        }
+
+        async function sha256Hex(input) {
+            const bytes = typeof input === 'string' ? new TextEncoder().encode(input) : input;
+            const digest = await crypto.subtle.digest('SHA-256', bytes);
+            return bytesToHex(new Uint8Array(digest));
+        }
+
+        function getIdentityPayload() {
+            const payload = Object.fromEntries(
+                Object.entries(identityFields)
+                    .map(([key, input]) => [key, input.value.trim()])
+                    .filter(([, value]) => value)
+            );
+            payload.handle = payload.handle || 'ljbudgie';
+            return payload;
+        }
+
+        function summarizePersonalIdentity(profile) {
+            if (!profile || typeof profile !== 'object') return null;
+            return {
+                name: profile.name || '',
+                handle: profile.handle || 'ljbudgie',
+                preferred_signature_block: profile.preferred_signature_block || '',
+                key_fingerprint: profile.key_fingerprint || '',
+                public_key_hex: profile.public_key_hex || '',
+                profile_signature: profile.profile_signature || '',
+                signed_at: profile.signed_at || '',
+            };
+        }
+
+        function applyPersonalIdentitySummary(summary) {
+            if (!summary || typeof summary !== 'object' || !summary.name) return;
+            personalIdentitySummary = summary;
+            identityFields.name.value = summary.name || '';
+            identityFields.handle.value = summary.handle || 'ljbudgie';
+            identityFields.preferred_signature_block.value = summary.preferred_signature_block || '';
+            if (!profileFields.full_name.value.trim()) {
+                profileFields.full_name.value = summary.name;
+            }
+            identityStatus.textContent = `Loaded identity for ${summary.name} — Ed25519 fingerprint ${summary.key_fingerprint}.`;
+            document.title = `Iris — Your Sovereign Advocate — ${summary.name}`;
+        }
+
+        async function generateBrowserPersonalIdentity(payload) {
+            if (!window.crypto || !window.crypto.subtle) {
+                throw new Error('WebCrypto is required to create a local Ed25519 identity on this device.');
+            }
+            const keyPair = await crypto.subtle.generateKey({ name: 'Ed25519' }, true, ['sign', 'verify']);
+            const publicKeyBytes = new Uint8Array(await crypto.subtle.exportKey('raw', keyPair.publicKey));
+            const publicKeyHex = bytesToHex(publicKeyBytes);
+            const keyFingerprint = (await sha256Hex(publicKeyBytes)).slice(0, 16);
+            const profile = {
+                version: VAULT_VERSION,
+                name: payload.name,
+                handle: payload.handle || 'ljbudgie',
+                preferred_signature_block: payload.preferred_signature_block || `${payload.name} [Burgess Principle]`,
+                public_key_hex: publicKeyHex,
+                key_fingerprint: keyFingerprint,
+                signed_at: new Date().toISOString(),
+                public_key_jwk: await crypto.subtle.exportKey('jwk', keyPair.publicKey),
+                private_key_jwk: await crypto.subtle.exportKey('jwk', keyPair.privateKey),
+            };
+            const signedProfile = JSON.stringify({
+                handle: profile.handle,
+                key_fingerprint: profile.key_fingerprint,
+                name: profile.name,
+                preferred_signature_block: profile.preferred_signature_block,
+                public_key_hex: profile.public_key_hex,
+            });
+            const signature = await crypto.subtle.sign(
+                'Ed25519',
+                keyPair.privateKey,
+                new TextEncoder().encode(signedProfile)
+            );
+            profile.signed_profile = signedProfile;
+            profile.profile_signature = bytesToHex(new Uint8Array(signature));
+            return profile;
+        }
+
+        async function loadBrowserPersonalIdentity(passphrase) {
+            const encryptedProfile = await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY);
+            if (!encryptedProfile) return null;
+            const profile = await decryptPayload(encryptedProfile, passphrase);
+            const publicKey = await crypto.subtle.importKey(
+                'jwk',
+                profile.public_key_jwk,
+                { name: 'Ed25519' },
+                true,
+                ['verify']
+            );
+            const signatureBytes = hexToBytes(profile.profile_signature);
+            const valid = await crypto.subtle.verify(
+                'Ed25519',
+                publicKey,
+                signatureBytes,
+                new TextEncoder().encode(profile.signed_profile)
+            );
+            if (!valid) {
+                throw new Error('Stored personal identity signature verification failed.');
+            }
+            return profile;
         }
 
         function getFallbackStore() {
@@ -2355,6 +2507,84 @@
             await vaultStore.saveSetting('claim-profile', profile);
             profileStatus.textContent = 'Claim profile saved locally on this phone.';
             announceStatus('Claim profile saved locally.');
+        }
+
+        async function setupPersonalIdentity() {
+            const payload = getIdentityPayload();
+            const vaultPassphrase = profileIdentityPassphrase.value.trim();
+            if (!vaultPassphrase) {
+                identityStatus.textContent = 'Enter your identity vault passphrase before creating or loading your keypair.';
+                profileIdentityPassphrase.focus();
+                return;
+            }
+            if (!payload.name && !(await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY)) && !_isLocal) {
+                identityStatus.textContent = 'Enter your name to create your personal sovereign identity.';
+                identityFields.name.focus();
+                return;
+            }
+            setupIdentityBtn.disabled = true;
+            identityStatus.textContent = 'Preparing your sovereign identity locally…';
+            try {
+                let summary;
+                let created = false;
+                if (_isLocal) {
+                    const response = await fetch(`${API_PROFILE_URL}/setup`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ ...payload, vault_passphrase: vaultPassphrase }),
+                    });
+                    const result = await response.json();
+                    if (!response.ok) {
+                        throw new Error(result.error || `Profile request failed (${response.status})`);
+                    }
+                    summary = result.profile;
+                    created = Boolean(result.created);
+                } else {
+                    const encryptedProfile = await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY);
+                    let profile = encryptedProfile
+                        ? await loadBrowserPersonalIdentity(vaultPassphrase)
+                        : await generateBrowserPersonalIdentity(payload);
+                    if (!profile) {
+                        throw new Error('Could not load your local identity.');
+                    }
+                    created = !encryptedProfile;
+                    summary = summarizePersonalIdentity(profile);
+                    if (created) {
+                        const encrypted = await encryptPayload(profile, vaultPassphrase);
+                        await vaultStore.saveSetting(PERSONAL_IDENTITY_VAULT_KEY, encrypted);
+                    }
+                }
+                await vaultStore.saveSetting(PERSONAL_IDENTITY_SUMMARY_KEY, summary);
+                applyPersonalIdentitySummary(summary);
+                identityStatus.textContent = created
+                    ? `Identity secured for ${summary.name} — Ed25519 fingerprint ${summary.key_fingerprint}.`
+                    : `Identity loaded for ${summary.name} — Ed25519 fingerprint ${summary.key_fingerprint}.`;
+                profileStatus.textContent = 'Personal sovereign profile is ready on this device.';
+                announceStatus(identityStatus.textContent);
+            } catch (error) {
+                identityStatus.textContent = `Could not prepare your identity. ${error.message}`;
+            } finally {
+                setupIdentityBtn.disabled = false;
+            }
+        }
+
+        async function hydratePersonalIdentity() {
+            const storedSummary = await vaultStore.getSetting(PERSONAL_IDENTITY_SUMMARY_KEY);
+            if (storedSummary && typeof storedSummary === 'object') {
+                applyPersonalIdentitySummary(storedSummary);
+            }
+            if (!_isLocal) return;
+            try {
+                const response = await fetch(API_PROFILE_URL);
+                if (!response.ok) return;
+                const payload = await response.json();
+                if (payload.profile && typeof payload.profile === 'object') {
+                    await vaultStore.saveSetting(PERSONAL_IDENTITY_SUMMARY_KEY, payload.profile);
+                    applyPersonalIdentitySummary(payload.profile);
+                }
+            } catch (error) {
+                console.warn('Personal identity hydration failed.', error);
+            }
         }
 
         function setClaimStatus(html, tone) {
@@ -2526,9 +2756,11 @@
 
         async function exportVault() {
             const bundle = {
-                version: '0.9.0',
+                version: VAULT_VERSION,
                 exported_at: new Date().toISOString(),
                 profile: await loadStoredProfile(),
+                personalIdentitySummary: await vaultStore.getSetting(PERSONAL_IDENTITY_SUMMARY_KEY),
+                personalIdentityVault: await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY),
                 settings: {
                     highContrast: Boolean(await vaultStore.getSetting('high-contrast')),
                 },
@@ -2552,12 +2784,23 @@
             if (!payload || typeof payload !== 'object') {
                 throw new Error('Invalid vault file.');
             }
+            if (payload.version && !SUPPORTED_VAULT_IMPORT_VERSIONS.includes(payload.version)) {
+                throw new Error(
+                    `Unsupported vault version: ${payload.version}. Supported versions: ${SUPPORTED_VAULT_IMPORT_VERSIONS.join(', ')}`
+                );
+            }
             if (payload.profile) {
                 await vaultStore.saveSetting('claim-profile', payload.profile);
             }
             if (payload.settings && typeof payload.settings.highContrast === 'boolean') {
                 await vaultStore.saveSetting('high-contrast', payload.settings.highContrast);
                 applyHighContrast(payload.settings.highContrast);
+            }
+            if (payload.personalIdentitySummary && typeof payload.personalIdentitySummary === 'object') {
+                await vaultStore.saveSetting(PERSONAL_IDENTITY_SUMMARY_KEY, payload.personalIdentitySummary);
+            }
+            if (payload.personalIdentityVault && typeof payload.personalIdentityVault === 'object') {
+                await vaultStore.saveSetting(PERSONAL_IDENTITY_VAULT_KEY, payload.personalIdentityVault);
             }
             for (const storeName of ['claims', 'reminders', 'fingerprintQueue']) {
                 const items = Array.isArray(payload[storeName]) ? payload[storeName] : [];
@@ -2566,6 +2809,7 @@
                 }
             }
             await applyStoredProfile();
+            await hydratePersonalIdentity();
             profileStatus.textContent = 'Vault imported locally. Claims will survive browser restarts and phone reboots.';
             announceStatus('Vault imported locally.');
         }
@@ -2784,6 +3028,7 @@
             button.addEventListener('click', () => startNewClaimFlow(getShortcutPrompt(button.dataset.claimTemplate)));
         });
         sendBtn.addEventListener('click', () => sendMessage());
+        setupIdentityBtn.addEventListener('click', () => setupPersonalIdentity());
         saveProfileBtn.addEventListener('click', saveProfile);
         exportVaultBtn.addEventListener('click', exportVault);
         importVaultBtn.addEventListener('click', () => importVaultInput.click());
@@ -3055,6 +3300,7 @@
         Promise.all([
             registerPhonePwa(),
             applyStoredProfile(),
+            hydratePersonalIdentity(),
             hydrateUiSettings(),
         ]).then(async () => {
             configureVoice();

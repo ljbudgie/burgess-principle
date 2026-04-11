@@ -16,6 +16,10 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'voiceStatus' in INDEX
     assert 'claimProfilePanel' in INDEX
     assert 'indexedDB' in INDEX
+    assert 'Setup My Identity' in INDEX
+    assert 'profileIdentityName' in INDEX
+    assert 'profileIdentityPassphrase' in INDEX
+    assert '/api/my-profile' in INDEX
     assert 'Export Vault' in INDEX
     assert 'Import Vault' in INDEX
     assert 'queue-onchain-fingerprint' in INDEX

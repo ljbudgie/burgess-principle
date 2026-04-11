@@ -2128,7 +2128,7 @@
         const API_FINGERPRINT_QUEUE_URL = _isLocal ? `${window.location.origin}/api/queue-onchain-fingerprint` : '/api/queue-onchain-fingerprint';
         const API_PROFILE_URL = _isLocal ? `${window.location.origin}/api/my-profile` : '';
         const VAULT_DB_NAME = 'burgess-principle-vault';
-        const VAULT_DB_VERSION = 1;
+        const VAULT_DB_VERSION = 2;
         const VAULT_VERSION = '1.1.1';
         // Keep 0.9.0 import support so earlier sovereign phone vault exports still restore cleanly.
         const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
@@ -2535,6 +2535,12 @@
                     }
                     if (!db.objectStoreNames.contains('reminders')) {
                         db.createObjectStore('reminders', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('triggers')) {
+                        db.createObjectStore('triggers', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('pushSubscription')) {
+                        db.createObjectStore('pushSubscription', { keyPath: 'key' });
                     }
                 };
                 request.onsuccess = () => resolve(request.result);
@@ -3059,9 +3065,25 @@
         async function registerPhonePwa() {
             if (!('serviceWorker' in navigator)) return;
             try {
-                const registration = await navigator.serviceWorker.register('/service-worker.js');
+                const registration = await navigator.serviceWorker.register('/service-worker.js', {
+                    updateViaCache: 'none'
+                });
                 if ('sync' in registration) {
                     await registration.sync.register('burgess-reminder-sync');
+                    await registration.sync.register('burgess-trigger-sync');
+                }
+                // Register periodic background sync when supported (Chromium)
+                if ('periodicSync' in registration) {
+                    try {
+                        const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
+                        if (status.state === 'granted') {
+                            await registration.periodicSync.register('burgess-periodic-check', {
+                                minInterval: 12 * 60 * 60 * 1000 // 12 hours
+                            });
+                        }
+                    } catch (_e) {
+                        // Periodic sync not available — silent fallback to manual checks.
+                    }
                 }
             } catch (error) {
                 console.warn('Service worker registration failed.', error);

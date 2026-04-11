@@ -217,8 +217,14 @@ def create_app(system_prompt: str) -> FastAPI:
                 else "Invalid claim generation request."
             )
             return JSONResponse({"error": error}, status_code=400)
-        except (OSError, RuntimeError):
-            log.exception("Claim generation failed for local query.")
+        except OSError:
+            log.exception("Claim generation failed for local query due to an I/O error.")
+            return JSONResponse(
+                {"error": "Claim generation failed. Check the server logs for details."},
+                status_code=500,
+            )
+        except RuntimeError:
+            log.exception("Claim generation failed for local query due to a runtime error.")
             return JSONResponse(
                 {"error": "Claim generation failed. Check the server logs for details."},
                 status_code=500,

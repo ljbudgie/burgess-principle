@@ -22,7 +22,7 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'profileIdentityGreetingStyle' in INDEX
     assert 'profileIdentityCustomGreeting' in INDEX
     assert 'profileIdentityReflectionScope' in INDEX
-    assert "return `${summary.name} — local profile loaded.`;" in INDEX
+    assert "return `${summary.name} — Mirror Mode active. The handshake continues on this device.`;" in INDEX
     assert 'profileIdentityName' in INDEX
     assert 'profileIdentityPassphrase' in INDEX
     assert '/api/my-profile' in INDEX

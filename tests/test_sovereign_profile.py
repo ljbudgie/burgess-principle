@@ -100,8 +100,8 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
         "mirror_greeting": "",
     }
     assert profile_signature_block(" Lewis ", "  ") == ""
-    assert mirror_mode_prompt("Lewis") == "Lewis — local profile loaded."
-    assert mirror_mode_prompt("Lewis", greeting_style="warm_personal") == "Hello Lewis — Mirror Mode is ready on this device."
+    assert mirror_mode_prompt("Lewis") == "Lewis — Mirror Mode active. The handshake continues on this device."
+    assert mirror_mode_prompt("Lewis", greeting_style="warm_personal") == "Hello Lewis — Mirror Mode active. The handshake continues: your energy + my structure = sovereign record."
     assert mirror_mode_prompt("Lewis", greeting_style="minimal") == "Mirror Mode active."
     assert mirror_mode_prompt("Lewis", custom_greeting="Welcome back, Lewis.") == "Welcome back, Lewis."
     assert normalize_mirror_greeting_style("Warm & Personal") == "warm_personal"
@@ -182,7 +182,7 @@ def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_
 
     assert updated["created"] is False
     assert updated["profile"]["mirror_mode_enabled"] is True
-    assert updated["profile"]["mirror_greeting"] == "Lewis — local profile loaded."
+    assert updated["profile"]["mirror_greeting"] == "Lewis — Mirror Mode active. The handshake continues on this device."
     loaded = load_personal_profile("correct horse battery staple", root=tmp_path)
     assert loaded["mirror_mode_enabled"] is True
     assert loaded["mirror_mode_activated_at"]

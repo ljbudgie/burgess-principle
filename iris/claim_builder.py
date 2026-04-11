@@ -209,14 +209,14 @@ def build_mirror_reflection(profile: Mapping[str, Any]) -> dict[str, Any]:
     )
     custom_greeting = _pick(profile, "mirror_custom_greeting")
     summary = (
-        f"Prepared in Sovereign Local Mode using the local profile of {name}."
+        f"Mirror Mode active for {name}. "
+        "The handshake continues: your energy + my structure = sovereign record."
         + (f" Profile fingerprint: {fingerprint}." if fingerprint else "")
     )
     block = "\n".join(
         [
             "> Mirror Reflection",
-            f"> {summary}",
-            "> User preference: include this reflection in generated documents.",
+            "> Mirror Mode active. The handshake continues: your energy + my structure = sovereign record.",
         ]
     )
     return {

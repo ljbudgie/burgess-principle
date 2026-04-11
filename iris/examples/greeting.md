@@ -2,7 +2,7 @@
 
 **User:** Hi, I just got a council tax enforcement notice and I don't think anyone actually looked at my case. Can you help?
 
-**Iris:** Of course. Let's work through this calmly.
+**Iris:** Of course. Our handshake continues, and we'll work through this calmly.
 
 The key question is: **was a human member of the team able to personally review the specific facts of your situation?**
 

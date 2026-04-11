@@ -1813,8 +1813,10 @@
                         </div>
                         <div class="claim-profile-actions">
                             <button class="sidebar-action-btn" id="setupIdentityBtn" type="button">🔐 Setup My Identity</button>
+                            <label class="toggle-row" for="mirrorModeToggle"><input id="mirrorModeToggle" type="checkbox"> Enable Mirror Mode</label>
                         </div>
                         <div class="claim-profile-status" id="identityStatus">No personal sovereign profile loaded yet.</div>
+                        <div class="claim-profile-status" id="mirrorModeStatus">Mirror Mode is available after you set up your identity on this device.</div>
                         <div class="claim-profile-grid">
                             <div class="claim-field"><label for="profileFullName">Full name</label><input id="profileFullName" type="text" autocomplete="name" placeholder="Alex Example"></div>
                             <div class="claim-field"><label for="profileEmail">Email</label><input id="profileEmail" type="email" autocomplete="email" placeholder="alex@example.com"></div>
@@ -2050,6 +2052,7 @@
             landingView.classList.add('hidden');
             chatView.classList.add('active');
             document.body.style.overflow = 'hidden';
+            syncMirrorModeUi();
             document.getElementById('userInput').focus();
         }
 
@@ -2067,7 +2070,7 @@
             claimProfilePanel.open = true;
             userInput.value = prompt || getShortcutPrompt('new-claim');
             userInput.dispatchEvent(new Event('input'));
-            announceStatus('New claim flow opened on your phone.');
+            announceStatus(getMirrorGreeting() || 'New claim flow opened on your phone.');
         }
 
         // ------------------------------------------------------------------ //
@@ -2099,6 +2102,7 @@
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
         const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
+        const DEFAULT_VOICE_STATUS = 'Voice ready when your browser supports on-device speech recognition.';
         const IDENTITY_FIELD_IDS = {
             name: 'profileIdentityName',
             handle: 'profileIdentityHandle',
@@ -2142,6 +2146,8 @@
         const identityStatus = document.getElementById('identityStatus');
         const profileStatus = document.getElementById('profileStatus');
         const setupIdentityBtn = document.getElementById('setupIdentityBtn');
+        const mirrorModeToggle = document.getElementById('mirrorModeToggle');
+        const mirrorModeStatus = document.getElementById('mirrorModeStatus');
         const profileIdentityPassphrase = document.getElementById('profileIdentityPassphrase');
         const saveProfileBtn = document.getElementById('saveProfileBtn');
         const exportVaultBtn = document.getElementById('exportVaultBtn');
@@ -2175,19 +2181,42 @@
         // ------------------------------------------------------------------ //
         // Welcome screen HTML                                                //
         // ------------------------------------------------------------------ //
-        const WELCOME_HTML = `
-            <h3>Hello, I'm Iris</h3>
-            <p>I'm here to help you apply the Burgess Principle — calmly, practically, and on your terms.</p>
-            <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
-            <div class="welcome-suggestions">
-                <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
-                <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
-                <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
-                <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
-                <button class="suggestion" data-prompt="I have a disability and an institution hasn&#39;t made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
-                <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
-            </div>
-        `;
+        function isMirrorModeActive(summary = personalIdentitySummary) {
+            return Boolean(summary && summary.name && summary.mirror_mode_enabled);
+        }
+
+        function getMirrorGreeting(summary = personalIdentitySummary) {
+            if (!isMirrorModeActive(summary)) return '';
+            return summary.mirror_greeting || `Hey ${summary.name} — Mirror Mode active. What’s happening on your hardware?`;
+        }
+
+        function getWelcomeHtml() {
+            const greeting = getMirrorGreeting();
+            const headline = greeting || 'Hello, I\'m Iris';
+            const description = greeting
+                ? 'I’m reflecting your sovereign profile directly from this device so every local interaction starts from your own hardware-linked identity.'
+                : 'I\'m here to help you apply the Burgess Principle — calmly, practically, and on your terms.';
+            return `
+                <h3>${escapeHtml(headline)}</h3>
+                <p>${escapeHtml(description)}</p>
+                <div class="privacy-note">🛡️ All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.</div>
+                <div class="welcome-suggestions">
+                    <button class="suggestion" data-prompt="I received an automated penalty and I don't think anyone reviewed my case. Can you help?">I got an automated penalty — can you help?</button>
+                    <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
+                    <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
+                    <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
+                    <button class="suggestion" data-prompt="I have a disability and an institution hasn&#39;t made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
+                    <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
+                </div>
+            `;
+        }
+
+        function renderWelcomeScreen() {
+            const welcome = document.getElementById('welcome');
+            if (!welcome) return;
+            welcome.innerHTML = getWelcomeHtml();
+            bindSuggestionButtons(welcome);
+        }
 
         function bindSuggestionButtons(container) {
             container.querySelectorAll('.suggestion').forEach(btn => {
@@ -2309,6 +2338,9 @@
                 public_key_hex: profile.public_key_hex || '',
                 profile_signature: profile.profile_signature || '',
                 signed_at: profile.signed_at || '',
+                mirror_mode_enabled: Boolean(profile.mirror_mode_enabled),
+                mirror_mode_activated_at: profile.mirror_mode_activated_at || '',
+                mirror_greeting: profile.mirror_mode_enabled ? `Hey ${profile.name || 'there'} — Mirror Mode active. What’s happening on your hardware?` : '',
             };
         }
 
@@ -2318,11 +2350,13 @@
             identityFields.name.value = summary.name || '';
             identityFields.handle.value = summary.handle || 'ljbudgie';
             identityFields.preferred_signature_block.value = summary.preferred_signature_block || '';
+            mirrorModeToggle.checked = Boolean(summary.mirror_mode_enabled);
             if (!profileFields.full_name.value.trim()) {
                 profileFields.full_name.value = summary.name;
             }
             identityStatus.textContent = `Loaded identity for ${summary.name} — Ed25519 fingerprint ${summary.key_fingerprint}.`;
             document.title = `Iris — Your Sovereign Advocate — ${summary.name}`;
+            syncMirrorModeUi();
         }
 
         async function generateBrowserPersonalIdentity(payload) {
@@ -2341,6 +2375,8 @@
                 public_key_hex: publicKeyHex,
                 key_fingerprint: keyFingerprint,
                 signed_at: new Date().toISOString(),
+                mirror_mode_enabled: Boolean(payload.mirror_mode_enabled),
+                mirror_mode_activated_at: payload.mirror_mode_enabled ? new Date().toISOString() : '',
                 public_key_jwk: await crypto.subtle.exportKey('jwk', keyPair.publicKey),
                 private_key_jwk: await crypto.subtle.exportKey('jwk', keyPair.privateKey),
             };
@@ -2509,9 +2545,27 @@
             announceStatus('Claim profile saved locally.');
         }
 
+        function syncMirrorModeUi() {
+            const greeting = getMirrorGreeting();
+            if (personalIdentitySummary && personalIdentitySummary.name) {
+                mirrorModeToggle.checked = Boolean(personalIdentitySummary.mirror_mode_enabled);
+                mirrorModeStatus.textContent = greeting || 'Mirror Mode is off. Enable it once in My Profile to let Iris mirror your hardware identity by default.';
+            } else {
+                mirrorModeToggle.checked = false;
+                mirrorModeStatus.textContent = 'Mirror Mode is available after you set up your identity on this device.';
+            }
+            if (!speechRecognition || speechMode === 'idle') {
+                setVoiceStatus(greeting || DEFAULT_VOICE_STATUS, '');
+            }
+            if (conversationHistory.length === 0) {
+                renderWelcomeScreen();
+            }
+        }
+
         async function setupPersonalIdentity() {
             const payload = getIdentityPayload();
             const vaultPassphrase = profileIdentityPassphrase.value.trim();
+            const requestedMirrorMode = Boolean(mirrorModeToggle.checked);
             if (!vaultPassphrase) {
                 identityStatus.textContent = 'Enter your identity vault passphrase before creating or loading your keypair.';
                 profileIdentityPassphrase.focus();
@@ -2531,7 +2585,7 @@
                     const response = await fetch(`${API_PROFILE_URL}/setup`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ ...payload, vault_passphrase: vaultPassphrase }),
+                        body: JSON.stringify({ ...payload, vault_passphrase: vaultPassphrase, mirror_mode_enabled: requestedMirrorMode }),
                     });
                     const result = await response.json();
                     if (!response.ok) {
@@ -2541,15 +2595,24 @@
                     created = Boolean(result.created);
                 } else {
                     const encryptedProfile = await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY);
+                    let shouldSaveProfile = !encryptedProfile;
                     let profile = encryptedProfile
                         ? await loadBrowserPersonalIdentity(vaultPassphrase)
-                        : await generateBrowserPersonalIdentity(payload);
+                        : await generateBrowserPersonalIdentity({ ...payload, mirror_mode_enabled: requestedMirrorMode });
                     if (!profile) {
                         throw new Error('Could not load your local identity.');
                     }
                     created = !encryptedProfile;
+                    if (Boolean(profile.mirror_mode_enabled) !== requestedMirrorMode) {
+                        profile = {
+                            ...profile,
+                            mirror_mode_enabled: requestedMirrorMode,
+                            mirror_mode_activated_at: requestedMirrorMode ? (profile.mirror_mode_activated_at || new Date().toISOString()) : '',
+                        };
+                        shouldSaveProfile = true;
+                    }
                     summary = summarizePersonalIdentity(profile);
-                    if (created) {
+                    if (shouldSaveProfile) {
                         const encrypted = await encryptPayload(profile, vaultPassphrase);
                         await vaultStore.saveSetting(PERSONAL_IDENTITY_VAULT_KEY, encrypted);
                     }
@@ -2585,6 +2648,7 @@
             } catch (error) {
                 console.warn('Personal identity hydration failed.', error);
             }
+            syncMirrorModeUi();
         }
 
         function setClaimStatus(html, tone) {
@@ -3087,7 +3151,7 @@
             const welcome = document.createElement('div');
             welcome.className = 'welcome';
             welcome.id = 'welcome';
-            welcome.innerHTML = WELCOME_HTML;
+            welcome.innerHTML = getWelcomeHtml();
             messagesEl.appendChild(welcome);
             bindSuggestionButtons(welcome);
             updateActionButtons();

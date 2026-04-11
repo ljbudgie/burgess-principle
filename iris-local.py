@@ -308,6 +308,9 @@ def create_app(system_prompt: str, personal_profile: dict | None = None) -> Fast
                 handle=str(body.get("handle", "ljbudgie")).strip() or "ljbudgie",
                 preferred_signature_block=str(body.get("preferred_signature_block", "")).strip() or None,
                 private_key_hex=str(body.get("private_key_hex", "")).strip() or None,
+                mirror_mode_enabled=body.get("mirror_mode_enabled")
+                if isinstance(body.get("mirror_mode_enabled"), bool)
+                else None,
             )
         except FileNotFoundError:
             return JSONResponse({"error": "No local personal profile exists yet."}, status_code=404)

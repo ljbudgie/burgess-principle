@@ -107,6 +107,23 @@ class TestLoadConfig:
         assert cfg["gpu_acceleration"] is False
         assert cfg["easy_mode"] is True
 
+    def test_nested_user_profile_defaults_are_preserved(self, tmp_path):
+        config_file = tmp_path / "iris-config.json"
+        config_file.write_text(
+            json.dumps(
+                {
+                    "user_profile": {
+                        "preferred_name": "Lewis",
+                        "communication_needs": "Email only",
+                    }
+                }
+            )
+        )
+        with patch.object(_mod, "_CONFIG_PATH", config_file):
+            cfg = load_config()
+        assert cfg["user_profile"]["preferred_name"] == "Lewis"
+        assert cfg["user_profile"]["communication_needs"] == "Email only"
+
     def test_cli_overrides_config_file(self, tmp_path):
         """CLI arguments take priority over config file."""
         config_file = tmp_path / "iris-config.json"
@@ -181,6 +198,28 @@ class TestBuildRuntimeSystemPrompt:
         assert "Easy Mode is on" in prompt
         assert "Mirror greeting style: Neutral & Professional" in prompt
         assert "Active local profile: Lewis." in prompt
+
+    def test_includes_saved_local_user_profile_context(self):
+        prompt = build_runtime_system_prompt(
+            "Base prompt",
+            {
+                "easy_mode": True,
+                "user_profile": {
+                    "preferred_name": "Lewis",
+                    "communication_needs": "Email only, plain language",
+                    "location": "London",
+                    "active_cases": ["Trading 212 DSAR", "Home Office FOI"],
+                    "key_context": "Deaf user requesting calm written replies.",
+                    "last_updated": "2026-04-11",
+                },
+            },
+            _MOCK_PROFILE_SUMMARY,
+        )
+
+        assert "Saved Local User Profile" in prompt
+        assert "Preferred name: Lewis." in prompt
+        assert "Communication needs: Email only, plain language." in prompt
+        assert "Active cases: Trading 212 DSAR, Home Office FOI." in prompt
 
 
 # ---------------------------------------------------------------------------

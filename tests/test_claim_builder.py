@@ -72,13 +72,44 @@ def test_classify_scenario_reads_fast_match_table():
     assert scenario["score"] > 0
 
 
+@pytest.mark.parametrize(
+    ("reply_text", "expected"),
+    [
+        (
+            "Our automated system incorporates human oversight and your matter was reviewed in line with policy.",
+            "AMBIGUOUS",
+        ),
+        (
+            "No individual human review took place because the case was handled automatically.",
+            "NULL",
+        ),
+        (
+            "Yes — your case officer personally reviewed the specific facts of your case before the decision was issued.",
+            "SOVEREIGN",
+        ),
+    ],
+)
+def test_classify_institutional_reply_detects_working_states(reply_text, expected):
+    assert claim_builder.classify_institutional_reply(reply_text) == expected
+
+
 def test_classify_scenario_routes_weasel_word_follow_up():
     scenario = claim_builder.classify_scenario(
         "They replied saying decisions are subject to human review and handled in line with policy."
     )
 
     assert scenario["template"] == "FOLLOW_UP_WEASEL_RESPONSE.md"
+    assert scenario["reply_classification"] == "AMBIGUOUS"
     assert scenario["score"] > 0
+
+
+def test_classify_scenario_prioritizes_weasel_follow_up_over_domain_keywords():
+    scenario = claim_builder.classify_scenario(
+        "My exchange froze withdrawals and then replied that the decision was reviewed in line with policy and subject to human review."
+    )
+
+    assert scenario["template"] == "FOLLOW_UP_WEASEL_RESPONSE.md"
+    assert scenario["reply_classification"] == "AMBIGUOUS"
 
 
 def test_scenario_rows_ignore_table_rows_without_template_links(tmp_path):

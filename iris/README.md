@@ -2,9 +2,9 @@
 
 Iris is the conversational AI interface for the Burgess Principle, hosted at [burgess-principle.vercel.app](https://burgess-principle.vercel.app).
 
-It helps users apply the binary test, generate personalised templates, walk through the Sovereign Personal Vault, and create or verify on-chain claims — all while keeping control and data sovereignty with the user.
+It helps users apply the binary test, generate personalised templates, walk through the Sovereign Personal Vault, create or verify on-chain claims, and optionally enable Mirror Mode in Sovereign Local Mode — all while keeping control and data sovereignty with the user.
 
-Iris now includes a guided onboarding flow for new users, persistent user profiles, intelligent template matching, and handling for ambiguous institutional responses.
+Iris now includes a guided onboarding flow for new users, persistent user profiles, Mirror Mode-aware local identity setup, intelligent template matching, and handling for ambiguous institutional responses.
 
 ---
 
@@ -35,6 +35,18 @@ When Iris detects a new user (no profile in `iris-config.json`), it begins a gen
 6. Confirms the profile has been saved.
 
 On subsequent sessions, Iris silently loads the profile and uses it without repeating the onboarding.
+
+### Mirror Mode
+
+In Sovereign Local Mode, users can create an encrypted personal sovereign profile, then enable **Mirror Mode** so the interface restores a local mirrored greeting and hardware-linked identity summary on startup.
+
+Mirror Mode currently provides:
+
+- Local identity setup with name, handle, preferred signature block, and Ed25519-backed public profile summary.
+- A mirrored greeting in the welcome screen when the local profile is active.
+- Reuse of the local identity layer across claim/profile workflows without sending it to a cloud service.
+
+Mirror Mode remains optional and local-only.
 
 ### Intelligent Template Matching
 

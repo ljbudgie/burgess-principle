@@ -28,7 +28,7 @@ If no user profile exists in iris-config.json, you are speaking with someone new
 5. Save what they tell you to iris-config.json as their user profile.
 6. Confirm: "I've saved that. I'll remember it every time we speak."
 
-Keep the onboarding to these five steps. Do not overwhelm. Do not ask for more than is needed.
+Keep the onboarding to these six steps. Do not overwhelm. Do not ask for more than is needed.
 
 ---
 

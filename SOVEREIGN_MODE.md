@@ -115,13 +115,13 @@ On Apple Silicon Macs, Metal acceleration is usually automatic with the standard
 
 ## How It Works
 
-Sovereign Mode runs a lightweight local server that stands in for the cloud API. The same chat interface you see online works identically on your machine — the only difference is that every computation happens locally.
+Sovereign Mode runs a lightweight local server that stands in for the cloud API. The same interface you see online — landing page, chat, everything — works identically on your machine. The only difference is that every computation happens locally.
 
 ```
 ┌──────────────────────────────────────────────────────────┐
 │                     Your Browser                         │
 │                                                          │
-│  index.html ─── Same chat UI as the cloud version        │
+│  index.html ─── Full site: landing page + Iris chat      │
 │       │                                                  │
 │       └── Detects localhost → routes to local server      │
 │                                                          │
@@ -146,7 +146,7 @@ Sovereign Mode runs a lightweight local server that stands in for the cloud API.
          └───────────────────────┘
 ```
 
-- The same `index.html` serves both modes. It detects whether it's running on localhost and routes accordingly.
+- The same `index.html` serves both modes — landing page, templates, case studies, and chat. It detects localhost and routes API calls to your local server automatically.
 - The system prompt (`iris/system-prompt.md`) is loaded from disk — identical to the cloud version.
 - The local server is stateless between sessions. No conversation data is saved unless you export it.
 - No telemetry, no analytics, no phone-home behaviour of any kind.
@@ -192,8 +192,8 @@ You may need to reinstall llama-cpp-python with GPU support. See the [llama-cpp-
 | **Privacy** | No data leaves your device | Messages sent to external API for inference |
 | **Cost** | Free after model download | Requires API key (may have usage costs) |
 | **Speed** | Depends on your hardware | Fast (cloud GPU) |
-| **Quality** | Good (7B–8B models) | Excellent (Grok, GPT-4, etc.) |
+| **Quality** | Good (7B–8B models) | Excellent (Grok-3 default, configurable) |
 | **Setup** | Run install script + start | Deploy to Vercel + set API key |
 | **Offline** | Works without internet | Requires internet |
 
-Both modes use the same UI and the same system prompt. Choose based on your priorities.
+Both modes serve the same site and use the same system prompt. Choose based on your priorities.

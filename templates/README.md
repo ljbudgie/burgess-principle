@@ -14,9 +14,10 @@ If you are not sure where to start, use one of the defaults below and personalis
 
 1. **Need a simple first letter?** Start with [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md).
 2. **Already disputing an outcome?** Use [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md).
-3. **Need help choosing?** Check [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
-4. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you to the right template while keeping an encrypted copy in the phone vault.
-5. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto template if needed.
+3. **Got a vague "human oversight" reply?** Use [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md).
+4. **Need help choosing?** Check [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
+5. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you to the right template while keeping an encrypted copy in the phone vault.
+6. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto template if needed.
 
 ---
 
@@ -26,6 +27,7 @@ If you are not sure where to start, use one of the defaults below and personalis
 | --- | --- |
 | [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md) | The default starting point for almost any institution |
 | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) | A wider dispute where you want to challenge an outcome, not just ask the binary question |
+| [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md) | A second letter when the institution replies with vague process language instead of a direct answer |
 | [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md) | When you need reasonable adjustments, email-only contact, or accessible communication |
 | [`acknowledgment_email_template.txt`](./acknowledgment_email_template.txt) | A short, polite follow-up or acknowledgement |
 
@@ -37,6 +39,7 @@ If you are not sure where to start, use one of the defaults below and personalis
 | --- | --- |
 | Wants to know whether a human reviewed the case | [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md) |
 | Needs a universal dispute letter | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Received a vague answer about "human oversight" or "review in line with policy" | [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md) |
 | Wants to see what personal data is held | [`DSAR_WITH_BURGESS_PRINCIPLE.md`](./DSAR_WITH_BURGESS_PRINCIPLE.md) |
 | Needs public records from a council, court, or other public body | [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md) |
 | Wants to challenge automated decision-making | [`ARTICLE_22_WITH_BURGESS_PRINCIPLE.md`](./ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) |
@@ -103,6 +106,7 @@ These are more specialised or context-specific. If in doubt, start with a core t
 
 ## Using templates with Iris or another AI
 
+- **Reusable weasel-word rebuttal:** "A general statement that your system incorporates human oversight does not confirm that a human member of your team personally reviewed the specific facts of my case. Please provide a direct YES or NO answer to the Burgess Principle question. If YES, please also provide the name and role of the reviewer."
 - **Iris:** describe the situation and Iris should route you to the right template without dumping the full list.
 - **Phone-first Sovereign Mode:** save your claim profile once, use the home-screen quick actions for the main financial/crypto flows, and export/import the encrypted `.vault` file to move the same claim set between phone and laptop.
 - **Other AI assistants:** paste [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) first, then provide the repository or the relevant template.

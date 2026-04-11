@@ -21,6 +21,21 @@ Sovereign Mode works on macOS, Linux, and Windows — including Raspberry Pi 4/5
 
 ## Quick Start
 
+### Non-Technical Quick Start
+
+If you want the calmest route in:
+
+1. **Start with the hosted PWA first if you prefer.** You can use the live site, get comfortable, and then move to local mode when you want full offline control.
+2. **Run one install script for your platform.** It now installs the Python pieces and downloads an Easy Mode starter model for you if one is missing.
+3. **Optional: run `python3 setup-wizard.py`.** The wizard gives simple numbered choices for model size, likely CPU/GPU use, and first-run configuration.
+4. **Start Iris with `python3 iris-local.py`.** A browser window should open at `http://localhost:8000`.
+5. **In the local UI, open “Claim profile & phone settings”.** That is where you save your local identity, Mirror Mode preferences, and phone claim details.
+
+**Screenshot guide (what you should expect):**
+- **Install step:** a terminal window showing numbered setup steps such as “Checking Python”, “Installing Python packages”, and “Checking for a starter model”.
+- **First launch:** a local browser window with the Iris landing page and privacy note.
+- **Profile setup:** a local form called **Claim profile & phone settings** with fields for your identity, Mirror Mode style, and vault passphrase.
+
 ### 1. Install dependencies
 
 Choose your platform:
@@ -41,6 +56,12 @@ powershell -ExecutionPolicy Bypass -File scripts\install-windows.ps1
 ```
 
 Each script installs Python dependencies and downloads a small default model (~2.2 GB) if you don't have one already.
+
+If you would rather answer a few plain-English questions than edit JSON, run:
+
+```bash
+python3 setup-wizard.py
+```
 
 ### 2. Start Iris
 
@@ -101,10 +122,14 @@ Settings live in `iris-config.json` in the project root:
 
 ```json
 {
-    "model_path": "models/model.gguf",
+    "model_path": "models/phi-3-mini-4k-instruct-q4.gguf",
     "context_size": 2048,
     "port": 8000,
-    "gpu_acceleration": false
+    "gpu_acceleration": false,
+    "easy_mode": true,
+    "mirror_greeting_style": "neutral_professional",
+    "mirror_custom_greeting": "",
+    "mirror_reflection_scope": "vault_only"
 }
 ```
 
@@ -114,6 +139,10 @@ Settings live in `iris-config.json` in the project root:
 | `context_size` | How many tokens of conversation the model can see at once | `2048` |
 | `port` | Which port the local server runs on | `8000` |
 | `gpu_acceleration` | Use your GPU for faster inference (requires compatible hardware) | `false` |
+| `easy_mode` | Auto-prepare a lightweight local-first setup path | `true` |
+| `mirror_greeting_style` | Mirror Mode greeting tone: Warm & Personal, Neutral & Professional, or Minimal | `neutral_professional` |
+| `mirror_custom_greeting` | Optional exact local greeting text override | `""` |
+| `mirror_reflection_scope` | Whether Mirror Reflection stays in the vault, appears in documents, or is off | `vault_only` |
 
 You can also override settings from the command line:
 
@@ -140,6 +169,8 @@ The install scripts download Phi-3 Mini by default. To use a different model:
 1. Download the GGUF file from [Hugging Face](https://huggingface.co/models?search=gguf).
 2. Place it in the `models/` directory (or anywhere on your system).
 3. Update `model_path` in `iris-config.json` or pass `--model` on the command line.
+
+For non-technical users, the easiest first choice is still **Phi-3 Mini**. It is fast enough for most laptops and simpler to troubleshoot than a larger model.
 
 ---
 
@@ -213,17 +244,29 @@ Your model, your data, your hardware — full sovereignty.
 **"Model file not found"**
 Download a GGUF model and place it at the path shown in the error. The install scripts do this automatically.
 
+**"Python not found"**
+Use the platform install script again. It now gives a plain-English suggestion for the normal install path on your system.
+
 **Slow responses**
 Try a smaller model (Phi-3 Mini), reduce `context_size` to 1024, or enable GPU acceleration.
 
 **Out of memory**
 Use a smaller quantised model (Q4 variants use less RAM than Q8) or reduce `context_size`.
 
+**Slow download**
+The starter model is large enough to take time on home connections. Let it finish in one session if possible. If needed, run `python3 setup-wizard.py` later and point Iris at a model you already downloaded manually.
+
 **Port already in use**
 Change the port: `python3 iris-local.py --port 9001`
 
 **GPU not detected**
 You may need to reinstall llama-cpp-python with GPU support. See the [llama-cpp-python docs](https://github.com/abetlen/llama-cpp-python#installation).
+
+**Antivirus or security warning**
+Some systems treat large local model downloads or unsigned local executables cautiously. Review the file path, confirm it came from your own checkout, and then allow it if appropriate.
+
+**Prefer a double-click app**
+For Windows and macOS, consider packaging `iris-local.py` with PyInstaller for your own environment so users can start Iris with a standalone executable. Keep the same local-only guarantees and ship the model download separately if file size becomes awkward.
 
 ---
 

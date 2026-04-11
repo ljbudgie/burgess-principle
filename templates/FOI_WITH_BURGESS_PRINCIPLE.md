@@ -22,6 +22,8 @@ In addition, following the Burgess Principle, I’d like to kindly ask:
 
 If yes, I’d appreciate a short confirmation with the name or reference of the person who did so.
 
+For clarity, a general statement about standard human oversight, policy review, or a general process does not confirm that a human member of your team personally reviewed the specific facts of my individual case. Please provide a direct **YES** or **NO** answer to the Burgess Principle question above. If **YES**, please also provide the reviewer’s name and role, or a specific internal reference.
+
 Please treat this as a formal FOI request and respond within the 20-working-day statutory period.
 
 Thank you for your time and for giving my situation the personal attention it deserves.

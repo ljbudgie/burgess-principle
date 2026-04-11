@@ -28,7 +28,10 @@ _MOCK_PROFILE_SUMMARY = {
     "signed_at": "2026-04-11T20:45:15+00:00",
     "mirror_mode_enabled": True,
     "mirror_mode_activated_at": "2026-04-11T21:00:00+00:00",
-    "mirror_greeting": "Hey Lewis — Mirror Mode active. What’s happening on your hardware?",
+    "mirror_greeting_style": "neutral_professional",
+    "mirror_custom_greeting": "",
+    "mirror_reflection_scope": "vault_only",
+    "mirror_greeting": "Lewis — local profile loaded.",
 }
 
 # ---------------------------------------------------------------------------
@@ -44,6 +47,7 @@ load_system_prompt = _mod.load_system_prompt
 load_model = _mod.load_model
 parse_args = _mod.parse_args
 create_app = _mod.create_app
+build_runtime_system_prompt = _mod.build_runtime_system_prompt
 main = _mod.main
 _ROOT = _mod._ROOT
 _CONFIG_PATH = _mod._CONFIG_PATH
@@ -79,10 +83,13 @@ class TestLoadConfig:
         """When iris-config.json doesn't exist, defaults are used."""
         with patch.object(_mod, "_CONFIG_PATH", tmp_path / "nonexistent.json"):
             cfg = load_config()
-        assert cfg["model_path"] == "models/model.gguf"
+        assert cfg["model_path"] == "models/phi-3-mini-4k-instruct-q4.gguf"
         assert cfg["context_size"] == 2048
         assert cfg["port"] == 8000
         assert cfg["gpu_acceleration"] is False
+        assert cfg["easy_mode"] is True
+        assert cfg["mirror_greeting_style"] == "neutral_professional"
+        assert cfg["mirror_reflection_scope"] == "vault_only"
 
     def test_reads_config_file(self, tmp_path):
         """Values from iris-config.json override defaults."""
@@ -98,6 +105,7 @@ class TestLoadConfig:
         # Defaults preserved for unset values
         assert cfg["context_size"] == 2048
         assert cfg["gpu_acceleration"] is False
+        assert cfg["easy_mode"] is True
 
     def test_cli_overrides_config_file(self, tmp_path):
         """CLI arguments take priority over config file."""
@@ -159,6 +167,20 @@ class TestParseArgs:
         assert args.port == 9000
         assert args.gpu is True
         assert args.no_browser is True
+
+
+class TestBuildRuntimeSystemPrompt:
+    def test_includes_local_runtime_context(self):
+        prompt = build_runtime_system_prompt(
+            "Base prompt",
+            {"easy_mode": True, "mirror_reflection_scope": "vault_only"},
+            _MOCK_PROFILE_SUMMARY,
+        )
+
+        assert "Local Runtime Context" in prompt
+        assert "Easy Mode is on" in prompt
+        assert "Mirror greeting style: Neutral & Professional" in prompt
+        assert "Active local profile: Lewis." in prompt
 
 
 # ---------------------------------------------------------------------------
@@ -289,7 +311,8 @@ class TestChatEndpoint:
         call_kwargs = self.mock_llm.create_chat_completion.call_args
         api_messages = call_kwargs.kwargs["messages"]
         assert api_messages[0]["role"] == "system"
-        assert api_messages[0]["content"] == self.system_prompt
+        assert self.system_prompt in api_messages[0]["content"]
+        assert "Local Runtime Context" in api_messages[0]["content"]
         user_assistant_msgs = [m for m in api_messages if m["role"] != "system"]
         assert len(user_assistant_msgs) == 2
         assert user_assistant_msgs[0] == {"role": "user", "content": "Hello"}
@@ -582,6 +605,34 @@ class TestMyProfileEndpoint:
             )
         assert response.status_code == 200
         assert mock_setup.call_args.kwargs["mirror_mode_enabled"] is True
+        assert mock_setup.call_args.kwargs["mirror_greeting_style"] is None
+
+    def test_setup_passes_extended_mirror_preferences(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=_MOCK_PROFILE_SUMMARY), patch.object(
+            _mod,
+            "setup_personal_profile",
+            return_value={
+                "created": False,
+                "stored_path": "/tmp/personal-profile.json",
+                "profile": _MOCK_PROFILE_SUMMARY,
+            },
+        ) as mock_setup:
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={
+                    "vault_passphrase": "secret",
+                    "mirror_mode_enabled": True,
+                    "mirror_greeting_style": "warm_personal",
+                    "mirror_custom_greeting": "Welcome back, Lewis.",
+                    "mirror_reflection_scope": "all_documents",
+                },
+            )
+        assert response.status_code == 200
+        assert mock_setup.call_args.kwargs["mirror_greeting_style"] == "warm_personal"
+        assert mock_setup.call_args.kwargs["mirror_custom_greeting"] == "Welcome back, Lewis."
+        assert mock_setup.call_args.kwargs["mirror_reflection_scope"] == "all_documents"
 
     def test_setup_rejects_invalid_json(self):
         if not self.has_client:
@@ -663,7 +714,8 @@ class TestIndexPage:
         assert "Setup My Identity" in unescaped
         assert "Claim profile & phone settings" in unescaped
         assert "Enable Mirror Mode" in unescaped
-        assert "Mirror Mode active. What’s happening on your hardware?" in unescaped
+        assert "Mirror greeting style" in unescaped
+        assert "Include in all generated documents" in unescaped
         assert "voiceStatus" in response.text
         assert "manifest.json" in response.text
         assert "service-worker.js" in response.text

@@ -13,6 +13,11 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Mapping
 
+from iris.sovereign_profile import (
+    normalize_mirror_greeting_style,
+    normalize_mirror_reflection_scope,
+)
+
 _ROOT = Path(__file__).resolve().parent.parent
 _TEMPLATES = _ROOT / "templates"
 _SCENARIOS = _TEMPLATES / "COMMON_SCENARIOS.md"
@@ -21,8 +26,8 @@ _PLACEHOLDER_RE = re.compile(r"\[([^\[\]]+)\]")
 _LINK_RE = re.compile(r"\[`([^`]+)`\]\(\./[^)]+\)")
 _STOP = {"a", "about", "for", "i", "it", "just", "me", "my", "need", "or", "the", "to", "want", "with"}
 _EXACT = {"DATE": "date", "Team": "team_name", "Your Full Name": "full_name", "Your Contact Details": "contact_details", "Your address": "address", "Email address if known": "email", "Exchange / Platform / Compliance Team": "target_entity", "Institution / Team": "target_entity", "Institution / Company / Platform Name": "target_entity", "Institution / Company Name": "target_entity", "Institution Name & Full Address": "target_entity", "Your Case / Warrant / Account / Decision Reference": "reference", "Your Case / Account / Decision Reference": "reference", "Your Case / Complaint / Review Reference": "reference", "Your Reference / Account / CCJ / Case Number if known": "reference", "Exchange Ticket / Account / Case Reference": "reference", "COMMITMENT_HASH": "commitment_hash", "SIGNATURE / RECEIPT / PUBLIC KEY": "signature_reference", "CLAIM ID / TX HASH / EXPLORER LINK": "onchain_reference", "CLAIM ID / TX HASH": "onchain_reference", "TX HASH / HASHES": "transaction_hashes", "ADDRESS / ADDRESSES": "wallet_addresses"}
-_CATEGORY = {"CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md": "exchange", "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": "dao", "COMMITMENT_ONLY_PLACEHOLDER.md": "dao", "ARTICLE_22_WITH_BURGESS_PRINCIPLE.md": "disclosure", "DSAR_WITH_BURGESS_PRINCIPLE.md": "disclosure", "FOI_WITH_BURGESS_PRINCIPLE.md": "disclosure", "BENEFITS_CLAIM_HELP.md": "enforcement", "COUNCIL_TAX_PCN_TEMPLATE.md": "enforcement", "BAILIFFS_THREAT_TEMPLATE.md": "enforcement"}
-_HINTS = {"REQUEST_FOR_HUMAN_REVIEW.md": ("human review", "first letter"), "GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md": ("dispute letter", "challenging outcome"), "EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md": ("reasonable adjustments", "accessible communication"), "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": ("hash", "signature", "receipt", "on-chain", "on chain"), "COMMITMENT_ONLY_PLACEHOLDER.md": ("minimal disclosure", "placeholder", "keep private")}
+_CATEGORY = {"CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md": "exchange", "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": "dao", "COMMITMENT_ONLY_PLACEHOLDER.md": "dao", "ARTICLE_22_WITH_BURGESS_PRINCIPLE.md": "disclosure", "DSAR_WITH_BURGESS_PRINCIPLE.md": "disclosure", "FOI_WITH_BURGESS_PRINCIPLE.md": "disclosure", "BENEFITS_CLAIM_HELP.md": "enforcement", "COUNCIL_TAX_PCN_TEMPLATE.md": "enforcement", "BAILIFFS_THREAT_TEMPLATE.md": "enforcement", "FOLLOW_UP_WEASEL_RESPONSE.md": "dispute"}
+_HINTS = {"REQUEST_FOR_HUMAN_REVIEW.md": ("human review", "first letter"), "GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md": ("dispute letter", "challenging outcome"), "FOLLOW_UP_WEASEL_RESPONSE.md": ("human oversight", "review in line with policy", "subject to human review", "vague response", "second letter"), "EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md": ("reasonable adjustments", "accessible communication"), "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": ("hash", "signature", "receipt", "on-chain", "on chain"), "COMMITMENT_ONLY_PLACEHOLDER.md": ("minimal disclosure", "placeholder", "keep private")}
 _FALLBACKS = (("briefly_describe", "query_summary"), ("neutral_sentence", "query_summary"), ("reasonable_date", "reply_by"), ("commitment", "commitment_hash"), ("signature", "signature_reference"), ("receipt", "signature_reference"), ("public_key", "signature_reference"), ("claim_id", "onchain_reference"), ("tx_hash", "onchain_reference"), ("explorer_link", "onchain_reference"), ("wallet", "wallet_addresses"), ("transaction", "transaction_hashes"))
 _QUERY_SUMMARY_MAX_LENGTH = 217
 
@@ -96,6 +101,47 @@ def _context(user_query: str, profile: Mapping[str, Any]) -> dict[str, str]:
         "query_summary": summary[:_QUERY_SUMMARY_MAX_LENGTH].rstrip() + ("..." if len(summary) > _QUERY_SUMMARY_MAX_LENGTH else "") + ("" if not summary or summary.endswith((".", "!", "?")) else "."),
         "transaction_hashes": _pick(profile, "transaction_hashes", "transaction_hash"), "wallet_addresses": _pick(profile, "wallet_addresses", "wallet_address"),
         "commitment_hash": _pick(profile, "commitment_hash"), "signature_reference": _pick(profile, "signature_reference"), "onchain_reference": _pick(profile, "onchain_reference"),
+    }
+
+
+def build_mirror_reflection(profile: Mapping[str, Any]) -> dict[str, Any]:
+    """Build the optional Mirror Reflection metadata for local claims."""
+    if not bool(profile.get("mirror_mode_enabled")):
+        return {
+            "enabled": False,
+            "scope": "off",
+            "greeting_style": normalize_mirror_greeting_style(None),
+            "custom_greeting": "",
+            "summary": "",
+            "document_block": "",
+            "vault_note": "",
+        }
+    name = _pick(profile, "name", "full_name") or "the local profile owner"
+    fingerprint = _pick(profile, "key_fingerprint")
+    greeting_style = normalize_mirror_greeting_style(_pick(profile, "mirror_greeting_style"))
+    reflection_scope = normalize_mirror_reflection_scope(
+        _pick(profile, "mirror_reflection_scope")
+    )
+    custom_greeting = _pick(profile, "mirror_custom_greeting")
+    summary = (
+        f"Prepared in Sovereign Local Mode using the local profile of {name}."
+        + (f" Profile fingerprint: {fingerprint}." if fingerprint else "")
+    )
+    block = "\n".join(
+        [
+            "> Mirror Reflection",
+            f"> {summary}",
+            "> User preference: include this reflection in generated documents.",
+        ]
+    )
+    return {
+        "enabled": True,
+        "scope": reflection_scope,
+        "greeting_style": greeting_style,
+        "custom_greeting": custom_greeting,
+        "summary": summary,
+        "document_block": block if reflection_scope == "all_documents" else "",
+        "vault_note": summary if reflection_scope in {"vault_only", "all_documents"} else "",
     }
 
 def fill_placeholders(template_text: str, profile: Mapping[str, Any], context: Mapping[str, Any] | None = None) -> str:
@@ -196,10 +242,25 @@ def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, A
     claim = generate_commitment(fill_placeholders(template_text, profile, base), profile, category=scenario["category"], target_entity=base["target_entity"])
     claim_context = {**base, **{key: value for key, value in claim.items() if isinstance(value, str)}, "signature_reference": f"{claim['signature']} / {claim['public_key']}", "onchain_reference": base["onchain_reference"] or "Pending local posting — commitment ready"}
     letter = fill_placeholders(template_text, profile, claim_context)
-    payload = {"created_at": claim["timestamp"], "template": scenario["template"], "user_query": user_query, "letter": letter, "onchain_claim": {key: value for key, value in claim.items() if key != "generated_private_key_hex"}}
+    mirror_reflection = build_mirror_reflection(profile)
+    if mirror_reflection["document_block"]:
+        letter = f"{mirror_reflection['document_block']}\n\n{letter}"
+    payload = {
+        "created_at": claim["timestamp"],
+        "template": scenario["template"],
+        "user_query": user_query,
+        "letter": letter,
+        "mirror_reflection": {
+            "enabled": mirror_reflection["enabled"],
+            "scope": mirror_reflection["scope"],
+            "summary": mirror_reflection["vault_note"],
+        },
+        "onchain_claim": {key: value for key, value in claim.items() if key != "generated_private_key_hex"},
+    }
     result = {
         "scenario": scenario, "template_path": str(_TEMPLATES / scenario["template"]), "letter": letter, "onchain_notice": fill_placeholders(load_template("CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md"), profile, claim_context),
         "vault_record": encrypt_to_vault(payload, profile, scenario["template"]), "ui_actions": [{"id": "save", "label": "Save"}, {"id": "generate_commitment", "label": "Generate Commitment"}, {"id": "copy_letter", "label": "Copy Letter"}, {"id": "onchain_notice", "label": "On-Chain Notice"}],
+        "mirror_reflection": payload["mirror_reflection"],
         "unresolved_placeholders": sorted(set(_PLACEHOLDER_RE.findall(letter))), **claim,
     }
     result["onchain_claim"] = payload["onchain_claim"]
@@ -207,4 +268,4 @@ def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, A
         result["generated_private_key_hex"] = claim["generated_private_key_hex"]
     return result
 
-__all__ = ["auto_generate_claim", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint"]
+__all__ = ["auto_generate_claim", "build_mirror_reflection", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint"]

@@ -16,6 +16,8 @@ from iris.sovereign_profile import (
     load_personal_profile,
     load_personal_profile_summary,
     mirror_mode_prompt,
+    normalize_mirror_greeting_style,
+    normalize_mirror_reflection_scope,
     profile_path,
     profile_signature_block,
     save_personal_profile,
@@ -92,10 +94,18 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
         "signed_at": "",
         "mirror_mode_enabled": False,
         "mirror_mode_activated_at": "",
+        "mirror_greeting_style": "neutral_professional",
+        "mirror_custom_greeting": "",
+        "mirror_reflection_scope": "vault_only",
         "mirror_greeting": "",
     }
     assert profile_signature_block(" Lewis ", "  ") == ""
-    assert mirror_mode_prompt("Lewis") == "Hey Lewis — Mirror Mode active. What’s happening on your hardware?"
+    assert mirror_mode_prompt("Lewis") == "Lewis — local profile loaded."
+    assert mirror_mode_prompt("Lewis", greeting_style="warm_personal") == "Hello Lewis — Mirror Mode is ready on this device."
+    assert mirror_mode_prompt("Lewis", greeting_style="minimal") == "Mirror Mode active."
+    assert mirror_mode_prompt("Lewis", custom_greeting="Welcome back, Lewis.") == "Welcome back, Lewis."
+    assert normalize_mirror_greeting_style("Warm & Personal") == "warm_personal"
+    assert normalize_mirror_reflection_scope("all documents") == "all_documents"
     assert fingerprint_public_key("ab" * 32, length=8) == "9a2db2e2"
     assert profile_path(tmp_path) == tmp_path / ".sovereign-vault" / "personal-profile.json"
 
@@ -172,10 +182,32 @@ def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_
 
     assert updated["created"] is False
     assert updated["profile"]["mirror_mode_enabled"] is True
-    assert updated["profile"]["mirror_greeting"] == "Hey Lewis — Mirror Mode active. What’s happening on your hardware?"
+    assert updated["profile"]["mirror_greeting"] == "Lewis — local profile loaded."
     loaded = load_personal_profile("correct horse battery staple", root=tmp_path)
     assert loaded["mirror_mode_enabled"] is True
     assert loaded["mirror_mode_activated_at"]
+
+
+def test_setup_personal_profile_can_store_mirror_preferences(tmp_path):
+    setup_personal_profile(
+        vault_passphrase="correct horse battery staple",
+        root=tmp_path,
+        name="Lewis",
+    )
+
+    updated = setup_personal_profile(
+        vault_passphrase="correct horse battery staple",
+        root=tmp_path,
+        mirror_mode_enabled=True,
+        mirror_greeting_style="warm_personal",
+        mirror_custom_greeting="Welcome back, Lewis.",
+        mirror_reflection_scope="all_documents",
+    )
+
+    assert updated["profile"]["mirror_greeting_style"] == "warm_personal"
+    assert updated["profile"]["mirror_custom_greeting"] == "Welcome back, Lewis."
+    assert updated["profile"]["mirror_reflection_scope"] == "all_documents"
+    assert updated["profile"]["mirror_greeting"] == "Welcome back, Lewis."
 
 
 def test_setup_personal_profile_requires_name_when_creating_new_profile(tmp_path):

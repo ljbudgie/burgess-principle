@@ -20,6 +20,16 @@ You can also explore the principle on the website and talk to **Iris**, the AI c
 
 ---
 
+## Non-technical quick start
+
+1. **Need help immediately?** Start with the hosted PWA: [burgess-principle.vercel.app](https://burgess-principle.vercel.app).
+2. **Want full offline privacy later?** Run one of the install scripts in `scripts/`, then optionally run `python3 setup-wizard.py` for a guided local setup.
+3. **Choose the small starter model first.** Phi-3 Mini is the easiest local starting point on ordinary laptops.
+4. **If downloads are slow, RAM is tight, or antivirus interrupts setup, do not force it.** Check the troubleshooting notes in [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) and come back calmly.
+5. **If an institution replies with vague wording instead of a straight answer, use the dedicated follow-up template**: [`templates/FOLLOW_UP_WEASEL_RESPONSE.md`](templates/FOLLOW_UP_WEASEL_RESPONSE.md).
+
+---
+
 ## What do I do first?
 
 ### 1. I need to write a letter right now
@@ -27,6 +37,7 @@ You can also explore the principle on the website and talk to **Iris**, the AI c
 Head to the [`/templates`](./templates) folder. Pick the one that matches your situation:
 
 - **[General request for human review](templates/REQUEST_FOR_HUMAN_REVIEW.md)** — works for almost anything
+- **[Follow-up after a vague "human oversight" reply](templates/FOLLOW_UP_WEASEL_RESPONSE.md)** — use when they still avoid a direct YES/NO answer
 - **[General dispute with any organisation](templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md)** — universal dispute letter
 - **[Council tax or penalty charge](templates/COUNCIL_TAX_PCN_TEMPLATE.md)**
 - **[Benefits claim dispute](templates/BENEFITS_CLAIM_HELP.md)**

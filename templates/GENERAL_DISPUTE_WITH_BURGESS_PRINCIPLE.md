@@ -27,6 +27,8 @@ If someone did look at my specific circumstances, I would really appreciate a sh
 
 If that did not happen, I'd be grateful if you could now give my case that personal human attention.
 
+For clarity, a general statement that your systems include human oversight, that decisions may be reviewed, or that the matter was handled in line with policy does not confirm that a human member of your team personally reviewed the specific facts of my case. Please provide a direct **YES** or **NO** answer to the Burgess Principle question above. If **YES**, please also identify the reviewer by name and role.
+
 In the meantime, I would appreciate the following information within 14 days:
 1. [List the exact evidence you need, e.g. final meter readings, exact dates, account numbers, etc.]
 2. [Any other specific documents or clarifications]

@@ -22,6 +22,8 @@ Please confirm in writing:
 2. Whether human review took place (and if so, who carried it out), and  
 3. What steps you will now take to ensure my case receives individual human attention.
 
+For clarity, a general statement that your systems include human oversight, or that decisions are reviewable under policy, does not confirm that a human member of your team personally reviewed the specific facts of my case. Please answer the Burgess Principle question with a direct **YES** or **NO**. If **YES**, please provide the name and role of the reviewer.
+
 I’m happy to provide any further information that would help.
 
 Thank you for treating me as the individual I am. I look forward to your reply within the statutory timeframe.

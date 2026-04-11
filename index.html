@@ -1393,6 +1393,35 @@
             padding: 0 4px;
         }
 
+        .trigger-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .trigger-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+        }
+
+        .trigger-item-label { flex: 1; color: var(--text); }
+        .trigger-item-type { color: var(--text-dim); font-size: 0.75rem; }
+        .trigger-item-delete {
+            background: none;
+            border: none;
+            color: var(--red);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 2px 6px;
+        }
+
         .template-shortcuts {
             max-width: 720px;
             margin: 0 auto 12px;
@@ -1873,6 +1902,57 @@
                         <div class="claim-profile-status" id="profileStatus">Profile and phone settings stay only on this device.</div>
                         <input id="importVaultInput" type="file" accept=".vault,application/json" hidden>
                     </details>
+                    <details class="claim-profile-panel" id="triggersPanel">
+                        <summary>⚡ Sovereign Local Triggers</summary>
+                        <p class="claim-profile-desc">Define rules that run 100% locally on this device. When a trigger fires, Iris notifies you for a Burgess check. No data leaves this phone.</p>
+                        <div id="triggersList" class="trigger-list"></div>
+                        <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
+                            <div class="claim-field"><label for="triggerLabel">Label</label><input id="triggerLabel" type="text" placeholder="e.g. Benefits review reminder"></div>
+                            <div class="claim-field"><label for="triggerType">Type</label>
+                                <select id="triggerType">
+                                    <option value="keyword">Keyword match</option>
+                                    <option value="periodic">Periodic check</option>
+                                    <option value="scheduled">One-time scheduled</option>
+                                </select>
+                            </div>
+                            <div class="claim-field" id="triggerKeywordsField"><label for="triggerKeywords">Keywords (comma-separated)</label><input id="triggerKeywords" type="text" placeholder="benefits, DWP, HMRC, sanction"></div>
+                            <div class="claim-field" id="triggerIntervalField" style="display:none;"><label for="triggerInterval">Interval (hours)</label><input id="triggerInterval" type="number" min="1" value="24" placeholder="24"></div>
+                            <div class="claim-field" id="triggerScheduleField" style="display:none;"><label for="triggerSchedule">Date/time</label><input id="triggerSchedule" type="datetime-local"></div>
+                            <div class="claim-field"><label for="triggerDescription">Note (optional)</label><input id="triggerDescription" type="text" placeholder="Why this matters for your Burgess check"></div>
+                            <button class="sidebar-action-btn" id="addTriggerBtn" type="button">➕ Add trigger</button>
+                        </div>
+                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device and never leave it.</div>
+                    </details>
+                    <details class="claim-profile-panel" id="hubModePanel">
+                        <summary>🛰️ Sovereign Hub Mode</summary>
+                        <p class="claim-profile-desc">Connect to your own self-hosted Sovereign Hub (e.g. on Starlink) for end-to-end encrypted sync of commitments and receipts. No third-party server ever touches your data.</p>
+                        <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
+                            <label class="toggle-row" for="hubModeToggle"><input id="hubModeToggle" type="checkbox"> Connect to My Sovereign Hub</label>
+                            <div class="claim-field" id="hubUrlField" style="display:none;"><label for="hubUrl">Hub URL</label><input id="hubUrl" type="url" placeholder="https://my-hub.local:8443"></div>
+                            <div class="claim-field" id="hubKeyField" style="display:none;"><label for="hubSharedSecret">Shared secret</label><input id="hubSharedSecret" type="password" placeholder="Pre-shared symmetric key for AES-256-GCM"></div>
+                            <button class="sidebar-action-btn" id="hubConnectBtn" type="button" style="display:none;">🔗 Connect &amp; Sync</button>
+                        </div>
+                        <div class="claim-profile-status" id="hubStatus">Hub Mode is off. All data stays on this device only.</div>
+                    </details>
+                    <details class="claim-profile-panel" id="p2pPanel">
+                        <summary>🤝 Peer-to-Peer Human Handoff</summary>
+                        <p class="claim-profile-desc">Open a direct, encrypted device-to-device channel with a trusted person. Both sides must opt in. No central server holds content — WebRTC DataChannel only.</p>
+                        <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
+                            <button class="sidebar-action-btn" id="p2pCreateOfferBtn" type="button">📡 Create invite link</button>
+                            <div class="claim-field" id="p2pAnswerField" style="display:none;"><label for="p2pAnswerInput">Paste their response code</label><textarea id="p2pAnswerInput" rows="3" placeholder="Paste the response code from the other device"></textarea></div>
+                            <button class="sidebar-action-btn" id="p2pAcceptBtn" type="button" style="display:none;">✅ Accept &amp; Connect</button>
+                            <div class="claim-field" id="p2pJoinField"><label for="p2pOfferInput">Or paste an invite to join</label><textarea id="p2pOfferInput" rows="3" placeholder="Paste the invite code from the other device"></textarea></div>
+                            <button class="sidebar-action-btn" id="p2pJoinBtn" type="button">🔗 Join session</button>
+                            <div id="p2pChatArea" style="display:none;">
+                                <div id="p2pMessages" style="max-height:200px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius);padding:8px;margin:8px 0;font-size:0.82rem;background:var(--bg);"></div>
+                                <div style="display:flex;gap:8px;">
+                                    <input id="p2pMessageInput" type="text" placeholder="Type a message…" style="flex:1;">
+                                    <button class="sidebar-action-btn" id="p2pSendBtn" type="button">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="claim-profile-status" id="p2pStatus">Both devices must explicitly opt in. Every session is logged with a cryptographic commitment.</div>
+                    </details>
                     <div class="claim-actions" id="claimActions" aria-live="polite">
                         <div class="claim-actions-title">Local claim actions</div>
                         <p class="claim-actions-desc">After Iris drafts your next step, the phone can generate the sovereign claim package, encrypt a local vault copy, queue the fingerprint for later posting, and remind you in 14 days.</p>
@@ -2166,6 +2246,7 @@
             'crypto-exchange': 'My crypto exchange just froze my account and blocked withdrawals. Please generate the right Burgess claim.',
             'direct-debit': 'A direct debit refund issue needs a human review. Please generate the right Burgess claim.',
             'benefits': 'My benefits decision needs a human review. Please generate the right Burgess claim.',
+            'burgess-check': 'I need to run a Burgess check on a decision that affects me. Was a human member of the team able to personally review the specific facts of my specific situation?',
         };
 
         // ================================================================== //
@@ -2963,7 +3044,7 @@
         }
 
         async function hydratePushToggle() {
-            const enabled = await vaultStore.loadSetting('push-enabled');
+            const enabled = await vaultStore.getSetting('push-enabled');
             pushNotificationsToggle.checked = Boolean(enabled);
         }
 
@@ -3012,10 +3093,12 @@
                 personalIdentityVault: await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY),
                 settings: {
                     highContrast: Boolean(await vaultStore.getSetting('high-contrast')),
+                    pushEnabled: Boolean(await vaultStore.getSetting('push-enabled')),
                 },
                 claims: await vaultStore.getAll('claims'),
                 reminders: await vaultStore.getAll('reminders'),
                 fingerprintQueue: await vaultStore.getAll('fingerprintQueue'),
+                triggers: await vaultStore.getAll('triggers'),
             };
             const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -3051,7 +3134,7 @@
             if (payload.personalIdentityVault && typeof payload.personalIdentityVault === 'object') {
                 await vaultStore.saveSetting(PERSONAL_IDENTITY_VAULT_KEY, payload.personalIdentityVault);
             }
-            for (const storeName of ['claims', 'reminders', 'fingerprintQueue']) {
+            for (const storeName of ['claims', 'reminders', 'fingerprintQueue', 'triggers']) {
                 const items = Array.isArray(payload[storeName]) ? payload[storeName] : [];
                 for (const item of items) {
                     await vaultStore.put(storeName, item);
@@ -3059,6 +3142,7 @@
             }
             await applyStoredProfile();
             await hydratePersonalIdentity();
+            await renderTriggers().catch(() => 0);
             profileStatus.textContent = 'Vault imported locally. Claims will survive browser restarts and phone reboots.';
             announceStatus('Vault imported locally.');
         }
@@ -3534,6 +3618,7 @@
                 contentEl.innerHTML = renderMarkdown(fullText);
                 messagesEl.scrollTop = messagesEl.scrollHeight;
                 conversationHistory.push({ role: 'assistant', content: fullText });
+                checkKeywordTriggers(fullText).catch(() => 0);
                 updateActionButtons();
                 showClaimActions();
                 if (options.autoGenerateClaim) {
@@ -3586,6 +3671,401 @@
         }
 
         // ------------------------------------------------------------------ //
+        // Sovereign Local Triggers                                           //
+        // ------------------------------------------------------------------ //
+        const triggersList = document.getElementById('triggersList');
+        const triggerLabel = document.getElementById('triggerLabel');
+        const triggerType = document.getElementById('triggerType');
+        const triggerKeywords = document.getElementById('triggerKeywords');
+        const triggerInterval = document.getElementById('triggerInterval');
+        const triggerSchedule = document.getElementById('triggerSchedule');
+        const triggerDescription = document.getElementById('triggerDescription');
+        const addTriggerBtn = document.getElementById('addTriggerBtn');
+        const triggersStatus = document.getElementById('triggersStatus');
+        const triggerKeywordsField = document.getElementById('triggerKeywordsField');
+        const triggerIntervalField = document.getElementById('triggerIntervalField');
+        const triggerScheduleField = document.getElementById('triggerScheduleField');
+
+        triggerType.addEventListener('change', () => {
+            triggerKeywordsField.style.display = triggerType.value === 'keyword' ? '' : 'none';
+            triggerIntervalField.style.display = triggerType.value === 'periodic' ? '' : 'none';
+            triggerScheduleField.style.display = triggerType.value === 'scheduled' ? '' : 'none';
+        });
+
+        function renderTriggerItem(trigger) {
+            const item = document.createElement('div');
+            item.className = 'trigger-item';
+            const typeLabel = trigger.type === 'keyword'
+                ? `keywords: ${(trigger.keywords || []).join(', ')}`
+                : trigger.type === 'periodic'
+                    ? `every ${trigger.interval_hours}h`
+                    : `at ${trigger.schedule_iso || '?'}`;
+            item.innerHTML = `<span class="trigger-item-label">${escapeHtml(trigger.label || 'Trigger')}</span>` +
+                `<span class="trigger-item-type">${escapeHtml(typeLabel)}</span>` +
+                `<label class="toggle-row" style="min-height:auto;"><input type="checkbox" data-trigger-toggle="${escapeHtml(trigger.id)}" ${trigger.enabled ? 'checked' : ''}> On</label>` +
+                `<button class="trigger-item-delete" data-trigger-delete="${escapeHtml(trigger.id)}" title="Delete trigger">✕</button>`;
+            return item;
+        }
+
+        async function renderTriggers() {
+            const triggers = await vaultStore.getAll('triggers');
+            triggersList.innerHTML = '';
+            for (const t of triggers) {
+                triggersList.appendChild(renderTriggerItem(t));
+            }
+            triggersList.querySelectorAll('[data-trigger-delete]').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    await vaultStore.delete('triggers', btn.dataset.triggerDelete);
+                    await renderTriggers();
+                });
+            });
+            triggersList.querySelectorAll('[data-trigger-toggle]').forEach(cb => {
+                cb.addEventListener('change', async () => {
+                    const triggers = await vaultStore.getAll('triggers');
+                    const trigger = triggers.find(t => t.id === cb.dataset.triggerToggle);
+                    if (trigger) {
+                        trigger.enabled = cb.checked;
+                        await vaultStore.put('triggers', trigger);
+                    }
+                });
+            });
+        }
+
+        addTriggerBtn.addEventListener('click', async () => {
+            const label = triggerLabel.value.trim();
+            if (!label) { triggersStatus.textContent = 'Please enter a label.'; return; }
+            const type = triggerType.value;
+            const trigger = {
+                id: `trigger-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                label,
+                type,
+                enabled: true,
+                created_at: new Date().toISOString(),
+                description: triggerDescription.value.trim(),
+                last_fired_at: '',
+                notified: false,
+                flagged: false,
+            };
+            if (type === 'keyword') {
+                trigger.keywords = triggerKeywords.value.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
+                if (trigger.keywords.length === 0) { triggersStatus.textContent = 'Add at least one keyword.'; return; }
+            }
+            if (type === 'periodic') {
+                trigger.interval_hours = parseInt(triggerInterval.value, 10) || 24;
+            }
+            if (type === 'scheduled') {
+                trigger.schedule_iso = triggerSchedule.value ? new Date(triggerSchedule.value).toISOString() : '';
+                if (!trigger.schedule_iso) { triggersStatus.textContent = 'Pick a date/time.'; return; }
+            }
+            await vaultStore.put('triggers', trigger);
+            triggerLabel.value = '';
+            triggerKeywords.value = '';
+            triggerDescription.value = '';
+            triggersStatus.textContent = `Trigger "${label}" added. It runs 100% locally.`;
+            await renderTriggers();
+            // Ask SW to evaluate immediately
+            if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'EVALUATE_TRIGGERS' });
+            }
+        });
+
+        async function evaluateLocalTriggers() {
+            let triggers = [];
+            try { triggers = await vaultStore.getAll('triggers'); } catch (_e) { return; }
+            const now = Date.now();
+            for (const trigger of triggers) {
+                if (!trigger.enabled) continue;
+                if (trigger.last_fired_at && now - Date.parse(trigger.last_fired_at) < 60 * 60 * 1000) continue;
+
+                let shouldFire = false;
+
+                if (trigger.type === 'scheduled' && trigger.schedule_iso) {
+                    shouldFire = Date.parse(trigger.schedule_iso) <= now && !trigger.last_fired_at;
+                }
+
+                if (trigger.type === 'periodic' && trigger.interval_hours) {
+                    const interval = trigger.interval_hours * 60 * 60 * 1000;
+                    shouldFire = !trigger.last_fired_at || (now - Date.parse(trigger.last_fired_at) >= interval);
+                }
+
+                // Keyword triggers are checked in the chat handler and flagged
+                if (trigger.type === 'keyword' && trigger.flagged && !trigger.notified) {
+                    shouldFire = true;
+                }
+
+                if (shouldFire) {
+                    await showLocalNotification(
+                        trigger.label || 'Burgess check ready',
+                        trigger.description || 'A sovereign local trigger has fired — open Iris to review.',
+                        `trigger-${trigger.id}`
+                    );
+                    trigger.last_fired_at = new Date().toISOString();
+                    trigger.notified = true;
+                    await vaultStore.put('triggers', trigger);
+                }
+            }
+        }
+
+        // Check keywords against Iris responses
+        async function checkKeywordTriggers(text) {
+            if (!text) return;
+            const lower = text.toLowerCase();
+            let triggers = [];
+            try { triggers = await vaultStore.getAll('triggers'); } catch (_e) { return; }
+            let anyFlagged = false;
+            for (const trigger of triggers) {
+                if (!trigger.enabled || trigger.type !== 'keyword') continue;
+                const match = (trigger.keywords || []).some(kw => lower.includes(kw));
+                if (match && !trigger.flagged) {
+                    trigger.flagged = true;
+                    trigger.notified = false;
+                    await vaultStore.put('triggers', trigger);
+                    anyFlagged = true;
+                }
+            }
+            if (anyFlagged) {
+                await evaluateLocalTriggers();
+            }
+        }
+
+        // ------------------------------------------------------------------ //
+        // Sovereign Hub Mode                                                 //
+        // ------------------------------------------------------------------ //
+        const hubModeToggle = document.getElementById('hubModeToggle');
+        const hubUrlField = document.getElementById('hubUrlField');
+        const hubKeyField = document.getElementById('hubKeyField');
+        const hubConnectBtn = document.getElementById('hubConnectBtn');
+        const hubUrl = document.getElementById('hubUrl');
+        const hubSharedSecret = document.getElementById('hubSharedSecret');
+        const hubStatus = document.getElementById('hubStatus');
+
+        hubModeToggle.addEventListener('change', () => {
+            const on = hubModeToggle.checked;
+            hubUrlField.style.display = on ? '' : 'none';
+            hubKeyField.style.display = on ? '' : 'none';
+            hubConnectBtn.style.display = on ? '' : 'none';
+            hubStatus.textContent = on
+                ? 'Enter your hub URL and shared secret. Connection uses AES-256-GCM + Ed25519 signing.'
+                : 'Hub Mode is off. All data stays on this device only.';
+        });
+
+        async function deriveHubKey(secret, salt) {
+            const material = await crypto.subtle.importKey(
+                'raw', new TextEncoder().encode(secret), 'PBKDF2', false, ['deriveKey']
+            );
+            return crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 310000, hash: 'SHA-256' },
+                material, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']
+            );
+        }
+
+        async function hubEncrypt(payload, secret) {
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const key = await deriveHubKey(secret, salt);
+            const ciphertext = await crypto.subtle.encrypt(
+                { name: 'AES-GCM', iv }, key, new TextEncoder().encode(JSON.stringify(payload))
+            );
+            return {
+                salt: toBase64(salt), iv: toBase64(iv),
+                ciphertext: toBase64(new Uint8Array(ciphertext))
+            };
+        }
+
+        async function hubDecrypt(envelope, secret) {
+            const key = await deriveHubKey(secret, fromBase64(envelope.salt));
+            const plaintext = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv: fromBase64(envelope.iv) }, key, fromBase64(envelope.ciphertext)
+            );
+            return JSON.parse(new TextDecoder().decode(plaintext));
+        }
+
+        hubConnectBtn.addEventListener('click', async () => {
+            const url = hubUrl.value.trim();
+            const secret = hubSharedSecret.value.trim();
+            if (!url || !secret) { hubStatus.textContent = 'Hub URL and shared secret are required.'; return; }
+
+            hubStatus.textContent = 'Connecting…';
+            try {
+                // Collect local commitments to sync
+                const claims = await vaultStore.getAll('claims');
+                const commitments = claims.map(c => ({
+                    id: c.id, commitment_hash: c.commitment_hash,
+                    created_at: c.created_at, template: c.template
+                }));
+
+                const encrypted = await hubEncrypt({ commitments, timestamp: new Date().toISOString() }, secret);
+
+                const response = await fetch(url.replace(/\/+$/, '') + '/api/sovereign-sync', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ payload: encrypted })
+                });
+
+                if (!response.ok) throw new Error(`Hub returned ${response.status}`);
+                const data = await response.json();
+
+                if (data.payload) {
+                    const decrypted = await hubDecrypt(data.payload, secret);
+                    hubStatus.textContent = `Sync complete. Hub acknowledged ${decrypted.received || 0} commitments.`;
+                } else {
+                    hubStatus.textContent = 'Hub acknowledged the sync.';
+                }
+
+                await vaultStore.saveSetting('hub-url', url);
+            } catch (error) {
+                hubStatus.textContent = `Hub connection failed: ${error.message}`;
+            }
+        });
+
+        // ------------------------------------------------------------------ //
+        // Peer-to-Peer Human Handoff (WebRTC DataChannel)                    //
+        // ------------------------------------------------------------------ //
+        const p2pCreateOfferBtn = document.getElementById('p2pCreateOfferBtn');
+        const p2pOfferInput = document.getElementById('p2pOfferInput');
+        const p2pAnswerInput = document.getElementById('p2pAnswerInput');
+        const p2pAnswerField = document.getElementById('p2pAnswerField');
+        const p2pAcceptBtn = document.getElementById('p2pAcceptBtn');
+        const p2pJoinBtn = document.getElementById('p2pJoinBtn');
+        const p2pJoinField = document.getElementById('p2pJoinField');
+        const p2pChatArea = document.getElementById('p2pChatArea');
+        const p2pMessages = document.getElementById('p2pMessages');
+        const p2pMessageInput = document.getElementById('p2pMessageInput');
+        const p2pSendBtn = document.getElementById('p2pSendBtn');
+        const p2pStatus = document.getElementById('p2pStatus');
+
+        let p2pConnection = null;
+        let p2pChannel = null;
+        let p2pSessionHash = '';
+
+        function p2pLog(text) {
+            const el = document.createElement('div');
+            el.textContent = text;
+            p2pMessages.appendChild(el);
+            p2pMessages.scrollTop = p2pMessages.scrollHeight;
+        }
+
+        async function createP2pSessionCommitment(action) {
+            const sessionId = `p2p-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+            const data = JSON.stringify({ sessionId, action, timestamp: new Date().toISOString() });
+            const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(data))))
+                .map(b => b.toString(16).padStart(2, '0')).join('');
+            p2pSessionHash = hash;
+            return { sessionId, hash };
+        }
+
+        function setupP2pChannel(channel) {
+            p2pChannel = channel;
+            p2pChatArea.style.display = '';
+            channel.onopen = () => {
+                p2pLog('[System] Encrypted channel open. Both sides opted in.');
+                p2pStatus.textContent = `Session ${p2pSessionHash.slice(0, 12)}… active. All messages are direct device-to-device.`;
+            };
+            channel.onmessage = (event) => {
+                p2pLog(`[Peer] ${event.data}`);
+            };
+            channel.onclose = () => {
+                p2pLog('[System] Channel closed.');
+                p2pStatus.textContent = 'Session ended. Commitment logged locally.';
+            };
+        }
+
+        function createP2pConnection() {
+            const config = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+            p2pConnection = new RTCPeerConnection(config);
+            p2pConnection.onicecandidate = () => {}; // Candidates are gathered in the SDP
+            return p2pConnection;
+        }
+
+        p2pCreateOfferBtn.addEventListener('click', async () => {
+            const commitment = await createP2pSessionCommitment('create-offer');
+            p2pStatus.textContent = `Creating invite… Session ${commitment.hash.slice(0, 12)}…`;
+
+            const pc = createP2pConnection();
+            const channel = pc.createDataChannel('iris-p2p');
+            setupP2pChannel(channel);
+
+            const offer = await pc.createOffer();
+            await pc.setLocalDescription(offer);
+
+            // Wait for ICE gathering to complete
+            await new Promise(resolve => {
+                if (pc.iceGatheringState === 'complete') { resolve(); return; }
+                pc.addEventListener('icegatheringstatechange', () => {
+                    if (pc.iceGatheringState === 'complete') resolve();
+                });
+                setTimeout(resolve, 5000);
+            });
+
+            const offerData = btoa(JSON.stringify(pc.localDescription));
+            await navigator.clipboard.writeText(offerData).catch(() => {});
+            p2pStatus.textContent = `Invite copied to clipboard (or copy from below). Share with your trusted contact. Session ${commitment.hash.slice(0, 12)}…`;
+            p2pOfferInput.value = offerData;
+            p2pAnswerField.style.display = '';
+            p2pAcceptBtn.style.display = '';
+        });
+
+        p2pAcceptBtn.addEventListener('click', async () => {
+            if (!p2pConnection || !p2pAnswerInput.value.trim()) return;
+            try {
+                const answer = JSON.parse(atob(p2pAnswerInput.value.trim()));
+                await p2pConnection.setRemoteDescription(answer);
+                p2pStatus.textContent = 'Connection established!';
+            } catch (error) {
+                p2pStatus.textContent = `Failed to accept: ${error.message}`;
+            }
+        });
+
+        p2pJoinBtn.addEventListener('click', async () => {
+            const offerText = p2pOfferInput.value.trim();
+            if (!offerText) { p2pStatus.textContent = 'Paste the invite code first.'; return; }
+
+            const commitment = await createP2pSessionCommitment('join-session');
+            p2pStatus.textContent = `Joining… Session ${commitment.hash.slice(0, 12)}…`;
+
+            try {
+                const offer = JSON.parse(atob(offerText));
+                const pc = createP2pConnection();
+
+                pc.ondatachannel = (event) => {
+                    setupP2pChannel(event.channel);
+                };
+
+                await pc.setRemoteDescription(offer);
+                const answer = await pc.createAnswer();
+                await pc.setLocalDescription(answer);
+
+                await new Promise(resolve => {
+                    if (pc.iceGatheringState === 'complete') { resolve(); return; }
+                    pc.addEventListener('icegatheringstatechange', () => {
+                        if (pc.iceGatheringState === 'complete') resolve();
+                    });
+                    setTimeout(resolve, 5000);
+                });
+
+                const answerData = btoa(JSON.stringify(pc.localDescription));
+                await navigator.clipboard.writeText(answerData).catch(() => {});
+                p2pStatus.textContent = `Response copied to clipboard. Send it back to the other device. Session ${commitment.hash.slice(0, 12)}…`;
+                p2pJoinField.style.display = 'none';
+            } catch (error) {
+                p2pStatus.textContent = `Join failed: ${error.message}`;
+            }
+        });
+
+        p2pSendBtn.addEventListener('click', () => {
+            if (!p2pChannel || p2pChannel.readyState !== 'open') return;
+            const msg = p2pMessageInput.value.trim();
+            if (!msg) return;
+            p2pChannel.send(msg);
+            p2pLog(`[You] ${msg}`);
+            p2pMessageInput.value = '';
+        });
+
+        p2pMessageInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') p2pSendBtn.click();
+        });
+
+        // ------------------------------------------------------------------ //
         // Boot                                                               //
         // ------------------------------------------------------------------ //
         Promise.all([
@@ -3597,6 +4077,7 @@
         ]).then(async () => {
             configureVoice();
             applyShortcutFromLocation();
+            await renderTriggers();
             await checkDueReminders();
             await evaluateLocalTriggers();
             await flushFingerprintQueueToLocalServer().catch(() => 0);

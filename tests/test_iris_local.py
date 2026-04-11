@@ -24,8 +24,10 @@ _spec.loader.exec_module(_mod)
 
 load_config = _mod.load_config
 load_system_prompt = _mod.load_system_prompt
+load_model = _mod.load_model
 parse_args = _mod.parse_args
 create_app = _mod.create_app
+main = _mod.main
 _ROOT = _mod._ROOT
 _CONFIG_PATH = _mod._CONFIG_PATH
 _SYSTEM_PROMPT_PATH = _mod._SYSTEM_PROMPT_PATH
@@ -292,3 +294,155 @@ class TestIndexPage:
         response = client.get("/")
         assert response.status_code == 200
         assert "Iris" in response.text
+
+
+# ---------------------------------------------------------------------------
+# load_model
+# ---------------------------------------------------------------------------
+class TestLoadModel:
+    """Tests for the load_model function."""
+
+    def test_missing_model_file_exits(self, tmp_path):
+        """load_model exits with code 1 when the model file does not exist."""
+        cfg = {"model_path": str(tmp_path / "nonexistent.gguf")}
+        with pytest.raises(SystemExit) as exc_info:
+            load_model(cfg)
+        assert exc_info.value.code == 1
+
+    def test_relative_path_resolved_against_root(self, tmp_path):
+        """A relative model_path is resolved relative to _ROOT."""
+        model_file = _ROOT / "models" / "fake.gguf"
+        cfg = {"model_path": "models/fake.gguf"}
+        # Model file won't exist under _ROOT, so this should exit
+        with pytest.raises(SystemExit) as exc_info:
+            load_model(cfg)
+        assert exc_info.value.code == 1
+
+    def test_absolute_path_used_directly(self, tmp_path):
+        """An absolute model_path is used as-is without prepending _ROOT."""
+        abs_path = tmp_path / "model.gguf"
+        cfg = {"model_path": str(abs_path)}
+        # File doesn't exist, so it should exit
+        with pytest.raises(SystemExit) as exc_info:
+            load_model(cfg)
+        assert exc_info.value.code == 1
+
+    def test_successful_load_with_gpu(self, tmp_path):
+        """Successful model loading with GPU acceleration enabled."""
+        model_file = tmp_path / "model.gguf"
+        model_file.write_bytes(b"fake model data")
+
+        mock_llama_cls = MagicMock()
+        mock_llama_instance = MagicMock()
+        mock_llama_cls.return_value = mock_llama_instance
+
+        cfg = {
+            "model_path": str(model_file),
+            "context_size": 4096,
+            "gpu_acceleration": True,
+        }
+        with patch.dict("sys.modules", {"llama_cpp": MagicMock(Llama=mock_llama_cls)}):
+            load_model(cfg)
+
+        mock_llama_cls.assert_called_once_with(
+            model_path=str(model_file),
+            n_ctx=4096,
+            n_gpu_layers=-1,
+            verbose=False,
+        )
+        assert _mod._llm is mock_llama_instance
+
+    def test_successful_load_without_gpu(self, tmp_path):
+        """Successful model loading with GPU acceleration disabled."""
+        model_file = tmp_path / "model.gguf"
+        model_file.write_bytes(b"fake model data")
+
+        mock_llama_cls = MagicMock()
+        mock_llama_instance = MagicMock()
+        mock_llama_cls.return_value = mock_llama_instance
+
+        cfg = {
+            "model_path": str(model_file),
+            "context_size": 2048,
+            "gpu_acceleration": False,
+        }
+        with patch.dict("sys.modules", {"llama_cpp": MagicMock(Llama=mock_llama_cls)}):
+            load_model(cfg)
+
+        mock_llama_cls.assert_called_once_with(
+            model_path=str(model_file),
+            n_ctx=2048,
+            n_gpu_layers=0,
+            verbose=False,
+        )
+
+    def test_default_context_size(self, tmp_path):
+        """When context_size is missing from config, default 2048 is used."""
+        model_file = tmp_path / "model.gguf"
+        model_file.write_bytes(b"fake model data")
+
+        mock_llama_cls = MagicMock()
+        cfg = {"model_path": str(model_file)}
+        with patch.dict("sys.modules", {"llama_cpp": MagicMock(Llama=mock_llama_cls)}):
+            load_model(cfg)
+
+        call_kwargs = mock_llama_cls.call_args
+        assert call_kwargs.kwargs["n_ctx"] == 2048
+
+
+# ---------------------------------------------------------------------------
+# main
+# ---------------------------------------------------------------------------
+class TestMain:
+    """Tests for the main() orchestration function."""
+
+    def test_missing_system_prompt_exits(self, tmp_path):
+        """main exits with code 1 when the system prompt file is missing."""
+        with patch.object(_mod, "_SYSTEM_PROMPT_PATH", tmp_path / "missing.md"):
+            with pytest.raises(SystemExit) as exc_info:
+                main(["--no-browser"])
+            assert exc_info.value.code == 1
+
+    def test_main_calls_uvicorn_run(self, tmp_path):
+        """main orchestrates config → prompt → model → app → uvicorn.run."""
+        mock_uvicorn_run = MagicMock()
+        mock_load_model = MagicMock()
+
+        with patch.object(_mod, "load_model", mock_load_model), \
+             patch.object(_mod, "uvicorn") as mock_uvicorn:
+            mock_uvicorn.run = mock_uvicorn_run
+            main(["--no-browser", "--port", "9999"])
+
+        mock_load_model.assert_called_once()
+        mock_uvicorn_run.assert_called_once()
+        call_kwargs = mock_uvicorn_run.call_args
+        assert call_kwargs.kwargs["port"] == 9999
+        assert call_kwargs.kwargs["host"] == "127.0.0.1"
+
+    def test_browser_opens_when_not_suppressed(self):
+        """Without --no-browser, a browser timer is scheduled."""
+        mock_timer = MagicMock()
+        mock_load_model = MagicMock()
+
+        with patch.object(_mod, "load_model", mock_load_model), \
+             patch.object(_mod, "uvicorn") as mock_uvicorn, \
+             patch.object(_mod, "threading") as mock_threading:
+            mock_uvicorn.run = MagicMock()
+            mock_threading.Timer.return_value = mock_timer
+            main([])
+
+        mock_threading.Timer.assert_called_once()
+        assert mock_threading.Timer.call_args[0][0] == 1.5
+        mock_timer.start.assert_called_once()
+
+    def test_no_browser_flag_skips_browser(self):
+        """With --no-browser, no browser timer is scheduled."""
+        mock_load_model = MagicMock()
+
+        with patch.object(_mod, "load_model", mock_load_model), \
+             patch.object(_mod, "uvicorn") as mock_uvicorn, \
+             patch.object(_mod, "threading") as mock_threading:
+            mock_uvicorn.run = MagicMock()
+            main(["--no-browser"])
+
+        mock_threading.Timer.assert_not_called()

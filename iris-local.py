@@ -28,6 +28,8 @@ from fastapi.staticfiles import StaticFiles
 from iris.claim_builder import auto_generate_claim, queue_onchain_fingerprint
 from iris.sovereign_profile import (
     load_personal_profile_summary,
+    normalize_mirror_greeting_style,
+    normalize_mirror_reflection_scope,
     setup_personal_profile,
 )
 
@@ -56,10 +58,19 @@ _SYSTEM_PROMPT_PATH = _ROOT / "iris" / "system-prompt.md"
 def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
     """Merge iris-config.json defaults with CLI overrides."""
     defaults = {
-        "model_path": "models/model.gguf",
+        "model_path": "models/phi-3-mini-4k-instruct-q4.gguf",
         "context_size": 2048,
         "port": 8000,
         "gpu_acceleration": False,
+        "easy_mode": True,
+        "easy_mode_model": {
+            "name": "Phi-3 Mini 4K Instruct Q4",
+            "filename": "phi-3-mini-4k-instruct-q4.gguf",
+            "url": "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf",
+        },
+        "mirror_greeting_style": "neutral_professional",
+        "mirror_custom_greeting": "",
+        "mirror_reflection_scope": "vault_only",
     }
 
     if _CONFIG_PATH.exists():
@@ -86,6 +97,56 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
 def load_system_prompt() -> str:
     """Read the Iris system prompt from disk."""
     return _SYSTEM_PROMPT_PATH.read_text(encoding="utf-8")
+
+
+def build_runtime_system_prompt(
+    base_prompt: str,
+    runtime_config: dict | None = None,
+    personal_profile: dict | None = None,
+) -> str:
+    """Append local runtime context so Iris respects current local settings."""
+    config = runtime_config or {}
+    profile = personal_profile or {}
+    greeting_style = normalize_mirror_greeting_style(
+        profile.get("mirror_greeting_style") or config.get("mirror_greeting_style")
+    )
+    custom_greeting = str(
+        profile.get("mirror_custom_greeting") or config.get("mirror_custom_greeting") or ""
+    ).strip()
+    reflection_scope = normalize_mirror_reflection_scope(
+        profile.get("mirror_reflection_scope") or config.get("mirror_reflection_scope")
+    )
+    mirror_enabled = bool(profile.get("mirror_mode_enabled"))
+    style_label = {
+        "warm_personal": "Warm & Personal",
+        "neutral_professional": "Neutral & Professional",
+        "minimal": "Minimal",
+    }[greeting_style]
+    scope_label = {
+        "off": "Off",
+        "vault_only": "Internal vault only",
+        "all_documents": "Include in all generated documents",
+    }[reflection_scope]
+    context_lines = [
+        "## Local Runtime Context",
+        "- This conversation is running in Sovereign Local Mode on the user's own hardware.",
+        f"- Easy Mode is {'on' if config.get('easy_mode', True) else 'off'}.",
+        f"- Mirror greeting style: {style_label}.",
+        f"- Mirror reflection scope: {scope_label}.",
+    ]
+    if custom_greeting:
+        context_lines.append(f"- Custom greeting override: {custom_greeting}")
+    if mirror_enabled and profile.get("name"):
+        context_lines.extend(
+            [
+                f"- Active local profile: {profile['name']}.",
+                "- Use the chosen Mirror greeting style sparingly, mainly for initial load or voice mode.",
+                "- Keep generated claims and official letters formal even when Mirror Mode is enabled.",
+            ]
+        )
+    else:
+        context_lines.append("- No active Mirror Mode profile is loaded yet.")
+    return f"{base_prompt.rstrip()}\n\n---\n\n" + "\n".join(context_lines)
 
 
 # ---------------------------------------------------------------------------
@@ -130,10 +191,15 @@ def load_model(cfg: dict):
 # ---------------------------------------------------------------------------
 
 
-def create_app(system_prompt: str, personal_profile: dict | None = None) -> FastAPI:
+def create_app(
+    system_prompt: str,
+    personal_profile: dict | None = None,
+    runtime_config: dict | None = None,
+) -> FastAPI:
     """Build the FastAPI app that serves the local chat API."""
     app = FastAPI(title="Iris Local", docs_url=None, redoc_url=None)
     app.state.personal_profile = personal_profile
+    app.state.runtime_config = runtime_config or {}
 
     app.add_middleware(
         CORSMiddleware,
@@ -159,7 +225,12 @@ def create_app(system_prompt: str, personal_profile: dict | None = None) -> Fast
             )
 
         # Build message list with system prompt
-        api_messages = [{"role": "system", "content": system_prompt}]
+        runtime_prompt = build_runtime_system_prompt(
+            system_prompt,
+            app.state.runtime_config,
+            app.state.personal_profile,
+        )
+        api_messages = [{"role": "system", "content": runtime_prompt}]
         for msg in messages:
             role = msg.get("role", "user")
             content = msg.get("content", "")
@@ -311,6 +382,9 @@ def create_app(system_prompt: str, personal_profile: dict | None = None) -> Fast
                 mirror_mode_enabled=body.get("mirror_mode_enabled")
                 if isinstance(body.get("mirror_mode_enabled"), bool)
                 else None,
+                mirror_greeting_style=str(body.get("mirror_greeting_style", "")).strip() or None,
+                mirror_custom_greeting=str(body.get("mirror_custom_greeting", "")).strip() or None,
+                mirror_reflection_scope=str(body.get("mirror_reflection_scope", "")).strip() or None,
             )
         except FileNotFoundError:
             return JSONResponse({"error": "No local personal profile exists yet."}, status_code=404)
@@ -415,7 +489,7 @@ def main(argv: list[str] | None = None) -> None:
     else:
         log.info("No sovereign personal profile found yet. Use Setup My Identity to create one.")
 
-    app = create_app(system_prompt, personal_profile=personal_profile)
+    app = create_app(system_prompt, personal_profile=personal_profile, runtime_config=cfg)
 
     port = cfg["port"]
 

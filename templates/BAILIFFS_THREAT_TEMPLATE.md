@@ -25,6 +25,8 @@ If someone did look at my specific circumstances, I would really appreciate a sh
 
 If that did not happen, I would be grateful if my case can now receive that personal human attention before any further action is taken.
 
+For clarity, a general statement that your systems include human oversight, or that the matter was reviewed under standard policy, does not confirm that a human member of your team personally reviewed the specific facts of my case before enforcement was authorised. Please provide a direct **YES** or **NO** answer. If **YES**, please identify the reviewer by name and role.
+
 Please also confirm in writing that **no forced entry** will be attempted. I understand that for most civil debts (including council tax and energy CCJs), bailiffs do not have the legal right to force entry into a home.
 
 I am requesting reasonable adjustments under the Equality Act 2010 if applicable. My preferred method of communication is email only.

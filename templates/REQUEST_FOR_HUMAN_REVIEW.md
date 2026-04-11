@@ -17,7 +17,9 @@ Following the simple guidance in the Burgess Principle, I'd like to kindly ask:
 
 If someone did look at my individual circumstances and took responsibility for the outcome, I'd really appreciate a short written confirmation with their name (or reference) so I know my case was handled with proper care.
 
-If that didn't happen, I understand it may have been processed through standard systems ��� in which case I'd be grateful if you could now give it that personal attention and let me know the result.
+If that didn't happen, I understand it may have been processed through standard systems — in which case I'd be grateful if you could now give it that personal attention and let me know the result.
+
+For clarity, a general statement that your system includes human oversight, that decisions are subject to review, or that the matter was handled in line with policy does not confirm that a human member of your team personally reviewed the specific facts of my case. Please provide a direct **YES** or **NO** answer to the Burgess Principle question above. If **YES**, please also provide the name and role of the reviewer.
 
 I'm happy to provide any extra details that would help.
 

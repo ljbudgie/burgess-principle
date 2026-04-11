@@ -21,6 +21,8 @@ The decision / action / demand referenced above is hereby declared **NULL** and 
 
 Failure to comply will be treated as further evidence of non-sovereign conduct and may be escalated.
 
+For the avoidance of doubt, a general statement that your systems include human oversight, or that the matter was reviewed under policy, does not displace this finding. Only a direct **YES** answer identifying the human reviewer by name and role, and confirming personal review of the specific facts of this specific case, can move the matter toward SOVEREIGN.
+
 **This notice is issued under the Burgess Principle ⚖️**  
 SOVEREIGN or NULL — there is no third option.
 

@@ -19,6 +19,8 @@ If you can confirm that a real person looked at my circumstances and took respon
 
 I also ask that you consider my rights under **Article 22** (right not to be subject to a decision based solely on automated processing) and let me know whether any such decisions have been made about me.
 
+For clarity, a general statement that your organisation uses human oversight, or that matters are reviewed in line with policy, does not confirm that a human member of your team personally reviewed the specific facts of my case. Please provide a direct **YES** or **NO** answer to the Burgess Principle question. If **YES**, please identify the reviewer by name and role.
+
 Please send the full DSAR response (including any relevant logs, decision rationale, and human-review confirmation) to the email address below. I’m happy to accept it in plain email format and accept the small risk you may have mentioned in previous correspondence.
 
 Thank you for treating this as the individual matter it is. I look forward to receiving everything within the statutory one-month period.

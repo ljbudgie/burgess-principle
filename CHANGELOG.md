@@ -9,9 +9,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Added
 - `POST /api/generate-claim` in `iris-local.py` for Sovereign Local Mode. The endpoint accepts a query plus profile data and returns the generated claim package with letter markdown.
+- New `templates/FOLLOW_UP_WEASEL_RESPONSE.md` for calm second letters when institutions reply with vague claims about "human oversight" or policy review.
+- New `setup-wizard.py` guided local setup for model choice, Easy Mode defaults, and first-run configuration.
 
 ### Changed
 - Sovereign Local claim generation now writes encrypted records to the default local `.sovereign-vault/` directory instead of honoring per-request vault path overrides.
+- Core review templates now include a reusable weasel-word rebuttal asking for a direct YES/NO answer plus the name and role of any reviewer.
+- `iris/system-prompt.md` now classifies institutional replies as SOVEREIGN, NULL, or AMBIGUOUS for follow-up purposes and guides Iris toward the next polite letter automatically.
+- Local install scripts, `iris-config.json`, `README.md`, `START_HERE.md`, and `SOVEREIGN_MODE.md` now provide a clearer non-technical path into Sovereign Local Mode, including Easy Mode defaults and setup wizard guidance.
+- Mirror Mode now supports configurable greeting style, custom greeting text, and a user-controlled Mirror Reflection scope for internal vault use or outward-facing documents.
 
 ## v1.1.1 — Mirror Mode: Hardware Identity Reflection (11 April 2026)
 

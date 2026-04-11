@@ -31,6 +31,14 @@ A chronological record of every institutional interaction, statutory filing, and
 
 ---
 
+## Response Handling Notes
+
+- **Weasel Response Detected** means the institution replied with generic process language but still did not answer the specific Burgess Principle question directly.
+- Standard rebuttal: ask again for a direct **YES** or **NO** answer and, if **YES**, the **name and role** of the human reviewer.
+- Default follow-up template: [`templates/FOLLOW_UP_WEASEL_RESPONSE.md`](templates/FOLLOW_UP_WEASEL_RESPONSE.md)
+
+---
+
 ## On-Chain Claims (v0.4.0)
 
 As of v0.4.0, Burgess Claims can be posted on-chain as compact commitment fingerprints. Below is an example testnet claim demonstrating the flow.
@@ -104,6 +112,8 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 ### 2–3 April 2026 – Trading 212 UK Ltd – ICO update
 **Sector:** Financial Services  
 **Action:** Follow-up ICO complaint after final non-compliant response (“all available information has already been provided”). Seven specific categories (share lending, order routing, algorithmic profiling, CFD counterparty positioning, and others) remain unanswered.  
+**Response tag:** Weasel Response Detected  
+**Auto-suggested rebuttal:** Request a direct YES/NO answer to whether a human personally reviewed the specific facts, and if YES, identify that reviewer by name and role.  
 **Status:** Active ICO complaint.
 
 ---

@@ -560,6 +560,62 @@ class TestMyProfileEndpoint:
         assert response.json()["profile"] == _MOCK_PROFILE_SUMMARY
         mock_setup.assert_called_once()
 
+    def test_setup_rejects_invalid_json(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/my-profile/setup",
+            content=b"not json",
+            headers={"Content-Type": "application/json"},
+        )
+        assert response.status_code == 400
+        assert response.json()["error"] == "Invalid JSON body."
+
+    def test_setup_returns_404_when_existing_profile_disappears(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=_MOCK_PROFILE_SUMMARY), patch.object(
+            _mod,
+            "setup_personal_profile",
+            side_effect=FileNotFoundError,
+        ):
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={"vault_passphrase": "secret"},
+            )
+        assert response.status_code == 404
+        assert response.json()["error"] == "No local personal profile exists yet."
+
+    def test_setup_returns_generic_400_for_invalid_profile_request(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=None), patch.object(
+            _mod,
+            "setup_personal_profile",
+            side_effect=ValueError("bad profile"),
+        ):
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={"name": "Lewis", "vault_passphrase": "secret"},
+            )
+        assert response.status_code == 400
+        assert response.json()["error"] == "Invalid personal profile request."
+
+    def test_setup_returns_500_for_io_errors(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=None), patch.object(
+            _mod,
+            "setup_personal_profile",
+            side_effect=OSError("disk full"),
+        ):
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={"name": "Lewis", "vault_passphrase": "secret"},
+            )
+        assert response.status_code == 500
+        assert response.json()["error"] == "Personal profile setup failed. Check the server logs for details."
+
 
 # ---------------------------------------------------------------------------
 # Index page
@@ -755,6 +811,22 @@ class TestMain:
             main(["--no-browser"])
 
         mock_threading.Timer.assert_not_called()
+
+    def test_main_passes_loaded_personal_profile_to_app(self):
+        mock_load_model = MagicMock()
+        mock_app = MagicMock()
+
+        with patch.object(_mod, "load_model", mock_load_model), \
+             patch.object(_mod, "load_personal_profile_summary", return_value=_MOCK_PROFILE_SUMMARY), \
+             patch.object(_mod, "create_app", return_value=mock_app) as mock_create_app, \
+             patch.object(_mod, "uvicorn") as mock_uvicorn:
+            mock_uvicorn.run = MagicMock()
+            main(["--no-browser"])
+
+        mock_create_app.assert_called_once_with(
+            load_system_prompt(),
+            personal_profile=_MOCK_PROFILE_SUMMARY,
+        )
 
     def test_module_main_guard_runs_main(self, monkeypatch, tmp_path):
         script_path = Path(__file__).resolve().parents[1] / "iris-local.py"

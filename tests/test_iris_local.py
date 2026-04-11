@@ -392,6 +392,21 @@ class TestGenerateClaimEndpoint:
         assert response.status_code == 500
         assert "Claim generation failed" in response.json()["error"]
 
+    def test_io_failure_returns_500(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
+            side_effect=OSError("disk full"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 500
+        assert "Claim generation failed" in response.json()["error"]
+
 
 # ---------------------------------------------------------------------------
 # Index page

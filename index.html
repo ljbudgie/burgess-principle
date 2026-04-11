@@ -1949,7 +1949,7 @@
 
         function formatUnresolvedPlaceholders(claim) {
             const placeholders = claim && Array.isArray(claim.unresolved_placeholders)
-                ? claim.unresolved_placeholders.filter(Boolean)
+                ? claim.unresolved_placeholders.filter(item => typeof item === 'string' && item.trim() !== '')
                 : [];
             if (placeholders.length === 0) return '';
             const list = placeholders.map(item => `<code>${escapeHtml(item)}</code>`).join(', ');
@@ -1969,9 +1969,11 @@
             textarea.style.opacity = '0';
             document.body.appendChild(textarea);
             textarea.select();
-            const ok = document.execCommand('copy');
+            const ok = typeof document.execCommand === 'function' && document.execCommand('copy');
             document.body.removeChild(textarea);
-            if (!ok) throw new Error('Copy failed.');
+            if (!ok) {
+                throw new Error('Copy is not supported here. Please use a modern browser or copy the letter manually.');
+            }
         }
 
         async function requestClaimPackage(actionLabel) {
@@ -2022,7 +2024,7 @@
                 latestClaimPackage = payload.claim;
                 return payload;
             } catch (err) {
-                setClaimStatus(`I couldn&#39;t prepare the local claim package. ${escapeHtml(err.message)}`, 'error');
+                setClaimStatus(`Could not prepare the local claim package. ${escapeHtml(err.message)}`, 'error');
                 return null;
             } finally {
                 setClaimActionButtonsDisabled(false);

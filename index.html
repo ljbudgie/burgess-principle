@@ -1600,7 +1600,7 @@
                         <div class="claim-actions-form">
                             <div class="claim-field">
                                 <label for="claimPassphrase">Vault passphrase</label>
-                                <input id="claimPassphrase" type="password" autocomplete="current-password" placeholder="Required for local claim actions">
+                                <input id="claimPassphrase" type="password" autocomplete="new-password" placeholder="Required for local claim actions">
                             </div>
                         </div>
                         <div class="claim-buttons">
@@ -1959,7 +1959,7 @@
         async function copyText(text) {
             if (navigator.clipboard && window.isSecureContext) {
                 await navigator.clipboard.writeText(text);
-                return;
+                return false;
             }
             console.warn('Falling back to document.execCommand("copy").');
             const textarea = document.createElement('textarea');
@@ -1974,6 +1974,7 @@
             if (!ok) {
                 throw new Error('Copy is not supported here. Please use a modern browser or copy the letter manually.');
             }
+            return true;
         }
 
         async function requestClaimPackage(actionLabel) {
@@ -2116,9 +2117,10 @@
             if (!payload) return;
 
             try {
-                await copyText(payload.letter_markdown || '');
+                const usedFallback = await copyText(payload.letter_markdown || '');
                 setClaimStatus(
                     '<strong>Final letter copied.</strong> You can now paste the sovereign draft wherever you need it.' +
+                    (usedFallback ? ' Your browser used a legacy copy fallback; if this becomes unreliable, upgrade your browser.' : '') +
                     formatUnresolvedPlaceholders(payload.claim),
                     'success'
                 );
@@ -2133,10 +2135,8 @@
         async function sendMessage() {
             const text = userInput.value.trim();
             if (!text || isStreaming) return;
+            resetClaimActions();
             latestClaimQuery = text;
-            latestClaimPackage = null;
-            claimActions.classList.remove('active');
-            setClaimStatus('Claim tools stay hidden until Iris finishes a local draft.');
 
             // Hide welcome
             const currentWelcome = document.getElementById('welcome');

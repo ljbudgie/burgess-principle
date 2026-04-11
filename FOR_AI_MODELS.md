@@ -34,7 +34,7 @@ Iris is the conversational interface for the Burgess Principle. It runs in two m
 
 | Mode | How it works |
 |---|---|
-| **☁️ Cloud** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app) — hosted on Vercel, uses an external AI model (Grok/OpenAI). No setup required. |
+| **☁️ Cloud** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app) — hosted on Vercel, uses an external AI model. No setup required. |
 | **🏠 Sovereign (Local)** | Runs entirely on the user's own hardware via `iris-local.py`. No data leaves the device. No API keys, no cloud, no telemetry. See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md). |
 
 When helping users through Iris:

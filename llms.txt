@@ -90,7 +90,7 @@ The question works in any country, in any language, against any institution. No 
 Iris is the conversational AI interface for the Burgess Principle. It helps users apply the binary test, generate personalised templates, and walk through the Sovereign Personal Vault.
 
 Iris runs in two modes:
-- **Cloud mode** — hosted at [burgess-principle.vercel.app](https://burgess-principle.vercel.app), uses an external AI model (Grok/OpenAI). No setup required.
+- **Cloud mode** — hosted at [burgess-principle.vercel.app](https://burgess-principle.vercel.app), uses an external AI model. No setup required.
 - **Sovereign (local) mode** — runs entirely on your own hardware via `iris-local.py` and a local GGUF model. No data leaves your device. No API keys, no cloud, no telemetry. See [SOVEREIGN_MODE.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md).
 
 Both modes use the same UI and system prompt. The chat interface auto-detects localhost for seamless local operation.

@@ -1,16 +1,18 @@
-# Sovereign Mode — Run Iris Locally
+# Sovereign Mode — Run Iris on Your Own Hardware
 
-Sovereign Mode lets you run Iris entirely on your own hardware. **No data leaves your device.** No cloud API keys, no external servers, no telemetry. Your conversations stay on your machine.
+The Burgess Principle asks one question: *was a human there?* Sovereign Mode extends that philosophy to the tool itself — **you** control the hardware, the model, and the data. Nothing leaves your device.
 
-This is an addition to the existing cloud deployment — you choose which mode to use.
+Run Iris locally with no cloud, no API keys, no external servers, and no telemetry. Your conversations stay on your machine. If you can run a Python script, you can run Sovereign Mode. It works alongside the existing cloud deployment — you choose which mode fits your needs.
 
 ---
 
 ## What You Need
 
+You don't need any technical expertise — just a computer and a few minutes.
+
 - A computer with at least **8 GB of RAM** (16 GB recommended).
 - **Python 3.11 or later** installed.
-- A **GGUF model file** (the install script can download one for you).
+- A **GGUF model file** (the install script downloads one for you automatically).
 - About **3 GB of free disk space** for the model.
 
 Sovereign Mode works on macOS, Linux, and Windows — including Raspberry Pi 4/5 (with reduced speed).
@@ -113,7 +115,7 @@ On Apple Silicon Macs, Metal acceleration is usually automatic with the standard
 
 ## How It Works
 
-Sovereign Mode runs a lightweight local HTTP server that replaces the cloud API:
+Sovereign Mode runs a lightweight local server that stands in for the cloud API. The same chat interface you see online works identically on your machine — the only difference is that every computation happens locally.
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -144,10 +146,12 @@ Sovereign Mode runs a lightweight local HTTP server that replaces the cloud API:
          └───────────────────────┘
 ```
 
-- The same `index.html` serves both modes. It detects whether it's running on localhost and routes API calls accordingly.
+- The same `index.html` serves both modes. It detects whether it's running on localhost and routes accordingly.
 - The system prompt (`iris/system-prompt.md`) is loaded from disk — identical to the cloud version.
-- The local server is stateless between sessions. No conversation data is saved unless you use the export button in the UI.
+- The local server is stateless between sessions. No conversation data is saved unless you export it.
 - No telemetry, no analytics, no phone-home behaviour of any kind.
+
+The binary test — SOVEREIGN or NULL — works the same way in both modes. Sovereign Mode simply ensures that even the tool asking the question respects your sovereignty.
 
 ---
 
@@ -157,7 +161,8 @@ Sovereign Mode runs a lightweight local HTTP server that replaces the cloud API:
 - **No API keys needed.** The model runs directly on your hardware.
 - **No server-side storage.** The local server processes and forgets.
 - **No telemetry.** Zero tracking, zero analytics, zero network calls.
-- **Your model, your data, your hardware.** Full sovereignty.
+
+Your model, your data, your hardware — full sovereignty.
 
 ---
 

@@ -863,7 +863,7 @@ class TestPyNaClImportError:
             return real_import(name, *args, **kwargs)
 
         # Remove cached nacl modules so the lazy import fires again
-        saved = {k: sys.modules.pop(k) for k in list(sys.modules) if "nacl" in k}
+        saved = {k: sys.modules.pop(k) for k in list(sys.modules) if k == "nacl" or k.startswith("nacl.")}
         try:
             with pytest.raises(ImportError, match="PyNaCl"):
                 builtins.__import__ = block_nacl
@@ -888,7 +888,7 @@ class TestPyNaClImportError:
                 raise ImportError("Mocked: no nacl")
             return real_import(name, *args, **kwargs)
 
-        saved = {k: sys.modules.pop(k) for k in list(sys.modules) if "nacl" in k}
+        saved = {k: sys.modules.pop(k) for k in list(sys.modules) if k == "nacl" or k.startswith("nacl.")}
         try:
             with pytest.raises(ImportError, match="PyNaCl"):
                 builtins.__import__ = block_nacl

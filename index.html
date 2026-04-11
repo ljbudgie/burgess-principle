@@ -2274,6 +2274,13 @@
             return Array.from(bytes).map(byte => byte.toString(16).padStart(2, '0')).join('');
         }
 
+        function hexToBytes(value) {
+            if (typeof value !== 'string' || !/^[0-9a-f]+$/i.test(value) || value.length % 2 !== 0) {
+                throw new Error('Stored personal identity signature is invalid.');
+            }
+            return new Uint8Array(value.match(/.{1,2}/g).map(chunk => parseInt(chunk, 16)));
+        }
+
         async function sha256Hex(input) {
             const bytes = typeof input === 'string' ? new TextEncoder().encode(input) : input;
             const digest = await crypto.subtle.digest('SHA-256', bytes);
@@ -2363,7 +2370,7 @@
                 true,
                 ['verify']
             );
-            const signatureBytes = new Uint8Array(profile.profile_signature.match(/.{1,2}/g).map(value => parseInt(value, 16)));
+            const signatureBytes = hexToBytes(profile.profile_signature);
             const valid = await crypto.subtle.verify(
                 'Ed25519',
                 publicKey,
@@ -2774,6 +2781,9 @@
             const payload = JSON.parse(await file.text());
             if (!payload || typeof payload !== 'object') {
                 throw new Error('Invalid vault file.');
+            }
+            if (payload.version && !['0.9.0', VAULT_VERSION].includes(payload.version)) {
+                throw new Error(`Unsupported vault version: ${payload.version}`);
             }
             if (payload.profile) {
                 await vaultStore.saveSetting('claim-profile', payload.profile);

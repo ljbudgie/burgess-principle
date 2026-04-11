@@ -15,7 +15,7 @@ _PROFILE_VERSION = "1.0.0"
 _PROFILE_PBKDF2_ITERATIONS = 1_000_000
 
 
-def _pick(values: Mapping[str, Any], *keys: str) -> str:
+def _select_first_valid(values: Mapping[str, Any], *keys: str) -> str:
     for key in keys:
         value = values.get(key)
         if value not in (None, ""):
@@ -118,9 +118,9 @@ def verify_personal_profile(profile: Mapping[str, Any]) -> bool:
     from nacl.signing import VerifyKey
 
     try:
-        signed_profile = _pick(profile, "signed_profile")
-        signature = bytes.fromhex(_pick(profile, "profile_signature"))
-        public_key = bytes.fromhex(_pick(profile, "public_key_hex"))
+        signed_profile = _select_first_valid(profile, "signed_profile")
+        signature = bytes.fromhex(_select_first_valid(profile, "profile_signature"))
+        public_key = bytes.fromhex(_select_first_valid(profile, "public_key_hex"))
         VerifyKey(public_key).verify(signed_profile.encode("utf-8"), signature)
     except (BadSignatureError, TypeError, ValueError):
         return False
@@ -130,13 +130,13 @@ def verify_personal_profile(profile: Mapping[str, Any]) -> bool:
 def summarize_personal_profile(profile: Mapping[str, Any]) -> dict[str, str]:
     """Return the public summary that can safely auto-load on app startup."""
     return {
-        "name": _pick(profile, "name"),
-        "handle": _pick(profile, "handle") or "ljbudgie",
-        "preferred_signature_block": _pick(profile, "preferred_signature_block"),
-        "key_fingerprint": _pick(profile, "key_fingerprint"),
-        "public_key_hex": _pick(profile, "public_key_hex"),
-        "profile_signature": _pick(profile, "profile_signature"),
-        "signed_at": _pick(profile, "signed_at"),
+        "name": _select_first_valid(profile, "name"),
+        "handle": _select_first_valid(profile, "handle") or "ljbudgie",
+        "preferred_signature_block": _select_first_valid(profile, "preferred_signature_block"),
+        "key_fingerprint": _select_first_valid(profile, "key_fingerprint"),
+        "public_key_hex": _select_first_valid(profile, "public_key_hex"),
+        "profile_signature": _select_first_valid(profile, "profile_signature"),
+        "signed_at": _select_first_valid(profile, "signed_at"),
     }
 
 

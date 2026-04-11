@@ -1959,7 +1959,7 @@
         async function copyText(text) {
             if (navigator.clipboard && window.isSecureContext) {
                 await navigator.clipboard.writeText(text);
-                return false;
+                return { usedFallback: false };
             }
             console.warn('Falling back to document.execCommand("copy").');
             const textarea = document.createElement('textarea');
@@ -1974,7 +1974,7 @@
             if (!ok) {
                 throw new Error('Copy is not supported here. Please use a modern browser or copy the letter manually.');
             }
-            return true;
+            return { usedFallback: true };
         }
 
         async function requestClaimPackage(actionLabel) {
@@ -2013,14 +2013,14 @@
                     payload = await response.json();
                 } catch (err) {
                     console.error('Claim endpoint returned invalid JSON.', err);
-                    payload = { error: 'Invalid JSON response from server.' };
+                    payload = { error: `Invalid JSON response from server (${response.status}).` };
                 }
                 if (!response.ok) {
                     throw new Error(payload.error || `Request failed (${response.status})`);
                 }
 
                 if (!payload.claim) {
-                    throw new Error('The claim response was incomplete.');
+                    throw new Error('The claim response is missing the required claim object.');
                 }
 
                 latestClaimPackage = payload.claim;
@@ -2118,10 +2118,10 @@
             if (!payload) return;
 
             try {
-                const usedFallback = await copyText(payload.letter_markdown || '');
+                const copyResult = await copyText(payload.letter_markdown || '');
                 setClaimStatus(
                     '<strong>Final letter copied.</strong> You can now paste the sovereign draft wherever you need it.' +
-                    (usedFallback ? ' Your browser used a legacy copy fallback; if this becomes unreliable, upgrade your browser.' : '') +
+                    (copyResult.usedFallback ? ' Your browser used a legacy copy fallback; if this becomes unreliable, upgrade your browser.' : '') +
                     formatUnresolvedPlaceholders(payload.claim),
                     'success'
                 );

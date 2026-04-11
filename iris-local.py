@@ -311,8 +311,11 @@ def create_app(system_prompt: str, personal_profile: dict | None = None) -> Fast
             )
         except FileNotFoundError:
             return JSONResponse({"error": "No local personal profile exists yet."}, status_code=404)
-        except ValueError as exc:
-            return JSONResponse({"error": str(exc)}, status_code=400)
+        except ValueError:
+            return JSONResponse(
+                {"error": "Invalid personal profile request."},
+                status_code=400,
+            )
         except OSError:
             log.exception("Personal profile setup failed due to an I/O error.")
             return JSONResponse(

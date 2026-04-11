@@ -15,7 +15,8 @@ If you are not sure where to start, use one of the defaults below and personalis
 1. **Need a simple first letter?** Start with [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md).
 2. **Already disputing an outcome?** Use [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md).
 3. **Need help choosing?** Check [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
-4. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto template if needed.
+4. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you to the right template while keeping an encrypted copy in the phone vault.
+5. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto template if needed.
 
 ---
 
@@ -103,6 +104,7 @@ These are more specialised or context-specific. If in doubt, start with a core t
 ## Using templates with Iris or another AI
 
 - **Iris:** describe the situation and Iris should route you to the right template without dumping the full list.
+- **Phone-first Sovereign Mode:** save your claim profile once, use the home-screen quick actions for the main financial/crypto flows, and export/import the encrypted `.vault` file to move the same claim set between phone and laptop.
 - **Other AI assistants:** paste [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) first, then provide the repository or the relevant template.
 - **Need a shortcut?** Start with [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
 

@@ -154,6 +154,39 @@ def encrypt_to_vault(payload: Mapping[str, Any], profile: Mapping[str, Any], tem
     path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     return {"record_id": record_id, "path": str(path)}
 
+def queue_onchain_fingerprint(fingerprint: Mapping[str, Any]) -> dict[str, str]:
+    """Persist a privacy-first fingerprint package for later on-chain posting.
+
+    Args:
+        fingerprint: Mapping containing at least `commitment_hash`, `signature`,
+            and `public_key`, plus any optional metadata to keep with the queued
+            posting request.
+
+    Returns:
+        A dict containing the generated `queue_id` and the file `path` where the
+        queued fingerprint package was written.
+    """
+    required = ("commitment_hash", "signature", "public_key")
+    missing = [key for key in required if not str(fingerprint.get(key, "")).strip()]
+    if missing:
+        raise ValueError("fingerprint must include commitment_hash, signature, and public_key")
+    queue_dir = (_ROOT / ".sovereign-vault" / "pending-onchain-fingerprints").resolve()
+    queue_dir.mkdir(parents=True, exist_ok=True)
+    queue_id = uuid.uuid4().hex
+    payload = {
+        "version": "0.9.0",
+        "queue_id": queue_id,
+        "queued_at": datetime.now(timezone.utc).isoformat(),
+        "fingerprint": {
+            key: str(value).strip()
+            for key, value in fingerprint.items()
+            if value not in (None, "")
+        },
+    }
+    path = queue_dir / f"{queue_id}.json"
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return {"queue_id": queue_id, "path": str(path)}
+
 def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, Any]:
     """Classify a query, fill a template, generate a commitment, and save a vault copy."""
     if not isinstance(user_query, str) or not user_query.strip() or not isinstance(profile, dict):
@@ -174,4 +207,4 @@ def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, A
         result["generated_private_key_hex"] = claim["generated_private_key_hex"]
     return result
 
-__all__ = ["auto_generate_claim", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template"]
+__all__ = ["auto_generate_claim", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint"]

@@ -1867,6 +1867,7 @@
                             <button class="sidebar-action-btn" id="exportVaultBtn" type="button">📦 Export Vault</button>
                             <button class="sidebar-action-btn" id="importVaultBtn" type="button">📲 Import Vault</button>
                             <button class="sidebar-action-btn" id="installAppBtn" type="button">⬇️ Install app</button>
+                            <label class="toggle-row" for="pushNotificationsToggle"><input id="pushNotificationsToggle" type="checkbox"> Push notifications</label>
                             <label class="toggle-row" for="highContrastToggle"><input id="highContrastToggle" type="checkbox"> High contrast</label>
                         </div>
                         <div class="claim-profile-status" id="profileStatus">Profile and phone settings stay only on this device.</div>
@@ -2192,6 +2193,7 @@
         const installAppBtn = document.getElementById('installAppBtn');
         const importVaultInput = document.getElementById('importVaultInput');
         const highContrastToggle = document.getElementById('highContrastToggle');
+        const pushNotificationsToggle = document.getElementById('pushNotificationsToggle');
         const holdToTalkBtn = document.getElementById('holdToTalkBtn');
         const listenToggleBtn = document.getElementById('listenToggleBtn');
         const claimActions = document.getElementById('claimActions');
@@ -2890,6 +2892,81 @@
             };
         }
 
+        // ------------------------------------------------------------------ //
+        // Web Push subscription (opt-in, VAPID)                              //
+        // ------------------------------------------------------------------ //
+        function urlBase64ToUint8Array(base64String) {
+            const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+            const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+            const raw = atob(base64);
+            const arr = new Uint8Array(raw.length);
+            for (let i = 0; i < raw.length; i += 1) arr[i] = raw.charCodeAt(i);
+            return arr;
+        }
+
+        async function fetchVapidPublicKey() {
+            try {
+                const response = await fetch('/api/push-subscribe');
+                if (!response.ok) return '';
+                const data = await response.json();
+                return data.vapidPublicKey || '';
+            } catch (_e) {
+                return '';
+            }
+        }
+
+        async function subscribeToPush() {
+            if (!('serviceWorker' in navigator) || !('PushManager' in window)) return null;
+            const permission = await ensureNotificationPermission();
+            if (!permission) return null;
+
+            const vapidKey = await fetchVapidPublicKey();
+            if (!vapidKey) {
+                // No server-side VAPID configured — local-only notifications.
+                await vaultStore.saveSetting('push-enabled', true);
+                return null;
+            }
+
+            const registration = await navigator.serviceWorker.ready;
+            let subscription = await registration.pushManager.getSubscription();
+
+            if (!subscription) {
+                subscription = await registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(vapidKey)
+                });
+            }
+
+            // Inform server (best-effort)
+            try {
+                await fetch('/api/push-subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ subscription: subscription.toJSON() })
+                });
+            } catch (_e) {
+                // Server offline — subscription still valid locally.
+            }
+
+            await vaultStore.saveSetting('push-enabled', true);
+            return subscription;
+        }
+
+        async function unsubscribeFromPush() {
+            if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+            const registration = await navigator.serviceWorker.ready;
+            const subscription = await registration.pushManager.getSubscription();
+            if (subscription) {
+                await subscription.unsubscribe();
+            }
+            await vaultStore.saveSetting('push-enabled', false);
+        }
+
+        async function hydratePushToggle() {
+            const enabled = await vaultStore.loadSetting('push-enabled');
+            pushNotificationsToggle.checked = Boolean(enabled);
+        }
+
         async function queueFingerprintForBackgroundSync(claim) {
             const fingerprint = buildFingerprintPayload(claim);
             if (!fingerprint.commitment_hash || !fingerprint.signature || !fingerprint.public_key) return null;
@@ -3259,6 +3336,19 @@
             await vaultStore.saveSetting('high-contrast', highContrastToggle.checked);
         });
 
+        pushNotificationsToggle.addEventListener('change', async () => {
+            try {
+                if (pushNotificationsToggle.checked) {
+                    await subscribeToPush();
+                } else {
+                    await unsubscribeFromPush();
+                }
+            } catch (error) {
+                pushNotificationsToggle.checked = false;
+                console.warn('Push toggle failed:', error);
+            }
+        });
+
         // ------------------------------------------------------------------ //
         // Export conversation as Markdown                                    //
         // ------------------------------------------------------------------ //
@@ -3503,12 +3593,15 @@
             applyStoredProfile(),
             hydratePersonalIdentity(),
             hydrateUiSettings(),
+            hydratePushToggle(),
         ]).then(async () => {
             configureVoice();
             applyShortcutFromLocation();
             await checkDueReminders();
+            await evaluateLocalTriggers();
             await flushFingerprintQueueToLocalServer().catch(() => 0);
             window.setInterval(checkDueReminders, 60 * 1000);
+            window.setInterval(evaluateLocalTriggers, 5 * 60 * 1000);
         }).catch(error => {
             appendError(`Phone setup warning: ${escapeHtml(error.message)}`);
         });

@@ -5,6 +5,7 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 
 import { ed25519 } from '@noble/curves/ed25519';
 import { bytesToHex } from '@noble/hashes/utils';
@@ -14,7 +15,7 @@ import { SovereignVault, type SignedReceipt } from '../src/index.ts';
 
 const VALID_PASSPHRASE = 'correct horse battery staple';
 const RECEIPT_PRIVATE_KEY = Uint8Array.from({ length: 32 }, (_, index) => index + 1);
-const PACKAGE_ROOT = '/home/runner/work/burgess-principle/burgess-principle/enforcement/sovereign-vault';
+const PACKAGE_ROOT = fileURLToPath(new URL('..', import.meta.url));
 const GENERATE_COMMITMENT_SCRIPT = `${PACKAGE_ROOT}/src/generate-commitment.ts`;
 
 function buildSignedReceipt(type: SignedReceipt['type'], commitment: string): SignedReceipt {

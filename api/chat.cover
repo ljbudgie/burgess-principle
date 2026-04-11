@@ -1,0 +1,147 @@
+    1: """Vercel serverless function for Iris chat.
+       
+       Proxies user messages to an OpenAI-compatible API with the Iris
+       system prompt.  Streams the response back as Server-Sent Events.
+       
+       Required environment variable:
+           IRIS_API_KEY   — API key for the AI model.
+       
+       Optional environment variables:
+           IRIS_BASE_URL  — API base URL (default: https://api.x.ai/v1).
+           IRIS_MODEL     — Model name  (default: grok-3).
+       """
+       
+    1: from __future__ import annotations
+       
+    1: import json
+    1: import os
+    1: from http.server import BaseHTTPRequestHandler
+    1: from pathlib import Path
+       
+       
+    1: def _load_system_prompt() -> str:
+           """Read the Iris system prompt from disk."""
+    5:     prompt_path = Path(__file__).resolve().parent.parent / "iris" / "system-prompt.md"
+    5:     return prompt_path.read_text(encoding="utf-8")
+       
+       
+       # Cache the system prompt at module level (cold-start optimisation).
+    1: _SYSTEM_PROMPT = _load_system_prompt()
+       
+       
+    1: def _get_client():
+           """Lazy-create an OpenAI client so the import is only needed at runtime."""
+           # openai is listed in requirements.txt and available on Vercel.
+    3:     from openai import OpenAI  # noqa: WPS433
+       
+    3:     api_key = os.environ.get("IRIS_API_KEY", "")
+    3:     base_url = os.environ.get("IRIS_BASE_URL", "https://api.x.ai/v1")
+    3:     return OpenAI(api_key=api_key, base_url=base_url)
+       
+       
+    2: class handler(BaseHTTPRequestHandler):  # noqa: N801 — Vercel requires this name
+    1:     """Handle POST /api/chat requests."""
+       
+    1:     def do_POST(self):  # noqa: N802 — required method name
+               # ------------------------------------------------------------------
+               # Guard: API key must be configured
+               # ------------------------------------------------------------------
+   15:         if not os.environ.get("IRIS_API_KEY"):
+    1:             self.send_response(503)
+    1:             self.send_header("Content-Type", "application/json")
+    1:             self.end_headers()
+    2:             self.wfile.write(
+    2:                 json.dumps(
+    1:                     {
+    1:                         "error": (
+    1:                             "Iris is not yet configured. "
+                                   "The IRIS_API_KEY environment variable must be set in the Vercel project settings. "
+                                   "See iris/README.md for setup instructions."
+                               )
+                           }
+    1:                 ).encode()
+                   )
+    1:             return
+       
+               # ------------------------------------------------------------------
+               # Parse the request body
+               # ------------------------------------------------------------------
+   14:         try:
+   14:             content_length = int(self.headers.get("Content-Length", 0))
+   14:             body = json.loads(self.rfile.read(content_length))
+    3:         except (json.JSONDecodeError, ValueError):
+    3:             self.send_response(400)
+    3:             self.send_header("Content-Type", "application/json")
+    3:             self.end_headers()
+    3:             self.wfile.write(json.dumps({"error": "Invalid JSON body."}).encode())
+    3:             return
+       
+   11:         messages = body.get("messages", [])
+   11:         if not messages:
+    2:             self.send_response(400)
+    2:             self.send_header("Content-Type", "application/json")
+    2:             self.end_headers()
+    4:             self.wfile.write(
+    2:                 json.dumps({"error": "No messages provided."}).encode()
+                   )
+    2:             return
+       
+               # ------------------------------------------------------------------
+               # Build the messages array with the system prompt
+               # ------------------------------------------------------------------
+    9:         model = os.environ.get("IRIS_MODEL", "grok-3")
+    9:         api_messages = [{"role": "system", "content": _SYSTEM_PROMPT}]
+       
+   22:         for msg in messages:
+   13:             role = msg.get("role", "user")
+   13:             content = msg.get("content", "")
+   13:             if role in ("user", "assistant") and content:
+   10:                 api_messages.append({"role": role, "content": content})
+       
+               # ------------------------------------------------------------------
+               # Call the AI model and stream the response via SSE
+               # ------------------------------------------------------------------
+    9:         try:
+    9:             client = _get_client()
+   18:             stream = client.chat.completions.create(
+    9:                 model=model,
+    9:                 messages=api_messages,
+    9:                 temperature=0.7,
+    9:                 max_tokens=2048,
+    9:                 stream=True,
+                   )
+       
+    8:             self.send_response(200)
+    8:             self.send_header("Content-Type", "text/event-stream")
+    8:             self.send_header("Cache-Control", "no-cache")
+    8:             self.send_header("Connection", "keep-alive")
+    8:             self.end_headers()
+       
+   14:             for chunk in stream:
+    6:                 if chunk.choices and chunk.choices[0].delta.content:
+    4:                     data = json.dumps({"content": chunk.choices[0].delta.content})
+    4:                     self.wfile.write(f"data: {data}\n\n".encode())
+    4:                     self.wfile.flush()
+       
+    8:             self.wfile.write(b"data: [DONE]\n\n")
+    8:             self.wfile.flush()
+       
+    1:         except Exception as exc:  # noqa: BLE001
+    1:             self.send_response(500)
+    1:             self.send_header("Content-Type", "application/json")
+    1:             self.end_headers()
+    2:             self.wfile.write(
+    1:                 json.dumps({"error": f"Model request failed: {exc}"}).encode()
+                   )
+       
+    1:     def do_OPTIONS(self):  # noqa: N802
+               """Handle CORS preflight."""
+    4:         self.send_response(200)
+    4:         self.send_header("Access-Control-Allow-Origin", "*")
+    4:         self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+    4:         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+    4:         self.end_headers()
+       
+    1:     def log_message(self, format, *args):  # noqa: A002
+               """Suppress default stderr logging in serverless context."""
+    1:         pass

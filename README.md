@@ -43,9 +43,14 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 
 ---
 
-## Meet Iris
+## Iris – Your AI Companion
 
-**[Iris](https://burgess-principle.vercel.app)** is the AI companion for the Burgess Principle — a calm, conversational interface that helps you apply the binary test, generate personalised templates, and walk through the Sovereign Personal Vault.
+**[Iris](https://burgess-principle.vercel.app)** is the practical interface for the Burgess Principle — a calm, conversational AI companion that helps you apply the framework:
+
+- Generates respectful letters and templates
+- Helps you document interactions
+- Manages your local Vault (in Sovereign Mode)
+- Runs fully offline in v0.6.0
 
 🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing.
 
@@ -69,13 +74,40 @@ python3 iris-local.py
 
 Full instructions: **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)**
 
+**Key v0.6.0 improvements:**
+- Sovereign Local Mode with easy install scripts
+- Modernised UI + mobile responsiveness
+- 264 passing tests (hardened)
+- Clear dual-mode architecture (Cloud vs Local)
+
 For architecture and deployment details, see [`iris/README.md`](iris/README.md).
 
 ---
 
-## Quick start
+## Quick start (v0.6.0)
 
-**If you need help right now**, head straight to the [templates](./templates) folder and pick the one that matches your situation. You don't need to read anything else first. Or drop the whole repo into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant — describe what happened and it will write a personalised letter for you.
+**Choose your mode:**
+
+### 🛡️ Sovereign Local Mode (Recommended for privacy)
+
+Run **Iris** — your conversational AI companion — entirely on your own hardware with **no cloud, no API keys, no data leaving your device**.
+
+- Full GGUF model support via `llama-cpp-python`
+- Cross-platform install scripts (Linux/macOS/Windows)
+- Clean local chat UI with privacy badge
+
+See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for setup (one-command install + `python3 iris-local.py`).
+
+### ☁️ Cloud Mode
+
+Use the hosted version instantly via the [website](https://burgess-principle.vercel.app) or any LLM ([Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com)).
+
+**Either way**, just describe your situation and Iris will help you:
+- Apply the binary test
+- Generate calm, personalised templates
+- Build your Sovereign Personal Vault records
+
+**Templates folder** still works standalone if you prefer no AI — head straight to the [templates](./templates) folder and pick the one that matches your situation.
 
 For a guided walkthrough, see **[START_HERE.md](START_HERE.md)**.
 
@@ -119,7 +151,7 @@ The framework has been applied to real institutional interactions. See the [case
 
 ## Cryptographic Enforcement Layer (Optional)
 
-The [Sovereign Personal Vault](enforcement/sovereign-vault/) gives you on-device encryption, SHA-256 commitments, and Ed25519-signed receipts — mathematical proof that an institution did (or did not) apply human review. You don't need it to use the Burgess Principle, but it's there for anyone who wants verifiable, tamper-evident records.
+The [Sovereign Personal Vault](enforcement/sovereign-vault/) gives you on-device encryption, SHA-256 commitments, and Ed25519-signed receipts — mathematical proof that an institution did (or did not) apply human review. You don't need it to use the Burgess Principle, but it's there for anyone who wants verifiable, tamper-evident records. In Sovereign Mode, the Vault integrates seamlessly with local Iris — your records stay entirely on your device.
 
 As of v0.4.0, the Sovereign Personal Vault now includes a minimal on-chain protocol layer. Users generate claims off-chain exactly as before, then post only a compact commitment fingerprint (SHA-256 hash + Ed25519 signature + minimal metadata) to an EVM L2. The chain provides neutral timestamping and public verifiability — no personal data ever touches the blockchain. See [onchain-protocol/spec.md](onchain-protocol/spec.md) and the [v0.4.0 release notes](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.4.0) for details.
 
@@ -169,11 +201,15 @@ Local Vault              Commitment              EVM L2                 Verifiab
 | [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools (Sovereign Personal Vault) |
 | [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims Protocol — smart contracts, SDK, and examples |
 | [`/iris`](./iris) | Iris — AI companion interface (system prompt, examples, deployment) |
+| [`iris-config.json`](iris-config.json) | Configuration for local mode |
 | [`SOVEREIGN_MODE.md`](SOVEREIGN_MODE.md) | Run Iris locally on your own hardware — setup guide |
+| [`CHANGELOG.md`](CHANGELOG.md) | Full version history |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |
 | [`SOUL.md`](SOUL.md) | The philosophy behind the framework |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute — including good first issues |
 | [`SECURITY.md`](SECURITY.md) | Security policy and cryptographic baseline |
+
+**Latest:** [v0.6.0 — Sovereign Local Mode & Hardening](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0) (10 April 2026)
 
 ---
 

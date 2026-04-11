@@ -24,7 +24,7 @@ _EXACT = {"DATE": "date", "Team": "team_name", "Your Full Name": "full_name", "Y
 _CATEGORY = {"CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md": "exchange", "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": "dao", "COMMITMENT_ONLY_PLACEHOLDER.md": "dao", "ARTICLE_22_WITH_BURGESS_PRINCIPLE.md": "disclosure", "DSAR_WITH_BURGESS_PRINCIPLE.md": "disclosure", "FOI_WITH_BURGESS_PRINCIPLE.md": "disclosure", "BENEFITS_CLAIM_HELP.md": "enforcement", "COUNCIL_TAX_PCN_TEMPLATE.md": "enforcement", "BAILIFFS_THREAT_TEMPLATE.md": "enforcement"}
 _HINTS = {"REQUEST_FOR_HUMAN_REVIEW.md": ("human review", "first letter"), "GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md": ("dispute letter", "challenging outcome"), "EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md": ("reasonable adjustments", "accessible communication"), "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": ("hash", "signature", "receipt", "on-chain", "on chain"), "COMMITMENT_ONLY_PLACEHOLDER.md": ("minimal disclosure", "placeholder", "keep private")}
 _FALLBACKS = (("briefly_describe", "query_summary"), ("neutral_sentence", "query_summary"), ("reasonable_date", "reply_by"), ("commitment", "commitment_hash"), ("signature", "signature_reference"), ("receipt", "signature_reference"), ("public_key", "signature_reference"), ("claim_id", "onchain_reference"), ("tx_hash", "onchain_reference"), ("explorer_link", "onchain_reference"), ("wallet", "wallet_addresses"), ("transaction", "transaction_hashes"))
-_QUERY_SUMMARY_MAX = 217
+_QUERY_SUMMARY_MAX_LENGTH = 217
 
 def _module() -> Any:
     spec = importlib.util.spec_from_file_location("iris_onchain_claims", _ONCHAIN)
@@ -93,7 +93,7 @@ def _context(user_query: str, profile: Mapping[str, Any]) -> dict[str, str]:
         "date": _pick(profile, "date") or now.date().isoformat(), "reply_by": _pick(profile, "reply_by") or (now + timedelta(days=14)).date().isoformat(),
         "full_name": _pick(profile, "full_name", "name"), "contact_details": contact, "email": _pick(profile, "email"), "address": _pick(profile, "address"),
         "target_entity": target, "team_name": _pick(profile, "team_name") or target, "reference": _pick(profile, "reference", "case_reference", "account_reference", "ticket_reference"),
-        "query_summary": summary[:_QUERY_SUMMARY_MAX].rstrip() + ("..." if len(summary) > _QUERY_SUMMARY_MAX else "") + ("" if not summary or summary.endswith((".", "!", "?")) else "."),
+        "query_summary": summary[:_QUERY_SUMMARY_MAX_LENGTH].rstrip() + ("..." if len(summary) > _QUERY_SUMMARY_MAX_LENGTH else "") + ("" if not summary or summary.endswith((".", "!", "?")) else "."),
         "transaction_hashes": _pick(profile, "transaction_hashes", "transaction_hash"), "wallet_addresses": _pick(profile, "wallet_addresses", "wallet_address"),
         "commitment_hash": _pick(profile, "commitment_hash"), "signature_reference": _pick(profile, "signature_reference"), "onchain_reference": _pick(profile, "onchain_reference"),
     }

@@ -254,8 +254,11 @@ def create_app(system_prompt: str) -> FastAPI:
 
         try:
             queued = queue_onchain_fingerprint(fingerprint)
-        except ValueError as exc:
-            return JSONResponse({"error": str(exc)}, status_code=400)
+        except ValueError:
+            return JSONResponse(
+                {"error": "fingerprint must include commitment_hash, signature, and public_key"},
+                status_code=400,
+            )
         except OSError:
             log.exception("Fingerprint queueing failed due to an I/O error.")
             return JSONResponse(

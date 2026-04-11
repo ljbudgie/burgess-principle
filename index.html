@@ -2095,6 +2095,9 @@
             transaction_hash: 'profileTransaction',
             onchain_reference: 'profileOnchainReference',
         };
+        const VAULT_PBKDF2_ITERATIONS = 600000;
+        const WAKE_PHRASE_PATTERN = /^hey iris[\s,]+/i;
+        const CLAIM_KEYWORDS_PATTERN = /(claim|freeze|froze|exchange|withdrawal|benefit|bailiff|penalty|review|human review)/i;
         const QUICK_ACTION_PROMPTS = {
             'new-claim': 'Please help me generate a new Burgess claim and save it to my sovereign vault.',
             'crypto-exchange': 'My crypto exchange just froze my account and blocked withdrawals. Please generate the right Burgess claim.',
@@ -2201,7 +2204,7 @@
                 ['deriveKey']
             );
             return crypto.subtle.deriveKey(
-                { name: 'PBKDF2', salt, iterations: 210000, hash: 'SHA-256' },
+                { name: 'PBKDF2', salt, iterations: VAULT_PBKDF2_ITERATIONS, hash: 'SHA-256' },
                 material,
                 { name: 'AES-GCM', length: 256 },
                 false,
@@ -2418,7 +2421,7 @@
             const ok = typeof document.execCommand === 'function' && document.execCommand('copy');
             document.body.removeChild(textarea);
             if (!ok) {
-                throw new Error('Copy is not supported here. Please copy the letter manually.');
+                throw new Error('Clipboard access is not supported in this browser. Please copy the letter manually.');
             }
             return { usedFallback: true };
         }
@@ -2705,8 +2708,8 @@
                     setVoiceStatus('Voice ready when you are.', '');
                     return;
                 }
-                const wakePhrase = /^hey iris[\s,]+/i.test(finalText);
-                const likelyClaim = /(claim|freeze|froze|exchange|withdrawal|benefit|bailiff|penalty|review|human review)/i.test(finalText);
+                const wakePhrase = WAKE_PHRASE_PATTERN.test(finalText);
+                const likelyClaim = CLAIM_KEYWORDS_PATTERN.test(finalText);
                 if (wakePhrase || likelyClaim) {
                     setVoiceStatus('Voice capture complete. Generating a sovereign claim flow now.', 'active');
                     await sendMessage({ text: finalText, autoGenerateClaim: true, source: 'voice' });

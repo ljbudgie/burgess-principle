@@ -2815,27 +2815,14 @@
         // ------------------------------------------------------------------ //
         exportBtn.addEventListener('click', () => {
             if (conversationHistory.length === 0) return;
-            let md = '# Iris Conversation Export
-
-';
-            md += `> Exported on ${new Date().toLocaleString()}
-
-`;
-            md += '---
-
-';
+            let md = '# Iris Conversation Export\n\n';
+            md += `> Exported on ${new Date().toLocaleString()}\n\n`;
+            md += '---\n\n';
             for (const msg of conversationHistory) {
                 const label = msg.role === 'user' ? '**You**' : '**Iris**';
-                md += `${label}:
-
-${msg.content}
-
----
-
-`;
+                md += `${label}:\n\n${msg.content}\n\n---\n\n`;
             }
-            md += '*Exported from Iris — The Burgess Principle. Conversations are local-first and sovereign by design.*
-';
+            md += '*Exported from Iris — The Burgess Principle. Conversations are local-first and sovereign by design.*\n';
             const blob = new Blob([md], { type: 'text/markdown' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -2975,8 +2962,7 @@ ${msg.content}
                     const { done, value } = await reader.read();
                     if (done) break;
                     buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split('
-');
+                    const lines = buffer.split('\n');
                     buffer = lines.pop() || '';
                     for (const line of lines) {
                         if (!line.startsWith('data: ')) continue;

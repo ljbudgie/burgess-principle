@@ -1,14 +1,16 @@
 {
+  "id": "/?app=iris-sovereign-pwa",
   "name": "Iris — Sovereign Companion",
   "short_name": "Iris",
-  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims offline, with Mirror Mode, local triggers, and proactive assistance — all running 100% on your device.",
+  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims offline, with Mirror Mode, local triggers, signed update manifests, and explicit user-controlled activation.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
   "orientation": "portrait-primary",
-  "categories": ["productivity", "utilities"],
+  "categories": ["productivity", "utilities", "security"],
   "lang": "en-GB",
   "dir": "ltr",
   "prefer_related_applications": false,
@@ -21,6 +23,13 @@
     }
   ],
   "shortcuts": [
+    {
+      "name": "Sovereign Mode",
+      "short_name": "Sovereign",
+      "description": "Launch Iris into the local-first Burgess review flow with Sovereign Mode badging.",
+      "url": "/?shortcut=burgess-check&source=sovereign-mode",
+      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+    },
     {
       "name": "Mirror claim",
       "short_name": "Mirror",

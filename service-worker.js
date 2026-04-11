@@ -1,40 +1,178 @@
-const CACHE_NAME = 'burgess-principle-pwa-v1-0-0';
+const PWA_CORE_VERSION = '1.1.1-phase1';
+const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
+const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
+const API_CACHE_NAME = `burgess-principle-api-${PWA_CORE_VERSION}`;
 const VAULT_DB_NAME = 'burgess-principle-vault';
 const VAULT_DB_VERSION = 2;
-const PRECACHE_URLS = ['/', '/index.html', '/manifest.json', '/service-worker.js', '/banner.png'];
+const PRECACHE_URLS = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/service-worker.js',
+  '/banner.png',
+  '/signed-update-manifest.json'
+];
+const CRITICAL_PATHS = new Set(PRECACHE_URLS);
 const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
 
+async function postClientMessage(message) {
+  const allClients = await clients.matchAll({ type: 'window', includeUncontrolled: true });
+  for (const client of allClients) {
+    client.postMessage(message);
+  }
+}
+
+async function putIfOk(cacheName, request, response) {
+  if (!response || !response.ok || response.type === 'opaque') {
+    return response;
+  }
+  const cache = await caches.open(cacheName);
+  await cache.put(request, response.clone());
+  return response;
+}
+
+async function warmCriticalAssets() {
+  await Promise.all(
+    PRECACHE_URLS.map(async path => {
+      try {
+        const request = new Request(path, { cache: 'reload' });
+        const response = await fetch(request);
+        await putIfOk(CRITICAL_PATHS.has(path) ? STATIC_CACHE_NAME : RUNTIME_CACHE_NAME, request, response);
+      } catch (_error) {
+        // Stay offline-first — the cached shell remains authoritative until connectivity returns.
+      }
+    })
+  );
+  await postClientMessage({ type: 'PWA_CRITICAL_PATHS_REFRESHED', version: PWA_CORE_VERSION });
+}
+
+async function staleWhileRevalidate(request, cacheName, fallbackUrl) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+  const networkFetch = fetch(request)
+    .then(response => putIfOk(cacheName, request, response))
+    .catch(() => null);
+
+  if (cached) {
+    return cached;
+  }
+
+  const networkResponse = await networkFetch;
+  if (networkResponse) {
+    return networkResponse;
+  }
+
+  if (fallbackUrl) {
+    const fallback = await caches.match(fallbackUrl);
+    if (fallback) {
+      return fallback;
+    }
+  }
+
+  return Response.error();
+}
+
+async function networkFirst(request, cacheName, fallbackUrl) {
+  try {
+    const response = await fetch(request);
+    return await putIfOk(cacheName, request, response);
+  } catch (_error) {
+    const cache = await caches.open(cacheName);
+    const cached = await cache.match(request);
+    if (cached) {
+      return cached;
+    }
+    if (fallbackUrl) {
+      const fallback = await caches.match(fallbackUrl);
+      if (fallback) {
+        return fallback;
+      }
+    }
+    return Response.error();
+  }
+}
+
+async function handleNavigation(event) {
+  try {
+    const preload = await event.preloadResponse;
+    if (preload) {
+      return await putIfOk(STATIC_CACHE_NAME, event.request, preload);
+    }
+    const response = await fetch(event.request);
+    return await putIfOk(STATIC_CACHE_NAME, event.request, response);
+  } catch (_error) {
+    const cached = await caches.match('/index.html');
+    return cached || Response.error();
+  }
+}
+
 // ------------------------------------------------------------------ //
-// Install — precache app shell, skip waiting for instant activation   //
+// Install — precache app shell, but never force an update silently   //
 // ------------------------------------------------------------------ //
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(STATIC_CACHE_NAME)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(() => warmCriticalAssets())
+  );
 });
 
 // ------------------------------------------------------------------ //
-// Activate — purge old caches, claim all clients immediately          //
+// Activate — purge old caches, enable navigation preload, claim tabs //
 // ------------------------------------------------------------------ //
 self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)))).then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(
+      keys
+        .filter(key => ![STATIC_CACHE_NAME, RUNTIME_CACHE_NAME, API_CACHE_NAME].includes(key))
+        .map(key => caches.delete(key))
+    );
+    if (self.registration.navigationPreload) {
+      await self.registration.navigationPreload.enable().catch(() => undefined);
+    }
+    await self.clients.claim();
+    await postClientMessage({ type: 'PWA_VERSION_READY', version: PWA_CORE_VERSION });
+  })());
 });
 
 // ------------------------------------------------------------------ //
-// Fetch — cache-first for app shell, network-first for API            //
+// Fetch — navigation preload + stale-while-revalidate app shell      //
 // ------------------------------------------------------------------ //
 self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
-  if (url.pathname.startsWith('/api/')) {
+  const { request } = event;
+  if (request.method !== 'GET') {
     return;
   }
-  event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-      const copy = response.clone();
-      caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-      return response;
-    }).catch(() => caches.match('/index.html')))
-  );
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
+  if (url.pathname.startsWith('/api/')) {
+    event.respondWith(networkFirst(request, API_CACHE_NAME, null));
+    return;
+  }
+
+  if (request.mode === 'navigate') {
+    event.respondWith(handleNavigation(event));
+    return;
+  }
+
+  if (url.pathname === '/signed-update-manifest.json') {
+    const uncachedRequest = new Request(request.url, { cache: 'reload', credentials: 'same-origin' });
+    event.respondWith(networkFirst(uncachedRequest, RUNTIME_CACHE_NAME, null));
+    return;
+  }
+
+  if (CRITICAL_PATHS.has(url.pathname)) {
+    event.respondWith(staleWhileRevalidate(request, STATIC_CACHE_NAME, '/index.html'));
+    event.waitUntil(warmCriticalAssets());
+    return;
+  }
+
+  event.respondWith(staleWhileRevalidate(request, RUNTIME_CACHE_NAME, '/index.html'));
 });
 
 // ================================================================== //
@@ -203,6 +341,9 @@ self.addEventListener('sync', event => {
   if (event.tag === 'burgess-trigger-sync') {
     event.waitUntil(evaluateTriggers());
   }
+  if (event.tag === 'burgess-critical-refresh') {
+    event.waitUntil(warmCriticalAssets());
+  }
 });
 
 // ================================================================== //
@@ -214,7 +355,8 @@ self.addEventListener('periodicsync', event => {
       Promise.all([
         notifyDueReminders(),
         evaluateTriggers(),
-        flushFingerprintQueue()
+        flushFingerprintQueue(),
+        warmCriticalAssets()
       ])
     );
   }
@@ -225,7 +367,7 @@ self.addEventListener('periodicsync', event => {
 // ================================================================== //
 self.addEventListener('push', event => {
   let title = 'Iris — Sovereign Companion';
-  let options = {
+  const options = {
     body: 'Burgess check ready — open Iris?',
     icon: '/banner.png',
     badge: '/banner.png',
@@ -261,6 +403,12 @@ self.addEventListener('message', event => {
   }
   if (event.data.type === 'EVALUATE_TRIGGERS') {
     event.waitUntil(evaluateTriggers());
+  }
+  if (event.data.type === 'REFRESH_CRITICAL_PATHS') {
+    event.waitUntil(warmCriticalAssets());
+  }
+  if (event.data.type === 'SKIP_WAITING') {
+    event.waitUntil(self.skipWaiting());
   }
 });
 

@@ -1,6 +1,8 @@
 """Tests for the Burgess Principle Binary Test (verify_scrutiny)."""
 
 import hashlib
+import runpy
+from pathlib import Path
 
 import pytest
 
@@ -294,6 +296,18 @@ class TestCLIEdgeCases:
         # Verifying that both args as strings never raise TypeError
         result = main(["any-text", "a" * 64])
         assert result in (0, 1)
+
+    def test_module_main_guard_invokes_main(self, monkeypatch):
+        script_path = Path(__file__).resolve().parents[1] / "verify_scrutiny.py"
+        monkeypatch.setattr(
+            "sys.argv",
+            ["verify_scrutiny.py", SAMPLE_TEXT, SAMPLE_HASH],
+        )
+
+        with pytest.raises(SystemExit) as exc_info:
+            runpy.run_path(str(script_path), run_name="__main__")
+
+        assert exc_info.value.code == 0
 
 
 # ---------------------------------------------------------------------------

@@ -9,6 +9,8 @@ import argparse
 import importlib.util
 import json
 import os
+import runpy
+import sys
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -435,6 +437,21 @@ class TestMain:
         assert mock_threading.Timer.call_args[0][0] == 1.5
         mock_timer.start.assert_called_once()
 
+    def test_browser_timer_callback_opens_local_url(self):
+        """The scheduled callback opens the configured localhost URL."""
+        mock_load_model = MagicMock()
+
+        with patch.object(_mod, "load_model", mock_load_model), \
+             patch.object(_mod, "uvicorn") as mock_uvicorn, \
+             patch.object(_mod, "threading") as mock_threading, \
+             patch.object(_mod, "webbrowser") as mock_webbrowser:
+            mock_uvicorn.run = MagicMock()
+            main(["--port", "8123"])
+            _, open_browser = mock_threading.Timer.call_args[0]
+            open_browser()
+
+        mock_webbrowser.open.assert_called_once_with("http://localhost:8123")
+
     def test_no_browser_flag_skips_browser(self):
         """With --no-browser, no browser timer is scheduled."""
         mock_load_model = MagicMock()
@@ -446,3 +463,27 @@ class TestMain:
             main(["--no-browser"])
 
         mock_threading.Timer.assert_not_called()
+
+    def test_module_main_guard_runs_main(self, monkeypatch, tmp_path):
+        script_path = Path(__file__).resolve().parents[1] / "iris-local.py"
+        model_path = tmp_path / "model.gguf"
+        model_path.write_bytes(b"fake model data")
+        mock_uvicorn = MagicMock()
+        mock_llama_cls = MagicMock()
+
+        monkeypatch.setattr(
+            sys,
+            "argv",
+            ["iris-local.py", "--no-browser", "--model", str(model_path)],
+        )
+
+        with patch.dict(
+            sys.modules,
+            {
+                "uvicorn": MagicMock(run=mock_uvicorn.run),
+                "llama_cpp": MagicMock(Llama=mock_llama_cls),
+            },
+        ):
+            runpy.run_path(str(script_path), run_name="__main__")
+
+        mock_uvicorn.run.assert_called_once()

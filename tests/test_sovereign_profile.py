@@ -8,13 +8,18 @@ from pathlib import Path
 import pytest
 from nacl.exceptions import CryptoError
 
+from iris import sovereign_profile
 from iris.sovereign_profile import (
     build_personal_profile,
     decrypt_profile_payload,
+    fingerprint_public_key,
     load_personal_profile,
     load_personal_profile_summary,
+    profile_path,
+    profile_signature_block,
     save_personal_profile,
     setup_personal_profile,
+    summarize_personal_profile,
     verify_personal_profile,
 )
 
@@ -29,6 +34,11 @@ def test_build_personal_profile_generates_signed_identity():
     assert len(profile["public_key_hex"]) == 64
     assert len(profile["key_fingerprint"]) == 16
     assert verify_personal_profile(profile) is True
+
+
+def test_build_personal_profile_rejects_blank_name():
+    with pytest.raises(ValueError, match="name must be a non-empty string"):
+        build_personal_profile(name="   ")
 
 
 def test_save_and_load_personal_profile_round_trip(tmp_path):
@@ -58,6 +68,71 @@ def test_load_personal_profile_rejects_wrong_passphrase(tmp_path):
         load_personal_profile("wrong passphrase", root=tmp_path)
 
 
+def test_verify_personal_profile_rejects_tampered_signature():
+    profile = build_personal_profile(name="Lewis")
+
+    assert (
+        verify_personal_profile({**profile, "profile_signature": "00" * 64}) is False
+    )
+
+
+def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
+    summary = summarize_personal_profile({})
+
+    assert summary == {
+        "name": "",
+        "handle": "ljbudgie",
+        "preferred_signature_block": "",
+        "key_fingerprint": "",
+        "public_key_hex": "",
+        "profile_signature": "",
+        "signed_at": "",
+    }
+    assert profile_signature_block(" Lewis ", "  ") == ""
+    assert fingerprint_public_key("ab" * 32, length=8) == "9a2db2e2"
+    assert profile_path(tmp_path) == tmp_path / ".sovereign-vault" / "personal-profile.json"
+
+
+def test_save_personal_profile_requires_passphrase(tmp_path):
+    profile = build_personal_profile(name="Lewis")
+
+    with pytest.raises(ValueError, match="vault_passphrase must be a non-empty string"):
+        save_personal_profile(profile, "", root=tmp_path)
+
+
+def test_save_personal_profile_rejects_invalid_signature(tmp_path):
+    profile = build_personal_profile(name="Lewis")
+
+    with pytest.raises(ValueError, match="profile signature verification failed"):
+        save_personal_profile(
+            {**profile, "profile_signature": "00" * 64},
+            "correct horse battery staple",
+            root=tmp_path,
+        )
+
+
+def test_load_personal_profile_requires_passphrase(tmp_path):
+    profile = build_personal_profile(name="Lewis")
+    save_personal_profile(profile, "correct horse battery staple", root=tmp_path)
+
+    with pytest.raises(ValueError, match="vault_passphrase must be a non-empty string"):
+        load_personal_profile("", root=tmp_path)
+
+
+def test_load_personal_profile_rejects_tampered_signature_after_decryption(tmp_path):
+    profile = build_personal_profile(name="Lewis")
+    saved = save_personal_profile(profile, "correct horse battery staple", root=tmp_path)
+    record = json.loads(Path(saved["path"]).read_text(encoding="utf-8"))
+    record["encrypted_payload"] = sovereign_profile._encrypt_payload(  # noqa: SLF001
+        {**profile, "profile_signature": "00" * 64},
+        "correct horse battery staple",
+    )
+    Path(saved["path"]).write_text(json.dumps(record), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="profile signature verification failed"):
+        load_personal_profile("correct horse battery staple", root=tmp_path)
+
+
 def test_setup_personal_profile_loads_existing_profile(tmp_path):
     created = setup_personal_profile(
         vault_passphrase="correct horse battery staple",
@@ -75,6 +150,14 @@ def test_setup_personal_profile_loads_existing_profile(tmp_path):
     assert loaded["profile"]["name"] == "Lewis"
 
 
+def test_setup_personal_profile_requires_name_when_creating_new_profile(tmp_path):
+    with pytest.raises(ValueError, match="name must be a non-empty string"):
+        setup_personal_profile(
+            vault_passphrase="correct horse battery staple",
+            root=tmp_path,
+        )
+
+
 def test_decrypt_profile_payload_returns_original_json(tmp_path):
     result = setup_personal_profile(
         vault_passphrase="correct horse battery staple",
@@ -90,3 +173,20 @@ def test_decrypt_profile_payload_returns_original_json(tmp_path):
 
     assert payload["name"] == "Lewis"
     assert verify_personal_profile(payload) is True
+
+
+def test_load_personal_profile_summary_returns_none_when_name_missing(tmp_path):
+    path = profile_path(tmp_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "version": "1.0.0",
+                "record_type": "personal-sovereign-profile",
+                "stored_at": "2026-04-11T00:00:00+00:00",
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert load_personal_profile_summary(root=tmp_path) is None

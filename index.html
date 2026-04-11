@@ -2954,7 +2954,19 @@
                 });
                 if (!response.ok) {
                     const err = await response.json().catch(() => ({}));
-                    throw new Error(err.error || `Request failed (${response.status})`);
+                    const errorMessage = err.error || `Request failed (${response.status})`;
+                    if (response.status === 503 && errorMessage.includes('IRIS_API_KEY')) {
+                        irisEl.remove();
+                        appendError(
+                            '⚙️ Iris is not yet configured.<br><br>' +
+                            'The IRIS_API_KEY environment variable still needs to be set in the Vercel project settings. ' +
+                            'If you are the site owner, add it under Settings → Environment Variables in your ' +
+                            '<a href=\"https://vercel.com\" target=\"_blank\" rel=\"noopener\">Vercel dashboard</a>.<br><br>' +
+                            'For setup instructions, see the <a href=\"https://github.com/ljbudgie/burgess-principle/blob/main/iris/README.md\" target=\"_blank\" rel=\"noopener\">Iris README</a>.'
+                        );
+                        return;
+                    }
+                    throw new Error(errorMessage);
                 }
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder();
@@ -2991,11 +3003,15 @@
                 if (options.autoGenerateClaim) {
                     const payload = await requestClaimPackage(options.source === 'voice' ? 'voice-first claim generation' : 'instant claim generation');
                     if (payload) {
+                        const autoClaimLabel = options.source === 'voice' ? 'Voice report' : 'Claim draft';
+                        const autoClaimBody = options.source === 'voice'
+                            ? 'Your voice report has been turned into a sovereign claim package.'
+                            : 'Your latest claim draft has been turned into a sovereign claim package.';
                         setClaimStatus(
-                            '<strong>Voice report turned into a signed claim.</strong><br>Your phone vault has an encrypted copy ready for review.' + formatUnresolvedPlaceholders(payload.claim),
+                            `<strong>${autoClaimLabel} turned into a signed claim.</strong><br>Your phone vault has an encrypted copy ready for review.` + formatUnresolvedPlaceholders(payload.claim),
                             'success'
                         );
-                        await showLocalNotification('Claim saved & signed', 'Your voice report has been turned into a sovereign claim package.', 'voice-claim');
+                        await showLocalNotification('Claim saved & signed', autoClaimBody, 'voice-claim');
                     }
                 }
             } catch (error) {

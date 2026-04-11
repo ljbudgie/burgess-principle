@@ -30,6 +30,42 @@ _CATEGORY = {"CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md": "exchange", 
 _HINTS = {"REQUEST_FOR_HUMAN_REVIEW.md": ("human review", "first letter"), "GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md": ("dispute letter", "challenging outcome"), "FOLLOW_UP_WEASEL_RESPONSE.md": ("human oversight", "review in line with policy", "subject to human review", "vague response", "second letter"), "EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md": ("reasonable adjustments", "accessible communication"), "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": ("hash", "signature", "receipt", "on-chain", "on chain"), "COMMITMENT_ONLY_PLACEHOLDER.md": ("minimal disclosure", "placeholder", "keep private")}
 _FALLBACKS = (("briefly_describe", "query_summary"), ("neutral_sentence", "query_summary"), ("reasonable_date", "reply_by"), ("commitment", "commitment_hash"), ("signature", "signature_reference"), ("receipt", "signature_reference"), ("public_key", "signature_reference"), ("claim_id", "onchain_reference"), ("tx_hash", "onchain_reference"), ("explorer_link", "onchain_reference"), ("wallet", "wallet_addresses"), ("transaction", "transaction_hashes"))
 _QUERY_SUMMARY_MAX_LENGTH = 217
+_AMBIGUOUS_REPLY_PATTERNS = (
+    "automated system incorporates human oversight",
+    "human oversight",
+    "subject to human review",
+    "reviewed in line with policy",
+    "review in line with policy",
+    "member of staff may review",
+    "standard process",
+    "available information has already been provided in full",
+)
+_NULL_REPLY_PATTERNS = (
+    "automatic process",
+    "automated process",
+    "processed automatically",
+    "handled automatically",
+    "without individual human review",
+    "without human review",
+    "no individual human review",
+    "no human review",
+    "no personal review",
+    "no reviewer was assigned",
+)
+_REVIEWER_ROLE_PATTERNS = (
+    "reviewed by",
+    "carried out by",
+    "reviewer",
+    "case officer",
+    "caseworker",
+    "manager",
+    "complaints handler",
+    "officer",
+    "adviser",
+    "advisor",
+    "decision maker",
+    "decision-maker",
+)
 
 def _module() -> Any:
     spec = importlib.util.spec_from_file_location("iris_onchain_claims", _ONCHAIN)
@@ -59,6 +95,31 @@ def _score_row(query: str, words: set[str], row: Mapping[str, str]) -> tuple[int
     matched = [phrase for phrase in phrases if phrase in query]
     return len(words & set().union(*(_tokens(phrase) for phrase in phrases))) + 3 * len(matched), matched
 
+
+def classify_institutional_reply(reply_text: str) -> str | None:
+    """Classify an institutional reply into SOVEREIGN, NULL, or AMBIGUOUS when clear."""
+    if not isinstance(reply_text, str) or not reply_text.strip():
+        return None
+    normalized = " ".join(reply_text.lower().split())
+    direct_yes = bool(re.search(r"\byes\b", normalized))
+    direct_no = bool(re.search(r"\bno\b", normalized))
+    mentions_reviewer = any(pattern in normalized for pattern in _REVIEWER_ROLE_PATTERNS)
+    if direct_no or any(pattern in normalized for pattern in _NULL_REPLY_PATTERNS):
+        return "NULL"
+    if (
+        direct_yes
+        and mentions_reviewer
+        and (
+            "personally reviewed" in normalized
+            or "personally review" in normalized
+            or "specific facts" in normalized
+        )
+    ):
+        return "SOVEREIGN"
+    if any(pattern in normalized for pattern in _AMBIGUOUS_REPLY_PATTERNS):
+        return "AMBIGUOUS"
+    return None
+
 _ONCHAIN_CLAIMS = _module()
 
 @lru_cache(maxsize=1)
@@ -79,12 +140,35 @@ def _scenario_rows() -> tuple[dict[str, str], ...]:
 
 def classify_scenario(user_query: str) -> dict[str, Any]:
     """Classify a user query against the parsed common-scenarios fast-match table."""
+    reply_classification = classify_institutional_reply(user_query)
+    if reply_classification == "AMBIGUOUS":
+        return {
+            "situation": "Institution replied with vague process language",
+            "template": "FOLLOW_UP_WEASEL_RESPONSE.md",
+            "category": "dispute",
+            "matched_keywords": ["ambiguous institutional reply"],
+            "score": 999,
+            "reply_classification": reply_classification,
+        }
     query, words, best = " ".join(user_query.lower().split()), _tokens(user_query), None
     for row in _scenario_rows():
         score, matched = _score_row(query, words, row)
         if best is None or score > best["score"]:
-            best = {**row, "category": _CATEGORY.get(row["template"], "dispute"), "matched_keywords": matched, "score": score}
-    return best or {"situation": "", "template": "REQUEST_FOR_HUMAN_REVIEW.md", "category": "dispute", "matched_keywords": [], "score": 0}
+            best = {
+                **row,
+                "category": _CATEGORY.get(row["template"], "dispute"),
+                "matched_keywords": matched,
+                "score": score,
+                "reply_classification": reply_classification,
+            }
+    return best or {
+        "situation": "",
+        "template": "REQUEST_FOR_HUMAN_REVIEW.md",
+        "category": "dispute",
+        "matched_keywords": [],
+        "score": 0,
+        "reply_classification": reply_classification,
+    }
 
 def load_template(template_name: str) -> str:
     """Load a template file from the repository templates directory."""
@@ -268,4 +352,4 @@ def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, A
         result["generated_private_key_hex"] = claim["generated_private_key_hex"]
     return result
 
-__all__ = ["auto_generate_claim", "build_mirror_reflection", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint"]
+__all__ = ["auto_generate_claim", "build_mirror_reflection", "classify_institutional_reply", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint"]

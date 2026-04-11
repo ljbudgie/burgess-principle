@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-SETUP_WIZARD_MODULE_PATH = os.path.join(os.path.dirname(__file__), "..", "setup-wizard.py")
-setup_wizard_spec = importlib.util.spec_from_file_location("setup_wizard", SETUP_WIZARD_MODULE_PATH)
+setup_wizard_module_path = os.path.join(os.path.dirname(__file__), "..", "setup-wizard.py")
+setup_wizard_spec = importlib.util.spec_from_file_location("setup_wizard", setup_wizard_module_path)
 setup_wizard_module = importlib.util.module_from_spec(setup_wizard_spec)
 setup_wizard_spec.loader.exec_module(setup_wizard_module)
 
@@ -69,6 +69,12 @@ def test_prompt_yes_no_retries_until_valid_answer(monkeypatch, capsys):
     assert "Please answer yes or no." in capsys.readouterr().out
 
 
+def test_prompt_yes_no_returns_default_for_blank_input(monkeypatch):
+    monkeypatch.setattr("builtins.input", lambda _: "")
+
+    assert prompt_yes_no("Continue?", default=False) is False
+
+
 def test_prompt_choice_retries_until_choice_is_valid(monkeypatch, capsys):
     choices = [
         {"label": "One", "size": "~1 GB", "best_for": "fast"},
@@ -84,12 +90,16 @@ def test_prompt_choice_retries_until_choice_is_valid(monkeypatch, capsys):
 
 
 def test_detect_ram_gb_reads_linux_meminfo(monkeypatch):
+    class FakePath:
+        def __init__(self, path):
+            self.path = path
+
+        def read_text(self, encoding="utf-8"):
+            assert self.path == "/proc/meminfo"
+            return "MemTotal:       16777216 kB\n"
+
     monkeypatch.setattr(setup_wizard_module.sys, "platform", "linux")
-    monkeypatch.setattr(
-        Path,
-        "read_text",
-        lambda self, encoding="utf-8": "MemTotal:       16777216 kB\n",
-    )
+    monkeypatch.setattr(setup_wizard_module, "Path", FakePath)
 
     assert detect_ram_gb() == 16.0
 

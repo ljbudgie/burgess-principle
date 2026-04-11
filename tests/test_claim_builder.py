@@ -42,6 +42,63 @@ def _build_profile(tmp_path: Path) -> dict[str, str]:
     }
 
 
+def test_classify_scenario_reads_fast_match_table():
+    scenario = claim_builder.classify_scenario(
+        "I want to reference a hash, signature, receipt, or on-chain claim."
+    )
+
+    assert scenario["template"] == "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md"
+    assert scenario["situation"] == (
+        "I want to reference a hash, signature, receipt, or on-chain claim"
+    )
+    assert scenario["score"] > 0
+
+
+def test_public_helpers_generate_and_encrypt_claim(tmp_path):
+    profile = _build_profile(tmp_path)
+    template = claim_builder.load_template(
+        "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md"
+    )
+    filled = claim_builder.fill_placeholders(
+        template,
+        profile,
+        {
+            "date": "2026-04-11",
+            "team_name": profile["team_name"],
+            "target_entity": profile["institution_name"],
+            "reference": profile["reference"],
+            "query_summary": "The exchange froze my account.",
+            "transaction_hashes": profile["transaction_hash"],
+            "wallet_addresses": profile["wallet_address"],
+            "full_name": profile["full_name"],
+            "contact_details": f'{profile["email"]} | {profile["phone"]}',
+        },
+    )
+
+    claim = claim_builder.generate_commitment(
+        filled,
+        profile,
+        category="exchange",
+        target_entity=profile["institution_name"],
+    )
+    assert verify_onchain_receipt(
+        claim["commitment_hash"], claim["signature"], claim["public_key"]
+    ).valid is True
+
+    vault = claim_builder.encrypt_to_vault(
+        {"created_at": claim["timestamp"], "letter": filled, "onchain_claim": claim},
+        profile,
+        "CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md",
+    )
+    raw_record = json.loads(Path(vault["path"]).read_text(encoding="utf-8"))
+    payload = json.loads(
+        claim_builder._decrypt_vault_payload(
+            raw_record["encrypted_payload"], profile["vault_passphrase"]
+        )
+    )
+    assert payload["letter"] == filled
+
+
 class TestAutoGenerateClaim:
     def test_crypto_exchange_flow_generates_signed_vault_record(self, tmp_path):
         profile = _build_profile(tmp_path)

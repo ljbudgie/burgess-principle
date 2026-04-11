@@ -53,7 +53,7 @@ def main() -> None:
     print("Add these to your .env or Vercel environment variables:\n")
     print(f"VAPID_PUBLIC_KEY={_b64url(public_bytes)}")
     print(f"VAPID_PRIVATE_KEY={_b64url(private_bytes)}")
-    print(f'VAPID_EMAIL=mailto:you@example.com')
+    print(f'VAPID_EMAIL=mailto:your-contact@example.com')
     print(
         "\nThe VAPID_PUBLIC_KEY also goes into your client-side code "
         "(it is safe to embed in the HTML)."

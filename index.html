@@ -2214,6 +2214,11 @@
         // Keep 0.9.0 import support so earlier sovereign phone vault exports still restore cleanly.
         const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
+        const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
+        const TRIGGER_EVAL_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes — how often the app checks triggers
+        const PERIODIC_SYNC_INTERVAL_MS = 12 * 60 * 60 * 1000; // 12 hours — periodic background sync
+        const HUB_PBKDF2_ITERATIONS = 310000; // OWASP-recommended PBKDF2 iterations for hub key derivation
+        const ICE_GATHERING_TIMEOUT_MS = 5000; // WebRTC ICE gathering timeout
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
         const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
         const DEFAULT_VOICE_STATUS = 'Voice ready when your browser supports on-device speech recognition.';
@@ -3239,7 +3244,7 @@
                         const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
                         if (status.state === 'granted') {
                             await registration.periodicSync.register('burgess-periodic-check', {
-                                minInterval: 12 * 60 * 60 * 1000 // 12 hours
+                                minInterval: PERIODIC_SYNC_INTERVAL_MS
                             });
                         }
                     } catch (_e) {
@@ -3743,7 +3748,7 @@
             if (!label) { triggersStatus.textContent = 'Please enter a label.'; return; }
             const type = triggerType.value;
             const trigger = {
-                id: `trigger-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                id: `trigger-${Date.now()}-${Array.from(crypto.getRandomValues(new Uint8Array(6)), b => b.toString(16).padStart(2, '0')).join('')}`,
                 label,
                 type,
                 enabled: true,
@@ -3782,7 +3787,7 @@
             const now = Date.now();
             for (const trigger of triggers) {
                 if (!trigger.enabled) continue;
-                if (trigger.last_fired_at && now - Date.parse(trigger.last_fired_at) < 60 * 60 * 1000) continue;
+                if (trigger.last_fired_at && now - Date.parse(trigger.last_fired_at) < TRIGGER_MIN_INTERVAL_MS) continue;
 
                 let shouldFire = false;
 
@@ -3861,7 +3866,7 @@
                 'raw', new TextEncoder().encode(secret), 'PBKDF2', false, ['deriveKey']
             );
             return crypto.subtle.deriveKey(
-                { name: 'PBKDF2', salt, iterations: 310000, hash: 'SHA-256' },
+                { name: 'PBKDF2', salt, iterations: HUB_PBKDF2_ITERATIONS, hash: 'SHA-256' },
                 material, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']
             );
         }
@@ -3953,7 +3958,7 @@
         }
 
         async function createP2pSessionCommitment(action) {
-            const sessionId = `p2p-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+            const sessionId = `p2p-${Date.now()}-${Array.from(crypto.getRandomValues(new Uint8Array(6)), b => b.toString(16).padStart(2, '0')).join('')}`;
             const data = JSON.stringify({ sessionId, action, timestamp: new Date().toISOString() });
             const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(data))))
                 .map(b => b.toString(16).padStart(2, '0')).join('');
@@ -4001,7 +4006,7 @@
                 pc.addEventListener('icegatheringstatechange', () => {
                     if (pc.iceGatheringState === 'complete') resolve();
                 });
-                setTimeout(resolve, 5000);
+                setTimeout(resolve, ICE_GATHERING_TIMEOUT_MS);
             });
 
             const offerData = btoa(JSON.stringify(pc.localDescription));
@@ -4047,7 +4052,7 @@
                     pc.addEventListener('icegatheringstatechange', () => {
                         if (pc.iceGatheringState === 'complete') resolve();
                     });
-                    setTimeout(resolve, 5000);
+                    setTimeout(resolve, ICE_GATHERING_TIMEOUT_MS);
                 });
 
                 const answerData = btoa(JSON.stringify(pc.localDescription));
@@ -4089,7 +4094,7 @@
             await evaluateLocalTriggers();
             await flushFingerprintQueueToLocalServer().catch(() => 0);
             window.setInterval(checkDueReminders, 60 * 1000);
-            window.setInterval(evaluateLocalTriggers, 5 * 60 * 1000);
+            window.setInterval(evaluateLocalTriggers, TRIGGER_EVAL_INTERVAL_MS);
         }).catch(error => {
             appendError(`Phone setup warning: ${escapeHtml(error.message)}`);
         });

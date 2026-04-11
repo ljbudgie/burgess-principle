@@ -99,6 +99,20 @@ def test_public_helpers_generate_and_encrypt_claim(tmp_path):
     assert payload["letter"] == filled
 
 
+def test_encrypt_to_vault_rejects_disallowed_absolute_path(tmp_path):
+    profile = _build_profile(tmp_path)
+    profile["vault_path"] = "/etc/burgess-principle-test"
+
+    with pytest.raises(ValueError) as exc_info:
+        claim_builder.encrypt_to_vault(
+            {"created_at": "2026-04-11T00:00:00Z", "letter": "test", "onchain_claim": {}},
+            profile,
+            "REQUEST_FOR_HUMAN_REVIEW.md",
+        )
+
+    assert "vault_path" in str(exc_info.value)
+
+
 class TestAutoGenerateClaim:
     def test_crypto_exchange_flow_generates_signed_vault_record(self, tmp_path):
         profile = _build_profile(tmp_path)

@@ -25,6 +25,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
+from iris.claim_builder import auto_generate_claim
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -208,11 +209,14 @@ def create_app(system_prompt: str) -> FastAPI:
             return JSONResponse({"error": "profile must be an object."}, status_code=400)
 
         try:
-            from iris.claim_builder import auto_generate_claim  # noqa: WPS433
-
             claim = auto_generate_claim(query, profile)
         except ValueError as exc:
-            return JSONResponse({"error": str(exc)}, status_code=400)
+            error = (
+                "profile must include vault_passphrase."
+                if "vault_passphrase" in str(exc)
+                else "Invalid claim generation request."
+            )
+            return JSONResponse({"error": error}, status_code=400)
         except Exception:
             log.exception("Claim generation failed for local query.")
             return JSONResponse(

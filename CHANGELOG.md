@@ -13,6 +13,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 ### Changed
 - Sovereign Local claim generation now writes encrypted records to the default local `.sovereign-vault/` directory instead of honoring per-request vault path overrides.
 
+## v1.1.1 — Mirror Mode: Hardware Identity Reflection (11 April 2026)
+
+### Added
+- Mirror Mode for Sovereign Local Mode, built around a local encrypted sovereign profile and mirrored greeting flow.
+- Local identity setup for name, handle, preferred signature block, and Ed25519-backed profile summaries.
+- Mirror-aware PWA/site copy and manifest metadata so the hosted site, README, and local setup guides all point to the same current release.
+
+### Changed
+- Project/package metadata now consistently reports `v1.1.1` across Python, local vault, and package manifests.
+- README, `START_HERE.md`, `SOVEREIGN_MODE.md`, `FOR_AI_MODELS.md`, `llms.txt`, and `iris/README.md` now describe Mirror Mode as part of the current Sovereign Local workflow.
+- The Vercel site metadata, landing-page copy, and deployment rewrites now align with the v1.1.1 release.
+
 ## v0.6.0 — Sovereign Local Mode, Website Upgrade & Hardening (10 April 2026)
 
 **Iris can now run entirely on your own hardware — and the Vercel site is now a full project landing page with Iris built in.**

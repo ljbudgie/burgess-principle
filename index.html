@@ -1819,7 +1819,7 @@
                 <div class="input-area">
                     <div class="voice-status" id="voiceStatus" role="status" aria-live="polite">Voice ready when your browser supports on-device speech recognition.</div>
                     <details class="claim-profile-panel" id="claimProfilePanel">
-                        <summary>Claim profile, Mirror Mode &amp; phone settings</summary>
+                        <summary>Claim profile &amp; phone settings</summary>
                         <p class="claim-profile-desc">Stored locally on this device so the phone can generate, sign, save, export, restore, and optionally mirror sovereign claims offline from your local identity.</p>
                         <div class="claim-profile-grid">
                             <div class="claim-field"><label for="profileIdentityName">Setup My Identity</label><input id="profileIdentityName" type="text" autocomplete="name" placeholder="Lewis"></div>
@@ -2112,7 +2112,7 @@
         const API_PROFILE_URL = _isLocal ? `${window.location.origin}/api/my-profile` : '';
         const VAULT_DB_NAME = 'burgess-principle-vault';
         const VAULT_DB_VERSION = 1;
-        const VAULT_VERSION = '1.0.0';
+        const VAULT_VERSION = '1.1.1';
         // Keep 0.9.0 import support so earlier sovereign phone vault exports still restore cleanly.
         const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';

@@ -359,7 +359,7 @@ def test_queue_onchain_fingerprint_persists_minimal_package(tmp_path):
         )
 
     payload = json.loads(Path(queued["path"]).read_text(encoding="utf-8"))
-    assert payload["version"] == "0.9.0"
+    assert payload["version"] == "1.1.1"
     assert payload["queue_id"] == queued["queue_id"]
     assert payload["fingerprint"]["commitment_hash"] == "0xproof"
     assert payload["fingerprint"]["signature"] == "0xsig"

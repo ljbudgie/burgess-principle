@@ -30,6 +30,7 @@ _CATEGORY = {"CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md": "exchange", 
 _HINTS = {"REQUEST_FOR_HUMAN_REVIEW.md": ("human review", "first letter"), "GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md": ("dispute letter", "challenging outcome"), "FOLLOW_UP_WEASEL_RESPONSE.md": ("human oversight", "review in line with policy", "subject to human review", "vague response", "second letter"), "EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md": ("reasonable adjustments", "accessible communication"), "CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md": ("hash", "signature", "receipt", "on-chain", "on chain"), "COMMITMENT_ONLY_PLACEHOLDER.md": ("minimal disclosure", "placeholder", "keep private")}
 _FALLBACKS = (("briefly_describe", "query_summary"), ("neutral_sentence", "query_summary"), ("reasonable_date", "reply_by"), ("commitment", "commitment_hash"), ("signature", "signature_reference"), ("receipt", "signature_reference"), ("public_key", "signature_reference"), ("claim_id", "onchain_reference"), ("tx_hash", "onchain_reference"), ("explorer_link", "onchain_reference"), ("wallet", "wallet_addresses"), ("transaction", "transaction_hashes"))
 _QUERY_SUMMARY_MAX_LENGTH = 217
+_AMBIGUOUS_REPLY_PRIORITY_SCORE = 999
 _AMBIGUOUS_REPLY_PATTERNS = (
     "automated system incorporates human oversight",
     "human oversight",
@@ -147,7 +148,7 @@ def classify_scenario(user_query: str) -> dict[str, Any]:
             "template": "FOLLOW_UP_WEASEL_RESPONSE.md",
             "category": "dispute",
             "matched_keywords": ["ambiguous institutional reply"],
-            "score": 999,
+            "score": _AMBIGUOUS_REPLY_PRIORITY_SCORE,
             "reply_classification": reply_classification,
         }
     query, words, best = " ".join(user_query.lower().split()), _tokens(user_query), None

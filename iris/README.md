@@ -4,6 +4,8 @@ Iris is the conversational AI interface for the Burgess Principle, hosted at [bu
 
 It helps users apply the binary test, generate personalised templates, walk through the Sovereign Personal Vault, and create or verify on-chain claims — all while keeping control and data sovereignty with the user.
 
+Iris now includes a guided onboarding flow for new users, persistent user profiles, intelligent template matching, and handling for ambiguous institutional responses.
+
 ---
 
 ## How It Works
@@ -16,6 +18,45 @@ Iris is part of a two-view single-page site powered by:
 - A system prompt (`iris/system-prompt.md`) that grounds every response in the Burgess Principle.
 
 The landing page introduces visitors to the framework. The "Talk to Iris" CTA switches to the chat view, where Iris responses are rendered as rich Markdown (headings, bold, code blocks, tables, lists, links).
+
+---
+
+## Key Capabilities
+
+### Onboarding Flow
+
+When Iris detects a new user (no profile in `iris-config.json`), it begins a gentle six-step onboarding:
+
+1. Introduces itself and explains that everything stays private on the user's device.
+2. Asks the user's name and preferred form of address.
+3. Asks about communication needs (e.g. plain language, no jargon).
+4. Invites the user to describe their situation in their own words.
+5. Saves the profile to `iris-config.json`.
+6. Confirms the profile has been saved.
+
+On subsequent sessions, Iris silently loads the profile and uses it without repeating the onboarding.
+
+### Intelligent Template Matching
+
+Iris matches the right template to the user's situation instead of presenting the full list:
+
+| Situation described | Template suggested |
+|---|---|
+| Bailiffs or forced entry | Bailiff Threat |
+| Automated decision, algorithm, or system | Article 22 Challenge |
+| Disability or access needs ignored | Equality Act Adjustments |
+| Wants to see what data is held | DSAR |
+| Challenging a public body | FOI |
+| Everything else | Request for Human Review (default) |
+
+### Handling Ambiguous Responses
+
+Institutions don't always give clear answers. Iris helps users assess ambiguity:
+
+- Identifies evasion patterns — templated language, redirection, non-answers.
+- Asks whether a named individual confirmed personal review of the specific facts.
+- Records unclear findings as **NULL (provisional)** and recommends a follow-up letter.
+- Never records SOVEREIGN unless confirmed by a named individual.
 
 ---
 
@@ -116,9 +157,11 @@ Iris is **local-first by design**. Conversations remain entirely in the user's b
 
 ## Privacy
 
-Iris keeps everything on your hardware by default — **sovereign by design**.
+Iris's first duty is privacy — **sovereign by design**.
 
 - **Local-first:** All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing.
+- **User profiles stay local:** The `iris-config.json` profile is stored on the user's device and never uploaded.
+- **Vault before chain:** Iris always recommends the Sovereign Personal Vault before any on-chain action. Full claim details stay encrypted on the user's device.
 - **Minimal data transfer:** Only the current conversation context is sent to the backend. Full claim details never leave your device.
 - **No server-side storage:** The serverless function is stateless — it processes and forgets.
 - **User-controlled export:** You can download your conversation as a Markdown file locally. No cloud upload.
@@ -131,9 +174,9 @@ Iris keeps everything on your hardware by default — **sovereign by design**.
 
 See the [`examples/`](examples/) folder for sample interactions showing how Iris helps with:
 
-- Applying the binary test to a real situation.
-- Generating a personalised letter from a template.
-- Explaining the Sovereign Personal Vault.
+- Walking a new user through onboarding (`onboarding.md`).
+- Applying the binary test to a real situation (`greeting.md`).
+- Explaining the Sovereign Personal Vault (`vault-guidance.md`).
 
 ---
 

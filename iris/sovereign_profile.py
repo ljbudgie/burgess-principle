@@ -12,6 +12,7 @@ _ROOT = Path(__file__).resolve().parent.parent
 _VAULT_DIRNAME = ".sovereign-vault"
 _PROFILE_FILENAME = "personal-profile.json"
 _PROFILE_VERSION = "1.0.0"
+_PROFILE_PBKDF2_ITERATIONS = 600_000
 
 
 def _pick(values: Mapping[str, Any], *keys: str) -> str:
@@ -23,7 +24,13 @@ def _pick(values: Mapping[str, Any], *keys: str) -> str:
 
 
 def _derive_key(passphrase: str, salt: bytes, key_bytes: int) -> bytes:
-    return hashlib.pbkdf2_hmac("sha256", passphrase.encode("utf-8"), salt, 210_000, dklen=key_bytes)
+    return hashlib.pbkdf2_hmac(
+        "sha256",
+        passphrase.encode("utf-8"),
+        salt,
+        _PROFILE_PBKDF2_ITERATIONS,
+        dklen=key_bytes,
+    )
 
 
 def _encrypt_payload(payload: Mapping[str, Any], passphrase: str) -> str:

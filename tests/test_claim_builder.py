@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
 from nacl.signing import SigningKey
 
 from iris import claim_builder

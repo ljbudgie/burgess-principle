@@ -21,7 +21,7 @@ detect_ram_gb = _mod.detect_ram_gb
 detect_gpu_hint = _mod.detect_gpu_hint
 choose_context_size = _mod.choose_context_size
 download_model = _mod.download_model
-python_hint = _mod.python_hint
+get_python_hint = _mod.python_hint
 main = _mod.main
 DEFAULT_CONFIG = _mod.DEFAULT_CONFIG
 
@@ -181,7 +181,7 @@ def test_python_hint_prefers_python3_when_available(monkeypatch):
     monkeypatch.setattr(_mod.platform, "python_version", lambda: "3.12.3")
     monkeypatch.setattr(_mod.sys, "executable", "/fallback/python")
 
-    assert python_hint() == "/usr/bin/python3 (Python 3.12.3)"
+    assert get_python_hint() == "/usr/bin/python3 (Python 3.12.3)"
 
 
 def test_main_saves_config_and_skips_download_when_model_exists(tmp_path, monkeypatch, capsys):
@@ -236,18 +236,19 @@ def test_main_downloads_model_when_requested(tmp_path, monkeypatch):
 
 
 def test_main_prints_manual_download_instructions_when_easy_mode_is_disabled(tmp_path, monkeypatch, capsys):
+    chosen_model = dict(_mod.MODEL_CATALOG[1])
     monkeypatch.setattr(_mod, "ROOT", tmp_path)
     monkeypatch.setattr(_mod, "CONFIG_PATH", tmp_path / "iris-config.json")
-    monkeypatch.setattr(_mod, "MODEL_CATALOG", [dict(_mod.MODEL_CATALOG[1])])
+    monkeypatch.setattr(_mod, "MODEL_CATALOG", [chosen_model])
     monkeypatch.setattr(_mod, "python_hint", lambda: "python3")
     monkeypatch.setattr(_mod, "detect_ram_gb", lambda: None)
     monkeypatch.setattr(_mod, "detect_gpu_hint", lambda: "No obvious GPU acceleration hint detected")
     answers = iter([False, False])
     monkeypatch.setattr(_mod, "prompt_yes_no", lambda *args, **kwargs: next(answers))
-    monkeypatch.setattr(_mod, "prompt_choice", lambda *args, **kwargs: _mod.MODEL_CATALOG[0])
+    monkeypatch.setattr(_mod, "prompt_choice", lambda *args, **kwargs: chosen_model)
 
     assert main() == 0
 
     output = capsys.readouterr().out
     assert "No model downloaded yet." in output
-    assert str(tmp_path / "models" / _mod.MODEL_CATALOG[0]["filename"]) in output
+    assert str(tmp_path / "models" / chosen_model["filename"]) in output

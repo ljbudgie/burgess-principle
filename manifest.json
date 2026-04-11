@@ -1,13 +1,17 @@
 {
-  "name": "The Burgess Principle — Iris",
+  "name": "Iris — Sovereign Companion",
   "short_name": "Iris",
-  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims offline, with optional Mirror Mode for local identity workflows.",
+  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims offline, with Mirror Mode, local triggers, and proactive assistance — all running 100% on your device.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
   "orientation": "portrait-primary",
+  "categories": ["productivity", "utilities"],
+  "lang": "en-GB",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/banner.png",
@@ -43,6 +47,13 @@
       "short_name": "Benefits",
       "description": "Start a Burgess Claim for a benefits review or dispute.",
       "url": "/?shortcut=benefits",
+      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Burgess check",
+      "short_name": "Burgess",
+      "description": "Run a quick Burgess check — was a human able to personally review the specific facts?",
+      "url": "/?shortcut=burgess-check",
       "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
     }
   ]

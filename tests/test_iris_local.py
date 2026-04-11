@@ -474,7 +474,7 @@ class TestQueueOnchainFingerprintEndpoint:
         with patch.object(
             _mod,
             "queue_onchain_fingerprint",
-            side_effect=OSError("disk full"),
+            side_effect=OSError(),
         ):
             response = self.client.post(
                 "/api/queue-onchain-fingerprint",

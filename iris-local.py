@@ -19,6 +19,7 @@ import sys
 import threading
 import webbrowser
 from pathlib import Path
+from typing import Any
 
 import uvicorn
 from fastapi import FastAPI, Request
@@ -55,6 +56,23 @@ _SYSTEM_PROMPT_PATH = _ROOT / "iris" / "system-prompt.md"
 # ---------------------------------------------------------------------------
 
 
+def _merge_config(defaults: dict[str, Any], overrides: dict[str, Any]) -> dict[str, Any]:
+    """Merge config values while preserving nested defaults for known objects."""
+    merged = dict(defaults)
+    for key, value in overrides.items():
+        if (
+            key in {"easy_mode_model", "user_profile"}
+            and isinstance(value, dict)
+            and isinstance(merged.get(key), dict)
+        ):
+            nested = dict(merged[key])
+            nested.update(value)
+            merged[key] = nested
+            continue
+        merged[key] = value
+    return merged
+
+
 def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
     """Merge iris-config.json defaults with CLI overrides."""
     defaults = {
@@ -71,13 +89,14 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
         "mirror_greeting_style": "neutral_professional",
         "mirror_custom_greeting": "",
         "mirror_reflection_scope": "vault_only",
+        "user_profile": {},
     }
 
     if _CONFIG_PATH.exists():
         try:
             with open(_CONFIG_PATH, encoding="utf-8") as f:
                 file_cfg = json.load(f)
-            defaults.update(file_cfg)
+            defaults = _merge_config(defaults, file_cfg)
         except (json.JSONDecodeError, OSError) as exc:
             log.warning("Could not read %s: %s — using defaults.", _CONFIG_PATH, exc)
 
@@ -127,6 +146,7 @@ def build_runtime_system_prompt(
         "vault_only": "Internal vault only",
         "all_documents": "Include in all generated documents",
     }[reflection_scope]
+    user_profile = config.get("user_profile")
     context_lines = [
         "## Local Runtime Context",
         "- This conversation is running in Sovereign Local Mode on the user's own hardware.",
@@ -146,6 +166,48 @@ def build_runtime_system_prompt(
         )
     else:
         context_lines.append("- No active Mirror Mode profile is loaded yet.")
+    if isinstance(user_profile, dict):
+        preferred_name = str(
+            user_profile.get("preferred_name") or user_profile.get("name") or ""
+        ).strip()
+        communication_needs = str(
+            user_profile.get("communication_needs")
+            or user_profile.get("accessibility_requirements")
+            or ""
+        ).strip()
+        location = str(user_profile.get("location") or "").strip()
+        key_context = str(user_profile.get("key_context") or "").strip()
+        last_updated = str(user_profile.get("last_updated") or "").strip()
+        active_cases = user_profile.get("active_cases")
+        if any(
+            (
+                preferred_name,
+                communication_needs,
+                location,
+                key_context,
+                last_updated,
+                active_cases,
+            )
+        ):
+            context_lines.append("## Saved Local User Profile")
+            if preferred_name:
+                context_lines.append(f"- Preferred name: {preferred_name}.")
+            if communication_needs:
+                context_lines.append(
+                    f"- Communication needs: {communication_needs}."
+                )
+            if location:
+                context_lines.append(f"- Location: {location}.")
+            if isinstance(active_cases, list) and active_cases:
+                case_list = ", ".join(str(case).strip() for case in active_cases[:3] if str(case).strip())
+                if case_list:
+                    context_lines.append(f"- Active cases: {case_list}.")
+            if key_context:
+                context_lines.append(f"- Key context: {key_context}.")
+            if last_updated:
+                context_lines.append(f"- Profile last updated: {last_updated}.")
+        else:
+            context_lines.append("- No saved local user profile is loaded from iris-config.json.")
     return f"{base_prompt.rstrip()}\n\n---\n\n" + "\n".join(context_lines)
 
 

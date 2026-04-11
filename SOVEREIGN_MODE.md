@@ -91,6 +91,52 @@ The phone PWA keeps the claim profile, encrypted local vault copies, Mirror Mode
 
 ---
 
+## Phase 1 — Hyper-Resilient PWA Core
+
+Phase 1 hardens the installable Iris shell so it behaves like a living sovereign companion even on weak or intermittent links:
+
+- **Advanced service worker caching** — navigation preload plus stale-while-revalidate for the app shell, with explicit refresh of critical paths when the connection returns.
+- **Dynamic runtime manifest** — Iris rewrites the manifest at runtime so the installed shell reflects local theme choices, high-contrast mode, Mirror Mode, and the **Sovereign Mode** badge.
+- **Signed update envelope** — `/signed-update-manifest.json` records SHA-256 hashes for critical assets and an Ed25519 signature. Iris verifies the signature and hashes locally before enabling activation of a waiting service worker.
+- **Explicit user consent** — new shells never activate silently. The user must tap **Verify update integrity** and then **Apply verified update**.
+
+### Setup / maintenance
+
+No backend is required for Phase 1. The static site and service worker are enough.
+
+To regenerate the signed update manifest for a future release:
+
+```bash
+python -m pip install -e ".[onchain]"
+python scripts/generate_pwa_update_manifest.py \
+  --version 1.1.1-phase1 \
+  --seed-hex "<offline-ed25519-seed-hex>"
+```
+
+Keep the Ed25519 seed offline. Commit only the generated `signed-update-manifest.json`.
+
+### Verification steps
+
+1. Open Iris in Chrome/Edge or Android Chrome and install it from **Claim profile & phone settings**.
+2. In DevTools → **Application**:
+   - confirm the service worker is active,
+   - inspect **Manifest** to see the runtime theme color and Sovereign badge name,
+   - inspect **Cache Storage** to confirm the critical shell assets are cached.
+3. Toggle **High contrast** and confirm the theme color updates.
+4. Go offline and reload — the cached app shell should still open.
+5. Come back online and confirm Iris reports that it refreshed critical paths.
+6. Click **Verify update integrity** and confirm Iris reports a verified signed release or a staged verified update.
+7. Run a Lighthouse PWA audit against the installed shell.
+
+### Sovereignty Audit
+
+- **Burgess alignment:** the tool now treats its own updates like a Burgess review flow — no silent authority, no opaque activation, explicit human consent before the new shell takes control.
+- **Privacy:** all verification happens locally with Web Crypto. No telemetry, no update check API, no third-party trust service.
+- **Verifiability:** every critical asset in the release is bound to a fresh SHA-256 hash and Ed25519 signature so the device can reject tampered shells.
+- **Offline resilience:** cached critical paths keep Iris usable across Starlink jitter, tunnels, and brief disconnects without degrading into a broken blank page.
+
+---
+
 ## Mirror Mode
 
 Mirror Mode is an optional local identity layer for Sovereign Mode.

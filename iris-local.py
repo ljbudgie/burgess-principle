@@ -190,6 +190,43 @@ def create_app(system_prompt: str) -> FastAPI:
                 status_code=500,
             )
 
+    @app.post("/api/generate-claim")
+    async def generate_claim(request: Request):
+        """Generate a sovereign local claim package from a user query and profile."""
+        try:
+            body = await request.json()
+        except Exception:
+            return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+
+        query = body.get("query")
+        profile = body.get("profile")
+        if not isinstance(query, str) or not query.strip():
+            return JSONResponse(
+                {"error": "query must be a non-empty string."}, status_code=400
+            )
+        if not isinstance(profile, dict):
+            return JSONResponse({"error": "profile must be an object."}, status_code=400)
+
+        try:
+            from iris.claim_builder import auto_generate_claim  # noqa: WPS433
+
+            claim = auto_generate_claim(query, profile)
+        except ValueError as exc:
+            return JSONResponse({"error": str(exc)}, status_code=400)
+        except Exception:
+            log.exception("Claim generation failed for local query.")
+            return JSONResponse(
+                {"error": "Claim generation failed. Check the server logs for details."},
+                status_code=500,
+            )
+
+        return JSONResponse(
+            {
+                "claim": claim,
+                "letter_markdown": claim["letter"],
+            }
+        )
+
     # Serve index.html at root
     @app.get("/")
     async def serve_index():

@@ -281,6 +281,96 @@ class TestChatEndpoint:
         assert user_assistant_msgs[1] == {"role": "assistant", "content": "Hi there"}
 
 
+class TestGenerateClaimEndpoint:
+    """Test the /api/generate-claim endpoint."""
+
+    @pytest.fixture(autouse=True)
+    def _setup_app(self):
+        app = create_app("test prompt")
+        try:
+            from starlette.testclient import TestClient
+            self.client = TestClient(app)
+            self.has_client = True
+        except ImportError:
+            self.has_client = False
+        yield
+
+    def test_invalid_json(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/generate-claim",
+            content=b"not json",
+            headers={"Content-Type": "application/json"},
+        )
+        assert response.status_code == 400
+        assert "Invalid JSON" in response.json()["error"]
+
+    def test_requires_non_empty_query(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/generate-claim",
+            json={"query": "   ", "profile": {}},
+        )
+        assert response.status_code == 400
+        assert "non-empty string" in response.json()["error"]
+
+    def test_requires_profile_object(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/generate-claim",
+            json={"query": "Need a letter", "profile": []},
+        )
+        assert response.status_code == 400
+        assert "object" in response.json()["error"]
+
+    def test_successful_response_returns_claim_and_markdown(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        claim = {"letter": "# Letter", "commitment_hash": "abc123"}
+        with patch("iris.claim_builder.auto_generate_claim", return_value=claim) as mock_auto:
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {"vault_passphrase": "secret"}},
+            )
+        assert response.status_code == 200
+        assert response.json() == {"claim": claim, "letter_markdown": "# Letter"}
+        mock_auto.assert_called_once_with(
+            "Need a letter",
+            {"vault_passphrase": "secret"},
+        )
+
+    def test_value_error_returns_400(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch(
+            "iris.claim_builder.auto_generate_claim",
+            side_effect=ValueError("profile must include vault_passphrase"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 400
+        assert "vault_passphrase" in response.json()["error"]
+
+    def test_unexpected_failure_returns_500(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch(
+            "iris.claim_builder.auto_generate_claim",
+            side_effect=RuntimeError("boom"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 500
+        assert "Claim generation failed" in response.json()["error"]
+
+
 # ---------------------------------------------------------------------------
 # Index page
 # ---------------------------------------------------------------------------

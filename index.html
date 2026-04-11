@@ -2223,7 +2223,7 @@
         }
 
         function normalizeMirrorGreetingStyle(value) {
-            const normalized = String(value || '').trim().toLowerCase().replaceAll('&', 'and').replaceAll(' ', '_');
+            const normalized = String(value || '').trim().toLowerCase().replaceAll('&', ' ').split(/\s+/).filter(Boolean).join('_');
             return ['warm_personal', 'neutral_professional', 'minimal'].includes(normalized)
                 ? normalized
                 : 'neutral_professional';

@@ -74,7 +74,7 @@ def profile_signature_block(name: str, preferred_signature_block: str | None = N
 
 def normalize_mirror_greeting_style(value: str | None) -> str:
     """Return a supported Mirror Mode greeting style."""
-    candidate = str(value or "").strip().lower().replace("&", "and").replace(" ", "_")
+    candidate = "_".join(str(value or "").strip().lower().replace("&", " ").split())
     return candidate if candidate in _MIRROR_GREETING_STYLES else _MIRROR_GREETING_STYLE_DEFAULT
 
 

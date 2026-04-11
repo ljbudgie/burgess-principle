@@ -427,6 +427,17 @@ class TestQueueOnchainFingerprintEndpoint:
         assert response.status_code == 400
         assert response.json()["error"] == "fingerprint must be an object."
 
+    def test_invalid_json_returns_400(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/queue-onchain-fingerprint",
+            content=b"not json",
+            headers={"Content-Type": "application/json"},
+        )
+        assert response.status_code == 400
+        assert response.json()["error"] == "Invalid JSON body."
+
     def test_returns_accepted_with_queue_metadata(self):
         if not self.has_client:
             pytest.skip("starlette.testclient not available")
@@ -456,6 +467,27 @@ class TestQueueOnchainFingerprintEndpoint:
             response = self.client.post("/api/queue-onchain-fingerprint", json={"fingerprint": {}})
         assert response.status_code == 400
         assert "commitment_hash" in response.json()["error"]
+
+    def test_os_error_returns_500(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "queue_onchain_fingerprint",
+            side_effect=OSError("disk full"),
+        ):
+            response = self.client.post(
+                "/api/queue-onchain-fingerprint",
+                json={
+                    "fingerprint": {
+                        "commitment_hash": "0xproof",
+                        "signature": "0xsig",
+                        "public_key": "ab" * 32,
+                    }
+                },
+            )
+        assert response.status_code == 500
+        assert "Fingerprint queueing failed" in response.json()["error"]
 
 
 # ---------------------------------------------------------------------------

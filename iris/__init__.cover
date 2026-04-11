@@ -1,5 +1,0 @@
-    1: """Iris helper modules."""
-       
-    1: from .claim_builder import auto_generate_claim
-       
-    1: __all__ = ["auto_generate_claim"]

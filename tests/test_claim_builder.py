@@ -62,6 +62,37 @@ def test_classify_scenario_reads_fast_match_table():
     assert scenario["score"] > 0
 
 
+def test_scenario_rows_ignore_table_rows_without_template_links(tmp_path):
+    scenarios_path = tmp_path / "COMMON_SCENARIOS.md"
+    scenarios_path.write_text(
+        "\n".join(
+            [
+                "# Test scenarios",
+                "## Fast match table",
+                "| Situation | Template | Notes |",
+                "| --- | --- | --- |",
+                "| Broken row | REQUEST_FOR_HUMAN_REVIEW.md | ignored |",
+                "| Good row | [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md) | kept |",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    claim_builder._scenario_rows.cache_clear()
+    try:
+        with patch.object(claim_builder, "_SCENARIOS", scenarios_path):
+            rows = claim_builder._scenario_rows()
+    finally:
+        claim_builder._scenario_rows.cache_clear()
+
+    assert rows == (
+        {
+            "situation": "Good row",
+            "template": "REQUEST_FOR_HUMAN_REVIEW.md",
+        },
+    )
+
+
 def test_module_raises_import_error_when_spec_loader_is_missing():
     with patch.object(
         claim_builder.importlib.util,

@@ -1,0 +1,366 @@
+       #!/usr/bin/env python3
+    1: """Iris Local — sovereign inference server.
+       
+       Runs Iris entirely on the user's own hardware using llama-cpp-python.
+       No data leaves the device. No cloud dependency. No telemetry.
+       
+       Usage:
+           python iris-local.py
+           python iris-local.py --model models/mistral-7b-instruct.gguf
+           python iris-local.py --port 9000 --gpu
+       """
+       
+    1: from __future__ import annotations
+       
+    1: import argparse
+    1: import json
+    1: import logging
+    1: import sys
+    1: import threading
+    1: import webbrowser
+    1: from pathlib import Path
+       
+    1: import uvicorn
+    1: from fastapi import FastAPI, Request
+    1: from fastapi.middleware.cors import CORSMiddleware
+    1: from fastapi.responses import JSONResponse, StreamingResponse
+    1: from fastapi.staticfiles import StaticFiles
+    1: from iris.claim_builder import auto_generate_claim, queue_onchain_fingerprint
+       
+       # ---------------------------------------------------------------------------
+       # Logging
+       # ---------------------------------------------------------------------------
+    2: logging.basicConfig(
+    1:     level=logging.INFO,
+    1:     format="%(asctime)s  %(levelname)-8s  %(message)s",
+    1:     datefmt="%H:%M:%S",
+       )
+    1: log = logging.getLogger("iris-local")
+       
+       # ---------------------------------------------------------------------------
+       # Paths
+       # ---------------------------------------------------------------------------
+    1: _ROOT = Path(__file__).resolve().parent
+    1: _CONFIG_PATH = _ROOT / "iris-config.json"
+    1: _SYSTEM_PROMPT_PATH = _ROOT / "iris" / "system-prompt.md"
+       
+       # ---------------------------------------------------------------------------
+       # Configuration
+       # ---------------------------------------------------------------------------
+       
+       
+    1: def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
+           """Merge iris-config.json defaults with CLI overrides."""
+    1:     defaults = {
+    1:         "model_path": "models/model.gguf",
+    1:         "context_size": 2048,
+    1:         "port": 8000,
+    1:         "gpu_acceleration": False,
+           }
+       
+    1:     if _CONFIG_PATH.exists():
+    1:         try:
+    2:             with open(_CONFIG_PATH, encoding="utf-8") as f:
+    1:                 file_cfg = json.load(f)
+    1:             defaults.update(file_cfg)
+               except (json.JSONDecodeError, OSError) as exc:
+                   log.warning("Could not read %s: %s — using defaults.", _CONFIG_PATH, exc)
+       
+    1:     if cli_overrides is not None:
+    1:         if cli_overrides.model:
+    1:             defaults["model_path"] = cli_overrides.model
+    1:         if cli_overrides.context:
+                   defaults["context_size"] = cli_overrides.context
+    1:         if cli_overrides.port:
+                   defaults["port"] = cli_overrides.port
+    1:         if cli_overrides.gpu:
+                   defaults["gpu_acceleration"] = True
+       
+    1:     return defaults
+       
+       
+    1: def load_system_prompt() -> str:
+           """Read the Iris system prompt from disk."""
+    1:     return _SYSTEM_PROMPT_PATH.read_text(encoding="utf-8")
+       
+       
+       # ---------------------------------------------------------------------------
+       # Model loading
+       # ---------------------------------------------------------------------------
+    1: _llm = None  # module-level handle, set once
+       
+       
+    1: def load_model(cfg: dict):
+           """Load the GGUF model via llama-cpp-python."""
+           global _llm  # noqa: PLW0603
+       
+    1:     model_path = Path(cfg["model_path"])
+    1:     if not model_path.is_absolute():
+               model_path = _ROOT / model_path
+       
+    1:     if not model_path.exists():
+               log.error(
+                   "Model file not found: %s\n"
+                   "Download a GGUF model and place it at the configured path.\n"
+                   "See SOVEREIGN_MODE.md for instructions.",
+                   model_path,
+               )
+               sys.exit(1)
+       
+    1:     log.info("Loading model: %s", model_path)
+       
+    1:     from llama_cpp import Llama  # noqa: WPS433
+       
+    1:     n_gpu_layers = -1 if cfg.get("gpu_acceleration") else 0
+    2:     _llm = Llama(
+    1:         model_path=str(model_path),
+    1:         n_ctx=cfg.get("context_size", 2048),
+    1:         n_gpu_layers=n_gpu_layers,
+    1:         verbose=False,
+           )
+    1:     log.info("Model loaded successfully.")
+       
+       
+       # ---------------------------------------------------------------------------
+       # FastAPI application
+       # ---------------------------------------------------------------------------
+       
+       
+    1: def create_app(system_prompt: str) -> FastAPI:
+           """Build the FastAPI app that serves the local chat API."""
+    1:     app = FastAPI(title="Iris Local", docs_url=None, redoc_url=None)
+       
+    2:     app.add_middleware(
+    1:         CORSMiddleware,
+    1:         allow_origins=["*"],
+    1:         allow_methods=["POST", "OPTIONS"],
+    1:         allow_headers=["Content-Type"],
+           )
+       
+           # Serve static files (index.html and assets) from project root
+           # Mount after API routes so /api/chat takes priority
+    2:     @app.post("/api/chat")
+    2:     async def chat(request: Request):
+               """Local inference endpoint — mirrors the Vercel API contract."""
+               try:
+                   body = await request.json()
+               except Exception:
+                   return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+       
+               messages = body.get("messages", [])
+               if not messages:
+                   return JSONResponse(
+                       {"error": "No messages provided."}, status_code=400
+                   )
+       
+               # Build message list with system prompt
+               api_messages = [{"role": "system", "content": system_prompt}]
+               for msg in messages:
+                   role = msg.get("role", "user")
+                   content = msg.get("content", "")
+                   if role in ("user", "assistant") and content:
+                       api_messages.append({"role": role, "content": content})
+       
+               try:
+                   stream = _llm.create_chat_completion(
+                       messages=api_messages,
+                       temperature=0.7,
+                       max_tokens=2048,
+                       stream=True,
+                   )
+       
+                   def generate():
+                       for chunk in stream:
+                           delta = chunk.get("choices", [{}])[0].get("delta", {})
+                           token = delta.get("content")
+                           if token:
+                               yield f"data: {json.dumps({'content': token})}\n\n"
+                       yield "data: [DONE]\n\n"
+       
+                   return StreamingResponse(
+                       generate(),
+                       media_type="text/event-stream",
+                       headers={
+                           "Cache-Control": "no-cache",
+                           "Connection": "keep-alive",
+                       },
+                   )
+               except Exception:
+                   return JSONResponse(
+                       {"error": "Model inference failed. Check the server logs for details."},
+                       status_code=500,
+                   )
+       
+    2:     @app.post("/api/generate-claim")
+    2:     async def generate_claim(request: Request):
+               """Generate a sovereign local claim package from a user query and profile."""
+               try:
+                   body = await request.json()
+               except (json.JSONDecodeError, UnicodeDecodeError):
+                   return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+       
+               query = body.get("query")
+               profile = body.get("profile")
+               if not isinstance(query, str) or not query.strip():
+                   return JSONResponse(
+                       {"error": "query must be a non-empty string."}, status_code=400
+                   )
+               if not isinstance(profile, dict):
+                   return JSONResponse({"error": "profile must be an object."}, status_code=400)
+       
+               try:
+                   claim = auto_generate_claim(query, profile)
+               except ValueError as exc:
+                   error = (
+                       "profile must include vault_passphrase."
+                       if "vault_passphrase" in str(exc)
+                       else "Invalid claim generation request."
+                   )
+                   return JSONResponse({"error": error}, status_code=400)
+               except OSError:
+                   log.exception("Claim generation failed for local query due to an I/O error.")
+                   return JSONResponse(
+                       {"error": "Claim generation failed. Check the server logs for details."},
+                       status_code=500,
+                   )
+               except RuntimeError:
+                   log.exception("Claim generation failed for local query due to a runtime error.")
+                   return JSONResponse(
+                       {"error": "Claim generation failed. Check the server logs for details."},
+                       status_code=500,
+                   )
+       
+               return JSONResponse(
+                   {
+                       "claim": claim,
+                       "letter_markdown": claim["letter"],
+                   }
+               )
+       
+    2:     @app.post("/api/queue-onchain-fingerprint")
+    2:     async def queue_onchain_claim_fingerprint(request: Request):
+               """Queue a minimal fingerprint package for privacy-first background posting."""
+               try:
+                   body = await request.json()
+               except (json.JSONDecodeError, UnicodeDecodeError):
+                   return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+       
+               fingerprint = body.get("fingerprint")
+               if not isinstance(fingerprint, dict):
+                   return JSONResponse(
+                       {"error": "fingerprint must be an object."},
+                       status_code=400,
+                   )
+       
+               try:
+                   queued = queue_onchain_fingerprint(fingerprint)
+               except ValueError:
+                   return JSONResponse(
+                       {"error": "fingerprint must include commitment_hash, signature, and public_key"},
+                       status_code=400,
+                   )
+               except OSError:
+                   log.exception("Fingerprint queueing failed due to an I/O error.")
+                   return JSONResponse(
+                       {"error": "Fingerprint queueing failed. Check the server logs for details."},
+                       status_code=500,
+                   )
+       
+               return JSONResponse({"queued_fingerprint": queued}, status_code=202)
+       
+           # Serve index.html at root
+    2:     @app.get("/")
+    2:     async def serve_index():
+               index_path = _ROOT / "index.html"
+               content = index_path.read_bytes()
+               return StreamingResponse(
+                   iter([content]),
+                   media_type="text/html",
+               )
+       
+           # Serve static assets from the project root (banner.png, robots.txt, etc.)
+    1:     app.mount("/", StaticFiles(directory=str(_ROOT)), name="static")
+       
+    1:     return app
+       
+       
+       # ---------------------------------------------------------------------------
+       # CLI entry point
+       # ---------------------------------------------------------------------------
+       
+       
+    1: def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+           """Parse command-line arguments."""
+    2:     parser = argparse.ArgumentParser(
+    1:         description="Iris Local — sovereign AI inference for the Burgess Principle",
+           )
+    2:     parser.add_argument(
+    1:         "--model",
+    1:         type=str,
+    1:         default=None,
+    1:         help="Path to a GGUF model file (overrides iris-config.json)",
+           )
+    2:     parser.add_argument(
+    1:         "--context",
+    1:         type=int,
+    1:         default=None,
+    1:         help="Context window size in tokens (default: 2048)",
+           )
+    2:     parser.add_argument(
+    1:         "--port",
+    1:         type=int,
+    1:         default=None,
+    1:         help="Port for the local server (default: 8000)",
+           )
+    2:     parser.add_argument(
+    1:         "--gpu",
+    1:         action="store_true",
+    1:         default=False,
+    1:         help="Enable GPU acceleration (requires compatible llama-cpp-python build)",
+           )
+    2:     parser.add_argument(
+    1:         "--no-browser",
+    1:         action="store_true",
+    1:         default=False,
+    1:         help="Don't open the browser automatically",
+           )
+    1:     return parser.parse_args(argv)
+       
+       
+    1: def main(argv: list[str] | None = None) -> None:
+           """Load config, load model, start server."""
+    1:     args = parse_args(argv)
+    1:     cfg = load_config(args)
+       
+           # Load system prompt
+    1:     if not _SYSTEM_PROMPT_PATH.exists():
+               log.error("System prompt not found: %s", _SYSTEM_PROMPT_PATH)
+               sys.exit(1)
+       
+    1:     system_prompt = load_system_prompt()
+    1:     log.info("System prompt loaded (%d chars).", len(system_prompt))
+       
+           # Load model
+    1:     load_model(cfg)
+       
+           # Create app
+    1:     app = create_app(system_prompt)
+       
+    1:     port = cfg["port"]
+       
+           # Open browser after a short delay
+    1:     if not args.no_browser:
+       
+               def _open_browser():
+                   webbrowser.open(f"http://localhost:{port}")
+       
+               threading.Timer(1.5, _open_browser).start()
+       
+    1:     log.info("Starting Iris Local on http://localhost:%d", port)
+    1:     log.info("Press Ctrl+C to stop.")
+       
+    1:     uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")
+       
+       
+    1: if __name__ == "__main__":
+    1:     main()

@@ -1,0 +1,38 @@
+    1: """Targeted tests for the phone-first sovereign PWA assets."""
+       
+    1: from __future__ import annotations
+       
+    1: import json
+    1: from pathlib import Path
+       
+    1: ROOT = Path(__file__).resolve().parents[1]
+    1: INDEX = (ROOT / 'index.html').read_text(encoding='utf-8')
+    1: MANIFEST = json.loads((ROOT / 'manifest.json').read_text(encoding='utf-8'))
+    1: SERVICE_WORKER = (ROOT / 'service-worker.js').read_text(encoding='utf-8')
+       
+       
+    1: def test_index_contains_phone_claim_builder_hooks():
+    1:     assert '+ New Claim' in INDEX
+    1:     assert 'voiceStatus' in INDEX
+    1:     assert 'claimProfilePanel' in INDEX
+    1:     assert 'indexedDB' in INDEX
+    1:     assert 'Export Vault' in INDEX
+    1:     assert 'Import Vault' in INDEX
+    1:     assert 'queue-onchain-fingerprint' in INDEX
+       
+       
+    1: def test_manifest_declares_standalone_shortcuts():
+    1:     assert MANIFEST['display'] == 'standalone'
+    1:     assert MANIFEST['start_url'] == '/?source=pwa'
+    4:     shortcut_urls = {shortcut['url'] for shortcut in MANIFEST['shortcuts']}
+    1:     assert '/?shortcut=crypto-exchange' in shortcut_urls
+    1:     assert '/?shortcut=direct-debit' in shortcut_urls
+    1:     assert '/?shortcut=benefits' in shortcut_urls
+       
+       
+    1: def test_service_worker_caches_assets_and_syncs_reminders():
+    1:     assert 'PRECACHE_URLS' in SERVICE_WORKER
+    1:     assert 'burgess-fingerprint-sync' in SERVICE_WORKER
+    1:     assert 'burgess-reminder-sync' in SERVICE_WORKER
+    1:     assert "'/api/queue-onchain-fingerprint'" in SERVICE_WORKER
+    1:     assert '14-day escalation reminder' in SERVICE_WORKER

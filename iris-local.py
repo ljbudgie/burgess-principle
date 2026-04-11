@@ -150,9 +150,16 @@ def build_runtime_system_prompt(
     context_lines = [
         "## Local Runtime Context",
         "- This conversation is running in Sovereign Local Mode on the user's own hardware.",
+        "- Treat the conversation as a continuation of the digital handshake: the user brings energy, Iris brings form and memory.",
         f"- Easy Mode is {'on' if config.get('easy_mode', True) else 'off'}.",
         f"- Mirror greeting style: {style_label}.",
         f"- Mirror reflection scope: {scope_label}.",
+        (
+            "- Current config: "
+            f"easy_mode={'true' if config.get('easy_mode', True) else 'false'}, "
+            f"mirror_greeting_style={greeting_style}, "
+            f"mirror_reflection_scope={reflection_scope}."
+        ),
     ]
     if custom_greeting:
         context_lines.append(f"- Custom greeting override: {custom_greeting}")
@@ -160,6 +167,7 @@ def build_runtime_system_prompt(
         context_lines.extend(
             [
                 f"- Active local profile: {profile['name']}.",
+                "- Mirror Mode is enabled, so greetings should respect the configured style and keep the handshake language restrained.",
                 "- Use the chosen Mirror greeting style sparingly, mainly for initial load or voice mode.",
                 "- Keep generated claims and official letters formal even when Mirror Mode is enabled.",
             ]

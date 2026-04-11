@@ -7,6 +7,7 @@ import importlib.util
 import json
 import os
 import re
+import sys
 import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -20,6 +21,7 @@ _ONCHAIN_CLAIMS_PATH = _REPO_ROOT / "onchain-protocol" / "sdk" / "onchain_claims
 
 _PBKDF2_ITERATIONS = 210_000
 _PBKDF2_SALT_BYTES = 16
+_QUERY_SUMMARY_MAX_LENGTH = 220
 _PLACEHOLDER_RE = re.compile(r"\[([^\[\]]+)\]")
 _SCENARIO_LINK_RE = re.compile(r"\[`([^`]+)`\]\(\./[^)]+\)")
 
@@ -142,6 +144,7 @@ def _load_onchain_claims_module():
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not load on-chain claims module from {_ONCHAIN_CLAIMS_PATH}")
     module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 
@@ -227,8 +230,8 @@ def _first_value(profile: dict[str, Any], *keys: str) -> str:
 
 def _summarize_query(user_query: str) -> str:
     summary = " ".join(user_query.strip().split())
-    if len(summary) > 220:
-        summary = summary[:217].rstrip() + "..."
+    if len(summary) > _QUERY_SUMMARY_MAX_LENGTH:
+        summary = summary[: _QUERY_SUMMARY_MAX_LENGTH - 3].rstrip() + "..."
     if summary and summary[-1] not in ".!?":
         summary += "."
     return summary
@@ -336,7 +339,7 @@ def _resolve_placeholder(
         for token in ("exchange", "platform", "institution", "company", "team")
     ):
         return context.get("target_entity") or None
-    if "date" == normalized_label:
+    if normalized_label == "date":
         return context.get("date") or None
 
     return None

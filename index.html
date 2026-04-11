@@ -2524,7 +2524,7 @@
 
         async function loadBasePwaManifest() {
             if (!basePwaManifest) {
-                const response = await fetch(`${PWA_MANIFEST_URL}?manifest=${Date.now()}`, { cache: 'no-store' });
+                const response = await fetch(`${PWA_MANIFEST_URL}?manifest=${Date.now()}`);
                 if (!response.ok) {
                     throw new Error(`Manifest fetch failed (${response.status}).`);
                 }
@@ -2657,7 +2657,6 @@
         async function hashRemoteAsset(path) {
             const separator = path.includes('?') ? '&' : '?';
             const response = await fetch(`${path}${separator}integrity=${Date.now()}`, {
-                cache: 'no-store',
                 credentials: 'same-origin'
             });
             if (!response.ok) {
@@ -3456,7 +3455,6 @@
                     await pwaRegistration.update().catch(() => undefined);
                 }
                 const response = await fetch(`${PWA_SIGNED_UPDATE_URL}?verify=${Date.now()}`, {
-                    cache: 'no-store',
                     credentials: 'same-origin'
                 });
                 if (!response.ok) {

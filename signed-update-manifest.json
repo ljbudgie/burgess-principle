@@ -4,7 +4,7 @@
   "signed_payload": {
     "app_id": "iris-sovereign-pwa",
     "version": "1.1.1-phase1",
-    "issued_at": "2026-04-11T23:56:25.955649Z",
+    "issued_at": "2026-04-11T23:58:37.261591Z",
     "hash_algorithm": "sha256",
     "consent_required": true,
     "critical_paths": [
@@ -17,11 +17,11 @@
     "assets": [
       {
         "path": "/",
-        "sha256": "230ac62618f203d9348200b7aa78e7349ca9b99abca8f4f8edf773d1cc59782b"
+        "sha256": "53543aa014fe96d6f0b3fe28e4dbbe5581e2e27e6f84a0a6f0fc716be62a844f"
       },
       {
         "path": "/index.html",
-        "sha256": "230ac62618f203d9348200b7aa78e7349ca9b99abca8f4f8edf773d1cc59782b"
+        "sha256": "53543aa014fe96d6f0b3fe28e4dbbe5581e2e27e6f84a0a6f0fc716be62a844f"
       },
       {
         "path": "/manifest.json",
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "signature": "X9bHPDNxD3uwXWwxtHksa+MwGOPvD0IFz7WnIuXKXrTxsADqkfqWMH+bvtQwI2JlHf2mxjZsschaPpf8u8QPAw=="
+  "signature": "OE0cGUGUuWH5kyfHTxAAPm6syDJFEPtkahiAmCGTrBG1BPRQvWDPQ/kV/upwYxuA3ZYEIROvRBF45Yp7W/I8CQ=="
 }

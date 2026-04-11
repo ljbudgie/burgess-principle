@@ -367,7 +367,7 @@ class TestGenerateClaimEndpoint:
         with patch.object(
             _mod,
             "auto_generate_claim",
-            side_effect=ValueError("vault_path must stay within the project"),
+            side_effect=ValueError("bad profile data"),
         ):
             response = self.client.post(
                 "/api/generate-claim",

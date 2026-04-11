@@ -155,7 +155,17 @@ def encrypt_to_vault(payload: Mapping[str, Any], profile: Mapping[str, Any], tem
     return {"record_id": record_id, "path": str(path)}
 
 def queue_onchain_fingerprint(fingerprint: Mapping[str, Any]) -> dict[str, str]:
-    """Persist a privacy-first fingerprint package for later on-chain posting."""
+    """Persist a privacy-first fingerprint package for later on-chain posting.
+
+    Args:
+        fingerprint: Mapping containing at least `commitment_hash`, `signature`,
+            and `public_key`, plus any optional metadata to keep with the queued
+            posting request.
+
+    Returns:
+        A dict containing the generated `queue_id` and the file `path` where the
+        queued fingerprint package was written.
+    """
     required = ("commitment_hash", "signature", "public_key")
     missing = [key for key in required if not str(fingerprint.get(key, "")).strip()]
     if missing:

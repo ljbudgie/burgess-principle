@@ -1,7 +1,7 @@
 const CACHE_NAME = 'burgess-principle-pwa-v0-9-0';
 const VAULT_DB_NAME = 'burgess-principle-vault';
 const VAULT_DB_VERSION = 1;
-const PRECACHE_URLS = ['/', '/index.html', '/manifest.json', '/service-worker.js', '/banner.png', '/START_HERE.md', '/SOVEREIGN_MODE.md'];
+const PRECACHE_URLS = ['/', '/index.html', '/manifest.json', '/service-worker.js', '/banner.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting()));

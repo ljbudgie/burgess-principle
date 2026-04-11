@@ -17,6 +17,9 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'claimProfilePanel' in INDEX
     assert 'indexedDB' in INDEX
     assert 'Setup My Identity' in INDEX
+    assert 'Enable Mirror Mode' in INDEX
+    assert 'mirrorModeToggle' in INDEX
+    assert 'Hey ${summary.name} — Mirror Mode active. What’s happening on your hardware?' in INDEX
     assert 'profileIdentityName' in INDEX
     assert 'profileIdentityPassphrase' in INDEX
     assert '/api/my-profile' in INDEX

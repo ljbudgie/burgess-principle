@@ -15,6 +15,7 @@ from iris.sovereign_profile import (
     fingerprint_public_key,
     load_personal_profile,
     load_personal_profile_summary,
+    mirror_mode_prompt,
     profile_path,
     profile_signature_block,
     save_personal_profile,
@@ -33,6 +34,8 @@ def test_build_personal_profile_generates_signed_identity():
     assert len(profile["private_key_hex"]) == 64
     assert len(profile["public_key_hex"]) == 64
     assert len(profile["key_fingerprint"]) == 16
+    assert profile["mirror_mode_enabled"] is False
+    assert profile["mirror_mode_activated_at"] == ""
     assert verify_personal_profile(profile) is True
 
 
@@ -87,8 +90,12 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
         "public_key_hex": "",
         "profile_signature": "",
         "signed_at": "",
+        "mirror_mode_enabled": False,
+        "mirror_mode_activated_at": "",
+        "mirror_greeting": "",
     }
     assert profile_signature_block(" Lewis ", "  ") == ""
+    assert mirror_mode_prompt("Lewis") == "Hey Lewis — Mirror Mode active. What’s happening on your hardware?"
     assert fingerprint_public_key("ab" * 32, length=8) == "9a2db2e2"
     assert profile_path(tmp_path) == tmp_path / ".sovereign-vault" / "personal-profile.json"
 
@@ -148,6 +155,27 @@ def test_setup_personal_profile_loads_existing_profile(tmp_path):
     assert created["created"] is True
     assert loaded["created"] is False
     assert loaded["profile"]["name"] == "Lewis"
+
+
+def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_path):
+    setup_personal_profile(
+        vault_passphrase="correct horse battery staple",
+        root=tmp_path,
+        name="Lewis",
+    )
+
+    updated = setup_personal_profile(
+        vault_passphrase="correct horse battery staple",
+        root=tmp_path,
+        mirror_mode_enabled=True,
+    )
+
+    assert updated["created"] is False
+    assert updated["profile"]["mirror_mode_enabled"] is True
+    assert updated["profile"]["mirror_greeting"] == "Hey Lewis — Mirror Mode active. What’s happening on your hardware?"
+    loaded = load_personal_profile("correct horse battery staple", root=tmp_path)
+    assert loaded["mirror_mode_enabled"] is True
+    assert loaded["mirror_mode_activated_at"]
 
 
 def test_setup_personal_profile_requires_name_when_creating_new_profile(tmp_path):

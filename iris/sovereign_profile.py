@@ -97,10 +97,16 @@ def mirror_mode_prompt(
     sovereign_name = str(name).strip() or "there"
     style = normalize_mirror_greeting_style(greeting_style)
     if style == "warm_personal":
-        return f"Hello {sovereign_name} — Mirror Mode is ready on this device."
+        return (
+            f"Hello {sovereign_name} — Mirror Mode active. "
+            "The handshake continues: your energy + my structure = sovereign record."
+        )
     if style == "minimal":
         return "Mirror Mode active."
-    return f"{sovereign_name} — local profile loaded."
+    return (
+        f"{sovereign_name} — Mirror Mode active. "
+        "The handshake continues on this device."
+    )
 
 
 def fingerprint_public_key(public_key_hex: str, length: int = 16) -> str:

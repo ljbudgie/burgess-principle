@@ -842,3 +842,61 @@ class TestValidCategories:
     def test_immutable(self):
         with pytest.raises(AttributeError):
             VALID_CATEGORIES.add("new")  # type: ignore[attr-defined]
+
+
+# ---------------------------------------------------------------------------
+# PyNaCl ImportError paths
+# ---------------------------------------------------------------------------
+
+class TestPyNaClImportError:
+    """Verify friendly errors when PyNaCl is not installed."""
+
+    def test_generate_raises_import_error_without_nacl(self):
+        """generate_onchain_claim raises ImportError when nacl is unavailable."""
+        import builtins
+
+        real_import = builtins.__import__
+
+        def block_nacl(name, *args, **kwargs):
+            if "nacl" in name:
+                raise ImportError("Mocked: no nacl")
+            return real_import(name, *args, **kwargs)
+
+        # Remove cached nacl modules so the lazy import fires again
+        saved = {k: sys.modules.pop(k) for k in list(sys.modules) if k == "nacl" or k.startswith("nacl.")}
+        try:
+            with pytest.raises(ImportError, match="PyNaCl"):
+                builtins.__import__ = block_nacl
+                generate_onchain_claim(
+                    claim_details="test",
+                    target_entity="entity",
+                    category="enforcement",
+                    private_key_hex="aa" * 32,
+                )
+        finally:
+            builtins.__import__ = real_import
+            sys.modules.update(saved)
+
+    def test_verify_raises_import_error_without_nacl(self):
+        """verify_onchain_receipt raises ImportError when nacl is unavailable."""
+        import builtins
+
+        real_import = builtins.__import__
+
+        def block_nacl(name, *args, **kwargs):
+            if "nacl" in name:
+                raise ImportError("Mocked: no nacl")
+            return real_import(name, *args, **kwargs)
+
+        saved = {k: sys.modules.pop(k) for k in list(sys.modules) if k == "nacl" or k.startswith("nacl.")}
+        try:
+            with pytest.raises(ImportError, match="PyNaCl"):
+                builtins.__import__ = block_nacl
+                verify_onchain_receipt(
+                    commitment_hash="aa" * 32,
+                    signature="bb" * 64,
+                    public_key_hex="cc" * 32,
+                )
+        finally:
+            builtins.__import__ = real_import
+            sys.modules.update(saved)

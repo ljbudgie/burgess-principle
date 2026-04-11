@@ -16,6 +16,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
+_MOCK_CLAIM_DATA = {"letter": "# Letter", "commitment_hash": "abc123"}
+
 # ---------------------------------------------------------------------------
 # Module-level import — load iris-local.py by path (it's not a package)
 # ---------------------------------------------------------------------------
@@ -279,6 +281,115 @@ class TestChatEndpoint:
         assert len(user_assistant_msgs) == 2
         assert user_assistant_msgs[0] == {"role": "user", "content": "Hello"}
         assert user_assistant_msgs[1] == {"role": "assistant", "content": "Hi there"}
+
+
+class TestGenerateClaimEndpoint:
+    """Test the /api/generate-claim endpoint."""
+
+    @pytest.fixture(autouse=True)
+    def _setup_app(self):
+        app = create_app("test prompt")
+        try:
+            from starlette.testclient import TestClient
+            self.client = TestClient(app)
+            self.has_client = True
+        except ImportError:
+            self.has_client = False
+        yield
+
+    def test_invalid_json(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/generate-claim",
+            content=b"not json",
+            headers={"Content-Type": "application/json"},
+        )
+        assert response.status_code == 400
+        assert "Invalid JSON" in response.json()["error"]
+
+    def test_requires_non_empty_query(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/generate-claim",
+            json={"query": "   ", "profile": {}},
+        )
+        assert response.status_code == 400
+        assert "non-empty string" in response.json()["error"]
+
+    def test_requires_profile_object(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        response = self.client.post(
+            "/api/generate-claim",
+            json={"query": "Need a letter", "profile": []},
+        )
+        assert response.status_code == 400
+        assert "object" in response.json()["error"]
+
+    def test_successful_response_returns_claim_and_markdown(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "auto_generate_claim", return_value=_MOCK_CLAIM_DATA) as mock_auto:
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {"vault_passphrase": "secret"}},
+            )
+        assert response.status_code == 200
+        assert response.json() == {
+            "claim": _MOCK_CLAIM_DATA,
+            "letter_markdown": "# Letter",
+        }
+        mock_auto.assert_called_once_with(
+            "Need a letter",
+            {"vault_passphrase": "secret"},
+        )
+
+    def test_value_error_returns_400(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
+            side_effect=ValueError("profile must include vault_passphrase"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 400
+        assert "vault_passphrase" in response.json()["error"]
+
+    def test_other_value_error_returns_generic_400(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
+            side_effect=ValueError("bad profile data"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 400
+        assert response.json()["error"] == "Invalid claim generation request."
+
+    def test_unexpected_failure_returns_500(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
+            side_effect=RuntimeError("boom"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 500
+        assert "Claim generation failed" in response.json()["error"]
 
 
 # ---------------------------------------------------------------------------

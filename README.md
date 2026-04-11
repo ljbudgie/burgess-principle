@@ -2,14 +2,28 @@
 
 > *"Was a human member of the team able to personally review the specific facts of my situation?"*
 
-**UK Certification Mark:** UK00004343685 — Classes 41, 42, 45  
+One question. Binary test. Human review over automation.
+
+The Burgess Principle is a simple, respectful framework that helps ordinary people hold institutions accountable — by asking whether a real human being actually looked at their case. As of v0.6.0, the framework's AI companion, **Iris**, can run entirely on your own hardware in **Sovereign Local Mode** — no cloud, no API keys, no data leaving your device.
+
+**UK Certification Mark:** UK00004343685 — Classes 41, 42, 45
 **Website:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)
 
 ---
 
-## What is the Burgess Principle?
+## Releases
 
-The Burgess Principle is a simple, respectful framework that helps ordinary people hold institutions accountable by asking one question: **did a real human being actually look at my case?**
+| Version | Summary |
+|---|---|
+| **[v0.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0)** | Initial release — binary test, 30+ templates, cryptographic vault, 90+ tests. |
+| **[v0.2.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.2.0)** | Commitment-only mode — send a single hash instead of personal facts. |
+| **[v0.6.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0)** | Sovereign Local Mode — run Iris entirely on your own hardware. No cloud, no telemetry. |
+
+See [CHANGELOG.md](CHANGELOG.md) for the full history.
+
+---
+
+## What is the Burgess Principle?
 
 Modern institutions — utilities, councils, enforcement agencies, credit bureaus — make millions of automated decisions every day. Sometimes those decisions are wrong, and when they are, there is often no named person who reviewed the facts. The Burgess Principle gives you a calm, written way to surface that gap.
 
@@ -33,14 +47,14 @@ No legal training is needed. No fee is charged. The framework is [MIT licensed](
 
 **[Iris](https://burgess-principle.vercel.app)** is the AI companion for the Burgess Principle — a calm, conversational interface that helps you apply the binary test, generate personalised templates, and walk through the Sovereign Personal Vault.
 
-🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing. Full claim details never leave your device.
+🛡️ **Iris keeps everything on your hardware by default — sovereign by design.** Your conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing.
 
 Iris runs in two modes — you choose:
 
 | Mode | How it works |
 |---|---|
-| **☁️ Cloud** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app) — hosted on Vercel, uses an external AI model (Grok/OpenAI). Quick to use, no setup required. |
-| **🏠 Sovereign (Local)** | Runs entirely on your own hardware. No data leaves your device. No API keys, no cloud, no telemetry. See **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)** for setup. |
+| **☁️ Cloud** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app) — hosted on Vercel, uses an external AI model. Quick to use, no setup required. |
+| **🏠 Sovereign (Local)** | Runs entirely on your own hardware. No data leaves your device. No API keys, no cloud, no telemetry. See **[SOVEREIGN_MODE.md](SOVEREIGN_MODE.md)**. |
 
 ### Cloud mode (default)
 

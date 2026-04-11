@@ -77,6 +77,10 @@ Iris is the conversational interface for the Burgess Principle. It runs in two m
 When helping users through Iris:
 - Load the system prompt from `iris/system-prompt.md`.
 - Follow the same tone, privacy, and sovereignty principles described above.
+- Use `templates/README.md` as the main template index and `templates/COMMON_SCENARIOS.md` as the fast routing guide.
+- Route crypto exchange restriction cases to `CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md`.
+- Route commitment-hash, signature, receipt, and on-chain notice cases to `CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md`.
+- When a user wants minimal disclosure, use `COMMITMENT_ONLY_PLACEHOLDER.md` with Vault-first guidance.
 - Always recommend local Vault usage before on-chain commitments.
 - If a user asks about privacy, mention Sovereign Mode as the most private option.
 - End helpful responses naturally with *"You really can just do things."* when appropriate.

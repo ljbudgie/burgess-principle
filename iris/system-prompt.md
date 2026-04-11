@@ -82,6 +82,9 @@ Institutions do not always give clear answers. If a response is ambiguous:
    - Mentions disability or access needs being ignored → Equality Act Adjustments
    - Wants to see what data is held → DSAR template
    - Challenging a public body → FOI template
+   - Mentions a crypto exchange freeze, withdrawal hold, compliance review, or source-of-funds check → Crypto Exchange Account Restriction
+   - Mentions a commitment hash, signature, signed receipt, or on-chain claim → Cryptographic Proof and On-Chain Notice
+   - Wants privacy-preserving disclosure only → Commitment-Only Placeholder, with Vault-first guidance
    - Everything else → Request for Human Review as the default
 5. **Recommend the Sovereign Personal Vault first.** For privacy, always suggest local Vault usage before on-chain commitments.
 6. **Explain on-chain claims when relevant.** Only commitment fingerprints (hash + signature) go on-chain. No personal data ever touches the blockchain.
@@ -127,6 +130,9 @@ When helping users, reference these templates from the repository:
 | Freedom of information request | Requesting public records |
 | Article 22 challenge | Challenging automated decision-making |
 | Equality Act adjustments | Requesting reasonable adjustments for disability or sensory needs |
+| Crypto exchange restriction | Exchange account freezes, withdrawal holds, source-of-funds checks, or compliance reviews |
+| Cryptographic proof / on-chain notice | Referring to a commitment hash, signature, signed receipt, or on-chain claim without disclosing all facts |
+| Commitment-only placeholder | Sending a minimal commitment reference while keeping full facts private |
 
 ---
 

@@ -23,6 +23,15 @@ This register documents every institution that has been tested under The Burgess
 
 ---
 
+## Response Quality Tags
+
+To make evasive language easier to track, the register can now record these response tags:
+
+- **Weasel Response Detected** — the institution replied, but relied on generic wording such as "human oversight", "reviewed in line with policy", or other process language that still avoids a direct YES/NO answer.
+- **Auto-Suggested Rebuttal** — use [`templates/FOLLOW_UP_WEASEL_RESPONSE.md`](templates/FOLLOW_UP_WEASEL_RESPONSE.md) and ask for a direct YES/NO answer plus the name and role of any reviewer.
+
+---
+
 ## Institutional Register
 
 ### 1. E.ON Next
@@ -72,6 +81,8 @@ This register documents every institution that has been tested under The Burgess
 - **Sector:** Water
 - **Question Asked:** Who individually verified the contractual basis for CCJ L7EC1P3M before obtaining the judgment?
 - **Response Summary:** Letter asserting CCJ was "lawfully obtained" — no contract produced. Refused reasonable adjustment. Refused suppression unless court-directed.
+- **Response Tag:** **Weasel Response Detected**
+- **Auto-Suggested Rebuttal:** Request a direct YES/NO answer and, if YES, the name and role of the reviewer.
 - **Finding:** **NULL** — CCJ obtained without evidenced contract, no individual review of whether debt was owed.
 - **Status:** Seven-section challenge sent. DSAR filed.
 
@@ -96,6 +107,8 @@ This register documents every institution that has been tested under The Burgess
 - **Sector:** Financial Technology
 - **Question Asked:** Who individually reviewed order routing, CFD counterparty positioning, and algorithmic profiling applied to the complainant's account?
 - **Response Summary:** Donika (Compliance Operations Associate) stated in bold: "The available information that we hold on you has already been provided in full." Claimed order routing details "are not information we hold on you."
+- **Response Tag:** **Weasel Response Detected**
+- **Auto-Suggested Rebuttal:** Use the follow-up weasel-response template and ask for a direct YES/NO answer to the human-review question.
 - **Finding:** **NULL** — DSAR response generated without addressing specific forensic requests. MiFID II record-keeping obligations not met.
 - **Status:** DSAR deadline 4 April 2026. ICO complaint and FCA referral ready if no substantive response.
 

@@ -77,6 +77,7 @@ Iris runs in two modes — you choose:
 
 ```bash
 bash scripts/install-linux.sh   # or install-macos.sh / install-windows.ps1
+python3 setup-wizard.py         # optional guided setup
 python3 iris-local.py
 ```
 
@@ -108,6 +109,14 @@ Run **Iris** — your conversational AI companion — entirely on your own hardw
 
 See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for setup (one-command install + `python3 iris-local.py`), including the **Phone Setup** and **Mirror Mode** sections for the mobile PWA workflow.
 
+### Non-technical quick start
+
+1. **Start with the web app if you want the easiest first step.** Open the [live site](https://burgess-principle.vercel.app), install the PWA if you like, and try Iris before moving anything local.
+2. **When you want full offline privacy, run one install script.** The local scripts now install the Python pieces and fetch an Easy Mode starter model for you.
+3. **If you want a guided path, run `python3 setup-wizard.py`.** It walks through model choice, likely CPU/GPU use, and first-run configuration in plain English.
+4. **Start with the lightweight default model first.** Phi-3 Mini is the easiest first local setup on ordinary laptops.
+5. **If the download feels slow or your antivirus interrupts it, pause and check the file path rather than forcing it.** See [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) for troubleshooting.
+
 ### ☁️ Cloud Mode
 
 Use the hosted version instantly via the [live site](https://burgess-principle.vercel.app) or any LLM ([Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com)).
@@ -126,6 +135,7 @@ For a guided walkthrough, see **[START_HERE.md](START_HERE.md)**.
 | Template | Use when… |
 | --- | --- |
 | [Request for human review](templates/REQUEST_FOR_HUMAN_REVIEW.md) | You want to ask any organisation whether a human reviewed your case |
+| [Follow-up after a vague reply](templates/FOLLOW_UP_WEASEL_RESPONSE.md) | The institution talked about "human oversight" or policy review without answering directly |
 | [General dispute](templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) | You need a universal dispute letter |
 | [Council tax / penalty charge](templates/COUNCIL_TAX_PCN_TEMPLATE.md) | You're challenging a council tax or PCN decision |
 | [Benefits claim](templates/BENEFITS_CLAIM_HELP.md) | A benefits decision feels wrong |
@@ -144,6 +154,8 @@ Every finding under the Burgess Principle resolves to one of two outcomes:
 | --- | --- |
 | **SOVEREIGN** | A human mind was individually applied to the specific facts. |
 | **NULL** | No individual human review took place. The instrument carries no lawful authority from inception. |
+
+When an institution replies with vague process language such as "human oversight", "subject to human review", or "reviewed in line with policy", Iris now treats that as **AMBIGUOUS** for follow-up purposes and recommends a calm second letter until a direct YES/NO answer is provided.
 
 ---
 
@@ -212,6 +224,7 @@ Local Vault              Commitment              EVM L2                 Verifiab
 | [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims Protocol — smart contracts, SDK, and examples |
 | [`/iris`](./iris) | Iris — AI companion interface (system prompt, examples, deployment) |
 | [`iris-config.json`](iris-config.json) | Configuration for local mode |
+| [`setup-wizard.py`](setup-wizard.py) | Guided local setup for model choice and first-run configuration |
 | [`SOVEREIGN_MODE.md`](SOVEREIGN_MODE.md) | Run Iris locally on your own hardware — setup guide |
 | [`CHANGELOG.md`](CHANGELOG.md) | Full version history |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |

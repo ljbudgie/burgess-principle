@@ -72,6 +72,15 @@ def test_classify_scenario_reads_fast_match_table():
     assert scenario["score"] > 0
 
 
+def test_classify_scenario_routes_weasel_word_follow_up():
+    scenario = claim_builder.classify_scenario(
+        "They replied saying decisions are subject to human review and handled in line with policy."
+    )
+
+    assert scenario["template"] == "FOLLOW_UP_WEASEL_RESPONSE.md"
+    assert scenario["score"] > 0
+
+
 def test_scenario_rows_ignore_table_rows_without_template_links(tmp_path):
     scenarios_path = tmp_path / "COMMON_SCENARIOS.md"
     scenarios_path.write_text(
@@ -273,6 +282,26 @@ def test_generate_commitment_uses_supplied_signing_key(tmp_path):
     assert verify_onchain_receipt(
         claim["commitment_hash"], claim["signature"], claim["public_key"]
     ).valid is True
+
+
+def test_auto_generate_claim_can_include_mirror_reflection_block(tmp_path):
+    profile = {
+        **_build_profile(tmp_path),
+        "name": "Alex Example",
+        "key_fingerprint": "abc123def4567890",
+        "mirror_mode_enabled": True,
+        "mirror_reflection_scope": "all_documents",
+    }
+
+    with patch.object(claim_builder, "_ROOT", tmp_path):
+        result = auto_generate_claim(
+            "I need a calm first letter asking for human review.",
+            profile,
+        )
+
+    assert result["mirror_reflection"]["enabled"] is True
+    assert result["mirror_reflection"]["scope"] == "all_documents"
+    assert "Mirror Reflection" in result["letter"]
 
 
 def test_generate_commitment_raises_when_receipt_verification_fails(tmp_path):

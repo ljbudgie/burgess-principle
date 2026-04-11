@@ -27,6 +27,8 @@ If someone did look at my case personally, I would really appreciate a short wri
 
 If that did not happen, I would be grateful if my claim can now receive that individual human attention.
 
+For clarity, a general statement that your process includes human oversight, or that benefit decisions are reviewable in line with policy, does not confirm that a human member of the decision-making team personally reviewed the specific facts of my case. Please provide a direct **YES** or **NO** answer. If **YES**, please identify the reviewer by name and role.
+
 I am also requesting reasonable adjustments under the Equality Act 2010 if applicable. My preferred method of communication is email only.
 
 Please treat this as a formal request for **Mandatory Reconsideration**.

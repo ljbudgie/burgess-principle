@@ -1,6 +1,15 @@
 {
-    "model_path": "models/model.gguf",
+    "model_path": "models/phi-3-mini-4k-instruct-q4.gguf",
     "context_size": 2048,
     "port": 8000,
-    "gpu_acceleration": false
+    "gpu_acceleration": false,
+    "easy_mode": true,
+    "easy_mode_model": {
+        "name": "Phi-3 Mini 4K Instruct Q4",
+        "filename": "phi-3-mini-4k-instruct-q4.gguf",
+        "url": "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf"
+    },
+    "mirror_greeting_style": "neutral_professional",
+    "mirror_custom_greeting": "",
+    "mirror_reflection_scope": "vault_only"
 }

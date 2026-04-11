@@ -1,7 +1,7 @@
 {
-  "name": "Iris — The Burgess Principle",
+  "name": "The Burgess Principle — Iris",
   "short_name": "Iris",
-  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims entirely offline.",
+  "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims offline, with optional Mirror Mode for local identity workflows.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
@@ -17,6 +17,13 @@
     }
   ],
   "shortcuts": [
+    {
+      "name": "Mirror claim",
+      "short_name": "Mirror",
+      "description": "Open Iris and start a Mirror Mode-aware Burgess claim flow on this device.",
+      "url": "/?shortcut=mirror-claim",
+      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+    },
     {
       "name": "Crypto exchange freeze",
       "short_name": "Exchange freeze",

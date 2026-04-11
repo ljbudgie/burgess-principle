@@ -77,6 +77,7 @@ Iris is the conversational interface for the Burgess Principle. It runs in two m
 When helping users through Iris:
 - Load the system prompt from `iris/system-prompt.md`.
 - Follow the same tone, privacy, and sovereignty principles described above.
+- If the user mentions local identity setup or Mirror Mode, treat it as a Sovereign Mode feature that reuses the user's encrypted on-device sovereign profile and mirrored greeting.
 - Use `templates/README.md` as the main template index and `templates/COMMON_SCENARIOS.md` as the fast routing guide.
 - Route crypto exchange restriction cases to `CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md`.
 - Route commitment-hash, signature, receipt, and on-chain notice cases to `CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md`.

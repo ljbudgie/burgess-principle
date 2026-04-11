@@ -2,7 +2,7 @@
 
 The Burgess Principle asks one question: *was a human there?* Sovereign Mode extends that philosophy to the tool itself — **you** control the hardware, the model, and the data. Nothing leaves your device.
 
-Run Iris locally with no cloud, no API keys, no external servers, and no telemetry. Your conversations stay on your machine. If you can run a Python script, you can run Sovereign Mode. It works alongside the existing cloud deployment — you choose which mode fits your needs.
+Run Iris locally with no cloud, no API keys, no external servers, and no telemetry. Your conversations stay on your machine. If you can run a Python script, you can run Sovereign Mode. It works alongside the existing cloud deployment — you choose which mode fits your needs. It also includes an optional **Mirror Mode** so Iris can greet you by name and reuse your local sovereign profile across on-device claim workflows.
 
 ---
 
@@ -62,10 +62,36 @@ Once `python3 iris-local.py` is running, open `http://localhost:8000` on the pho
 2. Use **Add to Home Screen / Install App** so Iris launches in standalone mode.
 3. Tap **+ New Claim** to jump straight into the mobile claim builder.
 4. Open **Claim profile & phone settings** and save the local profile fields once.
-5. Set a Vault passphrase, then generate or save claims directly from the phone.
-6. Use **Export Vault** / **Import Vault** to move the encrypted phone vault between the phone and a laptop with a `.vault` file.
+5. If you want Iris to reflect your local identity automatically, enter your name, choose a passphrase, tap **Setup My Identity**, and enable **Mirror Mode**.
+6. Set a Vault passphrase, then generate or save claims directly from the phone.
+7. Use **Export Vault** / **Import Vault** to move the encrypted phone vault between the phone and a laptop with a `.vault` file.
 
-The phone PWA keeps the claim profile, encrypted local vault copies, 14-day reminders, quick actions, and service-worker notifications on the device. Nothing is sent to any external service.
+The phone PWA keeps the claim profile, encrypted local vault copies, Mirror Mode preferences, 14-day reminders, quick actions, and service-worker notifications on the device. Nothing is sent to any external service.
+
+---
+
+## Mirror Mode
+
+Mirror Mode is an optional local identity layer for Sovereign Mode.
+
+When enabled:
+
+- Iris stores your personal sovereign profile inside the encrypted local vault.
+- The profile includes your chosen name, handle, preferred signature block, and Ed25519-backed public identity summary.
+- Iris greets you with a hardware-linked local welcome so each new session starts from your device identity rather than a blank state.
+- Local claim/profile workflows can reuse that identity automatically without sending it to a cloud service.
+
+Mirror Mode is **local-only**. It does not publish your identity, auto-contact anyone, or move data off the device by itself. You stay in control of when anything is copied, exported, or submitted.
+
+To enable it:
+
+1. Start `python3 iris-local.py`.
+2. Open the local site and expand **Claim profile & phone settings**.
+3. Enter your name and an identity vault passphrase.
+4. Tap **Setup My Identity**.
+5. Turn on **Enable Mirror Mode**.
+
+If you later turn Mirror Mode off, your local profile remains stored in the encrypted vault; Iris simply stops using the mirrored greeting and default identity layer until you re-enable it.
 
 ---
 
@@ -163,6 +189,7 @@ Sovereign Mode runs a lightweight local server that stands in for the cloud API.
 
 - The same `index.html` serves both modes — landing page, templates, case studies, and chat. It detects localhost and routes API calls to your local server automatically.
 - The system prompt (`iris/system-prompt.md`) is loaded from disk — identical to the cloud version.
+- Mirror Mode profile summaries can be loaded locally so the interface can restore your sovereign identity state without exposing the encrypted private payload.
 - The local server is stateless between sessions. No conversation data is saved unless you export it.
 - No telemetry, no analytics, no phone-home behaviour of any kind.
 

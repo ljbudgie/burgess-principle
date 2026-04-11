@@ -2278,7 +2278,7 @@
 
         function hexToBytes(value) {
             if (typeof value !== 'string' || !/^[0-9a-f]+$/i.test(value) || value.length % 2 !== 0) {
-                throw new Error('Personal identity hex encoding is invalid.');
+                throw new Error('Personal identity hex encoding is invalid: expected an even-length hexadecimal string.');
             }
             return new Uint8Array(value.match(/.{1,2}/g).map(chunk => parseInt(chunk, 16)));
         }

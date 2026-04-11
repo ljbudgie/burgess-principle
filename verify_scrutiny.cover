@@ -1,0 +1,165 @@
+    2: """The Burgess Principle Binary Test — SOVEREIGN / NULL verification.
+       
+       Verifies whether reasoning text matches a known SHA-256 hash (the
+       'Sovereign Hash').  A match proves individual scrutiny was applied;
+       a mismatch signals bulk processing or information loss.
+       
+       Usage as a library::
+       
+           from verify_scrutiny import verify_instrument
+       
+           result = verify_instrument("Specific reasoning text…", "<sha256-hex>")
+           print(result.label, result.value)   # SOVEREIGN 1  /  NULL 0
+           print(result.to_dict())             # {"status": "SOVEREIGN", "code": 1, ...}
+       
+       Usage from the command line::
+       
+           python verify_scrutiny.py "Specific reasoning text…" "<sha256-hex>"
+       """
+       
+    2: import argparse
+    2: import hashlib
+    2: import hmac
+    2: import logging
+    2: import sys
+    2: from dataclasses import dataclass
+    2: from typing import Any
+       
+    2: logger = logging.getLogger(__name__)
+       
+       
+       # ---------------------------------------------------------------------------
+       # Result type
+       # ---------------------------------------------------------------------------
+       
+    6: @dataclass(frozen=True)
+    4: class VerificationResult:
+    2:     """Immutable outcome of a Burgess Principle binary test."""
+       
+    2:     value: int          # 1 = SOVEREIGN, 0 = NULL
+    2:     label: str          # Human-readable label
+    2:     description: str    # Explanation of the outcome
+       
+    2:     def __bool__(self) -> bool:
+   30:         return self.value == 1
+       
+    2:     def to_dict(self) -> dict[str, Any]:
+               """Return a plain dictionary suitable for JSON serialisation.
+       
+               Example::
+       
+                   {"status": "SOVEREIGN", "code": 1, "description": "Individual Scrutiny Verified."}
+               """
+   13:         return {
+   13:             "status": self.label,
+   13:             "code": self.value,
+   13:             "description": self.description,
+               }
+       
+       
+    4: SOVEREIGN = VerificationResult(
+    2:     value=1,
+    2:     label="SOVEREIGN",
+    2:     description="Individual Scrutiny Verified.",
+       )
+       
+    4: NULL = VerificationResult(
+    2:     value=0,
+    2:     label="NULL",
+    2:     description="Information Mismatch / Bulk Noise.",
+       )
+       
+       
+       # ---------------------------------------------------------------------------
+       # Core verification
+       # ---------------------------------------------------------------------------
+       
+    8: def verify_instrument(
+    2:     reasoning_text: str,
+    2:     provided_hash: str,
+    2: ) -> VerificationResult:
+           """Run the Burgess Principle Binary Test.
+       
+           Parameters
+           ----------
+           reasoning_text:
+               The text whose integrity is being verified.
+           provided_hash:
+               The expected SHA-256 hex-digest (the 'Sovereign Hash').
+       
+           Returns
+           -------
+           VerificationResult
+               ``SOVEREIGN`` (1) when the hashes match, ``NULL`` (0) otherwise.
+       
+           Raises
+           ------
+           TypeError
+               If *reasoning_text* or *provided_hash* is not a string.
+           ValueError
+               If *reasoning_text* is empty or *provided_hash* is not a valid
+               64-character hexadecimal string.
+           """
+           # --- Input validation ------------------------------------------------
+           # Reject non-string types early to provide clear error messages.
+   61:     if not isinstance(reasoning_text, str):
+   10:         raise TypeError(
+    5:             f"reasoning_text must be a string, got {type(reasoning_text).__name__}"
+               )
+   56:     if not isinstance(provided_hash, str):
+   10:         raise TypeError(
+    5:             f"provided_hash must be a string, got {type(provided_hash).__name__}"
+               )
+   51:     if not reasoning_text:
+    4:         raise ValueError("reasoning_text must not be empty")
+           # SHA-256 digests are exactly 64 hex characters.
+ 2593:     if len(provided_hash) != 64 or not all(
+ 2509:         c in "0123456789abcdefABCDEF" for c in provided_hash
+           ):
+   20:         raise ValueError(
+   10:             "provided_hash must be a 64-character hexadecimal string"
+               )
+       
+           # Compute SHA-256 of the reasoning text for comparison against the
+           # claimed Sovereign Hash.
+   37:     calculated_hash = hashlib.sha256(reasoning_text.encode()).hexdigest()
+       
+           # Constant-time comparison to prevent timing side-channel attacks.
+   37:     if hmac.compare_digest(calculated_hash, provided_hash.lower()):
+   25:         return SOVEREIGN
+   12:     return NULL
+       
+       
+       # ---------------------------------------------------------------------------
+       # CLI entry point
+       # ---------------------------------------------------------------------------
+       
+    2: def main(argv: list[str] | None = None) -> int:
+           """Command-line interface for the Burgess Principle Binary Test."""
+   36:     parser = argparse.ArgumentParser(
+   18:         description="The Burgess Principle Binary Test — SOVEREIGN / NULL verification.",
+           )
+   36:     parser.add_argument(
+   18:         "reasoning_text",
+   18:         help="The reasoning text to verify.",
+           )
+   36:     parser.add_argument(
+   18:         "provided_hash",
+   18:         help="The expected SHA-256 hex-digest (Sovereign Hash).",
+           )
+   18:     args = parser.parse_args(argv)
+       
+   17:     try:
+   17:         result = verify_instrument(args.reasoning_text, args.provided_hash)
+    5:     except (TypeError, ValueError) as exc:
+    5:         logger.error("Validation error: %s", exc)
+    5:         print(f"Error: {exc}", file=sys.stderr)
+    5:         return 2
+       
+   12:     icon = "✅" if result else "❌"
+   12:     print(f"{icon} RESULT: {result.label} ({result.value}) - {result.description}")
+   12:     return 0 if result else 1
+       
+       
+    2: if __name__ == "__main__":
+    1:     raise SystemExit(main())

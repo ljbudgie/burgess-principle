@@ -6,6 +6,7 @@ Model loading and actual inference are mocked.
 """
 
 import argparse
+import html
 import importlib.util
 import json
 import os
@@ -406,11 +407,12 @@ class TestIndexPage:
 
         response = client.get("/")
         assert response.status_code == 200
-        assert "Iris" in response.text
-        assert "Save to Sovereign Vault" in response.text
-        assert "Generate Commitment &amp; Sign" in response.text
-        assert "Copy Final Letter" in response.text
-        assert "/api/generate-claim" in response.text
+        unescaped = html.unescape(response.text)
+        assert "Iris" in unescaped
+        assert "Save to Sovereign Vault" in unescaped
+        assert "Generate Commitment & Sign" in unescaped
+        assert "Copy Final Letter" in unescaped
+        assert "/api/generate-claim" in unescaped
 
 
 # ---------------------------------------------------------------------------

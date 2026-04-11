@@ -17,12 +17,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Burgess Principle — Was a human there?">
     <meta name="twitter:description" content="A calm, respectful framework for holding institutions accountable. Talk to Iris, your AI companion.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Iris">
 
     <title>The Burgess Principle — Was a human there?</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/banner.png" type="image/png">
+    <link rel="apple-touch-icon" href="/banner.png">
 
     <style>
         :root {
@@ -59,7 +63,7 @@
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
         }
 
@@ -96,7 +100,7 @@
         }
 
         .top-nav-brand {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 1.15rem;
             color: var(--gold);
             text-decoration: none;
@@ -176,7 +180,7 @@
         }
 
         .hero h1 {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 3rem;
             color: var(--text);
             font-weight: normal;
@@ -274,7 +278,7 @@
         }
 
         .section-title {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 2rem;
             color: var(--text);
             font-weight: normal;
@@ -317,7 +321,7 @@
         }
 
         .binary-finding {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 1.6rem;
             margin-bottom: 8px;
         }
@@ -347,7 +351,7 @@
         }
 
         .stat-value {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 2.2rem;
             color: var(--gold);
         }
@@ -521,7 +525,7 @@
         }
 
         .cta-section h2 {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 2rem;
             color: var(--text);
             font-weight: normal;
@@ -601,7 +605,7 @@
         }
 
         .sidebar-brand h1 {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 1.5rem;
             color: var(--gold);
             margin-bottom: 4px;
@@ -732,7 +736,7 @@
         }
 
         .chat-header h2 {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 1.1rem;
             color: var(--gold);
             font-weight: normal;
@@ -816,7 +820,7 @@
         }
 
         .welcome h3 {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             font-size: 1.8rem;
             color: var(--gold);
             font-weight: normal;
@@ -957,7 +961,7 @@
         .message-iris .message-content h1,
         .message-iris .message-content h2,
         .message-iris .message-content h3 {
-            font-family: 'IM Fell English', Georgia, serif;
+            font-family: Georgia, 'Times New Roman', serif;
             color: var(--gold);
             font-weight: normal;
             margin: 16px 0 8px;
@@ -1297,6 +1301,209 @@
             .welcome-suggestions { flex-direction: column; align-items: center; }
             .suggestion { max-width: 100%; }
         }
+
+        .voice-status {
+            max-width: 720px;
+            margin: 0 auto 12px;
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+
+        .voice-status.is-active {
+            border-color: rgba(92, 184, 92, 0.35);
+            color: var(--green);
+            background: var(--green-dim);
+        }
+
+        .voice-status.is-error {
+            border-color: rgba(217, 83, 79, 0.35);
+            color: #f0c7c6;
+            background: var(--red-dim);
+        }
+
+        .claim-profile-panel {
+            max-width: 720px;
+            margin: 0 auto 16px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--bg-card);
+        }
+
+        .claim-profile-panel summary {
+            cursor: pointer;
+            color: var(--gold);
+            font-weight: 600;
+            list-style: none;
+        }
+
+        .claim-profile-panel summary::-webkit-details-marker { display: none; }
+        .claim-profile-desc {
+            margin: 12px 0 14px;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+
+        .claim-profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .claim-profile-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 14px;
+        }
+
+        .claim-profile-status {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .toggle-row {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            min-height: 44px;
+            color: var(--text);
+            font-size: 0.82rem;
+            padding: 0 4px;
+        }
+
+        .template-shortcuts {
+            max-width: 720px;
+            margin: 0 auto 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .shortcut-btn,
+        .voice-btn {
+            min-height: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text);
+            padding: 0 14px;
+            font-family: inherit;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .shortcut-btn:hover,
+        .voice-btn:hover {
+            border-color: var(--gold);
+        }
+
+        .voice-btn {
+            flex-shrink: 0;
+        }
+
+        .voice-btn.is-active {
+            background: var(--gold-dim);
+            border-color: var(--gold);
+            color: var(--gold-bright);
+        }
+
+        .voice-btn-secondary {
+            color: var(--text-dim);
+        }
+
+        .new-claim-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 120;
+            min-height: 56px;
+            padding: 0 20px;
+            border-radius: 999px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            background: var(--gold);
+            color: var(--bg);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+            cursor: pointer;
+        }
+
+        .new-claim-fab:focus-visible,
+        .shortcut-btn:focus-visible,
+        .voice-btn:focus-visible,
+        .claim-action-btn:focus-visible,
+        .sidebar-action-btn:focus-visible,
+        .input-wrap button:focus-visible,
+        .input-wrap textarea:focus-visible,
+        .claim-field input:focus-visible {
+            outline: 2px solid var(--gold-bright);
+            outline-offset: 2px;
+        }
+
+        .app-announcer {
+            position: fixed;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
+        body.high-contrast {
+            --gold: #ffe28a;
+            --gold-bright: #fff0b8;
+            --gold-dim: rgba(255, 226, 138, 0.2);
+            --text: #ffffff;
+            --text-dim: #f5f5f5;
+            --bg: #000000;
+            --bg-chat: #050505;
+            --bg-input: #101010;
+            --bg-user: #141414;
+            --bg-iris: #0f0f0f;
+            --bg-card: #090909;
+            --border: #7a7a7a;
+        }
+
+        @media (max-width: 768px) {
+            .claim-profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .template-shortcuts,
+            .claim-buttons,
+            .claim-profile-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .shortcut-btn,
+            .voice-btn,
+            .claim-action-btn,
+            .sidebar-action-btn,
+            .input-wrap button {
+                width: 100%;
+            }
+
+            .input-wrap {
+                flex-wrap: wrap;
+            }
+
+            .new-claim-fab {
+                left: 16px;
+                right: 16px;
+                bottom: calc(16px + env(safe-area-inset-bottom));
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1594,9 +1801,35 @@
                 </div>
 
                 <div class="input-area">
+                    <div class="voice-status" id="voiceStatus" role="status" aria-live="polite">Voice ready when your browser supports on-device speech recognition.</div>
+                    <details class="claim-profile-panel" id="claimProfilePanel">
+                        <summary>Claim profile &amp; phone settings</summary>
+                        <p class="claim-profile-desc">Stored locally on this device so the phone can generate, sign, save, export, and restore sovereign claims offline.</p>
+                        <div class="claim-profile-grid">
+                            <div class="claim-field"><label for="profileFullName">Full name</label><input id="profileFullName" type="text" autocomplete="name" placeholder="Alex Example"></div>
+                            <div class="claim-field"><label for="profileEmail">Email</label><input id="profileEmail" type="email" autocomplete="email" placeholder="alex@example.com"></div>
+                            <div class="claim-field"><label for="profilePhone">Phone</label><input id="profilePhone" type="tel" autocomplete="tel" placeholder="07123 456789"></div>
+                            <div class="claim-field"><label for="profileAddress">Address</label><input id="profileAddress" type="text" autocomplete="street-address" placeholder="Optional"></div>
+                            <div class="claim-field"><label for="profileInstitution">Institution / company</label><input id="profileInstitution" type="text" placeholder="Example Exchange"></div>
+                            <div class="claim-field"><label for="profileTeam">Team</label><input id="profileTeam" type="text" placeholder="Compliance Team"></div>
+                            <div class="claim-field"><label for="profileReference">Reference</label><input id="profileReference" type="text" placeholder="Case / account / ticket reference"></div>
+                            <div class="claim-field"><label for="profileWallet">Wallet address</label><input id="profileWallet" type="text" placeholder="Optional"></div>
+                            <div class="claim-field"><label for="profileTransaction">Transaction hash</label><input id="profileTransaction" type="text" placeholder="Optional"></div>
+                            <div class="claim-field"><label for="profileOnchainReference">On-chain reference</label><input id="profileOnchainReference" type="text" placeholder="Optional"></div>
+                        </div>
+                        <div class="claim-profile-actions">
+                            <button class="sidebar-action-btn" id="saveProfileBtn" type="button">💾 Save profile</button>
+                            <button class="sidebar-action-btn" id="exportVaultBtn" type="button">📦 Export Vault</button>
+                            <button class="sidebar-action-btn" id="importVaultBtn" type="button">📲 Import Vault</button>
+                            <button class="sidebar-action-btn" id="installAppBtn" type="button">⬇️ Install app</button>
+                            <label class="toggle-row" for="highContrastToggle"><input id="highContrastToggle" type="checkbox"> High contrast</label>
+                        </div>
+                        <div class="claim-profile-status" id="profileStatus">Profile and phone settings stay only on this device.</div>
+                        <input id="importVaultInput" type="file" accept=".vault,application/json" hidden>
+                    </details>
                     <div class="claim-actions" id="claimActions" aria-live="polite">
                         <div class="claim-actions-title">Local claim actions</div>
-                        <p class="claim-actions-desc">After Iris drafts your next step, you can generate a sovereign claim package from your latest prompt and keep the result on your own hardware.</p>
+                        <p class="claim-actions-desc">After Iris drafts your next step, the phone can generate the sovereign claim package, encrypt a local vault copy, queue the fingerprint for later posting, and remind you in 14 days.</p>
                         <div class="claim-actions-form">
                             <div class="claim-field">
                                 <label for="claimPassphrase">Vault passphrase</label>
@@ -1607,18 +1840,29 @@
                             <button class="claim-action-btn" id="saveClaimBtn" type="button" aria-label="Save claim to Sovereign Vault">Save to Sovereign Vault</button>
                             <button class="claim-action-btn" id="generateCommitmentBtn" type="button" aria-label="Generate a fresh commitment and signature for this claim">Generate Commitment &amp; Sign</button>
                             <button class="claim-action-btn" id="copyLetterBtn" type="button" aria-label="Copy the final generated letter">Copy Final Letter</button>
+                            <button class="claim-action-btn" id="queueFingerprintBtn" type="button" aria-label="Queue the commitment fingerprint for privacy-first background sync">Queue Fingerprint</button>
                         </div>
                         <div class="claim-status" id="claimStatus">Claim tools stay hidden until Iris finishes a local draft.</div>
                     </div>
+                    <div class="template-shortcuts" aria-label="Quick claim templates">
+                        <button class="shortcut-btn" type="button" data-claim-template="crypto-exchange">Crypto exchange freeze</button>
+                        <button class="shortcut-btn" type="button" data-claim-template="direct-debit">Direct debit refund</button>
+                        <button class="shortcut-btn" type="button" data-claim-template="benefits">Benefits review</button>
+                    </div>
                     <div class="input-wrap">
+                        <button id="holdToTalkBtn" class="voice-btn" type="button" aria-label="Hold to talk to Iris">🎙️ Hold</button>
+                        <button id="listenToggleBtn" class="voice-btn voice-btn-secondary" type="button" aria-label="Toggle always listening mode">👂 Listen</button>
                         <textarea id="userInput" placeholder="Describe your situation…" rows="1"></textarea>
                         <button id="sendBtn" disabled>Send</button>
                     </div>
-                    <p class="input-disclaimer">Iris is sovereign by design — your conversation lives only in your browser. Only the current message is sent for processing; nothing is stored server-side.</p>
+                    <p class="input-disclaimer">Iris is sovereign by design — your conversation, mobile vault, reminders, and voice controls stay on this device unless you explicitly choose a local action.</p>
                 </div>
             </main>
         </div>
     </div>
+
+    <button class="new-claim-fab" id="newClaimFab" type="button" aria-label="Create a new claim">+ New Claim</button>
+    <div class="app-announcer" id="appAnnouncer" aria-live="assertive" aria-atomic="true"></div>
 
     <script>
         // ================================================================== //
@@ -1781,7 +2025,16 @@
         // View switching (landing ↔ chat)                                   //
         // ================================================================== //
         const landingView = document.getElementById('landingView');
-        const chatView    = document.getElementById('chatView');
+        const chatView = document.getElementById('chatView');
+        const appAnnouncer = document.getElementById('appAnnouncer');
+        const newClaimFab = document.getElementById('newClaimFab');
+
+        function announceStatus(message) {
+            appAnnouncer.textContent = '';
+            window.setTimeout(() => {
+                appAnnouncer.textContent = message;
+            }, 30);
+        }
 
         function showChat() {
             landingView.classList.add('hidden');
@@ -1794,10 +2047,17 @@
             chatView.classList.remove('active');
             landingView.classList.remove('hidden');
             document.body.style.overflow = '';
-            // Close mobile sidebar if open
             document.getElementById('sidebar').classList.remove('open');
             document.getElementById('sidebarOverlay').classList.remove('open');
             window.scrollTo(0, 0);
+        }
+
+        function startNewClaimFlow(prompt) {
+            showChat();
+            claimProfilePanel.open = true;
+            userInput.value = prompt || getShortcutPrompt('new-claim');
+            userInput.dispatchEvent(new Event('input'));
+            announceStatus('New claim flow opened on your phone.');
         }
 
         // ------------------------------------------------------------------ //
@@ -1807,7 +2067,6 @@
             document.getElementById('navLinks').classList.toggle('open');
         });
 
-        // Close mobile nav when a link is clicked
         document.querySelectorAll('#navLinks a').forEach(function(a) {
             a.addEventListener('click', function() {
                 document.getElementById('navLinks').classList.remove('open');
@@ -1815,43 +2074,77 @@
         });
 
         // ================================================================== //
-        // Backend detection — same UI, different backend                     //
+        // Backend detection & storage constants                              //
         // ================================================================== //
         const _isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-        const API_CHAT_URL = _isLocal
-            ? `${window.location.origin}/api/chat`
-            : '/api/chat';
-        const API_CLAIM_URL = _isLocal
-            ? `${window.location.origin}/api/generate-claim`
-            : '/api/generate-claim';
+        const API_CHAT_URL = _isLocal ? `${window.location.origin}/api/chat` : '/api/chat';
+        const API_CLAIM_URL = _isLocal ? `${window.location.origin}/api/generate-claim` : '/api/generate-claim';
+        const API_FINGERPRINT_QUEUE_URL = _isLocal ? `${window.location.origin}/api/queue-onchain-fingerprint` : '/api/queue-onchain-fingerprint';
+        const VAULT_DB_NAME = 'burgess-principle-vault';
+        const VAULT_DB_VERSION = 1;
+        const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
+        const PROFILE_FIELD_IDS = {
+            full_name: 'profileFullName',
+            email: 'profileEmail',
+            phone: 'profilePhone',
+            address: 'profileAddress',
+            institution_name: 'profileInstitution',
+            team_name: 'profileTeam',
+            reference: 'profileReference',
+            wallet_address: 'profileWallet',
+            transaction_hash: 'profileTransaction',
+            onchain_reference: 'profileOnchainReference',
+        };
+        const QUICK_ACTION_PROMPTS = {
+            'new-claim': 'Please help me generate a new Burgess claim and save it to my sovereign vault.',
+            'crypto-exchange': 'My crypto exchange just froze my account and blocked withdrawals. Please generate the right Burgess claim.',
+            'direct-debit': 'A direct debit refund issue needs a human review. Please generate the right Burgess claim.',
+            'benefits': 'My benefits decision needs a human review. Please generate the right Burgess claim.',
+        };
 
         // ================================================================== //
         // DOM references                                                     //
         // ================================================================== //
-        const messagesEl  = document.getElementById('messages');
-        const welcomeEl   = document.getElementById('welcome');
-        const userInput   = document.getElementById('userInput');
-        const sendBtn     = document.getElementById('sendBtn');
-        const exportBtn   = document.getElementById('exportBtn');
-        const clearBtn    = document.getElementById('clearBtn');
-        const sidebar     = document.getElementById('sidebar');
-        const overlay     = document.getElementById('sidebarOverlay');
-        const sidebarBtn  = document.getElementById('sidebarToggle');
+        const messagesEl = document.getElementById('messages');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const sidebarBtn = document.getElementById('sidebarToggle');
+        const claimProfilePanel = document.getElementById('claimProfilePanel');
+        const voiceStatus = document.getElementById('voiceStatus');
+        const profileStatus = document.getElementById('profileStatus');
+        const saveProfileBtn = document.getElementById('saveProfileBtn');
+        const exportVaultBtn = document.getElementById('exportVaultBtn');
+        const importVaultBtn = document.getElementById('importVaultBtn');
+        const installAppBtn = document.getElementById('installAppBtn');
+        const importVaultInput = document.getElementById('importVaultInput');
+        const highContrastToggle = document.getElementById('highContrastToggle');
+        const holdToTalkBtn = document.getElementById('holdToTalkBtn');
+        const listenToggleBtn = document.getElementById('listenToggleBtn');
         const claimActions = document.getElementById('claimActions');
         const claimPassphrase = document.getElementById('claimPassphrase');
         const claimStatus = document.getElementById('claimStatus');
         const saveClaimBtn = document.getElementById('saveClaimBtn');
         const generateCommitmentBtn = document.getElementById('generateCommitmentBtn');
         const copyLetterBtn = document.getElementById('copyLetterBtn');
-        const claimActionButtons = [saveClaimBtn, generateCommitmentBtn, copyLetterBtn];
+        const queueFingerprintBtn = document.getElementById('queueFingerprintBtn');
+        const claimActionButtons = [saveClaimBtn, generateCommitmentBtn, copyLetterBtn, queueFingerprintBtn];
+        const shortcutButtons = Array.from(document.querySelectorAll('[data-claim-template]'));
+        const profileFields = Object.fromEntries(Object.entries(PROFILE_FIELD_IDS).map(([key, id]) => [key, document.getElementById(id)]));
 
         let conversationHistory = [];
         let isStreaming = false;
         let latestClaimQuery = '';
         let latestClaimPackage = null;
+        let speechRecognition = null;
+        let speechMode = 'idle';
+        let pendingInstallPrompt = null;
 
         // ------------------------------------------------------------------ //
-        // Welcome screen HTML (single source of truth for initial + reset)   //
+        // Welcome screen HTML                                                //
         // ------------------------------------------------------------------ //
         const WELCOME_HTML = `
             <h3>Hello, I'm Iris</h3>
@@ -1862,12 +2155,11 @@
                 <button class="suggestion" data-prompt="Can you explain the Sovereign Personal Vault and how I can use it to protect my records?">What is the Sovereign Personal Vault?</button>
                 <button class="suggestion" data-prompt="How do on-chain Burgess Claims work? I want to understand the process.">How do on-chain claims work?</button>
                 <button class="suggestion" data-prompt="I need to write a letter challenging an institutional decision. Can you help me draft one?">Help me write a challenge letter</button>
-                <button class="suggestion" data-prompt="I have a disability and an institution hasn&amp;#39;t made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
+                <button class="suggestion" data-prompt="I have a disability and an institution hasn&#39;t made reasonable adjustments. What can I do?">Disability &amp; reasonable adjustments</button>
                 <button class="suggestion" data-prompt="Can you explain the binary test and how I apply it to my situation?">Explain the binary test to me</button>
             </div>
         `;
 
-        /** Bind suggestion button click handlers within a container element. */
         function bindSuggestionButtons(container) {
             container.querySelectorAll('.suggestion').forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1878,51 +2170,200 @@
             });
         }
 
-        // ------------------------------------------------------------------ //
-        // Sidebar toggle (mobile)                                            //
-        // ------------------------------------------------------------------ //
-        sidebarBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            overlay.classList.toggle('open');
-        });
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('open');
-        });
-
-        // ------------------------------------------------------------------ //
-        // Auto-resize textarea                                               //
-        // ------------------------------------------------------------------ //
-        userInput.addEventListener('input', () => {
-            userInput.style.height = 'auto';
-            userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
-            sendBtn.disabled = !userInput.value.trim() || isStreaming;
-        });
-
-        userInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                if (!sendBtn.disabled) sendMessage();
-            }
-        });
-
-        // ------------------------------------------------------------------ //
-        // Suggestion buttons (initial welcome screen)                       //
-        // ------------------------------------------------------------------ //
         bindSuggestionButtons(document);
 
         // ------------------------------------------------------------------ //
-        // Update sidebar action buttons state                                //
+        // IndexedDB vault with encrypted fallback                            //
         // ------------------------------------------------------------------ //
-        function updateActionButtons() {
-            const hasMessages = conversationHistory.length > 0;
-            exportBtn.disabled = !hasMessages;
-            clearBtn.disabled = !hasMessages;
+        function toBase64(bytes) {
+            let binary = '';
+            bytes.forEach(byte => {
+                binary += String.fromCharCode(byte);
+            });
+            return btoa(binary);
+        }
+
+        function fromBase64(value) {
+            const binary = atob(value);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i += 1) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return bytes;
+        }
+
+        async function deriveVaultKey(passphrase, salt) {
+            const material = await crypto.subtle.importKey(
+                'raw',
+                new TextEncoder().encode(passphrase),
+                'PBKDF2',
+                false,
+                ['deriveKey']
+            );
+            return crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 210000, hash: 'SHA-256' },
+                material,
+                { name: 'AES-GCM', length: 256 },
+                false,
+                ['encrypt', 'decrypt']
+            );
+        }
+
+        async function encryptPayload(payload, passphrase) {
+            if (!window.crypto || !window.crypto.subtle) {
+                return { encrypted: false, payload };
+            }
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const key = await deriveVaultKey(passphrase, salt);
+            const ciphertext = await crypto.subtle.encrypt(
+                { name: 'AES-GCM', iv },
+                key,
+                new TextEncoder().encode(JSON.stringify(payload))
+            );
+            return {
+                encrypted: true,
+                algorithm: 'AES-GCM',
+                salt: toBase64(salt),
+                iv: toBase64(iv),
+                ciphertext: toBase64(new Uint8Array(ciphertext)),
+            };
+        }
+
+        function getFallbackStore() {
+            try {
+                return JSON.parse(localStorage.getItem(FALLBACK_STORAGE_KEY) || '{}');
+            } catch {
+                return {};
+            }
+        }
+
+        function saveFallbackStore(store) {
+            localStorage.setItem(FALLBACK_STORAGE_KEY, JSON.stringify(store));
+        }
+
+        function openVaultDb() {
+            return new Promise((resolve, reject) => {
+                if (!('indexedDB' in window)) {
+                    reject(new Error('IndexedDB unavailable'));
+                    return;
+                }
+                const request = indexedDB.open(VAULT_DB_NAME, VAULT_DB_VERSION);
+                request.onupgradeneeded = () => {
+                    const db = request.result;
+                    if (!db.objectStoreNames.contains('claims')) {
+                        db.createObjectStore('claims', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('settings')) {
+                        db.createObjectStore('settings', { keyPath: 'key' });
+                    }
+                    if (!db.objectStoreNames.contains('fingerprintQueue')) {
+                        db.createObjectStore('fingerprintQueue', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('reminders')) {
+                        db.createObjectStore('reminders', { keyPath: 'id' });
+                    }
+                };
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error || new Error('IndexedDB open failed'));
+            });
+        }
+
+        async function withStore(storeName, mode, handler) {
+            try {
+                const db = await openVaultDb();
+                return await new Promise((resolve, reject) => {
+                    const tx = db.transaction(storeName, mode);
+                    const store = tx.objectStore(storeName);
+                    const result = handler(store, resolve, reject);
+                    tx.oncomplete = () => db.close();
+                    tx.onerror = () => reject(tx.error || new Error('IndexedDB transaction failed'));
+                    return result;
+                });
+            } catch {
+                return null;
+            }
+        }
+
+        const vaultStore = {
+            async getAll(storeName) {
+                const result = await withStore(storeName, 'readonly', (store, resolve) => {
+                    const request = store.getAll();
+                    request.onsuccess = () => resolve(request.result || []);
+                });
+                if (result !== null) return result;
+                const fallback = getFallbackStore();
+                return fallback[storeName] || [];
+            },
+            async put(storeName, value) {
+                const result = await withStore(storeName, 'readwrite', (store, resolve, reject) => {
+                    const request = store.put(value);
+                    request.onsuccess = () => resolve(value);
+                    request.onerror = () => reject(request.error || new Error('IndexedDB put failed'));
+                });
+                if (result !== null) return result;
+                const fallback = getFallbackStore();
+                const items = fallback[storeName] || [];
+                const next = items.filter(item => item.id !== value.id && item.key !== value.key);
+                next.push(value);
+                fallback[storeName] = next;
+                saveFallbackStore(fallback);
+                return value;
+            },
+            async delete(storeName, id) {
+                const result = await withStore(storeName, 'readwrite', (store, resolve) => {
+                    const request = store.delete(id);
+                    request.onsuccess = () => resolve(true);
+                });
+                if (result !== null) return true;
+                const fallback = getFallbackStore();
+                fallback[storeName] = (fallback[storeName] || []).filter(item => item.id !== id && item.key !== id);
+                saveFallbackStore(fallback);
+                return true;
+            },
+            async saveSetting(key, value) {
+                return this.put('settings', { key, value });
+            },
+            async getSetting(key) {
+                const settings = await this.getAll('settings');
+                const match = settings.find(item => item.key === key);
+                return match ? match.value : null;
+            },
+        };
+
+        async function loadStoredProfile() {
+            const profile = await vaultStore.getSetting('claim-profile');
+            return profile && typeof profile === 'object' ? profile : {};
+        }
+
+        function getProfilePayload() {
+            return Object.fromEntries(Object.entries(profileFields).map(([key, input]) => [key, input.value.trim()]).filter(([, value]) => value));
+        }
+
+        async function applyStoredProfile() {
+            const profile = await loadStoredProfile();
+            Object.entries(profileFields).forEach(([key, input]) => {
+                input.value = typeof profile[key] === 'string' ? profile[key] : '';
+            });
+        }
+
+        async function saveProfile() {
+            const profile = getProfilePayload();
+            await vaultStore.saveSetting('claim-profile', profile);
+            profileStatus.textContent = 'Claim profile saved locally on this phone.';
+            announceStatus('Claim profile saved locally.');
         }
 
         function setClaimStatus(html, tone) {
             claimStatus.innerHTML = html;
             claimStatus.className = 'claim-status' + (tone ? ` is-${tone}` : '');
+            announceStatus(claimStatus.textContent || claimStatus.innerText || 'Claim status updated.');
+        }
+
+        function setVoiceStatus(message, tone) {
+            voiceStatus.textContent = message;
+            voiceStatus.className = 'voice-status' + (tone ? ` is-${tone}` : '');
+            announceStatus(message);
         }
 
         function setClaimActionButtonsDisabled(disabled) {
@@ -1931,10 +2372,15 @@
             });
         }
 
+        function updateActionButtons() {
+            const hasMessages = conversationHistory.length > 0;
+            exportBtn.disabled = !hasMessages;
+            clearBtn.disabled = !hasMessages;
+        }
+
         function resetClaimActions() {
             latestClaimPackage = null;
             latestClaimQuery = '';
-            claimPassphrase.value = '';
             claimActions.classList.remove('active');
             setClaimActionButtonsDisabled(false);
             setClaimStatus('Claim tools stay hidden until Iris finishes a local draft.');
@@ -1943,8 +2389,9 @@
         function showClaimActions() {
             if (!_isLocal || !latestClaimQuery) return;
             claimActions.classList.add('active');
-            if (latestClaimPackage) return;
-            setClaimStatus('Enter your vault passphrase, then choose how you want to handle the latest draft.');
+            if (!latestClaimPackage) {
+                setClaimStatus('Enter your vault passphrase, then choose how you want to handle the latest draft.');
+            }
         }
 
         function formatUnresolvedPlaceholders(claim) {
@@ -1961,7 +2408,6 @@
                 await navigator.clipboard.writeText(text);
                 return { usedFallback: false };
             }
-            console.warn('Falling back to document.execCommand("copy").');
             const textarea = document.createElement('textarea');
             textarea.value = text;
             textarea.setAttribute('readonly', '');
@@ -1972,9 +2418,162 @@
             const ok = typeof document.execCommand === 'function' && document.execCommand('copy');
             document.body.removeChild(textarea);
             if (!ok) {
-                throw new Error('Copy is not supported here. Please use a modern browser or copy the letter manually.');
+                throw new Error('Copy is not supported here. Please copy the letter manually.');
             }
             return { usedFallback: true };
+        }
+
+        async function ensureNotificationPermission() {
+            if (!('Notification' in window)) return false;
+            if (Notification.permission === 'granted') return true;
+            if (Notification.permission !== 'denied') {
+                return (await Notification.requestPermission()) === 'granted';
+            }
+            return false;
+        }
+
+        async function showLocalNotification(title, body, tag) {
+            if (!(await ensureNotificationPermission())) return false;
+            if ('serviceWorker' in navigator) {
+                const registration = await navigator.serviceWorker.ready;
+                await registration.showNotification(title, {
+                    body,
+                    tag,
+                    icon: '/banner.png',
+                    badge: '/banner.png',
+                    data: { url: window.location.href },
+                });
+                return true;
+            }
+            new Notification(title, { body });
+            return true;
+        }
+
+        async function persistClaimToPhoneVault(claim, vaultPassphrase) {
+            if (!claim || !vaultPassphrase) return null;
+            const claimId = (claim.vault_record && claim.vault_record.record_id) || claim.commitment_hash || `claim-${Date.now()}`;
+            const encryptedPayload = await encryptPayload({ claim, stored_at: new Date().toISOString() }, vaultPassphrase);
+            const localRecord = {
+                id: claimId,
+                created_at: claim.timestamp || new Date().toISOString(),
+                template: claim.scenario ? claim.scenario.template : '',
+                commitment_hash: claim.commitment_hash || '',
+                encrypted_payload: encryptedPayload,
+            };
+            await vaultStore.put('claims', localRecord);
+            const reminder = {
+                id: `reminder-${claimId}`,
+                claim_id: claimId,
+                due_at: new Date(Date.parse(claim.timestamp || new Date().toISOString()) + 14 * 24 * 60 * 60 * 1000).toISOString(),
+                commitment_hash: claim.commitment_hash || '',
+                notified_at: '',
+            };
+            await vaultStore.put('reminders', reminder);
+            claim.client_vault_record = { record_id: localRecord.id, store: 'indexeddb-or-fallback' };
+            return localRecord;
+        }
+
+        function buildFingerprintPayload(claim) {
+            return {
+                id: `fingerprint-${claim.commitment_hash || Date.now()}`,
+                commitment_hash: claim.commitment_hash || '',
+                signature: claim.signature || '',
+                public_key: claim.public_key || '',
+                target_entity: claim.target_entity || (claim.onchain_claim && claim.onchain_claim.target_entity) || '',
+                category: claim.category || (claim.onchain_claim && claim.onchain_claim.category) || '',
+                timestamp: claim.timestamp || new Date().toISOString(),
+            };
+        }
+
+        async function queueFingerprintForBackgroundSync(claim) {
+            const fingerprint = buildFingerprintPayload(claim);
+            if (!fingerprint.commitment_hash || !fingerprint.signature || !fingerprint.public_key) return null;
+            await vaultStore.put('fingerprintQueue', fingerprint);
+            if ('serviceWorker' in navigator) {
+                try {
+                    const registration = await navigator.serviceWorker.ready;
+                    if ('sync' in registration) {
+                        await registration.sync.register('burgess-fingerprint-sync');
+                    }
+                    if (navigator.serviceWorker.controller) {
+                        navigator.serviceWorker.controller.postMessage({ type: 'SYNC_FINGERPRINTS' });
+                    }
+                } catch (error) {
+                    console.warn('Background sync registration failed.', error);
+                }
+            }
+            return fingerprint;
+        }
+
+        async function checkDueReminders() {
+            const reminders = await vaultStore.getAll('reminders');
+            const due = reminders.filter(item => item.due_at && !item.notified_at && Date.parse(item.due_at) <= Date.now());
+            for (const reminder of due) {
+                await showLocalNotification(
+                    '14-day escalation reminder',
+                    reminder.commitment_hash
+                        ? `Your claim ${reminder.commitment_hash} reached the 14-day follow-up point.`
+                        : 'A saved Burgess claim reached the 14-day follow-up point.',
+                    reminder.id
+                );
+                reminder.notified_at = new Date().toISOString();
+                await vaultStore.put('reminders', reminder);
+            }
+        }
+
+        async function exportVault() {
+            const bundle = {
+                version: '0.9.0',
+                exported_at: new Date().toISOString(),
+                profile: await loadStoredProfile(),
+                settings: {
+                    highContrast: Boolean(await vaultStore.getSetting('high-contrast')),
+                },
+                claims: await vaultStore.getAll('claims'),
+                reminders: await vaultStore.getAll('reminders'),
+                fingerprintQueue: await vaultStore.getAll('fingerprintQueue'),
+            };
+            const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `burgess-phone-vault-${Date.now()}.vault`;
+            link.click();
+            URL.revokeObjectURL(url);
+            profileStatus.textContent = 'Vault exported as a sovereign .vault file.';
+            announceStatus('Vault exported from this phone.');
+        }
+
+        async function importVaultFile(file) {
+            const payload = JSON.parse(await file.text());
+            if (!payload || typeof payload !== 'object') {
+                throw new Error('Invalid vault file.');
+            }
+            if (payload.profile) {
+                await vaultStore.saveSetting('claim-profile', payload.profile);
+            }
+            if (payload.settings && typeof payload.settings.highContrast === 'boolean') {
+                await vaultStore.saveSetting('high-contrast', payload.settings.highContrast);
+                applyHighContrast(payload.settings.highContrast);
+            }
+            for (const storeName of ['claims', 'reminders', 'fingerprintQueue']) {
+                const items = Array.isArray(payload[storeName]) ? payload[storeName] : [];
+                for (const item of items) {
+                    await vaultStore.put(storeName, item);
+                }
+            }
+            await applyStoredProfile();
+            profileStatus.textContent = 'Vault imported locally. Claims will survive browser restarts and phone reboots.';
+            announceStatus('Vault imported locally.');
+        }
+
+        function applyHighContrast(enabled) {
+            document.body.classList.toggle('high-contrast', Boolean(enabled));
+            highContrastToggle.checked = Boolean(enabled);
+        }
+
+        async function hydrateUiSettings() {
+            applyHighContrast(Boolean(await vaultStore.getSetting('high-contrast')));
         }
 
         async function requestClaimPackage(actionLabel) {
@@ -1982,32 +2581,30 @@
                 setClaimStatus('Local claim actions are only available when Iris is running via <code>iris-local.py</code>.', 'error');
                 return null;
             }
-
             if (!latestClaimQuery) {
                 setClaimStatus('Send a message first so Iris has a prompt to turn into a claim.', 'error');
                 return null;
             }
-
             const vaultPassphrase = claimPassphrase.value.trim();
             if (!vaultPassphrase) {
                 setClaimStatus('Enter your vault passphrase before using local claim actions.', 'error');
                 claimPassphrase.focus();
                 return null;
             }
-
             setClaimActionButtonsDisabled(true);
             setClaimStatus(`Preparing the local claim package for <strong>${escapeHtml(actionLabel)}</strong>…`);
-
             try {
                 const response = await fetch(API_CLAIM_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         query: latestClaimQuery,
-                        profile: { vault_passphrase: vaultPassphrase },
+                        profile: {
+                            ...getProfilePayload(),
+                            vault_passphrase: vaultPassphrase,
+                        },
                     }),
                 });
-
                 let payload = {};
                 try {
                     payload = await response.json();
@@ -2018,12 +2615,12 @@
                 if (!response.ok) {
                     throw new Error(payload.error || `Request failed (${response.status})`);
                 }
-
                 if (!payload.claim) {
                     throw new Error('The claim response is missing the required claim object.');
                 }
-
                 latestClaimPackage = payload.claim;
+                await persistClaimToPhoneVault(payload.claim, vaultPassphrase);
+                await queueFingerprintForBackgroundSync(payload.claim);
                 return payload;
             } catch (err) {
                 setClaimStatus(`Could not prepare the local claim package. ${escapeHtml(err.message)}`, 'error');
@@ -2034,39 +2631,224 @@
         }
 
         // ------------------------------------------------------------------ //
-        // Export conversation as Markdown                                     //
+        // Service worker, install polish, and quick actions                  //
         // ------------------------------------------------------------------ //
-        exportBtn.addEventListener('click', () => {
-            if (conversationHistory.length === 0) return;
-
-            let md = '# Iris Conversation Export\n\n';
-            md += `> Exported on ${new Date().toLocaleString()}\n\n`;
-            md += '---\n\n';
-
-            for (const msg of conversationHistory) {
-                const label = msg.role === 'user' ? '**You**' : '**Iris**';
-                md += `${label}:\n\n${msg.content}\n\n---\n\n`;
+        async function registerPhonePwa() {
+            if (!('serviceWorker' in navigator)) return;
+            try {
+                const registration = await navigator.serviceWorker.register('/service-worker.js');
+                if ('sync' in registration) {
+                    await registration.sync.register('burgess-reminder-sync');
+                }
+            } catch (error) {
+                console.warn('Service worker registration failed.', error);
             }
+        }
 
-            md += '*Exported from [Iris — The Burgess Principle](https://burgess-principle.vercel.app). Conversations are local-first and sovereign by design.*\n';
+        window.addEventListener('beforeinstallprompt', event => {
+            event.preventDefault();
+            pendingInstallPrompt = event;
+            installAppBtn.disabled = false;
+        });
 
-            const blob = new Blob([md], { type: 'text/markdown' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `iris-conversation-${Date.now()}.md`;
-            a.click();
-            URL.revokeObjectURL(url);
+        function getShortcutPrompt(shortcut) {
+            return QUICK_ACTION_PROMPTS[shortcut] || QUICK_ACTION_PROMPTS['new-claim'];
+        }
+
+        function applyShortcutFromLocation() {
+            const shortcut = new URLSearchParams(window.location.search).get('shortcut');
+            if (!shortcut) return;
+            startNewClaimFlow(getShortcutPrompt(shortcut));
+        }
+
+        // ------------------------------------------------------------------ //
+        // Voice recognition                                                  //
+        // ------------------------------------------------------------------ //
+        function configureVoice() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                holdToTalkBtn.disabled = true;
+                listenToggleBtn.disabled = true;
+                setVoiceStatus('Voice recognition is not available in this browser. The phone claim builder still works with typed input.', 'error');
+                return;
+            }
+            speechRecognition = new SpeechRecognition();
+            speechRecognition.lang = 'en-GB';
+            speechRecognition.continuous = false;
+            speechRecognition.interimResults = true;
+            let transcript = '';
+            speechRecognition.onstart = () => {
+                setVoiceStatus('Listening locally… Release to stop or speak your claim now.', 'active');
+                holdToTalkBtn.classList.add('is-active');
+                listenToggleBtn.classList.toggle('is-active', speechMode === 'always');
+            };
+            speechRecognition.onresult = event => {
+                transcript = Array.from(event.results).map(result => result[0].transcript).join(' ').trim();
+                const isFinal = Array.from(event.results).every(result => result.isFinal);
+                setVoiceStatus(transcript ? `Heard: ${transcript}` : 'Listening locally…', 'active');
+                if (isFinal && transcript) {
+                    userInput.value = transcript;
+                    userInput.dispatchEvent(new Event('input'));
+                }
+            };
+            speechRecognition.onerror = event => {
+                setVoiceStatus(`Voice input error: ${event.error}.`, 'error');
+                holdToTalkBtn.classList.remove('is-active');
+                listenToggleBtn.classList.remove('is-active');
+                speechMode = 'idle';
+            };
+            speechRecognition.onend = async () => {
+                holdToTalkBtn.classList.remove('is-active');
+                listenToggleBtn.classList.toggle('is-active', speechMode === 'always');
+                const finalText = userInput.value.trim();
+                if (!finalText) {
+                    setVoiceStatus('Voice ready when you are.', '');
+                    return;
+                }
+                const wakePhrase = /^hey iris[\s,]+/i.test(finalText);
+                const likelyClaim = /(claim|freeze|froze|exchange|withdrawal|benefit|bailiff|penalty|review|human review)/i.test(finalText);
+                if (wakePhrase || likelyClaim) {
+                    setVoiceStatus('Voice capture complete. Generating a sovereign claim flow now.', 'active');
+                    await sendMessage({ text: finalText, autoGenerateClaim: true, source: 'voice' });
+                } else {
+                    setVoiceStatus('Voice note captured. Review it and press send when ready.', '');
+                }
+            };
+        }
+
+        function startVoiceListening(mode) {
+            if (!speechRecognition || isStreaming) return;
+            speechMode = mode;
+            try {
+                speechRecognition.start();
+            } catch (error) {
+                console.warn('Speech recognition start ignored.', error);
+            }
+        }
+
+        function stopVoiceListening() {
+            if (!speechRecognition) return;
+            try {
+                speechRecognition.stop();
+            } catch (error) {
+                console.warn('Speech recognition stop ignored.', error);
+            }
+        }
+
+        holdToTalkBtn.addEventListener('pointerdown', () => startVoiceListening('hold'));
+        holdToTalkBtn.addEventListener('pointerup', stopVoiceListening);
+        holdToTalkBtn.addEventListener('pointerleave', () => {
+            if (speechMode === 'hold') stopVoiceListening();
+        });
+        listenToggleBtn.addEventListener('click', () => {
+            if (!speechRecognition) return;
+            if (speechMode === 'always') {
+                speechMode = 'idle';
+                stopVoiceListening();
+                setVoiceStatus('Always-listening mode stopped.', '');
+                return;
+            }
+            startVoiceListening('always');
         });
 
         // ------------------------------------------------------------------ //
-        // Clear chat                                                         //
+        // Sidebar & input helpers                                            //
         // ------------------------------------------------------------------ //
+        sidebarBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        });
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+        });
+
+        userInput.addEventListener('input', () => {
+            userInput.style.height = 'auto';
+            userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
+            sendBtn.disabled = !userInput.value.trim() || isStreaming;
+        });
+
+        userInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                if (!sendBtn.disabled) sendMessage();
+            }
+        });
+
+        newClaimFab.addEventListener('click', () => startNewClaimFlow());
+        shortcutButtons.forEach(button => {
+            button.addEventListener('click', () => startNewClaimFlow(getShortcutPrompt(button.dataset.claimTemplate)));
+        });
+        sendBtn.addEventListener('click', () => sendMessage());
+        saveProfileBtn.addEventListener('click', saveProfile);
+        exportVaultBtn.addEventListener('click', exportVault);
+        importVaultBtn.addEventListener('click', () => importVaultInput.click());
+        importVaultInput.addEventListener('change', async event => {
+            const [file] = event.target.files || [];
+            if (!file) return;
+            try {
+                await importVaultFile(file);
+            } catch (error) {
+                profileStatus.textContent = `Import failed. ${error.message}`;
+            } finally {
+                importVaultInput.value = '';
+            }
+        });
+        installAppBtn.addEventListener('click', async () => {
+            if (!pendingInstallPrompt) {
+                profileStatus.textContent = 'Install prompt not available yet. Use your browser menu to add Iris to the home screen.';
+                return;
+            }
+            pendingInstallPrompt.prompt();
+            await pendingInstallPrompt.userChoice;
+            pendingInstallPrompt = null;
+            installAppBtn.disabled = true;
+        });
+        highContrastToggle.addEventListener('change', async () => {
+            applyHighContrast(highContrastToggle.checked);
+            await vaultStore.saveSetting('high-contrast', highContrastToggle.checked);
+        });
+
+        // ------------------------------------------------------------------ //
+        // Export conversation as Markdown                                    //
+        // ------------------------------------------------------------------ //
+        exportBtn.addEventListener('click', () => {
+            if (conversationHistory.length === 0) return;
+            let md = '# Iris Conversation Export
+
+';
+            md += `> Exported on ${new Date().toLocaleString()}
+
+`;
+            md += '---
+
+';
+            for (const msg of conversationHistory) {
+                const label = msg.role === 'user' ? '**You**' : '**Iris**';
+                md += `${label}:
+
+${msg.content}
+
+---
+
+`;
+            }
+            md += '*Exported from Iris — The Burgess Principle. Conversations are local-first and sovereign by design.*
+';
+            const blob = new Blob([md], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `iris-conversation-${Date.now()}.md`;
+            link.click();
+            URL.revokeObjectURL(url);
+        });
+
         clearBtn.addEventListener('click', () => {
             if (conversationHistory.length === 0) return;
             conversationHistory = [];
             messagesEl.innerHTML = '';
-            // Re-add the welcome screen using the shared template
             const welcome = document.createElement('div');
             welcome.className = 'welcome';
             welcome.id = 'welcome';
@@ -2080,169 +2862,163 @@
         saveClaimBtn.addEventListener('click', async () => {
             const payload = await requestClaimPackage('saving to the Sovereign Vault');
             if (!payload) return;
-
             const claim = payload.claim;
             const vaultRecord = claim.vault_record || {};
-            let html = '<strong>Saved to Sovereign Vault.</strong>';
+            const localRecord = claim.client_vault_record || {};
+            let html = '<strong>Saved &amp; signed.</strong>';
             if (vaultRecord.record_id) {
-                html += ` Record <code>${escapeHtml(vaultRecord.record_id)}</code>.`;
+                html += ` Server record <code>${escapeHtml(vaultRecord.record_id)}</code>.`;
             }
-            if (vaultRecord.path) {
-                html += `<br>Stored at <code>${escapeHtml(vaultRecord.path)}</code>.`;
+            if (localRecord.record_id) {
+                html += `<br>Phone vault record <code>${escapeHtml(localRecord.record_id)}</code>.`;
             }
             html += formatUnresolvedPlaceholders(claim);
             setClaimStatus(html, 'success');
+            await showLocalNotification('Claim saved & signed', 'Your sovereign claim is encrypted in the phone vault and ready for review.', 'claim-saved');
         });
 
         generateCommitmentBtn.addEventListener('click', async () => {
             const payload = await requestClaimPackage('generating a fresh commitment');
             if (!payload) return;
-
             const claim = payload.claim;
             let html = '<strong>Commitment generated and signed.</strong>';
-            if (claim.commitment_hash) {
-                html += `<br>Commitment <code>${escapeHtml(claim.commitment_hash)}</code>`;
-            }
-            if (claim.public_key) {
-                html += `<br>Public key <code>${escapeHtml(claim.public_key)}</code>`;
-            }
-            if (claim.signature) {
-                html += `<br>Signature <code>${escapeHtml(claim.signature)}</code>`;
-            }
+            if (claim.commitment_hash) html += `<br>Commitment <code>${escapeHtml(claim.commitment_hash)}</code>`;
+            if (claim.public_key) html += `<br>Public key <code>${escapeHtml(claim.public_key)}</code>`;
+            if (claim.signature) html += `<br>Signature <code>${escapeHtml(claim.signature)}</code>`;
             html += formatUnresolvedPlaceholders(claim);
             setClaimStatus(html, 'success');
+            await showLocalNotification('Claim saved & signed', 'A fresh commitment is ready and the phone queued its fingerprint for background sync.', 'claim-commitment');
         });
 
         copyLetterBtn.addEventListener('click', async () => {
             const payload = await requestClaimPackage('copying the final letter');
             if (!payload) return;
-
             try {
                 const copyResult = await copyText(payload.letter_markdown || '');
                 setClaimStatus(
                     '<strong>Final letter copied.</strong> You can now paste the sovereign draft wherever you need it.' +
-                    (copyResult.usedFallback ? ' Your browser used a legacy copy fallback; if this becomes unreliable, upgrade your browser.' : '') +
+                    (copyResult.usedFallback ? ' Your browser used a legacy copy fallback.' : '') +
                     formatUnresolvedPlaceholders(payload.claim),
                     'success'
                 );
-            } catch (err) {
-                setClaimStatus(`The letter was generated, but copying failed. ${escapeHtml(err.message)}`, 'error');
+            } catch (error) {
+                setClaimStatus(`The letter was generated, but copying failed. ${escapeHtml(error.message)}`, 'error');
             }
         });
+
+        queueFingerprintBtn.addEventListener('click', async () => {
+            const payload = await requestClaimPackage('queueing the fingerprint for background sync');
+            if (!payload) return;
+            const fingerprint = await queueFingerprintForBackgroundSync(payload.claim);
+            let html = '<strong>Fingerprint queued for background sync.</strong>';
+            if (fingerprint && fingerprint.commitment_hash) {
+                html += `<br>Commitment <code>${escapeHtml(fingerprint.commitment_hash)}</code>`;
+            }
+            html += '<br>The service worker will try to sync the minimal fingerprint package when the app is back on Wi-Fi.';
+            setClaimStatus(html, 'success');
+        });
+
+        async function flushFingerprintQueueToLocalServer() {
+            if (!_isLocal) return 0;
+            const queue = await vaultStore.getAll('fingerprintQueue');
+            let synced = 0;
+            for (const item of queue) {
+                const response = await fetch(API_FINGERPRINT_QUEUE_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ fingerprint: item }),
+                });
+                if (response.ok) {
+                    synced += 1;
+                    await vaultStore.delete('fingerprintQueue', item.id);
+                }
+            }
+            return synced;
+        }
 
         // ------------------------------------------------------------------ //
         // Send message                                                       //
         // ------------------------------------------------------------------ //
-        async function sendMessage() {
-            const text = userInput.value.trim();
+        async function sendMessage(options = {}) {
+            const text = (typeof options.text === 'string' ? options.text : userInput.value).trim();
             if (!text || isStreaming) return;
             resetClaimActions();
             latestClaimQuery = text;
-
-            // Hide welcome
             const currentWelcome = document.getElementById('welcome');
             if (currentWelcome) currentWelcome.remove();
-
-            // Add user message
             appendMessage('You', text, 'user');
             conversationHistory.push({ role: 'user', content: text });
             updateActionButtons();
-
             userInput.value = '';
             userInput.style.height = 'auto';
             sendBtn.disabled = true;
             isStreaming = true;
-
-            // Create Iris reply placeholder
             const irisEl = appendMessage('Iris', '', 'iris');
             const contentEl = irisEl.querySelector('.message-content');
-
-            // Show typing indicator
             contentEl.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
-
             try {
                 const response = await fetch(API_CHAT_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ messages: conversationHistory }),
                 });
-
                 if (!response.ok) {
                     const err = await response.json().catch(() => ({}));
-                    const errorMsg = err.error || `Request failed (${response.status})`;
-
-                    // Check for configuration errors and show a friendly inline message
-                    if (response.status === 503 && errorMsg.includes('IRIS_API_KEY')) {
-                        irisEl.remove();
-                        appendError(
-                            '⚙️ Iris is not yet configured.\n\n' +
-                            'The IRIS_API_KEY environment variable needs to be set in the Vercel project settings. ' +
-                            'If you\'re the site owner, add it under Settings → Environment Variables in your ' +
-                            '<a href="https://vercel.com" target="_blank" rel="noopener">Vercel dashboard</a>.\n\n' +
-                            'For setup instructions, see the <a href="https://github.com/ljbudgie/burgess-principle/blob/main/iris/README.md" target="_blank" rel="noopener">Iris README</a>.'
-                        );
-                        const handled = new Error(errorMsg);
-                        handled.handled = true;
-                        throw handled;
-                    }
-
-                    throw new Error(errorMsg);
+                    throw new Error(err.error || `Request failed (${response.status})`);
                 }
-
-                // Stream SSE response
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder();
                 let fullText = '';
                 let buffer = '';
-
                 contentEl.textContent = '';
-
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
-
                     buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split('\n');
+                    const lines = buffer.split('
+');
                     buffer = lines.pop() || '';
-
                     for (const line of lines) {
-                        if (line.startsWith('data: ')) {
-                            const data = line.slice(6).trim();
-                            if (data === '[DONE]') continue;
-                            try {
-                                const parsed = JSON.parse(data);
-                                if (parsed.content) {
-                                    fullText += parsed.content;
-                                    // Show raw text while streaming for performance
-                                    contentEl.textContent = fullText;
-                                    messagesEl.scrollTop = messagesEl.scrollHeight;
-                                }
-                            } catch { /* skip malformed chunks */ }
+                        if (!line.startsWith('data: ')) continue;
+                        const data = line.slice(6).trim();
+                        if (data === '[DONE]') continue;
+                        try {
+                            const parsed = JSON.parse(data);
+                            if (parsed.content) {
+                                fullText += parsed.content;
+                                contentEl.textContent = fullText;
+                                messagesEl.scrollTop = messagesEl.scrollHeight;
+                            }
+                        } catch {
+                            // ignore malformed chunks
                         }
                     }
                 }
-
-                // Render final response as Markdown
                 contentEl.innerHTML = renderMarkdown(fullText);
                 messagesEl.scrollTop = messagesEl.scrollHeight;
-
                 conversationHistory.push({ role: 'assistant', content: fullText });
                 updateActionButtons();
                 showClaimActions();
-
-            } catch (err) {
-                if (!err.handled) {
-                    contentEl.textContent = 'I wasn\'t able to respond just now. ' + err.message;
+                if (options.autoGenerateClaim) {
+                    const payload = await requestClaimPackage(options.source === 'voice' ? 'voice-first claim generation' : 'instant claim generation');
+                    if (payload) {
+                        setClaimStatus(
+                            '<strong>Voice report turned into a signed claim.</strong><br>Your phone vault has an encrypted copy ready for review.' + formatUnresolvedPlaceholders(payload.claim),
+                            'success'
+                        );
+                        await showLocalNotification('Claim saved & signed', 'Your voice report has been turned into a sovereign claim package.', 'voice-claim');
+                    }
                 }
+            } catch (error) {
+                contentEl.textContent = `I wasn't able to respond just now. ${error.message}`;
             }
-
             isStreaming = false;
             sendBtn.disabled = !userInput.value.trim();
             messagesEl.scrollTop = messagesEl.scrollHeight;
         }
 
         // ------------------------------------------------------------------ //
-        // Append a message to the chat                                       //
+        // Append helpers                                                     //
         // ------------------------------------------------------------------ //
         function appendMessage(label, text, type) {
             const el = document.createElement('div');
@@ -2253,9 +3029,6 @@
             return el;
         }
 
-        // ------------------------------------------------------------------ //
-        // Append an error/info message (supports HTML)                       //
-        // ------------------------------------------------------------------ //
         function appendError(html) {
             const el = document.createElement('div');
             el.className = 'message-error';
@@ -2267,9 +3040,26 @@
 
         function escapeHtml(str) {
             const div = document.createElement('div');
-            div.textContent = str;
+            div.textContent = String(str || '');
             return div.innerHTML.replace(/'/g, '&#39;');
         }
+
+        // ------------------------------------------------------------------ //
+        // Boot                                                               //
+        // ------------------------------------------------------------------ //
+        Promise.all([
+            registerPhonePwa(),
+            applyStoredProfile(),
+            hydrateUiSettings(),
+        ]).then(async () => {
+            configureVoice();
+            applyShortcutFromLocation();
+            await checkDueReminders();
+            await flushFingerprintQueueToLocalServer().catch(() => 0);
+            window.setInterval(checkDueReminders, 60 * 1000);
+        }).catch(error => {
+            appendError(`Phone setup warning: ${escapeHtml(error.message)}`);
+        });
     </script>
 
 </body>

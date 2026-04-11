@@ -308,6 +308,36 @@ def test_encrypt_to_vault_requires_passphrase(tmp_path):
         )
 
 
+def test_queue_onchain_fingerprint_persists_minimal_package(tmp_path):
+    with patch.object(claim_builder, "_ROOT", tmp_path):
+        queued = claim_builder.queue_onchain_fingerprint(
+            {
+                "commitment_hash": "0xproof",
+                "signature": "0xsig",
+                "public_key": "ab" * 32,
+                "target_entity": "Example Exchange",
+                "category": "exchange",
+            }
+        )
+
+    payload = json.loads(Path(queued["path"]).read_text(encoding="utf-8"))
+    assert payload["version"] == "0.9.0"
+    assert payload["queue_id"] == queued["queue_id"]
+    assert payload["fingerprint"]["commitment_hash"] == "0xproof"
+    assert payload["fingerprint"]["signature"] == "0xsig"
+    assert payload["fingerprint"]["public_key"] == "ab" * 32
+    assert payload["fingerprint"]["target_entity"] == "Example Exchange"
+
+
+def test_queue_onchain_fingerprint_requires_core_fields(tmp_path):
+    with patch.object(claim_builder, "_ROOT", tmp_path):
+        with pytest.raises(
+            ValueError,
+            match="fingerprint must include commitment_hash, signature, and public_key",
+        ):
+            claim_builder.queue_onchain_fingerprint({"commitment_hash": "0xproof"})
+
+
 class TestAutoGenerateClaim:
     @pytest.mark.parametrize(
         ("user_query", "profile"),

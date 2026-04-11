@@ -12,7 +12,7 @@ _ROOT = Path(__file__).resolve().parent.parent
 _VAULT_DIRNAME = ".sovereign-vault"
 _PROFILE_FILENAME = "personal-profile.json"
 _PROFILE_VERSION = "1.0.0"
-_PROFILE_PBKDF2_ITERATIONS = 1_000_000
+_PROFILE_PBKDF2_ITERATIONS = 1_500_000
 
 
 def _select_first_valid(values: Mapping[str, Any], *keys: str) -> str:

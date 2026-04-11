@@ -11,7 +11,7 @@ from typing import Any, Mapping
 _ROOT = Path(__file__).resolve().parent.parent
 _VAULT_DIRNAME = ".sovereign-vault"
 _PROFILE_FILENAME = "personal-profile.json"
-_PROFILE_VERSION = "1.0.0"
+_PROFILE_VERSION = "1.1.0"
 _PROFILE_PBKDF2_ITERATIONS = 1_500_000
 
 
@@ -60,6 +60,12 @@ def profile_signature_block(name: str, preferred_signature_block: str | None = N
     return (preferred_signature_block or f"{name} [Burgess Principle]").strip()
 
 
+def mirror_mode_prompt(name: str) -> str:
+    """Return the default Mirror Mode greeting for the sovereign profile."""
+    sovereign_name = str(name).strip() or "there"
+    return f"Hey {sovereign_name} — Mirror Mode active. What’s happening on your hardware?"
+
+
 def fingerprint_public_key(public_key_hex: str, length: int = 16) -> str:
     """Create a compact SHA-256 fingerprint for the Ed25519 public key."""
     return hashlib.sha256(bytes.fromhex(public_key_hex)).hexdigest()[:length]
@@ -82,10 +88,12 @@ def build_personal_profile(
     handle: str = "ljbudgie",
     preferred_signature_block: str | None = None,
     private_key_hex: str | None = None,
+    mirror_mode_enabled: bool = False,
 ) -> dict[str, str]:
     """Generate or load an Ed25519-backed personal sovereign profile."""
     from nacl.signing import SigningKey
 
+    signed_at = datetime.now(timezone.utc).isoformat()
     sovereign_name = name.strip()
     if not sovereign_name:
         raise ValueError("name must be a non-empty string")
@@ -104,7 +112,9 @@ def build_personal_profile(
         "public_key_hex": public_key_hex,
         "private_key_hex": signing_key.encode().hex(),
         "key_fingerprint": fingerprint_public_key(public_key_hex),
-        "signed_at": datetime.now(timezone.utc).isoformat(),
+        "signed_at": signed_at,
+        "mirror_mode_enabled": bool(mirror_mode_enabled),
+        "mirror_mode_activated_at": signed_at if mirror_mode_enabled else "",
     }
     signed_profile = _signed_profile_payload(profile)
     profile["signed_profile"] = signed_profile
@@ -127,16 +137,21 @@ def verify_personal_profile(profile: Mapping[str, Any]) -> bool:
     return True
 
 
-def summarize_personal_profile(profile: Mapping[str, Any]) -> dict[str, str]:
+def summarize_personal_profile(profile: Mapping[str, Any]) -> dict[str, Any]:
     """Return the public summary that can safely auto-load on app startup."""
+    name = _select_first_valid(profile, "name")
+    mirror_mode_enabled = bool(profile.get("mirror_mode_enabled"))
     return {
-        "name": _select_first_valid(profile, "name"),
+        "name": name,
         "handle": _select_first_valid(profile, "handle") or "ljbudgie",
         "preferred_signature_block": _select_first_valid(profile, "preferred_signature_block"),
         "key_fingerprint": _select_first_valid(profile, "key_fingerprint"),
         "public_key_hex": _select_first_valid(profile, "public_key_hex"),
         "profile_signature": _select_first_valid(profile, "profile_signature"),
         "signed_at": _select_first_valid(profile, "signed_at"),
+        "mirror_mode_enabled": mirror_mode_enabled,
+        "mirror_mode_activated_at": _select_first_valid(profile, "mirror_mode_activated_at"),
+        "mirror_greeting": mirror_mode_prompt(name) if name and mirror_mode_enabled else "",
     }
 
 
@@ -188,7 +203,7 @@ def load_personal_profile(
     return profile
 
 
-def load_personal_profile_summary(*, root: Path | None = None) -> dict[str, str] | None:
+def load_personal_profile_summary(*, root: Path | None = None) -> dict[str, Any] | None:
     """Load the public summary without decrypting the private payload."""
     path = profile_path(root)
     if not path.exists():
@@ -207,11 +222,18 @@ def setup_personal_profile(
     handle: str = "ljbudgie",
     preferred_signature_block: str | None = None,
     private_key_hex: str | None = None,
+    mirror_mode_enabled: bool | None = None,
 ) -> dict[str, Any]:
     """Load an existing profile or create-and-save one if none exists yet."""
     path = profile_path(root)
     if path.exists():
         profile = load_personal_profile(vault_passphrase, root=root)
+        if mirror_mode_enabled is not None:
+            profile["mirror_mode_enabled"] = bool(mirror_mode_enabled)
+            profile["mirror_mode_activated_at"] = (
+                datetime.now(timezone.utc).isoformat() if mirror_mode_enabled else ""
+            )
+            save_personal_profile(profile, vault_passphrase, root=root)
         return {"created": False, "stored_path": str(path), "profile": summarize_personal_profile(profile)}
     if not name:
         raise ValueError("name must be a non-empty string")
@@ -221,6 +243,7 @@ def setup_personal_profile(
         handle=handle,
         preferred_signature_block=preferred_signature_block,
         private_key_hex=private_key_hex,
+        mirror_mode_enabled=bool(mirror_mode_enabled),
     )
     stored = save_personal_profile(created_profile, vault_passphrase, root=root)
     return {"created": True, "stored_path": stored["path"], "profile": stored["profile"]}
@@ -232,6 +255,7 @@ __all__ = [
     "fingerprint_public_key",
     "load_personal_profile",
     "load_personal_profile_summary",
+    "mirror_mode_prompt",
     "profile_path",
     "profile_signature_block",
     "save_personal_profile",

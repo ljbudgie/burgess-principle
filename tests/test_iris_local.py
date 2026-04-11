@@ -26,6 +26,9 @@ _MOCK_PROFILE_SUMMARY = {
     "public_key_hex": "ab" * 32,
     "profile_signature": "cd" * 64,
     "signed_at": "2026-04-11T20:45:15+00:00",
+    "mirror_mode_enabled": True,
+    "mirror_mode_activated_at": "2026-04-11T21:00:00+00:00",
+    "mirror_greeting": "Hey Lewis — Mirror Mode active. What’s happening on your hardware?",
 }
 
 # ---------------------------------------------------------------------------
@@ -559,6 +562,26 @@ class TestMyProfileEndpoint:
         assert response.json()["created"] is True
         assert response.json()["profile"] == _MOCK_PROFILE_SUMMARY
         mock_setup.assert_called_once()
+        assert mock_setup.call_args.kwargs["mirror_mode_enabled"] is None
+
+    def test_setup_passes_mirror_mode_flag(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(_mod, "load_personal_profile_summary", return_value=_MOCK_PROFILE_SUMMARY), patch.object(
+            _mod,
+            "setup_personal_profile",
+            return_value={
+                "created": False,
+                "stored_path": "/tmp/personal-profile.json",
+                "profile": _MOCK_PROFILE_SUMMARY,
+            },
+        ) as mock_setup:
+            response = self.client.post(
+                "/api/my-profile/setup",
+                json={"vault_passphrase": "secret", "mirror_mode_enabled": True},
+            )
+        assert response.status_code == 200
+        assert mock_setup.call_args.kwargs["mirror_mode_enabled"] is True
 
     def test_setup_rejects_invalid_json(self):
         if not self.has_client:
@@ -639,6 +662,8 @@ class TestIndexPage:
         assert "+ New Claim" in unescaped
         assert "Setup My Identity" in unescaped
         assert "Claim profile & phone settings" in unescaped
+        assert "Enable Mirror Mode" in unescaped
+        assert "Mirror Mode active. What’s happening on your hardware?" in unescaped
         assert "voiceStatus" in response.text
         assert "manifest.json" in response.text
         assert "service-worker.js" in response.text

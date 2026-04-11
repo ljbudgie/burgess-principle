@@ -3265,9 +3265,16 @@
         }
 
         function applyShortcutFromLocation() {
-            const shortcut = new URLSearchParams(window.location.search).get('shortcut');
-            if (!shortcut) return;
-            startNewClaimFlow(getShortcutPrompt(shortcut));
+            const params = new URLSearchParams(window.location.search);
+            const shortcut = params.get('shortcut');
+            const triggerId = params.get('trigger');
+            if (shortcut) {
+                startNewClaimFlow(getShortcutPrompt(shortcut));
+            }
+            if (triggerId) {
+                // A trigger notification brought the user here — show a Burgess check prompt
+                startNewClaimFlow('A local trigger fired on this device. I need to run a Burgess check — was a human member of the team able to personally review the specific facts of my specific situation?');
+            }
         }
 
         // ------------------------------------------------------------------ //

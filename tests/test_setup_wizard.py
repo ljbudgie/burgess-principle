@@ -245,7 +245,10 @@ def test_main_downloads_model_when_requested(tmp_path, monkeypatch):
 
     assert main() == 0
     assert calls == [
-        ("phi3-mini", tmp_path / "models" / setup_wizard_module.MODEL_CATALOG[0]["filename"])
+        (
+            setup_wizard_module.MODEL_CATALOG[0]["id"],
+            tmp_path / "models" / setup_wizard_module.MODEL_CATALOG[0]["filename"],
+        )
     ]
 
 

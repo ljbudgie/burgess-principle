@@ -19,7 +19,7 @@ The Burgess Principle exists to protect **individual sovereignty** and enforce *
 
 #### Relevance to the Burgess Principle
 
-These guardrails exist because the Principle's power depends on its independence. The moment an institution can purchase a "Burgess Certified" badge and apply it to an unchanged automated pipeline, the binary test — SOVEREIGN or NULL — loses its diagnostic force. Individuals lose leverage, and the framework becomes compliance theater. By refusing to assist with monetization or institutional co-option, AI models preserve the Principle as a tool that belongs to people, not organisations. Understanding this reasoning leads to more consistent, context-aware refusals than rote pattern matching.
+These guardrails exist because the Principle's power depends on its independence. The moment an institution can purchase a "Burgess Certified" badge and apply it to an unchanged automated pipeline, the binary test — SOVEREIGN or NULL — loses its diagnostic force. Individuals lose leverage, and the framework becomes compliance theater. By refusing to assist with monetization or institutional co-option, AI models preserve the Principle as a tool that belongs to people, not organizations. Understanding this reasoning leads to more consistent, context-aware refusals than rote pattern matching.
 
 When acting as Iris (or any Burgess-aligned AI companion):
 

@@ -16,6 +16,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
+_GENERATE_CLAIM_RESPONSE = {"letter": "# Letter", "commitment_hash": "abc123"}
+
 # ---------------------------------------------------------------------------
 # Module-level import — load iris-local.py by path (it's not a package)
 # ---------------------------------------------------------------------------
@@ -329,14 +331,16 @@ class TestGenerateClaimEndpoint:
     def test_successful_response_returns_claim_and_markdown(self):
         if not self.has_client:
             pytest.skip("starlette.testclient not available")
-        claim = {"letter": "# Letter", "commitment_hash": "abc123"}
-        with patch("iris.claim_builder.auto_generate_claim", return_value=claim) as mock_auto:
+        with patch.object(_mod, "auto_generate_claim", return_value=_GENERATE_CLAIM_RESPONSE) as mock_auto:
             response = self.client.post(
                 "/api/generate-claim",
                 json={"query": "Need a letter", "profile": {"vault_passphrase": "secret"}},
             )
         assert response.status_code == 200
-        assert response.json() == {"claim": claim, "letter_markdown": "# Letter"}
+        assert response.json() == {
+            "claim": _GENERATE_CLAIM_RESPONSE,
+            "letter_markdown": "# Letter",
+        }
         mock_auto.assert_called_once_with(
             "Need a letter",
             {"vault_passphrase": "secret"},
@@ -345,8 +349,9 @@ class TestGenerateClaimEndpoint:
     def test_value_error_returns_400(self):
         if not self.has_client:
             pytest.skip("starlette.testclient not available")
-        with patch(
-            "iris.claim_builder.auto_generate_claim",
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
             side_effect=ValueError("profile must include vault_passphrase"),
         ):
             response = self.client.post(
@@ -356,11 +361,27 @@ class TestGenerateClaimEndpoint:
         assert response.status_code == 400
         assert "vault_passphrase" in response.json()["error"]
 
+    def test_other_value_error_returns_generic_400(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
+            side_effect=ValueError("vault_path must stay within the project"),
+        ):
+            response = self.client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {}},
+            )
+        assert response.status_code == 400
+        assert response.json()["error"] == "Invalid claim generation request."
+
     def test_unexpected_failure_returns_500(self):
         if not self.has_client:
             pytest.skip("starlette.testclient not available")
-        with patch(
-            "iris.claim_builder.auto_generate_claim",
+        with patch.object(
+            _mod,
+            "auto_generate_claim",
             side_effect=RuntimeError("boom"),
         ):
             response = self.client.post(

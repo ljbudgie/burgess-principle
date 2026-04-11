@@ -1035,6 +1035,136 @@
             background: var(--bg);
         }
 
+        .claim-actions {
+            display: none;
+            max-width: 720px;
+            margin: 0 auto 16px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--bg-card);
+        }
+
+        .claim-actions.active {
+            display: block;
+            animation: messageIn 0.3s ease;
+        }
+
+        .claim-actions-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .claim-actions-desc {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            margin-bottom: 14px;
+        }
+
+        .claim-actions-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .claim-field {
+            flex: 1 1 220px;
+        }
+
+        .claim-field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .claim-field input {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .claim-field input:focus {
+            border-color: var(--gold);
+        }
+
+        .claim-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .claim-action-btn {
+            background: transparent;
+            color: var(--text);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s, opacity 0.15s;
+        }
+
+        .claim-action-btn:hover:not(:disabled) {
+            border-color: var(--gold);
+            background: var(--gold-dim);
+        }
+
+        .claim-action-btn:disabled {
+            opacity: 0.5;
+            cursor: wait;
+        }
+
+        .claim-status {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-input);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        .claim-status strong,
+        .claim-status code {
+            color: var(--text);
+        }
+
+        .claim-status code {
+            background: rgba(212, 175, 119, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .claim-status.is-success {
+            border-color: rgba(92, 184, 92, 0.35);
+            background: var(--green-dim);
+            color: var(--text);
+        }
+
+        .claim-status.is-error {
+            border-color: rgba(217, 83, 79, 0.35);
+            background: var(--red-dim);
+            color: #f0c7c6;
+        }
+
         .input-wrap {
             display: flex;
             gap: 8px;
@@ -1464,6 +1594,22 @@
                 </div>
 
                 <div class="input-area">
+                    <div class="claim-actions" id="claimActions" aria-live="polite">
+                        <div class="claim-actions-title">Local claim actions</div>
+                        <p class="claim-actions-desc">After Iris drafts your next step, you can generate a sovereign claim package from your latest prompt and keep the result on your own hardware.</p>
+                        <div class="claim-actions-form">
+                            <div class="claim-field">
+                                <label for="claimPassphrase">Vault passphrase</label>
+                                <input id="claimPassphrase" type="password" autocomplete="current-password" placeholder="Required for local claim actions">
+                            </div>
+                        </div>
+                        <div class="claim-buttons">
+                            <button class="claim-action-btn" id="saveClaimBtn" type="button">Save to Sovereign Vault</button>
+                            <button class="claim-action-btn" id="generateCommitmentBtn" type="button">Generate Commitment &amp; Sign</button>
+                            <button class="claim-action-btn" id="copyLetterBtn" type="button">Copy Final Letter</button>
+                        </div>
+                        <div class="claim-status" id="claimStatus">Claim tools stay hidden until Iris finishes a local draft.</div>
+                    </div>
                     <div class="input-wrap">
                         <textarea id="userInput" placeholder="Describe your situation…" rows="1"></textarea>
                         <button id="sendBtn" disabled>Send</button>
@@ -1675,6 +1821,9 @@
         const API_CHAT_URL = _isLocal
             ? `${window.location.origin}/api/chat`
             : '/api/chat';
+        const API_CLAIM_URL = _isLocal
+            ? `${window.location.origin}/api/generate-claim`
+            : '/api/generate-claim';
 
         // ================================================================== //
         // DOM references                                                     //
@@ -1688,9 +1837,18 @@
         const sidebar     = document.getElementById('sidebar');
         const overlay     = document.getElementById('sidebarOverlay');
         const sidebarBtn  = document.getElementById('sidebarToggle');
+        const claimActions = document.getElementById('claimActions');
+        const claimPassphrase = document.getElementById('claimPassphrase');
+        const claimStatus = document.getElementById('claimStatus');
+        const saveClaimBtn = document.getElementById('saveClaimBtn');
+        const generateCommitmentBtn = document.getElementById('generateCommitmentBtn');
+        const copyLetterBtn = document.getElementById('copyLetterBtn');
+        const claimActionButtons = [saveClaimBtn, generateCommitmentBtn, copyLetterBtn];
 
         let conversationHistory = [];
         let isStreaming = false;
+        let latestClaimQuery = '';
+        let latestClaimPackage = null;
 
         // ------------------------------------------------------------------ //
         // Welcome screen HTML (single source of truth for initial + reset)   //
@@ -1762,6 +1920,109 @@
             clearBtn.disabled = !hasMessages;
         }
 
+        function setClaimStatus(html, tone) {
+            claimStatus.innerHTML = html;
+            claimStatus.className = 'claim-status' + (tone ? ` is-${tone}` : '');
+        }
+
+        function setClaimActionButtonsDisabled(disabled) {
+            claimActionButtons.forEach(btn => {
+                btn.disabled = disabled;
+            });
+        }
+
+        function resetClaimActions() {
+            latestClaimPackage = null;
+            latestClaimQuery = '';
+            claimPassphrase.value = '';
+            claimActions.classList.remove('active');
+            setClaimActionButtonsDisabled(false);
+            setClaimStatus('Claim tools stay hidden until Iris finishes a local draft.');
+        }
+
+        function showClaimActions() {
+            if (!_isLocal || !latestClaimQuery) return;
+            claimActions.classList.add('active');
+            if (latestClaimPackage) return;
+            setClaimStatus('Enter your vault passphrase, then choose how you want to handle the latest draft.');
+        }
+
+        function formatUnresolvedPlaceholders(claim) {
+            const placeholders = claim && Array.isArray(claim.unresolved_placeholders)
+                ? claim.unresolved_placeholders.filter(Boolean)
+                : [];
+            if (placeholders.length === 0) return '';
+            const list = placeholders.map(item => `<code>${escapeHtml(item)}</code>`).join(', ');
+            return `<br>Manual details still needed: ${list}.`;
+        }
+
+        async function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(textarea);
+            if (!ok) throw new Error('Copy failed.');
+        }
+
+        async function requestClaimPackage(actionLabel) {
+            if (!_isLocal) {
+                setClaimStatus('Local claim actions are only available when Iris is running via <code>iris-local.py</code>.', 'error');
+                return null;
+            }
+
+            if (!latestClaimQuery) {
+                setClaimStatus('Send a message first so Iris has a prompt to turn into a claim.', 'error');
+                return null;
+            }
+
+            const vaultPassphrase = claimPassphrase.value.trim();
+            if (!vaultPassphrase) {
+                setClaimStatus('Enter your vault passphrase before using local claim actions.', 'error');
+                claimPassphrase.focus();
+                return null;
+            }
+
+            setClaimActionButtonsDisabled(true);
+            setClaimStatus(`Preparing the local claim package for <strong>${escapeHtml(actionLabel)}</strong>…`);
+
+            try {
+                const response = await fetch(API_CLAIM_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query: latestClaimQuery,
+                        profile: { vault_passphrase: vaultPassphrase },
+                    }),
+                });
+
+                const payload = await response.json().catch(() => ({}));
+                if (!response.ok) {
+                    throw new Error(payload.error || `Request failed (${response.status})`);
+                }
+
+                if (!payload.claim) {
+                    throw new Error('The claim response was incomplete.');
+                }
+
+                latestClaimPackage = payload.claim;
+                return payload;
+            } catch (err) {
+                setClaimStatus(`I couldn&#39;t prepare the local claim package. ${escapeHtml(err.message)}`, 'error');
+                return null;
+            } finally {
+                setClaimActionButtonsDisabled(false);
+            }
+        }
+
         // ------------------------------------------------------------------ //
         // Export conversation as Markdown                                     //
         // ------------------------------------------------------------------ //
@@ -1803,6 +2064,59 @@
             messagesEl.appendChild(welcome);
             bindSuggestionButtons(welcome);
             updateActionButtons();
+            resetClaimActions();
+        });
+
+        saveClaimBtn.addEventListener('click', async () => {
+            const payload = await requestClaimPackage('saving to the Sovereign Vault');
+            if (!payload) return;
+
+            const claim = payload.claim;
+            const vaultRecord = claim.vault_record || {};
+            let html = '<strong>Saved to Sovereign Vault.</strong>';
+            if (vaultRecord.record_id) {
+                html += ` Record <code>${escapeHtml(vaultRecord.record_id)}</code>.`;
+            }
+            if (vaultRecord.path) {
+                html += `<br>Stored at <code>${escapeHtml(vaultRecord.path)}</code>.`;
+            }
+            html += formatUnresolvedPlaceholders(claim);
+            setClaimStatus(html, 'success');
+        });
+
+        generateCommitmentBtn.addEventListener('click', async () => {
+            const payload = await requestClaimPackage('generating a fresh commitment');
+            if (!payload) return;
+
+            const claim = payload.claim;
+            let html = '<strong>Commitment generated and signed.</strong>';
+            if (claim.commitment_hash) {
+                html += `<br>Commitment <code>${escapeHtml(claim.commitment_hash)}</code>`;
+            }
+            if (claim.public_key) {
+                html += `<br>Public key <code>${escapeHtml(claim.public_key)}</code>`;
+            }
+            if (claim.signature) {
+                html += `<br>Signature <code>${escapeHtml(claim.signature)}</code>`;
+            }
+            html += formatUnresolvedPlaceholders(claim);
+            setClaimStatus(html, 'success');
+        });
+
+        copyLetterBtn.addEventListener('click', async () => {
+            const payload = await requestClaimPackage('copying the final letter');
+            if (!payload) return;
+
+            try {
+                await copyText(payload.letter_markdown || '');
+                setClaimStatus(
+                    '<strong>Final letter copied.</strong> You can now paste the sovereign draft wherever you need it.' +
+                    formatUnresolvedPlaceholders(payload.claim),
+                    'success'
+                );
+            } catch (err) {
+                setClaimStatus(`The letter was generated, but copying failed. ${escapeHtml(err.message)}`, 'error');
+            }
         });
 
         // ------------------------------------------------------------------ //
@@ -1811,6 +2125,10 @@
         async function sendMessage() {
             const text = userInput.value.trim();
             if (!text || isStreaming) return;
+            latestClaimQuery = text;
+            latestClaimPackage = null;
+            claimActions.classList.remove('active');
+            setClaimStatus('Claim tools stay hidden until Iris finishes a local draft.');
 
             // Hide welcome
             const currentWelcome = document.getElementById('welcome');
@@ -1901,6 +2219,7 @@
 
                 conversationHistory.push({ role: 'assistant', content: fullText });
                 updateActionButtons();
+                showClaimActions();
 
             } catch (err) {
                 if (!err.handled) {

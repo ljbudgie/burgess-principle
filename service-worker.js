@@ -2,6 +2,7 @@ const CACHE_NAME = 'burgess-principle-pwa-v1-0-0';
 const VAULT_DB_NAME = 'burgess-principle-vault';
 const VAULT_DB_VERSION = 2;
 const PRECACHE_URLS = ['/', '/index.html', '/manifest.json', '/service-worker.js', '/banner.png'];
+const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
 
 // ------------------------------------------------------------------ //
 // Install — precache app shell, skip waiting for instant activation   //
@@ -154,7 +155,7 @@ async function evaluateTriggers() {
   const now = Date.now();
   for (const trigger of triggers) {
     if (!trigger.enabled) continue;
-    if (trigger.last_fired_at && now - Date.parse(trigger.last_fired_at) < 60 * 60 * 1000) continue;
+    if (trigger.last_fired_at && now - Date.parse(trigger.last_fired_at) < TRIGGER_MIN_INTERVAL_MS) continue;
 
     let shouldFire = false;
 

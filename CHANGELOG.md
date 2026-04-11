@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## Unreleased
+
+### Added
+- `POST /api/generate-claim` in `iris-local.py` for Sovereign Local Mode. The endpoint accepts a query plus profile data and returns the generated claim package with letter markdown.
+
+### Changed
+- Sovereign Local claim generation now writes encrypted records to the default local `.sovereign-vault/` directory instead of honoring per-request vault path overrides.
+
 ## v0.6.0 — Sovereign Local Mode, Website Upgrade & Hardening (10 April 2026)
 
 **Iris can now run entirely on your own hardware — and the Vercel site is now a full project landing page with Iris built in.**

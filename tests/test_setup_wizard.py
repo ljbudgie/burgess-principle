@@ -175,7 +175,7 @@ def test_download_model_wraps_network_errors(tmp_path, monkeypatch):
 
 def test_python_hint_prefers_python3_when_available(monkeypatch):
     def fake_which(name):
-        return { "python3": "/usr/bin/python3", "python": "/usr/bin/python" }.get(name)
+        return {"python3": "/usr/bin/python3", "python": "/usr/bin/python"}.get(name)
 
     monkeypatch.setattr(_mod.shutil, "which", fake_which)
     monkeypatch.setattr(_mod.platform, "python_version", lambda: "3.12.3")

@@ -2094,6 +2094,7 @@
         const VAULT_DB_NAME = 'burgess-principle-vault';
         const VAULT_DB_VERSION = 1;
         const VAULT_VERSION = '1.0.0';
+        const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
         const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
@@ -2782,7 +2783,7 @@
             if (!payload || typeof payload !== 'object') {
                 throw new Error('Invalid vault file.');
             }
-            if (payload.version && !['0.9.0', VAULT_VERSION].includes(payload.version)) {
+            if (payload.version && !SUPPORTED_VAULT_IMPORT_VERSIONS.includes(payload.version)) {
                 throw new Error(`Unsupported vault version: ${payload.version}`);
             }
             if (payload.profile) {

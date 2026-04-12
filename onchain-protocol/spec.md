@@ -39,7 +39,7 @@ A claim is generated in the Sovereign Personal Vault and contains:
 The commitment posted on-chain is computed from a canonical JSON payload:
 
 ```
-canonical_claim_json = JSON.stringify({
+canonical_claim_json = serialize_json({
   "claim_details": ...,
   "nonce": ...,
   "public_key": ...,
@@ -150,7 +150,7 @@ Anyone can:
 
 When the claimant chooses to reveal details:
 1. Claimant provides `claim_details`, `timestamp`, `nonce`, and `user_pubkey`.
-2. Verifier serialises those fields into canonical sorted-key JSON.
+2. Verifier serializes those fields into canonical sorted-key JSON.
 3. Verifier computes `SHA-256(canonical_claim_json)`.
 4. Verifier compares with the on-chain `commitmentHash`.
 5. Match → the claim existed at the recorded block time. Mismatch → tampered.

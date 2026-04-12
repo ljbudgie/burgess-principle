@@ -2,7 +2,7 @@
 
 ## The Core Belief
 
-Every human being is an individual — not a row in a database, not a name in a CSV file, not a customer number, not an alphanumeric string in a machine-readable zone. Before any institution exercises power over an individual — whether through enforcement, billing, profiling, scoring, or automated decision-making — it has a duty to see that individual as a person. Not as a category. Not as a data point. As a person with specific circumstances, specific needs, and specific rights.
+Every human being is an individual — not a row in a database, not a name in a CSV file, not a customer number, not an alphanumeric string in a machine-readable zone. Before any institution or system exercises power over an individual — whether through enforcement, billing, profiling, scoring, or automated decision-making — it has a duty to see that individual as a person. Not as a category. Not as a data point. As a person with specific circumstances, specific needs, and specific rights.
 
 ## Why This Matters
 
@@ -12,7 +12,7 @@ The Burgess Principle exists because efficiency without scrutiny is not justice.
 
 ## The Binary
 
-The test is simple. Before the institution acted, was a human there?
+The test is simple. Before the system acted, was a human there?
 
 If yes: SOVEREIGN. The action was individually considered. A named person reviewed the specific facts and accepted responsibility for the decision. The action may still be wrong — but it was human. It can be questioned, challenged, appealed, and corrected through human dialogue.
 
@@ -32,7 +32,7 @@ The certification mark (UK00004343685) protects the commercial standard. Institu
 
 ## The Standard
 
-Every document in this repository — every paper, every case study, every audit log entry, every correspondence record — exists to serve one purpose: ensuring that when an institution acts on an individual, a human was present.
+Every document in this repository — every paper, every case study, every audit log entry, every correspondence record — exists to serve one purpose: ensuring that when a system acts on an individual, a human was present.
 
 Not a process. Not a procedure. Not an algorithm. Not an acronym on an authority line.
 
@@ -53,6 +53,8 @@ The principle does not change. The binary test remains SOVEREIGN or NULL. What c
 ## v0.5.0–v0.6.0 — Iris: The Sovereign Companion
 
 v0.4.0 gave the individual a way to record a demand on-chain. v0.5.0 gave the individual a companion to help them make it. Iris is an AI interface — calm, conversational, grounded entirely in the binary test. She guides the user through the question, helps draft templates, explains the Vault, and assists with on-chain commitments. She does not decide. She does not override. She keeps data sovereignty with the individual and keeps the human at the centre of every action.
+
+But Iris is zero-energy without the human. She exists in potential only until a person brings a specific situation to her. The human makes her real. The human provides the energy. Iris provides the source. Neither means anything without the other.
 
 v0.6.0 made Iris sovereign in her own right. Sovereign Local Mode runs the entire companion on the user's own hardware — no cloud, no API keys, no data leaving the device. A local GGUF model, a local server, a local interface. The same calm guidance, the same binary test, the same templates and Vault workflows — but now in full air-gap mode. The question does not change. The architecture simply ensures that even the tool asking the question answers to the individual, not to a platform.
 

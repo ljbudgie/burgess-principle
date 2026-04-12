@@ -19,6 +19,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - Local install scripts, `iris-config.json`, `README.md`, `START_HERE.md`, and `SOVEREIGN_MODE.md` now provide a clearer non-technical path into Sovereign Local Mode, including Easy Mode defaults and setup wizard guidance.
 - Mirror Mode now supports configurable greeting style, custom greeting text, and a user-controlled Mirror Reflection scope for internal vault use or outward-facing documents.
 
+## v1.3.0 — Sovereign Core: Unified Verifiable Architecture (12 April 2026)
+
+### Added
+- New `sovereign-core/` shared runtime for profile types, connectivity utilities, commitment orchestration, audit helpers, and unified profile management.
+
+### Changed
+- Sovereignty-critical profile, audit, and commitment flows now share one implementation across the PWA, Memory Palace, Sovereign Hub Mode, and service worker.
+- Project metadata, release references, and user-facing copy now point to the `v1.3.0` release.
+
 ## v1.1.1 — Mirror Mode: Hardware Identity Reflection (11 April 2026)
 
 ### Added

@@ -93,7 +93,7 @@ def test_service_worker_caches_assets_and_syncs_reminders():
 
 
 def test_signed_update_manifest_requires_consent_and_assets():
-    assert SIGNED_UPDATE_MANIFEST['key_id'] == 'iris-pwa-ed25519-2026-04'
+    assert SIGNED_UPDATE_MANIFEST['key_id'] == 'iris-pwa-ed25519-2026-04-v130'
     assert SIGNED_UPDATE_MANIFEST['public_key_hex']
     assert SIGNED_UPDATE_MANIFEST['signature']
     payload = SIGNED_UPDATE_MANIFEST['signed_payload']

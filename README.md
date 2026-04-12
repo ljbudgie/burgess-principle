@@ -425,11 +425,12 @@ The framework has already been applied to documented institutional interactions:
 | **[v0.6.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0)** | Sovereign Local Mode — run Iris entirely on your own hardware |
 | **[v0.9.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0)** | Phone-first installable PWA and voice-led claim flow |
 | **[v1.1.1](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1)** | Mirror Mode — local identity reflection and hardware-linked greeting flow |
+| **[v1.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0)** | Sovereign Core — unified verifiable architecture across profile, audit, and commitment flows |
 
 See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
-**Latest stable release:** [v1.1.1 — Mirror Mode: Hardware Identity Reflection](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1)  
-**Current repository branch:** includes Phase 3 documentation for the Verifiable Memory Palace and Sovereign Hub Mode 2.0.
+**Latest stable release:** [v1.3.0 — Sovereign Core: Unified Verifiable Architecture](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0)  
+**Current repository branch:** aligned with the shared Sovereign Core architecture used by the PWA, Memory Palace, and Sovereign Hub Mode.
 
 ---
 

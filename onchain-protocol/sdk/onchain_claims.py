@@ -6,11 +6,9 @@ posting claims to an EVM-compatible chain via web3.py (optional dependency).
 
 Usage::
 
-    import sys
-    from pathlib import Path
-
-    sys.path.insert(0, str(Path("onchain-protocol/sdk").resolve()))
-
+    # From the repository root:
+    #   cd onchain-protocol/sdk
+    #   python
     from onchain_claims import generate_onchain_claim, verify_onchain_receipt
 
     claim = generate_onchain_claim(

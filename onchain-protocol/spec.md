@@ -211,11 +211,9 @@ All implementations must follow the cryptographic baseline defined in [SECURITY.
 ## 10. SDK Interface (Python)
 
 ```python
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path("onchain-protocol/sdk").resolve()))
-
+# From the repository root:
+#   cd onchain-protocol/sdk
+#   python
 from onchain_claims import generate_onchain_claim, verify_onchain_receipt
 
 # Generate a claim ready for on-chain posting

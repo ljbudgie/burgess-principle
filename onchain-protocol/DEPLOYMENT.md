@@ -92,14 +92,9 @@ npx hardhat run scripts/deploy.js --network base-sepolia
 
 ## Post-Deployment: Generate a Fingerprint Package
 
-If you are already using Sovereign Local Mode, you can generate the claim package with `POST /api/generate-claim` and optionally queue the fingerprint locally before posting it. If you want a direct SDK flow, run the following from the repository root:
+If you are already using Sovereign Local Mode, you can generate the claim package with `POST /api/generate-claim` and optionally queue the fingerprint locally before posting it. If you want a direct SDK flow, open a Python shell from `onchain-protocol/sdk/` and run:
 
 ```python
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path("onchain-protocol/sdk").resolve()))
-
 from onchain_claims import generate_onchain_claim
 
 claim = generate_onchain_claim(

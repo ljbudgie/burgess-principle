@@ -559,7 +559,7 @@
     const roots = (await bridge.vaultStore.getAll('memoryRoots')).sort((a, b) => Date.parse(a.created_at || 0) - Date.parse(b.created_at || 0));
     if (auditEngine && commitmentOrchestrator) {
       await auditEngine.verifySequentialChain(entries, {
-        verifyRecord: entry => commitmentOrchestrator.verifySignedRecord({
+        verifyRecord: async entry => commitmentOrchestrator.verifySignedRecord({
           id: entry.id,
           namespace: 'memory-entry',
           created_at: entry.created_at,

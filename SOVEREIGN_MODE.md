@@ -137,6 +137,57 @@ Keep the Ed25519 seed offline. Commit only the generated `signed-update-manifest
 
 ---
 
+## Phase 2 — Proactive Living Triggers Engine
+
+### Sovereignty Audit
+
+- **Burgess alignment:** every trigger is advisory only. Iris can suggest that a Burgess review may be needed, but it never decides SOVEREIGN or NULL on its own.
+- **No opacity / no backdoor surveillance:** trigger rules, queue items, and receipts stay on the device. Clipboard and page scans are user-initiated. Background decryption requires explicit device-only consent.
+- **Cryptographic accountability:** trigger creation, queueing, firing, and notification events each append a fresh SHA-256 + Ed25519 commitment linked to the previous local trigger commitment.
+- **Offline-first resilience:** trigger queues survive disconnects, periodic checks degrade gracefully when background execution is weak, and Starlink/intermittent links do not cause data loss.
+
+Phase 2 turns Iris into a calmer, more proactive sovereign mirror:
+
+- **Encrypted Living Triggers vault** — rules are sealed with AES-256-GCM and can optionally expose a device-only background unlock path for service-worker checks.
+- **Natural-language rule parsing** — describe a trigger in plain English, let Iris parse it locally, then review the generated keyword, schedule, or voice rule before saving.
+- **Advisory local scoring** — clipboard, page, conversation, scheduled, and voice detections produce a local pre-Burgess risk score and suggested human-review questions.
+- **Background queue + notifications** — the service worker queues detections, signs ledger entries, and shows calm notifications such as “Potential Burgess review needed … Human review required.”
+- **Signed receipts + ledger view** — every trigger session can be exported as a signed local receipt without sharing facts by default.
+
+### Setup / maintenance
+
+No extra backend is required for Phase 2.
+
+1. Start Iris locally with `python3 iris-local.py`.
+2. Open **Claim profile & phone settings → Sovereign Local Triggers**.
+3. Enter a **Living Triggers passphrase**.
+4. Decide whether to enable **device-only background unlock**:
+   - **Off:** the encrypted trigger vault only unlocks while the foreground app has the passphrase.
+   - **On:** the service worker can decrypt the trigger vault locally for background periodic checks and queued notifications.
+5. Add a trigger either by:
+   - describing it in plain English and pressing **Parse local rule**, or
+   - filling the form manually and pressing **Add trigger**.
+
+### Manual verification steps
+
+1. Add a keyword trigger for terms such as `benefits, dwp, reasonable adjustment`.
+2. Use **Scan clipboard now** with matching text and confirm a new trigger ledger entry appears.
+3. Use **Run local trigger check** for a periodic trigger and confirm a receipt is queued.
+4. In Chrome DevTools → **Application**:
+   - inspect IndexedDB stores `triggers`, `triggerQueue`, `triggerLedger`, and `triggerReceipts`,
+   - trigger a **Sync** event and confirm queued trigger notifications are processed,
+   - inspect the notification click URL for `triggerReceipt=...`.
+5. Install the PWA on iOS and confirm the UI warns that background reliability depends on **Add to Home Screen** and Safari limits.
+6. Export the latest trigger receipt and confirm it contains the local commitment chain and Ed25519 signature fields.
+
+### Trade-offs / fallbacks
+
+- **Android / Chromium:** best background behaviour — Periodic Background Sync and Background Sync can process the encrypted queue when device-only unlock is enabled.
+- **iOS Safari PWA:** manual scans, foreground voice capture, and queued notifications still work, but always-on background execution is less reliable and must degrade to foreground checks.
+- **No background unlock consent:** strongest passphrase-first posture, but periodic and scheduled triggers wait for the foreground app to unlock the encrypted trigger vault.
+
+---
+
 ## Mirror Mode
 
 Mirror Mode is an optional local identity layer for Sovereign Mode.

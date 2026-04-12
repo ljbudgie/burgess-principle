@@ -1,3 +1,11 @@
+self.importScripts(
+  '/sovereign-core/types.js',
+  '/sovereign-core/utils.js',
+  '/sovereign-core/commitment-orchestrator.js',
+  '/sovereign-core/audit-engine.js',
+  '/sovereign-core/profile-manager.js',
+);
+
 const PWA_CORE_VERSION = '1.1.1-phase1';
 const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
 const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
@@ -19,11 +27,20 @@ const PRECACHE_URLS = [
   '/service-worker.js',
   '/phase3-memory-hub.js',
   '/memory-palace-worker.js',
+  '/sovereign-core/types.js',
+  '/sovereign-core/utils.js',
+  '/sovereign-core/commitment-orchestrator.js',
+  '/sovereign-core/audit-engine.js',
+  '/sovereign-core/profile-manager.js',
   '/banner.png',
   '/signed-update-manifest.json'
 ];
 const CRITICAL_PATHS = new Set(PRECACHE_URLS);
 let triggerLedgerHeadCache = null;
+// Burgess Compliance: background tasks can only queue, retry, and surface auditable local events;
+// they never turn connectivity heuristics into a substantive SOVEREIGN/NULL judgment.
+const sovereignCore = self.IrisSovereignCore || {};
+const sovereignUtils = sovereignCore.utils || {};
 
 async function postClientMessage(message) {
   const allClients = await clients.matchAll({ type: 'window', includeUncontrolled: true });
@@ -228,6 +245,24 @@ async function getSetting(key) {
   return value ? value.value : null;
 }
 
+const sovereigntyProfileManager = sovereignCore.createProfileManager
+  ? sovereignCore.createProfileManager({
+    storage: {
+      getSetting,
+      saveSetting: async (key, value) => putRecord('settings', { key, value }),
+    },
+    sha256Hex,
+    canonicalize: canonicalizeForSignature,
+  })
+  : null;
+const triggerCommitmentOrchestrator = sovereignCore.createCommitmentOrchestrator
+  ? sovereignCore.createCommitmentOrchestrator({
+    sha256Hex,
+    canonicalize: canonicalizeForSignature,
+    generateId: prefix => `${prefix}-${crypto.randomUUID()}`,
+  })
+  : null;
+
 async function deleteById(storeName, id) {
   const db = await openDb();
   return new Promise((resolve, reject) => {
@@ -381,7 +416,6 @@ async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence 
     source,
     status,
     advisory_only: true,
-    previous_commitment_hash,
     rule_hash: await sha256Hex(canonicalizeForSignature({
       id: trigger.id,
       label: trigger.label,
@@ -392,30 +426,40 @@ async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence 
     evidence_hash: await sha256Hex(canonicalizeForSignature(evidence || {})),
     inference_hash: await sha256Hex(canonicalizeForSignature(inference || {})),
     notification,
-    timestamp: new Date().toISOString(),
     entry_id: crypto.randomUUID(),
   };
-  const commitment_hash = await sha256Hex(canonicalizeForSignature(payload));
-  let signature = '';
-  let public_key_hex = '';
   const signer = await importLedgerPrivateKey();
-  if (signer.key && signer.profile && signer.profile.ledger_public_key_hex) {
-    const signed = await crypto.subtle.sign('Ed25519', signer.key, new TextEncoder().encode(canonicalizeForSignature(payload)));
-    signature = bytesToHex(new Uint8Array(signed));
-    public_key_hex = signer.profile.ledger_public_key_hex;
-  }
+  const record = triggerCommitmentOrchestrator
+    ? await triggerCommitmentOrchestrator.createSignedRecord({
+      namespace: 'trigger-ledger',
+      recordId: `trigger-ledger-${crypto.randomUUID()}`,
+      createdAt: new Date().toISOString(),
+      previousCommitmentHash: previous_commitment_hash,
+      payload,
+      signer: signer.key && signer.profile && signer.profile.ledger_public_key_hex ? {
+        signPayload: async signedPayload => {
+          const signed = await crypto.subtle.sign('Ed25519', signer.key, new TextEncoder().encode(canonicalizeForSignature(signedPayload)));
+          return {
+            signature_hex: bytesToHex(new Uint8Array(signed)),
+            public_key_hex: signer.profile.ledger_public_key_hex,
+          };
+        },
+      } : null,
+      metadata: { event_type, source, status },
+    })
+    : null;
   const entry = {
-    id: `trigger-ledger-${crypto.randomUUID()}`,
+    id: record ? record.id : `trigger-ledger-${crypto.randomUUID()}`,
     trigger_id: trigger.id,
     label: trigger.label,
     event_type,
     source,
     status,
-    created_at: payload.timestamp,
+    created_at: record ? record.created_at : new Date().toISOString(),
     previous_commitment_hash,
-    commitment_hash,
-    signature,
-    public_key_hex,
+    commitment_hash: record ? record.commitment_hash : await sha256Hex(canonicalizeForSignature({ previous_commitment_hash, payload })),
+    signature: record ? record.signature_hex : '',
+    public_key_hex: record ? record.public_key_hex : '',
     evidence_excerpt: sanitizeExcerpt(evidence.text_excerpt || evidence.summary || ''),
     notification_title: notification.title || '',
     notification_body: notification.body || '',
@@ -488,6 +532,10 @@ async function notifyDueReminders() {
 }
 
 async function flushHubSyncQueue() {
+  const syncPolicy = sovereigntyProfileManager ? await sovereigntyProfileManager.getSyncPolicy({ context: 'hub-background-flush' }) : null;
+  if (syncPolicy && (syncPolicy.mode === 'offline' || !syncPolicy.allow_background_flush && syncPolicy.mode === 'queued')) {
+    return 0;
+  }
   const queue = (await readAll('hubSyncQueue')).filter(item => item.status === 'queued');
   let flushed = 0;
   for (const item of queue) {
@@ -505,17 +553,35 @@ async function flushHubSyncQueue() {
       item.completed_at = new Date().toISOString();
       item.response_payload = payload;
       await putRecord('hubSyncQueue', item);
+      const previousAudit = (await readAll('hubAudit')).sort((left, right) => Date.parse(right.created_at || 0) - Date.parse(left.created_at || 0))[0] || null;
+      const auditRecord = triggerCommitmentOrchestrator
+        ? await triggerCommitmentOrchestrator.createSignedRecord({
+          namespace: 'hub-audit',
+          recordId: `hub-audit-${crypto.randomUUID()}`,
+          createdAt: item.completed_at,
+          previousCommitmentHash: previousAudit ? previousAudit.commitment_hash : '',
+          payload: {
+            direction: item.direction || 'queued-sync',
+            status: 'flushed',
+            summary: `Service worker flushed a queued ${item.direction || 'hub'} request.`,
+            response_payload: payload,
+          },
+          metadata: { direction: item.direction || 'queued-sync', status: 'flushed' },
+        })
+        : null;
       await putRecord('hubAudit', {
-        id: `hub-audit-${crypto.randomUUID()}`,
+        id: auditRecord ? auditRecord.id : `hub-audit-${crypto.randomUUID()}`,
         created_at: item.completed_at,
         direction: item.direction || 'queued-sync',
         status: 'flushed',
         summary: `Service worker flushed a queued ${item.direction || 'hub'} request.`,
-        commitment_hash: await sha256Hex(canonicalizeForSignature({
+        commitment_hash: auditRecord ? auditRecord.commitment_hash : await sha256Hex(canonicalizeForSignature({
           direction: item.direction || 'queued-sync',
           completed_at: item.completed_at,
           response_payload: payload,
         })),
+        signature_hex: auditRecord ? auditRecord.signature_hex : '',
+        public_key_hex: auditRecord ? auditRecord.public_key_hex : '',
         response_payload: payload,
       });
       flushed += 1;
@@ -527,6 +593,7 @@ async function flushHubSyncQueue() {
   if (flushed > 0) {
     await postClientMessage({ type: 'HUB_SYNC_QUEUE_FLUSHED', flushed });
   }
+  return flushed;
 }
 
 async function processTriggerQueue() {
@@ -724,6 +791,24 @@ self.addEventListener('push', event => {
 
 self.addEventListener('message', event => {
   if (!event.data || typeof event.data.type !== 'string') return;
+  if (event.data.type === 'SOVEREIGN_PROFILE_UPDATED' && event.data.profile) {
+    event.waitUntil((async () => {
+      await putRecord('settings', {
+        key: sovereignCore.types && sovereignCore.types.SETTINGS_KEYS
+          ? sovereignCore.types.SETTINGS_KEYS.SOVEREIGNTY_PROFILE
+          : 'user-sovereignty-profile',
+        value: event.data.profile,
+      });
+      if (event.data.profile.network_snapshot) {
+        await putRecord('settings', {
+          key: sovereignCore.types && sovereignCore.types.SETTINGS_KEYS
+            ? sovereignCore.types.SETTINGS_KEYS.NETWORK_SNAPSHOT
+            : 'user-sovereignty-network-snapshot',
+          value: event.data.profile.network_snapshot,
+        });
+      }
+    })());
+  }
   if (event.data.type === 'SYNC_FINGERPRINTS') {
     event.waitUntil(flushFingerprintQueue());
   }

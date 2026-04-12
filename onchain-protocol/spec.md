@@ -1,4 +1,4 @@
-# Burgess Claims Protocol — Specification v0.1.0
+# Burgess Claims Protocol — Specification v0.2.0
 
 > Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.
 
@@ -6,9 +6,9 @@
 
 ## 1. Overview
 
-The Burgess Claims Protocol extends the [Sovereign Personal Vault](../enforcement/sovereign-vault/) with a minimal on-chain layer. Users generate claims off-chain in the Vault, then post only a compact **commitment fingerprint** (hash + signature + metadata) to a public blockchain for neutral timestamping, ordering, and verifiability.
+The Burgess Claims Protocol extends the [Sovereign Personal Vault](../enforcement/sovereign-vault/) and the current **Sovereign Local Mode** workflow with a minimal on-chain layer. Users generate claims off-chain in the Vault or via Iris local claim generation, then post only a compact **commitment fingerprint** (hash + signature + metadata) to a public blockchain for neutral timestamping, ordering, and verifiability.
 
-Full claim details remain encrypted in the user's local Vault. The chain stores only what is needed to prove that a claim existed at a specific time and was signed by a specific key.
+Full claim details remain encrypted in the user's local Vault. In the current local-first flow, a user may also queue a ready-to-post fingerprint package under `.sovereign-vault/pending-onchain-fingerprints/` before they decide to submit it. The chain stores only what is needed to prove that a claim existed at a specific time and was signed by a specific key.
 
 ### Design Principles
 
@@ -36,12 +36,21 @@ A claim is generated in the Sovereign Personal Vault and contains:
 
 ### 2.2 Commitment (On-Chain Fingerprint)
 
-The commitment posted on-chain is:
+The commitment posted on-chain is computed from a canonical JSON payload:
 
 ```
-commitment_hash = SHA-256( claim_details || timestamp || nonce || user_pubkey )
+canonical_claim_json = serialize_json({
+  "claim_details": ...,
+  "nonce": ...,
+  "public_key": ...,
+  "timestamp": ...
+}, sort_keys=True, compact=True)
+
+commitment_hash = SHA-256( canonical_claim_json )
 signature        = Ed25519.sign( private_key, commitment_hash )
 ```
+
+Early draft claims used `SHA-256(claim_details || timestamp || nonce || user_pubkey)`. Verifiers may continue to accept that legacy format for backwards compatibility, but new implementations should emit canonical JSON commitments.
 
 The on-chain record stores:
 
@@ -95,29 +104,33 @@ interface IBurgessClaimsRegistry {
 │                    USER (Off-Chain)                      │
 │                                                         │
 │  1. Create claim in Sovereign Vault                     │
-│  2. Compute commitment_hash = SHA-256(details‖ts‖nonce‖pk) │
-│  3. Sign commitment_hash with Ed25519 private key       │
-│  4. Store full details encrypted locally                 │
-│  5. Export compact JSON for on-chain posting             │
+│  2. Build canonical claim JSON                           │
+│  3. Compute commitment_hash = SHA-256(canonical_json)    │
+│  4. Sign commitment_hash with Ed25519 private key        │
+│  5. Store full details encrypted locally                 │
+│  6. Optionally queue a pending on-chain fingerprint      │
+│     in `.sovereign-vault/pending-onchain-fingerprints/`  │
+│  7. Export compact JSON for manual posting               │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
 │                  BLOCKCHAIN (On-Chain)                   │
 │                                                         │
-│  6. Call issueClaim(hash, sig, target, category, expiry) │
-│  7. Contract stores fingerprint + block timestamp       │
-│  8. Emits ClaimIssued event                             │
+│  8. Call issueClaim(hash, sig, target, category, expiry) │
+│  9. Contract stores fingerprint + block timestamp       │
+│  10. Emits ClaimIssued event                            │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────┐
 │                 VERIFIER (Anyone)                        │
 │                                                         │
-│  9. Read claim from contract via getClaim(id)           │
-│  10. Verify Ed25519 signature against known public key  │
-│  11. Optionally: user reveals claim details off-chain   │
-│  12. Verifier re-computes hash to confirm match         │
+│  11. Read claim from contract via getClaim(id)          │
+│  12. Verify Ed25519 signature against known public key  │
+│  13. Optionally: user reveals the canonical claim JSON  │
+│      fields or a local signed receipt bundle            │
+│  14. Verifier re-computes hash to confirm match         │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -137,9 +150,12 @@ Anyone can:
 
 When the claimant chooses to reveal details:
 1. Claimant provides `claim_details`, `timestamp`, `nonce`, and `user_pubkey`.
-2. Verifier computes `SHA-256(claim_details || timestamp || nonce || user_pubkey)`.
-3. Verifier compares with the on-chain `commitmentHash`.
-4. Match → the claim existed at the recorded block time. Mismatch → tampered.
+2. Verifier serializes those fields into canonical sorted-key JSON.
+3. Verifier computes `SHA-256(canonical_claim_json)`.
+4. Verifier compares with the on-chain `commitmentHash`.
+5. Match → the claim existed at the recorded block time. Mismatch → tampered.
+
+If the claim originated from Sovereign Local Mode, the claimant may also pair the on-chain fingerprint with a local signed receipt or Memory Palace export to prove integrity inside a wider local evidence trail.
 
 ---
 
@@ -188,12 +204,16 @@ All implementations must follow the cryptographic baseline defined in [SECURITY.
 - **Canonical sorted-key JSON** for deterministic serialisation of claim data before hashing.
 - **Hex encoding** for all binary-to-text conversions.
 - **No additional cryptographic dependencies** beyond those already approved.
+- **Local-first claim custody** — full claim text, receipts, and queued posting packages remain under user control until deliberately exported or posted.
 
 ---
 
 ## 10. SDK Interface (Python)
 
 ```python
+# From the repository root:
+#   cd onchain-protocol/sdk
+#   python
 from onchain_claims import generate_onchain_claim, verify_onchain_receipt
 
 # Generate a claim ready for on-chain posting
@@ -212,6 +232,9 @@ result = verify_onchain_receipt(
     public_key_hex="<claimant-pubkey>",
 )
 # result.valid, result.details
+
+# Selective disclosure check
+from onchain_claims import verify_commitment
 ```
 
 ---
@@ -222,7 +245,8 @@ This specification is versioned independently from the Sovereign Vault:
 
 | Version | Status |
 |---|---|
-| v0.1.0 | Draft — initial specification |
+| v0.2.0 | Draft — aligned with v1.3.0 local-first workflows and canonical JSON commitments |
+| v0.1.0 | Historical draft — original concatenation-based commitment preimage |
 
 ---
 

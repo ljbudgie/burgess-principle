@@ -2,6 +2,9 @@
 
 This library defines the specific "Facial Defects" that render a corporate warrant or contract Void Ab Initio under the Burgess Principle. The `tracer.py` module uses these definitions to hunt for evidence of administrative taint.
 
+The current tracer helpers can also turn these defect definitions into
+structured findings and audit-ready trace reports for later human review.
+
 ### [ DEFECT 01 ] Bulk Approval Without Scrutiny
 *   **Description:** Warrants processed in batches without individual judicial review.
 *   **The Axiom:** Violates "The Judicial Mind." If a judge did not scrutinize the specific facts of the individual case, the resulting data is a `0` (NULL).

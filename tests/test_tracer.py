@@ -2,7 +2,16 @@
 
 import pytest
 
-from tracer import DEFECT_SCHEMA, Defect, get_defect, list_defects
+from tracer import (
+    DEFECT_SCHEMA,
+    Defect,
+    TraceFinding,
+    TraceReport,
+    build_trace_finding,
+    build_trace_report,
+    get_defect,
+    list_defects,
+)
 import tracer
 
 
@@ -174,20 +183,110 @@ class TestListDefects:
 
 
 # ---------------------------------------------------------------------------
+# build_trace_finding
+# ---------------------------------------------------------------------------
+
+class TestBuildTraceFinding:
+    def test_returns_structured_finding_for_known_id(self):
+        finding = build_trace_finding(
+            "DEFECT_01",
+            evidence="Batch warrant ledger",
+            notes="Escalate for human review",
+        )
+
+        assert finding == {
+            "defect_id": "DEFECT_01",
+            "title": "Bulk Approval Without Scrutiny",
+            "description": (
+                "Warrants processed in batches without individual judicial review."
+            ),
+            "axiom": (
+                "Violates 'The Judicial Mind.' If a judge did not scrutinize the "
+                "specific facts of the individual case, the resulting data is a 0 (NULL)."
+            ),
+            "evidence": "Batch warrant ledger",
+            "notes": "Escalate for human review",
+        }
+
+    def test_returns_empty_evidence_and_notes_by_default(self):
+        finding = build_trace_finding("DEFECT_02")
+        assert finding is not None
+        assert finding["evidence"] == ""
+        assert finding["notes"] == ""
+
+    def test_returns_none_for_unknown_id(self):
+        assert build_trace_finding("DEFECT_99") is None
+
+
+# ---------------------------------------------------------------------------
+# build_trace_report
+# ---------------------------------------------------------------------------
+
+class TestBuildTraceReport:
+    def test_builds_report_for_multiple_defects(self):
+        report = build_trace_report(
+            ["DEFECT_01", "DEFECT_03"],
+            reasoning="Two independent defects were documented.",
+            evidence_by_id={
+                "DEFECT_01": "Batch processing record",
+                "DEFECT_03": "False gas leak claim",
+            },
+            notes_by_id={"DEFECT_03": "Source statement conflicts with site notes"},
+            generated_at="2026-04-12T12:44:19+00:00",
+        )
+
+        assert report["generated_at"] == "2026-04-12T12:44:19+00:00"
+        assert report["reasoning"] == "Two independent defects were documented."
+        assert report["defect_ids"] == ["DEFECT_01", "DEFECT_03"]
+        assert [finding["defect_id"] for finding in report["findings"]] == [
+            "DEFECT_01",
+            "DEFECT_03",
+        ]
+        assert report["findings"][0]["evidence"] == "Batch processing record"
+        assert report["findings"][1]["notes"] == (
+            "Source statement conflicts with site notes"
+        )
+
+    def test_accepts_single_defect_id_string(self):
+        report = build_trace_report("DEFECT_04")
+        assert report["defect_ids"] == ["DEFECT_04"]
+        assert len(report["findings"]) == 1
+
+    def test_raises_for_unknown_defect(self):
+        with pytest.raises(ValueError, match="Unknown defect ID: DEFECT_99"):
+            build_trace_report(["DEFECT_01", "DEFECT_99"])
+
+
+# ---------------------------------------------------------------------------
 # Module exports (__init__.py)
 # ---------------------------------------------------------------------------
 
 class TestModuleExports:
     def test_all_exports(self):
         assert set(tracer.__all__) == {
-            "DEFECT_SCHEMA", "Defect", "get_defect", "list_defects",
+            "DEFECT_SCHEMA",
+            "Defect",
+            "TraceFinding",
+            "TraceReport",
+            "build_trace_finding",
+            "build_trace_report",
+            "get_defect",
+            "list_defects",
         }
 
     def test_defect_type_exported(self):
         assert tracer.Defect is Defect
 
+    def test_trace_types_exported(self):
+        assert tracer.TraceFinding is TraceFinding
+        assert tracer.TraceReport is TraceReport
+
     def test_defect_schema_exported(self):
         assert tracer.DEFECT_SCHEMA is DEFECT_SCHEMA
+
+    def test_trace_helpers_exported(self):
+        assert tracer.build_trace_finding is build_trace_finding
+        assert tracer.build_trace_report is build_trace_report
 
     def test_get_defect_exported(self):
         assert tracer.get_defect is get_defect
@@ -249,6 +348,24 @@ class TestDefectTypedDict:
             assert isinstance(defect["title"], str)
             assert isinstance(defect["description"], str)
             assert isinstance(defect["axiom"], str)
+
+    def test_trace_types_can_be_instantiated(self):
+        finding: TraceFinding = {
+            "defect_id": "DEFECT_01",
+            "title": "Bulk Approval Without Scrutiny",
+            "description": "Example",
+            "axiom": "Example axiom",
+            "evidence": "Example evidence",
+            "notes": "Example notes",
+        }
+        report: TraceReport = {
+            "generated_at": "2026-04-12T12:44:19+00:00",
+            "reasoning": "Example reasoning",
+            "defect_ids": ["DEFECT_01"],
+            "findings": [finding],
+        }
+
+        assert report["findings"][0]["defect_id"] == "DEFECT_01"
 
 
 # ---------------------------------------------------------------------------

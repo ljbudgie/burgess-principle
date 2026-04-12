@@ -28,7 +28,7 @@ export default {
     }
 
     if (!env.ANTHROPIC_API_KEY) {
-      return jsonResponse({ error: "ANTHROPIC_API_KEY is not configured." }, 503);
+      return jsonResponse({ error: "Server configuration error: ANTHROPIC_API_KEY is not set." }, 503);
     }
 
     let body = "";

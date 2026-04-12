@@ -50,6 +50,28 @@ def test_materialize_path_maps_root_to_index():
     )
 
 
+def test_parse_args_uses_cli_defaults(monkeypatch, tmp_path):
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "generate_pwa_update_manifest.py",
+            "--version",
+            "2.0.0",
+            "--seed-hex",
+            "11" * 32,
+        ],
+    )
+    monkeypatch.setattr(_MODULE, "__file__", str(tmp_path / "scripts" / "generate_pwa_update_manifest.py"))
+
+    args = _MODULE.parse_args()
+
+    assert args.version == "2.0.0"
+    assert args.seed_hex == "11" * 32
+    assert args.output == _MODULE.DEFAULT_OUTPUT
+    assert args.key_id == _MODULE.DEFAULT_KEY_ID
+    assert args.repo_root == (tmp_path / "scripts" / "generate_pwa_update_manifest.py").resolve().parents[1]
+
+
 def test_main_writes_signed_manifest(monkeypatch, tmp_path):
     signing_key = SigningKey.generate()
     seed_hex = signing_key.encode().hex()
@@ -119,3 +141,30 @@ def test_main_raises_when_required_asset_is_missing(monkeypatch, tmp_path):
 
     with pytest.raises(FileNotFoundError, match="Missing asset for signed manifest"):
         _MODULE.main()
+
+
+def test_main_uses_default_output_path_when_not_overridden(monkeypatch, tmp_path):
+    signing_key = SigningKey.generate()
+    seed_hex = signing_key.encode().hex()
+
+    for web_path in _MODULE.DEFAULT_PATHS:
+        _write_repo_asset(tmp_path, web_path, f"default:{web_path}".encode("utf-8"))
+
+    monkeypatch.setattr(
+        _MODULE,
+        "parse_args",
+        lambda: argparse.Namespace(
+            repo_root=tmp_path,
+            version="1.2.3",
+            seed_hex=seed_hex,
+            output=_MODULE.DEFAULT_OUTPUT,
+            key_id=_MODULE.DEFAULT_KEY_ID,
+        ),
+    )
+
+    _MODULE.main()
+
+    manifest_path = tmp_path / _MODULE.DEFAULT_OUTPUT
+    assert manifest_path.exists()
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest["key_id"] == _MODULE.DEFAULT_KEY_ID

@@ -2,32 +2,42 @@
 
 Hi 👋
 
-If the Burgess Principle helped you in any way — even a small win — we'd love to hear about it.
+If the Burgess Principle helped you in any way — even a small win, a clearer reply, or simply feeling more seen — we would love to hear about it.
 
-Your story could encourage someone else who feels unseen by a system.
+Stories help other people realise they are not the only one dealing with an institution that feels distant, automated, or impossible to reach.
 
-### How to Submit
-You can share your experience in one of these easy ways:
+## How to submit
 
-1. **Quick & Simple**  
-   Open an issue on the repository.  
-   (You can stay completely anonymous if you prefer.)
+Please use one of these repo-based paths:
 
-2. **Via GitHub** (if you're comfortable)  
-   Open an issue on the repo and title it "Story / Win".  
-   Or submit a pull request to add your story to `USER_STORIES.md`.
+1. **Open an issue**  
+   Open an issue on the repository and title it **Story / Win**.  
+   If you want, you can stay anonymous by removing names, dates, reference numbers, and anything identifying before you post.
 
-### What to Include (optional)
-- What situation you faced (e.g. energy bill, council issue, credit decision, reasonable adjustment request)
-- Which template or approach you used
-- What happened after (the outcome, even if small)
-- How it made you feel (optional)
+2. **Open a pull request**  
+   If you are comfortable editing markdown, you can submit a pull request that updates [`USER_STORIES.md`](./USER_STORIES.md).
 
-We only publish kind, hopeful stories that show the human side. No drama needed.
+## What to include (optional)
 
-Stories may be added to USER_STORIES.md with your permission.
+- What happened
+- Which template, Iris flow, or approach you used
+- Whether the reply felt **SOVEREIGN**, **NULL**, or **AMBIGUOUS**
+- What happened next
+- Anything that made the process easier for you
+- Whether you want the story shared anonymously or with your name
 
-Thank you for helping make the Burgess Principle more useful for everyone.
+## What we publish
+
+We aim to include stories that are:
+
+- kind and grounded
+- useful to other people
+- respectful in tone
+- careful about privacy
+
+If your experience is a fully documented institutional case, it may be better suited to the [`case-studies/`](../case-studies) folder. If it is a shorter personal account, it likely belongs in [`USER_STORIES.md`](./USER_STORIES.md).
+
+Thank you for helping make the Burgess Principle more useful for other people.
 
 Every story matters.
 

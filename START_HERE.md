@@ -4,6 +4,8 @@ Welcome 👋
 
 If you're feeling stressed, overwhelmed, or unseen by a system — you're in the right place.
 
+If you want one canonical entry point first, start with [`CHOOSE_YOUR_PATH.md`](./CHOOSE_YOUR_PATH.md).
+
 > **Need help right now?** Talk to **[Iris](https://burgess-principle.vercel.app)**, the AI companion for the Burgess Principle — or pick a [template](./templates) that matches your situation and send it today. On a phone in Sovereign Mode, tap **+ New Claim** to jump straight into the mobile claim builder, voice capture, encrypted phone vault flow, and optional **Mirror Mode** identity layer. You don't need to read anything else first. You can also clone the repo and drop it into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant — describe what happened and it will write a personalised letter for you.
 
 The Burgess Principle gives you **one calm question** to ask any institution:
@@ -27,6 +29,8 @@ You can also explore the principle on the website and talk to **Iris**, the AI c
 3. **Choose the small starter model first.** Phi-3 Mini is the easiest local starting point on ordinary laptops.
 4. **If downloads are slow, RAM is tight, or antivirus interrupts setup, do not force it.** Check the troubleshooting notes in [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) and come back calmly.
 5. **If an institution replies with vague wording instead of a straight answer, use the dedicated follow-up template**: [`templates/FOLLOW_UP_WEASEL_RESPONSE.md`](templates/FOLLOW_UP_WEASEL_RESPONSE.md).
+6. **After your first local setup, export one Backup Bundle** so your profile, vault, Memory Palace state, receipts, and hub settings can be restored on another device.
+6. **After your first local setup, export one Backup Bundle** so your profile, vault, Memory Palace state, receipts, and hub settings can be restored on another device.
 
 ---
 

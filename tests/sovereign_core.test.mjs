@@ -72,6 +72,7 @@ test('audit engine builds merkle proofs and validates chains', async () => {
   const merkle = await audit.buildMerkleState(['a', 'b', 'c'], 1);
   assert.match(merkle.root, /^[0-9a-f]{64}$/);
   assert.equal(merkle.proof.length > 0, true);
+  assert.equal(await audit.verifyMerkleProof('b', merkle.proof, merkle.root), true);
   const verified = await audit.verifySequentialChain([
     { id: 'one', previous_commitment_hash: '', commitment_hash: 'a' },
     { id: 'two', previous_commitment_hash: 'a', commitment_hash: 'b' },

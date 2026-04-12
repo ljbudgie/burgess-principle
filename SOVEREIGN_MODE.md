@@ -85,7 +85,7 @@ Once `python3 iris-local.py` is running, open `http://localhost:8000` on the pho
 4. Open **Claim profile & phone settings** and save the local profile fields once.
 5. If you want Iris to reflect your local identity automatically, enter your name, choose a passphrase, tap **Setup My Identity**, and enable **Mirror Mode**.
 6. Set a Vault passphrase, then generate or save claims directly from the phone.
-7. Use **Export Vault** / **Import Vault** to move the encrypted phone vault between the phone and a laptop with a `.vault` file.
+7. Use **Export Backup Bundle** / **Import Backup Bundle** to move the encrypted phone vault, local profile, Memory Palace state, receipts, hub pairing state, and local extension packs between devices with a `.vault` file.
 
 The phone PWA keeps the claim profile, encrypted local vault copies, Mirror Mode preferences, 14-day reminders, quick actions, and service-worker notifications on the device. Nothing is sent to any external service.
 
@@ -215,6 +215,7 @@ These templates remain **advisory only**. They create local commitments and revi
 
 - **Memory Palace ledger** — encrypted memory blocks for claims, trigger events, governance changes, and hub audits, all chained by `prevHash` and sealed with fresh Ed25519 signatures.
 - **Merkle-root verification** — Iris recomputes roots locally, verifies signatures, and can export a signed receipt bundle with an inclusion proof.
+- **Human-friendly receipt verification** — the local UI can open a receipt JSON file and report, in plain language, whether the entry signature, root signature, and inclusion proof still verify.
 - **Derived long-term memory** — claims, trigger ledger entries, Mirror Mode changes, and hub sync audits can be recommitted into the Memory Palace ledger without sending facts anywhere else.
 - **Hub Mode 2.0** — manual push/pull of commitment deltas, local queueing for intermittent links, pinned hub public keys, and a Dockerizable self-hosted hub example in `sovereign-hub-example/`.
 
@@ -224,12 +225,20 @@ These templates remain **advisory only**. They create local commitments and revi
 2. Open **Memory Palace** and enter a dedicated passphrase.
 3. Optionally enable **device-only background unlock** so Chromium-class browsers can refresh memory roots without asking for the passphrase again.
 4. Add a manual note or click **Unlock & refresh** to import claim / trigger / governance events into the Memory Palace ledger.
-5. For hub coordination:
+5. Use **Verify receipt file** when you want a plain-language local audit of an exported Memory Palace receipt.
+6. For hub coordination:
     - start the sample hub in `sovereign-hub-example/`,
     - verify `GET /api/hub/hello`,
     - paste the pairing JSON into Iris,
     - pin the returned Ed25519 public key,
     - use **Push commitments** or **Pull commitments**.
+
+### Backup bundles, schemas, and extension packs
+
+- **Backup Bundle:** the local `.vault` export now carries app metadata, hub state, Memory Palace settings, extension packs, and per-section SHA-256 integrity checks.
+- **Schemas:** versioned JSON schemas live in [`/schemas`](./schemas) for claim packages, memory receipts, profile exports, commitment bundles, backup bundles, and extension-pack manifests.
+- **Integration contract:** supported endpoints and file formats are listed in [`INTEGRATION_CONTRACT.md`](./INTEGRATION_CONTRACT.md).
+- **Extension packs:** manifest-based local packs can add template shortcuts, trigger presets, and claim export adapters without loading remote code. See [`EXTENSION_PACKS.md`](./EXTENSION_PACKS.md).
 
 ### Hardwired connectivity options for personal environmental preferences
 

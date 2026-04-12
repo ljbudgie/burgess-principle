@@ -4,7 +4,7 @@
   "signed_payload": {
     "app_id": "iris-sovereign-pwa",
     "version": "1.1.1-phase1",
-    "issued_at": "2026-04-12T00:14:18.684780Z",
+    "issued_at": "2026-04-12T00:17:22.960474Z",
     "hash_algorithm": "sha256",
     "consent_required": true,
     "critical_paths": [
@@ -17,11 +17,11 @@
     "assets": [
       {
         "path": "/",
-        "sha256": "f8603b598d4dfc83468e2319775aef7f98e6a152fb087eecdea4b6e59bfee166"
+        "sha256": "d78f026f13e9d9a080dbf4dafea92ed3e38ca6e87b747c4e4cdc5159019b5bea"
       },
       {
         "path": "/index.html",
-        "sha256": "f8603b598d4dfc83468e2319775aef7f98e6a152fb087eecdea4b6e59bfee166"
+        "sha256": "d78f026f13e9d9a080dbf4dafea92ed3e38ca6e87b747c4e4cdc5159019b5bea"
       },
       {
         "path": "/manifest.json",
@@ -29,7 +29,7 @@
       },
       {
         "path": "/service-worker.js",
-        "sha256": "e4ab6888f169a79e84ae2062057e36e67084e3b3cd21202c5c3a2a1834b43f01"
+        "sha256": "db891a4abdfec95dd00a9a20f772671d4ed1c8bca778ab3f214a61ac0f81a520"
       },
       {
         "path": "/banner.png",
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "signature": "1rIwDG73p7KEqdqMypBTQlI4LuJZlGuimAhDKCtm7Q5h4qNxkeP3+r/oApT8QTX6vf4p1oc2XXnE9V8vTphODA=="
+  "signature": "galct4R4HsW2JKAo40OK1sMC4WJ+NvxjtJmp87LA/HoAIZXzhWsBJc0unviulin8n4U0BVG1sRP48/n7pzeABQ=="
 }

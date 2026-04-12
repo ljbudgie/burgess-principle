@@ -166,6 +166,10 @@ No extra backend is required for Phase 2.
     - describing it in plain English and pressing **Parse local rule**, or
     - filling the form manually and pressing **Add trigger**.
 
+### Environmental trigger templates
+
+Connectivity-focused trigger templates — including **Fiber hardwired review** — now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md).
+
 ### Manual verification steps
 
 1. Add a keyword trigger for terms such as `benefits, dwp, reasonable adjustment`.
@@ -224,6 +228,18 @@ No extra backend is required for Phase 2.
 - **Schemas:** versioned JSON schemas live in [`/schemas`](./schemas) for claim packages, memory receipts, profile exports, commitment bundles, backup bundles, and extension-pack manifests.
 - **Integration contract:** supported endpoints and file formats are listed in [`INTEGRATION_CONTRACT.md`](./INTEGRATION_CONTRACT.md).
 - **Extension packs:** manifest-based local packs can add template shortcuts, trigger presets, and claim export adapters without loading remote code. See [`EXTENSION_PACKS.md`](./EXTENSION_PACKS.md).
+
+### Hardwired connectivity options for personal environmental preferences
+
+All connectivity profile setup options now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md).
+
+#### Diagram — Hardwired Connectivity Options Flow
+
+See [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md) for the moved connectivity flowchart and related setup notes.
+
+### Memory Palace environmental notes
+
+Environmental Memory Palace notes and assistive connectivity framing now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md).
 
 ### Manual verification steps
 

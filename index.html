@@ -1430,6 +1430,33 @@
             padding: 2px 6px;
         }
 
+        .trigger-preview,
+        .trigger-ledger-item {
+            border: 1px solid var(--border);
+            background: var(--bg-input);
+            border-radius: 10px;
+            padding: 10px 12px;
+            color: var(--text-dim);
+            font-size: 0.78rem;
+        }
+
+        .trigger-ledger {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .trigger-ledger-item strong {
+            color: var(--text);
+        }
+
+        .trigger-ledger-item code,
+        .trigger-preview code {
+            color: var(--gold);
+            word-break: break-all;
+        }
+
         .template-shortcuts {
             max-width: 720px;
             margin: 0 auto 12px;
@@ -1915,7 +1942,18 @@
                     </details>
                     <details class="claim-profile-panel" id="triggersPanel">
                         <summary>⚡ Sovereign Local Triggers</summary>
-                        <p class="claim-profile-desc">Define rules that run 100% locally on this device. When a trigger fires, Iris notifies you for a Burgess check. No data leaves this phone.</p>
+                        <p class="claim-profile-desc">Define encrypted, local-only rules that can spot patterns, queue gentle checks, and open a Burgess review flow. Every trigger event creates a fresh SHA-256 + Ed25519 commitment on this device.</p>
+                        <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
+                            <div class="claim-field"><label for="triggerPassphrase">Living Triggers passphrase</label><input id="triggerPassphrase" type="password" placeholder="Required to seal trigger rules with AES-256-GCM"></div>
+                            <label class="toggle-row" for="triggerBackgroundUnlockToggle"><input id="triggerBackgroundUnlockToggle" type="checkbox"> Allow device-only background unlock for trigger checks</label>
+                            <div class="claim-profile-status" id="triggerCryptoStatus">Trigger rules stay encrypted. Background checks need either this passphrase in the foreground or explicit device-only unlock consent.</div>
+                            <div class="claim-field"><label for="triggerNaturalLanguage">Describe a trigger in plain English</label><textarea id="triggerNaturalLanguage" rows="3" placeholder="If email or page contains 'DWP', 'benefits', 'universal credit', or 'reasonable adjustment', flag it for Burgess review."></textarea></div>
+                            <div class="claim-profile-actions">
+                                <button class="sidebar-action-btn" id="parseTriggerRuleBtn" type="button">🧠 Parse local rule</button>
+                                <button class="sidebar-action-btn" id="scanClipboardBtn" type="button">📋 Scan clipboard now</button>
+                                <button class="sidebar-action-btn" id="scanPageBtn" type="button">🪞 Scan current page</button>
+                            </div>
+                        </div>
                         <div id="triggersList" class="trigger-list"></div>
                         <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
                             <div class="claim-field"><label for="triggerLabel">Label</label><input id="triggerLabel" type="text" placeholder="e.g. Benefits review reminder"></div>
@@ -1924,15 +1962,24 @@
                                     <option value="keyword">Keyword match</option>
                                     <option value="periodic">Periodic check</option>
                                     <option value="scheduled">One-time scheduled</option>
+                                    <option value="voice_command">Voice command</option>
                                 </select>
                             </div>
+                            <div class="claim-field"><label for="triggerSources">Detection sources (comma-separated)</label><input id="triggerSources" type="text" placeholder="conversation, clipboard, page, voice"></div>
                             <div class="claim-field" id="triggerKeywordsField"><label for="triggerKeywords">Keywords (comma-separated)</label><input id="triggerKeywords" type="text" placeholder="benefits, DWP, HMRC, sanction"></div>
                             <div class="claim-field" id="triggerIntervalField" style="display:none;"><label for="triggerInterval">Interval (hours)</label><input id="triggerInterval" type="number" min="1" value="24" placeholder="24"></div>
                             <div class="claim-field" id="triggerScheduleField" style="display:none;"><label for="triggerSchedule">Date/time</label><input id="triggerSchedule" type="datetime-local"></div>
+                            <div class="claim-field" id="triggerVoiceField" style="display:none;"><label for="triggerVoicePhrase">Voice phrase</label><input id="triggerVoicePhrase" type="text" placeholder="help me now"></div>
                             <div class="claim-field"><label for="triggerDescription">Note (optional)</label><input id="triggerDescription" type="text" placeholder="Why this matters for your Burgess check"></div>
-                            <button class="sidebar-action-btn" id="addTriggerBtn" type="button">➕ Add trigger</button>
+                            <div class="claim-profile-actions">
+                                <button class="sidebar-action-btn" id="addTriggerBtn" type="button">➕ Add trigger</button>
+                                <button class="sidebar-action-btn" id="runTriggerCheckBtn" type="button">🔄 Run local trigger check</button>
+                                <button class="sidebar-action-btn" id="exportLatestTriggerReceiptBtn" type="button">🧾 Export latest receipt</button>
+                            </div>
                         </div>
-                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device and never leave it.</div>
+                        <div class="trigger-preview" id="triggerNotificationPreview">Notification preview: Potential Burgess review needed. Human review required before any SOVEREIGN/NULL decision.</div>
+                        <div class="trigger-ledger" id="triggerLedgerList"></div>
+                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device, use calm local notifications, and never send facts anywhere unless you export a signed receipt. On iPhone, full background reliability is best after Add to Home Screen and still depends on Safari limits.</div>
                     </details>
                     <details class="claim-profile-panel" id="hubModePanel">
                         <summary>🛰️ Sovereign Hub Mode</summary>
@@ -2220,7 +2267,7 @@
         const API_FINGERPRINT_QUEUE_URL = _isLocal ? `${window.location.origin}/api/queue-onchain-fingerprint` : '/api/queue-onchain-fingerprint';
         const API_PROFILE_URL = _isLocal ? `${window.location.origin}/api/my-profile` : '';
         const VAULT_DB_NAME = 'burgess-principle-vault';
-        const VAULT_DB_VERSION = 2;
+        const VAULT_DB_VERSION = 3;
         const VAULT_VERSION = '1.1.1';
         const PWA_CORE_VERSION = '1.1.1-phase1';
         const PWA_MANIFEST_URL = '/manifest.json';
@@ -2234,6 +2281,11 @@
         const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
         const TRIGGER_EVAL_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes — how often the app checks triggers
         const PERIODIC_SYNC_INTERVAL_MS = 12 * 60 * 60 * 1000; // 12 hours — periodic background sync
+        const TRIGGER_KEY_PBKDF2_ITERATIONS = 310000;
+        const TRIGGER_CRYPTO_SETTING_KEY = 'living-trigger-crypto';
+        const TRIGGER_LAST_RECEIPT_SETTING_KEY = 'living-trigger-last-receipt';
+        const TRIGGER_LAST_RECEIPT_ID_SETTING_KEY = 'living-trigger-last-receipt-id';
+        const TRIGGER_ADVISORY_NOTE = 'Triggers are advisory only. A human must still review the specific facts and decide SOVEREIGN or NULL.';
         const HUB_PBKDF2_ITERATIONS = 310000; // Hub uses pre-shared high-entropy secret; vault passphrase uses 600000
         const ICE_GATHERING_TIMEOUT_MS = 5000; // WebRTC ICE gathering timeout
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
@@ -2261,6 +2313,7 @@
         };
         const VAULT_PBKDF2_ITERATIONS = 600000;
         const WAKE_PHRASE_PATTERN = /^hey iris[\s,]+/i;
+        const HELP_ME_NOW_PATTERN = /\b(help me now|help me|urgent help)\b/i;
         const CLAIM_KEYWORDS_PATTERN = /(claim|freeze|froze|exchange|withdrawal|benefit|bailiff|penalty|review|human review)/i;
         const QUICK_ACTION_PROMPTS = {
             'new-claim': 'Please help me generate a new Burgess claim and save it to my sovereign vault.',
@@ -2666,6 +2719,343 @@
             return sha256Hex(bytes);
         }
 
+        async function deriveTriggerKeyMaterial(passphrase, salt) {
+            const material = await crypto.subtle.importKey(
+                'raw',
+                new TextEncoder().encode(passphrase),
+                'PBKDF2',
+                false,
+                ['deriveBits']
+            );
+            const bits = await crypto.subtle.deriveBits(
+                { name: 'PBKDF2', salt, iterations: TRIGGER_KEY_PBKDF2_ITERATIONS, hash: 'SHA-256' },
+                material,
+                256
+            );
+            return toBase64(new Uint8Array(bits));
+        }
+
+        async function encryptTriggerEnvelope(payload, keyB64) {
+            const key = await crypto.subtle.importKey('raw', fromBase64(keyB64), { name: 'AES-GCM' }, false, ['encrypt']);
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const ciphertext = await crypto.subtle.encrypt(
+                { name: 'AES-GCM', iv },
+                key,
+                new TextEncoder().encode(JSON.stringify(payload))
+            );
+            return {
+                encrypted: true,
+                algorithm: 'AES-GCM',
+                iv: toBase64(iv),
+                ciphertext: toBase64(new Uint8Array(ciphertext))
+            };
+        }
+
+        async function decryptTriggerEnvelope(envelope, keyB64) {
+            if (!envelope || !envelope.encrypted) return envelope || null;
+            const key = await crypto.subtle.importKey('raw', fromBase64(keyB64), { name: 'AES-GCM' }, false, ['decrypt']);
+            const plaintext = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv: fromBase64(envelope.iv) },
+                key,
+                fromBase64(envelope.ciphertext)
+            );
+            return JSON.parse(new TextDecoder().decode(plaintext));
+        }
+
+        function normalizeDetectionSources(value) {
+            const allowed = ['conversation', 'clipboard', 'page', 'voice'];
+            const items = Array.isArray(value)
+                ? value
+                : String(value || '')
+                    .split(',')
+                    .map(item => item.trim().toLowerCase())
+                    .filter(Boolean);
+            const normalized = [...new Set(items.filter(item => allowed.includes(item)))];
+            return normalized.length > 0 ? normalized : ['conversation'];
+        }
+
+        function extractQuotedPhrases(text) {
+            return Array.from(String(text || '').matchAll(/['"]([^'"]+)['"]/g)).map(match => match[1].trim()).filter(Boolean);
+        }
+
+        function sanitizeTriggerExcerpt(text, maxLength = 180) {
+            return String(text || '').replace(/\s+/g, ' ').trim().slice(0, maxLength);
+        }
+
+        function levenshteinDistance(a, b) {
+            const left = String(a || '');
+            const right = String(b || '');
+            const rows = Array.from({ length: left.length + 1 }, (_, index) => [index]);
+            for (let column = 0; column <= right.length; column += 1) {
+                rows[0][column] = column;
+            }
+            for (let row = 1; row <= left.length; row += 1) {
+                for (let column = 1; column <= right.length; column += 1) {
+                    const cost = left[row - 1] === right[column - 1] ? 0 : 1;
+                    rows[row][column] = Math.min(
+                        rows[row - 1][column] + 1,
+                        rows[row][column - 1] + 1,
+                        rows[row - 1][column - 1] + cost
+                    );
+                }
+            }
+            return rows[left.length][right.length];
+        }
+
+        function findMatchedKeywords(text, keywords) {
+            const haystack = String(text || '').toLowerCase();
+            const tokens = haystack.split(/[^a-z0-9]+/i).filter(Boolean);
+            const matches = [];
+            for (const keyword of keywords || []) {
+                const candidate = String(keyword || '').trim().toLowerCase();
+                if (!candidate) continue;
+                if (haystack.includes(candidate)) {
+                    matches.push(candidate);
+                    continue;
+                }
+                const fuzzy = tokens.some(token => Math.abs(token.length - candidate.length) <= 2 && levenshteinDistance(token, candidate) <= 1);
+                if (fuzzy) {
+                    matches.push(candidate);
+                }
+            }
+            return [...new Set(matches)];
+        }
+
+        function parseNaturalLanguageTriggerRule(text) {
+            const raw = String(text || '').trim();
+            if (!raw) {
+                throw new Error('Describe the trigger you want Iris to create.');
+            }
+            const lower = raw.toLowerCase();
+            const quoted = extractQuotedPhrases(raw);
+            const parsed = {
+                label: '',
+                type: 'keyword',
+                keywords: quoted.map(item => item.toLowerCase()),
+                interval_hours: 24,
+                schedule_iso: '',
+                voice_phrase: '',
+                detection_sources: normalizeDetectionSources([
+                    lower.includes('clipboard') ? 'clipboard' : '',
+                    lower.includes('page') || lower.includes('screen') ? 'page' : '',
+                    lower.includes('voice') || lower.includes('spoken') ? 'voice' : '',
+                    lower.includes('email') || lower.includes('chat') || lower.includes('message') ? 'conversation' : ''
+                ]),
+                description: raw,
+            };
+            if (lower.includes('daily')) {
+                parsed.type = 'periodic';
+                parsed.interval_hours = 24;
+                parsed.label = 'Daily sovereign check-in';
+            }
+            const everyHours = lower.match(/every\s+(\d+)\s*(hour|hours|hr|hrs)/);
+            if (everyHours) {
+                parsed.type = 'periodic';
+                parsed.interval_hours = Math.max(1, parseInt(everyHours[1], 10) || 24);
+                parsed.label = `Every ${parsed.interval_hours}h sovereign check`;
+            }
+            if (lower.includes('help me now') || lower.includes('voice command') || lower.includes('after voice command')) {
+                parsed.type = 'voice_command';
+                parsed.voice_phrase = quoted[0] || 'help me now';
+                parsed.label = 'Voice help-me trigger';
+                parsed.detection_sources = normalizeDetectionSources(['voice']);
+            }
+            if (lower.includes('reminder') && parsed.type === 'keyword') {
+                parsed.type = 'periodic';
+                parsed.interval_hours = 24;
+                parsed.label = 'Daily Burgess reminder';
+            }
+            if (lower.includes('reasonable adjustment') && !parsed.keywords.includes('reasonable adjustment')) {
+                parsed.keywords.push('reasonable adjustment');
+            }
+            if (lower.includes('benefits') && !parsed.keywords.includes('benefits')) {
+                parsed.keywords.push('benefits');
+            }
+            if (lower.includes('dwp') && !parsed.keywords.includes('dwp')) {
+                parsed.keywords.push('dwp');
+            }
+            if (!parsed.label) {
+                parsed.label = parsed.type === 'voice_command'
+                    ? 'Voice sovereign trigger'
+                    : parsed.type === 'periodic'
+                        ? 'Scheduled sovereign check'
+                        : 'Keyword sovereign trigger';
+            }
+            return parsed;
+        }
+
+        function buildTriggerNotificationPreview(trigger) {
+            const base = trigger && trigger.label
+                ? trigger.label
+                : 'Potential Burgess review needed';
+            const body = trigger && trigger.description
+                ? `${trigger.description}. Human review required before any SOVEREIGN/NULL decision.`
+                : 'Potential Burgess review needed. Human review required before any SOVEREIGN/NULL decision.';
+            return { title: base, body };
+        }
+
+        function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source = 'conversation', trigger = {} }) {
+            const lower = String(text || '').toLowerCase();
+            let score = 0.18 + Math.min(0.32, matchedKeywords.length * 0.12);
+            const weightMap = [
+                { pattern: /(benefit|dwp|universal credit|sanction)/, add: 0.18, question: 'Was a named human able to review the benefits facts personally?' },
+                { pattern: /(reasonable adjustment|disability|accessibility)/, add: 0.2, question: 'Who personally considered the requested adjustment and the specific barriers?' },
+                { pattern: /(urgent|deadline|court|enforcement|bailiff|fraud)/, add: 0.16, question: 'Is there an urgent decision or enforcement step that needs a documented human review?' },
+                { pattern: /(help me now|help me|panic)/, add: 0.2, question: 'Do you need an immediate human review flow to stabilise the situation?' },
+            ];
+            const suggested_questions = [];
+            for (const item of weightMap) {
+                if (item.pattern.test(lower)) {
+                    score += item.add;
+                    suggested_questions.push(item.question);
+                }
+            }
+            if (source === 'voice') {
+                score += 0.08;
+            }
+            const bounded = Math.max(0.05, Math.min(0.95, score));
+            return {
+                advisory_only: true,
+                source,
+                matched_keywords: matchedKeywords,
+                risk_level: bounded >= 0.72 ? 'high' : bounded >= 0.45 ? 'medium' : 'low',
+                confidence: Number(bounded.toFixed(2)),
+                suggested_questions: suggested_questions.length > 0 ? suggested_questions : [
+                    'Was a human member of the team able to review the specific facts personally?',
+                    'What named person, team, or role can confirm the review?'
+                ],
+                rationale: `Local advisory score only for ${trigger.label || 'trigger'} — ${TRIGGER_ADVISORY_NOTE}`
+            };
+        }
+
+        async function ensureTriggerCryptoProfile(passphrase, allowBackgroundUnlock) {
+            const existing = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
+            if (existing && existing.wrapped_key) {
+                return existing;
+            }
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const masterKeyB64 = toBase64(crypto.getRandomValues(new Uint8Array(32)));
+            const wrappedKeyB64 = await deriveTriggerKeyMaterial(passphrase, salt);
+            const ledgerIdentity = await crypto.subtle.generateKey({ name: 'Ed25519' }, true, ['sign', 'verify']);
+            const ledgerPrivateKeyJwk = await crypto.subtle.exportKey('jwk', ledgerIdentity.privateKey);
+            const ledgerPublicKeyRaw = new Uint8Array(await crypto.subtle.exportKey('raw', ledgerIdentity.publicKey));
+            const profile = {
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+                salt: toBase64(salt),
+                wrapped_key: await encryptTriggerEnvelope({ master_key_b64: masterKeyB64 }, wrappedKeyB64),
+                background_unlock_enabled: Boolean(allowBackgroundUnlock),
+                background_key_b64: allowBackgroundUnlock ? masterKeyB64 : '',
+                ledger_private_key_jwk: ledgerPrivateKeyJwk,
+                ledger_public_key_hex: bytesToHex(ledgerPublicKeyRaw),
+            };
+            await vaultStore.saveSetting(TRIGGER_CRYPTO_SETTING_KEY, profile);
+            return profile;
+        }
+
+        async function resolveTriggerMasterKey(passphrase = '') {
+            const profile = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
+            if (!profile || typeof profile !== 'object') {
+                return null;
+            }
+            if (profile.background_key_b64) {
+                return profile.background_key_b64;
+            }
+            const phrase = String(passphrase || '').trim();
+            if (!phrase) {
+                return null;
+            }
+            const wrappingKey = await deriveTriggerKeyMaterial(phrase, fromBase64(profile.salt));
+            const wrapped = await decryptTriggerEnvelope(profile.wrapped_key, wrappingKey);
+            return wrapped && wrapped.master_key_b64 ? wrapped.master_key_b64 : null;
+        }
+
+        async function importTriggerLedgerPrivateKey() {
+            const profile = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
+            if (!profile || !profile.ledger_private_key_jwk) {
+                return null;
+            }
+            return crypto.subtle.importKey('jwk', profile.ledger_private_key_jwk, { name: 'Ed25519' }, false, ['sign']);
+        }
+
+        async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence = {}, inference = {}, notification = {}, status = 'recorded' }) {
+            const previous_commitment_hash = String(await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY) || '');
+            const triggerRules = trigger && trigger.encrypted_payload && trigger.decrypted_payload ? trigger.decrypted_payload : null;
+            const rule_hash = await sha256Hex(canonicalizeForSignature({
+                id: trigger.id,
+                type: trigger.type,
+                label: trigger.label,
+                detection_sources: trigger.detection_sources || [],
+                encrypted_payload: triggerRules || trigger.encrypted_payload || {},
+            }));
+            const evidence_hash = await sha256Hex(canonicalizeForSignature(evidence || {}));
+            const inference_hash = await sha256Hex(canonicalizeForSignature(inference || {}));
+            const payload = {
+                trigger_id: trigger.id,
+                label: trigger.label,
+                event_type,
+                source: source || 'local',
+                status,
+                advisory_only: true,
+                previous_commitment_hash,
+                rule_hash,
+                evidence_hash,
+                inference_hash,
+                notification,
+                timestamp: new Date().toISOString(),
+                nonce: generateSecureId('trigger-ledger'),
+            };
+            const commitment_hash = await sha256Hex(canonicalizeForSignature(payload));
+            let signature = '';
+            let public_key_hex = '';
+            const signingKey = await importTriggerLedgerPrivateKey();
+            const profile = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
+            if (signingKey && profile && profile.ledger_public_key_hex) {
+                const signed = await crypto.subtle.sign('Ed25519', signingKey, new TextEncoder().encode(canonicalizeForSignature(payload)));
+                signature = bytesToHex(new Uint8Array(signed));
+                public_key_hex = profile.ledger_public_key_hex;
+            }
+            const entry = {
+                id: generateSecureId('trigger-ledger'),
+                trigger_id: trigger.id,
+                label: trigger.label,
+                event_type,
+                source: source || 'local',
+                status,
+                created_at: payload.timestamp,
+                previous_commitment_hash,
+                rule_hash,
+                evidence_hash,
+                inference_hash,
+                commitment_hash,
+                signature,
+                public_key_hex,
+                advisory_only: true,
+                evidence_excerpt: sanitizeTriggerExcerpt(evidence.text_excerpt || evidence.summary || ''),
+                notification_title: notification.title || '',
+                notification_body: notification.body || '',
+                inference,
+            };
+            await vaultStore.put('triggerLedger', entry);
+            await vaultStore.saveSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY, commitment_hash);
+            if (event_type === 'queued' || event_type === 'notified' || event_type === 'fired') {
+                const receipt = {
+                    ...entry,
+                    receipt_export_version: 1,
+                    trigger_summary: {
+                        id: trigger.id,
+                        label: trigger.label,
+                        type: trigger.type,
+                        detection_sources: trigger.detection_sources || [],
+                        description: trigger.description || '',
+                    },
+                };
+                await vaultStore.put('triggerReceipts', receipt);
+                await vaultStore.saveSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY, receipt.id);
+            }
+            return entry;
+        }
+
         function getIdentityPayload() {
             const payload = Object.fromEntries(
                 Object.entries(identityFields)
@@ -2815,6 +3205,15 @@
                     if (!db.objectStoreNames.contains('triggers')) {
                         db.createObjectStore('triggers', { keyPath: 'id' });
                     }
+                    if (!db.objectStoreNames.contains('triggerQueue')) {
+                        db.createObjectStore('triggerQueue', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('triggerLedger')) {
+                        db.createObjectStore('triggerLedger', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('triggerReceipts')) {
+                        db.createObjectStore('triggerReceipts', { keyPath: 'id' });
+                    }
                     if (!db.objectStoreNames.contains('pushSubscription')) {
                         db.createObjectStore('pushSubscription', { keyPath: 'key' });
                     }
@@ -2841,6 +3240,15 @@
         }
 
         const vaultStore = {
+            async get(storeName, id) {
+                const result = await withStore(storeName, 'readonly', (store, resolve) => {
+                    const request = store.get(id);
+                    request.onsuccess = () => resolve(request.result || null);
+                });
+                if (result !== null) return result;
+                const fallback = getFallbackStore();
+                return (fallback[storeName] || []).find(item => item.id === id || item.key === id) || null;
+            },
             async getAll(storeName) {
                 const result = await withStore(storeName, 'readonly', (store, resolve) => {
                     const request = store.getAll();
@@ -3294,11 +3702,17 @@
                 settings: {
                     highContrast: Boolean(await vaultStore.getSetting('high-contrast')),
                     pushEnabled: Boolean(await vaultStore.getSetting('push-enabled')),
+                    triggerCrypto: await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY),
+                    triggerLedgerHead: await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY),
+                    triggerLastReceiptId: await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY),
                 },
                 claims: await vaultStore.getAll('claims'),
                 reminders: await vaultStore.getAll('reminders'),
                 fingerprintQueue: await vaultStore.getAll('fingerprintQueue'),
                 triggers: await vaultStore.getAll('triggers'),
+                triggerQueue: await vaultStore.getAll('triggerQueue'),
+                triggerLedger: await vaultStore.getAll('triggerLedger'),
+                triggerReceipts: await vaultStore.getAll('triggerReceipts'),
             };
             const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -3328,13 +3742,22 @@
                 await vaultStore.saveSetting('high-contrast', payload.settings.highContrast);
                 applyHighContrast(payload.settings.highContrast);
             }
+            if (payload.settings && payload.settings.triggerCrypto) {
+                await vaultStore.saveSetting(TRIGGER_CRYPTO_SETTING_KEY, payload.settings.triggerCrypto);
+            }
+            if (payload.settings && payload.settings.triggerLedgerHead) {
+                await vaultStore.saveSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY, payload.settings.triggerLedgerHead);
+            }
+            if (payload.settings && payload.settings.triggerLastReceiptId) {
+                await vaultStore.saveSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY, payload.settings.triggerLastReceiptId);
+            }
             if (payload.personalIdentitySummary && typeof payload.personalIdentitySummary === 'object') {
                 await vaultStore.saveSetting(PERSONAL_IDENTITY_SUMMARY_KEY, payload.personalIdentitySummary);
             }
             if (payload.personalIdentityVault && typeof payload.personalIdentityVault === 'object') {
                 await vaultStore.saveSetting(PERSONAL_IDENTITY_VAULT_KEY, payload.personalIdentityVault);
             }
-            for (const storeName of ['claims', 'reminders', 'fingerprintQueue', 'triggers']) {
+            for (const storeName of ['claims', 'reminders', 'fingerprintQueue', 'triggers', 'triggerQueue', 'triggerLedger', 'triggerReceipts']) {
                 const items = Array.isArray(payload[storeName]) ? payload[storeName] : [];
                 for (const item of items) {
                     await vaultStore.put(storeName, item);
@@ -3343,6 +3766,7 @@
             await applyStoredProfile();
             await hydratePersonalIdentity();
             await renderTriggers().catch(() => 0);
+            await renderTriggerLedger().catch(() => 0);
             profileStatus.textContent = 'Vault imported locally. Claims will survive browser restarts and phone reboots.';
             announceStatus('Vault imported locally.');
         }
@@ -3553,6 +3977,11 @@
                             setPwaFoundationStatus('Critical PWA assets refreshed. Offline shell is current for this device.');
                         }
                     }
+                    if (event.data.type === 'TRIGGER_QUEUE_PROCESSED') {
+                        renderTriggers().catch(() => undefined);
+                        renderTriggerLedger().catch(() => undefined);
+                        setTriggersStatus(`Processed ${event.data.processed || 0} queued trigger notification${event.data.processed === 1 ? '' : 's'} locally.`, 'success');
+                    }
                 });
 
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
@@ -3598,6 +4027,7 @@
                 // A trigger notification brought the user here — show a Burgess check prompt
                 startNewClaimFlow('A local trigger fired on this device. I need to run a Burgess check — was a human member of the team able to personally review the specific facts of my specific situation?');
             }
+            applyTriggerReceiptFromLocation().catch(() => undefined);
         }
 
         // ------------------------------------------------------------------ //
@@ -3645,8 +4075,10 @@
                     return;
                 }
                 const wakePhrase = WAKE_PHRASE_PATTERN.test(finalText);
+                const urgentHelp = HELP_ME_NOW_PATTERN.test(finalText);
                 const likelyClaim = CLAIM_KEYWORDS_PATTERN.test(finalText);
-                if (wakePhrase || likelyClaim) {
+                await evaluateTriggerText(finalText, 'voice').catch(() => false);
+                if (wakePhrase || likelyClaim || urgentHelp) {
                     setVoiceStatus('Voice capture complete. Generating a sovereign claim flow now.', 'active');
                     await sendMessage({ text: finalText, autoGenerateClaim: true, source: 'voice' });
                 } else {
@@ -3900,6 +4332,7 @@
             if (currentWelcome) currentWelcome.remove();
             appendMessage('You', text, 'user');
             conversationHistory.push({ role: 'user', content: text });
+            evaluateTriggerText(text, 'conversation').catch(() => 0);
             updateActionButtons();
             userInput.value = '';
             userInput.style.height = 'auto';
@@ -3960,7 +4393,7 @@
                 contentEl.innerHTML = renderMarkdown(fullText);
                 messagesEl.scrollTop = messagesEl.scrollHeight;
                 conversationHistory.push({ role: 'assistant', content: fullText });
-                checkKeywordTriggers(fullText).catch(() => 0);
+                evaluateTriggerText(fullText, 'conversation').catch(() => 0);
                 updateActionButtons();
                 showClaimActions();
                 if (options.autoGenerateClaim) {
@@ -4017,31 +4450,175 @@
         // ------------------------------------------------------------------ //
         const triggersList = document.getElementById('triggersList');
         const triggerLabel = document.getElementById('triggerLabel');
+        const triggerPassphrase = document.getElementById('triggerPassphrase');
+        const triggerBackgroundUnlockToggle = document.getElementById('triggerBackgroundUnlockToggle');
+        const triggerCryptoStatus = document.getElementById('triggerCryptoStatus');
+        const triggerNaturalLanguage = document.getElementById('triggerNaturalLanguage');
+        const parseTriggerRuleBtn = document.getElementById('parseTriggerRuleBtn');
+        const scanClipboardBtn = document.getElementById('scanClipboardBtn');
+        const scanPageBtn = document.getElementById('scanPageBtn');
         const triggerType = document.getElementById('triggerType');
+        const triggerSources = document.getElementById('triggerSources');
         const triggerKeywords = document.getElementById('triggerKeywords');
         const triggerInterval = document.getElementById('triggerInterval');
         const triggerSchedule = document.getElementById('triggerSchedule');
+        const triggerVoicePhrase = document.getElementById('triggerVoicePhrase');
         const triggerDescription = document.getElementById('triggerDescription');
         const addTriggerBtn = document.getElementById('addTriggerBtn');
+        const runTriggerCheckBtn = document.getElementById('runTriggerCheckBtn');
+        const exportLatestTriggerReceiptBtn = document.getElementById('exportLatestTriggerReceiptBtn');
         const triggersStatus = document.getElementById('triggersStatus');
+        const triggerNotificationPreview = document.getElementById('triggerNotificationPreview');
+        const triggerLedgerList = document.getElementById('triggerLedgerList');
         const triggerKeywordsField = document.getElementById('triggerKeywordsField');
         const triggerIntervalField = document.getElementById('triggerIntervalField');
         const triggerScheduleField = document.getElementById('triggerScheduleField');
+        const triggerVoiceField = document.getElementById('triggerVoiceField');
 
-        triggerType.addEventListener('change', () => {
+        function setTriggersStatus(message, tone = '') {
+            triggersStatus.textContent = message;
+            triggersStatus.className = 'claim-profile-status' + (tone ? ` is-${tone}` : '');
+            announceStatus(message);
+        }
+
+        function setTriggerCryptoStatus(message, tone = '') {
+            triggerCryptoStatus.textContent = message;
+            triggerCryptoStatus.className = 'claim-profile-status' + (tone ? ` is-${tone}` : '');
+        }
+
+        function syncTriggerTypeFields() {
             triggerKeywordsField.style.display = triggerType.value === 'keyword' ? '' : 'none';
             triggerIntervalField.style.display = triggerType.value === 'periodic' ? '' : 'none';
             triggerScheduleField.style.display = triggerType.value === 'scheduled' ? '' : 'none';
+            triggerVoiceField.style.display = triggerType.value === 'voice_command' ? '' : 'none';
+        }
+
+        triggerType.addEventListener('change', () => {
+            syncTriggerTypeFields();
+            updateTriggerNotificationPreview();
         });
+
+        function parseTriggerSourcesField(value) {
+            return normalizeDetectionSources(value || triggerSources.value);
+        }
+
+        async function hydrateTriggerSecurityState() {
+            const profile = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
+            if (profile && typeof profile === 'object') {
+                triggerBackgroundUnlockToggle.checked = Boolean(profile.background_unlock_enabled);
+                setTriggerCryptoStatus(
+                    profile.background_unlock_enabled
+                        ? 'Device-only background unlock is enabled. The encrypted trigger vault can run periodic checks without asking for the passphrase again.'
+                        : 'Trigger rules stay sealed until you unlock them in the foreground with your passphrase.',
+                    profile.background_unlock_enabled ? 'success' : ''
+                );
+            }
+        }
+
+        function updateTriggerNotificationPreview(trigger = null, inference = null) {
+            const draft = trigger || {
+                label: triggerLabel.value.trim(),
+                description: triggerDescription.value.trim(),
+            };
+            const preview = buildTriggerNotificationPreview(draft);
+            const advisory = inference
+                ? `Risk: <code>${escapeHtml(inference.risk_level)}</code> (${escapeHtml(String(inference.confidence))}).`
+                : 'Human review required before any SOVEREIGN/NULL decision.';
+            triggerNotificationPreview.innerHTML = `Notification preview: <strong>${escapeHtml(preview.title)}</strong><br>${escapeHtml(preview.body)}<br>${advisory}`;
+        }
+
+        function buildTriggerPrefillPrompt(trigger, evidence, inference) {
+            const questions = Array.isArray(inference && inference.suggested_questions) ? inference.suggested_questions.slice(0, 2) : [];
+            return [
+                `A Living Trigger fired on this device for "${trigger.label}".`,
+                evidence && evidence.text_excerpt ? `Context: ${evidence.text_excerpt}` : '',
+                trigger.description ? `Why it matters: ${trigger.description}` : '',
+                questions.length > 0 ? `Please guide a Burgess review using these questions: ${questions.join(' ')}` : 'Please help me run a Burgess review — was a human member of the team able to review the specific facts personally?'
+            ].filter(Boolean).join(' ');
+        }
+
+        async function decryptTriggerRecord(trigger, passphrase = triggerPassphrase.value.trim()) {
+            const key = await resolveTriggerMasterKey(passphrase);
+            if (!key) {
+                return null;
+            }
+            return decryptTriggerEnvelope(trigger.encrypted_payload, key);
+        }
+
+        async function upsertTriggerRecord(summary, rules, passphrase, allowBackgroundUnlock) {
+            const profile = await ensureTriggerCryptoProfile(passphrase, allowBackgroundUnlock);
+            if (allowBackgroundUnlock && !profile.background_key_b64) {
+                const wrappingKey = await deriveTriggerKeyMaterial(passphrase, fromBase64(profile.salt));
+                const unlocked = await decryptTriggerEnvelope(profile.wrapped_key, wrappingKey);
+                profile.background_unlock_enabled = true;
+                profile.background_key_b64 = unlocked && unlocked.master_key_b64 ? unlocked.master_key_b64 : '';
+                profile.updated_at = new Date().toISOString();
+                await vaultStore.saveSetting(TRIGGER_CRYPTO_SETTING_KEY, profile);
+            }
+            const masterKey = await resolveTriggerMasterKey(passphrase);
+            const encrypted_payload = await encryptTriggerEnvelope(rules, masterKey);
+            const next = {
+                ...summary,
+                encrypted_payload,
+                detection_sources: normalizeDetectionSources(summary.detection_sources),
+                keywords_hash: await sha256Hex((rules.keywords || []).join('|')),
+                updated_at: new Date().toISOString(),
+            };
+            await vaultStore.put('triggers', next);
+            return next;
+        }
+
+        function createTriggerSummaryFromForm() {
+            return {
+                id: generateSecureId('trigger'),
+                label: triggerLabel.value.trim(),
+                type: triggerType.value,
+                enabled: true,
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+                description: triggerDescription.value.trim(),
+                detection_sources: parseTriggerSourcesField(),
+                last_fired_at: '',
+                last_evaluated_at: '',
+                last_match_source: '',
+                last_commitment_hash: '',
+                chain_head: '',
+                notified: false,
+                queue_depth: 0,
+                interval_hours: triggerType.value === 'periodic' ? (parseInt(triggerInterval.value, 10) || 24) : 0,
+                schedule_iso: triggerType.value === 'scheduled' && triggerSchedule.value ? new Date(triggerSchedule.value).toISOString() : '',
+                voice_phrase_summary: triggerType.value === 'voice_command' ? triggerVoicePhrase.value.trim().toLowerCase() : '',
+            };
+        }
+
+        function createTriggerRulesFromForm() {
+            const rules = {
+                type: triggerType.value,
+                keywords: triggerKeywords.value.split(',').map(k => k.trim().toLowerCase()).filter(Boolean),
+                interval_hours: parseInt(triggerInterval.value, 10) || 24,
+                schedule_iso: triggerSchedule.value ? new Date(triggerSchedule.value).toISOString() : '',
+                voice_phrase: triggerVoicePhrase.value.trim().toLowerCase(),
+                detection_sources: parseTriggerSourcesField(),
+                description: triggerDescription.value.trim(),
+                advisory_only: true,
+                governance_toggle: 'human-review-required',
+            };
+            if (rules.type === 'voice_command' && !rules.voice_phrase) {
+                rules.voice_phrase = 'help me now';
+            }
+            return rules;
+        }
 
         function renderTriggerItem(trigger) {
             const item = document.createElement('div');
             item.className = 'trigger-item';
             const typeLabel = trigger.type === 'keyword'
-                ? `keywords: ${(trigger.keywords || []).join(', ')}`
+                ? `${(trigger.detection_sources || ['conversation']).join('/')} · keyword watch`
                 : trigger.type === 'periodic'
-                    ? `every ${trigger.interval_hours}h`
-                    : `at ${trigger.schedule_iso || '?'}`;
+                    ? `every ${trigger.interval_hours || '?'}h`
+                    : trigger.type === 'voice_command'
+                        ? `voice phrase · ${trigger.voice_phrase_summary || 'custom'}`
+                        : `at ${trigger.schedule_iso || '?'}`;
             item.innerHTML = `<span class="trigger-item-label">${escapeHtml(trigger.label || 'Trigger')}</span>` +
                 `<span class="trigger-item-type">${escapeHtml(typeLabel)}</span>` +
                 `<label class="toggle-row" style="min-height:auto;"><input type="checkbox" data-trigger-toggle="${escapeHtml(trigger.id)}" ${trigger.enabled ? 'checked' : ''}> On</label>` +
@@ -4049,126 +4626,367 @@
             return item;
         }
 
+        async function renderTriggerLedger() {
+            const entries = (await vaultStore.getAll('triggerLedger'))
+                .sort((left, right) => Date.parse(right.created_at || 0) - Date.parse(left.created_at || 0))
+                .slice(0, 6);
+            if (entries.length === 0) {
+                triggerLedgerList.innerHTML = '<div class="trigger-ledger-item">Sovereignty Ledger: no trigger commitments yet.</div>';
+                return;
+            }
+            triggerLedgerList.innerHTML = entries.map(entry => `
+                <div class="trigger-ledger-item">
+                    <strong>${escapeHtml(entry.label || 'Trigger')}</strong> · ${escapeHtml(entry.event_type)} · ${escapeHtml(entry.status || 'recorded')}<br>
+                    ${escapeHtml(entry.evidence_excerpt || 'No excerpt')}<br>
+                    Commitment <code>${escapeHtml(entry.commitment_hash || '')}</code>
+                </div>
+            `).join('');
+        }
+
         async function renderTriggers() {
             const triggers = await vaultStore.getAll('triggers');
             triggersList.innerHTML = '';
-            for (const t of triggers) {
+            for (const t of triggers.sort((left, right) => Date.parse(right.updated_at || 0) - Date.parse(left.updated_at || 0))) {
                 triggersList.appendChild(renderTriggerItem(t));
             }
             triggersList.querySelectorAll('[data-trigger-delete]').forEach(btn => {
                 btn.addEventListener('click', async () => {
                     await vaultStore.delete('triggers', btn.dataset.triggerDelete);
+                    setTriggersStatus('Trigger removed from the encrypted local trigger vault.');
                     await renderTriggers();
                 });
             });
             triggersList.querySelectorAll('[data-trigger-toggle]').forEach(cb => {
                 cb.addEventListener('change', async () => {
-                    const triggers = await vaultStore.getAll('triggers');
-                    const trigger = triggers.find(t => t.id === cb.dataset.triggerToggle);
-                    if (trigger) {
-                        trigger.enabled = cb.checked;
-                        await vaultStore.put('triggers', trigger);
-                    }
+                    const trigger = await vaultStore.get('triggers', cb.dataset.triggerToggle);
+                    if (!trigger) return;
+                    trigger.enabled = cb.checked;
+                    trigger.updated_at = new Date().toISOString();
+                    await vaultStore.put('triggers', trigger);
+                    await appendTriggerLedgerEvent({
+                        trigger,
+                        event_type: cb.checked ? 're-enabled' : 'disabled',
+                        source: 'settings',
+                        evidence: { summary: cb.checked ? 'Trigger enabled locally.' : 'Trigger disabled locally.' },
+                        inference: { advisory_only: true, risk_level: 'low', confidence: 0.2 },
+                        notification: buildTriggerNotificationPreview(trigger),
+                        status: cb.checked ? 'enabled' : 'disabled'
+                    });
+                    await renderTriggerLedger();
                 });
             });
         }
 
-        addTriggerBtn.addEventListener('click', async () => {
-            const label = triggerLabel.value.trim();
-            if (!label) { triggersStatus.textContent = 'Please enter a label.'; return; }
-            const type = triggerType.value;
-            const trigger = {
-                id: generateSecureId('trigger'),
-                label,
-                type,
-                enabled: true,
-                created_at: new Date().toISOString(),
-                description: triggerDescription.value.trim(),
-                last_fired_at: '',
-                notified: false,
-                flagged: false,
+        async function notifyServiceWorkerOfTriggerQueue() {
+            if (!('serviceWorker' in navigator)) return;
+            try {
+                const registration = await navigator.serviceWorker.ready;
+                if ('sync' in registration) {
+                    await registration.sync.register('burgess-trigger-queue-sync');
+                }
+                if (navigator.serviceWorker.controller) {
+                    navigator.serviceWorker.controller.postMessage({ type: 'PROCESS_TRIGGER_QUEUE' });
+                }
+            } catch (error) {
+                console.warn('Trigger queue sync registration failed.', error);
+            }
+        }
+
+        async function queueTriggerDetection({ trigger, source, text, matchedKeywords = [], reason = '' }) {
+            const evidence = {
+                source,
+                reason,
+                text_excerpt: sanitizeTriggerExcerpt(text),
+                matched_keywords: matchedKeywords,
             };
-            if (type === 'keyword') {
-                trigger.keywords = triggerKeywords.value.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
-                if (trigger.keywords.length === 0) { triggersStatus.textContent = 'Add at least one keyword.'; return; }
-            }
-            if (type === 'periodic') {
-                trigger.interval_hours = parseInt(triggerInterval.value, 10) || 24;
-            }
-            if (type === 'scheduled') {
-                trigger.schedule_iso = triggerSchedule.value ? new Date(triggerSchedule.value).toISOString() : '';
-                if (!trigger.schedule_iso) { triggersStatus.textContent = 'Pick a date/time.'; return; }
-            }
+            const inference = runLocalPreBurgessInference({ text, matchedKeywords, source, trigger });
+            const preview = buildTriggerNotificationPreview(trigger);
+            const queueItem = {
+                id: generateSecureId('trigger-queue'),
+                trigger_id: trigger.id,
+                label: trigger.label,
+                type: trigger.type,
+                source,
+                status: 'queued',
+                created_at: new Date().toISOString(),
+                evidence,
+                inference,
+                notification: preview,
+                prefill_prompt: buildTriggerPrefillPrompt(trigger, evidence, inference),
+            };
+            await vaultStore.put('triggerQueue', queueItem);
+            const ledgerEntry = await appendTriggerLedgerEvent({
+                trigger,
+                event_type: 'queued',
+                source,
+                evidence,
+                inference,
+                notification: preview,
+                status: 'queued'
+            });
+            queueItem.commitment_hash = ledgerEntry.commitment_hash;
+            queueItem.receipt_id = ledgerEntry.id;
+            await vaultStore.put('triggerQueue', queueItem);
+            trigger.last_evaluated_at = new Date().toISOString();
+            trigger.last_match_source = source;
+            trigger.last_commitment_hash = ledgerEntry.commitment_hash;
+            trigger.chain_head = ledgerEntry.commitment_hash;
+            trigger.queue_depth = Number(trigger.queue_depth || 0) + 1;
+            trigger.notified = false;
             await vaultStore.put('triggers', trigger);
-            triggerLabel.value = '';
-            triggerKeywords.value = '';
-            triggerDescription.value = '';
-            triggersStatus.textContent = `Trigger "${label}" added. It runs 100% locally.`;
+            updateTriggerNotificationPreview(trigger, inference);
             await renderTriggers();
-            // Ask SW to evaluate immediately
-            if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-                navigator.serviceWorker.controller.postMessage({ type: 'EVALUATE_TRIGGERS' });
+            await renderTriggerLedger();
+            setTriggersStatus(`Queued "${trigger.label}" for a local Burgess review notification. ${TRIGGER_ADVISORY_NOTE}`, 'success');
+            await notifyServiceWorkerOfTriggerQueue();
+        }
+
+        async function evaluateTriggerText(text, source) {
+            const excerpt = sanitizeTriggerExcerpt(text, 320);
+            if (!excerpt) return false;
+            const triggers = await vaultStore.getAll('triggers');
+            let anyQueued = false;
+            for (const trigger of triggers) {
+                if (!trigger.enabled) continue;
+                if (!(trigger.detection_sources || ['conversation']).includes(source)) continue;
+                const rules = await decryptTriggerRecord(trigger);
+                if (!rules) {
+                    setTriggerCryptoStatus('Unlock Living Triggers with the passphrase to inspect encrypted rules in the foreground.', 'error');
+                    break;
+                }
+                if (trigger.type === 'keyword') {
+                    const matchedKeywords = findMatchedKeywords(excerpt, rules.keywords || []);
+                    if (matchedKeywords.length > 0) {
+                        await queueTriggerDetection({
+                            trigger: { ...trigger, decrypted_payload: rules },
+                            source,
+                            text: excerpt,
+                            matchedKeywords,
+                            reason: `Matched ${matchedKeywords.join(', ')}`
+                        });
+                        anyQueued = true;
+                    }
+                }
+                if (trigger.type === 'voice_command') {
+                    const voicePhrase = String(rules.voice_phrase || '').trim().toLowerCase();
+                    if (source === 'voice' && voicePhrase && excerpt.toLowerCase().includes(voicePhrase)) {
+                        await queueTriggerDetection({
+                            trigger: { ...trigger, decrypted_payload: rules },
+                            source,
+                            text: excerpt,
+                            matchedKeywords: [voicePhrase],
+                            reason: `Matched voice command "${voicePhrase}"`
+                        });
+                        anyQueued = true;
+                    }
+                }
             }
-        });
+            return anyQueued;
+        }
 
         async function evaluateLocalTriggers() {
-            let triggers = [];
-            try { triggers = await vaultStore.getAll('triggers'); } catch (_e) { return; }
+            const triggers = await vaultStore.getAll('triggers');
             const now = Date.now();
+            let queued = 0;
             for (const trigger of triggers) {
                 if (!trigger.enabled) continue;
                 if (trigger.last_fired_at && now - Date.parse(trigger.last_fired_at) < TRIGGER_MIN_INTERVAL_MS) continue;
-
-                let shouldFire = false;
-
-                if (trigger.type === 'scheduled' && trigger.schedule_iso) {
-                    shouldFire = Date.parse(trigger.schedule_iso) <= now && !trigger.last_fired_at;
+                const rules = await decryptTriggerRecord(trigger);
+                if (!rules) {
+                    continue;
                 }
-
-                if (trigger.type === 'periodic' && trigger.interval_hours) {
-                    const interval = trigger.interval_hours * 60 * 60 * 1000;
-                    shouldFire = !trigger.last_fired_at || (now - Date.parse(trigger.last_fired_at) >= interval);
+                let shouldQueue = false;
+                let reason = '';
+                if (trigger.type === 'scheduled' && rules.schedule_iso) {
+                    shouldQueue = Date.parse(rules.schedule_iso) <= now && !trigger.last_fired_at;
+                    reason = 'Scheduled review window reached.';
                 }
-
-                // Keyword triggers are checked in the chat handler and flagged
-                if (trigger.type === 'keyword' && trigger.flagged && !trigger.notified) {
-                    shouldFire = true;
+                if (trigger.type === 'periodic' && rules.interval_hours) {
+                    const interval = rules.interval_hours * 60 * 60 * 1000;
+                    shouldQueue = !trigger.last_fired_at || (now - Date.parse(trigger.last_fired_at) >= interval);
+                    reason = `Periodic ${rules.interval_hours}h trigger window reached.`;
                 }
-
-                if (shouldFire) {
-                    await showLocalNotification(
-                        trigger.label || 'Burgess check ready',
-                        trigger.description || 'A sovereign local trigger has fired — open Iris to review.',
-                        `trigger-${trigger.id}`
-                    );
-                    trigger.last_fired_at = new Date().toISOString();
-                    trigger.notified = true;
-                    await vaultStore.put('triggers', trigger);
+                if (shouldQueue) {
+                    await queueTriggerDetection({
+                        trigger: { ...trigger, decrypted_payload: rules },
+                        source: trigger.type,
+                        text: `${trigger.label}. ${reason} ${trigger.description || ''}`.trim(),
+                        matchedKeywords: rules.keywords || [],
+                        reason
+                    });
+                    queued += 1;
                 }
+            }
+            if (queued === 0) {
+                setTriggersStatus('No local triggers needed a new Burgess review right now.');
             }
         }
 
-        // Check keywords against Iris responses
-        async function checkKeywordTriggers(text) {
-            if (!text) return;
-            const lower = text.toLowerCase();
-            let triggers = [];
-            try { triggers = await vaultStore.getAll('triggers'); } catch (_e) { return; }
-            let anyFlagged = false;
-            for (const trigger of triggers) {
-                if (!trigger.enabled || trigger.type !== 'keyword') continue;
-                const match = (trigger.keywords || []).some(kw => lower.includes(kw));
-                if (match && !trigger.flagged) {
-                    trigger.flagged = true;
-                    trigger.notified = false;
-                    await vaultStore.put('triggers', trigger);
-                    anyFlagged = true;
-                }
+        async function exportLatestTriggerReceipt() {
+            const receiptId = await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY);
+            const receipt = receiptId ? await vaultStore.get('triggerReceipts', receiptId) : null;
+            if (!receipt) {
+                setTriggersStatus('No trigger receipt exists yet. Fire a trigger first, then export the signed receipt.');
+                return;
             }
-            if (anyFlagged) {
-                await evaluateLocalTriggers();
-            }
+            const blob = new Blob([JSON.stringify(receipt, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `iris-trigger-receipt-${receipt.trigger_id || 'latest'}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            setTriggersStatus('Latest trigger receipt exported. Nothing left the device unless you share the file yourself.', 'success');
         }
+
+        parseTriggerRuleBtn.addEventListener('click', () => {
+            try {
+                const parsed = parseNaturalLanguageTriggerRule(triggerNaturalLanguage.value);
+                triggerLabel.value = parsed.label;
+                triggerType.value = parsed.type;
+                triggerKeywords.value = (parsed.keywords || []).join(', ');
+                triggerInterval.value = String(parsed.interval_hours || 24);
+                triggerSources.value = normalizeDetectionSources(parsed.detection_sources).join(', ');
+                triggerDescription.value = parsed.description;
+                triggerVoicePhrase.value = parsed.voice_phrase || '';
+                syncTriggerTypeFields();
+                updateTriggerNotificationPreview(parsed, runLocalPreBurgessInference({ text: parsed.description, matchedKeywords: parsed.keywords || [], source: parsed.type === 'voice_command' ? 'voice' : 'conversation', trigger: parsed }));
+                setTriggersStatus(`Parsed a local trigger draft for "${parsed.label}". Review it before saving.`, 'success');
+            } catch (error) {
+                setTriggersStatus(error.message, 'error');
+            }
+        });
+
+        scanClipboardBtn.addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                const matched = await evaluateTriggerText(text, 'clipboard');
+                setTriggersStatus(
+                    matched
+                        ? 'Clipboard scan queued a local Burgess review notification.'
+                        : 'Clipboard scan completed with no matching encrypted trigger rules.'
+                );
+            } catch (error) {
+                setTriggersStatus(`Clipboard scan failed. ${error.message}`, 'error');
+            }
+        });
+
+        scanPageBtn.addEventListener('click', async () => {
+            const text = [
+                document.body ? document.body.innerText : '',
+                conversationHistory.map(item => item.content).join(' ')
+            ].filter(Boolean).join(' ');
+            const matched = await evaluateTriggerText(text, 'page');
+            setTriggersStatus(
+                matched
+                    ? 'Current page scan queued a local Burgess review notification.'
+                    : 'Current page scan completed with no matching encrypted trigger rules.'
+            );
+        });
+
+        addTriggerBtn.addEventListener('click', async () => {
+            try {
+                const passphrase = triggerPassphrase.value.trim();
+                if (!passphrase) {
+                    setTriggersStatus('Enter a Living Triggers passphrase before sealing a trigger rule.', 'error');
+                    triggerPassphrase.focus();
+                    return;
+                }
+                const summary = createTriggerSummaryFromForm();
+                if (!summary.label) {
+                    setTriggersStatus('Please enter a trigger label.', 'error');
+                    return;
+                }
+                const rules = createTriggerRulesFromForm();
+                if (summary.type === 'keyword' && rules.keywords.length === 0) {
+                    setTriggersStatus('Add at least one keyword for a keyword trigger.', 'error');
+                    return;
+                }
+                if (summary.type === 'scheduled' && !rules.schedule_iso) {
+                    setTriggersStatus('Pick a date/time for the scheduled trigger.', 'error');
+                    return;
+                }
+                const record = await upsertTriggerRecord(summary, rules, passphrase, triggerBackgroundUnlockToggle.checked);
+                await appendTriggerLedgerEvent({
+                    trigger: { ...record, decrypted_payload: rules },
+                    event_type: 'created',
+                    source: 'settings',
+                    evidence: { summary: `Trigger rule "${record.label}" saved locally.` },
+                    inference: runLocalPreBurgessInference({ text: rules.description, matchedKeywords: rules.keywords || [], source: record.type === 'voice_command' ? 'voice' : 'conversation', trigger: record }),
+                    notification: buildTriggerNotificationPreview(record),
+                    status: 'sealed'
+                });
+                triggerLabel.value = '';
+                triggerKeywords.value = '';
+                triggerDescription.value = '';
+                triggerNaturalLanguage.value = '';
+                triggerVoicePhrase.value = '';
+                triggerSources.value = 'conversation';
+                await hydrateTriggerSecurityState();
+                await renderTriggers();
+                await renderTriggerLedger();
+                updateTriggerNotificationPreview();
+                setTriggersStatus(`Trigger "${record.label}" sealed in the encrypted local trigger vault.`, 'success');
+                await notifyServiceWorkerOfTriggerQueue();
+            } catch (error) {
+                setTriggersStatus(`Could not save the encrypted trigger rule. ${error.message}`, 'error');
+            }
+        });
+
+        runTriggerCheckBtn.addEventListener('click', () => evaluateLocalTriggers().catch(error => setTriggersStatus(error.message, 'error')));
+        exportLatestTriggerReceiptBtn.addEventListener('click', () => exportLatestTriggerReceipt().catch(error => setTriggersStatus(error.message, 'error')));
+        triggerBackgroundUnlockToggle.addEventListener('change', async () => {
+            const profile = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
+            if (profile && typeof profile === 'object') {
+                if (triggerBackgroundUnlockToggle.checked) {
+                    const passphrase = triggerPassphrase.value.trim();
+                    if (!passphrase) {
+                        triggerBackgroundUnlockToggle.checked = false;
+                        setTriggerCryptoStatus('Enter the Living Triggers passphrase before enabling device-only background unlock.', 'error');
+                        return;
+                    }
+                    const wrappingKey = await deriveTriggerKeyMaterial(passphrase, fromBase64(profile.salt));
+                    const unlocked = await decryptTriggerEnvelope(profile.wrapped_key, wrappingKey);
+                    profile.background_key_b64 = unlocked && unlocked.master_key_b64 ? unlocked.master_key_b64 : '';
+                } else {
+                    profile.background_key_b64 = '';
+                }
+                profile.background_unlock_enabled = triggerBackgroundUnlockToggle.checked;
+                profile.updated_at = new Date().toISOString();
+                await vaultStore.saveSetting(TRIGGER_CRYPTO_SETTING_KEY, profile);
+            }
+            setTriggerCryptoStatus(
+                triggerBackgroundUnlockToggle.checked
+                    ? 'Device-only background unlock will let the service worker evaluate encrypted triggers without asking for the passphrase again.'
+                    : 'Background checks will wait for the foreground app to unlock the encrypted trigger vault.'
+            );
+        });
+        [triggerLabel, triggerDescription, triggerKeywords, triggerVoicePhrase, triggerSources].forEach(input => {
+            input.addEventListener('input', () => updateTriggerNotificationPreview());
+        });
+
+        async function applyTriggerReceiptFromLocation() {
+            const params = new URLSearchParams(window.location.search);
+            const triggerReceiptId = params.get('triggerReceipt');
+            if (!triggerReceiptId) return;
+            const receipt = await vaultStore.get('triggerReceipts', triggerReceiptId);
+            if (!receipt) return;
+            const prompt = buildTriggerPrefillPrompt(
+                {
+                    id: receipt.trigger_id,
+                    label: receipt.label,
+                    description: receipt.trigger_summary && receipt.trigger_summary.description,
+                },
+                { text_excerpt: receipt.evidence_excerpt || '' },
+                receipt.inference || {}
+            );
+            startNewClaimFlow(prompt);
+            setTriggersStatus(`Opened trigger receipt ${triggerReceiptId} for human review. ${TRIGGER_ADVISORY_NOTE}`, 'success');
+        }
+
+        triggerSources.value = triggerSources.value || 'conversation';
+        syncTriggerTypeFields();
+        updateTriggerNotificationPreview();
 
         // ------------------------------------------------------------------ //
         // Sovereign Hub Mode                                                 //
@@ -4416,11 +5234,13 @@
             hydratePersonalIdentity(),
             hydrateUiSettings(),
             hydratePushToggle(),
+            hydrateTriggerSecurityState(),
         ]).then(async () => {
             await installRuntimeManifest();
             configureVoice();
             applyShortcutFromLocation();
             await renderTriggers();
+            await renderTriggerLedger();
             await checkDueReminders();
             await evaluateLocalTriggers();
             await flushFingerprintQueueToLocalServer().catch(() => 0);

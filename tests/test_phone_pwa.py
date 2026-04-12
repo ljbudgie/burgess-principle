@@ -34,6 +34,14 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'applyVerifiedUpdateBtn' in INDEX
     assert 'signed-update-manifest.json' in INDEX
     assert 'PWA_UPDATE_PUBLIC_KEY_HEX' in INDEX
+    assert 'triggerPassphrase' in INDEX
+    assert 'triggerNaturalLanguage' in INDEX
+    assert 'parseTriggerRuleBtn' in INDEX
+    assert 'scanClipboardBtn' in INDEX
+    assert 'triggerBackgroundUnlockToggle' in INDEX
+    assert 'triggerLedgerList' in INDEX
+    assert 'voice_command' in INDEX
+    assert 'HELP_ME_NOW_PATTERN' in INDEX
 
 
 def test_manifest_declares_standalone_shortcuts():
@@ -54,9 +62,15 @@ def test_service_worker_caches_assets_and_syncs_reminders():
     assert 'burgess-fingerprint-sync' in SERVICE_WORKER
     assert 'burgess-reminder-sync' in SERVICE_WORKER
     assert 'burgess-critical-refresh' in SERVICE_WORKER
+    assert 'burgess-trigger-queue-sync' in SERVICE_WORKER
     assert "'/api/queue-onchain-fingerprint'" in SERVICE_WORKER
     assert '14-day escalation reminder' in SERVICE_WORKER
     assert "event.data.type === 'SKIP_WAITING'" in SERVICE_WORKER
+    assert 'triggerQueue' in SERVICE_WORKER
+    assert 'triggerLedger' in SERVICE_WORKER
+    assert 'triggerReceipts' in SERVICE_WORKER
+    assert 'appendTriggerLedgerEvent' in SERVICE_WORKER
+    assert 'Human review required' in SERVICE_WORKER
 
 
 def test_signed_update_manifest_requires_consent_and_assets():
@@ -68,3 +82,11 @@ def test_signed_update_manifest_requires_consent_and_assets():
     assert payload['hash_algorithm'] == 'sha256'
     assert '/service-worker.js' in payload['critical_paths']
     assert any(asset['path'] == '/index.html' for asset in payload['assets'])
+
+
+def test_docs_cover_phase_2_living_triggers():
+    docs = (ROOT / 'SOVEREIGN_MODE.md').read_text(encoding='utf-8')
+    assert '## Phase 2 — Proactive Living Triggers Engine' in docs
+    assert '### Sovereignty Audit' in docs
+    assert 'device-only background unlock' in docs
+    assert 'triggerQueue' in docs

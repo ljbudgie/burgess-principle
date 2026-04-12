@@ -165,8 +165,18 @@ No extra backend is required for Phase 2.
    - **Off:** the encrypted trigger vault only unlocks while the foreground app has the passphrase.
    - **On:** the service worker can decrypt the trigger vault locally for background periodic checks and queued notifications.
 5. Add a trigger either by:
-   - describing it in plain English and pressing **Parse local rule**, or
-   - filling the form manually and pressing **Add trigger**.
+    - describing it in plain English and pressing **Parse local rule**, or
+    - filling the form manually and pressing **Add trigger**.
+
+### Environmental trigger templates
+
+Phase 2 now also fits calmer **environmental review** workflows for users who want a lower-local-wireless setup without giving up sovereignty.
+
+- **Starlink hardwired review** — a periodic reminder to check whether Starlink is in bypass mode, Ethernet is still preferred, and background checks can stay minimal.
+- **Connectivity log for environmental review** — a keyword trigger for terms such as `starlink`, `ethernet`, `bypass mode`, `wi-fi off`, or `cellular fallback`, so Iris can queue a local review prompt when those setup changes are discussed.
+- **Assistive setup check-in** — a scheduled or periodic reminder to review whether the current connectivity setup still supports voice use, focus, and reasonable-adjustment needs.
+
+These templates remain **advisory only**. They create local commitments and review prompts, but any real adjustment decision must still be personally reviewed under the Burgess Principle.
 
 ### Manual verification steps
 
@@ -212,11 +222,50 @@ No extra backend is required for Phase 2.
 3. Optionally enable **device-only background unlock** so Chromium-class browsers can refresh memory roots without asking for the passphrase again.
 4. Add a manual note or click **Unlock & refresh** to import claim / trigger / governance events into the Memory Palace ledger.
 5. For hub coordination:
-   - start the sample hub in `sovereign-hub-example/`,
-   - verify `GET /api/hub/hello`,
-   - paste the pairing JSON into Iris,
-   - pin the returned Ed25519 public key,
-   - use **Push commitments** or **Pull commitments**.
+    - start the sample hub in `sovereign-hub-example/`,
+    - verify `GET /api/hub/hello`,
+    - paste the pairing JSON into Iris,
+    - pin the returned Ed25519 public key,
+    - use **Push commitments** or **Pull commitments**.
+
+### Starlink hardwired assistive configuration
+
+The Sovereign Hub panel can also be used as a calm **user-configured lower-local-wireless** profile:
+
+- choose a connectivity profile such as **Starlink + Ethernet**,
+- mark whether the user wants a **minimized local wireless environment**,
+- prefer **queued/manual syncs** so the link only comes up when needed,
+- keep a short local note for later environmental review.
+
+This stays aligned with the Phase 3 design because Iris still:
+
+- works offline first,
+- syncs commitment material rather than raw Memory Palace content by default,
+- recommits governance and environmental changes into the Memory Palace,
+- leaves the final judgment about any adjustment to a human reviewer.
+
+### Memory Palace environmental notes
+
+Use the Memory Palace to commit verifiable **environmental notes** such as:
+
+- the connectivity profile in use,
+- whether Wi-Fi was disabled in favour of Ethernet,
+- whether the sync was manual, queued, or deferred,
+- how the user felt about focus, comfort, or usability,
+- what a human supporter, advocate, or reviewer later confirmed.
+
+Because each entry is encrypted, SHA-256 committed, Ed25519 signed, and rolled into a Merkle root, the user can later prove that the note existed in that form without exposing unrelated private history.
+
+### Assistive technology framing
+
+This setup can be positioned as a **sovereign assistive configuration** for users who want:
+
+- voice-first operation,
+- remote rights / benefits advocacy from home,
+- a more controlled local device environment,
+- a verifiable record of what adjustments were tried and why.
+
+It should always be described as a **reasonable-adjustment / accessibility** option or a **personal environmental preference**, never as a medical cure or diagnostic claim.
 
 ### Manual verification steps
 
@@ -238,6 +287,7 @@ No extra backend is required for Phase 2.
 - **Android / Chromium:** best fit for background root refresh and queued hub sync flushing.
 - **iOS Safari:** foreground-first by design; unlock, search, verify, and export still work, but sync retries may wait for manual launch.
 - **Starlink / intermittent links:** Iris queues minimal commitment deltas locally and retries later rather than blocking local work.
+- **Reduced uptime preference:** if the user prefers short manual sync windows to avoid always-on connectivity, the queue may take longer to flush.
 - **Storage pressure:** the Memory Palace prefers compact encrypted summaries plus signed receipts, and the user can prune/export older states while retaining commitment proofs.
 
 ---

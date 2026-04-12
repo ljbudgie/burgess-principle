@@ -122,6 +122,40 @@ Hub Mode 2.0 is designed so connectivity problems do not collapse sovereignty:
 - retry happens later when the link returns,
 - foreground workflows still work on platforms with weaker background execution.
 
+### Starlink hardwired assistive configuration
+
+#### Sovereignty and Burgess audit
+
+- **Human review remains final:** Iris can help the user record and review connectivity choices, but it does not decide whether a specific setup is the right adjustment for a specific person.
+- **Local-first remains intact:** raw notes, claim context, and Memory Palace content stay on-device unless the user exports a signed receipt.
+- **No medical claim:** the feature is described as **user-configured frequency balancing** or a **lower-local-wireless setup**, not a treatment promise.
+- **Transparent sync boundaries:** Hub Mode still sends lightweight commitment material first — not the user's private timeline by default.
+
+For users who prefer a calmer electrical environment around their desk, phone, or voice workstation, Starlink can be useful because it supports an **Ethernet-first** configuration:
+
+- use **router bypass mode** when available,
+- disable local Wi-Fi if the user wants a hardwired-only room setup,
+- keep the dish **outside the main living space** where practical,
+- run Iris offline most of the time and open short **manual Hub Mode sync windows** only when needed.
+
+This can be especially relevant for:
+
+- **voice-first users** who want reliable connectivity without a permanently active local mesh,
+- **neurodiverse users** building their own assistive configuration,
+- **remote advocacy** or benefits / rights workflows where intermittent connectivity is acceptable because Iris queues syncs locally.
+
+> **Important:** Iris presents this as a **personal environmental preference** and an **assistive configuration option**. It does not make direct health or treatment claims.
+
+#### Suggested local review notes
+
+When a user changes connectivity setup, Iris can recommit a Memory Palace note containing:
+
+- connectivity type,
+- whether Ethernet was used,
+- whether local Wi-Fi was disabled,
+- whether sync stayed queued/manual,
+- a short user note about comfort, focus, or usability.
+
 See [`../sovereign-hub-example/README.md`](../sovereign-hub-example/README.md) and [`../SOVEREIGN_MODE.md`](../SOVEREIGN_MODE.md).
 
 ---

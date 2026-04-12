@@ -722,17 +722,17 @@
       return parseAnthropicResponse(response);
     }
 
-    async function sendViaAnthropic(settings) {
+    async function sendViaAnthropic({ apiKey, model }) {
       const response = await fetch(DEFAULT_PROXY_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "anthropic-version": "2023-06-01",
-          "x-api-key": settings.apiKey,
+          "x-api-key": apiKey,
           "anthropic-dangerous-direct-browser-access": "true"
         },
         body: JSON.stringify({
-          model: settings.model,
+          model,
           max_tokens: 900,
           system: SYSTEM_PROMPT,
           messages: toAnthropicMessages(historyForChat())
@@ -741,19 +741,19 @@
       return parseAnthropicResponse(response);
     }
 
-    async function sendViaOpenAICompatible(settings) {
+    async function sendViaOpenAICompatible({ apiKey, model }) {
       const headers = {
         "Content-Type": "application/json"
       };
-      if (settings.apiKey) {
-        headers.Authorization = `Bearer ${settings.apiKey}`;
+      if (apiKey) {
+        headers.Authorization = `Bearer ${apiKey}`;
       }
 
       const response = await fetch(DEFAULT_PROXY_URL, {
         method: "POST",
         headers,
         body: JSON.stringify({
-          model: settings.model,
+          model,
           temperature: 0.7,
           messages: [
             { role: "system", content: SYSTEM_PROMPT },

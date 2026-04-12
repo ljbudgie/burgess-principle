@@ -295,8 +295,9 @@ function sanitizeExcerpt(text, maxLength = 180) {
 
 function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source = 'conversation', trigger = {} }) {
   const lower = String(text || '').toLowerCase();
-  // Heuristic-only advisory scoring: a low non-zero base score plus small keyword/source
-  // increments makes the engine useful without implying certainty or legal authority.
+  // Heuristic-only advisory scoring: 0.18 keeps the engine from treating a trigger as a zero-signal event,
+  // up to 0.32 is reserved for matched trigger keywords, and each matched keyword contributes 0.12 before
+  // source/context adjustments so the final result nudges a human review without implying certainty.
   let score = 0.18 + Math.min(0.32, matchedKeywords.length * 0.12);
   const weightMap = [
     { pattern: /(benefit|dwp|universal credit|sanction)/, add: 0.18, question: 'Was a named human able to review the benefits facts personally?' },

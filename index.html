@@ -2281,11 +2281,12 @@
         const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
         const TRIGGER_EVAL_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes — how often the app checks triggers
         const PERIODIC_SYNC_INTERVAL_MS = 12 * 60 * 60 * 1000; // 12 hours — periodic background sync
-        const TRIGGER_KEY_PBKDF2_ITERATIONS = 310000;
+        const TRIGGER_KEY_PBKDF2_ITERATIONS = 600000;
         const TRIGGER_CRYPTO_SETTING_KEY = 'living-trigger-crypto';
         const TRIGGER_LAST_RECEIPT_SETTING_KEY = 'living-trigger-last-receipt';
         const TRIGGER_LAST_RECEIPT_ID_SETTING_KEY = 'living-trigger-last-receipt-id';
         const TRIGGER_ADVISORY_NOTE = 'Triggers are advisory only. A human must still review the specific facts and decide SOVEREIGN or NULL.';
+        const PWA_UPDATE_ACTIVATION_TIMEOUT_MS = 10000;
         const HUB_PBKDF2_ITERATIONS = 310000; // Hub uses pre-shared high-entropy secret; vault passphrase uses 600000
         const ICE_GATHERING_TIMEOUT_MS = 5000; // WebRTC ICE gathering timeout
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
@@ -2787,7 +2788,8 @@
         function levenshteinDistance(a, b) {
             const left = String(a || '');
             const right = String(b || '');
-            // Trigger keywords stay deliberately short, so the simple matrix keeps matching logic easy to audit.
+            // Trigger keywords stay deliberately short, so the simple matrix keeps matching logic easy to audit
+            // without materially affecting foreground scan performance on this page-sized text.
             const rows = Array.from({ length: left.length + 1 }, (_, index) => [index]);
             for (let column = 0; column <= right.length; column += 1) {
                 rows[0][column] = column;
@@ -3929,7 +3931,7 @@
                     reloadAfterVerifiedUpdate = false;
                     setPwaFoundationStatus('The staged update did not activate in time. Please verify again or refresh the page.', 'error');
                 }
-            }, 10000);
+            }, PWA_UPDATE_ACTIVATION_TIMEOUT_MS);
             try {
                 pwaRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
             } catch (error) {
@@ -4557,7 +4559,11 @@
             if (!key) {
                 return null;
             }
-            return decryptTriggerEnvelope(trigger.encrypted_payload, key);
+            try {
+                return await decryptTriggerEnvelope(trigger.encrypted_payload, key);
+            } catch (error) {
+                throw new Error(`Failed to decrypt trigger: invalid passphrase or corrupted local data. ${error.message}`);
+            }
         }
 
         async function upsertTriggerRecord(summary, rules, passphrase, allowBackgroundUnlock) {
@@ -4879,7 +4885,10 @@
                         : 'Clipboard scan completed with no matching encrypted trigger rules.'
                 );
             } catch (error) {
-                setTriggersStatus(`Clipboard scan failed. ${error.message}`, 'error');
+                const guidance = /permission|denied|notallowed/i.test(String(error && error.message || ''))
+                    ? ' Grant clipboard permission in the browser, then try the local scan again.'
+                    : '';
+                setTriggersStatus(`Clipboard scan failed. ${error.message}.${guidance}`, 'error');
             }
         });
 

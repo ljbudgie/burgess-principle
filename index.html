@@ -1948,7 +1948,9 @@
                             <label class="toggle-row" for="triggerBackgroundUnlockToggle"><input id="triggerBackgroundUnlockToggle" type="checkbox"> Allow device-only background unlock for trigger checks</label>
                             <div class="claim-profile-status" id="triggerCryptoStatus">Trigger rules stay encrypted. Background checks need either this passphrase in the foreground or explicit device-only unlock consent.</div>
                             <div class="claim-field"><label for="triggerNaturalLanguage">Describe a trigger in plain English</label><textarea id="triggerNaturalLanguage" rows="3" placeholder="If email or page contains 'DWP', 'benefits', 'universal credit', or 'reasonable adjustment', flag it for Burgess review."></textarea></div>
+                            <div class="claim-field"><label for="triggerTemplatePreset">Starter template</label><select id="triggerTemplatePreset"><option value="">Choose a calm local template…</option><option value="starlink_hardwired_review">Starlink hardwired review</option><option value="connectivity_environment_log">Connectivity log for environmental review</option><option value="assistive_setup_checkin">Assistive setup check-in</option></select></div>
                             <div class="claim-profile-actions">
+                                <button class="sidebar-action-btn" id="applyTriggerTemplateBtn" type="button">🧩 Apply template</button>
                                 <button class="sidebar-action-btn" id="parseTriggerRuleBtn" type="button">🧠 Parse local rule</button>
                                 <button class="sidebar-action-btn" id="scanClipboardBtn" type="button">📋 Scan clipboard now</button>
                                 <button class="sidebar-action-btn" id="scanPageBtn" type="button">🪞 Scan current page</button>
@@ -1980,18 +1982,22 @@
                         </div>
                         <div class="trigger-preview" id="triggerNotificationPreview">Notification preview: Potential Burgess review needed. Human review required before any SOVEREIGN/NULL decision.</div>
                         <div class="trigger-ledger" id="triggerLedgerList"></div>
-                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device, use calm local notifications, and never send facts anywhere unless you export a signed receipt. On iPhone, full background reliability is best after Add to Home Screen and still depends on Safari limits.</div>
+                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device, use calm local notifications, and can support user-defined environmental reviews without making any medical claim. On iPhone, full background reliability is best after Add to Home Screen and still depends on Safari limits.</div>
                     </details>
                     <details class="claim-profile-panel" id="hubModePanel">
                         <summary>🛰️ Sovereign Hub Mode</summary>
-                        <p class="claim-profile-desc">Connect to your own self-hosted Sovereign Hub (e.g. on Starlink) for end-to-end encrypted sync of commitments and receipts. No third-party server ever touches your data.</p>
+                        <p class="claim-profile-desc">Connect to your own self-hosted Sovereign Hub (including a Starlink + Ethernet setup) for end-to-end encrypted sync of commitments and receipts. This can support a user-configured lower-local-wireless environment while keeping Iris local-first.</p>
                         <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
                             <label class="toggle-row" for="hubModeToggle"><input id="hubModeToggle" type="checkbox"> Connect to My Sovereign Hub</label>
                             <div class="claim-field" id="hubUrlField" style="display:none;"><label for="hubUrl">Hub URL</label><input id="hubUrl" type="url" placeholder="https://my-hub.local:8443"></div>
                             <div class="claim-field" id="hubKeyField" style="display:none;"><label for="hubSharedSecret">Shared secret</label><input id="hubSharedSecret" type="password" placeholder="Pre-shared symmetric key for AES-256-GCM"></div>
+                            <div class="claim-field" id="hubConnectivityProfileField" style="display:none;"><label for="hubConnectivityProfile">Connectivity profile for local review</label><select id="hubConnectivityProfile"><option value="starlink_ethernet" selected>Starlink + Ethernet</option><option value="wired_router">Other wired router</option><option value="wifi">Wi‑Fi</option><option value="cellular_fallback">Cellular fallback</option></select></div>
+                            <label class="toggle-row" for="hubLowWirelessToggle" id="hubLowWirelessRow" style="display:none;"><input id="hubLowWirelessToggle" type="checkbox"> Starlink + Ethernet for minimized local wireless environment (user-configured)</label>
+                            <label class="toggle-row" for="hubQueuedSyncPreferenceToggle" id="hubQueuedSyncRow" style="display:none;"><input id="hubQueuedSyncPreferenceToggle" type="checkbox" checked> Prefer queued manual syncs to reduce always-on connectivity</label>
+                            <div class="claim-field" id="hubConnectivityNoteField" style="display:none;"><label for="hubConnectivityNote">Connectivity note for local environmental review</label><input id="hubConnectivityNote" type="text" placeholder="Optional note about Ethernet, dish placement, Wi‑Fi off, or how the setup felt"></div>
                             <button class="sidebar-action-btn" id="hubConnectBtn" type="button" style="display:none;">🔗 Connect &amp; Sync</button>
                         </div>
-                        <div class="claim-profile-status" id="hubStatus">Hub Mode is off. All data stays on this device only.</div>
+                        <div class="claim-profile-status" id="hubStatus">Hub Mode is off. All data stays on this device only unless you later choose a manual commitment sync.</div>
                     </details>
                     <details class="claim-profile-panel" id="p2pPanel">
                         <summary>🤝 Peer-to-Peer Human Handoff</summary>
@@ -2810,11 +2816,11 @@
         }
 
         function findMatchedKeywords(text, keywords) {
-            const haystack = String(text || '').toLowerCase();
+            const haystack = String(text || '').toLowerCase().replaceAll('wi-fi', 'wifi');
             const tokens = haystack.split(/[^a-z0-9]+/i).filter(Boolean);
             const matches = [];
             for (const keyword of keywords || []) {
-                const candidate = String(keyword || '').trim().toLowerCase();
+                const candidate = String(keyword || '').trim().toLowerCase().replaceAll('wi-fi', 'wifi');
                 if (!candidate) continue;
                 if (haystack.includes(candidate)) {
                     matches.push(candidate);
@@ -2875,6 +2881,21 @@
             if (lower.includes('reasonable adjustment') && !parsed.keywords.includes('reasonable adjustment')) {
                 parsed.keywords.push('reasonable adjustment');
             }
+            if ((lower.includes('starlink') || lower.includes('ethernet') || lower.includes('hardwired') || lower.includes('bypass mode')) && parsed.type === 'keyword') {
+                parsed.label = 'Connectivity environmental review';
+            }
+            if (lower.includes('starlink') && !parsed.keywords.includes('starlink')) {
+                parsed.keywords.push('starlink');
+            }
+            if (lower.includes('ethernet') && !parsed.keywords.includes('ethernet')) {
+                parsed.keywords.push('ethernet');
+            }
+            if ((lower.includes('wifi off') || lower.includes('wi-fi off')) && !parsed.keywords.includes('wifi off')) {
+                parsed.keywords.push('wifi off');
+            }
+            if (lower.includes('bypass mode') && !parsed.keywords.includes('bypass mode')) {
+                parsed.keywords.push('bypass mode');
+            }
             if (lower.includes('benefits') && !parsed.keywords.includes('benefits')) {
                 parsed.keywords.push('benefits');
             }
@@ -2907,6 +2928,7 @@
             const weightMap = [
                 { pattern: /(benefit|dwp|universal credit|sanction)/, add: 0.18, question: 'Was a named human able to review the benefits facts personally?' },
                 { pattern: /(reasonable adjustment|disability|accessibility)/, add: 0.2, question: 'Who personally considered the requested adjustment and the specific barriers?' },
+                { pattern: /(starlink|ethernet|hardwired|wi-?fi off|bypass mode|cellular fallback|environmental)/, add: 0.1, question: 'What human-reviewed accessibility or environmental preference does this connectivity setup support?' },
                 { pattern: /(urgent|deadline|court|enforcement|bailiff|fraud)/, add: 0.16, question: 'Is there an urgent decision or enforcement step that needs a documented human review?' },
                 { pattern: /(help me now|help me|panic)/, add: 0.2, question: 'Do you need an immediate human review flow to stabilise the situation?' },
             ];
@@ -4504,6 +4526,8 @@
         const triggerBackgroundUnlockToggle = document.getElementById('triggerBackgroundUnlockToggle');
         const triggerCryptoStatus = document.getElementById('triggerCryptoStatus');
         const triggerNaturalLanguage = document.getElementById('triggerNaturalLanguage');
+        const triggerTemplatePreset = document.getElementById('triggerTemplatePreset');
+        const applyTriggerTemplateBtn = document.getElementById('applyTriggerTemplateBtn');
         const parseTriggerRuleBtn = document.getElementById('parseTriggerRuleBtn');
         const scanClipboardBtn = document.getElementById('scanClipboardBtn');
         const scanPageBtn = document.getElementById('scanPageBtn');
@@ -4524,6 +4548,35 @@
         const triggerIntervalField = document.getElementById('triggerIntervalField');
         const triggerScheduleField = document.getElementById('triggerScheduleField');
         const triggerVoiceField = document.getElementById('triggerVoiceField');
+        const TRIGGER_TEMPLATE_PRESETS = {
+            starlink_hardwired_review: {
+                natural_language: "Every 12 hours, remind me to review whether Starlink is still hardwired with Ethernet, Wi-Fi is off where I want it off, and Hub Mode can stay queued until I choose a manual sync.",
+                label: 'Starlink hardwired review',
+                type: 'periodic',
+                interval_hours: 12,
+                detection_sources: ['conversation'],
+                keywords: ['starlink', 'ethernet', 'bypass mode', 'wifi off'],
+                description: 'Advisory review for a user-configured lower-local-wireless setup. Human review remains required for any actual adjustment.'
+            },
+            connectivity_environment_log: {
+                natural_language: "If conversation, clipboard, or page text mentions Starlink, Ethernet, bypass mode, Wi-Fi off, dish placement, or cellular fallback, queue a local environmental review prompt.",
+                label: 'Connectivity log for environmental review',
+                type: 'keyword',
+                interval_hours: 24,
+                detection_sources: ['conversation', 'clipboard', 'page'],
+                keywords: ['starlink', 'ethernet', 'bypass mode', 'wifi off', 'dish placement', 'cellular fallback'],
+                description: 'Creates a calm local prompt to log connectivity changes, accessibility context, or environmental preferences.'
+            },
+            assistive_setup_checkin: {
+                natural_language: "Every 24 hours, remind me to review whether my connectivity setup still supports voice use, focus, and reasonable adjustments for my needs.",
+                label: 'Assistive setup check-in',
+                type: 'periodic',
+                interval_hours: 24,
+                detection_sources: ['conversation'],
+                keywords: ['reasonable adjustment', 'accessibility', 'voice', 'environment'],
+                description: 'Periodic assistive-tech check-in for a sovereign setup. Advisory only and never a medical claim.'
+            }
+        };
 
         function setTriggersStatus(message, tone = '') {
             triggersStatus.textContent = message;
@@ -4918,6 +4971,30 @@
             }
         });
 
+        applyTriggerTemplateBtn.addEventListener('click', () => {
+            const template = TRIGGER_TEMPLATE_PRESETS[triggerTemplatePreset.value];
+            if (!template) {
+                setTriggersStatus('Choose a starter template first.', 'error');
+                return;
+            }
+            triggerNaturalLanguage.value = template.natural_language;
+            triggerLabel.value = template.label;
+            triggerType.value = template.type;
+            triggerKeywords.value = (template.keywords || []).join(', ');
+            triggerInterval.value = String(template.interval_hours || 24);
+            triggerSources.value = normalizeDetectionSources(template.detection_sources).join(', ');
+            triggerDescription.value = template.description;
+            triggerVoicePhrase.value = template.voice_phrase || '';
+            syncTriggerTypeFields();
+            updateTriggerNotificationPreview(template, runLocalPreBurgessInference({
+                text: template.description,
+                matchedKeywords: template.keywords || [],
+                source: template.type === 'voice_command' ? 'voice' : 'conversation',
+                trigger: template
+            }));
+            setTriggersStatus(`Applied the "${template.label}" template. Review it before saving.`, 'success');
+        });
+
         scanClipboardBtn.addEventListener('click', async () => {
             try {
                 const text = await navigator.clipboard.readText();
@@ -5065,16 +5142,28 @@
         const hubConnectBtn = document.getElementById('hubConnectBtn');
         const hubUrl = document.getElementById('hubUrl');
         const hubSharedSecret = document.getElementById('hubSharedSecret');
+        const hubConnectivityProfileField = document.getElementById('hubConnectivityProfileField');
+        const hubConnectivityProfile = document.getElementById('hubConnectivityProfile');
+        const hubLowWirelessRow = document.getElementById('hubLowWirelessRow');
+        const hubLowWirelessToggle = document.getElementById('hubLowWirelessToggle');
+        const hubQueuedSyncRow = document.getElementById('hubQueuedSyncRow');
+        const hubQueuedSyncPreferenceToggle = document.getElementById('hubQueuedSyncPreferenceToggle');
+        const hubConnectivityNoteField = document.getElementById('hubConnectivityNoteField');
+        const hubConnectivityNote = document.getElementById('hubConnectivityNote');
         const hubStatus = document.getElementById('hubStatus');
 
         hubModeToggle.addEventListener('change', () => {
             const on = hubModeToggle.checked;
             hubUrlField.style.display = on ? '' : 'none';
             hubKeyField.style.display = on ? '' : 'none';
+            hubConnectivityProfileField.style.display = on ? '' : 'none';
+            hubLowWirelessRow.style.display = on ? '' : 'none';
+            hubQueuedSyncRow.style.display = on ? '' : 'none';
+            hubConnectivityNoteField.style.display = on ? '' : 'none';
             hubConnectBtn.style.display = on ? '' : 'none';
             hubStatus.textContent = on
-                ? 'Enter your hub URL and shared secret. Connection uses AES-256-GCM + Ed25519 signing.'
-                : 'Hub Mode is off. All data stays on this device only.';
+                ? 'Enter your hub details. Connection uses AES-256-GCM + Ed25519 signing, and any lower-local-wireless preference remains user-configured and advisory only.'
+                : 'Hub Mode is off. All data stays on this device only unless you later choose a manual commitment sync.';
         });
 
         async function deriveHubKey(secret, salt) {

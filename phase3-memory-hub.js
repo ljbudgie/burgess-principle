@@ -443,6 +443,7 @@
       hubAudit: [],
       profileFingerprint: '',
       themeFingerprint: '',
+      hubEnvironmentFingerprint: '',
     };
   }
 
@@ -453,8 +454,48 @@
       hubAudit: cursor.hubAudit.slice(-MEMORY_MAX_IMPORTS),
       profileFingerprint: cursor.profileFingerprint || '',
       themeFingerprint: cursor.themeFingerprint || '',
+      hubEnvironmentFingerprint: cursor.hubEnvironmentFingerprint || '',
     };
     await bridge.vaultStore.saveSetting(MEMORY_DERIVED_CURSOR_KEY, compact);
+  }
+
+  function getHubEnvironmentPreferences() {
+    return {
+      connectivity_profile: document.getElementById('hubConnectivityProfile')?.value || 'starlink_ethernet',
+      low_wireless_mode: Boolean(document.getElementById('hubLowWirelessToggle')?.checked),
+      prefer_queued_syncs: Boolean(document.getElementById('hubQueuedSyncPreferenceToggle')?.checked),
+      connectivity_note: (document.getElementById('hubConnectivityNote')?.value || '').trim(),
+    };
+  }
+
+  function hubEnvironmentSummary(preferences = getHubEnvironmentPreferences()) {
+    const parts = [];
+    if (preferences.connectivity_profile === 'starlink_ethernet') {
+      parts.push('Starlink + Ethernet selected for local review');
+    } else if (preferences.connectivity_profile === 'wired_router') {
+      parts.push('wired router profile selected for local review');
+    } else if (preferences.connectivity_profile === 'wifi') {
+      parts.push('Wi‑Fi profile selected for local review');
+    } else if (preferences.connectivity_profile === 'cellular_fallback') {
+      parts.push('cellular fallback profile selected for local review');
+    }
+    if (preferences.low_wireless_mode) parts.push('minimized local wireless environment requested');
+    if (preferences.prefer_queued_syncs) parts.push('queued/manual sync preference enabled');
+    if (preferences.connectivity_note) parts.push(preferences.connectivity_note);
+    return parts.join('; ');
+  }
+
+  async function persistHubEnvironmentPreferences() {
+    const existing = await loadHubConfig() || {};
+    const merged = {
+      ...existing,
+      ...getHubEnvironmentPreferences(),
+      updated_at: new Date().toISOString(),
+    };
+    await saveHubConfig(merged);
+    if (document.getElementById('hubModeToggle')?.checked) {
+      setHubStatus(`Hub preferences saved locally. ${hubEnvironmentSummary(merged) || 'Commitment-only sync remains manual-first.'}`);
+    }
   }
 
   async function syncDerivedMemorySources() {
@@ -549,6 +590,34 @@
         passphrase,
       });
       cursor.themeFingerprint = themeFingerprint;
+    }
+
+    const hubEnvironment = await loadHubConfig();
+    const hubEnvironmentFingerprint = hubEnvironment
+      ? await bridge.sha256Hex(bridge.canonicalizeForSignature({
+        connectivity_profile: hubEnvironment.connectivity_profile || '',
+        low_wireless_mode: Boolean(hubEnvironment.low_wireless_mode),
+        prefer_queued_syncs: Boolean(hubEnvironment.prefer_queued_syncs),
+        connectivity_note: hubEnvironment.connectivity_note || '',
+      }))
+      : '';
+    if (hubEnvironmentFingerprint && hubEnvironmentFingerprint !== cursor.hubEnvironmentFingerprint) {
+      await appendMemoryEntry({
+        type: 'environment',
+        source: 'hub-settings',
+        source_ref: 'hub-connectivity-profile',
+        title: 'Connectivity environment updated',
+        summary: hubEnvironmentSummary(hubEnvironment) || 'Connectivity preferences updated for local review.',
+        detail: 'The Memory Palace recommitted a local connectivity and environmental preference change for later human review.',
+        tags: ['environment', 'connectivity'],
+        metadata: {
+          connectivity_profile: hubEnvironment.connectivity_profile || '',
+          low_wireless_mode: Boolean(hubEnvironment.low_wireless_mode),
+          prefer_queued_syncs: Boolean(hubEnvironment.prefer_queued_syncs),
+        },
+        passphrase,
+      });
+      cursor.hubEnvironmentFingerprint = hubEnvironmentFingerprint;
     }
 
     await saveDerivedCursor(cursor);
@@ -728,6 +797,7 @@
     if (!url || !sharedSecret || !publicKeyHex) {
       throw new Error('Hub URL, shared secret, and pinned public key are required.');
     }
+    const environmentPreferences = getHubEnvironmentPreferences();
     const bundle = await buildHubDeltaBundle(direction);
     const envelope = await hubEncrypt(bundle, sharedSecret);
     const signedRequest = {
@@ -758,7 +828,7 @@
       }
       const decrypted = await hubDecrypt(data.payload, sharedSecret);
       await bridge.vaultStore.saveSetting(HUB_DELTA_CURSOR_KEY, decrypted.next_cursor || '');
-      await saveHubConfig({ url, public_key_hex: publicKeyHex, updated_at: new Date().toISOString() });
+      await saveHubConfig({ url, public_key_hex: publicKeyHex, ...environmentPreferences, updated_at: new Date().toISOString() });
       await recordHubAudit(direction, 'verified', `${direction === 'push' ? 'Pushed' : 'Pulled'} ${decrypted.received || 0} commitment deltas with signature verification.`, {
         next_cursor: decrypted.next_cursor || '',
         received: decrypted.received || 0,
@@ -806,12 +876,14 @@
         <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
           <div class="claim-field"><label for="memoryPalacePassphrase">Memory Palace passphrase</label><input id="memoryPalacePassphrase" type="password" placeholder="Required to seal and unlock committed memories"></div>
           <label class="toggle-row" for="memoryBackgroundUnlockToggle"><input id="memoryBackgroundUnlockToggle" type="checkbox"> Allow device-only background unlock for Memory Palace roots</label>
-          <div class="claim-field"><label for="memoryTitleInput">Memory title</label><input id="memoryTitleInput" type="text" placeholder="e.g. Voice check-in before DWP call"></div>
-          <div class="claim-field"><label for="memorySummaryInput">Summary</label><input id="memorySummaryInput" type="text" placeholder="Short local summary for the committed memory"></div>
+          <div class="claim-field"><label for="memoryTitleInput">Memory title</label><input id="memoryTitleInput" type="text" placeholder="e.g. Voice check-in before DWP call or environmental note"></div>
+          <div class="claim-field"><label for="memorySummaryInput">Summary</label><input id="memorySummaryInput" type="text" placeholder="Short local summary for the committed memory or connectivity review"></div>
           <div class="claim-field"><label for="memoryDetailInput">Detail</label><textarea id="memoryDetailInput" rows="3" placeholder="Longer private note to encrypt into the Memory Palace"></textarea></div>
-          <div class="claim-field"><label for="memoryTagsInput">Tags (comma-separated)</label><input id="memoryTagsInput" type="text" placeholder="benefits, mirror, trigger"></div>
+          <div class="claim-field"><label for="memoryTagsInput">Tags (comma-separated)</label><input id="memoryTagsInput" type="text" placeholder="benefits, mirror, trigger, environment"></div>
+          <div class="claim-field"><label for="memoryEnvironmentalContextInput">Environmental note</label><input id="memoryEnvironmentalContextInput" type="text" placeholder="Optional note about connectivity, Wi-Fi off, dish placement, comfort, or focus"></div>
           <div class="claim-profile-actions">
             <button class="sidebar-action-btn" id="memoryAddBtn" type="button">➕ Commit memory</button>
+            <button class="sidebar-action-btn" id="memoryEnvironmentalNoteBtn" type="button">🌿 Commit environmental note</button>
             <button class="sidebar-action-btn" id="memoryRefreshBtn" type="button">🔓 Unlock & refresh</button>
             <button class="sidebar-action-btn" id="memoryVerifyBtn" type="button">🧪 Verify integrity</button>
             <button class="sidebar-action-btn" id="memoryFullIntegrityBtn" type="button">🛡️ Full system integrity check</button>
@@ -855,7 +927,9 @@
       summary: document.getElementById('memorySummaryInput'),
       detail: document.getElementById('memoryDetailInput'),
       tags: document.getElementById('memoryTagsInput'),
+      environmentalContext: document.getElementById('memoryEnvironmentalContextInput'),
       add: document.getElementById('memoryAddBtn'),
+      environmentalAdd: document.getElementById('memoryEnvironmentalNoteBtn'),
       refresh: document.getElementById('memoryRefreshBtn'),
       verify: document.getElementById('memoryVerifyBtn'),
       fullCheck: document.getElementById('memoryFullIntegrityBtn'),
@@ -882,8 +956,16 @@
     if (hubConfig) {
       const hubUrl = document.getElementById('hubUrl');
       const hubPublicKey = document.getElementById('hubPublicKey');
+      const hubConnectivityProfile = document.getElementById('hubConnectivityProfile');
+      const hubLowWirelessToggle = document.getElementById('hubLowWirelessToggle');
+      const hubQueuedSyncPreferenceToggle = document.getElementById('hubQueuedSyncPreferenceToggle');
+      const hubConnectivityNote = document.getElementById('hubConnectivityNote');
       if (hubConfig.url) hubUrl.value = hubConfig.url;
       if (hubConfig.public_key_hex) hubPublicKey.value = hubConfig.public_key_hex;
+      if (hubConfig.connectivity_profile) hubConnectivityProfile.value = hubConfig.connectivity_profile;
+      hubLowWirelessToggle.checked = Boolean(hubConfig.low_wireless_mode);
+      hubQueuedSyncPreferenceToggle.checked = Boolean(hubConfig.prefer_queued_syncs ?? true);
+      if (hubConfig.connectivity_note) hubConnectivityNote.value = hubConfig.connectivity_note;
     }
     await renderMemoryTimeline();
   }
@@ -910,6 +992,46 @@
         await renderMemoryTimeline(memoryUi.search.value || '');
         await bridge.showLocalNotification('Memory committed', 'A new Memory Palace block was sealed locally with a fresh commitment and signature.', 'memory-palace');
         setMemoryStatus(`Committed a new Memory Palace entry ${created.entry.commitment_hash.slice(0, 16)}…`, 'success');
+      } catch (error) {
+        setMemoryStatus(error.message, 'error');
+      }
+    });
+
+    memoryUi.environmentalAdd.addEventListener('click', async () => {
+      try {
+        const passphrase = getMemoryPassphrase();
+        if (!passphrase) throw new Error('Enter the Memory Palace passphrase first.');
+        const environmentPreferences = getHubEnvironmentPreferences();
+        const environmentalContext = memoryUi.environmentalContext.value.trim();
+        const summary = memoryUi.summary.value.trim() || environmentalContext || hubEnvironmentSummary(environmentPreferences) || 'Connectivity and environmental review note.';
+        const detailParts = [
+          memoryUi.detail.value.trim(),
+          environmentPreferences.connectivity_profile ? `Connectivity profile: ${environmentPreferences.connectivity_profile}` : '',
+          environmentPreferences.low_wireless_mode ? 'Lower-local-wireless preference: enabled' : '',
+          environmentPreferences.prefer_queued_syncs ? 'Queued/manual sync preference: enabled' : '',
+          environmentalContext ? `User note: ${environmentalContext}` : '',
+          MEMORY_ADVISORY_TEXT,
+        ].filter(Boolean);
+        const created = await appendMemoryEntry({
+          type: 'environmental-note',
+          source: 'environmental-review',
+          title: memoryUi.title.value.trim() || 'Environmental note',
+          summary,
+          detail: detailParts.join(' '),
+          tags: [...new Set(['environment', 'connectivity', ...tagsFromInput(memoryUi.tags.value)])],
+          metadata: {
+            ...environmentPreferences,
+            environmental_note: environmentalContext,
+          },
+          passphrase,
+        });
+        memoryUi.title.value = '';
+        memoryUi.summary.value = '';
+        memoryUi.detail.value = '';
+        memoryUi.tags.value = '';
+        memoryUi.environmentalContext.value = '';
+        await renderMemoryTimeline(memoryUi.search.value || '');
+        setMemoryStatus(`Committed environmental note "${created.entry.signed_payload.id}" into the local Memory Palace.`, 'success');
       } catch (error) {
         setMemoryStatus(error.message, 'error');
       }
@@ -955,6 +1077,15 @@
     memoryUi.hubPushBtn.addEventListener('click', () => performHubSync('push').catch(error => setHubStatus(error.message, 'error')));
     memoryUi.hubPullBtn.addEventListener('click', () => performHubSync('pull').catch(error => setHubStatus(error.message, 'error')));
     memoryUi.hubFlushQueueBtn.addEventListener('click', () => flushQueuedHubSyncs().catch(error => setHubStatus(error.message, 'error')));
+    [
+      document.getElementById('hubConnectivityProfile'),
+      document.getElementById('hubLowWirelessToggle'),
+      document.getElementById('hubQueuedSyncPreferenceToggle'),
+      document.getElementById('hubConnectivityNote'),
+    ].forEach(element => {
+      if (!element) return;
+      element.addEventListener('change', () => persistHubEnvironmentPreferences().catch(error => setHubStatus(error.message, 'error')));
+    });
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('message', event => {

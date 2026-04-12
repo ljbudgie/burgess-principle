@@ -109,7 +109,7 @@ To regenerate the signed update manifest for a future release:
 ```bash
 python -m pip install -e ".[onchain]"
 python scripts/generate_pwa_update_manifest.py \
-  --version 1.1.1-phase1 \
+  --version 1.3.0 \
   --seed-hex "<offline-ed25519-seed-hex>"
 ```
 

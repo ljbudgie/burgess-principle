@@ -13,6 +13,7 @@ One question. Binary test. Human accountability over institutional opacity.
 
 **UK Certification Mark:** UK00004343685 — Classes 41, 42, 45  
 **Live site & installable PWA:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)  
+**Choose your path:** [`CHOOSE_YOUR_PATH.md`](CHOOSE_YOUR_PATH.md)  
 **Run locally:** [`SOVEREIGN_MODE.md`](SOVEREIGN_MODE.md)  
 **Iris architecture:** [`iris/README.md`](iris/README.md) · [`ARCHITECTURE.md`](ARCHITECTURE.md)
 

@@ -304,6 +304,14 @@
     bridge.announceStatus(message);
   }
 
+  function describeProfileDisclosure(disclosure = {}) {
+    const profile = disclosure.exported_from_profile || {};
+    if (profile.name && profile.handle) return `${profile.name} (@${profile.handle})`;
+    if (profile.name) return profile.name;
+    if (profile.handle) return `@${profile.handle}`;
+    return 'this local sovereign profile';
+  }
+
   function setHubStatus(message, tone = '') {
     const statusEl = document.getElementById('hubStatus');
     if (!statusEl) return;
@@ -320,6 +328,93 @@
     const value = memoryUi && memoryUi.passphrase ? memoryUi.passphrase.value.trim() : '';
     if (value) memoryPassphraseCache = value;
     return value || memoryPassphraseCache;
+  }
+
+  async function toMemoryEntryRecord(entry) {
+    const payload = {
+      id: entry.id,
+      type: entry.type || entry.signed_payload?.type || 'note',
+      source: entry.source || entry.signed_payload?.source || 'manual',
+      source_ref: entry.source_ref || entry.signed_payload?.source_ref || '',
+      encrypted_hash: entry.signed_payload?.encrypted_hash || '',
+      metadata: entry.signed_payload?.metadata || {},
+      entry_version: entry.signed_payload?.entry_version || 1,
+    };
+    return {
+      namespace: 'memory-entry',
+      id: entry.id,
+      created_at: entry.created_at || entry.signed_payload?.created_at || '',
+      previous_commitment_hash: entry.prev_hash || entry.signed_payload?.previous_commitment_hash || '',
+      payload,
+      payload_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature(payload)),
+      metadata: { type: payload.type, source: payload.source },
+      record_version: 1,
+      signature_hex: entry.signature_hex || '',
+      public_key_hex: entry.public_key_hex || '',
+      commitment_hash: entry.commitment_hash || '',
+    };
+  }
+
+  async function toMemoryRootRecord(rootRecord) {
+    const payload = {
+      id: rootRecord.id,
+      entry_id: rootRecord.entry_id || rootRecord.signed_payload?.entry_id || '',
+      merkle_root: rootRecord.merkle_root || rootRecord.signed_payload?.merkle_root || '',
+      leaf_count: rootRecord.leaf_count || rootRecord.signed_payload?.leaf_count || 0,
+      latest_entry_hash: rootRecord.latest_entry_hash || rootRecord.signed_payload?.latest_entry_hash || '',
+      root_version: rootRecord.signed_payload?.root_version || 1,
+    };
+    return {
+      namespace: 'memory-root',
+      id: rootRecord.id,
+      created_at: rootRecord.created_at || rootRecord.signed_payload?.created_at || '',
+      previous_commitment_hash: rootRecord.prev_root_commitment_hash || rootRecord.signed_payload?.previous_commitment_hash || '',
+      payload,
+      payload_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature(payload)),
+      metadata: { entry_id: payload.entry_id },
+      record_version: 1,
+      signature_hex: rootRecord.signature_hex || '',
+      public_key_hex: rootRecord.public_key_hex || '',
+      commitment_hash: rootRecord.root_commitment_hash || '',
+    };
+  }
+
+  async function verifyStoredMemoryEntryRecord(entry) {
+    const record = await toMemoryEntryRecord(entry);
+    if (commitmentOrchestrator && typeof commitmentOrchestrator.verifySignedRecord === 'function') {
+      await commitmentOrchestrator.verifySignedRecord(record, {
+        verifySignature: ({ payload, signatureHex, publicKeyHex }) => verifySignatureHex(publicKeyHex, signatureHex, payload),
+      });
+      return true;
+    }
+    return verifySignatureHex(record.public_key_hex, record.signature_hex, {
+      namespace: record.namespace,
+      created_at: record.created_at,
+      previous_commitment_hash: record.previous_commitment_hash || '',
+      payload: record.payload,
+      payload_hash: record.payload_hash,
+      metadata: record.metadata || {},
+      record_version: record.record_version || 1,
+    });
+  }
+
+  async function verifyStoredMemoryRootRecord(rootRecord) {
+    const record = await toMemoryRootRecord(rootRecord);
+    if (commitmentOrchestrator && typeof commitmentOrchestrator.verifySignedRecord === 'function') {
+      await commitmentOrchestrator.verifySignedRecord(record, {
+        verifySignature: ({ payload, signatureHex, publicKeyHex }) => verifySignatureHex(publicKeyHex, signatureHex, payload),
+      });
+      return true;
+    }
+    return verifySignatureHex(record.public_key_hex, record.signature_hex, {
+      namespace: record.namespace,
+      created_at: record.created_at,
+      previous_commitment_hash: record.previous_commitment_hash || '',
+      payload: record.payload,
+      payload_hash: record.payload_hash,
+      metadata: record.metadata || {},
+      record_version: record.record_version || 1,
+    });
   }
 
   async function buildMerkleState(leaves, index) {
@@ -478,6 +573,8 @@
       entry_commitment_hash: commitment_hash,
       root_commitment_hash: rootCommitmentHash,
       merkle_root: merkleState.root,
+      leaf_index: nextLeaves.length - 1,
+      leaf_count: nextLeaves.length,
       inclusion_proof: merkleState.proof,
       signed_entry: entry,
       signed_root: rootRecord,
@@ -651,6 +748,7 @@
     if (!receipt) {
       throw new Error('No Memory Palace receipt exists yet. Add or import a committed memory first.');
     }
+    const profileSummary = await bridge.vaultStore.getSetting('personal-sovereign-profile-summary');
     const exportPayload = auditEngine && auditEngine.buildReceipt
       ? auditEngine.buildReceipt({
         record: receipt.signed_entry,
@@ -658,6 +756,11 @@
         inclusionProof: receipt.inclusion_proof,
         disclosure: {
           advisory: 'Local receipt export only. Human review still decides the Burgess outcome.',
+          exported_from_profile: profileSummary ? {
+            name: profileSummary.name || '',
+            handle: profileSummary.handle || '',
+            key_fingerprint: profileSummary.key_fingerprint || '',
+          } : {},
         },
       })
       : receipt;
@@ -669,6 +772,27 @@
     link.click();
     URL.revokeObjectURL(url);
     setMemoryStatus('Exported the latest signed Memory Palace receipt. Nothing leaves the device unless you share the file.', 'success');
+  }
+
+  async function verifyExportedMemoryReceipt(payload) {
+    if (!auditEngine || typeof auditEngine.verifyReceipt !== 'function') {
+      throw new Error('Receipt verification is not available in this build.');
+    }
+    const result = await auditEngine.verifyReceipt(payload, {
+      verifyRecord: record => verifyStoredMemoryEntryRecord(record),
+      verifyRootRecord: rootRecord => verifyStoredMemoryRootRecord(rootRecord),
+    });
+    if (!result.valid) {
+      throw new Error('Receipt proof did not match the signed Merkle root.');
+    }
+    const sourceProfile = describeProfileDisclosure(result.disclosure);
+    const exportedAt = result.exported_at ? ` Exported ${result.exported_at}.` : '';
+    const createdAt = result.record_created_at ? ` Entry sealed ${result.record_created_at}.` : '';
+    setMemoryStatus(
+      `Receipt verified locally. Entry signature valid, root signature valid, and inclusion proof valid for ${sourceProfile}.${createdAt}${exportedAt}`,
+      'success'
+    );
+    return result;
   }
 
   async function loadDerivedCursor() {
@@ -1157,9 +1281,11 @@
             <button class="sidebar-action-btn" id="memoryVerifyBtn" type="button">🧪 Verify integrity</button>
             <button class="sidebar-action-btn" id="memoryFullIntegrityBtn" type="button">🛡️ Full system integrity check</button>
             <button class="sidebar-action-btn" id="memoryExportBtn" type="button">🧾 Export latest memory receipt</button>
+            <button class="sidebar-action-btn" id="memoryVerifyReceiptBtn" type="button">🔎 Verify receipt file</button>
           </div>
           <div class="claim-field"><label for="memorySearchInput">Search committed memory</label><input id="memorySearchInput" type="text" placeholder="Search local decrypted memories after unlocking"></div>
         </div>
+        <input id="memoryVerifyReceiptInput" type="file" accept="application/json,.json" hidden>
         <div class="trigger-ledger" id="memoryTimelineList"></div>
         <div class="claim-profile-status" id="memoryStatus">The Memory Palace is local-only. Unlock it with a passphrase to inspect or search encrypted memories.</div>
       </details>
@@ -1203,6 +1329,8 @@
       verify: document.getElementById('memoryVerifyBtn'),
       fullCheck: document.getElementById('memoryFullIntegrityBtn'),
       export: document.getElementById('memoryExportBtn'),
+      verifyReceipt: document.getElementById('memoryVerifyReceiptBtn'),
+      verifyReceiptInput: document.getElementById('memoryVerifyReceiptInput'),
       search: document.getElementById('memorySearchInput'),
       timeline: document.getElementById('memoryTimelineList'),
       status: document.getElementById('memoryStatus'),
@@ -1333,6 +1461,19 @@
     });
     memoryUi.fullCheck.addEventListener('click', () => runFullSystemIntegrityCheck().catch(error => setMemoryStatus(error.message, 'error')));
     memoryUi.export.addEventListener('click', () => exportLatestMemoryReceipt().catch(error => setMemoryStatus(error.message, 'error')));
+    memoryUi.verifyReceipt.addEventListener('click', () => memoryUi.verifyReceiptInput.click());
+    memoryUi.verifyReceiptInput.addEventListener('change', async event => {
+      try {
+        const [file] = Array.from(event.target.files || []);
+        if (!file) return;
+        const payload = JSON.parse(await file.text());
+        await verifyExportedMemoryReceipt(payload);
+      } catch (error) {
+        setMemoryStatus(`Could not verify the selected receipt. ${error.message}`, 'error');
+      } finally {
+        memoryUi.verifyReceiptInput.value = '';
+      }
+    });
     memoryUi.search.addEventListener('input', () => renderMemoryTimeline(memoryUi.search.value || '').catch(error => setMemoryStatus(error.message, 'error')));
     memoryUi.backgroundUnlock.addEventListener('change', async () => {
       try {

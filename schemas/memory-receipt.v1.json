@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://burgess-principle.vercel.app/schemas/memory-receipt.v1.json",
+  "title": "Iris Memory Receipt v1",
+  "type": "object",
+  "required": ["receipt_export_version", "record", "root_record", "inclusion_proof"],
+  "properties": {
+    "receipt_export_version": { "type": "integer", "const": 1 },
+    "exported_at": { "type": "string", "format": "date-time" },
+    "record": { "type": "object" },
+    "root_record": { "type": "object" },
+    "inclusion_proof": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          {
+            "type": "object",
+            "required": ["hash", "position"],
+            "properties": {
+              "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+              "position": { "type": "string", "enum": ["left", "right"] }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "disclosure": { "type": "object", "additionalProperties": true }
+  },
+  "additionalProperties": true
+}

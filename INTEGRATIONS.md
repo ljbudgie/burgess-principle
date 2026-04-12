@@ -4,6 +4,8 @@ Open-source tools and libraries used by the Burgess Principle framework.
 
 Each entry is something the repository already depends on. If you're contributing code or extending the toolkit, this is a quick reference for what powers each capability.
 
+For the stable local/API surface and versioned file contracts, see [`INTEGRATION_CONTRACT.md`](INTEGRATION_CONTRACT.md).
+
 ---
 
 ## Python Toolkit

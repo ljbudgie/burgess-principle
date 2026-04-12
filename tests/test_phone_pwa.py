@@ -30,8 +30,9 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'profileIdentityName' in INDEX
     assert 'profileIdentityPassphrase' in INDEX
     assert '/api/my-profile' in INDEX
-    assert 'Export Vault' in INDEX
-    assert 'Import Vault' in INDEX
+    assert 'Export Backup Bundle' in INDEX
+    assert 'Import Backup Bundle' in INDEX
+    assert 'Load Extension Pack' in INDEX
     assert 'queue-onchain-fingerprint' in INDEX
     assert 'verifyPwaIntegrityBtn' in INDEX
     assert 'applyVerifiedUpdateBtn' in INDEX
@@ -55,6 +56,9 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'Minimized local wireless preference (user-controlled)' in INDEX
     assert 'hubLowWirelessToggle' in INDEX
     assert 'hubQueuedSyncPreferenceToggle' in INDEX
+    assert 'extensionPackStatus' in INDEX
+    assert 'importExtensionPackInput' in INDEX
+    assert 'SOVEREIGN_BACKUP_BUNDLE_KIND' in INDEX
     assert 'phase3-memory-hub.js' in INDEX
 
 
@@ -116,6 +120,8 @@ def test_phase_3_memory_palace_and_hub_assets_exist():
     assert 'memoryPalacePanel' in PHASE3_CLIENT
     assert 'verifyMemoryIntegrity' in PHASE3_CLIENT
     assert 'runFullSystemIntegrityCheck' in PHASE3_CLIENT
+    assert 'memoryVerifyReceiptBtn' in PHASE3_CLIENT
+    assert 'verifyExportedMemoryReceipt' in PHASE3_CLIENT
     assert 'performHubSync' in PHASE3_CLIENT
     assert 'memoryEnvironmentalNoteBtn' in PHASE3_CLIENT
     assert 'hubEnvironmentFingerprint' in PHASE3_CLIENT
@@ -134,8 +140,31 @@ def test_docs_cover_phase_3_memory_palace_and_hub():
     assert '## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0' in docs
     assert '### Hardwired connectivity options for personal environmental preferences' in docs
     assert '### Memory Palace environmental notes' in docs
+    assert '### Backup bundles, schemas, and extension packs' in docs
+    assert 'Verify receipt file' in docs
     assert '#### Diagram — Hardwired Connectivity Options Flow' in docs
     assert 'Fiber hardwired review' in docs
     assert 'memoryEntries' in docs
     assert 'sovereign-hub-example/' in docs
     assert 'Push commitments' in docs
+
+
+def test_onboarding_contract_and_schema_docs_exist():
+    choose_path = (ROOT / 'CHOOSE_YOUR_PATH.md').read_text(encoding='utf-8')
+    integration_contract = (ROOT / 'INTEGRATION_CONTRACT.md').read_text(encoding='utf-8')
+    extension_packs = (ROOT / 'EXTENSION_PACKS.md').read_text(encoding='utf-8')
+    assert 'Send a letter now' in choose_path
+    assert 'Set up Sovereign Local Mode' in choose_path
+    assert 'Verify or export evidence' in choose_path
+    assert 'Versioned schemas' in integration_contract
+    assert 'Plugin-lite extension packs' in integration_contract
+    assert 'Load Extension Pack' in extension_packs
+    for schema_name in [
+        'claim-package.v1.json',
+        'memory-receipt.v1.json',
+        'profile-export.v1.json',
+        'commitment-bundle.v1.json',
+        'sovereign-backup-bundle.v1.json',
+        'extension-pack-manifest.v1.json',
+    ]:
+        assert (ROOT / 'schemas' / schema_name).exists()

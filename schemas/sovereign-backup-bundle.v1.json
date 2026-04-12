@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://burgess-principle.vercel.app/schemas/sovereign-backup-bundle.v1.json",
+  "title": "Iris Sovereign Backup Bundle v1",
+  "type": "object",
+  "required": ["bundle_kind", "bundle_schema_version", "version", "exported_at", "settings", "integrity"],
+  "properties": {
+    "bundle_kind": { "type": "string", "const": "iris-sovereign-backup-bundle" },
+    "bundle_schema_version": { "type": "integer", "const": 1 },
+    "version": { "type": "string" },
+    "exported_at": { "type": "string", "format": "date-time" },
+    "exported_by": { "type": "string" },
+    "app_version": { "type": "string" },
+    "pwa_core_version": { "type": "string" },
+    "settings": { "type": "object" },
+    "claims": { "type": "array", "items": { "type": "object" } },
+    "memoryEntries": { "type": "array", "items": { "type": "object" } },
+    "memoryRoots": { "type": "array", "items": { "type": "object" } },
+    "memoryReceipts": { "type": "array", "items": { "type": "object" } },
+    "hubSyncQueue": { "type": "array", "items": { "type": "object" } },
+    "hubAudit": { "type": "array", "items": { "type": "object" } },
+    "integrity": {
+      "type": "object",
+      "required": ["hash_algorithm", "sections"],
+      "properties": {
+        "hash_algorithm": { "type": "string", "const": "sha256" },
+        "sections": { "type": "object" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

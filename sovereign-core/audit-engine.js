@@ -22,13 +22,45 @@
           const right = level[i + 1] || left;
           next.push(await adapter.sha256Hex(adapter.canonicalize({ left, right })));
           if (i === cursor || i + 1 === cursor) {
-            proof.push(i === cursor ? right : left);
+            proof.push({
+              hash: i === cursor ? right : left,
+              position: i === cursor ? 'right' : 'left',
+            });
             cursor = next.length - 1;
           }
         }
         level = next;
       }
       return { root: level[0], proof };
+    }
+
+    async function verifyMerkleProof(leafHash, proof, expectedRoot) {
+      if (typeof leafHash !== 'string' || !leafHash || typeof expectedRoot !== 'string' || !expectedRoot) {
+        throw new Error('Merkle proof verification requires a leaf hash and an expected root.');
+      }
+      let hashCandidates = new Set([leafHash]);
+      const normalizedProof = Array.isArray(proof) ? proof : [];
+      for (const step of normalizedProof) {
+        const next = new Set();
+        for (const candidate of hashCandidates) {
+          if (typeof step === 'string') {
+            next.add(await adapter.sha256Hex(adapter.canonicalize({ left: candidate, right: step })));
+            next.add(await adapter.sha256Hex(adapter.canonicalize({ left: step, right: candidate })));
+            continue;
+          }
+          if (!step || typeof step.hash !== 'string' || !step.hash) {
+            continue;
+          }
+          if (step.position === 'left') {
+            next.add(await adapter.sha256Hex(adapter.canonicalize({ left: step.hash, right: candidate })));
+          } else {
+            next.add(await adapter.sha256Hex(adapter.canonicalize({ left: candidate, right: step.hash })));
+          }
+        }
+        hashCandidates = next;
+        if (hashCandidates.size === 0) return false;
+      }
+      return hashCandidates.has(expectedRoot);
     }
 
     async function verifySequentialChain(records, options = {}) {
@@ -56,10 +88,50 @@
       };
     }
 
+    async function verifyReceipt(receipt, options = {}) {
+      if (!receipt || typeof receipt !== 'object') {
+        throw new Error('Receipt payload must be a JSON object.');
+      }
+      const record = receipt.record;
+      const rootRecord = receipt.root_record || receipt.rootRecord;
+      if (!record || !rootRecord) {
+        throw new Error('Receipt is missing the signed entry or signed root.');
+      }
+      if (typeof options.verifyRecord === 'function') {
+        await options.verifyRecord(record, 'entry');
+      }
+      if (typeof options.verifyRootRecord === 'function') {
+        await options.verifyRootRecord(rootRecord, 'root');
+      }
+      const inclusionProof = Array.isArray(receipt.inclusion_proof)
+        ? receipt.inclusion_proof
+        : Array.isArray(rootRecord.inclusion_proof)
+          ? rootRecord.inclusion_proof
+          : [];
+      const inclusionProofValid = await verifyMerkleProof(
+        record.commitment_hash || receipt.entry_commitment_hash || '',
+        inclusionProof,
+        rootRecord.merkle_root || receipt.merkle_root || ''
+      );
+      return {
+        valid: inclusionProofValid,
+        inclusion_proof_valid: inclusionProofValid,
+        record_id: record.id || '',
+        record_created_at: record.created_at || '',
+        root_id: rootRecord.id || '',
+        root_created_at: rootRecord.created_at || '',
+        merkle_root: rootRecord.merkle_root || receipt.merkle_root || '',
+        exported_at: receipt.exported_at || '',
+        disclosure: receipt.disclosure || {},
+      };
+    }
+
     return {
       buildMerkleState,
+      verifyMerkleProof,
       verifySequentialChain,
       buildReceipt,
+      verifyReceipt,
     };
   }
 

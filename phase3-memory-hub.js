@@ -1467,7 +1467,7 @@
     memoryUi.verifyReceipt.addEventListener('click', () => memoryUi.verifyReceiptInput.click());
     memoryUi.verifyReceiptInput.addEventListener('change', async event => {
       try {
-        const [file] = Array.from(event.target.files || []);
+        const [file] = event.target.files || [];
         if (!file) return;
         const payload = JSON.parse(await file.text());
         await verifyExportedMemoryReceipt(payload);

@@ -3732,9 +3732,9 @@
             document.querySelectorAll('[data-extension-trigger-option="true"]').forEach(node => node.remove());
             const existingExtensionButtons = document.getElementById('extensionClaimButtons');
             if (existingExtensionButtons) existingExtensionButtons.remove();
-            Object.keys(QUICK_ACTION_PROMPTS).forEach(key => {
-                if (key.startsWith('extension:')) delete QUICK_ACTION_PROMPTS[key];
-            });
+            Object.keys(QUICK_ACTION_PROMPTS)
+                .filter(key => key.startsWith('extension:'))
+                .forEach(key => delete QUICK_ACTION_PROMPTS[key]);
 
             loadedExtensionPacks.forEach(pack => {
                 pack.templates.forEach(template => {
@@ -4027,17 +4027,17 @@
             const manifest = {};
             for (const [name, value] of Object.entries(sections)) {
                 manifest[name] = {
-                    count: Array.isArray(value)
-                        ? value.length
-                        : value && typeof value === 'object'
-                            ? Object.keys(value).length
-                            : value
-                                ? 1
-                                : 0,
+                    count: getBackupItemCount(value),
                     sha256: await sha256Hex(canonicalizeForSignature(value == null ? null : value)),
                 };
             }
             return manifest;
+        }
+
+        function getBackupItemCount(value) {
+            if (Array.isArray(value)) return value.length;
+            if (value && typeof value === 'object') return Object.keys(value).length;
+            return value ? 1 : 0;
         }
 
         async function verifyBackupIntegrityManifest(payload) {

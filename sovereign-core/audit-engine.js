@@ -38,11 +38,11 @@
       if (typeof leafHash !== 'string' || !leafHash || typeof expectedRoot !== 'string' || !expectedRoot) {
         throw new Error('Merkle proof verification requires a leaf hash and an expected root.');
       }
-      let candidates = new Set([leafHash]);
+      let hashCandidates = new Set([leafHash]);
       const normalizedProof = Array.isArray(proof) ? proof : [];
       for (const step of normalizedProof) {
         const next = new Set();
-        for (const candidate of candidates) {
+        for (const candidate of hashCandidates) {
           if (typeof step === 'string') {
             next.add(await adapter.sha256Hex(adapter.canonicalize({ left: candidate, right: step })));
             next.add(await adapter.sha256Hex(adapter.canonicalize({ left: step, right: candidate })));
@@ -57,10 +57,10 @@
             next.add(await adapter.sha256Hex(adapter.canonicalize({ left: candidate, right: step.hash })));
           }
         }
-        candidates = next;
-        if (candidates.size === 0) return false;
+        hashCandidates = next;
+        if (hashCandidates.size === 0) return false;
       }
-      return candidates.has(expectedRoot);
+      return hashCandidates.has(expectedRoot);
     }
 
     async function verifySequentialChain(records, options = {}) {

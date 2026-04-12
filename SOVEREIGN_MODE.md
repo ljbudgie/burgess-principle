@@ -229,17 +229,7 @@ Connectivity-focused trigger templates — including **Fiber hardwired review** 
 - **Integration contract:** supported endpoints and file formats are listed in [`INTEGRATION_CONTRACT.md`](./INTEGRATION_CONTRACT.md).
 - **Extension packs:** manifest-based local packs can add template shortcuts, trigger presets, and claim export adapters without loading remote code. See [`EXTENSION_PACKS.md`](./EXTENSION_PACKS.md).
 
-### Hardwired connectivity options for personal environmental preferences
-
-All connectivity profile setup options now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md).
-
-#### Diagram — Hardwired Connectivity Options Flow
-
-See [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md) for the moved connectivity flowchart and related setup notes.
-
-### Memory Palace environmental notes
-
-Environmental Memory Palace notes and assistive connectivity framing now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md).
+For connectivity and environmental setup options, see <a>CONNECTIVITY_MODE.md</a>.
 
 ### Manual verification steps
 
@@ -258,9 +248,6 @@ Environmental Memory Palace notes and assistive connectivity framing now live in
 
 - **Android / Chromium:** best fit for background root refresh and queued hub sync flushing.
 - **iOS Safari:** foreground-first by design; unlock, search, verify, and export still work, but sync retries may wait for manual launch.
-- **Storage pressure:** the Memory Palace prefers compact encrypted summaries plus signed receipts, and the user can prune/export older states while retaining commitment proofs.
-
-For connectivity and environmental setup options, see <a>CONNECTIVITY_MODE.md</a>.
 
 ---
 

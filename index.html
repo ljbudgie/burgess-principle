@@ -2268,7 +2268,7 @@
         const API_FINGERPRINT_QUEUE_URL = _isLocal ? `${window.location.origin}/api/queue-onchain-fingerprint` : '/api/queue-onchain-fingerprint';
         const API_PROFILE_URL = _isLocal ? `${window.location.origin}/api/my-profile` : '';
         const VAULT_DB_NAME = 'burgess-principle-vault';
-        const VAULT_DB_VERSION = 3;
+        const VAULT_DB_VERSION = 4;
         const VAULT_VERSION = '1.1.1';
         const PWA_CORE_VERSION = '1.1.1-phase1';
         const PWA_MANIFEST_URL = '/manifest.json';
@@ -3221,6 +3221,21 @@
                     if (!db.objectStoreNames.contains('triggerReceipts')) {
                         db.createObjectStore('triggerReceipts', { keyPath: 'id' });
                     }
+                    if (!db.objectStoreNames.contains('memoryEntries')) {
+                        db.createObjectStore('memoryEntries', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('memoryRoots')) {
+                        db.createObjectStore('memoryRoots', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('memoryReceipts')) {
+                        db.createObjectStore('memoryReceipts', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('hubSyncQueue')) {
+                        db.createObjectStore('hubSyncQueue', { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains('hubAudit')) {
+                        db.createObjectStore('hubAudit', { keyPath: 'id' });
+                    }
                     if (!db.objectStoreNames.contains('pushSubscription')) {
                         db.createObjectStore('pushSubscription', { keyPath: 'key' });
                     }
@@ -3720,6 +3735,11 @@
                 triggerQueue: await vaultStore.getAll('triggerQueue'),
                 triggerLedger: await vaultStore.getAll('triggerLedger'),
                 triggerReceipts: await vaultStore.getAll('triggerReceipts'),
+                memoryEntries: await vaultStore.getAll('memoryEntries'),
+                memoryRoots: await vaultStore.getAll('memoryRoots'),
+                memoryReceipts: await vaultStore.getAll('memoryReceipts'),
+                hubSyncQueue: await vaultStore.getAll('hubSyncQueue'),
+                hubAudit: await vaultStore.getAll('hubAudit'),
             };
             const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -3764,7 +3784,7 @@
             if (payload.personalIdentityVault && typeof payload.personalIdentityVault === 'object') {
                 await vaultStore.saveSetting(PERSONAL_IDENTITY_VAULT_KEY, payload.personalIdentityVault);
             }
-            for (const storeName of ['claims', 'reminders', 'fingerprintQueue', 'triggers', 'triggerQueue', 'triggerLedger', 'triggerReceipts']) {
+            for (const storeName of ['claims', 'reminders', 'fingerprintQueue', 'triggers', 'triggerQueue', 'triggerLedger', 'triggerReceipts', 'memoryEntries', 'memoryRoots', 'memoryReceipts', 'hubSyncQueue', 'hubAudit']) {
                 const items = Array.isArray(payload[storeName]) ? payload[storeName] : [];
                 for (const item of items) {
                     await vaultStore.put(storeName, item);
@@ -5273,6 +5293,34 @@
             if (event.key === 'Enter') p2pSendBtn.click();
         });
 
+        window.irisPhaseBridge = {
+            vaultStore,
+            encryptPayload,
+            decryptPayload,
+            toBase64,
+            fromBase64,
+            bytesToHex,
+            hexToBytes,
+            sha256Hex,
+            canonicalizeForSignature,
+            generateSecureId,
+            showLocalNotification,
+            announceStatus,
+            startNewClaimFlow,
+            claimProfilePanel,
+            userInput,
+            profileStatus,
+            hubStatus,
+            hubModeToggle,
+            hubUrl,
+            hubSharedSecret,
+            getMirrorGreeting,
+            QUICK_ACTION_PROMPTS,
+            API_FINGERPRINT_QUEUE_URL,
+            VAULT_VERSION,
+            PWA_CORE_VERSION,
+        };
+
         // ------------------------------------------------------------------ //
         // Boot                                                               //
         // ------------------------------------------------------------------ //
@@ -5298,6 +5346,7 @@
             appendError(`Phone setup warning: ${escapeHtml(error.message)}`);
         });
     </script>
+    <script src="/phase3-memory-hub.js"></script>
 
 </body>
 </html>

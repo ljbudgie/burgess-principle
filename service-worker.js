@@ -3,7 +3,7 @@ const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
 const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
 const API_CACHE_NAME = `burgess-principle-api-${PWA_CORE_VERSION}`;
 const VAULT_DB_NAME = 'burgess-principle-vault';
-const VAULT_DB_VERSION = 3;
+const VAULT_DB_VERSION = 4;
 const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000;
 const TRIGGER_CRYPTO_SETTING_KEY = 'living-trigger-crypto';
 const TRIGGER_LAST_RECEIPT_SETTING_KEY = 'living-trigger-last-receipt';
@@ -17,6 +17,8 @@ const PRECACHE_URLS = [
   '/index.html',
   '/manifest.json',
   '/service-worker.js',
+  '/phase3-memory-hub.js',
+  '/memory-palace-worker.js',
   '/banner.png',
   '/signed-update-manifest.json'
 ];
@@ -187,6 +189,11 @@ function openDb() {
       if (!db.objectStoreNames.contains('triggerQueue')) db.createObjectStore('triggerQueue', { keyPath: 'id' });
       if (!db.objectStoreNames.contains('triggerLedger')) db.createObjectStore('triggerLedger', { keyPath: 'id' });
       if (!db.objectStoreNames.contains('triggerReceipts')) db.createObjectStore('triggerReceipts', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('memoryEntries')) db.createObjectStore('memoryEntries', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('memoryRoots')) db.createObjectStore('memoryRoots', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('memoryReceipts')) db.createObjectStore('memoryReceipts', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('hubSyncQueue')) db.createObjectStore('hubSyncQueue', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('hubAudit')) db.createObjectStore('hubAudit', { keyPath: 'id' });
       if (!db.objectStoreNames.contains('pushSubscription')) db.createObjectStore('pushSubscription', { keyPath: 'key' });
     };
     request.onsuccess = () => resolve(request.result);
@@ -480,6 +487,48 @@ async function notifyDueReminders() {
   }
 }
 
+async function flushHubSyncQueue() {
+  const queue = (await readAll('hubSyncQueue')).filter(item => item.status === 'queued');
+  let flushed = 0;
+  for (const item of queue) {
+    try {
+      const response = await fetch(item.url, {
+        method: item.method || 'POST',
+        headers: item.headers || { 'Content-Type': 'application/json' },
+        body: item.body || '',
+      });
+      if (!response.ok) {
+        throw new Error(`Hub returned ${response.status}`);
+      }
+      const payload = await response.json().catch(() => ({}));
+      item.status = 'completed';
+      item.completed_at = new Date().toISOString();
+      item.response_payload = payload;
+      await putRecord('hubSyncQueue', item);
+      await putRecord('hubAudit', {
+        id: `hub-audit-${crypto.randomUUID()}`,
+        created_at: item.completed_at,
+        direction: item.direction || 'queued-sync',
+        status: 'flushed',
+        summary: `Service worker flushed a queued ${item.direction || 'hub'} request.`,
+        commitment_hash: await sha256Hex(canonicalizeForSignature({
+          direction: item.direction || 'queued-sync',
+          completed_at: item.completed_at,
+          response_payload: payload,
+        })),
+        response_payload: payload,
+      });
+      flushed += 1;
+    } catch (_error) {
+      item.last_attempt_at = new Date().toISOString();
+      await putRecord('hubSyncQueue', item);
+    }
+  }
+  if (flushed > 0) {
+    await postClientMessage({ type: 'HUB_SYNC_QUEUE_FLUSHED', flushed });
+  }
+}
+
 async function processTriggerQueue() {
   const queued = (await readAll('triggerQueue')).filter(item => item.status === 'queued');
   let processed = 0;
@@ -625,6 +674,9 @@ self.addEventListener('sync', event => {
   if (event.tag === 'burgess-trigger-queue-sync') {
     event.waitUntil(processTriggerQueue());
   }
+  if (event.tag === 'burgess-hub-sync') {
+    event.waitUntil(flushHubSyncQueue());
+  }
   if (event.tag === 'burgess-critical-refresh') {
     event.waitUntil(warmCriticalAssets());
   }
@@ -637,6 +689,7 @@ self.addEventListener('periodicsync', event => {
         notifyDueReminders(),
         evaluateTriggers(),
         processTriggerQueue(),
+        flushHubSyncQueue(),
         flushFingerprintQueue(),
         warmCriticalAssets()
       ])
@@ -682,6 +735,9 @@ self.addEventListener('message', event => {
   }
   if (event.data.type === 'PROCESS_TRIGGER_QUEUE') {
     event.waitUntil(processTriggerQueue());
+  }
+  if (event.data.type === 'FLUSH_HUB_SYNC_QUEUE') {
+    event.waitUntil(flushHubSyncQueue());
   }
   if (event.data.type === 'REFRESH_CRITICAL_PATHS') {
     event.waitUntil(warmCriticalAssets());

@@ -108,6 +108,30 @@ In Burgess terms, the movement is:
 
 That is why Iris is framed as a sovereign inversion engine: it helps a person see the script beneath the process, preserve what they saw, and export verifiable evidence without surrendering control.
 
+#### Time as Invertible Template — The Offline Guarantee
+
+The offline guarantee becomes clearest when **time** is understood as another detectable template or script. From the **1858** drive toward a global time-zone standard to the **2100** horizons encoded in modern tz databases, “now” can be handed down as a shared frame by external authority and then mistaken for neutral reality.
+
+Because Iris runs **100% offline** in **Sovereign Local Mode**, it never consults any external clock or authority for “now.” The present is computed where the person stands: on the local machine, at execution, under the local hardware clock, with no network appeal.
+
+This is **not** a hardware intervention and **not** a treatment claim. It is an **advisory-only**, human-first software posture that keeps temporal trust local, legible, and sovereign.
+
+In Burgess terms, the movement is:
+
+**detect → expose → invert**
+
+| Layer | Centralized time script | Iris sovereign counterpart |
+| --- | --- | --- |
+| **Baseline** | “Now” arrives as a standardized frame inherited from outside systems | “Now” is computed locally at runtime, with no external time authority |
+| **What gets exposed** | Hidden dependence on remote clocks, time services, and institutional timing frames | External time is revealed as a trust dependency rather than a neutral fact |
+| **Medium** | Upstream standards, databases, and synchronization assumptions | Local execution, local clock, and self-computed cryptographic proof |
+| **Primary effect** | The present is borrowed from elsewhere | The present becomes self-verifying where the user actually is |
+| **Proof boundary** | Trust in external timing authority | The Sovereign Mode startup banner self-computes the SHA-256 fingerprint of `iris-local.py`, proving that the running code is verifiable at the exact moment of execution on the local hardware clock |
+
+That is why the offline guarantee is stronger than “no internet.” It is the **mathematical removal of any external time authority** from the trust loop. In the **v0.4.0** commitment frame — SHA-256 commitments, visible proof boundaries, and the Burgess Principle’s human-scrutiny foundation — Iris detects the script, exposes the dependency, and inverts it into a sovereign, self-verifying present.
+
+**Relevance to the Burgess Principle:** The Burgess Principle begins with local trust, visible proof, and real human scrutiny. The offline guarantee extends that same foundation: Iris does not borrow the present from elsewhere, but verifies itself where it runs, so the person can inspect the moment, the code, and the evidence together.
+
 For the longer doctrinal framing, see [`papers/MEDICAL_DEVICE_DOCTRINE.md`](papers/MEDICAL_DEVICE_DOCTRINE.md) and the template set in [`templates/`](templates/README.md).
 
 ### Operating modes

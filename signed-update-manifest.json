@@ -1,0 +1,41 @@
+{
+  "key_id": "iris-pwa-ed25519-2026-04",
+  "public_key_hex": "22419690b7f8688db18850c5c8f21f1b8e7c011986ebef38c2193c45042f8b58",
+  "signed_payload": {
+    "app_id": "iris-sovereign-pwa",
+    "version": "1.1.1-phase1",
+    "issued_at": "2026-04-12T00:36:07.123688Z",
+    "hash_algorithm": "sha256",
+    "consent_required": true,
+    "critical_paths": [
+      "/",
+      "/index.html",
+      "/manifest.json",
+      "/service-worker.js",
+      "/banner.png"
+    ],
+    "assets": [
+      {
+        "path": "/",
+        "sha256": "c6d3b8204e462468bc2a50c1759751876fec77cb2346a4f251075355c977de10"
+      },
+      {
+        "path": "/index.html",
+        "sha256": "c6d3b8204e462468bc2a50c1759751876fec77cb2346a4f251075355c977de10"
+      },
+      {
+        "path": "/manifest.json",
+        "sha256": "9bb8a1f6ccedcebb9584dab4f797df9f8a81234820f130d604ab196380e0179b"
+      },
+      {
+        "path": "/service-worker.js",
+        "sha256": "a7020be4f2b13694d384d924dc76d761743f286258078b1fb6ee19a739d31e10"
+      },
+      {
+        "path": "/banner.png",
+        "sha256": "477f95459c61c757a113ea485ab9a2cfd05b0279766a90dc6f4b031441e8008c"
+      }
+    ]
+  },
+  "signature": "t1UxFPz0VIEXQrE7d7e28xjnFDcmPNj2bpj6GwEK2n88xMxkmipsGQuHAuxBxMKtKwFJ2FI3pE12XO3VQKy3CQ=="
+}

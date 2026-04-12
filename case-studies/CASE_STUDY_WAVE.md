@@ -1,15 +1,15 @@
 # Case Study: Wave Utilities — Automated Debt Enforcement Against a Disabled Customer
 
-**Case Reference:** Wave / iC&R — Accounts 31694322001 & 31694322002  
-**Sector:** Water Retail (Non-Household)  
-**Current Status:** RESOLVED  
-**Date Opened:** 09 December 2025  
-**Date Resolved:** 30 March 2026  
-**Current Finding:** MIXED — NULL at referral, SOVEREIGN at resolution  
-**Response Classification:** AMBIGUOUS  
-**Procedural Posture:** Closed after Complex Queries review corrected both accounts and withdrew enforcement.  
-**Last Updated:** 12 April 2026  
-**Outcome:** Both accounts cleared to £0.00. £795.14 in fees and interest removed. All enforcement ceased and reasonable adjustments were recorded.
+- **Case Reference:** Wave / iC&R — Accounts 31694322001 & 31694322002
+- **Sector:** Water Retail (Non-Household)
+- **Current Status:** RESOLVED
+- **Date Opened:** 09 December 2025
+- **Date Resolved:** 30 March 2026
+- **Current Finding:** MIXED — NULL at referral, SOVEREIGN at resolution
+- **Response Classification:** AMBIGUOUS
+- **Procedural Posture:** Closed after Complex Queries review corrected both accounts and withdrew enforcement.
+- **Last Updated:** 12 April 2026
+- **Outcome:** Both accounts cleared to £0.00. £795.14 in fees and interest removed. All enforcement ceased and reasonable adjustments were recorded.
 
 ---
 

@@ -1,15 +1,15 @@
 # Case Study: [Full descriptive title]
 
-**Case Reference:** [Unique reference(s)]  
-**Sector:** [Domain]  
-**Current Status:** [RESOLVED / ONGOING / AWAITING RESPONSE]  
-**Date Opened:** [DD Month YYYY]  
-**Date Resolved:** [DD Month YYYY / Pending]  
-**Current Finding:** [SOVEREIGN / NULL / MIXED]  
-**Response Classification:** [SOVEREIGN / NULL / AMBIGUOUS]  
-**Procedural Posture:** [One-line statement of where the case sits now]  
-**Last Updated:** [DD Month YYYY]  
-**Outcome:** [One-line summary with the headline result or current position]
+- **Case Reference:** [Unique reference(s)]
+- **Sector:** [Domain]
+- **Current Status:** [RESOLVED / ONGOING / AWAITING RESPONSE]
+- **Date Opened:** [DD Month YYYY]
+- **Date Resolved:** [DD Month YYYY / Pending]
+- **Current Finding:** [SOVEREIGN / NULL / MIXED]
+- **Response Classification:** [SOVEREIGN / NULL / AMBIGUOUS]
+- **Procedural Posture:** [One-line statement of where the case sits now]
+- **Last Updated:** [DD Month YYYY]
+- **Outcome:** [One-line summary with the headline result or current position]
 
 ---
 

@@ -1,15 +1,15 @@
 # Case Study: Automated Passport Issuance — The SOVEREIGN / NULL Test Applied to Identity Documents
 
-**Case Reference:** British Passport No. [redacted] (BURGESS)  
-**Sector:** Identity and Travel Documents  
-**Current Status:** ONGOING  
-**Date Opened:** 30 March 2026  
-**Date Resolved:** Pending  
-**Current Finding:** NULL at issuance  
-**Response Classification:** AMBIGUOUS  
-**Procedural Posture:** DSAR, Article 22 challenge, and Equality Act notification sent to HMPO; response due 29 April 2026.  
-**Last Updated:** 12 April 2026  
-**Outcome:** The passport has already been issued, but no named human reviewer appears on the instrument and HMPO has not yet answered the direct question.
+- **Case Reference:** British Passport No. [redacted] (BURGESS)
+- **Sector:** Identity and Travel Documents
+- **Current Status:** ONGOING
+- **Date Opened:** 30 March 2026
+- **Date Resolved:** Pending
+- **Current Finding:** NULL at issuance
+- **Response Classification:** AMBIGUOUS
+- **Procedural Posture:** DSAR, Article 22 challenge, and Equality Act notification sent to HMPO; response due 29 April 2026.
+- **Last Updated:** 12 April 2026
+- **Outcome:** The passport has already been issued, but no named human reviewer appears on the instrument and HMPO has not yet answered the direct question.
 
 ---
 

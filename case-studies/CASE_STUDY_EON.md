@@ -1,15 +1,15 @@
 # Case Study: E.ON Next — Forced Entry Under an Unsigned Warrant Without Individual Judicial Review
 
-**Case Reference:** Warrant Application 11160-544079 (RE99022)  
-**Sector:** Energy  
-**Current Status:** ONGOING  
-**Date Opened:** 25 May 2025  
-**Date Resolved:** Pending  
-**Current Finding:** NULL  
-**Response Classification:** NULL  
-**Procedural Posture:** Settlement reached with E.ON; Energy Ombudsman ruling due by 06 May 2026.  
-**Last Updated:** 12 April 2026  
-**Outcome:** Forced entry occurred under a warrant processed through bulk architecture; settlement reached but Ombudsman review remains active.
+- **Case Reference:** Warrant Application 11160-544079 (RE99022)
+- **Sector:** Energy
+- **Current Status:** ONGOING
+- **Date Opened:** 25 May 2025
+- **Date Resolved:** Pending
+- **Current Finding:** NULL
+- **Response Classification:** NULL
+- **Procedural Posture:** Settlement reached with E.ON; Energy Ombudsman ruling due by 06 May 2026.
+- **Last Updated:** 12 April 2026
+- **Outcome:** Forced entry occurred under a warrant processed through bulk architecture; settlement reached but Ombudsman review remains active.
 
 ---
 

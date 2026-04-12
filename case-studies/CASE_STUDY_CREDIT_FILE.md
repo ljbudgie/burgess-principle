@@ -1,15 +1,15 @@
 # Case Study: Equifax — Credit File Contradiction and Automated Case Closure
 
-**Case Reference:** CCJs L9FG1818 and L7EC1P3M  
-**Sector:** Credit Reference  
-**Current Status:** ONGOING  
-**Date Opened:** 26 February 2026  
-**Date Resolved:** Pending  
-**Current Finding:** NULL  
-**Response Classification:** AMBIGUOUS  
-**Procedural Posture:** Automated closure received; ICO complaint is ready to file if no substantive review arrives.  
-**Last Updated:** 12 April 2026  
-**Outcome:** Equifax closed the challenge without engaging with the substance, leaving the disputed CCJ entries in place.
+- **Case Reference:** CCJs L9FG1818 and L7EC1P3M
+- **Sector:** Credit Reference
+- **Current Status:** ONGOING
+- **Date Opened:** 26 February 2026
+- **Date Resolved:** Pending
+- **Current Finding:** NULL
+- **Response Classification:** AMBIGUOUS
+- **Procedural Posture:** Automated closure received; ICO complaint is ready to file if no substantive review arrives.
+- **Last Updated:** 12 April 2026
+- **Outcome:** Equifax closed the challenge without engaging with the substance, leaving the disputed CCJ entries in place.
 
 ---
 

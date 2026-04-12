@@ -7,9 +7,9 @@
 
 > *"Was a human member of the team able to personally review the specific facts of my specific situation?"*
 
-One question. Binary test. Human accountability over institutional opacity.
+One question. Binary test. Human accountability before any system acts on a person.
 
-**Iris** is the flagship voice-first sovereign AI companion built on the Burgess Principle. It helps people document institutional decisions, prepare calm challenges, and keep verifiable evidence on their own hardware. In **Sovereign Local Mode**, Iris can now maintain a **tamper-evident, commitment-chained Memory Palace ledger** with **Merkle roots**, **inclusion proofs**, and **signed receipts** — while **Sovereign Hub Mode 2.0** adds optional, manual-first, self-hosted coordination across intermittent links without surrendering control.
+**Iris** is the flagship voice-first sovereign AI companion built on the Burgess Principle. It helps people document decisions made about them, prepare calm challenges, and keep verifiable evidence on their own hardware. In **Sovereign Local Mode**, Iris can now maintain a **tamper-evident, commitment-chained Memory Palace ledger** with **Merkle roots**, **inclusion proofs**, and **signed receipts** — while **Sovereign Hub Mode 2.0** adds optional, manual-first, self-hosted coordination across intermittent links without surrendering control.
 
 **UK Certification Mark:** UK00004343685 — Classes 41, 42, 45  
 **Live site & installable PWA:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)  
@@ -21,9 +21,11 @@ One question. Binary test. Human accountability over institutional opacity.
 
 ## Why this project exists
 
-Modern institutions make countless automated or semi-automated decisions. When those decisions go wrong, ordinary people are often met with process language instead of a named human being who actually reviewed the facts.
+Modern institutions, platforms, and other systems make countless automated or semi-automated decisions about people. When those decisions go wrong, ordinary people are often met with process language instead of a named human being who actually reviewed the facts.
 
 The Burgess Principle gives people a calm, precise way to ask the right question and record the answer.
+
+It is human-first and universal: if a system processes a specific person without clear individual human review, the Burgess Principle can ask for that review to be confirmed and documented.
 
 It is:
 
@@ -55,6 +57,8 @@ For the deeper philosophy, see [SOUL.md](SOUL.md). For the full disclaimer, see 
 The Burgess Principle asks one question:
 
 > **Was a human member of the team able to personally review the specific facts of my specific situation?**
+
+It is not limited to institutions. The same binary applies wherever a specific person is processed by a system without individual human review.
 
 Every finding resolves to one of two outcomes:
 

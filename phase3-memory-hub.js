@@ -311,6 +311,11 @@
     statusEl.className = 'claim-profile-status' + (tone ? ` is-${tone}` : '');
   }
 
+  function buildHubSyncStatus(direction, syncPolicy) {
+    const verb = direction === 'push' ? 'Pushing' : 'Pulling';
+    return `${verb} commitments to your Sovereign Hub…${syncPolicy ? ` (${syncPolicy.mode} policy)` : ''}`;
+  }
+
   function getMemoryPassphrase() {
     const value = memoryUi && memoryUi.passphrase ? memoryUi.passphrase.value.trim() : '';
     if (value) memoryPassphraseCache = value;
@@ -1075,7 +1080,7 @@
       direction,
     };
 
-    setHubStatus(`${direction === 'push' ? 'Pushing' : 'Pulling'} commitments to your Sovereign Hub…${syncPolicy ? ` (${syncPolicy.mode} policy)` : ''}`);
+    setHubStatus(buildHubSyncStatus(direction, syncPolicy));
     try {
       const data = await sendQueuedRequest(request);
       if (!data.payload || !data.signature_hex || !data.signed_response) {

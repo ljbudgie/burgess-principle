@@ -786,10 +786,13 @@
       throw new Error('Receipt proof did not match the signed Merkle root.');
     }
     const sourceProfile = describeProfileDisclosure(result.disclosure);
-    const exportedAt = result.exported_at ? ` Exported ${result.exported_at}.` : '';
-    const createdAt = result.record_created_at ? ` Entry sealed ${result.record_created_at}.` : '';
+    const details = [
+      `for ${sourceProfile}`,
+      result.record_created_at ? `entry sealed ${result.record_created_at}` : '',
+      result.exported_at ? `exported ${result.exported_at}` : '',
+    ].filter(Boolean);
     setMemoryStatus(
-      `Receipt verified locally. Entry signature valid, root signature valid, and inclusion proof valid for ${sourceProfile}.${createdAt}${exportedAt}`,
+      `Receipt verified locally. Entry signature valid, root signature valid, and inclusion proof valid${details.length ? ` ${details.join(' · ')}` : ''}.`,
       'success'
     );
     return result;

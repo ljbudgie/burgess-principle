@@ -2318,6 +2318,7 @@
         const MAX_EXTENSION_PACK_TEMPLATES = 12;
         const MAX_EXTENSION_PACK_TRIGGER_PRESETS = 12;
         const MAX_EXTENSION_PACK_EXPORT_ADAPTERS = 12;
+        const EXTENSION_PACK_EXPORT_FORMATS = ['json', 'markdown', 'email'];
         const DEFAULT_VOICE_STATUS = 'Voice ready when your browser supports on-device speech recognition.';
         const IDENTITY_FIELD_IDS = {
             name: 'profileIdentityName',
@@ -3657,13 +3658,14 @@
             }
             for (const item of Array.isArray(pack.trigger_presets) ? pack.trigger_presets.slice(0, MAX_EXTENSION_PACK_TRIGGER_PRESETS) : []) {
                 if (!item || typeof item !== 'object' || !item.id || !item.label || !item.natural_language) continue;
+                const intervalHours = Number(item.interval_hours);
                 normalized.trigger_presets.push({
                     id: String(item.id).trim(),
                     label: String(item.label).trim(),
                     natural_language: String(item.natural_language).trim(),
                     type: item.type === 'scheduled' || item.type === 'periodic' || item.type === 'voice_command' ? item.type : 'keyword',
                     keywords: Array.isArray(item.keywords) ? item.keywords.map(value => String(value).trim()).filter(Boolean) : [],
-                    interval_hours: Number.isFinite(Number(item.interval_hours)) ? Math.max(1, Number(item.interval_hours)) : 24,
+                    interval_hours: Number.isFinite(intervalHours) ? Math.max(1, intervalHours) : 24,
                     detection_sources: Array.isArray(item.detection_sources) ? item.detection_sources.map(value => String(value).trim()).filter(Boolean) : ['conversation'],
                     description: typeof item.description === 'string' ? item.description.trim() : '',
                     voice_phrase: typeof item.voice_phrase === 'string' ? item.voice_phrase.trim() : '',
@@ -3671,7 +3673,7 @@
             }
             for (const item of Array.isArray(pack.export_adapters) ? pack.export_adapters.slice(0, MAX_EXTENSION_PACK_EXPORT_ADAPTERS) : []) {
                 if (!item || typeof item !== 'object' || !item.id || !item.label) continue;
-                const format = ['json', 'markdown', 'email'].includes(item.format) ? item.format : 'json';
+                const format = EXTENSION_PACK_EXPORT_FORMATS.includes(item.format) ? item.format : 'json';
                 normalized.export_adapters.push({
                     id: String(item.id).trim(),
                     label: String(item.label).trim(),
@@ -4064,7 +4066,7 @@
             for (const [name, details] of Object.entries(payload.integrity.sections)) {
                 if (!manifest[name] || !details || typeof details.sha256 !== 'string') continue;
                 if (manifest[name].sha256 !== details.sha256) {
-                    throw new Error(`Backup integrity check failed for ${name}. The bundle may be incomplete or tampered with.`);
+                    throw new Error('Backup integrity check failed. The bundle may be incomplete or tampered with.');
                 }
             }
         }

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://burgess-principle.vercel.app/schemas/profile-export.v1.json",
+  "title": "Iris Profile Export v1",
+  "type": "object",
+  "properties": {
+    "full_name": { "type": "string" },
+    "email": { "type": "string" },
+    "phone": { "type": "string" },
+    "address": { "type": "string" },
+    "institution": { "type": "string" },
+    "team": { "type": "string" },
+    "reference": { "type": "string" },
+    "wallet": { "type": "string" },
+    "transaction": { "type": "string" },
+    "onchain_reference": { "type": "string" }
+  },
+  "additionalProperties": true
+}

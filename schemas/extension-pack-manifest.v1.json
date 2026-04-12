@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://burgess-principle.vercel.app/schemas/extension-pack-manifest.v1.json",
+  "title": "Iris Extension Pack Manifest v1",
+  "type": "object",
+  "required": ["id", "name", "version"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "templates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "prompt"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "prompt": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "trigger_presets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "natural_language"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "natural_language": { "type": "string" },
+          "type": { "type": "string" },
+          "keywords": { "type": "array", "items": { "type": "string" } },
+          "interval_hours": { "type": "number" },
+          "detection_sources": { "type": "array", "items": { "type": "string" } },
+          "description": { "type": "string" },
+          "voice_phrase": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "export_adapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "format"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "format": { "type": "string", "enum": ["json", "markdown", "email"] },
+          "file_extension": { "type": "string" },
+          "filename_prefix": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

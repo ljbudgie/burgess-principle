@@ -1928,8 +1928,9 @@
                         </div>
                         <div class="claim-profile-actions">
                             <button class="sidebar-action-btn" id="saveProfileBtn" type="button">💾 Save profile</button>
-                            <button class="sidebar-action-btn" id="exportVaultBtn" type="button">📦 Export Vault</button>
-                            <button class="sidebar-action-btn" id="importVaultBtn" type="button">📲 Import Vault</button>
+                            <button class="sidebar-action-btn" id="exportVaultBtn" type="button">📦 Export Backup Bundle</button>
+                            <button class="sidebar-action-btn" id="importVaultBtn" type="button">📲 Import Backup Bundle</button>
+                            <button class="sidebar-action-btn" id="importExtensionPackBtn" type="button">🧩 Load Extension Pack</button>
                             <button class="sidebar-action-btn" id="installAppBtn" type="button">⬇️ Install app</button>
                             <button class="sidebar-action-btn" id="verifyPwaIntegrityBtn" type="button">🛡️ Verify update integrity</button>
                             <button class="sidebar-action-btn" id="applyVerifiedUpdateBtn" type="button" disabled>✅ Apply verified update</button>
@@ -1938,7 +1939,9 @@
                         </div>
                         <div class="claim-profile-status" id="profileStatus">Profile and phone settings stay only on this device.</div>
                         <div class="claim-profile-status" id="pwaFoundationStatus">The PWA shell is local-first. Updates require explicit verification and your consent before activation.</div>
+                        <div class="claim-profile-status" id="extensionPackStatus">Extension packs stay local, manifest-based, and advisory. They can add template shortcuts, trigger presets, and export adapters without turning Iris into a plugin marketplace.</div>
                         <input id="importVaultInput" type="file" accept=".vault,application/json" hidden>
+                        <input id="importExtensionPackInput" type="file" accept="application/json,.json" hidden>
                     </details>
                     <details class="claim-profile-panel" id="triggersPanel">
                         <summary>⚡ Sovereign Local Triggers</summary>
@@ -2289,6 +2292,8 @@
         const PWA_RUNTIME_MANIFEST_ID = '/?app=iris-sovereign-pwa';
         // Keep 0.9.0 import support so earlier sovereign phone vault exports still restore cleanly.
         const SUPPORTED_VAULT_IMPORT_VERSIONS = ['0.9.0', VAULT_VERSION];
+        const SOVEREIGN_BACKUP_BUNDLE_KIND = 'iris-sovereign-backup-bundle';
+        const SOVEREIGN_BACKUP_BUNDLE_SCHEMA_VERSION = 1;
         const FALLBACK_STORAGE_KEY = 'burgess-principle-vault-fallback';
         const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000; // 1 hour — minimum gap between trigger firings
         const TRIGGER_EVAL_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes — how often the app checks triggers
@@ -2303,6 +2308,17 @@
         const ICE_GATHERING_TIMEOUT_MS = 5000; // WebRTC ICE gathering timeout
         const PERSONAL_IDENTITY_SUMMARY_KEY = 'personal-sovereign-profile-summary';
         const PERSONAL_IDENTITY_VAULT_KEY = 'personal-sovereign-profile-vault';
+        const MEMORY_CRYPTO_SETTING_KEY = 'memory-palace-crypto-profile';
+        const MEMORY_ROOT_HEAD_SETTING_KEY = 'memory-palace-root-head';
+        const MEMORY_LAST_RECEIPT_ID_KEY = 'memory-palace-last-receipt-id';
+        const MEMORY_DERIVED_CURSOR_KEY = 'memory-palace-derived-cursor';
+        const HUB_CONFIG_KEY = 'hub-config-v2';
+        const HUB_DELTA_CURSOR_KEY = 'hub-delta-cursor-v2';
+        const EXTENSION_PACKS_KEY = 'iris-extension-packs-v1';
+        const MAX_EXTENSION_PACK_TEMPLATES = 12;
+        const MAX_EXTENSION_PACK_TRIGGER_PRESETS = 12;
+        const MAX_EXTENSION_PACK_EXPORT_ADAPTERS = 12;
+        const EXTENSION_PACK_EXPORT_FORMATS = ['json', 'markdown', 'email'];
         const DEFAULT_VOICE_STATUS = 'Voice ready when your browser supports on-device speech recognition.';
         const IDENTITY_FIELD_IDS = {
             name: 'profileIdentityName',
@@ -2364,10 +2380,13 @@
         const saveProfileBtn = document.getElementById('saveProfileBtn');
         const exportVaultBtn = document.getElementById('exportVaultBtn');
         const importVaultBtn = document.getElementById('importVaultBtn');
+        const importExtensionPackBtn = document.getElementById('importExtensionPackBtn');
         const installAppBtn = document.getElementById('installAppBtn');
         const verifyPwaIntegrityBtn = document.getElementById('verifyPwaIntegrityBtn');
         const applyVerifiedUpdateBtn = document.getElementById('applyVerifiedUpdateBtn');
         const importVaultInput = document.getElementById('importVaultInput');
+        const importExtensionPackInput = document.getElementById('importExtensionPackInput');
+        const extensionPackStatus = document.getElementById('extensionPackStatus');
         const highContrastToggle = document.getElementById('highContrastToggle');
         const pushNotificationsToggle = document.getElementById('pushNotificationsToggle');
         const pwaFoundationStatus = document.getElementById('pwaFoundationStatus');
@@ -2381,6 +2400,8 @@
         const copyLetterBtn = document.getElementById('copyLetterBtn');
         const queueFingerprintBtn = document.getElementById('queueFingerprintBtn');
         const claimActionButtons = [saveClaimBtn, generateCommitmentBtn, copyLetterBtn, queueFingerprintBtn];
+        const claimButtons = document.querySelector('.claim-buttons');
+        const templateShortcuts = document.querySelector('.template-shortcuts');
         const shortcutButtons = Array.from(document.querySelectorAll('[data-claim-template]'));
         const identityFields = Object.fromEntries(Object.entries(IDENTITY_FIELD_IDS).map(([key, id]) => [key, document.getElementById(id)]));
         const profileFields = Object.fromEntries(Object.entries(PROFILE_FIELD_IDS).map(([key, id]) => [key, document.getElementById(id)]));
@@ -2395,6 +2416,7 @@
         let personalIdentitySummary = null;
         let pwaRegistration = null;
         let verifiedPwaUpdateManifest = null;
+        let loadedExtensionPacks = [];
         let verifiedPwaUpdateVersion = '';
         let reloadAfterVerifiedUpdate = false;
         let pwaActivationTimeoutId = null;
@@ -3605,6 +3627,184 @@
             clearBtn.disabled = !hasMessages;
         }
 
+        function setExtensionPackStatus(message, tone = '') {
+            extensionPackStatus.textContent = message;
+            extensionPackStatus.className = 'claim-profile-status' + (tone ? ` is-${tone}` : '');
+            announceStatus(message);
+        }
+
+        function normalizeExtensionPack(pack) {
+            if (!pack || typeof pack !== 'object') {
+                throw new Error('Extension pack must be a JSON object.');
+            }
+            if (typeof pack.id !== 'string' || !pack.id.trim()) {
+                throw new Error('Extension pack requires a stable id.');
+            }
+            const normalized = {
+                id: pack.id.trim(),
+                name: typeof pack.name === 'string' && pack.name.trim() ? pack.name.trim() : pack.id.trim(),
+                version: typeof pack.version === 'string' && pack.version.trim() ? pack.version.trim() : '1.0.0',
+                templates: [],
+                trigger_presets: [],
+                export_adapters: [],
+            };
+            for (const item of Array.isArray(pack.templates) ? pack.templates.slice(0, MAX_EXTENSION_PACK_TEMPLATES) : []) {
+                if (!item || typeof item !== 'object' || !item.id || !item.label || !item.prompt) continue;
+                normalized.templates.push({
+                    id: String(item.id).trim(),
+                    label: String(item.label).trim(),
+                    prompt: String(item.prompt).trim(),
+                });
+            }
+            for (const item of Array.isArray(pack.trigger_presets) ? pack.trigger_presets.slice(0, MAX_EXTENSION_PACK_TRIGGER_PRESETS) : []) {
+                if (!item || typeof item !== 'object' || !item.id || !item.label || !item.natural_language) continue;
+                const intervalHours = Number(item.interval_hours);
+                normalized.trigger_presets.push({
+                    id: String(item.id).trim(),
+                    label: String(item.label).trim(),
+                    natural_language: String(item.natural_language).trim(),
+                    type: item.type === 'scheduled' || item.type === 'periodic' || item.type === 'voice_command' ? item.type : 'keyword',
+                    keywords: Array.isArray(item.keywords) ? item.keywords.map(value => String(value).trim()).filter(Boolean) : [],
+                    interval_hours: Number.isFinite(intervalHours) ? Math.max(1, intervalHours) : 24,
+                    detection_sources: Array.isArray(item.detection_sources) ? item.detection_sources.map(value => String(value).trim()).filter(Boolean) : ['conversation'],
+                    description: typeof item.description === 'string' ? item.description.trim() : '',
+                    voice_phrase: typeof item.voice_phrase === 'string' ? item.voice_phrase.trim() : '',
+                });
+            }
+            for (const item of Array.isArray(pack.export_adapters) ? pack.export_adapters.slice(0, MAX_EXTENSION_PACK_EXPORT_ADAPTERS) : []) {
+                if (!item || typeof item !== 'object' || !item.id || !item.label) continue;
+                const format = EXTENSION_PACK_EXPORT_FORMATS.includes(item.format) ? item.format : 'json';
+                normalized.export_adapters.push({
+                    id: String(item.id).trim(),
+                    label: String(item.label).trim(),
+                    format,
+                    file_extension: typeof item.file_extension === 'string' && item.file_extension.trim()
+                        ? item.file_extension.trim().replace(/^\./, '')
+                        : (format === 'markdown' ? 'md' : format === 'email' ? 'eml' : 'json'),
+                    filename_prefix: typeof item.filename_prefix === 'string' && item.filename_prefix.trim()
+                        ? item.filename_prefix.trim()
+                        : 'iris-claim',
+                });
+            }
+            return normalized;
+        }
+
+        async function saveExtensionPacks(packs) {
+            loadedExtensionPacks = packs;
+            await vaultStore.saveSetting(EXTENSION_PACKS_KEY, packs);
+        }
+
+        function buildExtensionExportContent(adapter) {
+            if (!latestClaimPackage) {
+                throw new Error('Generate a local claim package first.');
+            }
+            const letter = latestClaimPackage.letter_markdown || latestClaimPackage.letter || '';
+            if (adapter.format === 'markdown') {
+                return { content: letter, type: 'text/markdown', extension: adapter.file_extension || 'md' };
+            }
+            if (adapter.format === 'email') {
+                const subjectTarget = latestClaimPackage.target_entity || (latestClaimPackage.scenario && latestClaimPackage.scenario.target_entity) || 'your institution';
+                return {
+                    content: `Subject: Human review request — ${subjectTarget}\n\n${letter}`,
+                    type: 'text/plain',
+                    extension: adapter.file_extension || 'eml',
+                };
+            }
+            return {
+                content: JSON.stringify(latestClaimPackage, null, 2),
+                type: 'application/json',
+                extension: adapter.file_extension || 'json',
+            };
+        }
+
+        function downloadTextFile(content, type, filename) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function renderExtensionPacks() {
+            document.querySelectorAll('[data-extension-shortcut="true"]').forEach(node => node.remove());
+            document.querySelectorAll('[data-extension-trigger-option="true"]').forEach(node => node.remove());
+            const existingExtensionButtons = document.getElementById('extensionClaimButtons');
+            if (existingExtensionButtons) existingExtensionButtons.remove();
+            Object.keys(QUICK_ACTION_PROMPTS)
+                .filter(key => key.startsWith('extension:'))
+                .forEach(key => delete QUICK_ACTION_PROMPTS[key]);
+
+            loadedExtensionPacks.forEach(pack => {
+                pack.templates.forEach(template => {
+                    const templateId = `extension:${pack.id}:${template.id}`;
+                    QUICK_ACTION_PROMPTS[templateId] = template.prompt;
+                    const button = document.createElement('button');
+                    button.className = 'shortcut-btn';
+                    button.type = 'button';
+                    button.dataset.claimTemplate = templateId;
+                    button.dataset.extensionShortcut = 'true';
+                    button.textContent = template.label;
+                    button.addEventListener('click', () => startNewClaimFlow(getShortcutPrompt(templateId)));
+                    templateShortcuts.appendChild(button);
+                });
+                pack.trigger_presets.forEach(template => {
+                    TRIGGER_TEMPLATE_PRESETS[template.id] = template;
+                    const option = document.createElement('option');
+                    option.value = template.id;
+                    option.dataset.extensionTriggerOption = 'true';
+                    option.textContent = `${template.label} · ${pack.name}`;
+                    triggerTemplatePreset.appendChild(option);
+                });
+            });
+
+            const adapters = loadedExtensionPacks.flatMap(pack => pack.export_adapters.map(adapter => ({ ...adapter, packName: pack.name })));
+            if (adapters.length > 0) {
+                const container = document.createElement('div');
+                container.className = 'claim-buttons';
+                container.id = 'extensionClaimButtons';
+                adapters.forEach(adapter => {
+                    const button = document.createElement('button');
+                    button.className = 'claim-action-btn';
+                    button.type = 'button';
+                    button.textContent = adapter.label;
+                    button.addEventListener('click', () => {
+                        try {
+                            const { content, type, extension } = buildExtensionExportContent(adapter);
+                            downloadTextFile(content, type, `${adapter.filename_prefix || 'iris-claim'}-${Date.now()}.${extension}`);
+                            setClaimStatus(`Exported the latest claim package as <strong>${escapeHtml(adapter.label)}</strong>.`, 'success');
+                        } catch (error) {
+                            setClaimStatus(`Could not use the extension adapter. ${escapeHtml(error.message)}`, 'error');
+                        }
+                    });
+                    container.appendChild(button);
+                });
+                claimButtons.insertAdjacentElement('afterend', container);
+            }
+
+            if (loadedExtensionPacks.length === 0) {
+                setExtensionPackStatus('Extension packs stay local, manifest-based, and advisory. They can add template shortcuts, trigger presets, and export adapters without turning Iris into a plugin marketplace.');
+                return;
+            }
+            const labels = loadedExtensionPacks.map(pack => pack.name).join(', ');
+            setExtensionPackStatus(`Loaded ${loadedExtensionPacks.length} local extension pack${loadedExtensionPacks.length === 1 ? '' : 's'}: ${labels}.`, 'success');
+        }
+
+        async function hydrateExtensionPacks() {
+            const stored = await vaultStore.getSetting(EXTENSION_PACKS_KEY);
+            loadedExtensionPacks = Array.isArray(stored)
+                ? stored.map(item => {
+                    try {
+                        return normalizeExtensionPack(item);
+                    } catch (_error) {
+                        return null;
+                    }
+                }).filter(Boolean)
+                : [];
+            renderExtensionPacks();
+        }
+
         function resetClaimActions() {
             latestClaimPackage = null;
             latestClaimQuery = '';
@@ -3823,20 +4023,81 @@
             }
         }
 
+        async function buildBackupIntegrityManifest(sections) {
+            const manifest = {};
+            for (const [name, value] of Object.entries(sections)) {
+                manifest[name] = {
+                    count: getBackupItemCount(value),
+                    sha256: await sha256Hex(canonicalizeForSignature(value == null ? null : value)),
+                };
+            }
+            return manifest;
+        }
+
+        function getBackupItemCount(value) {
+            if (Array.isArray(value)) return value.length;
+            if (value && typeof value === 'object') return Object.keys(value).length;
+            return value ? 1 : 0;
+        }
+
+        async function verifyBackupIntegrityManifest(payload) {
+            if (!payload.integrity || !payload.integrity.sections || typeof payload.integrity.sections !== 'object') {
+                return;
+            }
+            const sections = {
+                profile: payload.profile || null,
+                personalIdentitySummary: payload.personalIdentitySummary || null,
+                personalIdentityVault: payload.personalIdentityVault || null,
+                settings: payload.settings || {},
+                claims: Array.isArray(payload.claims) ? payload.claims : [],
+                reminders: Array.isArray(payload.reminders) ? payload.reminders : [],
+                fingerprintQueue: Array.isArray(payload.fingerprintQueue) ? payload.fingerprintQueue : [],
+                triggers: Array.isArray(payload.triggers) ? payload.triggers : [],
+                triggerQueue: Array.isArray(payload.triggerQueue) ? payload.triggerQueue : [],
+                triggerLedger: Array.isArray(payload.triggerLedger) ? payload.triggerLedger : [],
+                triggerReceipts: Array.isArray(payload.triggerReceipts) ? payload.triggerReceipts : [],
+                memoryEntries: Array.isArray(payload.memoryEntries) ? payload.memoryEntries : [],
+                memoryRoots: Array.isArray(payload.memoryRoots) ? payload.memoryRoots : [],
+                memoryReceipts: Array.isArray(payload.memoryReceipts) ? payload.memoryReceipts : [],
+                hubSyncQueue: Array.isArray(payload.hubSyncQueue) ? payload.hubSyncQueue : [],
+                hubAudit: Array.isArray(payload.hubAudit) ? payload.hubAudit : [],
+            };
+            const manifest = await buildBackupIntegrityManifest(sections);
+            for (const [name, details] of Object.entries(payload.integrity.sections)) {
+                if (!manifest[name] || !details || typeof details.sha256 !== 'string') continue;
+                if (manifest[name].sha256 !== details.sha256) {
+                    throw new Error('Backup integrity check failed. The bundle may be incomplete or tampered with.');
+                }
+            }
+        }
+
         async function exportVault() {
+            const settings = {
+                highContrast: Boolean(await vaultStore.getSetting('high-contrast')),
+                pushEnabled: Boolean(await vaultStore.getSetting('push-enabled')),
+                triggerCrypto: await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY),
+                triggerLedgerHead: await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY),
+                triggerLastReceiptId: await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY),
+                memoryCrypto: await vaultStore.getSetting(MEMORY_CRYPTO_SETTING_KEY),
+                memoryRootHead: await vaultStore.getSetting(MEMORY_ROOT_HEAD_SETTING_KEY),
+                memoryLastReceiptId: await vaultStore.getSetting(MEMORY_LAST_RECEIPT_ID_KEY),
+                memoryDerivedCursor: await vaultStore.getSetting(MEMORY_DERIVED_CURSOR_KEY),
+                hubConfig: await vaultStore.getSetting(HUB_CONFIG_KEY),
+                hubDeltaCursor: await vaultStore.getSetting(HUB_DELTA_CURSOR_KEY),
+                extensionPacks: await vaultStore.getSetting(EXTENSION_PACKS_KEY) || [],
+            };
             const bundle = {
                 version: VAULT_VERSION,
+                bundle_kind: SOVEREIGN_BACKUP_BUNDLE_KIND,
+                bundle_schema_version: SOVEREIGN_BACKUP_BUNDLE_SCHEMA_VERSION,
                 exported_at: new Date().toISOString(),
+                exported_by: 'Iris Sovereign Local Mode',
+                app_version: VAULT_VERSION,
+                pwa_core_version: PWA_CORE_VERSION,
                 profile: await loadStoredProfile(),
                 personalIdentitySummary: await vaultStore.getSetting(PERSONAL_IDENTITY_SUMMARY_KEY),
                 personalIdentityVault: await vaultStore.getSetting(PERSONAL_IDENTITY_VAULT_KEY),
-                settings: {
-                    highContrast: Boolean(await vaultStore.getSetting('high-contrast')),
-                    pushEnabled: Boolean(await vaultStore.getSetting('push-enabled')),
-                    triggerCrypto: await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY),
-                    triggerLedgerHead: await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY),
-                    triggerLastReceiptId: await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY),
-                },
+                settings,
                 claims: await vaultStore.getAll('claims'),
                 reminders: await vaultStore.getAll('reminders'),
                 fingerprintQueue: await vaultStore.getAll('fingerprintQueue'),
@@ -3850,6 +4111,27 @@
                 hubSyncQueue: await vaultStore.getAll('hubSyncQueue'),
                 hubAudit: await vaultStore.getAll('hubAudit'),
             };
+            bundle.integrity = {
+                hash_algorithm: 'sha256',
+                sections: await buildBackupIntegrityManifest({
+                    profile: bundle.profile || null,
+                    personalIdentitySummary: bundle.personalIdentitySummary || null,
+                    personalIdentityVault: bundle.personalIdentityVault || null,
+                    settings: bundle.settings,
+                    claims: bundle.claims,
+                    reminders: bundle.reminders,
+                    fingerprintQueue: bundle.fingerprintQueue,
+                    triggers: bundle.triggers,
+                    triggerQueue: bundle.triggerQueue,
+                    triggerLedger: bundle.triggerLedger,
+                    triggerReceipts: bundle.triggerReceipts,
+                    memoryEntries: bundle.memoryEntries,
+                    memoryRoots: bundle.memoryRoots,
+                    memoryReceipts: bundle.memoryReceipts,
+                    hubSyncQueue: bundle.hubSyncQueue,
+                    hubAudit: bundle.hubAudit,
+                }),
+            };
             const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -3857,8 +4139,8 @@
             link.download = `burgess-phone-vault-${Date.now()}.vault`;
             link.click();
             URL.revokeObjectURL(url);
-            profileStatus.textContent = 'Vault exported as a sovereign .vault file.';
-            announceStatus('Vault exported from this phone.');
+            profileStatus.textContent = 'Backup bundle exported as a sovereign .vault file with integrity checks and local-only state.';
+            announceStatus('Backup bundle exported from this phone.');
         }
 
         async function importVaultFile(file) {
@@ -3871,12 +4153,19 @@
                     `Unsupported vault version: ${payload.version}. Supported versions: ${SUPPORTED_VAULT_IMPORT_VERSIONS.join(', ')}`
                 );
             }
+            if (payload.bundle_kind && payload.bundle_kind !== SOVEREIGN_BACKUP_BUNDLE_KIND) {
+                throw new Error(`Unsupported backup bundle kind: ${payload.bundle_kind}`);
+            }
+            await verifyBackupIntegrityManifest(payload);
             if (payload.profile) {
                 await vaultStore.saveSetting('claim-profile', payload.profile);
             }
             if (payload.settings && typeof payload.settings.highContrast === 'boolean') {
                 await vaultStore.saveSetting('high-contrast', payload.settings.highContrast);
                 applyHighContrast(payload.settings.highContrast);
+            }
+            if (payload.settings && typeof payload.settings.pushEnabled === 'boolean') {
+                await vaultStore.saveSetting('push-enabled', payload.settings.pushEnabled);
             }
             if (payload.settings && payload.settings.triggerCrypto) {
                 await vaultStore.saveSetting(TRIGGER_CRYPTO_SETTING_KEY, payload.settings.triggerCrypto);
@@ -3886,6 +4175,27 @@
             }
             if (payload.settings && payload.settings.triggerLastReceiptId) {
                 await vaultStore.saveSetting(TRIGGER_LAST_RECEIPT_ID_SETTING_KEY, payload.settings.triggerLastReceiptId);
+            }
+            if (payload.settings && payload.settings.memoryCrypto) {
+                await vaultStore.saveSetting(MEMORY_CRYPTO_SETTING_KEY, payload.settings.memoryCrypto);
+            }
+            if (payload.settings && payload.settings.memoryRootHead) {
+                await vaultStore.saveSetting(MEMORY_ROOT_HEAD_SETTING_KEY, payload.settings.memoryRootHead);
+            }
+            if (payload.settings && payload.settings.memoryLastReceiptId) {
+                await vaultStore.saveSetting(MEMORY_LAST_RECEIPT_ID_KEY, payload.settings.memoryLastReceiptId);
+            }
+            if (payload.settings && payload.settings.memoryDerivedCursor) {
+                await vaultStore.saveSetting(MEMORY_DERIVED_CURSOR_KEY, payload.settings.memoryDerivedCursor);
+            }
+            if (payload.settings && payload.settings.hubConfig) {
+                await vaultStore.saveSetting(HUB_CONFIG_KEY, payload.settings.hubConfig);
+            }
+            if (payload.settings && payload.settings.hubDeltaCursor) {
+                await vaultStore.saveSetting(HUB_DELTA_CURSOR_KEY, payload.settings.hubDeltaCursor);
+            }
+            if (payload.settings && Array.isArray(payload.settings.extensionPacks)) {
+                await vaultStore.saveSetting(EXTENSION_PACKS_KEY, payload.settings.extensionPacks);
             }
             if (payload.personalIdentitySummary && typeof payload.personalIdentitySummary === 'object') {
                 await vaultStore.saveSetting(PERSONAL_IDENTITY_SUMMARY_KEY, payload.personalIdentitySummary);
@@ -3901,10 +4211,15 @@
             }
             await applyStoredProfile();
             await hydratePersonalIdentity();
+            await hydrateExtensionPacks();
             await renderTriggers().catch(() => 0);
             await renderTriggerLedger().catch(() => 0);
-            profileStatus.textContent = 'Vault imported locally. Claims will survive browser restarts and phone reboots.';
-            announceStatus('Vault imported locally.');
+            profileStatus.textContent = payload.bundle_kind === SOVEREIGN_BACKUP_BUNDLE_KIND
+                ? 'Backup bundle imported locally and its integrity checks passed.'
+                : 'Vault imported locally. Claims will survive browser restarts and phone reboots.';
+            announceStatus(payload.bundle_kind === SOVEREIGN_BACKUP_BUNDLE_KIND
+                ? 'Backup bundle imported locally.'
+                : 'Vault imported locally.');
         }
 
         function applyHighContrast(enabled) {
@@ -4321,6 +4636,7 @@
         saveProfileBtn.addEventListener('click', saveProfile);
         exportVaultBtn.addEventListener('click', exportVault);
         importVaultBtn.addEventListener('click', () => importVaultInput.click());
+        importExtensionPackBtn.addEventListener('click', () => importExtensionPackInput.click());
         importVaultInput.addEventListener('change', async event => {
             const [file] = event.target.files || [];
             if (!file) return;
@@ -4330,6 +4646,20 @@
                 profileStatus.textContent = `Import failed. ${error.message}`;
             } finally {
                 importVaultInput.value = '';
+            }
+        });
+        importExtensionPackInput.addEventListener('change', async event => {
+            const [file] = event.target.files || [];
+            if (!file) return;
+            try {
+                const parsed = normalizeExtensionPack(JSON.parse(await file.text()));
+                const nextPacks = loadedExtensionPacks.filter(item => item.id !== parsed.id).concat(parsed);
+                await saveExtensionPacks(nextPacks);
+                renderExtensionPacks();
+            } catch (error) {
+                setExtensionPackStatus(`Could not load the extension pack. ${error.message}`, 'error');
+            } finally {
+                importExtensionPackInput.value = '';
             }
         });
         installAppBtn.addEventListener('click', async () => {
@@ -5496,6 +5826,7 @@
             hydratePushToggle(),
             hydrateTriggerSecurityState(),
         ]).then(async () => {
+            await hydrateExtensionPacks();
             await installRuntimeManifest();
             configureVoice();
             applyShortcutFromLocation();

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://burgess-principle.vercel.app/schemas/commitment-bundle.v1.json",
+  "title": "Iris Commitment Bundle v1",
+  "type": "object",
+  "properties": {
+    "direction": { "type": "string", "enum": ["push", "pull"] },
+    "exported_at": { "type": "string", "format": "date-time" },
+    "delta_cursor": { "type": "string" },
+    "memory_root": { "type": ["object", "null"] },
+    "trigger_head": { "type": ["object", "null"] },
+    "sovereignty_profile_digest": { "type": "string" },
+    "claims": { "type": "array", "items": { "type": "object" } },
+    "triggers": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": true
+}

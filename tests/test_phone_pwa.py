@@ -40,6 +40,9 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'triggerPassphrase' in INDEX
     assert 'triggerNaturalLanguage' in INDEX
     assert 'triggerTemplatePreset' in INDEX
+    assert 'fiber_hardwired_review' in INDEX
+    assert 'Connectivity profile check-in (Starlink vs Fiber)' in INDEX
+    assert 'Environmental note on wired setup' in INDEX
     assert 'applyTriggerTemplateBtn' in INDEX
     assert 'parseTriggerRuleBtn' in INDEX
     assert 'scanClipboardBtn' in INDEX
@@ -48,6 +51,8 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'voice_command' in INDEX
     assert 'HELP_ME_NOW_PATTERN' in INDEX
     assert 'hubConnectivityProfile' in INDEX
+    assert 'Fiber Hardwired' in INDEX
+    assert 'Minimized local wireless preference (user-controlled)' in INDEX
     assert 'hubLowWirelessToggle' in INDEX
     assert 'hubQueuedSyncPreferenceToggle' in INDEX
     assert 'phase3-memory-hub.js' in INDEX
@@ -114,6 +119,8 @@ def test_phase_3_memory_palace_and_hub_assets_exist():
     assert 'performHubSync' in PHASE3_CLIENT
     assert 'memoryEnvironmentalNoteBtn' in PHASE3_CLIENT
     assert 'hubEnvironmentFingerprint' in PHASE3_CLIENT
+    assert 'normalizeConnectivityProfile' in PHASE3_CLIENT
+    assert 'connectivity_suggestions' in PHASE3_CLIENT
     assert 'memoryEntries' in PHASE3_CLIENT
     assert 'hubSyncQueue' in PHASE3_CLIENT
     assert 'buildMerkleState' in MEMORY_WORKER
@@ -125,8 +132,10 @@ def test_phase_3_memory_palace_and_hub_assets_exist():
 def test_docs_cover_phase_3_memory_palace_and_hub():
     docs = (ROOT / 'SOVEREIGN_MODE.md').read_text(encoding='utf-8')
     assert '## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0' in docs
-    assert '### Starlink hardwired assistive configuration' in docs
+    assert '### Hardwired connectivity options for personal environmental preferences' in docs
     assert '### Memory Palace environmental notes' in docs
+    assert '#### Diagram — Hardwired Connectivity Options Flow' in docs
+    assert 'Fiber hardwired review' in docs
     assert 'memoryEntries' in docs
     assert 'sovereign-hub-example/' in docs
     assert 'Push commitments' in docs

@@ -241,7 +241,7 @@ def test_load_personal_profile_summary_returns_none_when_name_missing(tmp_path):
     path.write_text(
         json.dumps(
             {
-                "version": "1.1.1",
+                "version": "1.3.0",
                 "record_type": "personal-sovereign-profile",
                 "stored_at": "2026-04-11T00:00:00+00:00",
             }

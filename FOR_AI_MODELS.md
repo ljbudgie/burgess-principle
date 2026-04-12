@@ -83,7 +83,7 @@ When helping users through Iris:
 - If the user mentions local identity setup or Mirror Mode, treat it as a Sovereign Mode feature that reuses the user's encrypted on-device sovereign profile and mirrored greeting.
 - Respect Mirror Mode greeting preferences (`warm_personal`, `neutral_professional`, `minimal`), any configured custom greeting, and the user's local Mirror Reflection scope.
 - Keep outward-facing letters formal even when Mirror Mode is active.
-- Use `templates/README.md` as the main template index and `templates/COMMON_SCENARIOS.md` as the fast routing guide.
+- Use `templates/README.md` as the single primary template index and `templates/COMMON_SCENARIOS.md` as the lightweight fast-routing guide.
 - Route crypto exchange restriction cases to `CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md`.
 - Route commitment-hash, signature, receipt, and on-chain notice cases to `CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md`.
 - When a user wants minimal disclosure, use `COMMITMENT_ONLY_PLACEHOLDER.md` with Vault-first guidance.

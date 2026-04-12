@@ -37,22 +37,18 @@ You can also explore the principle on the website and talk to **Iris**, the AI c
 
 ### 1. I need to write a letter right now
 
-Head to the [`/templates`](./templates) folder. Pick the one that matches your situation:
+Head to the [primary templates index](./templates/README.md). Start there, then pick the one that matches your situation:
 
 - **[General request for human review](templates/REQUEST_FOR_HUMAN_REVIEW.md)** — works for almost anything
 - **[Follow-up after a vague "human oversight" reply](templates/FOLLOW_UP_WEASEL_RESPONSE.md)** — use when they still avoid a direct YES/NO answer
 - **[General dispute with any organisation](templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md)** — universal dispute letter
-- **[Council tax or penalty charge](templates/COUNCIL_TAX_PCN_TEMPLATE.md)**
-- **[Benefits claim dispute](templates/BENEFITS_CLAIM_HELP.md)**
-- **[Bailiff threat](templates/BAILIFFS_THREAT_TEMPLATE.md)**
 - **[Data subject access request (DSAR)](templates/DSAR_WITH_BURGESS_PRINCIPLE.md)**
 - **[Freedom of Information request](templates/FOI_WITH_BURGESS_PRINCIPLE.md)**
-- **[Automated decision challenge (Article 22)](templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md)**
 - **[Equality Act / disability adjustments](templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md)**
-- **[Crypto exchange freeze / withdrawal hold](templates/CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md)**
-- **[Cryptographic proof / on-chain notice](templates/CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md)**
 
-Not sure which one? Start with the **[templates index](templates/README.md)** or the **[Common Scenarios guide](templates/COMMON_SCENARIOS.md)** for a quick comparison, or drop the whole repo into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant and describe your situation — it will pick the right template for you.
+For benefits, council tax, bailiffs, crypto, platform issues, media issues, or specialist templates, keep going in the **[templates index](templates/README.md)**.
+
+Need a faster chooser? Use the **[Common Scenarios guide](templates/COMMON_SCENARIOS.md)**, or drop the whole repo into [Grok](https://grok.com), [Claude](https://claude.ai), [ChatGPT](https://chat.openai.com), or any AI assistant and describe your situation — it will pick the right template for you.
 
 ### 2. I want to see real results first
 

@@ -10,7 +10,7 @@ Choose **one** path and ignore the rest until you need it.
 
 Use this path when you need a result today.
 
-1. Open [`/templates`](./templates/README.md).
+1. Open the primary template index at [`/templates`](./templates/README.md).
 2. Start with [`REQUEST_FOR_HUMAN_REVIEW.md`](./templates/REQUEST_FOR_HUMAN_REVIEW.md) if you are unsure.
 3. If the institution already gave a vague answer, use [`FOLLOW_UP_WEASEL_RESPONSE.md`](./templates/FOLLOW_UP_WEASEL_RESPONSE.md).
 4. If you want conversational help first, open the hosted Iris PWA at [burgess-principle.vercel.app](https://burgess-principle.vercel.app).

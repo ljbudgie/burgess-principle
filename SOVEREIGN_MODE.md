@@ -91,6 +91,157 @@ The phone PWA keeps the claim profile, encrypted local vault copies, Mirror Mode
 
 ---
 
+## Phase 1 — Hyper-Resilient PWA Core
+
+Phase 1 hardens the installable Iris shell so it behaves like a living sovereign companion even on weak or intermittent links:
+
+- **Advanced service worker caching** — navigation preload plus stale-while-revalidate for the app shell, with explicit refresh of critical paths when the connection returns.
+- **Dynamic runtime manifest** — Iris rewrites the manifest at runtime so the installed shell reflects local theme choices, high-contrast mode, Mirror Mode, and the **Sovereign Mode** badge.
+- **Signed update envelope** — `/signed-update-manifest.json` records SHA-256 hashes for critical assets and an Ed25519 signature. Iris verifies the signature and hashes locally before enabling activation of a waiting service worker.
+- **Explicit user consent** — new shells never activate silently. The user must tap **Verify update integrity** and then **Apply verified update**.
+
+### Setup / maintenance
+
+No backend is required for Phase 1. The static site and service worker are enough.
+
+To regenerate the signed update manifest for a future release:
+
+```bash
+python -m pip install -e ".[onchain]"
+python scripts/generate_pwa_update_manifest.py \
+  --version 1.1.1-phase1 \
+  --seed-hex "<offline-ed25519-seed-hex>"
+```
+
+Keep the Ed25519 seed offline. Commit only the generated `signed-update-manifest.json`.
+
+### Verification steps
+
+1. Open Iris in Chrome/Edge or Android Chrome and install it from **Claim profile & phone settings**.
+2. In DevTools → **Application**:
+   - confirm the service worker is active,
+   - inspect **Manifest** to see the runtime theme color and Sovereign badge name,
+   - inspect **Cache Storage** to confirm the critical shell assets are cached.
+3. Toggle **High contrast** and confirm the theme color updates.
+4. Go offline and reload — the cached app shell should still open.
+5. Come back online and confirm Iris reports that it refreshed critical paths.
+6. Click **Verify update integrity** and confirm Iris reports a verified signed release or a staged verified update.
+7. Run a Lighthouse PWA audit against the installed shell.
+
+### Sovereignty Audit
+
+- **Burgess alignment:** the tool now treats its own updates like a Burgess review flow — no silent authority, no opaque activation, explicit human consent before the new shell takes control.
+- **Privacy:** all verification happens locally with Web Crypto. No telemetry, no update check API, no third-party trust service.
+- **Verifiability:** every critical asset in the release is bound to a fresh SHA-256 hash and Ed25519 signature so the device can reject tampered shells.
+- **Offline resilience:** cached critical paths keep Iris usable across Starlink jitter, tunnels, and brief disconnects without degrading into a broken blank page.
+
+---
+
+## Phase 2 — Proactive Living Triggers Engine
+
+### Sovereignty Audit
+
+- **Burgess alignment:** every trigger is advisory only. Iris can suggest that a Burgess review may be needed, but it never decides SOVEREIGN or NULL on its own.
+- **No opacity / no backdoor surveillance:** trigger rules, queue items, and receipts stay on the device. Clipboard and page scans are user-initiated. Background decryption requires explicit device-only consent.
+- **Cryptographic accountability:** trigger creation, queueing, firing, and notification events each append a fresh SHA-256 + Ed25519 commitment linked to the previous local trigger commitment.
+- **Offline-first resilience:** trigger queues survive disconnects, periodic checks degrade gracefully when background execution is weak, and Starlink/intermittent links do not cause data loss.
+
+Phase 2 turns Iris into a calmer, more proactive sovereign mirror:
+
+- **Encrypted Living Triggers vault** — rules are sealed with AES-256-GCM and can optionally expose a device-only background unlock path for service-worker checks.
+- **Natural-language rule parsing** — describe a trigger in plain English, let Iris parse it locally, then review the generated keyword, schedule, or voice rule before saving.
+- **Advisory local scoring** — clipboard, page, conversation, scheduled, and voice detections produce a local pre-Burgess risk score and suggested human-review questions.
+- **Background queue + notifications** — the service worker queues detections, signs ledger entries, and shows calm notifications such as “Potential Burgess review needed … Human review required.”
+- **Signed receipts + ledger view** — every trigger session can be exported as a signed local receipt without sharing facts by default.
+
+### Setup / maintenance
+
+No extra backend is required for Phase 2.
+
+1. Start Iris locally with `python3 iris-local.py`.
+2. Open **Claim profile & phone settings → Sovereign Local Triggers**.
+3. Enter a **Living Triggers passphrase**.
+4. Decide whether to enable **device-only background unlock**:
+   - **Off:** the encrypted trigger vault only unlocks while the foreground app has the passphrase.
+   - **On:** the service worker can decrypt the trigger vault locally for background periodic checks and queued notifications.
+5. Add a trigger either by:
+   - describing it in plain English and pressing **Parse local rule**, or
+   - filling the form manually and pressing **Add trigger**.
+
+### Manual verification steps
+
+1. Add a keyword trigger for terms such as `benefits, dwp, reasonable adjustment`.
+2. Use **Scan clipboard now** with matching text and confirm a new trigger ledger entry appears.
+3. Use **Run local trigger check** for a periodic trigger and confirm a receipt is queued.
+4. In Chrome DevTools → **Application**:
+   - inspect IndexedDB stores `triggers`, `triggerQueue`, `triggerLedger`, and `triggerReceipts`,
+   - trigger a **Sync** event and confirm queued trigger notifications are processed,
+   - inspect the notification click URL for `triggerReceipt=...`.
+5. Install the PWA on iOS and confirm the UI warns that background reliability depends on **Add to Home Screen** and Safari limits.
+6. Export the latest trigger receipt and confirm it contains the local commitment chain and Ed25519 signature fields.
+
+### Trade-offs / fallbacks
+
+- **Android / Chromium:** best background behaviour — Periodic Background Sync and Background Sync can process the encrypted queue when device-only unlock is enabled.
+- **iOS Safari PWA:** manual scans, foreground voice capture, and queued notifications still work, but always-on background execution is less reliable and must degrade to foreground checks.
+- **No background unlock consent:** strongest passphrase-first posture, but periodic and scheduled triggers wait for the foreground app to unlock the encrypted trigger vault.
+
+---
+
+## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0
+
+### Sovereignty Audit
+
+- **Burgess alignment:** the Memory Palace stores context, trigger outcomes, claim digests, and hub audit events as advisory evidence only. It never turns those records into an automatic SOVEREIGN/NULL verdict.
+- **Tamper evidence:** every memory block is encrypted locally, SHA-256 committed, Ed25519 signed, and rolled into a Merkle-root chain so Iris can prove integrity from genesis.
+- **Selective disclosure:** exported memory receipts include inclusion proofs for selected blocks instead of forcing the user to reveal the entire private timeline.
+- **Optional coordination only:** Sovereign Hub Mode 2.0 syncs commitment digests by default, not raw memories. The hub is optional, manual-first, and intended for zero-trust overlays such as Tailscale or WireGuard.
+- **Graceful degradation:** iOS can still unlock, inspect, verify, and export the Memory Palace in the foreground even when background sync is limited.
+
+### What Phase 3 adds
+
+- **Memory Palace ledger** — encrypted memory blocks for claims, trigger events, governance changes, and hub audits, all chained by `prevHash` and sealed with fresh Ed25519 signatures.
+- **Merkle-root verification** — Iris recomputes roots locally, verifies signatures, and can export a signed receipt bundle with an inclusion proof.
+- **Derived long-term memory** — claims, trigger ledger entries, Mirror Mode changes, and hub sync audits can be recommitted into the Memory Palace ledger without sending facts anywhere else.
+- **Hub Mode 2.0** — manual push/pull of commitment deltas, local queueing for intermittent links, pinned hub public keys, and a Dockerizable self-hosted hub example in `sovereign-hub-example/`.
+
+### Setup / maintenance
+
+1. Start Iris locally with `python3 iris-local.py`.
+2. Open **Memory Palace** and enter a dedicated passphrase.
+3. Optionally enable **device-only background unlock** so Chromium-class browsers can refresh memory roots without asking for the passphrase again.
+4. Add a manual note or click **Unlock & refresh** to import claim / trigger / governance events into the Memory Palace ledger.
+5. For hub coordination:
+   - start the sample hub in `sovereign-hub-example/`,
+   - verify `GET /api/hub/hello`,
+   - paste the pairing JSON into Iris,
+   - pin the returned Ed25519 public key,
+   - use **Push commitments** or **Pull commitments**.
+
+### Manual verification steps
+
+1. Add a manual Memory Palace note and confirm new `memoryEntries` + `memoryRoots` records appear in IndexedDB.
+2. Click **Verify integrity** and confirm Iris recomputes the Merkle root without errors.
+3. Click **Full system integrity check** and confirm Memory Palace + trigger ledger continuity pass together.
+4. Export the latest memory receipt and confirm it contains the signed entry, signed root, and Merkle inclusion proof.
+5. Bring the network down, queue a hub push, then reconnect and flush the queue.
+6. In Chrome DevTools → **Application** inspect:
+   - `memoryEntries`
+   - `memoryRoots`
+   - `memoryReceipts`
+   - `hubSyncQueue`
+   - `hubAudit`
+7. On iOS PWA, confirm the Memory Palace still works in the foreground and the UI explains that background reliability is lower.
+
+### Trade-offs / fallbacks
+
+- **Android / Chromium:** best fit for background root refresh and queued hub sync flushing.
+- **iOS Safari:** foreground-first by design; unlock, search, verify, and export still work, but sync retries may wait for manual launch.
+- **Starlink / intermittent links:** Iris queues minimal commitment deltas locally and retries later rather than blocking local work.
+- **Storage pressure:** the Memory Palace prefers compact encrypted summaries plus signed receipts, and the user can prune/export older states while retaining commitment proofs.
+
+---
+
 ## Mirror Mode
 
 Mirror Mode is an optional local identity layer for Sovereign Mode.

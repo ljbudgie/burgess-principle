@@ -689,7 +689,7 @@
       if (advanced.provider === "anthropic") {
         return sendViaAnthropic(advanced);
       }
-      return sendViaOpenAICompatible(advanced);
+      return sendViaWorkerChatCompletion(advanced);
     }
 
     function historyForChat() {
@@ -741,7 +741,7 @@
       return parseAnthropicResponse(response);
     }
 
-    async function sendViaOpenAICompatible({ apiKey, model }) {
+    async function sendViaWorkerChatCompletion({ apiKey, model }) {
       const headers = {
         "Content-Type": "application/json"
       };

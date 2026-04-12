@@ -41,6 +41,36 @@ Iris helps users:
 
 ---
 
+## Sovereign Core architecture audit
+
+The unified **Sovereign Core** strengthens the Burgess Principle by making every sensitive local action pass through shared, inspectable rules:
+
+- **Commitment Orchestrator** keeps trigger, memory, and hub audit commitments structurally consistent so integrity checks are reproducible on-device.
+- **Profile Manager** centralises connectivity, wireless minimisation, queued-sync preference, and governance toggles into one local sovereignty profile rather than scattering implicit policy across UI panels.
+- **Audit Engine** standardises Merkle proofs, receipt exports, and chain verification so users can verify evidence without trusting invisible server state.
+- **Connectivity-aware background behaviour** now reads the sovereignty profile before flushing queued hub work, which keeps Starlink-style intermittent links manual-first while allowing more eager background refresh on stable fiber.
+- **Human review remains explicit** because the shared core only shapes local evidence handling and advisory prompts; it never upgrades AI output into a SOVEREIGN or NULL decision.
+
+### Updated file structure overview
+
+```text
+/
+├─ index.html                  # Iris shell, trigger UI, profile bridge
+├─ service-worker.js           # offline shell + connectivity-aware background work
+├─ phase3-memory-hub.js        # Memory Palace + Sovereign Hub integrations
+├─ memory-palace-worker.js     # worker for Merkle/search offload
+├─ sovereign-core/
+│  ├─ types.js                 # shared sovereignty profile + settings keys
+│  ├─ utils.js                 # connectivity normalisation, sync policy, presets
+│  ├─ commitment-orchestrator.js
+│  ├─ audit-engine.js
+│  └─ profile-manager.js
+└─ tests/
+   └─ sovereign_core.test.mjs  # focused coverage for the shared sovereign core
+```
+
+---
+
 ## Verifiable Memory Palace
 
 ### Simple explanation

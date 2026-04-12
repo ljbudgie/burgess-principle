@@ -138,12 +138,12 @@ def test_phase_3_memory_palace_and_hub_assets_exist():
 def test_docs_cover_phase_3_memory_palace_and_hub():
     docs = (ROOT / 'SOVEREIGN_MODE.md').read_text(encoding='utf-8')
     assert '## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0' in docs
-    assert '### Hardwired connectivity options for personal environmental preferences' in docs
-    assert '### Memory Palace environmental notes' in docs
     assert '### Backup bundles, schemas, and extension packs' in docs
     assert 'Verify receipt file' in docs
-    assert '#### Diagram — Hardwired Connectivity Options Flow' in docs
-    assert 'Fiber hardwired review' in docs
+    assert 'For connectivity and environmental setup options, see <a>CONNECTIVITY_MODE.md</a>.' in docs
+    assert '### Hardwired connectivity options for personal environmental preferences' not in docs
+    assert '### Memory Palace environmental notes' not in docs
+    assert '#### Diagram — Hardwired Connectivity Options Flow' not in docs
     assert 'memoryEntries' in docs
     assert 'sovereign-hub-example/' in docs
     assert 'Push commitments' in docs

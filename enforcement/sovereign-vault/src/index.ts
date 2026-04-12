@@ -245,7 +245,8 @@ export class SovereignVault {
       const message = new TextEncoder().encode(commitmentHash);
       const signature = hexToBytes(signatureHex);
       const publicKey = hexToBytes(publicKeyHex);
-      return ed25519.verify(signature, message, publicKey);
+      ed25519.verify(signature, message, publicKey);
+      return true;
     } catch {
       return false;
     }

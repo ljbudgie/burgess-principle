@@ -387,7 +387,8 @@
       </div>
 
       <form id="advancedPanel" class="advanced-panel" aria-label="Advanced settings">
-        <p>If you already have your own AI access, you can use it here. Your saved settings stay only in this browser. When you use Advanced, your browser sends requests directly to the provider or local endpoint you choose. For local models, you can leave the key blank if your endpoint does not need one. A common Ollama address is <span>http://localhost:11434/v1</span>.</p>
+        <p>If you already have your own AI access, you can use it here. Your saved settings stay only in this browser.</p>
+        <p>When you use Advanced, your browser sends requests directly to the provider or local endpoint you choose. For local models, you can leave the key blank if your endpoint does not need one. A common Ollama address is <span>http://localhost:11434/v1</span>.</p>
 
         <div class="field">
           <label for="providerSelect">Provider</label>
@@ -651,7 +652,7 @@
       return {
         provider: providerSelectEl.value,
         apiKey: apiKeyInputEl.value.trim(),
-        baseUrl: endpointInputEl.value.trim(),
+        baseUrl: providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : "",
         model: modelInputEl.value.trim()
       };
     }
@@ -691,7 +692,7 @@
       if (advanced.provider === "anthropic") {
         return sendViaAnthropic(advanced);
       }
-      return sendViaOpenAICompatible(advanced);
+      return sendViaChatCompletions(advanced);
     }
 
     function historyForChat() {
@@ -750,7 +751,7 @@
       return `${normalized}/chat/completions`;
     }
 
-    async function sendViaOpenAICompatible({ provider, apiKey, model, baseUrl }) {
+    async function sendViaChatCompletions({ provider, apiKey, model, baseUrl }) {
       const headers = {
         "Content-Type": "application/json"
       };

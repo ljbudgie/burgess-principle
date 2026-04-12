@@ -14,6 +14,7 @@ def test_iris_html_contains_required_copy_and_controls():
     assert "I think a decision about me was unfair" in IRIS_HTML
     assert "I need help writing a letter back" in IRIS_HTML
     assert 'Advanced — bring your own AI' in IRIS_HTML
+    assert 'Your saved settings stay only in this browser.' in IRIS_HTML
     assert 'When you use Advanced, your browser sends requests directly to the provider or local endpoint you choose.' in IRIS_HTML
     assert 'claude-sonnet-4-20250514' in IRIS_HTML
     assert 'https://iris-worker.ljbarbers15.workers.dev' in IRIS_HTML
@@ -37,6 +38,7 @@ def test_iris_html_routes_byo_ai_directly_to_selected_provider():
     assert 'https://api.anthropic.com/v1/messages' in IRIS_HTML
     assert 'https://api.openai.com/v1/chat/completions' in IRIS_HTML
     assert 'provider === "openai" ? OPENAI_CHAT_COMPLETIONS_URL : buildChatCompletionsUrl(baseUrl)' in IRIS_HTML
+    assert 'baseUrl: providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : ""' in IRIS_HTML
     assert 'if (normalized.endsWith("/chat/completions")) return normalized;' in IRIS_HTML
 
 

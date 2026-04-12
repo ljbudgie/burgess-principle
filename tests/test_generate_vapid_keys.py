@@ -65,9 +65,14 @@ def test_main_prints_vapid_environment_values(monkeypatch, capsys):
 
 def test_script_exits_with_helpful_error_when_cryptography_is_missing(monkeypatch, capsys):
     real_import = builtins.__import__
+    blocked_imports = {
+        "cryptography.hazmat.primitives.asymmetric",
+        "cryptography.hazmat.primitives.asymmetric.ec",
+        "cryptography.hazmat.primitives.serialization",
+    }
 
     def fake_import(name, *args, **kwargs):
-        if name.startswith("cryptography.hazmat.primitives"):
+        if name in blocked_imports:
             raise ImportError("cryptography unavailable")
         return real_import(name, *args, **kwargs)
 

@@ -8,6 +8,7 @@
     FIBER_HARDWIRED: 'fiber_hardwired',
     OTHER: 'other',
   };
+  // Treat sustained ~1s RTT as the point where background sync should prefer queueing.
   const SLOW_NETWORK_RTT_THRESHOLD_MS = 900;
   const PERIODIC_SYNC_INTERVALS_MS = Object.freeze({
     DEFAULT: 12 * 60 * 60 * 1000,

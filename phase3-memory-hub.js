@@ -297,10 +297,6 @@
     };
   }
 
-  async function signMemoryRecordPayload(payload) {
-    return signCanonicalPayload(payload);
-  }
-
   function setMemoryStatus(message, tone = '') {
     if (!memoryUi) return;
     memoryUi.status.textContent = message;
@@ -367,7 +363,7 @@
         createdAt,
         previousCommitmentHash: previous ? previous.commitment_hash : '',
         payload: signed_payload,
-        signer: { signPayload: signMemoryRecordPayload },
+        signer: { signPayload: signCanonicalPayload },
         metadata: { type: options.type || 'note', source: options.source || 'manual' },
       })
       : null;
@@ -427,7 +423,7 @@
         createdAt,
         previousCommitmentHash: previousRoot ? previousRoot.root_commitment_hash : '',
         payload: rootPayload,
-        signer: { signPayload: signMemoryRecordPayload },
+        signer: { signPayload: signCanonicalPayload },
         metadata: { entry_id: entry.id },
       })
       : null;
@@ -1115,6 +1111,7 @@
     const syncPolicy = sovereigntyProfileManager ? await sovereigntyProfileManager.getSyncPolicy({ context: 'hub-flush' }) : null;
     if (syncPolicy && !syncPolicy.allow_background_flush && syncPolicy.mode === 'queued') {
       setHubStatus('Current sovereignty profile prefers queued/manual syncs. Flush stays available when you explicitly choose it on a stable connection.');
+      return;
     }
     let flushed = 0;
     for (const item of queue) {

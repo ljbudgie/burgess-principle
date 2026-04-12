@@ -299,8 +299,7 @@ class TestDoPostSuccess:
 
         assert h._response_code == 500
         data = json.loads(h.wfile.getvalue())
-        assert "error" in data
-        assert "API down" in data["error"]
+        assert data == {"error": "Model request failed."}
 
     def test_messages_filtering(self):
         """Only user and assistant messages with content are forwarded."""
@@ -445,4 +444,3 @@ class TestGetClient:
                 _get_client()
         call_kwargs = mock_openai_cls.call_args
         assert call_kwargs.kwargs["api_key"] == ""
-

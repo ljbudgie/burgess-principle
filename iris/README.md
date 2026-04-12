@@ -204,6 +204,7 @@ See [`../sovereign-hub-example/README.md`](../sovereign-hub-example/README.md) a
 ### Cloud Mode
 
 The hosted experience runs on Vercel and provides the fastest entry point.
+Its hosted API surface is intentionally narrow: `api/chat.py` provides the stateless chat relay and `api/push-subscribe.py` handles optional hosted push setup, while the richer sovereignty-first `/api/*` routes are exposed by `iris-local.py`.
 
 #### Environment variables
 

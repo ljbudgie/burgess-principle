@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  python-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,7 +25,34 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -e ".[test]"
+        run: pip install -e ".[test,api,onchain]"
 
       - name: Run tests
-        run: pytest -q
+        run: python -m pytest tests/
+
+  javascript-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: enforcement/sovereign-vault/package-lock.json
+
+      - name: Run Sovereign Core tests
+        run: node --test tests/sovereign_core.test.mjs
+
+      - name: Install Sovereign Vault dependencies
+        working-directory: enforcement/sovereign-vault
+        run: npm ci
+
+      - name: Run Sovereign Vault tests
+        working-directory: enforcement/sovereign-vault
+        run: npm test
+
+      - name: Build Sovereign Vault
+        working-directory: enforcement/sovereign-vault
+        run: npm run build

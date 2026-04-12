@@ -4,7 +4,7 @@ Hi 👋
 
 The Burgess Principle was created to help ordinary people be seen and treated as real individuals — not numbers in a system.
 
-This page explains how you can use the project, the MIT licence that covers the code and doctrine, and the certification mark that protects the commercial standard.
+This page explains how you can use the project, the MIT licence that covers the repository materials, and the certification mark that protects the commercial standard built around the Burgess Principle.
 
 ---
 
@@ -26,6 +26,9 @@ Individuals may freely use, copy, modify, and share the Burgess Principle, all t
 
 This includes:
 - Using the templates to write your own letters
+- Using Iris in the hosted experience or in Sovereign Local Mode for your own matters
+- Using the Memory Palace, signed receipts, Merkle proofs, Sovereign Hub Mode, and optional on-chain commitments for your own records
+- Self-hosting the software for your own personal use
 - Dropping the repo into any AI for personalised help
 - Sharing it with family, friends, or others who need it
 
@@ -35,9 +38,14 @@ No permission or payment is required for personal use.
 
 ## Commercial or Professional Use Requires a Licence
 
-If you are a law firm, barrister, claims-management company, charity, business, or any organisation wanting to use the Burgess Principle (or its templates and materials) in a professional, commercial, or group-litigation capacity, you must obtain a paid licence from the creator.
+If you are a law firm, barrister, claims-management company, charity, business, or any organisation wanting to use the Burgess Principle (or its templates, Iris workflows, or repository materials) in a professional, commercial, or group-litigation capacity, you must obtain a paid licence from the creator.
 
 This includes offering services based on the principle, the templates, or the framework to clients or members.
+
+It also includes:
+- operating a client-facing or managed service built around the Burgess Principle or Iris
+- deploying local or hub-based workflows for clients, members, or customers as part of a paid or institutional service
+- selling support, implementation, advocacy, review, or packaged compliance services under the Burgess Principle standard
 
 For commercial licensing enquiries or questions about permitted use, please open an issue on the repository.
 
@@ -49,9 +57,17 @@ For commercial licensing enquiries or questions about permitted use, please open
 
 ---
 
+## Hosted, Local, and Self-Hosted Use
+
+The software in this repository can be run in hosted, local-first, or self-hosted forms. Your ability to run, inspect, fork, and adapt the code under the MIT licence does **not** by itself grant the right to offer branded commercial services, managed hosting, or professional deployments under the Burgess Principle standard. Those uses remain subject to the separate commercial licensing position above.
+
+---
+
 ## Code vs Content
 
-The underlying code and repository structure are available under the MIT licence above for anyone to fork and build upon. The core doctrine, templates, branding, and framework are reserved for licensed commercial use under the certification mark.
+The underlying code and repository structure — including the website, Iris interfaces, Sovereign Local tooling, Memory Palace and receipt utilities, hub example code, and optional on-chain tooling — are available under the MIT licence above for anyone to fork and build upon.
+
+The Burgess Principle name, branded commercial standard, and commercial use of the doctrine, templates, and framework remain subject to the certification mark and the commercial licensing position described on this page.
 
 ---
 
@@ -60,5 +76,5 @@ LJ
 
 The Burgess Principle  
 UK Certification Mark: UK00004343685  
-MIT Licence (doctrine) | Certification Mark (commercial standard)  
+MIT Licence (repository materials) | Certification Mark (commercial standard)  
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

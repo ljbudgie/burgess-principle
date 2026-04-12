@@ -478,6 +478,7 @@ The framework has already been applied to documented institutional interactions.
 
 | Version | Summary |
 | --- | --- |
+| **[v1.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.4.0)** | Sovereign Local Mode & Verifiable Self-Proof — self-verifying SHA-256 startup banner, stronger offline guarantee, strengthened Neural baseline framing, and improved claim/setup test coverage |
 | **[v0.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0)** | Initial release — binary test, templates, cryptographic vault, 90+ tests |
 | **[v0.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.4.0)** | Optional on-chain Burgess Claims with no personal data on-chain |
 | **[v0.6.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0)** | Sovereign Local Mode — run Iris entirely on your own hardware |
@@ -487,8 +488,8 @@ The framework has already been applied to documented institutional interactions.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
-**Latest stable release:** [v1.3.0 — Sovereign Core: Unified Verifiable Architecture](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0)  
-**Current repository branch:** aligned with the shared Sovereign Core architecture used by the PWA, Memory Palace, and Sovereign Hub Mode.
+**Latest stable release:** [v1.4.0 — Sovereign Local Mode & Verifiable Self-Proof](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.4.0)  
+**Current repository branch:** aligned with Sovereign Local Mode, the self-verifying SHA-256 startup banner, the Time as Invertible Template offline guarantee, strengthened Neural baseline framing, and improved claim/setup coverage.
 
 ---
 

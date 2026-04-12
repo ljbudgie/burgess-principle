@@ -1,208 +1,219 @@
-# Iris — AI Companion for the Burgess Principle
+# Iris — Sovereign AI Companion for the Burgess Principle
 
-Iris is the conversational AI interface for the Burgess Principle, hosted at [burgess-principle.vercel.app](https://burgess-principle.vercel.app).
+![Local-first](https://img.shields.io/badge/local--first-yes-14532d?style=flat-square)
+![Voice-first](https://img.shields.io/badge/voice--first-Iris-0f766e?style=flat-square)
+![Privacy](https://img.shields.io/badge/privacy-user--controlled-1d4ed8?style=flat-square)
 
-It helps users apply the binary test, generate personalised templates, walk through the Sovereign Personal Vault, create or verify on-chain claims, and optionally enable Mirror Mode in Sovereign Local Mode — all while keeping control and data sovereignty with the user.
+Iris is the conversational interface for the Burgess Principle: a phone-friendly, voice-first assistant that helps users document what happened, draft calm correspondence, and preserve verifiable records without surrendering sovereignty.
 
-Iris now includes a guided onboarding flow for new users, persistent user profiles, Mirror Mode-aware local identity setup, digital-handshake framing, intelligent template matching, and handling for ambiguous institutional responses.
+It can run as:
 
----
+- a hosted PWA entry point at [burgess-principle.vercel.app](https://burgess-principle.vercel.app),
+- a fully local sovereign runtime on the user's own hardware,
+- and, in Phase 3, an optional self-hosted coordination client for **Sovereign Hub Mode 2.0**.
 
-## How It Works
-
-Iris is part of a two-view single-page site powered by:
-
-- A **landing page** with project overview, binary test visualisation, template showcase, and case study cards.
-- A **chat interface** (`index.html`) with Markdown rendering and a clean, modern design.
-- A Vercel serverless function (`api/chat.py`) that proxies requests to an OpenAI-compatible API.
-- A system prompt (`iris/system-prompt.md`) that grounds every response in the Burgess Principle.
-
-The landing page introduces visitors to the framework. The "Talk to Iris" CTA switches to the chat view, where Iris responses are rendered as rich Markdown (headings, bold, code blocks, tables, lists, links).
+> **Core rule:** Iris is **advisory only**. It helps a user prepare, organise, and verify records. It does not replace the Burgess Principle's human-review test, and it never turns AI output into an automatic **SOVEREIGN** or **NULL** finding.
 
 ---
 
-## Key Capabilities
+## What Iris does
 
-### Onboarding Flow
+Iris helps users:
 
-When Iris detects a new user (no profile in `iris-config.json`), it begins a gentle six-step onboarding:
-
-1. Introduces itself and explains that everything stays private on the user's device.
-2. Asks the user's name and preferred form of address.
-3. Asks about communication needs (e.g. plain language, no jargon).
-4. Invites the user to describe their situation in their own words.
-5. Saves the profile to `iris-config.json`.
-6. Confirms the profile has been saved.
-
-On subsequent sessions, Iris silently loads the profile and uses it without repeating the onboarding.
-
-### Mirror Mode
-
-In Sovereign Local Mode, users can create an encrypted personal sovereign profile, then enable **Mirror Mode** so the interface restores a local mirrored greeting and hardware-linked identity summary on startup.
-
-Mirror Mode currently provides:
-
-- Local identity setup with name, handle, preferred signature block, and Ed25519-backed public profile summary.
-- A mirrored greeting in the welcome screen when the local profile is active, framed as a continuation of the digital handshake.
-- Reuse of the local identity layer across claim/profile workflows without sending it to a cloud service.
-
-Mirror Mode remains optional and local-only.
-
-### Intelligent Template Matching
-
-Iris matches the right template to the user's situation instead of presenting the full list:
-
-| Situation described | Template suggested |
-|---|---|
-| Bailiffs or forced entry | Bailiff Threat |
-| Automated decision, algorithm, or system | Article 22 Challenge |
-| Disability or access needs ignored | Equality Act Adjustments |
-| Wants to see what data is held | DSAR |
-| Challenging a public body | FOI |
-| Crypto exchange freeze, withdrawal hold, or source-of-funds review | Crypto Exchange Account Restriction |
-| Wants to reference a hash, signature, receipt, or on-chain claim | Cryptographic Proof and On-Chain Notice |
-| Wants maximum privacy with minimal disclosure | Commitment-Only Placeholder or Vault-first guidance |
-| Everything else | Request for Human Review (default) |
-
-### Handling Ambiguous Responses
-
-Institutions don't always give clear answers. Iris helps users assess ambiguity:
-
-- Identifies evasion patterns — templated language, redirection, non-answers.
-- Asks whether a named individual confirmed personal review of the specific facts.
-- Records unclear findings as **NULL (provisional)** and recommends a follow-up letter.
-- Never records SOVEREIGN unless confirmed by a named individual.
-
-### Template Discovery
-
-Iris now mirrors the streamlined templates folder documentation:
-
-- [`templates/README.md`](../templates/README.md) is the main template index.
-- [`templates/COMMON_SCENARIOS.md`](../templates/COMMON_SCENARIOS.md) is the fast routing guide.
-- Crypto and on-chain flows always stay **Vault first, commitments second**.
+- describe a situation in natural language,
+- find the right template or next step,
+- build claim summaries and local records,
+- preserve evidence in the Sovereign Personal Vault,
+- maintain long-term context in the **Verifiable Memory Palace**,
+- export signed receipts when selective disclosure is needed.
 
 ---
 
-## Deployment
+## Phase 3 in Iris
 
-Iris runs in two modes — cloud and sovereign (local).
+| Capability | What Iris now adds |
+| --- | --- |
+| **Verifiable Memory Palace** | Long-term local memory becomes a tamper-evident ledger of encrypted entries, commitments, signatures, and Merkle roots |
+| **Signed receipt export** | Iris can export a signed entry plus signed root and inclusion proof for selective disclosure |
+| **Integrity verification** | Users can recompute the chain and latest root from genesis on-device |
+| **Hub Mode 2.0** | Users can manually pair with a self-hosted hub, pin the hub key, and sync commitment deltas over intermittent links |
+| **Audit logging** | Hub activity and derived local events can be recommitted into the Memory Palace without sending raw facts away |
 
-### Cloud Mode (Vercel)
+---
 
-Iris is deployed on [Vercel](https://vercel.com) as a serverless application.
+## Verifiable Memory Palace
 
-### Environment Variables
+### Simple explanation
 
-Set these in the Vercel project settings:
+Iris no longer has to rely on opaque, server-side "memory." In Sovereign Local Mode, it can keep a **private local ledger** where each memory is:
+
+- encrypted on the device,
+- committed with SHA-256,
+- chained to the previous memory,
+- signed with Ed25519,
+- rolled into a Merkle root,
+- and exportable as a selective-disclosure receipt.
+
+That means a user can later prove:
+
+- *this entry existed,*
+- *it belonged to this signed set,*
+- *and the set has not been silently rewritten,*
+
+without exposing everything else they stored.
+
+### Merkle roots and inclusion proofs
+
+**Analogy:**  
+Imagine sealing each note in an envelope, then creating a master seal that represents the whole stack. An inclusion proof is the small set of seals you need to prove one envelope belonged to that stack.
+
+**Technical view:**  
+Iris hashes memory commitments into a Merkle tree. The signed root represents the full set. A receipt can include the sibling hashes needed to recompute the root for one entry, proving set membership without revealing other entries.
+
+### Why this matters for the Burgess Principle
+
+- A benefits claimant can prove a key timeline note was preserved without disclosing unrelated history.
+- A disabled user can share the exact access-failure record needed for an advocate.
+- A rights-mapping workflow can produce calm, inspectable receipts instead of asking people to trust black-box memory.
+- A maintainer or reviewer can verify integrity without treating AI output as authority.
+
+### Human accountability, strengthened
+
+The ledger improves evidence quality, not decision authority:
+
+- **Human review is still the standard**
+- **AI remains advisory**
+- **Receipts improve auditability**
+- **Selective disclosure reduces over-sharing**
+- **Local verification resists invisible revision**
+
+---
+
+## Sovereign Hub Mode 2.0
+
+Sovereign Hub Mode 2.0 is Iris's optional coordination layer for users who want continuity across their own infrastructure.
+
+### What it is
+
+- **Optional**
+- **Manual-first**
+- **Self-hosted**
+- **Digest-first**
+- **Built for intermittent links**
+
+By default, the example hub stores **commitment digests** such as memory roots, claim commitments, and trigger heads — not raw private Memory Palace content.
+
+### Setup overview
+
+1. Run Iris locally: `python3 iris-local.py`
+2. Start the example hub in [`../sovereign-hub-example/`](../sovereign-hub-example/)
+3. Open `GET /api/hub/hello`
+4. Verify the returned `public_key_hex`
+5. Paste the pairing JSON into Iris
+6. Enter the shared secret
+7. Push or pull commitments manually
+
+### Starlink / intermittent links
+
+Hub Mode 2.0 is designed so connectivity problems do not collapse sovereignty:
+
+- failed sync requests are queued locally,
+- local Memory Palace work continues without the hub,
+- retry happens later when the link returns,
+- foreground workflows still work on platforms with weaker background execution.
+
+See [`../sovereign-hub-example/README.md`](../sovereign-hub-example/README.md) and [`../SOVEREIGN_MODE.md`](../SOVEREIGN_MODE.md).
+
+---
+
+## Deployment modes
+
+### Cloud Mode
+
+The hosted experience runs on Vercel and provides the fastest entry point.
+
+#### Environment variables
 
 | Variable | Required | Description |
-|---|---|---|
-| `IRIS_API_KEY` | Yes | API key for the AI model (e.g. xAI, OpenAI, Anthropic) |
+| --- | --- | --- |
+| `IRIS_API_KEY` | Yes | API key for the AI model |
 | `IRIS_BASE_URL` | No | Base URL for the API (default: `https://api.x.ai/v1`) |
 | `IRIS_MODEL` | No | Model name (default: `grok-3`) |
 
-### Local Development
+### Sovereign Local Mode
 
-```bash
-# Set environment variables
-export IRIS_API_KEY="your-api-key"
-export IRIS_BASE_URL="https://api.x.ai/v1"
-export IRIS_MODEL="grok-3"
-
-# Install dependencies
-pip install openai
-
-# Run the Vercel dev server (requires Vercel CLI)
-npx vercel dev
-```
-
-### Sovereign Mode (Local)
-
-Sovereign Mode runs Iris entirely on your own hardware using a local GGUF model — no API keys, no cloud, no telemetry. See **[SOVEREIGN_MODE.md](../SOVEREIGN_MODE.md)** for full setup instructions.
+Sovereign Local Mode runs Iris entirely on the user's own hardware using a local GGUF model.
 
 ```bash
 bash scripts/install-linux.sh   # or install-macos.sh / install-windows.ps1
 python3 iris-local.py
 ```
 
-The same `index.html` serves both modes — it auto-detects localhost and routes API calls to the local server. Configuration lives in `iris-config.json`.
+The same `index.html` serves both modes; local mode auto-routes API calls to the local server when running on localhost. Configuration lives in [`../iris-config.json`](../iris-config.json).
 
 ---
 
-## Local-First Architecture
+## Architecture
 
-Iris is **local-first by design**. Conversations remain entirely in the user's browser unless the user explicitly sends a message that requires the backend for model inference. Nothing is stored server-side by default.
+Iris is local-first by design.
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                     User's Browser                       │
-│                                                          │
-│  index.html ─── Chat UI (vanilla HTML/CSS/JS)            │
-│       │                                                  │
-│       ├── Conversation history (in-memory, client-side)  │
-│       ├── Export conversation (local download only)       │
-│       └── Clear chat (wipes in-memory state)             │
-│                                                          │
-│  ┌────────────────────────────────────────────────────┐   │
-│  │  🛡️  All state lives here. Nothing leaves without  │   │
-│  │     explicit user action (pressing Send).          │   │
-│  └────────────────────────────────────────────────────┘   │
-└────────────────────┬─────────────────────────────────────┘
-                     │  Only when user sends a message
-                     ▼
-         ┌───────────────────────┐
-         │   Vercel Serverless   │
-         │    api/chat.py        │
-         │                       │
-         │  • Loads system prompt│
-         │  • Forwards messages  │
-         │  • Streams response   │
-         │  • No storage         │
-         └───────────┬───────────┘
-                     │
-                     ▼
-         ┌───────────────────────┐
-         │   AI Model (Grok)     │
-         │   via OpenAI API      │
-         └───────────────────────┘
+```text
+User device
+├─ PWA / chat UI
+├─ local profile + vault state
+├─ Memory Palace ledger
+├─ receipt export
+└─ optional local model runtime
+        │
+        ├─ Cloud Mode only: stateless API relay for model inference
+        └─ Optional Hub Mode 2.0: self-hosted commitment sync
 ```
 
-### Data flow
+Key implementation points:
 
-1. Conversation history is held **in-memory in the browser only**.
-2. When the user presses Send, the current message (plus conversation context) is sent to `/api/chat`.
-3. The serverless function adds the system prompt and forwards to the AI model.
-4. The response streams back via Server-Sent Events.
-5. **No data is persisted on any server.** The serverless function is stateless.
-6. Users can export their conversation locally as Markdown, or clear chat to wipe all state.
+- the browser/UI keeps conversational state local by default,
+- the local runtime can maintain the Memory Palace and verify it from genesis,
+- the hub path is optional and explicit,
+- raw Memory Palace content does not need to be sent to the hub.
 
----
-
-## Privacy
-
-Iris's first duty is privacy — **sovereign by design**.
-
-- **Local-first:** All conversation history stays in your browser. Nothing is stored on any server unless you explicitly send a message for model processing.
-- **User profiles stay local:** The `iris-config.json` profile is stored on the user's device and never uploaded.
-- **Vault before chain:** Iris always recommends the Sovereign Personal Vault before any on-chain action. Full claim details stay encrypted on the user's device.
-- **Minimal data transfer:** Only the current conversation context is sent to the backend. Full claim details never leave your device.
-- **No server-side storage:** The serverless function is stateless — it processes and forgets.
-- **User-controlled export:** You can download your conversation as a Markdown file locally. No cloud upload.
-- **On-chain commitments only:** If using on-chain claims, only cryptographic fingerprints (hash + signature) are posted. No personal data touches the blockchain.
-- **No tracking, no cookies, no analytics.**
+For the broader Phase 3 design, see [`../ARCHITECTURE.md`](../ARCHITECTURE.md).
 
 ---
 
-## Example Conversations
+## Privacy and data boundaries
 
-See the [`examples/`](examples/) folder for sample interactions showing how Iris helps with:
+### Sovereign Local Mode
 
-- Walking a new user through onboarding (`onboarding.md`).
-- Applying the binary test to a real situation (`greeting.md`).
-- Explaining the Sovereign Personal Vault (`vault-guidance.md`).
+In Sovereign Local Mode:
+
+- Memory Palace entries stay on-device unless exported,
+- the user controls when a signed receipt leaves the device,
+- hub sync is opt-in and can remain commitment-only,
+- no analytics, cookies, or mandatory cloud account are required.
+
+### Cloud Mode
+
+In Cloud Mode:
+
+- the conversation sent for model inference goes through the serverless backend,
+- the backend is stateless,
+- no conversation history is stored server-side by default.
+
+### Constant principle
+
+Whichever mode is used, Iris should make the user's situation **more reviewable**, not more opaque.
 
 ---
 
-**The Burgess Principle**
-UK Certification Mark: UK00004343685
+## Where to go next
+
+- Run full local setup: [`../SOVEREIGN_MODE.md`](../SOVEREIGN_MODE.md)
+- Review Phase 3 architecture: [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
+- Explore the project overview: [`../README.md`](../README.md)
+- Self-host the hub: [`../sovereign-hub-example/README.md`](../sovereign-hub-example/README.md)
+
+---
+
+**The Burgess Principle**  
+UK Certification Mark: UK00004343685  
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

@@ -16,6 +16,33 @@
   const MEMORY_SEARCH_LIMIT = 40;
   const MEMORY_MAX_IMPORTS = 500;
   const MEMORY_ADVISORY_TEXT = 'Memory Palace entries are local, signed, and auditable. Entries are exportable as receipts, and human review remains the final authority.';
+  // Burgess Compliance: Memory Palace and Hub Mode preserve auditable local evidence,
+  // while the user still needs a human review for any specific sovereign conclusion.
+  const sovereignCore = bridge.sovereignCore || window.IrisSovereignCore || {};
+  const sovereignUtils = sovereignCore.utils || {};
+  const sovereigntyProfileManager = bridge.sovereigntyProfileManager || (sovereignCore.createProfileManager
+    ? sovereignCore.createProfileManager({
+      storage: {
+        getSetting: key => bridge.vaultStore.getSetting(key),
+        saveSetting: (key, value) => bridge.vaultStore.saveSetting(key, value),
+      },
+      sha256Hex: bridge.sha256Hex,
+      canonicalize: bridge.canonicalizeForSignature,
+    })
+    : null);
+  const auditEngine = sovereignCore.createAuditEngine
+    ? sovereignCore.createAuditEngine({
+      sha256Hex: bridge.sha256Hex,
+      canonicalize: bridge.canonicalizeForSignature,
+    })
+    : null;
+  const commitmentOrchestrator = sovereignCore.createCommitmentOrchestrator
+    ? sovereignCore.createCommitmentOrchestrator({
+      sha256Hex: bridge.sha256Hex,
+      canonicalize: bridge.canonicalizeForSignature,
+      generateId: prefix => bridge.generateSecureId(prefix),
+    })
+    : null;
 
   let worker = null;
   let workerRequestId = 0;
@@ -60,6 +87,9 @@
   }
 
   function normalizeConnectivityProfile(value = '') {
+    if (sovereignUtils.normalizeConnectivityProfile) {
+      return sovereignUtils.normalizeConnectivityProfile(value);
+    }
     const raw = String(value || '').trim().toLowerCase();
     if (!raw) return 'other';
     if (['starlink_hardwired', 'starlink_ethernet', 'starlink'].includes(raw)) return 'starlink_hardwired';
@@ -68,6 +98,9 @@
   }
 
   function connectivityProfileLabel(value = '') {
+    if (sovereignUtils.connectivityProfileLabel) {
+      return sovereignUtils.connectivityProfileLabel(value);
+    }
     const normalized = normalizeConnectivityProfile(value);
     if (normalized === 'starlink_hardwired') return 'Starlink Hardwired';
     if (normalized === 'fiber_hardwired') return 'Fiber Hardwired';
@@ -91,6 +124,30 @@
   }
 
   async function suggestConnectivityTags(preferences = {}, extraText = '') {
+    if (sovereignUtils.buildConnectivityTags) {
+      const baseTags = new Set(sovereignUtils.buildConnectivityTags({
+        ...preferences,
+        minimize_wireless: preferences.low_wireless_mode,
+        environmental_note: preferences.connectivity_note,
+      }, extraText));
+      const tags = new Set(baseTags);
+      const triggerDraftText = [
+        document.getElementById('triggerNaturalLanguage')?.value || '',
+        document.getElementById('triggerLabel')?.value || '',
+        document.getElementById('triggerDescription')?.value || '',
+        document.getElementById('triggerKeywords')?.value || '',
+        document.getElementById('triggerTemplatePreset')?.value || '',
+      ].join(' ');
+      addConnectivityTagsFromText(triggerDraftText, tags);
+      const triggers = await bridge.vaultStore.getAll('triggers').catch(error => {
+        console.warn('Could not load local triggers for connectivity suggestions.', error);
+        return [];
+      });
+      for (const trigger of triggers) {
+        addConnectivityTagsFromText([trigger.label, trigger.description, trigger.type].join(' '), tags);
+      }
+      return Array.from(tags);
+    }
     const tags = new Set(['environment', 'connectivity']);
     const normalizedProfile = normalizeConnectivityProfile(preferences.connectivity_profile);
     if (normalizedProfile === 'starlink_hardwired') {
@@ -254,6 +311,11 @@
     statusEl.className = 'claim-profile-status' + (tone ? ` is-${tone}` : '');
   }
 
+  function buildHubSyncStatus(direction, syncPolicy) {
+    const verb = direction === 'push' ? 'Pushing' : 'Pulling';
+    return `${verb} commitments to your Sovereign Hub…${syncPolicy ? ` (${syncPolicy.mode} policy)` : ''}`;
+  }
+
   function getMemoryPassphrase() {
     const value = memoryUi && memoryUi.passphrase ? memoryUi.passphrase.value.trim() : '';
     if (value) memoryPassphraseCache = value;
@@ -261,6 +323,9 @@
   }
 
   async function buildMerkleState(leaves, index) {
+    if (auditEngine && auditEngine.buildMerkleState) {
+      return auditEngine.buildMerkleState(leaves, index);
+    }
     const result = await callWorker('merkle-state', { leaves, index });
     return result || { root: '', proof: [] };
   }
@@ -290,23 +355,54 @@
       type: options.type || 'note',
       source: options.source || 'manual',
       source_ref: options.source_ref || '',
-      created_at: createdAt,
-      prev_hash: previous ? previous.commitment_hash : '',
       encrypted_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature(encrypted_payload)),
       metadata: options.metadata || {},
       entry_version: 1,
     };
-    const signed = await signCanonicalPayload(signed_payload);
-    const commitment_hash = await bridge.sha256Hex(bridge.canonicalizeForSignature({ payload: signed_payload, signature_hex: signed.signature_hex }));
+    // Burgess Compliance: commitments make local evidence auditable without hiding the fact that
+    // a human must still review the specific facts before any sovereign conclusion is reached.
+    const orchestratedEntry = commitmentOrchestrator
+      ? await commitmentOrchestrator.createSignedRecord({
+        namespace: 'memory-entry',
+        recordId: signed_payload.id,
+        createdAt,
+        previousCommitmentHash: previous ? previous.commitment_hash : '',
+        payload: signed_payload,
+        signer: { signPayload: signCanonicalPayload },
+        metadata: { type: options.type || 'note', source: options.source || 'manual' },
+      })
+      : null;
+    const signed = orchestratedEntry
+      ? { signature_hex: orchestratedEntry.signature_hex, public_key_hex: orchestratedEntry.public_key_hex }
+      : await signCanonicalPayload({
+        ...signed_payload,
+        created_at: createdAt,
+        previous_commitment_hash: previous ? previous.commitment_hash : '',
+      });
+    const commitment_hash = orchestratedEntry
+      ? orchestratedEntry.commitment_hash
+      : await bridge.sha256Hex(bridge.canonicalizeForSignature({ payload: {
+        namespace: 'memory-entry',
+        created_at: createdAt,
+        previous_commitment_hash: previous ? previous.commitment_hash : '',
+        payload: signed_payload,
+        payload_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature(signed_payload)),
+        metadata: { type: options.type || 'note', source: options.source || 'manual' },
+        record_version: 1,
+      }, signature_hex: signed.signature_hex }));
     const entry = {
       id: signed_payload.id,
       type: signed_payload.type,
       source: signed_payload.source,
       source_ref: signed_payload.source_ref,
       created_at: createdAt,
-      prev_hash: signed_payload.prev_hash,
+      prev_hash: previous ? previous.commitment_hash : '',
       encrypted_payload,
-      signed_payload,
+      signed_payload: {
+        ...signed_payload,
+        created_at: createdAt,
+        previous_commitment_hash: previous ? previous.commitment_hash : '',
+      },
       signature_hex: signed.signature_hex,
       public_key_hex: signed.public_key_hex,
       commitment_hash,
@@ -320,24 +416,53 @@
     const rootPayload = {
       id: bridge.generateSecureId('memory-root'),
       entry_id: entry.id,
-      created_at: createdAt,
       merkle_root: merkleState.root,
-      prev_root_commitment_hash: previousRoot ? previousRoot.root_commitment_hash : '',
       leaf_count: nextLeaves.length,
       latest_entry_hash: commitment_hash,
       root_version: 1,
     };
-    const rootSigned = await signCanonicalPayload(rootPayload);
-    const rootCommitmentHash = await bridge.sha256Hex(bridge.canonicalizeForSignature({ payload: rootPayload, signature_hex: rootSigned.signature_hex }));
+    const orchestratedRoot = commitmentOrchestrator
+      ? await commitmentOrchestrator.createSignedRecord({
+        namespace: 'memory-root',
+        recordId: rootPayload.id,
+        createdAt,
+        previousCommitmentHash: previousRoot ? previousRoot.root_commitment_hash : '',
+        payload: rootPayload,
+        signer: { signPayload: signCanonicalPayload },
+        metadata: { entry_id: entry.id },
+      })
+      : null;
+    const rootSigned = orchestratedRoot
+      ? { signature_hex: orchestratedRoot.signature_hex, public_key_hex: orchestratedRoot.public_key_hex }
+      : await signCanonicalPayload({
+        ...rootPayload,
+        created_at: createdAt,
+        previous_commitment_hash: previousRoot ? previousRoot.root_commitment_hash : '',
+      });
+    const rootCommitmentHash = orchestratedRoot
+      ? orchestratedRoot.commitment_hash
+      : await bridge.sha256Hex(bridge.canonicalizeForSignature({ payload: {
+        namespace: 'memory-root',
+        created_at: createdAt,
+        previous_commitment_hash: previousRoot ? previousRoot.root_commitment_hash : '',
+        payload: rootPayload,
+        payload_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature(rootPayload)),
+        metadata: { entry_id: entry.id },
+        record_version: 1,
+      }, signature_hex: rootSigned.signature_hex }));
     const rootRecord = {
       id: rootPayload.id,
       entry_id: entry.id,
       created_at: createdAt,
       merkle_root: merkleState.root,
-      prev_root_commitment_hash: rootPayload.prev_root_commitment_hash,
+      prev_root_commitment_hash: previousRoot ? previousRoot.root_commitment_hash : '',
       leaf_count: rootPayload.leaf_count,
       latest_entry_hash: commitment_hash,
-      signed_payload: rootPayload,
+      signed_payload: {
+        ...rootPayload,
+        created_at: createdAt,
+        previous_commitment_hash: previousRoot ? previousRoot.root_commitment_hash : '',
+      },
       signature_hex: rootSigned.signature_hex,
       public_key_hex: rootSigned.public_key_hex,
       root_commitment_hash: rootCommitmentHash,
@@ -433,20 +558,52 @@
   async function verifyMemoryIntegrity() {
     const entries = (await bridge.vaultStore.getAll('memoryEntries')).sort((a, b) => Date.parse(a.created_at || 0) - Date.parse(b.created_at || 0));
     const roots = (await bridge.vaultStore.getAll('memoryRoots')).sort((a, b) => Date.parse(a.created_at || 0) - Date.parse(b.created_at || 0));
-    let previousHash = '';
-    for (const entry of entries) {
-      if (entry.signed_payload.prev_hash !== previousHash) {
-        throw new Error(`Memory entry ${entry.id} broke the commitment chain.`);
+    if (auditEngine && commitmentOrchestrator) {
+      await auditEngine.verifySequentialChain(entries, {
+        verifyRecord: async entry => commitmentOrchestrator.verifySignedRecord({
+          id: entry.id,
+          namespace: 'memory-entry',
+          created_at: entry.created_at,
+          previous_commitment_hash: entry.prev_hash || entry.signed_payload.previous_commitment_hash || '',
+          payload: {
+            id: entry.signed_payload.id,
+            type: entry.signed_payload.type,
+            source: entry.signed_payload.source,
+            source_ref: entry.signed_payload.source_ref,
+            encrypted_hash: entry.signed_payload.encrypted_hash,
+            metadata: entry.signed_payload.metadata || {},
+            entry_version: entry.signed_payload.entry_version || 1,
+          },
+          metadata: { type: entry.type, source: entry.source },
+          record_version: 1,
+          payload_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature({
+            id: entry.signed_payload.id,
+            type: entry.signed_payload.type,
+            source: entry.signed_payload.source,
+            source_ref: entry.signed_payload.source_ref,
+            encrypted_hash: entry.signed_payload.encrypted_hash,
+            metadata: entry.signed_payload.metadata || {},
+            entry_version: entry.signed_payload.entry_version || 1,
+          })),
+          signature_hex: entry.signature_hex,
+          public_key_hex: entry.public_key_hex,
+          commitment_hash: entry.commitment_hash,
+        }, {
+          verifySignature: ({ payload, signatureHex, publicKeyHex }) => verifySignatureHex(publicKeyHex, signatureHex, payload),
+        }),
+      });
+    } else {
+      let previousHash = '';
+      for (const entry of entries) {
+        if ((entry.prev_hash || '') !== previousHash) {
+          throw new Error(`Memory entry ${entry.id} broke the commitment chain.`);
+        }
+        const validSignature = await verifySignatureHex(entry.public_key_hex, entry.signature_hex, entry.signed_payload);
+        if (!validSignature) {
+          throw new Error(`Memory entry ${entry.id} failed Ed25519 verification.`);
+        }
+        previousHash = entry.commitment_hash;
       }
-      const validSignature = await verifySignatureHex(entry.public_key_hex, entry.signature_hex, entry.signed_payload);
-      if (!validSignature) {
-        throw new Error(`Memory entry ${entry.id} failed Ed25519 verification.`);
-      }
-      const recomputed = await bridge.sha256Hex(bridge.canonicalizeForSignature({ payload: entry.signed_payload, signature_hex: entry.signature_hex }));
-      if (recomputed !== entry.commitment_hash) {
-        throw new Error(`Memory entry ${entry.id} has an invalid SHA-256 commitment.`);
-      }
-      previousHash = entry.commitment_hash;
     }
     const merkleState = await buildMerkleState(entries.map(entry => entry.commitment_hash), Math.max(entries.length - 1, 0));
     if (entries.length && roots.length) {
@@ -494,7 +651,17 @@
     if (!receipt) {
       throw new Error('No Memory Palace receipt exists yet. Add or import a committed memory first.');
     }
-    const blob = new Blob([JSON.stringify(receipt, null, 2)], { type: 'application/json' });
+    const exportPayload = auditEngine && auditEngine.buildReceipt
+      ? auditEngine.buildReceipt({
+        record: receipt.signed_entry,
+        rootRecord: receipt.signed_root,
+        inclusionProof: receipt.inclusion_proof,
+        disclosure: {
+          advisory: 'Local receipt export only. Human review still decides the Burgess outcome.',
+        },
+      })
+      : receipt;
+    const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -768,11 +935,23 @@
 
   async function saveHubConfig(config) {
     await bridge.vaultStore.saveSetting(HUB_CONFIG_KEY, config);
+    if (sovereigntyProfileManager) {
+      await sovereigntyProfileManager.syncHubPreferences(config);
+    }
+    if (bridge.persistSovereigntyProfilePatch) {
+      await bridge.persistSovereigntyProfilePatch({
+        connectivity_profile: config.connectivity_profile,
+        minimize_wireless: config.low_wireless_mode,
+        prefer_queued_syncs: config.prefer_queued_syncs,
+        environmental_note: config.connectivity_note,
+      }, 'hub-config-save');
+    }
   }
 
   async function buildHubDeltaBundle(direction) {
     const latestRoot = (await bridge.vaultStore.getAll('memoryRoots')).sort((a, b) => Date.parse(b.created_at || 0) - Date.parse(a.created_at || 0))[0] || null;
     const triggerLedger = (await bridge.vaultStore.getAll('triggerLedger')).sort((a, b) => Date.parse(b.created_at || 0) - Date.parse(a.created_at || 0));
+    const sovereigntyProfile = sovereigntyProfileManager ? await sovereigntyProfileManager.loadProfile() : null;
     const claims = (await bridge.vaultStore.getAll('claims')).map(item => ({
       id: item.id,
       commitment_hash: item.commitment_hash || '',
@@ -801,38 +980,51 @@
         commitment_hash: triggerLedger[0].commitment_hash,
         created_at: triggerLedger[0].created_at,
       } : null,
+      sovereignty_profile_digest: sovereigntyProfile ? sovereigntyProfile.profile_fingerprint || await bridge.sha256Hex(bridge.canonicalizeForSignature(sovereigntyProfile)) : '',
       claims,
       triggers,
     };
   }
 
   async function recordHubAudit(direction, status, summary, extra = {}) {
-    const auditPayload = {
+    const previousAudit = (await bridge.vaultStore.getAll('hubAudit')).sort((a, b) => Date.parse(b.created_at || 0) - Date.parse(a.created_at || 0))[0] || null;
+    const audit = commitmentOrchestrator
+      ? await commitmentOrchestrator.createSignedRecord({
+        namespace: 'hub-audit',
+        recordId: bridge.generateSecureId('hub-audit'),
+        createdAt: new Date().toISOString(),
+        previousCommitmentHash: previousAudit ? previousAudit.commitment_hash : '',
+        payload: { direction, status, summary, extra },
+        metadata: { direction, status },
+      })
+      : {
+        id: bridge.generateSecureId('hub-audit'),
+        created_at: new Date().toISOString(),
+        payload: { direction, status, summary, extra },
+        commitment_hash: await bridge.sha256Hex(bridge.canonicalizeForSignature({ direction, status, summary, extra })),
+      };
+    const storedAudit = {
+      id: audit.id,
       direction,
       status,
       summary,
-      created_at: new Date().toISOString(),
+      created_at: audit.created_at,
+      commitment_hash: audit.commitment_hash,
       extra,
+      signature_hex: audit.signature_hex || '',
+      public_key_hex: audit.public_key_hex || '',
     };
-    const commitment_hash = await bridge.sha256Hex(bridge.canonicalizeForSignature(auditPayload));
-    const audit = {
-      id: bridge.generateSecureId('hub-audit'),
-      direction,
-      status,
-      summary,
-      created_at: auditPayload.created_at,
-      commitment_hash,
-      extra,
-    };
-    await bridge.vaultStore.put('hubAudit', audit);
-    return audit;
+    await bridge.vaultStore.put('hubAudit', storedAudit);
+    return storedAudit;
   }
 
   async function enqueueHubSyncRequest(payload) {
+    const syncPolicy = sovereigntyProfileManager ? await sovereigntyProfileManager.getSyncPolicy({ context: 'hub-queue' }) : null;
     const queueItem = {
       id: bridge.generateSecureId('hub-sync'),
       created_at: new Date().toISOString(),
       status: 'queued',
+      sync_mode: syncPolicy ? syncPolicy.mode : 'queued',
       ...payload,
     };
     await bridge.vaultStore.put('hubSyncQueue', queueItem);
@@ -869,6 +1061,7 @@
       throw new Error('Hub URL, shared secret, and pinned public key are required.');
     }
     const environmentPreferences = getHubEnvironmentPreferences();
+    const syncPolicy = sovereigntyProfileManager ? await sovereigntyProfileManager.getSyncPolicy({ context: `hub-${direction}` }) : null;
     const bundle = await buildHubDeltaBundle(direction);
     const envelope = await hubEncrypt(bundle, sharedSecret);
     const signedRequest = {
@@ -887,7 +1080,7 @@
       direction,
     };
 
-    setHubStatus(`${direction === 'push' ? 'Pushing' : 'Pulling'} commitments to your Sovereign Hub…`);
+    setHubStatus(buildHubSyncStatus(direction, syncPolicy));
     try {
       const data = await sendQueuedRequest(request);
       if (!data.payload || !data.signature_hex || !data.signed_response) {
@@ -918,6 +1111,11 @@
     const queue = (await bridge.vaultStore.getAll('hubSyncQueue')).filter(item => item.status === 'queued');
     if (!queue.length) {
       setHubStatus('No queued hub syncs are waiting right now.');
+      return;
+    }
+    const syncPolicy = sovereigntyProfileManager ? await sovereigntyProfileManager.getSyncPolicy({ context: 'hub-flush' }) : null;
+    if (syncPolicy && !syncPolicy.allow_background_flush && syncPolicy.mode === 'queued') {
+      setHubStatus('Current sovereignty profile prefers queued/manual syncs. Flush stays available when you explicitly choose it on a stable connection.');
       return;
     }
     let flushed = 0;
@@ -1023,6 +1221,7 @@
       memoryUi.backgroundUnlock.checked = true;
       setMemoryStatus('Memory Palace background unlock is enabled. On supported browsers, roots can refresh without prompting for the passphrase again.', 'success');
     }
+    const sovereigntyProfile = sovereigntyProfileManager ? await sovereigntyProfileManager.loadProfile() : null;
     const hubConfig = await loadHubConfig();
     if (hubConfig) {
       const hubUrl = document.getElementById('hubUrl');
@@ -1037,6 +1236,15 @@
       hubLowWirelessToggle.checked = Boolean(hubConfig.low_wireless_mode);
       hubQueuedSyncPreferenceToggle.checked = Boolean(hubConfig.prefer_queued_syncs ?? true);
       if (hubConfig.connectivity_note) hubConnectivityNote.value = hubConfig.connectivity_note;
+    } else if (sovereigntyProfile) {
+      const hubConnectivityProfile = document.getElementById('hubConnectivityProfile');
+      const hubLowWirelessToggle = document.getElementById('hubLowWirelessToggle');
+      const hubQueuedSyncPreferenceToggle = document.getElementById('hubQueuedSyncPreferenceToggle');
+      const hubConnectivityNote = document.getElementById('hubConnectivityNote');
+      if (hubConnectivityProfile) hubConnectivityProfile.value = normalizeConnectivityProfile(sovereigntyProfile.connectivity_profile);
+      if (hubLowWirelessToggle) hubLowWirelessToggle.checked = Boolean(sovereigntyProfile.minimize_wireless);
+      if (hubQueuedSyncPreferenceToggle) hubQueuedSyncPreferenceToggle.checked = Boolean(sovereigntyProfile.prefer_queued_syncs);
+      if (hubConnectivityNote) hubConnectivityNote.value = sovereigntyProfile.environmental_note || '';
     }
     await renderMemoryTimeline();
   }
@@ -1129,6 +1337,11 @@
     memoryUi.backgroundUnlock.addEventListener('change', async () => {
       try {
         await ensureMemoryCryptoProfile(getMemoryPassphrase(), Boolean(memoryUi.backgroundUnlock.checked));
+        if (sovereigntyProfileManager) {
+          await sovereigntyProfileManager.syncGovernancePreferences({
+            memory_background_unlock: Boolean(memoryUi.backgroundUnlock.checked),
+          });
+        }
         setMemoryStatus(
           memoryUi.backgroundUnlock.checked
             ? 'Memory Palace background unlock enabled. Android/Chromium can refresh roots more reliably when connectivity returns.'

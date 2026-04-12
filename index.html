@@ -2055,6 +2055,11 @@
     <button class="new-claim-fab" id="newClaimFab" type="button" aria-label="Create a new claim">+ New Claim</button>
     <div class="app-announcer" id="appAnnouncer" aria-live="assertive" aria-atomic="true"></div>
 
+    <script src="/sovereign-core/types.js"></script>
+    <script src="/sovereign-core/utils.js"></script>
+    <script src="/sovereign-core/commitment-orchestrator.js"></script>
+    <script src="/sovereign-core/audit-engine.js"></script>
+    <script src="/sovereign-core/profile-manager.js"></script>
     <script>
         // ================================================================== //
         // Lightweight Markdown renderer (no external dependencies)           //
@@ -2333,6 +2338,9 @@
             'benefits': 'My benefits decision needs a human review. Please generate the right Burgess claim.',
             'burgess-check': 'I need to run a Burgess check on a decision that affects me. Was a human member of the team able to personally review the specific facts of my specific situation?',
         };
+        const sovereignCore = window.IrisSovereignCore || {};
+        const sovereignCoreUtils = sovereignCore.utils || {};
+        const sovereignCoreTypes = sovereignCore.types || {};
 
         // ================================================================== //
         // DOM references                                                     //
@@ -3031,15 +3039,6 @@
         async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence = {}, inference = {}, notification = {}, status = 'recorded' }) {
             const previous_commitment_hash = String(await vaultStore.getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY) || '');
             const triggerRules = trigger && trigger.encrypted_payload && trigger.decrypted_payload ? trigger.decrypted_payload : null;
-            const rule_hash = await sha256Hex(canonicalizeForSignature({
-                id: trigger.id,
-                type: trigger.type,
-                label: trigger.label,
-                detection_sources: trigger.detection_sources || [],
-                encrypted_payload: triggerRules || trigger.encrypted_payload || {},
-            }));
-            const evidence_hash = await sha256Hex(canonicalizeForSignature(evidence || {}));
-            const inference_hash = await sha256Hex(canonicalizeForSignature(inference || {}));
             const payload = {
                 trigger_id: trigger.id,
                 label: trigger.label,
@@ -3047,39 +3046,56 @@
                 source: source || 'local',
                 status,
                 advisory_only: true,
-                previous_commitment_hash,
-                rule_hash,
-                evidence_hash,
-                inference_hash,
+                rule_hash: await sha256Hex(canonicalizeForSignature({
+                    id: trigger.id,
+                    type: trigger.type,
+                    label: trigger.label,
+                    detection_sources: trigger.detection_sources || [],
+                    encrypted_payload: triggerRules || trigger.encrypted_payload || {},
+                })),
+                evidence_hash: await sha256Hex(canonicalizeForSignature(evidence || {})),
+                inference_hash: await sha256Hex(canonicalizeForSignature(inference || {})),
                 notification,
-                timestamp: new Date().toISOString(),
                 entry_id: generateSecureId('trigger-ledger'),
             };
-            const commitment_hash = await sha256Hex(canonicalizeForSignature(payload));
-            let signature = '';
-            let public_key_hex = '';
             const signingKey = await importTriggerLedgerPrivateKey();
             const profile = await vaultStore.getSetting(TRIGGER_CRYPTO_SETTING_KEY);
-            if (signingKey && profile && profile.ledger_public_key_hex) {
-                const signed = await crypto.subtle.sign('Ed25519', signingKey, new TextEncoder().encode(canonicalizeForSignature(payload)));
-                signature = bytesToHex(new Uint8Array(signed));
-                public_key_hex = profile.ledger_public_key_hex;
-            }
+            const record = triggerCommitmentOrchestrator
+                ? await triggerCommitmentOrchestrator.createSignedRecord({
+                    namespace: 'trigger-ledger',
+                    recordId: generateSecureId('trigger-ledger'),
+                    createdAt: new Date().toISOString(),
+                    previousCommitmentHash: previous_commitment_hash,
+                    payload,
+                    signer: signingKey && profile && profile.ledger_public_key_hex
+                        ? {
+                            signPayload: async signedPayload => {
+                                const signed = await crypto.subtle.sign('Ed25519', signingKey, new TextEncoder().encode(canonicalizeForSignature(signedPayload)));
+                                return {
+                                    signature_hex: bytesToHex(new Uint8Array(signed)),
+                                    public_key_hex: profile.ledger_public_key_hex,
+                                };
+                            },
+                        }
+                        : null,
+                    metadata: { event_type, source: source || 'local', status },
+                })
+                : null;
             const entry = {
-                id: generateSecureId('trigger-ledger'),
+                id: record ? record.id : generateSecureId('trigger-ledger'),
                 trigger_id: trigger.id,
                 label: trigger.label,
                 event_type,
                 source: source || 'local',
                 status,
-                created_at: payload.timestamp,
+                created_at: record ? record.created_at : new Date().toISOString(),
                 previous_commitment_hash,
-                rule_hash,
-                evidence_hash,
-                inference_hash,
-                commitment_hash,
-                signature,
-                public_key_hex,
+                rule_hash: payload.rule_hash,
+                evidence_hash: payload.evidence_hash,
+                inference_hash: payload.inference_hash,
+                commitment_hash: record ? record.commitment_hash : await sha256Hex(canonicalizeForSignature({ previous_commitment_hash, payload })),
+                signature: record ? record.signature_hex : '',
+                public_key_hex: record ? record.public_key_hex : '',
                 advisory_only: true,
                 evidence_excerpt: sanitizeTriggerExcerpt(evidence.text_excerpt || evidence.summary || ''),
                 notification_title: notification.title || '',
@@ -3358,6 +3374,56 @@
                 return match ? match.value : null;
             },
         };
+        // Burgess Compliance: the sovereignty profile is stored locally and only influences
+        // advisory delivery behavior, never the human-reviewed SOVEREIGN/NULL outcome itself.
+        const sovereigntyProfileManager = sovereignCore.createProfileManager({
+            storage: {
+                getSetting: key => vaultStore.getSetting(key),
+                saveSetting: (key, value) => vaultStore.saveSetting(key, value),
+            },
+            sha256Hex,
+            canonicalize: canonicalizeForSignature,
+        });
+        const triggerCommitmentOrchestrator = sovereignCore.createCommitmentOrchestrator
+            ? sovereignCore.createCommitmentOrchestrator({
+                sha256Hex,
+                canonicalize: canonicalizeForSignature,
+                generateId: prefix => generateSecureId(prefix),
+            })
+            : null;
+
+        async function postSovereigntyProfileToServiceWorker(profile) {
+            if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller || !profile) return;
+            navigator.serviceWorker.controller.postMessage({ type: 'SOVEREIGN_PROFILE_UPDATED', profile });
+        }
+
+        async function persistSovereigntyProfilePatch(patch, source) {
+            const profile = await sovereigntyProfileManager.saveProfile(patch, source);
+            await postSovereigntyProfileToServiceWorker(profile);
+            return profile;
+        }
+
+        async function syncNetworkSnapshot(source = 'browser-runtime') {
+            if (!sovereignCoreUtils.captureNetworkSnapshot) return null;
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+            const profile = await sovereigntyProfileManager.saveNetworkSnapshot(sovereignCoreUtils.captureNetworkSnapshot(connection, navigator.onLine));
+            await postSovereigntyProfileToServiceWorker(profile);
+            return profile;
+        }
+
+        async function updateConnectivityAwarePwaSchedule(registration = pwaRegistration) {
+            if (!registration || !('periodicSync' in registration)) return;
+            try {
+                const policy = await sovereigntyProfileManager.getSyncPolicy({ context: 'pwa-shell' });
+                const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
+                if (status.state !== 'granted') return;
+                await registration.periodicSync.register('burgess-periodic-check', {
+                    minInterval: policy.periodic_sync_ms || PERIODIC_SYNC_INTERVAL_MS
+                });
+            } catch (_error) {
+                // Safari/iOS and unsupported browsers silently stay manual-first.
+            }
+        }
 
         async function loadStoredProfile() {
             const profile = await vaultStore.getSetting('claim-profile');
@@ -4017,25 +4083,15 @@
                     updateViaCache: 'none'
                 });
                 refreshPwaActionButtons();
+                await syncNetworkSnapshot().catch(() => null);
+                await postSovereigntyProfileToServiceWorker(await sovereigntyProfileManager.loadProfile());
 
                 if ('sync' in pwaRegistration) {
                     await pwaRegistration.sync.register('burgess-reminder-sync');
                     await pwaRegistration.sync.register('burgess-trigger-sync');
                     await pwaRegistration.sync.register('burgess-critical-refresh');
                 }
-                // Register periodic background sync when supported (Chromium)
-                if ('periodicSync' in pwaRegistration) {
-                    try {
-                        const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
-                        if (status.state === 'granted') {
-                            await pwaRegistration.periodicSync.register('burgess-periodic-check', {
-                                minInterval: PERIODIC_SYNC_INTERVAL_MS
-                            });
-                        }
-                    } catch (_e) {
-                        // Periodic sync not available — silent fallback to manual checks.
-                    }
-                }
+                await updateConnectivityAwarePwaSchedule(pwaRegistration);
                 pwaRegistration.addEventListener('updatefound', () => {
                     const installingWorker = pwaRegistration.installing;
                     if (!installingWorker) return;
@@ -4071,6 +4127,9 @@
                     if (event.data.type === 'TRIGGER_BACKGROUND_LOCK_REQUIRED') {
                         setTriggerCryptoStatus('Background trigger evaluation is waiting for device-only background unlock. Foreground scans still work immediately.', 'error');
                     }
+                    if (event.data.type === 'HUB_SYNC_QUEUE_FLUSHED') {
+                        setPwaFoundationStatus(`Connectivity-aware hub flush completed for ${event.data.flushed || 0} queued sync${event.data.flushed === 1 ? '' : 's'}.`);
+                    }
                 });
 
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
@@ -4094,6 +4153,19 @@
                 console.warn('Service worker registration failed.', error);
                 setPwaFoundationStatus(`Service worker registration failed. ${error.message}`, 'error');
             }
+        }
+
+        window.addEventListener('online', () => {
+            syncNetworkSnapshot('browser-online').then(() => updateConnectivityAwarePwaSchedule()).catch(() => undefined);
+        });
+        window.addEventListener('offline', () => {
+            syncNetworkSnapshot('browser-offline').catch(() => undefined);
+        });
+        const browserConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+        if (browserConnection && typeof browserConnection.addEventListener === 'function') {
+            browserConnection.addEventListener('change', () => {
+                syncNetworkSnapshot('browser-connection-change').then(() => updateConnectivityAwarePwaSchedule()).catch(() => undefined);
+            });
         }
 
         window.addEventListener('beforeinstallprompt', event => {
@@ -4569,62 +4641,9 @@
         const triggerIntervalField = document.getElementById('triggerIntervalField');
         const triggerScheduleField = document.getElementById('triggerScheduleField');
         const triggerVoiceField = document.getElementById('triggerVoiceField');
-        const TRIGGER_TEMPLATE_PRESETS = {
-            starlink_hardwired_review: {
-                natural_language: "Every 12 hours, remind me to review whether Starlink is still hardwired with Ethernet, Wi-Fi is off where I want it off, and Hub Mode can stay queued until I choose a manual sync.",
-                label: 'Starlink hardwired review',
-                type: 'periodic',
-                interval_hours: 12,
-                detection_sources: ['conversation'],
-                keywords: ['starlink', 'ethernet', 'bypass mode', 'wifi off'],
-                description: 'Advisory review for a user-configured lower-local-wireless setup. Human review remains required for any actual adjustment.'
-            },
-            fiber_hardwired_review: {
-                natural_language: "Every 24 hours, remind me to review whether fiber is still hardwired from the ONT to Ethernet, local Wi-Fi is only on when I choose it, and Iris can stay offline-first between queued syncs.",
-                label: 'Fiber hardwired review',
-                type: 'periodic',
-                interval_hours: 24,
-                detection_sources: ['conversation'],
-                keywords: ['fiber', 'ont', 'ethernet', 'hardwired'],
-                description: 'Advisory review for a fiber ONT plus Ethernet setup where the user wants the lowest local wireless routine available.'
-            },
-            connectivity_profile_checkin: {
-                natural_language: "Every 24 hours, remind me to compare whether Starlink hardwired or fiber hardwired is the better fit for my current voice-first work, queued sync routine, and personal environmental preferences.",
-                label: 'Connectivity profile check-in (Starlink vs Fiber)',
-                type: 'periodic',
-                interval_hours: 24,
-                detection_sources: ['conversation'],
-                keywords: ['starlink', 'fiber', 'ethernet', 'ont', 'manual sync'],
-                description: 'Creates a calm comparison prompt so the user can review which hardwired profile best matches current availability, latency, and environmental preferences.'
-            },
-            environmental_note_wired_setup: {
-                natural_language: "If conversation, clipboard, or page text mentions fiber, Starlink, ONT, Ethernet, bypass mode, fixed wireless, DSL, cable, or Wi-Fi off, queue a local prompt to commit an environmental note on the wired setup.",
-                label: 'Environmental note on wired setup',
-                type: 'keyword',
-                interval_hours: 24,
-                detection_sources: ['conversation', 'clipboard', 'page'],
-                keywords: ['fiber', 'starlink', 'ont', 'ethernet', 'bypass mode', 'fixed wireless', 'dsl', 'cable', 'wifi off'],
-                description: 'Queues a local prompt to capture a signed environmental note about a wired setup, sync preference, and later human review.'
-            },
-            connectivity_environment_log: {
-                natural_language: "If conversation, clipboard, or page text mentions Starlink, fiber, ONT, Ethernet, bypass mode, Wi-Fi off, dish placement, or cellular fallback, queue a local environmental review prompt.",
-                label: 'Connectivity log for environmental review',
-                type: 'keyword',
-                interval_hours: 24,
-                detection_sources: ['conversation', 'clipboard', 'page'],
-                keywords: ['starlink', 'fiber', 'ont', 'ethernet', 'bypass mode', 'wifi off', 'dish placement', 'cellular fallback'],
-                description: 'Creates a calm local prompt to log connectivity changes, accessibility context, or personal environmental preferences.'
-            },
-            assistive_setup_checkin: {
-                natural_language: "Every 24 hours, remind me to review whether my connectivity setup still supports voice use, focus, and reasonable adjustments for my needs.",
-                label: 'Assistive setup check-in',
-                type: 'periodic',
-                interval_hours: 24,
-                detection_sources: ['conversation'],
-                keywords: ['reasonable adjustment', 'accessibility', 'voice', 'environment'],
-                description: 'Periodic assistive-tech check-in for a sovereign setup. Advisory only and never a medical claim.'
-            }
-        };
+        const TRIGGER_TEMPLATE_PRESETS = sovereignCoreUtils.createTriggerTemplatePresets
+            ? sovereignCoreUtils.createTriggerTemplatePresets()
+            : {};
 
         function setTriggersStatus(message, tone = '') {
             triggersStatus.textContent = message;
@@ -5148,6 +5167,9 @@
                 profile.updated_at = new Date().toISOString();
                 await vaultStore.saveSetting(TRIGGER_CRYPTO_SETTING_KEY, profile);
             }
+            await sovereigntyProfileManager.syncGovernancePreferences({
+                trigger_background_unlock: Boolean(triggerBackgroundUnlockToggle.checked),
+            });
             setTriggerCryptoStatus(
                 triggerBackgroundUnlockToggle.checked
                     ? 'Device-only background unlock will let the service worker evaluate encrypted triggers without asking for the passphrase again.'
@@ -5456,6 +5478,11 @@
             API_FINGERPRINT_QUEUE_URL,
             VAULT_VERSION,
             PWA_CORE_VERSION,
+            sovereignCore,
+            sovereigntyProfileManager,
+            persistSovereigntyProfilePatch,
+            syncNetworkSnapshot,
+            syncSovereignGovernance: governance => sovereigntyProfileManager.syncGovernancePreferences(governance),
         };
 
         // ------------------------------------------------------------------ //

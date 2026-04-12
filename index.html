@@ -1948,7 +1948,7 @@
                             <label class="toggle-row" for="triggerBackgroundUnlockToggle"><input id="triggerBackgroundUnlockToggle" type="checkbox"> Allow device-only background unlock for trigger checks</label>
                             <div class="claim-profile-status" id="triggerCryptoStatus">Trigger rules stay encrypted. Background checks need either this passphrase in the foreground or explicit device-only unlock consent.</div>
                             <div class="claim-field"><label for="triggerNaturalLanguage">Describe a trigger in plain English</label><textarea id="triggerNaturalLanguage" rows="3" placeholder="If email or page contains 'DWP', 'benefits', 'universal credit', or 'reasonable adjustment', flag it for Burgess review."></textarea></div>
-                            <div class="claim-field"><label for="triggerTemplatePreset">Starter template</label><select id="triggerTemplatePreset"><option value="">Choose a calm local template…</option><option value="starlink_hardwired_review">Starlink hardwired review</option><option value="connectivity_environment_log">Connectivity log for environmental review</option><option value="assistive_setup_checkin">Assistive setup check-in</option></select></div>
+                            <div class="claim-field"><label for="triggerTemplatePreset">Starter template</label><select id="triggerTemplatePreset"><option value="">Choose a calm local template…</option><option value="starlink_hardwired_review">Starlink hardwired review</option><option value="fiber_hardwired_review">Fiber hardwired review</option><option value="connectivity_profile_checkin">Connectivity profile check-in (Starlink vs Fiber)</option><option value="environmental_note_wired_setup">Environmental note on wired setup</option><option value="connectivity_environment_log">Connectivity log for environmental review</option><option value="assistive_setup_checkin">Assistive setup check-in</option></select></div>
                             <div class="claim-profile-actions">
                                 <button class="sidebar-action-btn" id="applyTriggerTemplateBtn" type="button">🧩 Apply template</button>
                                 <button class="sidebar-action-btn" id="parseTriggerRuleBtn" type="button">🧠 Parse local rule</button>
@@ -1982,19 +1982,19 @@
                         </div>
                         <div class="trigger-preview" id="triggerNotificationPreview">Notification preview: Potential Burgess review needed. Human review required before any SOVEREIGN/NULL decision.</div>
                         <div class="trigger-ledger" id="triggerLedgerList"></div>
-                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device, use calm local notifications, and can support user-defined environmental reviews without making any medical claim. On iPhone, full background reliability is best after Add to Home Screen and still depends on Safari limits.</div>
+                        <div class="claim-profile-status" id="triggersStatus">Triggers stay encrypted on this device, use calm local notifications, and can support user-defined frequency balancing or personal environmental reviews without making any medical claim. On iPhone, full background reliability is best after Add to Home Screen and still depends on Safari limits.</div>
                     </details>
                     <details class="claim-profile-panel" id="hubModePanel">
                         <summary>🛰️ Sovereign Hub Mode</summary>
-                        <p class="claim-profile-desc">Connect to your own self-hosted Sovereign Hub (including a Starlink + Ethernet setup) for end-to-end encrypted sync of commitments and receipts. This can support a user-configured lower-local-wireless environment while keeping Iris local-first.</p>
+                        <p class="claim-profile-desc">Connect to your own self-hosted Sovereign Hub across Starlink hardwired, fiber hardwired, or other assistive connectivity configurations for end-to-end encrypted sync of commitments and receipts. This can support user-defined frequency balancing while keeping Iris local-first.</p>
                         <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
                             <label class="toggle-row" for="hubModeToggle"><input id="hubModeToggle" type="checkbox"> Connect to My Sovereign Hub</label>
                             <div class="claim-field" id="hubUrlField" style="display:none;"><label for="hubUrl">Hub URL</label><input id="hubUrl" type="url" placeholder="https://my-hub.local:8443"></div>
                             <div class="claim-field" id="hubKeyField" style="display:none;"><label for="hubSharedSecret">Shared secret</label><input id="hubSharedSecret" type="password" placeholder="Pre-shared symmetric key for AES-256-GCM"></div>
-                            <div class="claim-field" id="hubConnectivityProfileField" style="display:none;"><label for="hubConnectivityProfile">Connectivity profile for local review</label><select id="hubConnectivityProfile"><option value="starlink_ethernet" selected>Starlink + Ethernet</option><option value="wired_router">Other wired router</option><option value="wifi">Wi‑Fi</option><option value="cellular_fallback">Cellular fallback</option></select></div>
-                            <label class="toggle-row" for="hubLowWirelessToggle" id="hubLowWirelessRow" style="display:none;"><input id="hubLowWirelessToggle" type="checkbox"> Starlink + Ethernet for minimized local wireless environment (user-configured)</label>
+                            <div class="claim-field" id="hubConnectivityProfileField" style="display:none;"><label for="hubConnectivityProfile">Connectivity Profile</label><select id="hubConnectivityProfile"><option value="starlink_hardwired">Starlink Hardwired</option><option value="fiber_hardwired">Fiber Hardwired</option><option value="other" selected>Other</option></select></div>
+                            <label class="toggle-row" for="hubLowWirelessToggle" id="hubLowWirelessRow" style="display:none;"><input id="hubLowWirelessToggle" type="checkbox"> Minimized local wireless preference (user-controlled)</label>
                             <label class="toggle-row" for="hubQueuedSyncPreferenceToggle" id="hubQueuedSyncRow" style="display:none;"><input id="hubQueuedSyncPreferenceToggle" type="checkbox" checked> Prefer queued manual syncs to reduce always-on connectivity</label>
-                            <div class="claim-field" id="hubConnectivityNoteField" style="display:none;"><label for="hubConnectivityNote">Connectivity note for local environmental review</label><input id="hubConnectivityNote" type="text" placeholder="Optional note about Ethernet, dish placement, Wi‑Fi off, or how the setup felt"></div>
+                            <div class="claim-field" id="hubConnectivityNoteField" style="display:none;"><label for="hubConnectivityNote">Connectivity note for local environmental review</label><input id="hubConnectivityNote" type="text" placeholder="Optional note about ONT or dish placement, Ethernet, Wi‑Fi off, or how the setup felt"></div>
                             <button class="sidebar-action-btn" id="hubConnectBtn" type="button" style="display:none;">🔗 Connect &amp; Sync</button>
                         </div>
                         <div class="claim-profile-status" id="hubStatus">Hub Mode is off. All data stays on this device only unless you later choose a manual commitment sync.</div>
@@ -2834,6 +2834,12 @@
             return [...new Set(matches)];
         }
 
+        const CONNECTIVITY_TRIGGER_TERMS = ['starlink', 'fiber', 'ethernet', 'hardwired', 'ont', 'bypass mode', 'fixed wireless', 'dsl', 'cable'];
+
+        function hasConnectivityTriggerTerm(lower) {
+            return CONNECTIVITY_TRIGGER_TERMS.some(term => lower.includes(term));
+        }
+
         function parseNaturalLanguageTriggerRule(text) {
             const raw = String(text || '').trim();
             if (!raw) {
@@ -2881,20 +2887,35 @@
             if (lower.includes('reasonable adjustment') && !parsed.keywords.includes('reasonable adjustment')) {
                 parsed.keywords.push('reasonable adjustment');
             }
-            if ((lower.includes('starlink') || lower.includes('ethernet') || lower.includes('hardwired') || lower.includes('bypass mode')) && parsed.type === 'keyword') {
-                parsed.label = 'Connectivity environmental review';
+            if (hasConnectivityTriggerTerm(lower) && parsed.type === 'keyword') {
+                parsed.label = 'Connectivity profile review';
             }
             if (lower.includes('starlink') && !parsed.keywords.includes('starlink')) {
                 parsed.keywords.push('starlink');
             }
+            if (lower.includes('fiber') && !parsed.keywords.includes('fiber')) {
+                parsed.keywords.push('fiber');
+            }
             if (lower.includes('ethernet') && !parsed.keywords.includes('ethernet')) {
                 parsed.keywords.push('ethernet');
+            }
+            if (lower.includes('ont') && !parsed.keywords.includes('ont')) {
+                parsed.keywords.push('ont');
             }
             if ((lower.includes('wifi off') || lower.includes('wi-fi off')) && !parsed.keywords.includes('wifi off')) {
                 parsed.keywords.push('wifi off');
             }
             if (lower.includes('bypass mode') && !parsed.keywords.includes('bypass mode')) {
                 parsed.keywords.push('bypass mode');
+            }
+            if (lower.includes('fixed wireless') && !parsed.keywords.includes('fixed wireless')) {
+                parsed.keywords.push('fixed wireless');
+            }
+            if (lower.includes('dsl') && !parsed.keywords.includes('dsl')) {
+                parsed.keywords.push('dsl');
+            }
+            if (lower.includes('cable') && !parsed.keywords.includes('cable')) {
+                parsed.keywords.push('cable');
             }
             if (lower.includes('benefits') && !parsed.keywords.includes('benefits')) {
                 parsed.keywords.push('benefits');
@@ -2928,7 +2949,7 @@
             const weightMap = [
                 { pattern: /(benefit|dwp|universal credit|sanction)/, add: 0.18, question: 'Was a named human able to review the benefits facts personally?' },
                 { pattern: /(reasonable adjustment|disability|accessibility)/, add: 0.2, question: 'Who personally considered the requested adjustment and the specific barriers?' },
-                { pattern: /(starlink|ethernet|hardwired|wi-?fi off|bypass mode|cellular fallback|environmental)/, add: 0.1, question: 'What human-reviewed accessibility or environmental preference does this connectivity setup support?' },
+                { pattern: /(starlink|fiber|ethernet|hardwired|ont|wi-?fi off|bypass mode|fixed wireless|dsl|cable|cellular fallback|environmental)/, add: 0.1, question: 'What human-reviewed accessibility or personal environmental preference does this connectivity setup support?' },
                 { pattern: /(urgent|deadline|court|enforcement|bailiff|fraud)/, add: 0.16, question: 'Is there an urgent decision or enforcement step that needs a documented human review?' },
                 { pattern: /(help me now|help me|panic)/, add: 0.2, question: 'Do you need an immediate human review flow to stabilise the situation?' },
             ];
@@ -4558,14 +4579,41 @@
                 keywords: ['starlink', 'ethernet', 'bypass mode', 'wifi off'],
                 description: 'Advisory review for a user-configured lower-local-wireless setup. Human review remains required for any actual adjustment.'
             },
+            fiber_hardwired_review: {
+                natural_language: "Every 24 hours, remind me to review whether fiber is still hardwired from the ONT to Ethernet, local Wi-Fi is only on when I choose it, and Iris can stay offline-first between queued syncs.",
+                label: 'Fiber hardwired review',
+                type: 'periodic',
+                interval_hours: 24,
+                detection_sources: ['conversation'],
+                keywords: ['fiber', 'ont', 'ethernet', 'hardwired'],
+                description: 'Advisory review for a fiber ONT plus Ethernet setup where the user wants the lowest local wireless routine available.'
+            },
+            connectivity_profile_checkin: {
+                natural_language: "Every 24 hours, remind me to compare whether Starlink hardwired or fiber hardwired is the better fit for my current voice-first work, queued sync routine, and personal environmental preferences.",
+                label: 'Connectivity profile check-in (Starlink vs Fiber)',
+                type: 'periodic',
+                interval_hours: 24,
+                detection_sources: ['conversation'],
+                keywords: ['starlink', 'fiber', 'ethernet', 'ont', 'manual sync'],
+                description: 'Creates a calm comparison prompt so the user can review which hardwired profile best matches current availability, latency, and environmental preferences.'
+            },
+            environmental_note_wired_setup: {
+                natural_language: "If conversation, clipboard, or page text mentions fiber, Starlink, ONT, Ethernet, bypass mode, fixed wireless, DSL, cable, or Wi-Fi off, queue a local prompt to commit an environmental note on the wired setup.",
+                label: 'Environmental note on wired setup',
+                type: 'keyword',
+                interval_hours: 24,
+                detection_sources: ['conversation', 'clipboard', 'page'],
+                keywords: ['fiber', 'starlink', 'ont', 'ethernet', 'bypass mode', 'fixed wireless', 'dsl', 'cable', 'wifi off'],
+                description: 'Queues a local prompt to capture a signed environmental note about a wired setup, sync preference, and later human review.'
+            },
             connectivity_environment_log: {
-                natural_language: "If conversation, clipboard, or page text mentions Starlink, Ethernet, bypass mode, Wi-Fi off, dish placement, or cellular fallback, queue a local environmental review prompt.",
+                natural_language: "If conversation, clipboard, or page text mentions Starlink, fiber, ONT, Ethernet, bypass mode, Wi-Fi off, dish placement, or cellular fallback, queue a local environmental review prompt.",
                 label: 'Connectivity log for environmental review',
                 type: 'keyword',
                 interval_hours: 24,
                 detection_sources: ['conversation', 'clipboard', 'page'],
-                keywords: ['starlink', 'ethernet', 'bypass mode', 'wifi off', 'dish placement', 'cellular fallback'],
-                description: 'Creates a calm local prompt to log connectivity changes, accessibility context, or environmental preferences.'
+                keywords: ['starlink', 'fiber', 'ont', 'ethernet', 'bypass mode', 'wifi off', 'dish placement', 'cellular fallback'],
+                description: 'Creates a calm local prompt to log connectivity changes, accessibility context, or personal environmental preferences.'
             },
             assistive_setup_checkin: {
                 natural_language: "Every 24 hours, remind me to review whether my connectivity setup still supports voice use, focus, and reasonable adjustments for my needs.",

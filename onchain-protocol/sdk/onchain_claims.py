@@ -364,17 +364,20 @@ def verify_commitment(
     _validate_hex_string(expected_hash, "expected_hash", expected_length=64)
 
     computed = _compute_commitment(claim_details, timestamp, nonce, public_key_hex)
+    # Constant-time comparison to prevent timing attacks.
+    import hmac as _hmac
+
+    normalized_expected_hash = expected_hash.lower()
+    if _hmac.compare_digest(
+        computed,
+        normalized_expected_hash,
+    ):
+        return True
+
     legacy = _compute_legacy_commitment(
         claim_details,
         timestamp,
         nonce,
         public_key_hex,
     )
-    # Constant-time comparison to prevent timing attacks.
-    import hmac as _hmac
-
-    normalized_expected_hash = expected_hash.lower()
-    return _hmac.compare_digest(
-        computed,
-        normalized_expected_hash,
-    ) or _hmac.compare_digest(legacy, normalized_expected_hash)
+    return _hmac.compare_digest(legacy, normalized_expected_hash)

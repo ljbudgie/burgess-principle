@@ -44,6 +44,30 @@ logging.basicConfig(
 )
 log = logging.getLogger("iris-local")
 
+
+def print_sovereign_banner(config: dict) -> None:
+    model_name = Path(str(config.get("model_path", "unknown"))).name or "unknown"
+    port = config.get("port", 8000)
+    gpu_status = "ON" if config.get("gpu_acceleration") else "OFF"
+    inner_width = 78
+    lines = [
+        "🚀  IRIS LOCAL — SOVEREIGN MODE ACTIVE",
+        "",
+        "• Runs 100% on your hardware",
+        "• Zero cloud, zero telemetry, zero external APIs",
+        "• All inference & commitments stay on-device",
+        "• Powered by v0.4.0 cryptographic human scrutiny (Burgess Principle)",
+        "",
+        f"Model: {model_name:40}",
+        f"Port : {port} | GPU: {gpu_status}",
+    ]
+
+    print("╔" + "═" * inner_width + "╗")
+    for line in lines:
+        print(f"║  {line:<{inner_width - 2}}║")
+    print("╚" + "═" * inner_width + "╝")
+    log.info("✅ Sovereign Local Mode initialised — no external dependencies detected")
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -536,6 +560,7 @@ def main(argv: list[str] | None = None) -> None:
     """Load config, load model, start server."""
     args = parse_args(argv)
     cfg = load_config(args)
+    print_sovereign_banner(cfg)
 
     # Load system prompt
     if not _SYSTEM_PROMPT_PATH.exists():

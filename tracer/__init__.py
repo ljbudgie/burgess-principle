@@ -1,5 +1,23 @@
 """TRACER — defect-tracing utilities for the Burgess Principle."""
 
-from .tracer import DEFECT_SCHEMA, Defect, get_defect, list_defects
+from .tracer import (
+    DEFECT_SCHEMA,
+    Defect,
+    TraceFinding,
+    TraceReport,
+    build_trace_finding,
+    build_trace_report,
+    get_defect,
+    list_defects,
+)
 
-__all__ = ["DEFECT_SCHEMA", "Defect", "get_defect", "list_defects"]
+__all__ = [
+    "DEFECT_SCHEMA",
+    "Defect",
+    "TraceFinding",
+    "TraceReport",
+    "build_trace_finding",
+    "build_trace_report",
+    "get_defect",
+    "list_defects",
+]

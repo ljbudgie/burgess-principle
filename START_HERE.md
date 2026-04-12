@@ -30,7 +30,6 @@ You can also explore the principle on the website and talk to **Iris**, the AI c
 4. **If downloads are slow, RAM is tight, or antivirus interrupts setup, do not force it.** Check the troubleshooting notes in [SOVEREIGN_MODE.md](SOVEREIGN_MODE.md) and come back calmly.
 5. **If an institution replies with vague wording instead of a straight answer, use the dedicated follow-up template**: [`templates/FOLLOW_UP_WEASEL_RESPONSE.md`](templates/FOLLOW_UP_WEASEL_RESPONSE.md).
 6. **After your first local setup, export one Backup Bundle** so your profile, vault, Memory Palace state, receipts, and hub settings can be restored on another device.
-6. **After your first local setup, export one Backup Bundle** so your profile, vault, Memory Palace state, receipts, and hub settings can be restored on another device.
 
 ---
 

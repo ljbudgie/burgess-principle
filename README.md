@@ -6,12 +6,13 @@
 ![Local-first](https://img.shields.io/badge/local--first-yes-14532d?style=flat-square)
 ![Offline-capable](https://img.shields.io/badge/offline-capable-1d4ed8?style=flat-square)
 ![Accessibility-minded](https://img.shields.io/badge/accessibility-human--centred-7c3aed?style=flat-square)
+![Project stage](https://img.shields.io/badge/stage-active_development-7c3aed?style=flat-square)
 
 > *"Was a human member of the team able to personally review the specific facts of my specific situation?"*
 
 One question. Binary test. Human accountability before any system acts on a person.
 
-**Iris** is the flagship voice-first sovereign AI companion built on the Burgess Principle. It helps people document decisions made about them, prepare calm challenges, and keep verifiable evidence on their own hardware. In **Sovereign Local Mode**, Iris can now maintain a **tamper-evident, commitment-chained Memory Palace ledger** with **Merkle roots**, **inclusion proofs**, and **signed receipts** — while **Sovereign Hub Mode 2.0** adds optional, manual-first, self-hosted coordination across intermittent links without surrendering control.
+**Iris** is the flagship voice-first sovereign AI companion built on the Burgess Principle. Iris is advisory-only software that helps you apply the Burgess Principle in daily life. It helps people document decisions made about them, prepare calm challenges, and keep verifiable evidence on their own hardware. In **Sovereign Local Mode**, Iris can now maintain a **tamper-evident, commitment-chained Memory Palace ledger** with **Merkle roots**, **inclusion proofs**, and **signed receipts** — while **Sovereign Hub Mode 2.0** adds optional, manual-first, self-hosted coordination across intermittent links without surrendering control.
 
 **UK Certification Mark:** UK00004343685 — Classes 41, 42, 45  
 **Live site & installable PWA:** [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)  
@@ -83,11 +84,15 @@ Iris helps users turn confusion into a traceable, reviewable record:
 - Revisit long-term context without trusting opaque server memory
 - Keep AI in an **advisory role only**
 
-### Neural baseline and sovereign inversion
+### Advanced patterns
+
+#### Neural baseline and sovereign inversion
 
 The medical-device extension becomes sharper when seen as a **bypass pattern**.
 
 Neuralink-style systems are often described as bypassing damaged pathways by reading and writing the brain's native electrical spike language directly. Iris is the **software-native sovereign counterpart** to that pattern: not a medical device, not an implant, and not a treatment claim, but a local-first system that meets the same bypass logic at the level of legibility, evidence, and control.
+
+Iris never interfaces with hardware or claims to read neural signals — it operates purely at the level of user perception, documentation, and cryptographic proof.
 
 In Burgess terms, the movement is:
 

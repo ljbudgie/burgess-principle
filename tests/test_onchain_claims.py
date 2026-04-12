@@ -22,6 +22,7 @@ from onchain_claims import (
     VerificationResult,
     _canonical_claim_json,
     _compute_commitment,
+    _compute_legacy_commitment,
     _validate_hex_string,
     _validate_non_empty_string,
     generate_onchain_claim,
@@ -528,6 +529,16 @@ class TestComputeCommitment:
         assert len(h) == 64
         int(h, 16)
 
+    def test_hashes_canonical_claim_json(self):
+        canonical = _canonical_claim_json("test", "ts", "aa" * 32, "bb" * 32)
+        expected = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+        assert _compute_commitment("test", "ts", "aa" * 32, "bb" * 32) == expected
+
+    def test_differs_from_legacy_preimage_when_payload_changes_shape(self):
+        canonical = _compute_commitment("a", "b", "cc" * 32, "dd" * 32)
+        legacy = _compute_legacy_commitment("a", "b", "cc" * 32, "dd" * 32)
+        assert canonical != legacy
+
 
 # ---------------------------------------------------------------------------
 # Full roundtrip: generate → verify signature → verify commitment
@@ -779,6 +790,22 @@ class TestVerifyCommitmentValidation:
                 public_key_hex="bb" * 32,
                 expected_hash="cc" * 32,
             )
+
+    def test_accepts_legacy_commitments_for_backwards_compatibility(self):
+        legacy_hash = _compute_legacy_commitment(
+            "test",
+            "2026-01-01",
+            "aa" * 32,
+            "bb" * 32,
+        )
+
+        assert verify_commitment(
+            claim_details="test",
+            timestamp="2026-01-01",
+            nonce="aa" * 32,
+            public_key_hex="bb" * 32,
+            expected_hash=legacy_hash,
+        )
 
 
 # ---------------------------------------------------------------------------

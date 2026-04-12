@@ -6,10 +6,12 @@ posting claims to an EVM-compatible chain via web3.py (optional dependency).
 
 Usage::
 
-    from onchain_protocol.sdk.onchain_claims import (
-        generate_onchain_claim,
-        verify_onchain_receipt,
-    )
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path("onchain-protocol/sdk").resolve()))
+
+    from onchain_claims import generate_onchain_claim, verify_onchain_receipt
 
     claim = generate_onchain_claim(
         claim_details="My case was not reviewed by a human",
@@ -117,9 +119,25 @@ def _compute_commitment(
     nonce: str,
     public_key_hex: str,
 ) -> str:
-    """Compute SHA-256 commitment: ``hash(details || timestamp || nonce || pubkey)``."""
+    """Compute a SHA-256 commitment over the canonical claim JSON payload."""
+    canonical_json = _canonical_claim_json(
+        claim_details,
+        timestamp,
+        nonce,
+        public_key_hex,
+    )
+    return hashlib.sha256(canonical_json.encode("utf-8")).hexdigest()
+
+
+def _compute_legacy_commitment(
+    claim_details: str,
+    timestamp: str,
+    nonce: str,
+    public_key_hex: str,
+) -> str:
+    """Compute the original concatenation-based commitment for legacy receipts."""
     preimage = claim_details + timestamp + nonce + public_key_hex
-    return hashlib.sha256(preimage.encode()).hexdigest()
+    return hashlib.sha256(preimage.encode("utf-8")).hexdigest()
 
 
 def _canonical_claim_json(
@@ -335,6 +353,10 @@ def verify_commitment(
     pre-image fields and the verifier checks that they produce the
     commitment hash stored on-chain.
 
+    New claims use canonical sorted-key JSON before hashing. For
+    backwards compatibility, verification also accepts the original
+    concatenation-based preimage format used by early draft claims.
+
     Returns ``True`` if the hashes match, ``False`` otherwise.
     """
     _validate_non_empty_string(claim_details, "claim_details")
@@ -344,7 +366,17 @@ def verify_commitment(
     _validate_hex_string(expected_hash, "expected_hash", expected_length=64)
 
     computed = _compute_commitment(claim_details, timestamp, nonce, public_key_hex)
+    legacy = _compute_legacy_commitment(
+        claim_details,
+        timestamp,
+        nonce,
+        public_key_hex,
+    )
     # Constant-time comparison to prevent timing attacks.
     import hmac as _hmac
 
-    return _hmac.compare_digest(computed, expected_hash.lower())
+    normalized_expected_hash = expected_hash.lower()
+    return _hmac.compare_digest(
+        computed,
+        normalized_expected_hash,
+    ) or _hmac.compare_digest(legacy, normalized_expected_hash)

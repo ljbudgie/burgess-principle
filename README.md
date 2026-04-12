@@ -389,7 +389,7 @@ If you are reviewing or extending the cryptographic layer, see [`SECURITY.md`](S
 
 ## Real-world results
 
-The framework has already been applied to documented institutional interactions:
+The framework has already been applied to documented institutional interactions. Start with the [case studies index](case-studies/README.md) for the refreshed overview, status, and best matching template:
 
 - **[Wave Utilities](case-studies/CASE_STUDY_WAVE.md)** — both accounts resolved to £0.00 after a single human review
 - **[Passport Office](case-studies/CASE_STUDY_PASSPORT.md)** — Article 22 challenge to automated passport issuance
@@ -408,7 +408,7 @@ The framework has already been applied to documented institutional interactions:
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Ledger and sync architecture for Phase 3 |
 | [`iris/README.md`](iris/README.md) | Iris-specific deployment, privacy, and Phase 3 details |
 | [`templates/`](templates/) | Ready-to-send templates for common scenarios |
-| [`case-studies/`](case-studies/) | Real-world case outcomes |
+| [`case-studies/README.md`](case-studies/README.md) | Indexed real-world case studies with status, findings, and recommended starting templates |
 | [`enforcement/`](enforcement/) | Sovereign Personal Vault and enforcement tooling |
 | [`onchain-protocol/`](onchain-protocol/) | Optional on-chain claims protocol |
 | [`sovereign-hub-example/`](sovereign-hub-example/) | Sample self-hosted hub for Mode 2.0 |

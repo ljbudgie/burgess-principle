@@ -56,7 +56,7 @@ Not sure which one? Start with the **[templates index](templates/README.md)** or
 
 ### 2. I want to see real results first
 
-The [case studies](./case-studies) show the principle in action:
+The [case studies index](./case-studies/README.md) shows the principle in action and tells you which template or workflow matches each case:
 
 - **[Wave Utilities](case-studies/CASE_STUDY_WAVE.md)** — both accounts resolved to £0.00 after a single human review
 - **[Passport Office](case-studies/CASE_STUDY_PASSPORT.md)** — Article 22 challenge to automated passport issuance
@@ -82,7 +82,7 @@ These resources are for people who want to explore the framework, doctrine, and 
 | [`/papers`](./papers) | In-depth legal and policy analysis, licensing structure |
 | [`LIVE_AUDIT_LOG.md`](LIVE_AUDIT_LOG.md) | Chronological record of every institutional interaction and finding |
 | [`INSTITUTIONAL_REGISTER.md`](INSTITUTIONAL_REGISTER.md) | Every institution tested, with sector, response, and SOVEREIGN/NULL finding |
-| [`/case-studies`](./case-studies) | Real-world examples and outcomes |
+| [`/case-studies`](./case-studies/README.md) | Indexed real-world examples, current findings, and recommended starting points |
 | [`/enforcement`](./enforcement) | Optional cryptographic enforcement tools (Sovereign Personal Vault) |
 | [`/onchain-protocol`](./onchain-protocol) | On-chain Burgess Claims — post commitment fingerprints to an EVM L2 for public verifiability (v0.4.0) |
 | [`/toolkit`](./toolkit) | AI integration and knowledge base |

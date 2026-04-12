@@ -35,7 +35,9 @@
     }
 
     async function verifyMerkleProof(leafHash, proof, expectedRoot) {
-      if (!leafHash || !expectedRoot) return false;
+      if (typeof leafHash !== 'string' || !leafHash || typeof expectedRoot !== 'string' || !expectedRoot) {
+        throw new Error('Merkle proof verification requires a leaf hash and an expected root.');
+      }
       let candidates = new Set([leafHash]);
       const normalizedProof = Array.isArray(proof) ? proof : [];
       for (const step of normalizedProof) {

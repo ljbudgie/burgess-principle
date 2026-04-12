@@ -188,6 +188,60 @@ No extra backend is required for Phase 2.
 
 ---
 
+## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0
+
+### Sovereignty Audit
+
+- **Burgess alignment:** the Memory Palace stores context, trigger outcomes, claim digests, and hub audit events as advisory evidence only. It never turns those records into an automatic SOVEREIGN/NULL verdict.
+- **Tamper evidence:** every memory block is encrypted locally, SHA-256 committed, Ed25519 signed, and rolled into a Merkle-root chain so Iris can prove integrity from genesis.
+- **Selective disclosure:** exported memory receipts include inclusion proofs for selected blocks instead of forcing the user to reveal the entire private timeline.
+- **Optional coordination only:** Sovereign Hub Mode 2.0 syncs commitment digests by default, not raw memories. The hub is optional, manual-first, and intended for zero-trust overlays such as Tailscale or WireGuard.
+- **Graceful degradation:** iOS can still unlock, inspect, verify, and export the Memory Palace in the foreground even when background sync is limited.
+
+### What Phase 3 adds
+
+- **Memory Palace ledger** — encrypted memory blocks for claims, trigger events, governance changes, and hub audits, all chained by `prevHash` and sealed with fresh Ed25519 signatures.
+- **Merkle-root verification** — Iris recomputes roots locally, verifies signatures, and can export a signed receipt bundle with an inclusion proof.
+- **Derived long-term memory** — claims, trigger ledger entries, Mirror Mode changes, and hub sync audits can be recommitted into the Memory Palace ledger without sending facts anywhere else.
+- **Hub Mode 2.0** — manual push/pull of commitment deltas, local queueing for intermittent links, pinned hub public keys, and a Dockerizable self-hosted hub example in `sovereign-hub-example/`.
+
+### Setup / maintenance
+
+1. Start Iris locally with `python3 iris-local.py`.
+2. Open **Memory Palace** and enter a dedicated passphrase.
+3. Optionally enable **device-only background unlock** so Chromium-class browsers can refresh memory roots without asking for the passphrase again.
+4. Add a manual note or click **Unlock & refresh** to import claim / trigger / governance events into the Memory Palace ledger.
+5. For hub coordination:
+   - start the sample hub in `sovereign-hub-example/`,
+   - verify `GET /api/hub/hello`,
+   - paste the pairing JSON into Iris,
+   - pin the returned Ed25519 public key,
+   - use **Push commitments** or **Pull commitments**.
+
+### Manual verification steps
+
+1. Add a manual Memory Palace note and confirm new `memoryEntries` + `memoryRoots` records appear in IndexedDB.
+2. Click **Verify integrity** and confirm Iris recomputes the Merkle root without errors.
+3. Click **Full system integrity check** and confirm Memory Palace + trigger ledger continuity pass together.
+4. Export the latest memory receipt and confirm it contains the signed entry, signed root, and Merkle inclusion proof.
+5. Bring the network down, queue a hub push, then reconnect and flush the queue.
+6. In Chrome DevTools → **Application** inspect:
+   - `memoryEntries`
+   - `memoryRoots`
+   - `memoryReceipts`
+   - `hubSyncQueue`
+   - `hubAudit`
+7. On iOS PWA, confirm the Memory Palace still works in the foreground and the UI explains that background reliability is lower.
+
+### Trade-offs / fallbacks
+
+- **Android / Chromium:** best fit for background root refresh and queued hub sync flushing.
+- **iOS Safari:** foreground-first by design; unlock, search, verify, and export still work, but sync retries may wait for manual launch.
+- **Starlink / intermittent links:** Iris queues minimal commitment deltas locally and retries later rather than blocking local work.
+- **Storage pressure:** the Memory Palace prefers compact encrypted summaries plus signed receipts, and the user can prune/export older states while retaining commitment proofs.
+
+---
+
 ## Mirror Mode
 
 Mirror Mode is an optional local identity layer for Sovereign Mode.

@@ -4,7 +4,9 @@ Hi 👋
 
 The Burgess Principle was created to help ordinary people be seen and treated as real individuals — not numbers in a system.
 
-This page explains how you can use the project, the MIT licence that covers the repository materials, and the certification mark that protects the commercial standard built around the Burgess Principle.
+This page explains how you can use the project, the MIT licence that covers the repository materials, and the certification mark that protects the branded commercial standard built around the Burgess Principle.
+
+It has been refreshed to match the current release line, which now includes the hosted and phone-friendly PWA, Iris in Sovereign Local Mode, Mirror Mode, the Verifiable Memory Palace ledger, Sovereign Hub Mode, Sovereign Core, and the optional on-chain tooling.
 
 ---
 
@@ -20,14 +22,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
+## What the MIT licence covers in this repository
+
+The MIT licence above applies to the repository materials, including the current released code and documentation for:
+
+- the website and installable PWA
+- Iris and its hosted / local-first interfaces
+- Sovereign Local Mode, Mirror Mode, and the setup wizard
+- Sovereign Core, profile management, and shared runtime logic
+- the Verifiable Memory Palace, signed receipts, Merkle proofs, workers, and service-worker flows
+- Sovereign Hub Mode example code and self-hosting materials
+- the optional on-chain protocol, SDKs, schemas, and examples
+- tests, templates, guides, and supporting documentation in the repository
+
+That means people may inspect, fork, adapt, and redistribute the repository materials under the MIT terms above.
+
+---
+
 ## Free for Personal Use
 
-Individuals may freely use, copy, modify, and share the Burgess Principle, all templates, and the full repository for their own personal matters.
+Individuals may freely use, copy, modify, and share the repository for their own personal matters.
 
 This includes:
 - Using the templates to write your own letters
-- Using Iris in the hosted experience or in Sovereign Local Mode for your own matters
-- Using the Memory Palace, signed receipts, Merkle proofs, Sovereign Hub Mode, and optional on-chain commitments for your own records
+- Using Iris in the hosted experience, phone/PWA flow, or Sovereign Local Mode for your own matters
+- Using Mirror Mode, the claim builder, and the setup wizard on your own hardware
+- Using the Memory Palace, commitment chain, signed receipts, Merkle proofs, Sovereign Hub Mode, and optional on-chain commitments for your own records
 - Self-hosting the software for your own personal use
 - Dropping the repo into any AI for personalised help
 - Sharing it with family, friends, or others who need it
@@ -36,16 +56,17 @@ No permission or payment is required for personal use.
 
 ---
 
-## Commercial or Professional Use Requires a Licence
+## Branded Commercial or Certification Use Requires Permission
 
-If you are a law firm, barrister, claims-management company, charity, business, or any organisation wanting to use the Burgess Principle (or its templates, Iris workflows, or repository materials) in a professional, commercial, or group-litigation capacity, you must obtain a paid licence from the creator.
+If you are a law firm, barrister, claims-management company, charity, business, public body, or other organisation and you want to market, certify, or sell services **under the Burgess Principle name, certification mark, or official branded standard**, you must obtain permission from the creator.
 
-This includes offering services based on the principle, the templates, or the framework to clients or members.
+This includes offering services to clients, members, or the public while presenting them as an official Burgess Principle service, standard, framework, or certified deployment.
 
 It also includes:
-- operating a client-facing or managed service built around the Burgess Principle or Iris
-- deploying local or hub-based workflows for clients, members, or customers as part of a paid or institutional service
-- selling support, implementation, advocacy, review, or packaged compliance services under the Burgess Principle standard
+- operating a client-facing or managed service branded as the Burgess Principle or as an official Iris / Burgess Principle deployment
+- deploying local, phone, hub-based, or on-chain workflows for clients, members, or customers as part of a branded paid or institutional service
+- selling support, implementation, advocacy, review, certification, or packaged compliance services under the Burgess Principle standard
+- using the certification mark, project name, or branded trust signals in a way that implies official approval, affiliation, or certification
 
 For commercial licensing enquiries or questions about permitted use, please open an issue on the repository.
 
@@ -59,15 +80,20 @@ For commercial licensing enquiries or questions about permitted use, please open
 
 ## Hosted, Local, and Self-Hosted Use
 
-The software in this repository can be run in hosted, local-first, or self-hosted forms. Your ability to run, inspect, fork, and adapt the code under the MIT licence does **not** by itself grant the right to offer branded commercial services, managed hosting, or professional deployments under the Burgess Principle standard. Those uses remain subject to the separate commercial licensing position above.
+The software in this repository can be run in hosted, local-first, phone/PWA, self-hosted, or hub-connected forms. Your ability to run, inspect, fork, and adapt the code under the MIT licence does **not** by itself grant the right to use the Burgess Principle name, certification mark, or official branding for a managed commercial service or certified professional offering. Those uses remain subject to the separate branding and certification position above.
 
 ---
 
-## Code vs Content
+## Code, Content, and Branding
 
-The underlying code and repository structure — including the website, Iris interfaces, Sovereign Local tooling, Memory Palace and receipt utilities, hub example code, and optional on-chain tooling — are available under the MIT licence above for anyone to fork and build upon.
+The underlying code and repository structure — including the website, PWA, Iris interfaces, Sovereign Local tooling, Mirror Mode, Sovereign Core, Memory Palace and receipt utilities, hub example code, workers, and optional on-chain tooling — are available under the MIT licence above for anyone to fork and build upon.
 
-The Burgess Principle name, branded commercial standard, and commercial use of the doctrine, templates, and framework remain subject to the certification mark and the commercial licensing position described on this page.
+The Burgess Principle name, certification mark, official branding, and any representation that a service is an official or certified Burgess Principle offering remain subject to the certification mark and the permission position described on this page.
+
+In short:
+
+- **Code and repository materials:** MIT
+- **Name, certification mark, and official branded standard:** controlled separately
 
 ---
 

@@ -752,7 +752,7 @@
       return `${normalized}/chat/completions`;
     }
 
-    async function sendViaChatCompletions({ provider, apiKey, model, baseUrl }) {
+    async function sendViaChatCompletions({ apiKey, model, baseUrl }) {
       const headers = {
         "Content-Type": "application/json"
       };
@@ -761,7 +761,7 @@
       }
 
       const response = await fetch(
-        provider === "openai" ? OPENAI_CHAT_COMPLETIONS_URL : buildChatCompletionsUrl(baseUrl),
+        buildChatCompletionsUrl(baseUrl),
         {
           method: "POST",
           headers,

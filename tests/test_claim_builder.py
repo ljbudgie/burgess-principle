@@ -93,6 +93,22 @@ def test_classify_institutional_reply_detects_working_states(reply_text, expecte
     assert claim_builder.classify_institutional_reply(reply_text) == expected
 
 
+@pytest.mark.parametrize("reply_text", [None, "", "   "])
+def test_classify_institutional_reply_returns_none_for_empty_input(reply_text):
+    assert claim_builder.classify_institutional_reply(reply_text) is None
+
+
+@pytest.mark.parametrize(
+    "reply_text",
+    [
+        "Yes, our reviewer will personally review the case file before any decision is made.",
+        "Yes, a senior case officer reviewed the specific facts before responding.",
+    ],
+)
+def test_classify_institutional_reply_recognizes_additional_sovereign_language(reply_text):
+    assert claim_builder.classify_institutional_reply(reply_text) == "SOVEREIGN"
+
+
 def test_classify_scenario_routes_weasel_word_follow_up():
     scenario = claim_builder.classify_scenario(
         "They replied saying decisions are subject to human review and handled in line with policy."
@@ -110,6 +126,22 @@ def test_classify_scenario_prioritizes_weasel_follow_up_over_domain_keywords():
 
     assert scenario["template"] == "FOLLOW_UP_WEASEL_RESPONSE.md"
     assert scenario["reply_classification"] == "AMBIGUOUS"
+
+
+def test_classify_scenario_falls_back_to_human_review_when_no_rows_match():
+    with patch.object(claim_builder, "_scenario_rows", return_value=()):
+        scenario = claim_builder.classify_scenario(
+            "I need help with a landlord repair dispute that is not covered by the template list."
+        )
+
+    assert scenario == {
+        "situation": "",
+        "template": "REQUEST_FOR_HUMAN_REVIEW.md",
+        "category": "dispute",
+        "matched_keywords": [],
+        "score": 0,
+        "reply_classification": None,
+    }
 
 
 def test_scenario_rows_ignore_table_rows_without_template_links(tmp_path):

@@ -4,7 +4,7 @@
   "signed_payload": {
     "app_id": "iris-sovereign-pwa",
     "version": "1.1.1-phase1",
-    "issued_at": "2026-04-12T00:19:46.672420Z",
+    "issued_at": "2026-04-12T00:22:26.005522Z",
     "hash_algorithm": "sha256",
     "consent_required": true,
     "critical_paths": [
@@ -17,11 +17,11 @@
     "assets": [
       {
         "path": "/",
-        "sha256": "c19ec84b9bbae33c2bc0792a5d7e8082494eda497436f4e7bd69c10c51830173"
+        "sha256": "4910c41c4003ce222a97008521fe073ec5581642ea4ffd14325d3ec7274e3dd1"
       },
       {
         "path": "/index.html",
-        "sha256": "c19ec84b9bbae33c2bc0792a5d7e8082494eda497436f4e7bd69c10c51830173"
+        "sha256": "4910c41c4003ce222a97008521fe073ec5581642ea4ffd14325d3ec7274e3dd1"
       },
       {
         "path": "/manifest.json",
@@ -29,7 +29,7 @@
       },
       {
         "path": "/service-worker.js",
-        "sha256": "ab09d0f713bd005b2c223d9efbcde1f79b562f362da05b8fd258e57e5561ffdb"
+        "sha256": "6040e9e85c0d5f2055ea13fed4f2c2d41fe738110375e515d0346a27cfbae0b2"
       },
       {
         "path": "/banner.png",
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "signature": "EduZvuLO1IY0QyNTFPsaP00Sj+m0e7NMEuQ+4z3bX1sHEeDY55jVwICJBllZhL4HrVEcHWgeY9dnz0Rye4sCDg=="
+  "signature": "9FBiQIbX7I+mfJChk73XaiSasuJaCZAQdhV5spevnMD8yUOjJf5pzAcyBhTtsqmASrnA6lpBeyCuhuDyfsUABA=="
 }

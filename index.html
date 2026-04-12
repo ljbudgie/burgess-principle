@@ -1953,6 +1953,7 @@
                                 <button class="sidebar-action-btn" id="scanClipboardBtn" type="button">📋 Scan clipboard now</button>
                                 <button class="sidebar-action-btn" id="scanPageBtn" type="button">🪞 Scan current page</button>
                             </div>
+                            <div class="claim-profile-status">Clipboard and page scans only run when you press the button here, and the scanned text stays on this device unless you export a signed receipt yourself.</div>
                         </div>
                         <div id="triggersList" class="trigger-list"></div>
                         <div class="claim-profile-actions" style="flex-direction:column;align-items:stretch;">
@@ -2382,6 +2383,7 @@
         let verifiedPwaUpdateManifest = null;
         let verifiedPwaUpdateVersion = '';
         let reloadAfterVerifiedUpdate = false;
+        let pwaActivationTimeoutId = null;
 
         // ------------------------------------------------------------------ //
         // Welcome screen HTML                                                //
@@ -3926,7 +3928,10 @@
             }
             reloadAfterVerifiedUpdate = true;
             setPwaFoundationStatus(`Applying verified update ${verifiedPwaUpdateVersion}. Iris will reload once the new shell is active.`, 'success');
-            const timeout = window.setTimeout(() => {
+            if (pwaActivationTimeoutId) {
+                window.clearTimeout(pwaActivationTimeoutId);
+            }
+            pwaActivationTimeoutId = window.setTimeout(() => {
                 if (reloadAfterVerifiedUpdate) {
                     reloadAfterVerifiedUpdate = false;
                     setPwaFoundationStatus('The staged update did not activate in time. Please verify again or refresh the page.', 'error');
@@ -3936,7 +3941,8 @@
                 pwaRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
             } catch (error) {
                 reloadAfterVerifiedUpdate = false;
-                window.clearTimeout(timeout);
+                window.clearTimeout(pwaActivationTimeoutId);
+                pwaActivationTimeoutId = null;
                 setPwaFoundationStatus(`Could not activate the verified update. ${error.message}`, 'error');
             }
         }
@@ -3999,9 +4005,16 @@
                         renderTriggerLedger().catch(() => undefined);
                         setTriggersStatus(`Processed ${event.data.processed || 0} queued trigger notification${event.data.processed === 1 ? '' : 's'} locally.`, 'success');
                     }
+                    if (event.data.type === 'TRIGGER_BACKGROUND_LOCK_REQUIRED') {
+                        setTriggerCryptoStatus('Background trigger evaluation is waiting for device-only background unlock. Foreground scans still work immediately.', 'error');
+                    }
                 });
 
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    if (pwaActivationTimeoutId) {
+                        window.clearTimeout(pwaActivationTimeoutId);
+                        pwaActivationTimeoutId = null;
+                    }
                     if (reloadAfterVerifiedUpdate) {
                         reloadAfterVerifiedUpdate = false;
                         window.location.reload();
@@ -4526,7 +4539,7 @@
                 setTriggerCryptoStatus(
                     profile.background_unlock_enabled
                         ? 'Device-only background unlock is enabled. The encrypted trigger vault can run periodic checks without asking for the passphrase again.'
-                        : 'Trigger rules stay sealed until you unlock them in the foreground with your passphrase.',
+                        : 'Trigger rules stay sealed until you unlock them in the foreground with your passphrase. On slower phones, the 600k PBKDF2 seal may take a brief moment.',
                     profile.background_unlock_enabled ? 'success' : ''
                 );
             }
@@ -4764,13 +4777,20 @@
             if (!excerpt) return false;
             const triggers = await vaultStore.getAll('triggers');
             let anyQueued = false;
+            let hadDecryptFailure = false;
             for (const trigger of triggers) {
                 if (!trigger.enabled) continue;
                 if (!(trigger.detection_sources || ['conversation']).includes(source)) continue;
-                const rules = await decryptTriggerRecord(trigger);
+                let rules = null;
+                try {
+                    rules = await decryptTriggerRecord(trigger);
+                } catch (_error) {
+                    hadDecryptFailure = true;
+                    continue;
+                }
                 if (!rules) {
-                    setTriggerCryptoStatus('Unlock Living Triggers with the passphrase to inspect encrypted rules in the foreground.', 'error');
-                    break;
+                    hadDecryptFailure = true;
+                    continue;
                 }
                 if (trigger.type === 'keyword') {
                     const matchedKeywords = findMatchedKeywords(excerpt, rules.keywords || []);
@@ -4798,6 +4818,9 @@
                         anyQueued = true;
                     }
                 }
+            }
+            if (hadDecryptFailure) {
+                setTriggerCryptoStatus('Some encrypted triggers could not be unlocked in the foreground. Check the passphrase or re-save the affected rule.', 'error');
             }
             return anyQueued;
         }

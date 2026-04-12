@@ -9,6 +9,9 @@ const TRIGGER_CRYPTO_SETTING_KEY = 'living-trigger-crypto';
 const TRIGGER_LAST_RECEIPT_SETTING_KEY = 'living-trigger-last-receipt';
 const TRIGGER_LAST_RECEIPT_ID_SETTING_KEY = 'living-trigger-last-receipt-id';
 const TRIGGER_ADVISORY_MESSAGE = 'Human review required — advisory only.';
+const TRIGGER_SCORE_BASE = 0.18;
+const TRIGGER_SCORE_KEYWORD_CAP = 0.32;
+const TRIGGER_SCORE_KEYWORD_WEIGHT = 0.12;
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -18,6 +21,7 @@ const PRECACHE_URLS = [
   '/signed-update-manifest.json'
 ];
 const CRITICAL_PATHS = new Set(PRECACHE_URLS);
+let triggerLedgerHeadCache = null;
 
 async function postClientMessage(message) {
   const allClients = await clients.matchAll({ type: 'window', includeUncontrolled: true });
@@ -298,7 +302,7 @@ function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source =
   // Heuristic-only advisory scoring: 0.18 keeps the engine from treating a trigger as a zero-signal event,
   // up to 0.32 is reserved for matched trigger keywords, and each matched keyword contributes 0.12 before
   // source/context adjustments so the final result nudges a human review without implying certainty.
-  let score = 0.18 + Math.min(0.32, matchedKeywords.length * 0.12);
+  let score = TRIGGER_SCORE_BASE + Math.min(TRIGGER_SCORE_KEYWORD_CAP, matchedKeywords.length * TRIGGER_SCORE_KEYWORD_WEIGHT);
   const weightMap = [
     { pattern: /(benefit|dwp|universal credit|sanction)/, add: 0.18, question: 'Was a named human able to review the benefits facts personally?' },
     { pattern: /(reasonable adjustment|disability|accessibility)/, add: 0.2, question: 'Who personally considered the requested adjustment and the specific barriers?' },
@@ -359,7 +363,10 @@ async function importLedgerPrivateKey() {
 }
 
 async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence = {}, inference = {}, notification = {}, status = 'recorded' }) {
-  const previous_commitment_hash = String((await getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY)) || '');
+  if (triggerLedgerHeadCache === null) {
+    triggerLedgerHeadCache = String((await getSetting(TRIGGER_LAST_RECEIPT_SETTING_KEY)) || '');
+  }
+  const previous_commitment_hash = triggerLedgerHeadCache;
   const payload = {
     trigger_id: trigger.id,
     label: trigger.label,
@@ -410,6 +417,7 @@ async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence 
   };
   await putRecord('triggerLedger', entry);
   await putRecord('settings', { key: TRIGGER_LAST_RECEIPT_SETTING_KEY, value: commitment_hash });
+  triggerLedgerHeadCache = commitment_hash;
   if (event_type === 'queued' || event_type === 'fired' || event_type === 'notified') {
     await putRecord('triggerReceipts', {
       ...entry,
@@ -540,6 +548,7 @@ async function processTriggerQueue() {
 async function evaluateTriggers() {
   const profile = await getSetting(TRIGGER_CRYPTO_SETTING_KEY);
   if (!profile || !profile.background_key_b64) {
+    await postClientMessage({ type: 'TRIGGER_BACKGROUND_LOCK_REQUIRED' });
     return;
   }
   const triggers = await readAll('triggers');

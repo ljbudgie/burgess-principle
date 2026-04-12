@@ -3,6 +3,10 @@
 Proxies user messages to an OpenAI-compatible API with the Iris
 system prompt.  Streams the response back as Server-Sent Events.
 
+This is the narrow hosted Cloud Mode relay only.  The richer
+sovereignty-first `/api/*` surface lives in `iris-local.py` when Iris
+is running in Sovereign Local Mode.
+
 Required environment variable:
     IRIS_API_KEY   — API key for the AI model.
 
@@ -40,26 +44,29 @@ def _get_client():
 
 
 class handler(BaseHTTPRequestHandler):  # noqa: N801 — Vercel requires this name
-    """Handle POST /api/chat requests."""
+    """Handle hosted POST /api/chat requests."""
+
+    def _send_json(self, status: int, data: dict) -> None:
+        """Write a JSON response with a consistent content type."""
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps(data).encode())
 
     def do_POST(self):  # noqa: N802 — required method name
         # ------------------------------------------------------------------
         # Guard: API key must be configured
         # ------------------------------------------------------------------
         if not os.environ.get("IRIS_API_KEY"):
-            self.send_response(503)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(
-                json.dumps(
-                    {
-                        "error": (
-                            "Iris is not yet configured. "
-                            "The IRIS_API_KEY environment variable must be set in the Vercel project settings. "
-                            "See iris/README.md for setup instructions."
-                        )
-                    }
-                ).encode()
+            self._send_json(
+                503,
+                {
+                    "error": (
+                        "Iris is not yet configured. "
+                        "The IRIS_API_KEY environment variable must be set in the Vercel project settings. "
+                        "See iris/README.md for setup instructions."
+                    )
+                },
             )
             return
 
@@ -70,20 +77,12 @@ class handler(BaseHTTPRequestHandler):  # noqa: N801 — Vercel requires this na
             content_length = int(self.headers.get("Content-Length", 0))
             body = json.loads(self.rfile.read(content_length))
         except (json.JSONDecodeError, ValueError):
-            self.send_response(400)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(json.dumps({"error": "Invalid JSON body."}).encode())
+            self._send_json(400, {"error": "Invalid JSON body."})
             return
 
         messages = body.get("messages", [])
         if not messages:
-            self.send_response(400)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(
-                json.dumps({"error": "No messages provided."}).encode()
-            )
+            self._send_json(400, {"error": "No messages provided."})
             return
 
         # ------------------------------------------------------------------
@@ -126,13 +125,8 @@ class handler(BaseHTTPRequestHandler):  # noqa: N801 — Vercel requires this na
             self.wfile.write(b"data: [DONE]\n\n")
             self.wfile.flush()
 
-        except Exception as exc:  # noqa: BLE001
-            self.send_response(500)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(
-                json.dumps({"error": f"Model request failed: {exc}"}).encode()
-            )
+        except Exception:  # noqa: BLE001
+            self._send_json(500, {"error": "Model request failed."})
 
     def do_OPTIONS(self):  # noqa: N802
         """Handle CORS preflight."""

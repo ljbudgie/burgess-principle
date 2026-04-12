@@ -16,6 +16,9 @@ The idea is simple: sometimes a gentle, light-hearted graphic can explain the pr
 - [Easy Meme Creation Tools](#easy-meme-creation-tools-free--beginner-friendly)
 - [Prompt Engineering Tips](#prompt-engineering-tips)
 - [Example Meme Ideas (text version)](#example-meme-ideas-text-version)
+- [Iris & Sovereign Mode Memes](#iris--sovereign-mode-memes)
+- [Weasel-Response & Follow-Up Memes](#weasel-response--follow-up-memes)
+- [On-Chain & Verifiable Claims Memes](#on-chain--verifiable-claims-memes)
 - [Accessibility Tips for Memes](#accessibility-tips-for-memes)
 - [Sharing on Social Media](#sharing-on-social-media)
 - [Equality Act + Burgess Principle](#equality-act--burgess-principle-for-autistic-people--reasonable-adjustments)
@@ -30,6 +33,8 @@ Every meme is built around the same warm, respectful question at the heart of th
 **"Was a human member of the team able to personally review the specific facts of *my* situation?"**
 
 No sarcasm, no anger — just friendly, shareable reminders that we're all individuals, not rows in a database.
+
+> **Quick context (as of v1.3.0):** The project now includes 35+ letter templates, 18 institutions tested, real case studies, **Iris** (a calm AI companion on the website and locally via Sovereign Mode), an on-chain claims protocol, and a cryptographic evidence trail — all built around the same one-question test. Memes from any of these areas are welcome.
 
 ### Meme Psychology – Why This Works
 Memes have a quiet but powerful effect on how people think and share ideas. Here's why they're such a good fit for the Burgess Principle:
@@ -138,6 +143,78 @@ These are simple text-based meme concepts you can create using any of the tools 
 
 ---
 
+### Iris & Sovereign Mode Memes
+
+Since v0.5.0 the project includes **Iris**, a calm AI companion available on the hosted site and via **Sovereign Local Mode** (v0.6.0+), where everything runs on your own hardware. These memes help people discover Iris and local-first workflows.
+
+1. **The "Talk to Iris" meme**
+   Top text: "Spent an hour googling template letters."
+   Bottom text: "Or you could just ask Iris."
+   Image: Tired person surrounded by browser tabs vs. the same person chatting with Iris on their phone.
+   Prompt: "Friendly two-panel meme in warm cartoon style. Left panel: exhausted person surrounded by browser tabs and search results. Right panel: same person smiling, chatting on their phone with a friendly AI called 'Iris'. Caption: 'Just ask Iris — she'll help you draft it. #BurgessPrinciple'"
+
+2. **The "Your Hardware, Your Rules" meme**
+   Single panel: A laptop with a glowing shield icon, unplugged from any cloud.
+   Caption: "Sovereign Mode: your model, your data, your hardware. No cloud, no telemetry."
+   Prompt: "Clean single-panel illustration. A laptop on a desk with a small glowing shield icon on screen and no network cables or cloud symbols. Warm, calm colour palette. Caption: 'Sovereign Mode — your model, your data, your hardware. #BurgessPrinciple #SovereignMode'"
+
+3. **The "Phone-First Claim" meme**
+   Panel 1: Person reading a frustrating automated letter on their phone.
+   Panel 2: Same person opening the Burgess Principle site and tapping "Talk to Iris".
+   Panel 3: A calm, personalised reply ready to send.
+   Caption: "From frustration to action in three taps. #BurgessPrinciple"
+   Prompt: "Warm three-panel comic strip. Panel 1: person frowning at an official letter on their phone. Panel 2: same person tapping 'Talk to Iris' on a friendly website. Panel 3: person smiling at a neat, ready-to-send letter on screen. Caption: 'From frustration to action in three taps. #BurgessPrinciple'"
+
+4. **The "Mirror Mode Greeting" meme**
+   Image: A laptop screen showing "Good morning, [Name] 👋 — ready to pick up where you left off?"
+   Caption: "When your AI actually remembers you — on your own device."
+   Prompt: "Cosy illustration of a laptop screen showing a friendly greeting 'Good morning, Alex 👋 — ready to pick up where you left off?' with a small local-first badge. Warm desk scene, no cloud icons. Caption: 'Mirror Mode — your AI remembers you, on your device. #BurgessPrinciple'"
+
+---
+
+### Weasel-Response & Follow-Up Memes
+
+Institutions sometimes reply with vague wording like "subject to human oversight" without actually answering the question. The project now classifies these as **AMBIGUOUS** and includes follow-up templates. These memes make the point gently.
+
+1. **The "Three Traffic Lights" meme**
+   Three lights: 🟢 SOVEREIGN — "Yes, a named human reviewed your case." 🔴 NULL — "No human review happened." 🟡 AMBIGUOUS — "They replied, but didn't actually answer."
+   Caption: "Know the difference. Ask again. #BurgessPrinciple"
+   Prompt: "Clean infographic meme with three horizontal traffic-light panels. Green light labelled 'SOVEREIGN — a named human reviewed your case'. Red light labelled 'NULL — no human review happened'. Amber light labelled 'AMBIGUOUS — they replied but didn't answer'. Friendly design, warm colours. Caption: 'Know the difference. Ask again. #BurgessPrinciple'"
+
+2. **The "Weasel Words Bingo" meme**
+   A bingo card with squares like: "reviewed in line with policy", "subject to human oversight", "our processes ensure…", "we take all cases seriously".
+   Caption: "Got a full house? Time for a calm follow-up letter. #BurgessPrinciple"
+   Prompt: "Fun bingo card meme in a warm, friendly style. 4×4 grid with institutional phrases: 'reviewed in line with policy', 'subject to human oversight', 'our processes ensure…', 'we take all cases seriously', 'robust procedures', 'in accordance with guidelines', 'careful consideration', 'appropriate steps'. Title: 'Weasel Words Bingo'. Caption: 'Full house? Time for a calm follow-up. #BurgessPrinciple'"
+
+3. **The "Yes or No" meme**
+   Panel 1: Institution sending a long paragraph of vague reassurance.
+   Panel 2: Person calmly replying: "Thank you — but did a named human review my specific case? A simple yes or no is fine."
+   Caption: "The follow-up that changes everything. #BurgessPrinciple"
+   Prompt: "Gentle two-panel cartoon. Panel 1: formal letter with long paragraph of vague institutional language. Panel 2: person calmly typing a short reply: 'Thank you — did a named human review my specific case? A simple yes or no is fine.' Warm style. Caption: 'The follow-up that changes everything. #BurgessPrinciple'"
+
+---
+
+### On-Chain & Verifiable Claims Memes
+
+Since v0.4.0 users can create cryptographically signed **Burgess Claims** — compact commitment fingerprints that prove the question was asked without revealing personal data. These memes explain that simply.
+
+1. **The "Tamper-Proof" meme**
+   Image: A piece of paper stamped with a gold seal, next to a digital hash on screen.
+   Caption: "Your question. Their silence. Permanently recorded."
+   Prompt: "Clean split illustration. Left: a calm letter with a gold wax seal. Right: a screen showing a compact digital hash with a green checkmark. Warm tones. Caption: 'Your question. Their silence. Permanently recorded. #BurgessPrinciple'"
+
+2. **The "No Personal Data" meme**
+   Two panels: Panel 1 labelled "What goes on-chain" showing a tiny fingerprint icon. Panel 2 labelled "What stays with you" showing a full filing cabinet.
+   Caption: "Only a commitment fingerprint leaves your device. Your facts stay yours."
+   Prompt: "Friendly two-panel comparison meme. Left panel labelled 'What goes on-chain' shows a small fingerprint icon. Right panel labelled 'What stays with you' shows a cosy filing cabinet. Warm cartoon style. Caption: 'Only a commitment fingerprint leaves your device. Your facts stay yours. #BurgessPrinciple'"
+
+3. **The "Receipts" meme**
+   Person holding up their phone with a signed receipt on screen.
+   Caption: "They said a human reviewed it. I have the receipt."
+   Prompt: "Warm illustration of a person confidently holding up a phone showing a signed digital receipt with a checkmark. Friendly background. Caption: 'They said a human reviewed it. I have the receipt. #BurgessPrinciple'"
+
+---
+
 ### Accessibility Tips for Memes
 
 The Burgess Principle is about seeing every individual — so our memes should be accessible to every individual too.
@@ -158,6 +235,7 @@ Memes work best when they're shared. Here are a few tips for getting the Burgess
 - `#BurgessPrinciple` (always)
 - `#HumanReview`
 - `#SeenNotScanned`
+- `#SovereignMode` (for local-first / privacy memes)
 - `#EqualityAct` (when relevant to disability/adjustments)
 
 **Best platforms:**
@@ -166,6 +244,12 @@ Memes work best when they're shared. Here are a few tips for getting the Burgess
 - **LinkedIn** — Good for reaching professionals and decision-makers. Add a line of context about why human review matters.
 - **Reddit** — Share in relevant communities (e.g. r/legaladviceuk, r/disability, r/ConsumerRights).
 - **Facebook** — Groups related to consumer rights, disability advocacy, or local community pages.
+- **TikTok / Reels / Shorts** — Pair a meme with a short voice-over. See the [short-form video scripts](../marketing/SHORTFORM_VIDEO_SCRIPTS.md) for ready-made ideas.
+
+**Where to point people:**
+- The easiest starting point is the hosted site with Iris built in: [burgess-principle.vercel.app](https://burgess-principle.vercel.app)
+- For newcomers on GitHub, point to [START_HERE.md](../START_HERE.md)
+- For privacy-conscious users, mention Sovereign Local Mode: [SOVEREIGN_MODE.md](../SOVEREIGN_MODE.md)
 
 **Tone reminder:** Always keep it warm and respectful — even when the meme is funny. The Burgess Principle wins hearts, not arguments.
 

@@ -1,8 +1,8 @@
 ---
-name: Toolkit Enhancement
-about: Propose new feature, module, or improvement to OpenClaw components
+name: Iris Enhancement
+about: Propose an improvement to Iris, Sovereign Core, or a supporting workflow
 title: "[ENHANCEMENT] "
-labels: enhancement, toolkit
+labels: enhancement, iris
 assignees: ''
 
 ---
@@ -11,9 +11,9 @@ assignees: ''
 (What should be added or improved?)
 
 **Rationale**  
-(How does it strengthen the Burgess Principle or Omni-Sovereign Architecture?)
+(How does it strengthen Iris, Sovereign Core, or the long-term local-first direction of the project?)
 
 **Acceptance Criteria**  
-- [ ] Deployable Python module or workflow  
-- [ ] Validated via GrokDoctrinalEngine  
-- [ ] Documented in README and GitHub Pages
+- [ ] Improves Iris, Sovereign Core, or a supporting workflow in a way that is useful long term
+- [ ] Preserves the project's calm, local-first, sovereignty-first direction
+- [ ] Documented in the relevant README or docs when needed

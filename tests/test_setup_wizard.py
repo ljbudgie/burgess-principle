@@ -75,6 +75,12 @@ def test_prompt_yes_no_returns_default_for_blank_input(monkeypatch):
     assert prompt_yes_no("Continue?", default=False) is False
 
 
+def test_prompt_yes_no_accepts_explicit_negative_response(monkeypatch):
+    monkeypatch.setattr("builtins.input", lambda _: "No")
+
+    assert prompt_yes_no("Continue?", default=True) is False
+
+
 def test_prompt_choice_retries_until_choice_is_valid(monkeypatch, capsys):
     choices = [
         {"label": "One", "size": "~1 GB", "best_for": "fast"},
@@ -110,6 +116,27 @@ def test_detect_ram_gb_returns_none_when_detection_fails(monkeypatch):
 
     monkeypatch.setattr(setup_wizard_module.sys, "platform", "darwin")
     monkeypatch.setattr(setup_wizard_module.subprocess, "run", raising_run)
+
+    assert detect_ram_gb() is None
+
+
+def test_detect_ram_gb_reads_darwin_sysctl(monkeypatch):
+    class CompletedProcess:
+        stdout = str(8 * 1024**3)
+
+    monkeypatch.setattr(setup_wizard_module.sys, "platform", "darwin")
+    monkeypatch.setattr(
+        setup_wizard_module.subprocess,
+        "run",
+        lambda *args, **kwargs: CompletedProcess(),
+    )
+
+    assert detect_ram_gb() == 8.0
+
+
+def test_detect_ram_gb_returns_none_when_platform_is_not_supported(monkeypatch):
+    monkeypatch.setattr(setup_wizard_module.sys, "platform", "freebsd")
+    monkeypatch.setattr(setup_wizard_module.os, "name", "posix")
 
     assert detect_ram_gb() is None
 
@@ -168,6 +195,28 @@ def test_download_model_reports_progress_and_writes_file(tmp_path, monkeypatch, 
     output = capsys.readouterr().out
     assert "Downloading Demo Model" in output
     assert "Progress: 100%" in output
+
+
+def test_download_model_handles_unknown_total_size(tmp_path, monkeypatch, capsys):
+    destination = tmp_path / "models" / "demo.gguf"
+
+    def fake_urlretrieve(url, path, reporthook):
+        assert url == "https://example.com/demo.gguf"
+        assert Path(path) == destination
+        reporthook(1, 50, 0)
+        Path(path).write_text("model-bytes", encoding="utf-8")
+
+    monkeypatch.setattr(setup_wizard_module.urllib.request, "urlretrieve", fake_urlretrieve)
+
+    download_model(
+        {"label": "Demo Model", "url": "https://example.com/demo.gguf"},
+        destination,
+    )
+
+    output = capsys.readouterr().out
+    assert destination.read_text(encoding="utf-8") == "model-bytes"
+    assert "Downloading Demo Model" in output
+    assert output.count("Progress: 100%") == 1
 
 
 def test_download_model_wraps_network_errors(tmp_path, monkeypatch):

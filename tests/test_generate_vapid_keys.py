@@ -2,8 +2,13 @@
 
 from __future__ import annotations
 
+import builtins
 import importlib.util
 from pathlib import Path
+import subprocess
+import sys
+
+import pytest
 
 
 _MODULE_PATH = (
@@ -56,3 +61,42 @@ def test_main_prints_vapid_environment_values(monkeypatch, capsys):
     ) in output
     assert "VAPID_EMAIL=mailto:your-contact@example.com" in output
     assert "safe to embed in the HTML" in output
+
+
+def test_script_exits_with_helpful_error_when_cryptography_is_missing(monkeypatch, capsys):
+    real_import = builtins.__import__
+    blocked_imports = {
+        "cryptography.hazmat.primitives.asymmetric",
+        "cryptography.hazmat.primitives.asymmetric.ec",
+        "cryptography.hazmat.primitives.serialization",
+    }
+
+    def fake_import(name, *args, **kwargs):
+        if name in blocked_imports:
+            raise ImportError("cryptography unavailable")
+        return real_import(name, *args, **kwargs)
+
+    monkeypatch.setattr(builtins, "__import__", fake_import)
+
+    spec = importlib.util.spec_from_file_location("generate_vapid_keys_missing_crypto", _MODULE_PATH)
+    module = importlib.util.module_from_spec(spec)
+
+    with pytest.raises(SystemExit, match="1"):
+        spec.loader.exec_module(module)
+
+    error = capsys.readouterr().err
+    assert "cryptography" in error
+    assert "pip install cryptography" in error
+
+
+def test_script_runs_as_cli_entrypoint():
+    result = subprocess.run(
+        [sys.executable, str(_MODULE_PATH)],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert "VAPID_PUBLIC_KEY=" in result.stdout
+    assert "VAPID_PRIVATE_KEY=" in result.stdout
+    assert "VAPID_EMAIL=mailto:your-contact@example.com" in result.stdout

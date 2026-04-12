@@ -8,7 +8,7 @@ const TRIGGER_MIN_INTERVAL_MS = 60 * 60 * 1000;
 const TRIGGER_CRYPTO_SETTING_KEY = 'living-trigger-crypto';
 const TRIGGER_LAST_RECEIPT_SETTING_KEY = 'living-trigger-last-receipt';
 const TRIGGER_LAST_RECEIPT_ID_SETTING_KEY = 'living-trigger-last-receipt-id';
-const TRIGGER_ADVISORY_NOTE = 'Human review required — advisory only.';
+const TRIGGER_ADVISORY_MESSAGE = 'Human review required — advisory only.';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -260,6 +260,8 @@ function bytesToHex(bytes) {
   return Array.from(bytes).map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
+// This must remain byte-for-byte compatible with the page-side canonicalizer so shared
+// SHA-256 commitments and Ed25519 signatures remain verifiable across contexts.
 function canonicalizeForSignature(value) {
   if (Array.isArray(value)) {
     return `[${value.map(item => canonicalizeForSignature(item)).join(',')}]`;
@@ -293,6 +295,8 @@ function sanitizeExcerpt(text, maxLength = 180) {
 
 function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source = 'conversation', trigger = {} }) {
   const lower = String(text || '').toLowerCase();
+  // Heuristic-only advisory scoring: a low non-zero base score plus small keyword/source
+  // increments makes the engine useful without implying certainty or legal authority.
   let score = 0.18 + Math.min(0.32, matchedKeywords.length * 0.12);
   const weightMap = [
     { pattern: /(benefit|dwp|universal credit|sanction)/, add: 0.18, question: 'Was a named human able to review the benefits facts personally?' },
@@ -321,7 +325,7 @@ function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source =
       'Was a human member of the team able to review the specific facts personally?',
       'What named person, team, or role can confirm the review?'
     ],
-    rationale: `Local advisory score only for ${trigger.label || 'trigger'} — ${TRIGGER_ADVISORY_NOTE}`
+    rationale: `Local advisory score only for ${trigger.label || 'trigger'} — ${TRIGGER_ADVISORY_MESSAGE}`
   };
 }
 
@@ -374,7 +378,7 @@ async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence 
     inference_hash: await sha256Hex(canonicalizeForSignature(inference || {})),
     notification,
     timestamp: new Date().toISOString(),
-    nonce: `${event_type}-${Date.now()}`,
+    entry_id: crypto.randomUUID(),
   };
   const commitment_hash = await sha256Hex(canonicalizeForSignature(payload));
   let signature = '';
@@ -386,7 +390,7 @@ async function appendTriggerLedgerEvent({ trigger, event_type, source, evidence 
     public_key_hex = signer.profile.ledger_public_key_hex;
   }
   const entry = {
-    id: `trigger-ledger-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    id: `trigger-ledger-${crypto.randomUUID()}`,
     trigger_id: trigger.id,
     label: trigger.label,
     event_type,
@@ -560,7 +564,7 @@ async function evaluateTriggers() {
     const text = `${trigger.label}. ${reason} ${trigger.description || ''}`.trim();
     const inference = runLocalPreBurgessInference({ text, matchedKeywords: rules.keywords || [], source: trigger.type, trigger });
     const queueItem = {
-      id: `trigger-queue-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      id: `trigger-queue-${crypto.randomUUID()}`,
       trigger_id: trigger.id,
       label: trigger.label,
       type: trigger.type,
@@ -575,7 +579,7 @@ async function evaluateTriggers() {
       },
       inference,
       notification: buildTriggerNotification(trigger, { evidence: { reason }, inference }),
-      prefill_prompt: `A Living Trigger fired on this device for "${trigger.label}". ${reason} ${TRIGGER_ADVISORY_NOTE}`,
+      prefill_prompt: `A Living Trigger fired on this device for "${trigger.label}". ${reason} ${TRIGGER_ADVISORY_MESSAGE}`,
     };
     const queuedEntry = await appendTriggerLedgerEvent({
       trigger,

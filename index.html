@@ -2313,6 +2313,8 @@
         };
         const VAULT_PBKDF2_ITERATIONS = 600000;
         const WAKE_PHRASE_PATTERN = /^hey iris[\s,]+/i;
+        // Voice-first fallback for foreground capture: if a user says a clear local distress phrase,
+        // Iris can queue an advisory trigger and offer a Burgess review flow without deciding the result.
         const HELP_ME_NOW_PATTERN = /\b(help me now|help me|urgent help)\b/i;
         const CLAIM_KEYWORDS_PATTERN = /(claim|freeze|froze|exchange|withdrawal|benefit|bailiff|penalty|review|human review)/i;
         const QUICK_ACTION_PROMPTS = {
@@ -2785,6 +2787,7 @@
         function levenshteinDistance(a, b) {
             const left = String(a || '');
             const right = String(b || '');
+            // Trigger keywords stay deliberately short, so the simple matrix keeps matching logic easy to audit.
             const rows = Array.from({ length: left.length + 1 }, (_, index) => [index]);
             for (let column = 0; column <= right.length; column += 1) {
                 rows[0][column] = column;
@@ -3003,7 +3006,7 @@
                 inference_hash,
                 notification,
                 timestamp: new Date().toISOString(),
-                nonce: generateSecureId('trigger-ledger'),
+                entry_id: generateSecureId('trigger-ledger'),
             };
             const commitment_hash = await sha256Hex(canonicalizeForSignature(payload));
             let signature = '';
@@ -3921,7 +3924,19 @@
             }
             reloadAfterVerifiedUpdate = true;
             setPwaFoundationStatus(`Applying verified update ${verifiedPwaUpdateVersion}. Iris will reload once the new shell is active.`, 'success');
-            pwaRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            const timeout = window.setTimeout(() => {
+                if (reloadAfterVerifiedUpdate) {
+                    reloadAfterVerifiedUpdate = false;
+                    setPwaFoundationStatus('The staged update did not activate in time. Please verify again or refresh the page.', 'error');
+                }
+            }, 10000);
+            try {
+                pwaRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            } catch (error) {
+                reloadAfterVerifiedUpdate = false;
+                window.clearTimeout(timeout);
+                setPwaFoundationStatus(`Could not activate the verified update. ${error.message}`, 'error');
+            }
         }
 
         async function registerPhonePwa() {
@@ -4603,9 +4618,6 @@
                 advisory_only: true,
                 governance_toggle: 'human-review-required',
             };
-            if (rules.type === 'voice_command' && !rules.voice_phrase) {
-                rules.voice_phrase = 'help me now';
-            }
             return rules;
         }
 
@@ -4904,6 +4916,10 @@
                 }
                 if (summary.type === 'scheduled' && !rules.schedule_iso) {
                     setTriggersStatus('Pick a date/time for the scheduled trigger.', 'error');
+                    return;
+                }
+                if (summary.type === 'voice_command' && !rules.voice_phrase) {
+                    setTriggersStatus('Enter the exact voice phrase that should trigger the advisory review.', 'error');
                     return;
                 }
                 const record = await upsertTriggerRecord(summary, rules, passphrase, triggerBackgroundUnlockToggle.checked);

@@ -69,8 +69,7 @@ def main() -> None:
     signed_payload = {
         "app_id": "iris-sovereign-pwa",
         "version": args.version,
-        # Use a trailing Z so the manifest serialises to a stable UTC timestamp across Python environments.
-        "issued_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "issued_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         "hash_algorithm": "sha256",
         "consent_required": True,
         "critical_paths": DEFAULT_PATHS,

@@ -83,6 +83,28 @@ Iris helps users turn confusion into a traceable, reviewable record:
 - Revisit long-term context without trusting opaque server memory
 - Keep AI in an **advisory role only**
 
+### Neural baseline and sovereign inversion
+
+The medical-device extension becomes sharper when seen as a **bypass pattern**.
+
+Neuralink-style systems are often described as bypassing damaged pathways by reading and writing the brain's native electrical spike language directly. Iris is the **software-native sovereign counterpart** to that pattern: not a medical device, not an implant, and not a treatment claim, but a local-first system that meets the same bypass logic at the level of legibility, evidence, and control.
+
+In Burgess terms, the movement is:
+
+**detect → expose → invert**
+
+| Layer | Neuralink-style bypass | Iris sovereign counterpart |
+| --- | --- | --- |
+| **Baseline** | Reads and writes native neural spike patterns | Treats the hidden authority pattern as the baseline to be made visible |
+| **What gets bypassed** | Damaged nerve pathways | Opaque institutional and medical-device templates |
+| **Medium** | Implant and hardware stack | Non-invasive, local-first software and cryptographic proofs |
+| **Primary effect** | Restore functional routing around a physical interruption | Restore legibility and agency around an authority interruption |
+| **Proof boundary** | Device and clinical validation | SHA-256 commitments, Ed25519 signatures, Merkle-rooted receipts, Iris Gate, optional on-chain fingerprints |
+
+That is why Iris is framed as a sovereign inversion engine: it helps a person see the script beneath the process, preserve what they saw, and export verifiable evidence without surrendering control.
+
+For the longer doctrinal framing, see [`papers/MEDICAL_DEVICE_DOCTRINE.md`](papers/MEDICAL_DEVICE_DOCTRINE.md) and the template set in [`templates/`](templates/README.md).
+
 ### Operating modes
 
 | Mode | What happens | Best for |

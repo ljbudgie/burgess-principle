@@ -1,3 +1,5 @@
+<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
+
 # The Burgess Principle
 
 ![MIT License](https://img.shields.io/badge/license-MIT-0f766e?style=flat-square)

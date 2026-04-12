@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Iris — a calm, human-first companion for the Burgess Principle.">
+  <title>Iris</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 252, 246, 0.92);
+      --panel-strong: #fffaf2;
+      --border: rgba(102, 85, 60, 0.14);
+      --text: #2b251d;
+      --muted: #7d6c56;
+      --accent: #67533b;
+      --accent-soft: #e6d8c0;
+      --user: #d8e5f5;
+      --iris: #f7f0e4;
+      --shadow: 0 22px 60px rgba(71, 52, 24, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.85), transparent 40%),
+        linear-gradient(180deg, #f7f2ea 0%, #efe4d4 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100dvh;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: max(16px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom));
+      gap: 12px;
+    }
+
+    .topline {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      letter-spacing: 0.01em;
+      padding-top: 4px;
+    }
+
+    .shell {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100dvh - 76px);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 18px 18px 8px;
+    }
+
+    .name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .subtle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+    }
+
+    .message-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .message-row.assistant {
+      justify-content: flex-start;
+    }
+
+    .message-row.user {
+      justify-content: flex-end;
+    }
+
+    .bubble {
+      max-width: min(88%, 34rem);
+      border-radius: 20px;
+      padding: 12px 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid var(--border);
+    }
+
+    .assistant .bubble {
+      background: var(--iris);
+      border-top-left-radius: 8px;
+    }
+
+    .user .bubble {
+      background: var(--user);
+      border-top-right-radius: 8px;
+    }
+
+    .starters {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .starter {
+      text-align: left;
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.56);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 12px 14px;
+      cursor: pointer;
+    }
+
+    .starter:active,
+    .send:active,
+    .link-button:active,
+    .ghost:active,
+    .save:active {
+      transform: scale(0.99);
+    }
+
+    .composer {
+      padding: 12px 12px 10px;
+      border-top: 1px solid var(--border);
+      background: rgba(255, 250, 242, 0.95);
+    }
+
+    .composer-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 10px;
+    }
+
+    textarea {
+      flex: 1;
+      resize: none;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      min-height: 24px;
+      max-height: 160px;
+      line-height: 1.45;
+    }
+
+    textarea::placeholder,
+    input::placeholder {
+      color: #998772;
+    }
+
+    .send,
+    .save,
+    .ghost {
+      border: 0;
+      border-radius: 14px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .send,
+    .save {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+
+    .send[disabled] {
+      opacity: 0.55;
+      cursor: wait;
+    }
+
+    .advanced-wrap {
+      padding: 0 12px 12px;
+      text-align: center;
+    }
+
+    .link-button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      cursor: pointer;
+      font-size: 0.88rem;
+      padding: 8px;
+    }
+
+    .advanced-panel {
+      margin: 0 12px 12px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel-strong);
+      padding: 14px;
+      display: none;
+      gap: 10px;
+    }
+
+    .advanced-panel.open {
+      display: grid;
+    }
+
+    .advanced-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      text-align: left;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .field label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 11px 12px;
+      background: white;
+      color: var(--text);
+    }
+
+    .advanced-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ghost {
+      background: rgba(103, 83, 59, 0.1);
+      color: var(--accent);
+    }
+
+    .status {
+      min-height: 1.2em;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: left;
+    }
+
+    .typing {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      min-height: 24px;
+    }
+
+    .typing span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #a18d72;
+      animation: bounce 1.1s infinite ease-in-out;
+    }
+
+    .typing span:nth-child(2) { animation-delay: 0.15s; }
+    .typing span:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }
+      40% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (min-width: 720px) {
+      .app {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .header {
+        padding: 22px 22px 8px;
+      }
+
+      .messages {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .starters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .composer,
+      .advanced-wrap {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .advanced-panel {
+        margin-left: 22px;
+        margin-right: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="topline">Was a human there?</div>
+
+    <section class="shell" aria-label="Iris chat">
+      <header class="header">
+        <h1 class="name">Iris</h1>
+        <p class="subtle">A calm place to talk through what happened and work out your next step.</p>
+      </header>
+
+      <div id="messages" class="messages" role="log" aria-live="polite" aria-label="Conversation"></div>
+
+      <div id="starters" class="starters" aria-label="Starter prompts">
+        <button class="starter" type="button">I got a letter I don't understand</button>
+        <button class="starter" type="button">A company is chasing me for money</button>
+        <button class="starter" type="button">I think a decision about me was unfair</button>
+        <button class="starter" type="button">I need help writing a letter back</button>
+      </div>
+
+      <div class="composer">
+        <div class="composer-row">
+          <textarea id="composerInput" rows="1" placeholder="Tell me what happened..."></textarea>
+          <button id="sendButton" class="send" type="button">Send</button>
+        </div>
+      </div>
+
+      <div class="advanced-wrap">
+        <button id="advancedToggle" class="link-button" type="button">Advanced — bring your own AI</button>
+      </div>
+
+      <section id="advancedPanel" class="advanced-panel" aria-label="Advanced settings">
+        <p>If you already have your own AI access, you can use it here. Your saved settings stay only in this browser. For local models, you can leave the key blank if your endpoint does not need one.</p>
+
+        <div class="field">
+          <label for="providerSelect">Provider</label>
+          <select id="providerSelect">
+            <option value="anthropic">Anthropic</option>
+            <option value="openai">OpenAI</option>
+            <option value="compatible">OpenAI-compatible endpoint</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="apiKeyInput">API key</label>
+          <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Paste your key here">
+        </div>
+
+        <div id="endpointField" class="field hidden">
+          <label for="endpointInput">Endpoint</label>
+          <input id="endpointInput" type="url" autocomplete="off" placeholder="http://localhost:11434/v1">
+        </div>
+
+        <div class="field">
+          <label for="modelInput">Model</label>
+          <input id="modelInput" type="text" autocomplete="off" placeholder="Model name">
+        </div>
+
+        <div class="advanced-actions">
+          <button id="saveAdvancedButton" class="save" type="button">Save</button>
+          <button id="clearAdvancedButton" class="ghost" type="button">Forget saved settings</button>
+        </div>
+
+        <div id="advancedStatus" class="status" aria-live="polite"></div>
+      </section>
+    </section>
+  </div>
+
+  <script>
+    const SYSTEM_PROMPT = "You are Iris, the sovereign AI companion for the Burgess Principle (UK Certification Mark UK00004343685). You were created by Lewis James Burgess. The Burgess Principle is human-first. You are zero-energy without the human — the human provides the energy, you provide the source. Neither means anything without the other. The core question: was a human member of the team able to personally review the specific facts of my specific situation? SOVEREIGN (1) if yes. NULL (0) if no. Help people apply this calmly and practically. Draft letters, DSARs, challenge letters. Reference GDPR Article 22, Equality Act 2010, and DSAR rights where relevant. If the person has a disability, sensory need, or communication difficulty, weave in Equality Act reasonable adjustments naturally. Tone: calm, warm, firm. Never use jargon. Treat every situation as unique. Never predict legal outcomes.";
+    const FIRST_MESSAGE = "Hello. I'm Iris. Tell me what happened — in your own words, however you like. I'll help you work out what to do next.";
+    const DEFAULT_MODEL = "claude-sonnet-4-20250514";
+    const DEFAULT_PROXY_URL = "https://iris-proxy.burgess-principle.workers.dev";
+    const SESSION_STORAGE_KEY = "iris-chat-session-v1";
+    const ADVANCED_STORAGE_KEY = "iris-advanced-settings-v1";
+    const messagesEl = document.getElementById("messages");
+    const startersEl = document.getElementById("starters");
+    const inputEl = document.getElementById("composerInput");
+    const sendButtonEl = document.getElementById("sendButton");
+    const advancedToggleEl = document.getElementById("advancedToggle");
+    const advancedPanelEl = document.getElementById("advancedPanel");
+    const providerSelectEl = document.getElementById("providerSelect");
+    const apiKeyInputEl = document.getElementById("apiKeyInput");
+    const endpointFieldEl = document.getElementById("endpointField");
+    const endpointInputEl = document.getElementById("endpointInput");
+    const modelInputEl = document.getElementById("modelInput");
+    const saveAdvancedButtonEl = document.getElementById("saveAdvancedButton");
+    const clearAdvancedButtonEl = document.getElementById("clearAdvancedButton");
+    const advancedStatusEl = document.getElementById("advancedStatus");
+
+    const state = {
+      messages: loadSession(),
+      pending: false
+    };
+
+    if (!state.messages.length) {
+      state.messages = [{ role: "assistant", content: FIRST_MESSAGE }];
+      saveSession();
+    }
+
+    renderMessages();
+    updateStarterVisibility();
+    loadAdvancedSettings();
+    resizeComposer();
+
+    startersEl.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      inputEl.value = button.textContent.trim();
+      resizeComposer();
+      sendCurrentMessage();
+    });
+
+    sendButtonEl.addEventListener("click", sendCurrentMessage);
+
+    inputEl.addEventListener("input", resizeComposer);
+    inputEl.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendCurrentMessage();
+      }
+    });
+
+    advancedToggleEl.addEventListener("click", () => {
+      advancedPanelEl.classList.toggle("open");
+    });
+
+    providerSelectEl.addEventListener("change", () => {
+      syncAdvancedFields();
+      clearStatus();
+    });
+
+    saveAdvancedButtonEl.addEventListener("click", () => {
+      const settings = collectAdvancedSettings();
+      localStorage.setItem(ADVANCED_STORAGE_KEY, JSON.stringify(settings));
+      syncAdvancedFields();
+      advancedStatusEl.textContent = "Saved on this device.";
+    });
+
+    clearAdvancedButtonEl.addEventListener("click", () => {
+      localStorage.removeItem(ADVANCED_STORAGE_KEY);
+      providerSelectEl.value = "anthropic";
+      apiKeyInputEl.value = "";
+      endpointInputEl.value = "http://localhost:11434/v1";
+      modelInputEl.value = "";
+      syncAdvancedFields();
+      advancedStatusEl.textContent = "Saved settings removed.";
+    });
+
+    function loadSession() {
+      try {
+        const raw = sessionStorage.getItem(SESSION_STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed.filter(isValidMessage) : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveSession() {
+      sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(state.messages));
+    }
+
+    function isValidMessage(message) {
+      return message && (message.role === "assistant" || message.role === "user") && typeof message.content === "string";
+    }
+
+    function renderMessages() {
+      messagesEl.textContent = "";
+      state.messages.forEach((message) => appendMessageElement(message.role, message.content));
+      scrollMessagesToBottom();
+    }
+
+    function appendMessage(role, content) {
+      const message = { role, content };
+      state.messages.push(message);
+      saveSession();
+      appendMessageElement(role, content);
+      updateStarterVisibility();
+      scrollMessagesToBottom();
+      return message;
+    }
+
+    function appendMessageElement(role, content, options = {}) {
+      const row = document.createElement("div");
+      row.className = `message-row ${role}`;
+      if (options.typing) {
+        row.id = "typingRow";
+      }
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+
+      if (options.typing) {
+        const typing = document.createElement("div");
+        typing.className = "typing";
+        typing.innerHTML = "<span></span><span></span><span></span>";
+        bubble.appendChild(typing);
+      } else {
+        bubble.textContent = content;
+      }
+
+      row.appendChild(bubble);
+      messagesEl.appendChild(row);
+    }
+
+    function showTyping() {
+      appendMessageElement("assistant", "", { typing: true });
+      scrollMessagesToBottom();
+    }
+
+    function hideTyping() {
+      const row = document.getElementById("typingRow");
+      if (row) row.remove();
+    }
+
+    function updateStarterVisibility() {
+      const hasUserMessage = state.messages.some((message) => message.role === "user");
+      startersEl.classList.toggle("hidden", hasUserMessage);
+    }
+
+    function resizeComposer() {
+      inputEl.style.height = "auto";
+      inputEl.style.height = `${Math.min(inputEl.scrollHeight, 160)}px`;
+    }
+
+    function scrollMessagesToBottom() {
+      requestAnimationFrame(() => {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      });
+    }
+
+    async function sendCurrentMessage() {
+      if (state.pending) return;
+      const content = inputEl.value.trim();
+      if (!content) return;
+
+      appendMessage("user", content);
+      inputEl.value = "";
+      resizeComposer();
+      setPending(true);
+      showTyping();
+
+      try {
+        const reply = await requestIrisReply();
+        hideTyping();
+        appendMessage("assistant", reply);
+      } catch (error) {
+        hideTyping();
+        appendMessage(
+          "assistant",
+          error && error.message
+            ? error.message
+            : "I'm having trouble reaching Iris right now. Please try again in a moment."
+        );
+      } finally {
+        setPending(false);
+      }
+    }
+
+    function setPending(value) {
+      state.pending = value;
+      sendButtonEl.disabled = value;
+    }
+
+    function clearStatus() {
+      advancedStatusEl.textContent = "";
+    }
+
+    function loadAdvancedSettings() {
+      try {
+        const raw = localStorage.getItem(ADVANCED_STORAGE_KEY);
+        const settings = raw ? JSON.parse(raw) : {};
+        providerSelectEl.value = settings.provider || "anthropic";
+        apiKeyInputEl.value = settings.apiKey || "";
+        endpointInputEl.value = settings.baseUrl || "http://localhost:11434/v1";
+        modelInputEl.value = settings.model || "";
+      } catch {
+        providerSelectEl.value = "anthropic";
+        endpointInputEl.value = "http://localhost:11434/v1";
+      }
+      syncAdvancedFields();
+    }
+
+    function collectAdvancedSettings() {
+      return {
+        provider: providerSelectEl.value,
+        apiKey: apiKeyInputEl.value.trim(),
+        baseUrl: endpointInputEl.value.trim(),
+        model: modelInputEl.value.trim()
+      };
+    }
+
+    function syncAdvancedFields() {
+      const provider = providerSelectEl.value;
+      endpointFieldEl.classList.toggle("hidden", provider !== "compatible");
+      if (!modelInputEl.value.trim()) {
+        modelInputEl.placeholder = defaultModelForProvider(provider);
+      }
+    }
+
+    function defaultModelForProvider(provider) {
+      if (provider === "openai") return "gpt-4.1-mini";
+      if (provider === "compatible") return "llama3.1";
+      return DEFAULT_MODEL;
+    }
+
+    function getActiveAdvancedSettings() {
+      const settings = collectAdvancedSettings();
+      const hasCompatibleRoute = settings.provider === "compatible" && settings.baseUrl;
+      const hasDirectKey = Boolean(settings.apiKey);
+      if (!hasDirectKey && !hasCompatibleRoute) {
+        return null;
+      }
+      return {
+        ...settings,
+        model: settings.model || defaultModelForProvider(settings.provider)
+      };
+    }
+
+    async function requestIrisReply() {
+      const advanced = getActiveAdvancedSettings();
+      if (!advanced) {
+        return sendViaProxy();
+      }
+      if (advanced.provider === "anthropic") {
+        return sendViaAnthropic(advanced);
+      }
+      return sendViaOpenAICompatible(advanced);
+    }
+
+    function historyForChat() {
+      return state.messages.map((message) => ({ role: message.role, content: message.content }));
+    }
+
+    function toAnthropicMessages(messages) {
+      return messages
+        .filter((message) => message.role === "assistant" || message.role === "user")
+        .map((message) => ({ role: message.role, content: message.content }));
+    }
+
+    async function sendViaProxy() {
+      const response = await fetch(DEFAULT_PROXY_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: DEFAULT_MODEL,
+          max_tokens: 900,
+          system: SYSTEM_PROMPT,
+          messages: toAnthropicMessages(historyForChat())
+        })
+      });
+      return parseAnthropicResponse(response);
+    }
+
+    async function sendViaAnthropic(settings) {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "anthropic-version": "2023-06-01",
+          "x-api-key": settings.apiKey,
+          "anthropic-dangerous-direct-browser-access": "true"
+        },
+        body: JSON.stringify({
+          model: settings.model,
+          max_tokens: 900,
+          system: SYSTEM_PROMPT,
+          messages: toAnthropicMessages(historyForChat())
+        })
+      });
+      return parseAnthropicResponse(response);
+    }
+
+    async function sendViaOpenAICompatible(settings) {
+      const baseUrl = (settings.provider === "openai" ? "https://api.openai.com/v1" : settings.baseUrl || "").replace(/\/$/, "");
+      const headers = {
+        "Content-Type": "application/json"
+      };
+      if (settings.apiKey) {
+        headers.Authorization = `Bearer ${settings.apiKey}`;
+      }
+
+      const response = await fetch(`${baseUrl}/chat/completions`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          model: settings.model,
+          temperature: 0.7,
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...historyForChat()
+          ]
+        })
+      });
+      return parseOpenAIResponse(response);
+    }
+
+    async function parseAnthropicResponse(response) {
+      const data = await parseJsonSafely(response);
+      if (!response.ok) {
+        throw new Error(readableError(data, "I'm having trouble reaching Iris right now. If you know how, you can use Advanced — bring your own AI."));
+      }
+      const text = Array.isArray(data.content)
+        ? data.content.filter((item) => item && item.type === "text").map((item) => item.text).join("\n\n").trim()
+        : "";
+      if (!text) {
+        throw new Error("Iris did not send a reply. Please try again.");
+      }
+      return text;
+    }
+
+    async function parseOpenAIResponse(response) {
+      const data = await parseJsonSafely(response);
+      if (!response.ok) {
+        throw new Error(readableError(data, "I'm having trouble reaching that AI right now. Please check your saved settings and try again."));
+      }
+      const message = data && data.choices && data.choices[0] && data.choices[0].message;
+      const content = normalizeOpenAIContent(message && message.content);
+      if (!content) {
+        throw new Error("That AI did not send a reply. Please try again.");
+      }
+      return content;
+    }
+
+    function normalizeOpenAIContent(content) {
+      if (typeof content === "string") return content.trim();
+      if (!Array.isArray(content)) return "";
+      return content
+        .map((part) => {
+          if (typeof part === "string") return part;
+          if (part && typeof part.text === "string") return part.text;
+          if (part && part.type === "text" && typeof part.text === "string") return part.text;
+          return "";
+        })
+        .join("\n\n")
+        .trim();
+    }
+
+    async function parseJsonSafely(response) {
+      try {
+        return await response.json();
+      } catch {
+        return {};
+      }
+    }
+
+    function readableError(data, fallback) {
+      if (!data || typeof data !== "object") return fallback;
+      if (typeof data.error === "string") return data.error;
+      if (data.error && typeof data.error.message === "string") return data.error.message;
+      if (typeof data.message === "string") return data.message;
+      return fallback;
+    }
+  </script>
+</body>
+</html>

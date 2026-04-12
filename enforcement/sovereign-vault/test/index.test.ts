@@ -166,8 +166,10 @@ test('SovereignVault generates and verifies on-chain claims', async () => {
   assert.match(claim.signature, /^[0-9a-f]+$/);
   assert.match(claim.publicKey, /^[0-9a-f]{64}$/);
   assert.equal(SovereignVault.verifyOnchainReceipt(claim.commitmentHash, claim.signature, claim.publicKey), true);
+  const lastByte = parseInt(claim.signature.slice(-2), 16);
+  const flippedByte = (lastByte ^ 0xff).toString(16).padStart(2, '0');
   assert.equal(
-    SovereignVault.verifyOnchainReceipt(claim.commitmentHash, `${claim.signature.slice(0, -2)}00`, claim.publicKey),
+    SovereignVault.verifyOnchainReceipt(claim.commitmentHash, claim.signature.slice(0, -2) + flippedByte, claim.publicKey),
     false,
   );
 

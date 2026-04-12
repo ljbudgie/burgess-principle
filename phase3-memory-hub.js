@@ -61,7 +61,7 @@
 
   function normalizeConnectivityProfile(value = '') {
     const raw = String(value || '').trim().toLowerCase();
-    if (!raw) return 'starlink_hardwired';
+    if (!raw) return 'other';
     if (['starlink_hardwired', 'starlink_ethernet', 'starlink'].includes(raw)) return 'starlink_hardwired';
     if (['fiber_hardwired', 'fiber', 'fiber_optic', 'fiber optic'].includes(raw)) return 'fiber_hardwired';
     return 'other';
@@ -76,7 +76,7 @@
 
   function addConnectivityTagsFromText(value, tags) {
     const lower = String(value || '').toLowerCase();
-    if (!lower) return;
+    if (!lower) return tags;
     if (/(^|\W)starlink(\W|$)/.test(lower)) tags.add('starlink');
     if (/(^|\W)fiber(\W|$)/.test(lower)) tags.add('fiber');
     if (/(^|\W)ont(\W|$)/.test(lower)) tags.add('ont');
@@ -87,6 +87,7 @@
     if (/bypass mode/.test(lower)) tags.add('bypass-mode');
     if (/wi-?fi off|wifi off/.test(lower)) tags.add('wifi-off');
     if (/manual sync|queued sync|queued manual sync/.test(lower)) tags.add('queued-sync');
+    return tags;
   }
 
   async function suggestConnectivityTags(preferences = {}, extraText = '') {
@@ -116,7 +117,10 @@
     ].join(' ');
     addConnectivityTagsFromText(triggerDraftText, tags);
 
-    const triggers = await bridge.vaultStore.getAll('triggers').catch(() => []);
+    const triggers = await bridge.vaultStore.getAll('triggers').catch(error => {
+      console.warn('Could not load local triggers for connectivity suggestions.', error);
+      return [];
+    });
     for (const trigger of triggers) {
       addConnectivityTagsFromText([trigger.label, trigger.description, trigger.type].join(' '), tags);
     }
@@ -525,7 +529,7 @@
 
   function getHubEnvironmentPreferences() {
     return {
-      connectivity_profile: normalizeConnectivityProfile(document.getElementById('hubConnectivityProfile')?.value || 'starlink_hardwired'),
+      connectivity_profile: normalizeConnectivityProfile(document.getElementById('hubConnectivityProfile')?.value || 'other'),
       low_wireless_mode: Boolean(document.getElementById('hubLowWirelessToggle')?.checked),
       prefer_queued_syncs: Boolean(document.getElementById('hubQueuedSyncPreferenceToggle')?.checked),
       connectivity_note: (document.getElementById('hubConnectivityNote')?.value || '').trim(),

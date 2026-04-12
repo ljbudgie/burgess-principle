@@ -1991,7 +1991,7 @@
                             <label class="toggle-row" for="hubModeToggle"><input id="hubModeToggle" type="checkbox"> Connect to My Sovereign Hub</label>
                             <div class="claim-field" id="hubUrlField" style="display:none;"><label for="hubUrl">Hub URL</label><input id="hubUrl" type="url" placeholder="https://my-hub.local:8443"></div>
                             <div class="claim-field" id="hubKeyField" style="display:none;"><label for="hubSharedSecret">Shared secret</label><input id="hubSharedSecret" type="password" placeholder="Pre-shared symmetric key for AES-256-GCM"></div>
-                            <div class="claim-field" id="hubConnectivityProfileField" style="display:none;"><label for="hubConnectivityProfile">Connectivity Profile</label><select id="hubConnectivityProfile"><option value="starlink_hardwired" selected>Starlink Hardwired</option><option value="fiber_hardwired">Fiber Hardwired</option><option value="other">Other</option></select></div>
+                            <div class="claim-field" id="hubConnectivityProfileField" style="display:none;"><label for="hubConnectivityProfile">Connectivity Profile</label><select id="hubConnectivityProfile"><option value="starlink_hardwired">Starlink Hardwired</option><option value="fiber_hardwired">Fiber Hardwired</option><option value="other" selected>Other</option></select></div>
                             <label class="toggle-row" for="hubLowWirelessToggle" id="hubLowWirelessRow" style="display:none;"><input id="hubLowWirelessToggle" type="checkbox"> Minimized local wireless preference (user-controlled)</label>
                             <label class="toggle-row" for="hubQueuedSyncPreferenceToggle" id="hubQueuedSyncRow" style="display:none;"><input id="hubQueuedSyncPreferenceToggle" type="checkbox" checked> Prefer queued manual syncs to reduce always-on connectivity</label>
                             <div class="claim-field" id="hubConnectivityNoteField" style="display:none;"><label for="hubConnectivityNote">Connectivity note for local environmental review</label><input id="hubConnectivityNote" type="text" placeholder="Optional note about ONT or dish placement, Ethernet, Wi‑Fi off, or how the setup felt"></div>
@@ -2834,6 +2834,12 @@
             return [...new Set(matches)];
         }
 
+        const CONNECTIVITY_TRIGGER_TERMS = ['starlink', 'fiber', 'ethernet', 'hardwired', 'ont', 'bypass mode', 'fixed wireless', 'dsl', 'cable'];
+
+        function hasConnectivityTriggerTerm(lower) {
+            return CONNECTIVITY_TRIGGER_TERMS.some(term => lower.includes(term));
+        }
+
         function parseNaturalLanguageTriggerRule(text) {
             const raw = String(text || '').trim();
             if (!raw) {
@@ -2881,7 +2887,7 @@
             if (lower.includes('reasonable adjustment') && !parsed.keywords.includes('reasonable adjustment')) {
                 parsed.keywords.push('reasonable adjustment');
             }
-            if ((lower.includes('starlink') || lower.includes('fiber') || lower.includes('ethernet') || lower.includes('hardwired') || lower.includes('ont') || lower.includes('bypass mode')) && parsed.type === 'keyword') {
+            if (hasConnectivityTriggerTerm(lower) && parsed.type === 'keyword') {
                 parsed.label = 'Connectivity profile review';
             }
             if (lower.includes('starlink') && !parsed.keywords.includes('starlink')) {

@@ -8,6 +8,13 @@
     FIBER_HARDWIRED: 'fiber_hardwired',
     OTHER: 'other',
   };
+  const SLOW_NETWORK_RTT_THRESHOLD_MS = 900;
+  const PERIODIC_SYNC_INTERVALS_MS = Object.freeze({
+    DEFAULT: 12 * 60 * 60 * 1000,
+    FIBER_HARDWIRED: 4 * 60 * 60 * 1000,
+    STARLINK_HARDWIRED: 18 * 60 * 60 * 1000,
+    BALANCED_OTHER: 8 * 60 * 60 * 1000,
+  });
 
   function canonicalize(value) {
     if (Array.isArray(value)) {
@@ -175,25 +182,25 @@
     const snapshot = normalizeNetworkSnapshot(networkSnapshot);
     const online = snapshot.online;
     const saveData = snapshot.save_data;
-    const networkSlow = ['slow-2g', '2g'].includes(snapshot.effective_type) || (snapshot.rtt_ms > 900 && snapshot.rtt_ms !== 0);
+    const networkSlow = ['slow-2g', '2g'].includes(snapshot.effective_type) || (snapshot.rtt_ms > SLOW_NETWORK_RTT_THRESHOLD_MS && snapshot.rtt_ms !== 0);
     const wiredPreferred = normalizedProfile === CONNECTIVITY_PROFILES.FIBER_HARDWIRED || normalizedProfile === CONNECTIVITY_PROFILES.STARLINK_HARDWIRED;
     const wiredDetected = snapshot.wired_detected || snapshot.connection_type === 'ethernet';
     let mode = 'queued';
     let allowBackgroundFlush = false;
-    let periodicSyncMs = 12 * 60 * 60 * 1000;
+    let periodicSyncMs = PERIODIC_SYNC_INTERVALS_MS.DEFAULT;
 
     if (normalizedProfile === CONNECTIVITY_PROFILES.FIBER_HARDWIRED && online && !saveData && !networkSlow) {
       mode = 'balanced';
       allowBackgroundFlush = true;
-      periodicSyncMs = 4 * 60 * 60 * 1000;
+      periodicSyncMs = PERIODIC_SYNC_INTERVALS_MS.FIBER_HARDWIRED;
     } else if (normalizedProfile === CONNECTIVITY_PROFILES.STARLINK_HARDWIRED) {
       mode = profile.prefer_queued_syncs === false && online ? 'balanced' : 'queued';
       allowBackgroundFlush = online && wiredDetected && !networkSlow && !saveData && profile.prefer_queued_syncs === false;
-      periodicSyncMs = 18 * 60 * 60 * 1000;
+      periodicSyncMs = PERIODIC_SYNC_INTERVALS_MS.STARLINK_HARDWIRED;
     } else if (online && !networkSlow && !saveData && profile.prefer_queued_syncs === false) {
       mode = 'balanced';
       allowBackgroundFlush = true;
-      periodicSyncMs = 8 * 60 * 60 * 1000;
+      periodicSyncMs = PERIODIC_SYNC_INTERVALS_MS.BALANCED_OTHER;
     }
 
     if (!online) {

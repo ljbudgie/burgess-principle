@@ -1,7 +1,12 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import test from 'node:test';
 import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(__dirname, '..');
 
 const context = vm.createContext({
   globalThis: {},
@@ -16,11 +21,11 @@ context.self = context;
 context.window = context;
 
 for (const file of [
-  '/home/runner/work/burgess-principle/burgess-principle/sovereign-core/types.js',
-  '/home/runner/work/burgess-principle/burgess-principle/sovereign-core/utils.js',
-  '/home/runner/work/burgess-principle/burgess-principle/sovereign-core/commitment-orchestrator.js',
-  '/home/runner/work/burgess-principle/burgess-principle/sovereign-core/audit-engine.js',
-  '/home/runner/work/burgess-principle/burgess-principle/sovereign-core/profile-manager.js',
+  resolve(REPO_ROOT, 'sovereign-core/types.js'),
+  resolve(REPO_ROOT, 'sovereign-core/utils.js'),
+  resolve(REPO_ROOT, 'sovereign-core/commitment-orchestrator.js'),
+  resolve(REPO_ROOT, 'sovereign-core/audit-engine.js'),
+  resolve(REPO_ROOT, 'sovereign-core/profile-manager.js'),
 ]) {
   vm.runInContext(readFileSync(file, 'utf8'), context, { filename: file });
 }

@@ -964,7 +964,7 @@
       if (hubConfig.public_key_hex) hubPublicKey.value = hubConfig.public_key_hex;
       if (hubConfig.connectivity_profile) hubConnectivityProfile.value = hubConfig.connectivity_profile;
       hubLowWirelessToggle.checked = Boolean(hubConfig.low_wireless_mode);
-      hubQueuedSyncPreferenceToggle.checked = hubConfig.prefer_queued_syncs !== false;
+      hubQueuedSyncPreferenceToggle.checked = Boolean(hubConfig.prefer_queued_syncs ?? true);
       if (hubConfig.connectivity_note) hubConnectivityNote.value = hubConfig.connectivity_note;
     }
     await renderMemoryTimeline();

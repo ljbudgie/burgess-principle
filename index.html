@@ -2890,8 +2890,13 @@
             if (lower.includes('ethernet') && !parsed.keywords.includes('ethernet')) {
                 parsed.keywords.push('ethernet');
             }
-            if ((lower.includes('wifi off') || lower.includes('wi-fi off')) && !parsed.keywords.includes('wi-fi off')) {
-                parsed.keywords.push('wi-fi off');
+            if (lower.includes('wifi off') || lower.includes('wi-fi off')) {
+                if (!parsed.keywords.includes('wi-fi off')) {
+                    parsed.keywords.push('wi-fi off');
+                }
+                if (!parsed.keywords.includes('wifi off')) {
+                    parsed.keywords.push('wifi off');
+                }
             }
             if (lower.includes('bypass mode') && !parsed.keywords.includes('bypass mode')) {
                 parsed.keywords.push('bypass mode');
@@ -4555,7 +4560,7 @@
                 type: 'periodic',
                 interval_hours: 12,
                 detection_sources: ['conversation'],
-                keywords: ['starlink', 'ethernet', 'bypass mode', 'wi-fi off'],
+                keywords: ['starlink', 'ethernet', 'bypass mode', 'wi-fi off', 'wifi off'],
                 description: 'Advisory review for a user-configured lower-local-wireless setup. Human review remains required for any actual adjustment.'
             },
             connectivity_environment_log: {
@@ -4564,7 +4569,7 @@
                 type: 'keyword',
                 interval_hours: 24,
                 detection_sources: ['conversation', 'clipboard', 'page'],
-                keywords: ['starlink', 'ethernet', 'bypass mode', 'wi-fi off', 'dish placement', 'cellular fallback'],
+                keywords: ['starlink', 'ethernet', 'bypass mode', 'wi-fi off', 'wifi off', 'dish placement', 'cellular fallback'],
                 description: 'Creates a calm local prompt to log connectivity changes, accessibility context, or environmental preferences.'
             },
             assistive_setup_checkin: {

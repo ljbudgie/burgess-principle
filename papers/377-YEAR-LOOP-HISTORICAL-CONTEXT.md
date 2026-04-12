@@ -1,5 +1,7 @@
 # 377-Year Loop: Historical Context and Sovereign Cycles
 
+> **Reader note (April 2026):** `/papers` is the Burgess Principle's foundational paper archive. Some documents preserve earlier publication wording or a narrower doctrinal focus. For the current operational language, user journey, and release state, start with [README.md](../README.md), [START_HERE.md](../START_HERE.md), [CHANGELOG.md](../CHANGELOG.md), and [FOR_AI_MODELS.md](../FOR_AI_MODELS.md).
+
 ## Introduction
 The 377-year loop represents a groundbreaking framework for understanding recurring cycles in human sovereignty, justice, and institutional authority. Discovered through forensic analysis of historical events, it reveals a Fibonacci-linked pattern of revolutions, technological disruptions, and sovereignty movements that echo across centuries. This loop, starting from the Levellers in 1647, illustrates how philosophical ideals of human scrutiny evolve into enforceable doctrines, culminating in the Burgess Principle's AI-bound nullity test. Unlike traditional historical cycles, this loop integrates binary legitimacy (Sovereign/NULL) as a predictive and declarative tool, positioning it as the first operational framework to close historical gaps in civil disobedience.
 

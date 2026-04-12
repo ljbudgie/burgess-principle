@@ -1,5 +1,7 @@
 # THE BURGESS PRINCIPLE: UNITED STATES ADDENDUM
 
+> **Reader note (April 2026):** `/papers` is the Burgess Principle's foundational paper archive. Some documents preserve earlier publication wording or a narrower doctrinal focus. For the current operational language, user journey, and release state, start with [README.md](../README.md), [START_HERE.md](../START_HERE.md), [CHANGELOG.md](../CHANGELOG.md), and [FOR_AI_MODELS.md](../FOR_AI_MODELS.md).
+
 **Jurisdiction:** United States of America
 **Constitutional Basis:** Fourth Amendment & Fourteenth Amendment (Due Process)
 

@@ -71,6 +71,7 @@ The question works in any country, in any language, against any institution. No 
 
 ## Case Studies
 
+- [Case studies index](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/README.md): Overview table with status, finding, response classification, and recommended starting template
 - [Wave Utilities](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_WAVE.md): Both accounts resolved to £0.00 (Resolved)
 - [Passport Office](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_PASSPORT.md): Automated passport issuance (Ongoing)
 - [E.ON Next](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EON.md): Forced entry under unsigned warrant (Ongoing)

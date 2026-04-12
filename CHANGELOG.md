@@ -18,6 +18,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - `iris/system-prompt.md` now classifies institutional replies as SOVEREIGN, NULL, or AMBIGUOUS for follow-up purposes and guides Iris toward the next polite letter automatically.
 - Local install scripts, `iris-config.json`, `README.md`, `START_HERE.md`, and `SOVEREIGN_MODE.md` now provide a clearer non-technical path into Sovereign Local Mode, including Easy Mode defaults and setup wizard guidance.
 - Mirror Mode now supports configurable greeting style, custom greeting text, and a user-controlled Mirror Reflection scope for internal vault use or outward-facing documents.
+- `case-studies/` now uses a shared operational format with explicit response classification, next-step guidance, a folder index, and a shorter passport case backed by appendices.
 
 ## v1.3.0 — Sovereign Core: Unified Verifiable Architecture (12 April 2026)
 

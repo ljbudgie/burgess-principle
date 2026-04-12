@@ -92,7 +92,7 @@ To make evasive language easier to track, the register can now record these resp
 - **Question Asked:** Who individually reviewed account balance before instructing iC&R to pursue £679.38?
 - **Response Summary:** Erica (Senior Customer Service, Complex Queries) confirmed referral was "an automatic process in the system." No individual reviewed account before enforcement was instructed.
 - **Finding:** **NULL** at point of enforcement referral. **SOVEREIGN** at point of resolution — Erica individually reviewed both accounts and resolved all issues in one exchange.
-- **Status:** RESOLVED. Both accounts at £0.00. £795.14 in fees and interest removed. iC&R pulled back. Full case study: [CASE_STUDY_WAVE.md](CASE_STUDY_WAVE.md)
+- **Status:** RESOLVED. Both accounts at £0.00. £795.14 in fees and interest removed. iC&R pulled back. Full case study: [CASE_STUDY_WAVE.md](case-studies/CASE_STUDY_WAVE.md)
 
 ### 8. iC&R
 
@@ -166,7 +166,7 @@ To make evasive language easier to track, the register can now record these resp
 - **Question Asked:** Who individually reviewed the complainant's passport application before issuing Passport No. [redacted]? Was meaningful human intervention applied to the biometric processing?
 - **Response Summary:** Pending — DSAR, Article 22 challenge, and Equality Act assertion sent 30 March 2026.
 - **Finding:** NULL (provisional) — authority line reads "HMPO" with no named individual.
-- **Status:** DSAR filed. Response deadline 29 April 2026. Full case study: [CASE_STUDY_PASSPORT.md](CASE_STUDY_PASSPORT.md)
+- **Status:** DSAR filed. Response deadline 29 April 2026. Full case study: [CASE_STUDY_PASSPORT.md](case-studies/CASE_STUDY_PASSPORT.md)
 
 ### 17. Reddit Inc.
 

@@ -15,7 +15,7 @@
   const MEMORY_WORKER_URL = '/memory-palace-worker.js';
   const MEMORY_SEARCH_LIMIT = 40;
   const MEMORY_MAX_IMPORTS = 500;
-  const MEMORY_ADVISORY_TEXT = 'Memory Palace entries are local, signed, exportable as receipts, and auditable. Human review remains the final authority.';
+  const MEMORY_ADVISORY_TEXT = 'Memory Palace entries are local, signed, and auditable. Entries are exportable as receipts, and human review remains the final authority.';
 
   let worker = null;
   let workerRequestId = 0;
@@ -63,7 +63,7 @@
     const raw = String(value || '').trim().toLowerCase();
     if (!raw) return 'starlink_hardwired';
     if (['starlink_hardwired', 'starlink_ethernet', 'starlink'].includes(raw)) return 'starlink_hardwired';
-    if (['fiber_hardwired', 'fiber', 'fiber_optic', 'fiber optic', 'ont'].includes(raw)) return 'fiber_hardwired';
+    if (['fiber_hardwired', 'fiber', 'fiber_optic', 'fiber optic'].includes(raw)) return 'fiber_hardwired';
     return 'other';
   }
 
@@ -92,7 +92,6 @@
   async function suggestConnectivityTags(preferences = {}, extraText = '') {
     const tags = new Set(['environment', 'connectivity']);
     const normalizedProfile = normalizeConnectivityProfile(preferences.connectivity_profile);
-    tags.add(`connectivity-${normalizedProfile.replaceAll('_', '-')}`);
     if (normalizedProfile === 'starlink_hardwired') {
       tags.add('starlink');
       tags.add('ethernet');

@@ -50,6 +50,36 @@ v0.3.0 ensured the cryptographic layer met its own standard. v0.4.0 extends it f
 
 The principle does not change. The binary test remains SOVEREIGN or NULL. What changes is reach: a demand for human scrutiny can now be recorded as a globally verifiable, tamper-proof artifact. Institutions, DAOs, regulators, and courts can verify that the claim existed at a specific time and was signed by a specific key — without ever seeing the facts. The individual keeps control. The question stays the same.
 
+## v0.5.0–v0.6.0 — Iris: The Sovereign Companion
+
+v0.4.0 gave the individual a way to record a demand on-chain. v0.5.0 gave the individual a companion to help them make it. Iris is an AI interface — calm, conversational, grounded entirely in the binary test. She guides the user through the question, helps draft templates, explains the Vault, and assists with on-chain commitments. She does not decide. She does not override. She keeps data sovereignty with the individual and keeps the human at the centre of every action.
+
+v0.6.0 made Iris sovereign in her own right. Sovereign Local Mode runs the entire companion on the user's own hardware — no cloud, no API keys, no data leaving the device. A local GGUF model, a local server, a local interface. The same calm guidance, the same binary test, the same templates and Vault workflows — but now in full air-gap mode. The question does not change. The architecture simply ensures that even the tool asking the question answers to the individual, not to a platform.
+
+## v0.7.0–v0.9.0 — From Doctrine to Daily Advocate
+
+v0.7.0 brought the principle directly into the two sectors where automated NULL-mode decisions hit hardest: banking and crypto exchanges. Production-ready templates for account closures, withdrawal holds, compliance escalations, and cryptographic-proof notices were added alongside a streamlined discovery system so any user — especially neurodiverse and disabled people facing opaque automated decisions — could find the right template in seconds.
+
+v0.8.0 turned Iris into an execution engine. A user describes what happened in natural language; Iris detects the scenario, selects and fills the template, generates a SHA-256 commitment, signs it with Ed25519, encrypts and saves the result to the Sovereign Personal Vault — all on-device, in seconds. The Burgess Principle was no longer just documentation. It was instant, verifiable action.
+
+v0.9.0 put that engine in a pocket. The entire workflow — voice-first input, persistent floating claim button, IndexedDB-backed Vault, one-tap export, background on-chain sync — now runs as an installable PWA on a phone. The advocate lives on the device you already carry. When an institution hits you with a NULL-mode decision in the real world, you pull out your phone, speak or type what happened, and walk away with a signed, Vault-stored claim. No laptop required. No delay. No intermediary.
+
+## v1.0–v1.1 — Personal Sovereign Identity
+
+v1.0 is the maturity milestone. The framework stopped being generic and became personal. A one-time identity setup generates or loads an Ed25519 keypair tied to the user's name. Every claim, every Vault entry, every on-chain fingerprint now carries the individual's signed identity by default. A private local contacts list — names and optional notes only, never leaving the device — lets the user say "send to my bank manager" and have the recipient block pre-filled instantly. The advocate is no longer a framework. It is unmistakably yours.
+
+v1.1 — Mirror Mode — takes that further. Iris becomes a real-time cryptographic mirror of the user's hardware identity. The name, the keypair, the local contacts list are reflected across every claim and interaction with zero perceptible overhead. Voice commands like "mirror this to my bank contact" instantly pre-fill and sign. The UI greets the user by name. The floating button reads "Mirror Claim as Lewis." The Burgess Principle has always been about one human reviewing another human's specific situation. Mirror Mode makes that human visibly, cryptographically, and personally present — signed by them, reflecting them, running on their own device.
+
+## v1.2.0–v1.3.0 — The Verifiable Ledger and Unified Core
+
+v1.2.0 crosses into territory that has never been done before in an open-source local-first AI companion. The Memory Palace — the user's personal record of memories, triggers, interactions, and governance changes — becomes a tamper-evident cryptographic ledger. Every entry is a commitment-chained block (SHA-256 + Ed25519 signature). The full history is summarised with Merkle tree roots and efficient inclusion proofs. A user can prove any specific memory or event was part of the ledger at a given time without revealing unrelated personal data. One-click full system integrity checks recompute the entire chain from genesis. The evidence trail itself is now independently verifiable and tamper-evident.
+
+Sovereign Hub Mode evolved alongside: an optional, manual-first, self-hosted coordination layer that syncs only lightweight commitment roots — never raw personal memory — with end-to-end encryption and signed response verification, designed for intermittent connections.
+
+v1.3.0 consolidates everything. All sovereignty-critical runtime logic — commitments, profile policy, audit paths, connectivity behaviour — is unified into a shared Sovereign Core. What was distributed across the PWA, Living Triggers, Memory Palace, Hub Mode, and service worker is now defined once and reused everywhere. The connectivity-aware runtime adapts to the user's physical setup: more conservative queuing on intermittent satellite links, more permissive on stable wired connections. By centralising the critical logic, Iris becomes easier to audit and harder to drift from its core values. AI remains strictly advisory. Every final SOVEREIGN or NULL decision stays with a human reviewer. Raw personal data never leaves the device unless the user explicitly exports a signed receipt.
+
+The principle does not change. The binary test remains the same. What changes is the depth and integrity of the evidence trail behind the question — and the certainty that the tool asking it is itself accountable, auditable, and sovereign.
+
 ## For Anyone Reading This
 
 If you found this repository because an institution acted against you and you felt unseen — you are not alone. The system processes millions of people the same way every year. It is not personal. It is architectural. And architecture can be challenged.

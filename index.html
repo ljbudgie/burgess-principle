@@ -2315,6 +2315,9 @@
         const HUB_CONFIG_KEY = 'hub-config-v2';
         const HUB_DELTA_CURSOR_KEY = 'hub-delta-cursor-v2';
         const EXTENSION_PACKS_KEY = 'iris-extension-packs-v1';
+        const MAX_EXTENSION_PACK_TEMPLATES = 12;
+        const MAX_EXTENSION_PACK_TRIGGER_PRESETS = 12;
+        const MAX_EXTENSION_PACK_EXPORT_ADAPTERS = 12;
         const DEFAULT_VOICE_STATUS = 'Voice ready when your browser supports on-device speech recognition.';
         const IDENTITY_FIELD_IDS = {
             name: 'profileIdentityName',
@@ -3644,7 +3647,7 @@
                 trigger_presets: [],
                 export_adapters: [],
             };
-            for (const item of Array.isArray(pack.templates) ? pack.templates.slice(0, 12) : []) {
+            for (const item of Array.isArray(pack.templates) ? pack.templates.slice(0, MAX_EXTENSION_PACK_TEMPLATES) : []) {
                 if (!item || typeof item !== 'object' || !item.id || !item.label || !item.prompt) continue;
                 normalized.templates.push({
                     id: String(item.id).trim(),
@@ -3652,7 +3655,7 @@
                     prompt: String(item.prompt).trim(),
                 });
             }
-            for (const item of Array.isArray(pack.trigger_presets) ? pack.trigger_presets.slice(0, 12) : []) {
+            for (const item of Array.isArray(pack.trigger_presets) ? pack.trigger_presets.slice(0, MAX_EXTENSION_PACK_TRIGGER_PRESETS) : []) {
                 if (!item || typeof item !== 'object' || !item.id || !item.label || !item.natural_language) continue;
                 normalized.trigger_presets.push({
                     id: String(item.id).trim(),
@@ -3666,7 +3669,7 @@
                     voice_phrase: typeof item.voice_phrase === 'string' ? item.voice_phrase.trim() : '',
                 });
             }
-            for (const item of Array.isArray(pack.export_adapters) ? pack.export_adapters.slice(0, 12) : []) {
+            for (const item of Array.isArray(pack.export_adapters) ? pack.export_adapters.slice(0, MAX_EXTENSION_PACK_EXPORT_ADAPTERS) : []) {
                 if (!item || typeof item !== 'object' || !item.id || !item.label) continue;
                 const format = ['json', 'markdown', 'email'].includes(item.format) ? item.format : 'json';
                 normalized.export_adapters.push({

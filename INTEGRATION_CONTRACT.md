@@ -43,7 +43,7 @@ The following schemas are published in [`/schemas`](./schemas):
 A generated claim package should be exported as structured JSON, with letter markdown separated from commitment metadata.
 
 ### Memory receipt
-A memory receipt should contain the signed entry, signed root, and Merkle inclusion proof needed for selective disclosure.
+A memory receipt should contain the signed entry, signed root, leaf position metadata, and Merkle inclusion proof needed for selective disclosure.
 
 ### Sovereign backup bundle
 A backup bundle should contain encrypted local vault state, local profile metadata, Memory Palace state, hub pairing state, and section checksums.

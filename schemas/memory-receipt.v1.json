@@ -7,6 +7,8 @@
   "properties": {
     "receipt_export_version": { "type": "integer", "const": 1 },
     "exported_at": { "type": "string", "format": "date-time" },
+    "leaf_index": { "type": "integer", "minimum": 0 },
+    "leaf_count": { "type": "integer", "minimum": 1 },
     "record": { "type": "object" },
     "root_record": { "type": "object" },
     "inclusion_proof": {

@@ -22,13 +22,25 @@ For the full licence terms — including the distinction between personal and co
 
 The framework is designed to work across jurisdictions (see the global legal equivalents in the [README](README.md)), but laws, rights, and available remedies differ from country to country. Nothing in this repository should be taken as advice on the law of any specific jurisdiction. Always check what applies where you are.
 
-### AI-Assisted Use
+### AI-Assisted and Hosted Use
 
-This repository encourages users to drop the materials into AI assistants such as Grok, Claude, or ChatGPT for personalised help. Please remember that **AI-generated letters, guidance, and suggestions are also general information — not legal advice**. AI models can make mistakes, hallucinate details, or miss nuances specific to your case. Always review any AI-generated output carefully before sending it to an institution.
+This repository includes AI-assisted workflows through Iris, including a hosted PWA/chat entry point and a richer Sovereign Local Mode. **AI-generated letters, guidance, classifications, and suggestions are still general information — not legal advice**. AI models can make mistakes, hallucinate details, or miss nuances specific to your case. Always review any AI-generated output carefully before sending it to an institution.
 
-### Cryptographic Vault
+If you use the hosted experience, remember that hosted routes rely on deployed infrastructure and do not provide the same privacy posture as running Iris locally on your own hardware. The strongest privacy guarantees described in this repository apply to Sovereign Local Mode.
 
-The optional Sovereign Personal Vault (`enforcement/sovereign-vault/`) is provided for personal record-keeping and evidence preservation. It is not a substitute for professional security advice, certified digital-evidence services, or legally mandated record-keeping systems. See [SECURITY.md](SECURITY.md) for the cryptographic baseline and current standards.
+### Local Records, Receipts, Sync, and On-Chain Tools
+
+The repository includes optional local-first evidence and auditability tooling, including the Sovereign Personal Vault (`enforcement/sovereign-vault/`), the Memory Palace ledger, signed receipts, Merkle inclusion proofs, Sovereign Hub Mode, and optional on-chain commitment fingerprints.
+
+These tools are provided for personal record-keeping, integrity checking, selective disclosure, and evidence preservation. They are **not** a substitute for professional security advice, certified digital-evidence services, legal filing requirements, or legally mandated record-keeping systems. They also do **not** by themselves prove that a legally sufficient human review took place. See [SECURITY.md](SECURITY.md) for the cryptographic baseline and current standards.
+
+### Self-Hosted Hub Scope
+
+Sovereign Hub Mode is an optional, manual-first, self-hosted coordination layer. It is not a managed service, disaster-recovery guarantee, or institutional archive. You are responsible for how any hub is deployed, secured, backed up, and operated.
+
+### Connectivity and Personal Environmental Preferences
+
+Any discussion in this repository about hardwired setups, connectivity profiles, or personal environmental preferences is offered as user-directed configuration guidance only. It does **not** constitute medical advice, diagnosis, treatment, or cure claims, and it should not be understood as a substitute for qualified clinical or accessibility advice tailored to your situation.
 
 ### Accessibility and Individual Circumstances
 

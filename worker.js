@@ -4,7 +4,7 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type"
 };
 
-function json(data, status = 200) {
+function jsonResponse(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
@@ -24,22 +24,22 @@ export default {
     }
 
     if (request.method !== "POST") {
-      return json({ error: "Only POST is allowed." }, 405);
+      return jsonResponse({ error: "Only POST is allowed." }, 405);
     }
 
     if (!env.ANTHROPIC_API_KEY) {
-      return json({ error: "ANTHROPIC_API_KEY is not configured." }, 503);
+      return jsonResponse({ error: "ANTHROPIC_API_KEY is not configured." }, 503);
     }
 
     let body = "";
     try {
       body = await request.text();
     } catch {
-      return json({ error: "Request body could not be read." }, 400);
+      return jsonResponse({ error: "Request body could not be read." }, 400);
     }
 
     if (!body) {
-      return json({ error: "Request body is required." }, 400);
+      return jsonResponse({ error: "Request body is required." }, 400);
     }
 
     const upstream = await fetch("https://api.anthropic.com/v1/messages", {

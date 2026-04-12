@@ -31,6 +31,17 @@ export default {
       return json({ error: "ANTHROPIC_API_KEY is not configured." }, 503);
     }
 
+    let body = "";
+    try {
+      body = await request.text();
+    } catch {
+      return json({ error: "Request body could not be read." }, 400);
+    }
+
+    if (!body) {
+      return json({ error: "Request body is required." }, 400);
+    }
+
     const upstream = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -38,7 +49,7 @@ export default {
         "anthropic-version": "2023-06-01",
         "x-api-key": env.ANTHROPIC_API_KEY
       },
-      body: request.body
+      body
     });
 
     return new Response(upstream.body, {

@@ -26,6 +26,13 @@ The following schemas are published in [`/schemas`](./schemas):
 - `POST /verify` — verify Burgess reasoning text against a SHA-256 digest.
 - `POST /claims/verify` — verify an Ed25519-signed on-chain claim receipt.
 
+### Hosted Cloud Mode helpers
+- `POST /api/chat` — stateless hosted chat relay for the Vercel PWA entry point.
+- `GET /api/push-subscribe` — retrieve the hosted VAPID public key when optional server-triggered push is configured.
+- `POST /api/push-subscribe` — acknowledge an optional hosted push subscription for server-triggered notifications.
+
+Hosted `/api/*` routes are intentionally narrow. Richer claim-building, profile, and queueing routes remain local-first and are exposed by `iris-local.py`.
+
 ### Sovereign Local Mode
 - `POST /api/chat` — local advisory chat when Iris runs via `iris-local.py`.
 - `POST /api/generate-claim` — generate a local claim package and letter markdown.

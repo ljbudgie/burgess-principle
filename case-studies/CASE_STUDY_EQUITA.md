@@ -1,15 +1,15 @@
 # Case Study: Equita — Enforcement of Five Council Tax and PCN Debts Without Individual Human Review
 
-**Case Reference:** Cases 24277541, 24371333, 24519250, 24618815, 24650546  
-**Sector:** Council Tax and Penalty Charge Notice (PCN) Enforcement  
-**Current Status:** ONGOING  
-**Date Opened:** 20 March 2026  
-**Date Resolved:** Pending  
-**Current Finding:** NULL  
-**Response Classification:** AMBIGUOUS  
-**Procedural Posture:** Five enforcement cases challenged; the operative response was disability gatekeeping rather than a direct answer on human review.  
-**Last Updated:** 12 April 2026  
-**Outcome:** Enforcement remains challenged. No certified orders, compliant notices, or direct answer on human review have been produced.
+- **Case Reference:** Cases 24277541, 24371333, 24519250, 24618815, 24650546
+- **Sector:** Council Tax and Penalty Charge Notice (PCN) Enforcement
+- **Current Status:** ONGOING
+- **Date Opened:** 20 March 2026
+- **Date Resolved:** Pending
+- **Current Finding:** NULL
+- **Response Classification:** AMBIGUOUS
+- **Procedural Posture:** Five enforcement cases challenged; the operative response was disability gatekeeping rather than a direct answer on human review.
+- **Last Updated:** 12 April 2026
+- **Outcome:** Enforcement remains challenged. No certified orders, compliant notices, or direct answer on human review have been produced.
 
 ---
 

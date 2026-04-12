@@ -387,7 +387,7 @@
       </div>
 
       <form id="advancedPanel" class="advanced-panel" aria-label="Advanced settings">
-        <p>If you already have your own AI access, you can use it here. Your saved settings stay only in this browser. For local models, you can leave the key blank if your endpoint does not need one. A common Ollama address is <span>http://localhost:11434/v1</span>.</p>
+        <p>If you already have your own AI access, you can use it here. Your saved settings stay only in this browser. When you use Advanced, your browser sends requests directly to the provider or local endpoint you choose. For local models, you can leave the key blank if your endpoint does not need one. A common Ollama address is <span>http://localhost:11434/v1</span>.</p>
 
         <div class="field">
           <label for="providerSelect">Provider</label>
@@ -428,6 +428,8 @@
     const FIRST_MESSAGE = "Hello. I'm Iris. Tell me what happened — in your own words, however you like. I'll help you work out what to do next.";
     const DEFAULT_MODEL = "claude-sonnet-4-20250514";
     const DEFAULT_PROXY_URL = "https://iris-worker.ljbarbers15.workers.dev";
+    const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";
+    const OPENAI_CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions";
     const SESSION_STORAGE_KEY = "iris-chat-session-v1";
     const ADVANCED_STORAGE_KEY = "iris-advanced-settings-v1";
     const messagesEl = document.getElementById("messages");
@@ -689,7 +691,7 @@
       if (advanced.provider === "anthropic") {
         return sendViaAnthropic(advanced);
       }
-      return sendViaWorkerChatCompletion(advanced);
+      return sendViaOpenAICompatible(advanced);
     }
 
     function historyForChat() {
@@ -723,7 +725,7 @@
     }
 
     async function sendViaAnthropic({ apiKey, model }) {
-      const response = await fetch(DEFAULT_PROXY_URL, {
+      const response = await fetch(ANTHROPIC_MESSAGES_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -741,7 +743,14 @@
       return parseAnthropicResponse(response);
     }
 
-    async function sendViaWorkerChatCompletion({ apiKey, model }) {
+    function buildChatCompletionsUrl(baseUrl) {
+      const normalized = String(baseUrl || "").trim().replace(/\/+$/, "");
+      if (!normalized) return OPENAI_CHAT_COMPLETIONS_URL;
+      if (normalized.endsWith("/chat/completions")) return normalized;
+      return `${normalized}/chat/completions`;
+    }
+
+    async function sendViaOpenAICompatible({ provider, apiKey, model, baseUrl }) {
       const headers = {
         "Content-Type": "application/json"
       };
@@ -749,18 +758,21 @@
         headers.Authorization = `Bearer ${apiKey}`;
       }
 
-      const response = await fetch(DEFAULT_PROXY_URL, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({
-          model,
-          temperature: 0.7,
-          messages: [
-            { role: "system", content: SYSTEM_PROMPT },
-            ...historyForChat()
-          ]
-        })
-      });
+      const response = await fetch(
+        provider === "openai" ? OPENAI_CHAT_COMPLETIONS_URL : buildChatCompletionsUrl(baseUrl),
+        {
+          method: "POST",
+          headers,
+          body: JSON.stringify({
+            model,
+            temperature: 0.7,
+            messages: [
+              { role: "system", content: SYSTEM_PROMPT },
+              ...historyForChat()
+            ]
+          })
+        }
+      );
       return parseOpenAIResponse(response);
     }
 

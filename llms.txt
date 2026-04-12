@@ -3,7 +3,7 @@
 > A minimalist, human-first framework that helps individuals demand real human review from automated systems and institutions.
 
 Live site / PWA: https://burgess-principle.vercel.app
-Latest release: https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1
+Latest release: https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0
 Repository: https://github.com/ljbudgie/burgess-principle
 Licence: MIT (doctrine) | Certification Mark UK00004343685 (commercial standard)
 

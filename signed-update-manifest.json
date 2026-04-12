@@ -1,10 +1,10 @@
 {
-  "key_id": "iris-pwa-ed25519-2026-04",
-  "public_key_hex": "22419690b7f8688db18850c5c8f21f1b8e7c011986ebef38c2193c45042f8b58",
+  "key_id": "iris-pwa-ed25519-2026-04-v130",
+  "public_key_hex": "a4e4841ff971e67c20a25e9692cc240f6431480c378c1812710204bff7c6b4e5",
   "signed_payload": {
     "app_id": "iris-sovereign-pwa",
-    "version": "1.1.1-phase1",
-    "issued_at": "2026-04-12T00:36:07.123688Z",
+    "version": "1.3.0",
+    "issued_at": "2026-04-12T02:19:46.496209Z",
     "hash_algorithm": "sha256",
     "consent_required": true,
     "critical_paths": [
@@ -17,11 +17,11 @@
     "assets": [
       {
         "path": "/",
-        "sha256": "c6d3b8204e462468bc2a50c1759751876fec77cb2346a4f251075355c977de10"
+        "sha256": "aa19ca9435d508e866719cbe62f2e2c9bdf9a6a8feb831786f50cb283ca5c6d8"
       },
       {
         "path": "/index.html",
-        "sha256": "c6d3b8204e462468bc2a50c1759751876fec77cb2346a4f251075355c977de10"
+        "sha256": "aa19ca9435d508e866719cbe62f2e2c9bdf9a6a8feb831786f50cb283ca5c6d8"
       },
       {
         "path": "/manifest.json",
@@ -29,7 +29,7 @@
       },
       {
         "path": "/service-worker.js",
-        "sha256": "a7020be4f2b13694d384d924dc76d761743f286258078b1fb6ee19a739d31e10"
+        "sha256": "074e0f942a9eb7afa5eee397c92f33383eb2471852121cf9b167b544aa75de35"
       },
       {
         "path": "/banner.png",
@@ -37,5 +37,5 @@
       }
     ]
   },
-  "signature": "t1UxFPz0VIEXQrE7d7e28xjnFDcmPNj2bpj6GwEK2n88xMxkmipsGQuHAuxBxMKtKwFJ2FI3pE12XO3VQKy3CQ=="
+  "signature": "4OZDlRnqXXwx1YHSCvGj38HXG2VJkVqeDexcc2GjnHGzQ1h8SS1PX9z+45zXHKjAbUNQXMyQxjGspXD6/kdnDA=="
 }

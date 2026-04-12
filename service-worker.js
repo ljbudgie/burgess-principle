@@ -6,7 +6,7 @@ self.importScripts(
   '/sovereign-core/profile-manager.js',
 );
 
-const PWA_CORE_VERSION = '1.1.1-phase1';
+const PWA_CORE_VERSION = '1.3.0';
 const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
 const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
 const API_CACHE_NAME = `burgess-principle-api-${PWA_CORE_VERSION}`;

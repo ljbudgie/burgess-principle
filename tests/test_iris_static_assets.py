@@ -15,6 +15,7 @@ def test_iris_html_contains_required_copy_and_controls():
     assert "I need help writing a letter back" in IRIS_HTML
     assert 'Advanced — bring your own AI' in IRIS_HTML
     assert 'claude-sonnet-4-20250514' in IRIS_HTML
+    assert 'https://iris-worker.ljbarbers15.workers.dev' in IRIS_HTML
     assert 'sessionStorage' in IRIS_HTML
     assert 'localStorage' in IRIS_HTML
 
@@ -24,6 +25,11 @@ def test_iris_html_keeps_the_exact_system_prompt():
     assert 'The core question: was a human member of the team able to personally review the specific facts of my specific situation?' in IRIS_HTML
     assert 'SOVEREIGN (1) if yes. NULL (0) if no.' in IRIS_HTML
     assert 'Never predict legal outcomes.' in IRIS_HTML
+
+
+def test_iris_html_routes_api_calls_through_worker():
+    assert 'https://api.anthropic.com/v1/messages' not in IRIS_HTML
+    assert 'https://api.openai.com/v1' not in IRIS_HTML
 
 
 def test_worker_is_a_small_anthropic_proxy_without_logging():

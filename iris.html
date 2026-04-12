@@ -386,7 +386,7 @@
         <button id="advancedToggle" class="link-button" type="button">Advanced — bring your own AI</button>
       </div>
 
-      <section id="advancedPanel" class="advanced-panel" aria-label="Advanced settings">
+      <form id="advancedPanel" class="advanced-panel" aria-label="Advanced settings">
         <p>If you already have your own AI access, you can use it here. Your saved settings stay only in this browser. For local models, you can leave the key blank if your endpoint does not need one.</p>
 
         <div class="field">
@@ -419,7 +419,7 @@
         </div>
 
         <div id="advancedStatus" class="status" aria-live="polite"></div>
-      </section>
+      </form>
     </section>
   </div>
 
@@ -480,6 +480,10 @@
 
     advancedToggleEl.addEventListener("click", () => {
       advancedPanelEl.classList.toggle("open");
+    });
+
+    advancedPanelEl.addEventListener("submit", (event) => {
+      event.preventDefault();
     });
 
     providerSelectEl.addEventListener("change", () => {
@@ -551,7 +555,9 @@
       if (options.typing) {
         const typing = document.createElement("div");
         typing.className = "typing";
-        typing.innerHTML = "<span></span><span></span><span></span>";
+        for (let index = 0; index < 3; index += 1) {
+          typing.appendChild(document.createElement("span"));
+        }
         bubble.appendChild(typing);
       } else {
         bubble.textContent = content;
@@ -687,7 +693,11 @@
     }
 
     function historyForChat() {
-      return state.messages.map((message) => ({ role: message.role, content: message.content }));
+      const messages = state.messages.map((message) => ({ role: message.role, content: message.content }));
+      while (messages[0] && messages[0].role === "assistant") {
+        messages.shift();
+      }
+      return messages;
     }
 
     function toAnthropicMessages(messages) {

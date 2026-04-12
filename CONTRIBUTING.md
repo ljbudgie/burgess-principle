@@ -59,6 +59,16 @@ Contributions that touch the Sovereign Personal Vault (`enforcement/sovereign-va
 
 See [SECURITY.md](SECURITY.md) for the full rationale and the list of eight vulnerabilities the v0.3.0 review resolved.
 
+### Phase 3 Ledger & Documentation Contributions
+
+If your contribution touches the **Verifiable Memory Palace**, **Sovereign Hub Mode 2.0**, or related documentation:
+
+- Keep the **Burgess Principle** central — do not imply that cryptography or AI replaces human review.
+- Describe **Merkle trees**, **commitment chaining**, and **inclusion proofs** in plain language first, then technical terms.
+- Be precise about privacy boundaries: **local-first**, **manual-first**, **digest-first**, and **no raw-data sync by default**.
+- Prefer diagrams in **GitHub-flavored Mermaid** where they materially improve clarity.
+- Avoid marketing claims that outrun the implementation. Strong language is welcome; overclaiming is not.
+
 ### Good First Issues
 
 Looking for a way to help? Here are some approachable starting points:

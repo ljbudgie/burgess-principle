@@ -121,11 +121,14 @@ def test_detect_ram_gb_returns_none_when_detection_fails(monkeypatch):
 
 
 def test_detect_ram_gb_reads_darwin_sysctl(monkeypatch):
+    class CompletedProcess:
+        stdout = str(8 * 1024**3)
+
     monkeypatch.setattr(setup_wizard_module.sys, "platform", "darwin")
     monkeypatch.setattr(
         setup_wizard_module.subprocess,
         "run",
-        lambda *args, **kwargs: type("Completed", (), {"stdout": str(8 * 1024**3)})(),
+        lambda *args, **kwargs: CompletedProcess(),
     )
 
     assert detect_ram_gb() == 8.0
@@ -198,6 +201,8 @@ def test_download_model_handles_unknown_total_size(tmp_path, monkeypatch, capsys
     destination = tmp_path / "models" / "demo.gguf"
 
     def fake_urlretrieve(url, path, reporthook):
+        assert url == "https://example.com/demo.gguf"
+        assert Path(path) == destination
         reporthook(1, 50, 0)
         Path(path).write_text("model-bytes", encoding="utf-8")
 
@@ -209,6 +214,7 @@ def test_download_model_handles_unknown_total_size(tmp_path, monkeypatch, capsys
     )
 
     output = capsys.readouterr().out
+    assert destination.read_text(encoding="utf-8") == "model-bytes"
     assert "Downloading Demo Model" in output
     assert output.count("Progress: 100%") == 1
 

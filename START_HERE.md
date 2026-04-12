@@ -79,7 +79,7 @@ These resources are for people who want to explore the framework, doctrine, and 
 
 | Resource | What's inside |
 | --- | --- |
-| [`/papers`](./papers) | In-depth legal and policy analysis, licensing structure |
+| [`/papers`](./papers) | Foundational papers, doctrine archive, and licensing notes — see the folder guide for what is current vs publication-era wording |
 | [`LIVE_AUDIT_LOG.md`](LIVE_AUDIT_LOG.md) | Chronological record of every institutional interaction and finding |
 | [`INSTITUTIONAL_REGISTER.md`](INSTITUTIONAL_REGISTER.md) | Every institution tested, with sector, response, and SOVEREIGN/NULL finding |
 | [`/case-studies`](./case-studies/README.md) | Indexed real-world examples, current findings, and recommended starting points |

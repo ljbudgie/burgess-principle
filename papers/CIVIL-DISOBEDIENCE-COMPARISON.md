@@ -1,5 +1,7 @@
 # Civil Disobedience Comparison
 
+> **Reader note (April 2026):** `/papers` is the Burgess Principle's foundational paper archive. Some documents preserve earlier publication wording or a narrower doctrinal focus. For the current operational language, user journey, and release state, start with [README.md](../README.md), [START_HERE.md](../START_HERE.md), [CHANGELOG.md](../CHANGELOG.md), and [FOR_AI_MODELS.md](../FOR_AI_MODELS.md).
+
 ## Introduction
 The Burgess Principle continues the tradition of civil disobedience, which challenges unjust laws and institutions through moral and physical resistance. However, it shifts from symbolic protest and collective action to proactive, operational legitimacy testing, declaring nullity through forensic evidence and immutable logging. This innovation closes a direct 377-year loop beginning with the Levellers in 1647, evolving philosophical ideals into enforceable doctrine for the algorithmic age.
 

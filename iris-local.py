@@ -13,6 +13,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import sys
@@ -46,6 +47,9 @@ log = logging.getLogger("iris-local")
 
 
 def print_sovereign_banner(config: dict) -> None:
+    source_code = Path(__file__).read_text(encoding="utf-8")
+    fingerprint = hashlib.sha256(source_code.encode("utf-8")).hexdigest()
+    short_fingerprint = fingerprint[:16] + "..."
     model_name = Path(str(config.get("model_path", "unknown"))).name or "unknown"
     port = config.get("port", 8000)
     gpu_status = "ON" if config.get("gpu_acceleration") else "OFF"
@@ -58,6 +62,7 @@ def print_sovereign_banner(config: dict) -> None:
         "• All inference & commitments stay on-device",
         "• Powered by v0.4.0 cryptographic human scrutiny (Burgess Principle)",
         "",
+        f"Source fingerprint: {short_fingerprint} (v0.4.0 self-verified)",
         f"Model: {model_name:40}",
         f"Port : {port} | GPU: {gpu_status}",
     ]

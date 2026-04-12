@@ -22,9 +22,9 @@ If you are unsure, start with one of the default templates below and personalise
 
 ---
 
-## Default first picks
+## Default first-pick templates
 
-These are the best starting points for most people.
+If you want the shortest possible shortlist after the start flow above, use this table and stop there.
 
 | Template | Best for |
 | --- | --- |

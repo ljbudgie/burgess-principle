@@ -15,7 +15,7 @@
   const MEMORY_WORKER_URL = '/memory-palace-worker.js';
   const MEMORY_SEARCH_LIMIT = 40;
   const MEMORY_MAX_IMPORTS = 500;
-  const MEMORY_ADVISORY_TEXT = 'Memory Palace entries are local, signed, and auditable. Human review remains the final authority.';
+  const MEMORY_ADVISORY_TEXT = 'Memory Palace entries are local, signed, and auditable. Entries are exportable as receipts, and human review remains the final authority.';
 
   let worker = null;
   let workerRequestId = 0;
@@ -57,6 +57,74 @@
 
   function tagsFromInput(value) {
     return String(value || '').split(',').map(tag => tag.trim().toLowerCase()).filter(Boolean);
+  }
+
+  function normalizeConnectivityProfile(value = '') {
+    const raw = String(value || '').trim().toLowerCase();
+    if (!raw) return 'other';
+    if (['starlink_hardwired', 'starlink_ethernet', 'starlink'].includes(raw)) return 'starlink_hardwired';
+    if (['fiber_hardwired', 'fiber', 'fiber_optic', 'fiber optic'].includes(raw)) return 'fiber_hardwired';
+    return 'other';
+  }
+
+  function connectivityProfileLabel(value = '') {
+    const normalized = normalizeConnectivityProfile(value);
+    if (normalized === 'starlink_hardwired') return 'Starlink Hardwired';
+    if (normalized === 'fiber_hardwired') return 'Fiber Hardwired';
+    return 'Other';
+  }
+
+  function addConnectivityTagsFromText(value, tags) {
+    const lower = String(value || '').toLowerCase();
+    if (!lower) return tags;
+    if (/(^|\W)starlink(\W|$)/.test(lower)) tags.add('starlink');
+    if (/(^|\W)fiber(\W|$)/.test(lower)) tags.add('fiber');
+    if (/(^|\W)ont(\W|$)/.test(lower)) tags.add('ont');
+    if (/(^|\W)ethernet(\W|$)|(^|\W)wired(\W|$)|(^|\W)hardwired(\W|$)/.test(lower)) tags.add('ethernet');
+    if (/fixed wireless/.test(lower)) tags.add('fixed-wireless');
+    if (/(^|\W)dsl(\W|$)/.test(lower)) tags.add('dsl');
+    if (/(^|\W)cable(\W|$)/.test(lower)) tags.add('cable');
+    if (/bypass mode/.test(lower)) tags.add('bypass-mode');
+    if (/wi-?fi off|wifi off/.test(lower)) tags.add('wifi-off');
+    if (/manual sync|queued sync|queued manual sync/.test(lower)) tags.add('queued-sync');
+    return tags;
+  }
+
+  async function suggestConnectivityTags(preferences = {}, extraText = '') {
+    const tags = new Set(['environment', 'connectivity']);
+    const normalizedProfile = normalizeConnectivityProfile(preferences.connectivity_profile);
+    if (normalizedProfile === 'starlink_hardwired') {
+      tags.add('starlink');
+      tags.add('ethernet');
+      tags.add('hardwired');
+    } else if (normalizedProfile === 'fiber_hardwired') {
+      tags.add('fiber');
+      tags.add('ont');
+      tags.add('ethernet');
+      tags.add('hardwired');
+    }
+    if (preferences.low_wireless_mode) tags.add('minimized-wireless');
+    if (preferences.prefer_queued_syncs) tags.add('queued-sync');
+    addConnectivityTagsFromText(preferences.connectivity_note || '', tags);
+    addConnectivityTagsFromText(extraText, tags);
+
+    const triggerDraftText = [
+      document.getElementById('triggerNaturalLanguage')?.value || '',
+      document.getElementById('triggerLabel')?.value || '',
+      document.getElementById('triggerDescription')?.value || '',
+      document.getElementById('triggerKeywords')?.value || '',
+      document.getElementById('triggerTemplatePreset')?.value || '',
+    ].join(' ');
+    addConnectivityTagsFromText(triggerDraftText, tags);
+
+    const triggers = await bridge.vaultStore.getAll('triggers').catch(error => {
+      console.warn('Could not load local triggers for connectivity suggestions.', error);
+      return [];
+    });
+    for (const trigger of triggers) {
+      addConnectivityTagsFromText([trigger.label, trigger.description, trigger.type].join(' '), tags);
+    }
+    return Array.from(tags);
   }
 
   async function deriveWrappingKey(passphrase, salt) {
@@ -461,7 +529,7 @@
 
   function getHubEnvironmentPreferences() {
     return {
-      connectivity_profile: document.getElementById('hubConnectivityProfile')?.value || 'starlink_ethernet',
+      connectivity_profile: normalizeConnectivityProfile(document.getElementById('hubConnectivityProfile')?.value || 'other'),
       low_wireless_mode: Boolean(document.getElementById('hubLowWirelessToggle')?.checked),
       prefer_queued_syncs: Boolean(document.getElementById('hubQueuedSyncPreferenceToggle')?.checked),
       connectivity_note: (document.getElementById('hubConnectivityNote')?.value || '').trim(),
@@ -470,14 +538,13 @@
 
   function hubEnvironmentSummary(preferences = getHubEnvironmentPreferences()) {
     const parts = [];
-    if (preferences.connectivity_profile === 'starlink_ethernet') {
-      parts.push('Starlink + Ethernet selected for local review');
-    } else if (preferences.connectivity_profile === 'wired_router') {
-      parts.push('wired router profile selected for local review');
-    } else if (preferences.connectivity_profile === 'wifi') {
-      parts.push('Wi‑Fi profile selected for local review');
-    } else if (preferences.connectivity_profile === 'cellular_fallback') {
-      parts.push('cellular fallback profile selected for local review');
+    const normalizedProfile = normalizeConnectivityProfile(preferences.connectivity_profile);
+    if (normalizedProfile === 'starlink_hardwired') {
+      parts.push('Starlink hardwired selected for local review');
+    } else if (normalizedProfile === 'fiber_hardwired') {
+      parts.push('Fiber hardwired selected for local review');
+    } else if (normalizedProfile === 'other') {
+      parts.push('Other connectivity profile selected for local review');
     }
     if (preferences.low_wireless_mode) parts.push('minimized local wireless environment requested');
     if (preferences.prefer_queued_syncs) parts.push('queued/manual sync preference enabled');
@@ -593,27 +660,31 @@
     }
 
     const hubEnvironment = await loadHubConfig();
+    const normalizedConnectivityProfile = normalizeConnectivityProfile(hubEnvironment && hubEnvironment.connectivity_profile);
     const hubEnvironmentFingerprint = hubEnvironment
       ? await bridge.sha256Hex(bridge.canonicalizeForSignature({
-        connectivity_profile: hubEnvironment.connectivity_profile || '',
+        connectivity_profile: normalizedConnectivityProfile,
         low_wireless_mode: Boolean(hubEnvironment.low_wireless_mode),
         prefer_queued_syncs: Boolean(hubEnvironment.prefer_queued_syncs),
         connectivity_note: hubEnvironment.connectivity_note || '',
       }))
       : '';
     if (hubEnvironmentFingerprint && hubEnvironmentFingerprint !== cursor.hubEnvironmentFingerprint) {
+      const suggestedTags = await suggestConnectivityTags({ ...hubEnvironment, connectivity_profile: normalizedConnectivityProfile }, hubEnvironment.connectivity_note || '');
       await appendMemoryEntry({
         type: 'environment',
         source: 'hub-settings',
         source_ref: 'hub-connectivity-profile',
-        title: 'Connectivity environment updated',
+        title: 'Connectivity profile updated',
         summary: hubEnvironmentSummary(hubEnvironment) || 'Connectivity preferences updated for local review.',
         detail: 'The Memory Palace recommitted a local connectivity and environmental preference change for later human review.',
-        tags: ['environment', 'connectivity'],
+        tags: suggestedTags,
         metadata: {
-          connectivity_profile: hubEnvironment.connectivity_profile || '',
+          connectivity_profile: normalizedConnectivityProfile,
+          connectivity_profile_label: connectivityProfileLabel(normalizedConnectivityProfile),
           low_wireless_mode: Boolean(hubEnvironment.low_wireless_mode),
           prefer_queued_syncs: Boolean(hubEnvironment.prefer_queued_syncs),
+          connectivity_suggestions: suggestedTags,
         },
         passphrase,
       });
@@ -962,7 +1033,7 @@
       const hubConnectivityNote = document.getElementById('hubConnectivityNote');
       if (hubConfig.url) hubUrl.value = hubConfig.url;
       if (hubConfig.public_key_hex) hubPublicKey.value = hubConfig.public_key_hex;
-      if (hubConfig.connectivity_profile) hubConnectivityProfile.value = hubConfig.connectivity_profile;
+      if (hubConfig.connectivity_profile) hubConnectivityProfile.value = normalizeConnectivityProfile(hubConfig.connectivity_profile);
       hubLowWirelessToggle.checked = Boolean(hubConfig.low_wireless_mode);
       hubQueuedSyncPreferenceToggle.checked = Boolean(hubConfig.prefer_queued_syncs ?? true);
       if (hubConfig.connectivity_note) hubConnectivityNote.value = hubConfig.connectivity_note;
@@ -1003,10 +1074,14 @@
         if (!passphrase) throw new Error('Enter the Memory Palace passphrase first.');
         const environmentPreferences = getHubEnvironmentPreferences();
         const environmentalContext = memoryUi.environmentalContext.value.trim();
+        const suggestedTags = await suggestConnectivityTags(
+          environmentPreferences,
+          [memoryUi.summary.value, memoryUi.detail.value, memoryUi.tags.value, environmentalContext].join(' ')
+        );
         const summary = memoryUi.summary.value.trim() || environmentalContext || hubEnvironmentSummary(environmentPreferences) || 'Connectivity and environmental review note.';
         const detailParts = [
           memoryUi.detail.value.trim(),
-          environmentPreferences.connectivity_profile ? `Connectivity profile: ${environmentPreferences.connectivity_profile}` : '',
+          environmentPreferences.connectivity_profile ? `Connectivity profile: ${connectivityProfileLabel(environmentPreferences.connectivity_profile)}` : '',
           environmentPreferences.low_wireless_mode ? 'Lower-local-wireless preference: enabled' : '',
           environmentPreferences.prefer_queued_syncs ? 'Queued/manual sync preference: enabled' : '',
           environmentalContext ? `User note: ${environmentalContext}` : '',
@@ -1018,9 +1093,11 @@
           title: memoryUi.title.value.trim() || 'Environmental note',
           summary,
           detail: detailParts.join(' '),
-          tags: [...new Set(['environment', 'connectivity', ...tagsFromInput(memoryUi.tags.value)])],
+          tags: [...new Set([...suggestedTags, ...tagsFromInput(memoryUi.tags.value)])],
           metadata: {
             ...environmentPreferences,
+            connectivity_profile_label: connectivityProfileLabel(environmentPreferences.connectivity_profile),
+            connectivity_suggestions: suggestedTags,
             environmental_note: environmentalContext,
           },
           passphrase,

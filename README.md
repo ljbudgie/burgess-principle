@@ -231,57 +231,63 @@ See:
 | **Weak or zero connectivity** | Local Memory Palace functions continue; sync is delayed, not required |
 | **Hub compromise or rotation** | Rotate the shared secret and Ed25519 hub key, then re-pair |
 
-### Connectivity & sovereignty — Starlink hardwired mode
+### Connectivity & personal environmental preferences
 
 #### Sovereignty and Burgess audit
 
-- **Burgess alignment:** connectivity choices can support calmer use, but only a human-reviewed rule or adjustment can decide what is appropriate in a specific case.
-- **Local-first preserved:** Iris still runs offline in Sovereign Local Mode; Starlink is optional and mainly useful for queued, commitment-only Hub Mode syncs.
-- **No medical claims:** this is framed as a **user-defined frequency balancing** or **lower-local-wireless** configuration, not a treatment claim or cure.
-- **Inspectable, not opaque:** the user can log connectivity choices, sync windows, and environmental notes into the Verifiable Memory Palace for later review.
+- **Burgess alignment:** connectivity profiles can support calmer use, but only a human-reviewed decision can decide what is appropriate in a specific case.
+- **User-controlled and opt-in:** the user chooses Starlink hardwired, fiber hardwired, or another assistive connectivity configuration; Iris only records the choice.
+- **Local-first preserved:** Iris still works offline in Sovereign Local Mode; Hub Mode remains optional, manual-first, and designed for queued commitment syncs.
+- **Inspectable and exportable:** connectivity changes, trigger prompts, and environmental notes can be recommitted into the Verifiable Memory Palace and exported later as signed receipts for human review.
+- **No medical claims:** this is framed as **user-defined frequency balancing**, **personal environmental preferences**, or **reasonable adjustments** — not diagnosis, treatment, or cure language.
 
-For some users, especially users building **reasonable adjustments** around voice-first access, neurodiverse routines, or remote advocacy, Starlink can be framed as a practical way to keep connectivity available while reducing the amount of always-on household wireless equipment near the user.
+The focus is the **hardwired path inside the user’s own environment**:
 
-The key benefit is not “satellite internet” by itself. It is the ability to set up a **hardwired Ethernet-first path**:
+- **Starlink Hardwired** — external dish plus **bypass mode** and **Ethernet** to reduce indoor Wi‑Fi dependence while keeping queued Hub syncs available.
+- **Fiber Hardwired** — physical fiber to the premises plus an **ONT** and then pure **Ethernet**; where available, this is the lowest-local-RF “gold standard” because the last-mile link itself is not radiating into the home.
+- **Other options** — fixed wireless after an outdoor unit is hardwired, or legacy DSL / cable where the in-home path still stays wired.
 
-- place the Starlink router in **bypass mode** where available,
-- disable local Wi-Fi / mesh radios if the user does not want them running,
-- prefer **Ethernet** from the router to the computer, dock, or access point,
-- keep the dish **outside living areas** where possible, such as roof, wall, or garage mounting,
-- use Hub Mode only for **lightweight queued syncs** of Merkle roots, digests, and signed receipts.
+#### Connectivity comparison for local review
 
-That means the highest-frequency link is typically **external, directional, and physically separated** from the user, while Iris itself stays usable offline on the local device.
+| Profile | Local RF framing | Availability / trade-off | Best fit in Iris |
+| --- | --- | --- | --- |
+| **Fiber Hardwired** | Lowest local RF from the last-mile link; ONT to Ethernet keeps the indoor path fully wired | Best where infrastructure already exists; depends on local rollout | Strongest fit for users who want the calmest wired baseline and manual Hub sync windows |
+| **Starlink Hardwired** | Higher-frequency link stays outdoors and directional; bypass mode + Ethernet can reduce indoor wireless equipment | Useful in remote areas or unstable infrastructure; latency and weather can vary | Good fit for intermittent-link Hub syncs and offline-heavy voice workflows |
+| **Other wired / hardwired alternatives** | Depends on provider; fixed wireless can improve once the outdoor unit is hardwired, while DSL/cable remain wired indoors | Often more available than fiber; local profile depends on provider equipment | Practical fallback when fiber is unavailable and the user still wants Ethernet-first operation |
 
-> **Assistive framing:** Iris can support a **user-configured lower-local-wireless setup** for people who want calmer environmental control around electrical devices, voice use, or advocacy work. It does not claim to diagnose, treat, or cure any condition.
+> **Assistive framing:** Iris can support a **user-configured lower-local-wireless setup** or a **personal environmental preference**. It does not claim to diagnose, treat, or cure any condition.
 
-#### Practical hardwiring tips
+#### Practical setup tips
 
-1. Put the Starlink router into **bypass / bridge mode** if the user's hardware supports it.
-2. Run **Ethernet** directly to the device or to a single wired router/switch.
-3. Turn off unnecessary **Wi-Fi, mesh repeaters, and hotspot fallback** when they are not needed.
-4. Mount the dish **away from bedrooms and primary seating areas** where practical.
-5. Keep Iris in **Sovereign Local Mode** for day-to-day work, then do short **manual Hub Mode syncs** only when needed.
-6. Commit an **environmental note** to the Memory Palace after setup changes so the user can later review connectivity, timing, and how the environment felt.
+1. **Starlink hardwired:** put the router into **bypass / bridge mode** where supported, run **Ethernet** to the device or one wired switch, and keep the dish **outside living areas** where practical.
+2. **Fiber hardwired:** keep the **ONT** and primary router in a location that supports direct **Ethernet** runs, and disable local Wi‑Fi or extra mesh nodes when the user prefers a wired room setup.
+3. **Other links:** if using **fixed wireless**, hardwire from the outdoor unit inward where possible; if using **DSL/cable**, keep the modem/router path Ethernet-first and reduce unnecessary always-on radios.
+4. **Queued / manual sync:** keep Iris in **Sovereign Local Mode** for day-to-day work, then open short **manual Hub Mode sync** windows only when needed.
+5. **Log for later scrutiny:** after a setup change, commit an **environmental note** so the user can later review the connectivity profile, Wi‑Fi state, sync preference, and how the environment felt.
 
-#### Diagram — Starlink hardwired flow for lower local wireless
+#### Diagram — Hardwired Connectivity Options Flow
 
 ```mermaid
 flowchart LR
     A["Iris in Sovereign Local Mode<br/>offline by default"] --> B["Queued roots / digests / receipts"]
-    B --> C["Manual Hub Mode sync window"]
-    C --> D["Ethernet-first router / switch"]
-    D --> E["Starlink router in bypass mode<br/>Wi-Fi disabled where desired"]
-    E --> F["External directional dish<br/>roof / wall / garage mounted"]
+    B --> C{"Connectivity Profile"}
+    C --> D["Fiber Hardwired<br/>street fiber → ONT → Ethernet"]
+    C --> E["Starlink Hardwired<br/>dish outside → bypass mode → Ethernet"]
+    C --> F["Other Wired / Hardwired<br/>fixed wireless, DSL, or cable"]
+    D --> G["Manual or queued Hub sync"]
+    E --> G
+    F --> G
+    G --> H["Signed receipts and local audit trail<br/>for later human review"]
 ```
 
 #### What gets reviewed
 
 Recommended local records for the Memory Palace:
 
-- connectivity type used at the time (`starlink-ethernet`, `wifi`, `cellular fallback`),
-- whether local Wi-Fi was disabled,
-- whether the sync was manual or queued,
-- a short note on comfort, focus, or environmental preference,
+- connectivity profile used at the time (`starlink-hardwired`, `fiber-hardwired`, `other`),
+- whether local Wi‑Fi was disabled or reduced,
+- whether the sync stayed manual, queued, or deferred,
+- a short note on comfort, focus, voice use, or personal environmental preference,
 - any later human-reviewed adjustment decision under the Burgess Principle.
 
 ### What the hub does **not** do

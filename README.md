@@ -363,8 +363,8 @@ Then pair it from Iris using the hub controls in Sovereign Local Mode.
 
 Use the templates directly:
 
-- [`templates/README.md`](templates/README.md)
-- [`templates/COMMON_SCENARIOS.md`](templates/COMMON_SCENARIOS.md)
+- [`templates/README.md`](templates/README.md) — primary template index
+- [`templates/COMMON_SCENARIOS.md`](templates/COMMON_SCENARIOS.md) — quick routing guide
 - [`START_HERE.md`](START_HERE.md)
 
 ---
@@ -407,7 +407,7 @@ The framework has already been applied to documented institutional interactions.
 | [`SOVEREIGN_MODE.md`](SOVEREIGN_MODE.md) | Full local-first setup, Phone/PWA guidance, and Phase 3 walkthrough |
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Ledger and sync architecture for Phase 3 |
 | [`iris/README.md`](iris/README.md) | Iris-specific deployment, privacy, and Phase 3 details |
-| [`templates/`](templates/) | Ready-to-send templates for common scenarios |
+| [`templates/`](templates/) | Ready-to-send templates, with a primary index and quick routing guide |
 | [`case-studies/README.md`](case-studies/README.md) | Indexed real-world case studies with status, findings, and recommended starting templates |
 | [`enforcement/`](enforcement/) | Sovereign Personal Vault and enforcement tooling |
 | [`onchain-protocol/`](onchain-protocol/) | Optional on-chain claims protocol |

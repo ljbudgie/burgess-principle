@@ -38,7 +38,7 @@ def test_iris_html_routes_byo_ai_directly_to_selected_provider():
     assert 'https://api.anthropic.com/v1/messages' in IRIS_HTML
     assert 'https://api.openai.com/v1/chat/completions' in IRIS_HTML
     assert 'provider === "openai" ? OPENAI_CHAT_COMPLETIONS_URL : buildChatCompletionsUrl(baseUrl)' in IRIS_HTML
-    assert 'baseUrl: providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : ""' in IRIS_HTML
+    assert 'const baseUrl = providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : undefined;' in IRIS_HTML
     assert 'if (normalized.endsWith("/chat/completions")) return normalized;' in IRIS_HTML
 
 

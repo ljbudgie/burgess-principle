@@ -649,10 +649,11 @@
     }
 
     function collectAdvancedSettings() {
+      const baseUrl = providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : undefined;
       return {
         provider: providerSelectEl.value,
         apiKey: apiKeyInputEl.value.trim(),
-        baseUrl: providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : "",
+        baseUrl,
         model: modelInputEl.value.trim()
       };
     }
@@ -745,7 +746,7 @@
     }
 
     function buildChatCompletionsUrl(baseUrl) {
-      const normalized = String(baseUrl || "").trim().replace(/\/+$/, "");
+      const normalized = String(baseUrl || "").replace(/\/+$/, "");
       if (!normalized) return OPENAI_CHAT_COMPLETIONS_URL;
       if (normalized.endsWith("/chat/completions")) return normalized;
       return `${normalized}/chat/completions`;

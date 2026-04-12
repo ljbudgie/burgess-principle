@@ -231,6 +231,59 @@ See:
 | **Weak or zero connectivity** | Local Memory Palace functions continue; sync is delayed, not required |
 | **Hub compromise or rotation** | Rotate the shared secret and Ed25519 hub key, then re-pair |
 
+### Connectivity & sovereignty — Starlink hardwired mode
+
+#### Sovereignty and Burgess audit
+
+- **Burgess alignment:** connectivity choices can support calmer use, but only a human-reviewed rule or adjustment can decide what is appropriate in a specific case.
+- **Local-first preserved:** Iris still runs offline in Sovereign Local Mode; Starlink is optional and mainly useful for queued, commitment-only Hub Mode syncs.
+- **No medical claims:** this is framed as a **user-defined frequency balancing** or **lower-local-wireless** configuration, not a treatment claim or cure.
+- **Inspectable, not opaque:** the user can log connectivity choices, sync windows, and environmental notes into the Verifiable Memory Palace for later review.
+
+For some users, especially users building **reasonable adjustments** around voice-first access, neurodiverse routines, or remote advocacy, Starlink can be framed as a practical way to keep connectivity available while reducing the amount of always-on household wireless equipment near the user.
+
+The key benefit is not “satellite internet” by itself. It is the ability to set up a **hardwired Ethernet-first path**:
+
+- place the Starlink router in **bypass mode** where available,
+- disable local Wi-Fi / mesh radios if the user does not want them running,
+- prefer **Ethernet** from the router to the computer, dock, or access point,
+- keep the dish **outside living areas** where possible, such as roof, wall, or garage mounting,
+- use Hub Mode only for **lightweight queued syncs** of Merkle roots, digests, and signed receipts.
+
+That means the highest-frequency link is typically **external, directional, and physically separated** from the user, while Iris itself stays usable offline on the local device.
+
+> **Assistive framing:** Iris can support a **user-configured lower-local-wireless setup** for people who want calmer environmental control around electrical devices, voice use, or advocacy work. It does not claim to diagnose, treat, or cure any condition.
+
+#### Practical hardwiring tips
+
+1. Put the Starlink router into **bypass / bridge mode** if the user's hardware supports it.
+2. Run **Ethernet** directly to the device or to a single wired router/switch.
+3. Turn off unnecessary **Wi-Fi, mesh repeaters, and hotspot fallback** when they are not needed.
+4. Mount the dish **away from bedrooms and primary seating areas** where practical.
+5. Keep Iris in **Sovereign Local Mode** for day-to-day work, then do short **manual Hub Mode syncs** only when needed.
+6. Commit an **environmental note** to the Memory Palace after setup changes so the user can later review connectivity, timing, and how the environment felt.
+
+#### Diagram — Starlink hardwired flow for lower local wireless
+
+```mermaid
+flowchart LR
+    A["Iris in Sovereign Local Mode<br/>offline by default"] --> B["Queued roots / digests / receipts"]
+    B --> C["Manual Hub Mode sync window"]
+    C --> D["Ethernet-first router / switch"]
+    D --> E["Starlink router in bypass mode<br/>Wi-Fi disabled where desired"]
+    E --> F["External directional dish<br/>roof / wall / garage mounted"]
+```
+
+#### What gets reviewed
+
+Recommended local records for the Memory Palace:
+
+- connectivity type used at the time (`starlink-ethernet`, `wifi`, `cellular fallback`),
+- whether local Wi-Fi was disabled,
+- whether the sync was manual or queued,
+- a short note on comfort, focus, or environmental preference,
+- any later human-reviewed adjustment decision under the Burgess Principle.
+
 ### What the hub does **not** do
 
 - It does **not** replace human review

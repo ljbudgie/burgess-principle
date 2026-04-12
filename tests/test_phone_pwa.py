@@ -39,12 +39,17 @@ def test_index_contains_phone_claim_builder_hooks():
     assert 'PWA_UPDATE_PUBLIC_KEY_HEX' in INDEX
     assert 'triggerPassphrase' in INDEX
     assert 'triggerNaturalLanguage' in INDEX
+    assert 'triggerTemplatePreset' in INDEX
+    assert 'applyTriggerTemplateBtn' in INDEX
     assert 'parseTriggerRuleBtn' in INDEX
     assert 'scanClipboardBtn' in INDEX
     assert 'triggerBackgroundUnlockToggle' in INDEX
     assert 'triggerLedgerList' in INDEX
     assert 'voice_command' in INDEX
     assert 'HELP_ME_NOW_PATTERN' in INDEX
+    assert 'hubConnectivityProfile' in INDEX
+    assert 'hubLowWirelessToggle' in INDEX
+    assert 'hubQueuedSyncPreferenceToggle' in INDEX
     assert 'phase3-memory-hub.js' in INDEX
 
 
@@ -96,6 +101,7 @@ def test_signed_update_manifest_requires_consent_and_assets():
 def test_docs_cover_phase_2_living_triggers():
     docs = (ROOT / 'SOVEREIGN_MODE.md').read_text(encoding='utf-8')
     assert '## Phase 2 — Proactive Living Triggers Engine' in docs
+    assert '### Environmental trigger templates' in docs
     assert '### Sovereignty Audit' in docs
     assert 'device-only background unlock' in docs
     assert 'triggerQueue' in docs
@@ -106,6 +112,8 @@ def test_phase_3_memory_palace_and_hub_assets_exist():
     assert 'verifyMemoryIntegrity' in PHASE3_CLIENT
     assert 'runFullSystemIntegrityCheck' in PHASE3_CLIENT
     assert 'performHubSync' in PHASE3_CLIENT
+    assert 'memoryEnvironmentalNoteBtn' in PHASE3_CLIENT
+    assert 'hubEnvironmentFingerprint' in PHASE3_CLIENT
     assert 'memoryEntries' in PHASE3_CLIENT
     assert 'hubSyncQueue' in PHASE3_CLIENT
     assert 'buildMerkleState' in MEMORY_WORKER
@@ -117,6 +125,8 @@ def test_phase_3_memory_palace_and_hub_assets_exist():
 def test_docs_cover_phase_3_memory_palace_and_hub():
     docs = (ROOT / 'SOVEREIGN_MODE.md').read_text(encoding='utf-8')
     assert '## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0' in docs
+    assert '### Starlink hardwired assistive configuration' in docs
+    assert '### Memory Palace environmental notes' in docs
     assert 'memoryEntries' in docs
     assert 'sovereign-hub-example/' in docs
     assert 'Push commitments' in docs

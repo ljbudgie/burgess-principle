@@ -588,7 +588,11 @@ def main(argv: list[str] | None = None) -> None:
     """Load config, load model, start server."""
     args = parse_args(argv)
     cfg = load_config(args)
-    print_sovereign_banner(cfg)
+    try:
+        print_sovereign_banner(cfg)
+    except ImportError as exc:
+        log.error("Post-quantum mode requested but is not available: %s", exc)
+        sys.exit(1)
 
     # Load system prompt
     if not _SYSTEM_PROMPT_PATH.exists():

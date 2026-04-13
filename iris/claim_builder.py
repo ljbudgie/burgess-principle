@@ -246,16 +246,83 @@ def fill_placeholders(template_text: str, profile: Mapping[str, Any], context: M
         return match.group(0)
     return _PLACEHOLDER_RE.sub(repl, template_text)
 
-def generate_commitment(claim_text: str, profile: Mapping[str, Any], *, category: str, target_entity: str) -> dict[str, str]:
+
+def _post_quantum_enabled(profile: Mapping[str, Any], enabled: bool | None = None) -> bool:
+    if enabled is not None:
+        return bool(enabled)
+    value = profile.get("post_quantum")
+    return value if isinstance(value, bool) else False
+
+
+def _signature_reference(claim: Mapping[str, Any]) -> str:
+    signatures = claim.get("signatures")
+    public_keys = claim.get("public_keys")
+    if isinstance(signatures, Mapping) and isinstance(public_keys, Mapping):
+        blocks = []
+        for algorithm, signature in signatures.items():
+            public_key = public_keys.get(algorithm, "")
+            if signature and public_key:
+                blocks.append(f"{algorithm.upper()}: {signature} / {public_key}")
+        if blocks:
+            return " | ".join(blocks)
+    return f"{claim['signature']} / {claim['public_key']}"
+
+
+def signature_mode_label(post_quantum: bool = False) -> str:
+    """Return the active signature mode label for Iris Local."""
+    return _ONCHAIN_CLAIMS.signature_mode_label(post_quantum)
+
+
+def generate_commitment(
+    claim_text: str,
+    profile: Mapping[str, Any],
+    *,
+    category: str,
+    target_entity: str,
+    post_quantum: bool | None = None,
+) -> dict[str, Any]:
     """Generate and verify an on-chain commitment using the existing SDK helpers."""
     private_key, generated = _pick(profile, "private_key_hex", "signing_private_key_hex"), ""
     if not private_key:
         from nacl.signing import SigningKey
         generated = private_key = SigningKey.generate().encode().hex()
-    claim = _ONCHAIN_CLAIMS.generate_onchain_claim(claim_text, target_entity or "Institution / Team", category, private_key).to_dict()
-    if not _ONCHAIN_CLAIMS.verify_onchain_receipt(claim["commitment_hash"], claim["signature"], claim["public_key"]).valid:
+    claim = _ONCHAIN_CLAIMS.generate_onchain_claim(
+        claim_text,
+        target_entity or "Institution / Team",
+        category,
+        private_key,
+        post_quantum=_post_quantum_enabled(profile, post_quantum),
+        # Support the new generic key names first while still accepting the
+        # legacy algorithm-specific aliases already present in local profiles.
+        post_quantum_private_key_hex=_pick(
+            profile,
+            "post_quantum_private_key_hex",
+            "pq_private_key_hex",
+            "ml_dsa_private_key_hex",
+            "slh_dsa_private_key_hex",
+        )
+        or None,
+        post_quantum_public_key_hex=_pick(
+            profile,
+            "post_quantum_public_key_hex",
+            "pq_public_key_hex",
+            "ml_dsa_public_key_hex",
+            "slh_dsa_public_key_hex",
+        )
+        or None,
+    ).to_dict()
+    if not _ONCHAIN_CLAIMS.verify_onchain_receipt(
+        claim["commitment_hash"],
+        claim["signature"],
+        claim["public_key"],
+        signatures=claim.get("signatures"),
+        public_keys=claim.get("public_keys"),
+    ).valid:
         raise ValueError("Generated commitment failed verification")
-    return {**claim, **({"generated_private_key_hex": generated} if generated else {})}
+    return {
+        **claim,
+        **({"generated_private_key_hex": generated} if generated else {}),
+    }
 
 def _derive_key(passphrase: str, salt: bytes, key_bytes: int) -> bytes:
     return hashlib.pbkdf2_hmac("sha256", passphrase.encode("utf-8"), salt, 210_000, dklen=key_bytes)
@@ -318,14 +385,30 @@ def queue_onchain_fingerprint(fingerprint: Mapping[str, Any]) -> dict[str, str]:
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return {"queue_id": queue_id, "path": str(path)}
 
-def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, Any]:
+def auto_generate_claim(
+    user_query: str,
+    profile: dict[str, Any],
+    *,
+    post_quantum: bool | None = None,
+) -> dict[str, Any]:
     """Classify a query, fill a template, generate a commitment, and save a vault copy."""
     if not isinstance(user_query, str) or not user_query.strip() or not isinstance(profile, dict):
         raise ValueError("user_query must be a non-empty string and profile must be a dict")
     scenario, base = classify_scenario(user_query), _context(user_query, profile)
     template_text = load_template(scenario["template"])
-    claim = generate_commitment(fill_placeholders(template_text, profile, base), profile, category=scenario["category"], target_entity=base["target_entity"])
-    claim_context = {**base, **{key: value for key, value in claim.items() if isinstance(value, str)}, "signature_reference": f"{claim['signature']} / {claim['public_key']}", "onchain_reference": base["onchain_reference"] or "Pending local posting — commitment ready"}
+    claim = generate_commitment(
+        fill_placeholders(template_text, profile, base),
+        profile,
+        category=scenario["category"],
+        target_entity=base["target_entity"],
+        post_quantum=post_quantum,
+    )
+    claim_context = {
+        **base,
+        **{key: value for key, value in claim.items() if isinstance(value, str)},
+        "signature_reference": _signature_reference(claim),
+        "onchain_reference": base["onchain_reference"] or "Pending local posting — commitment ready",
+    }
     letter = fill_placeholders(template_text, profile, claim_context)
     mirror_reflection = build_mirror_reflection(profile)
     if mirror_reflection["document_block"]:
@@ -353,4 +436,4 @@ def auto_generate_claim(user_query: str, profile: dict[str, Any]) -> dict[str, A
         result["generated_private_key_hex"] = claim["generated_private_key_hex"]
     return result
 
-__all__ = ["auto_generate_claim", "build_mirror_reflection", "classify_institutional_reply", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint"]
+__all__ = ["auto_generate_claim", "build_mirror_reflection", "classify_institutional_reply", "classify_scenario", "encrypt_to_vault", "fill_placeholders", "generate_commitment", "load_template", "queue_onchain_fingerprint", "signature_mode_label"]

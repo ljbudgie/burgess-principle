@@ -27,7 +27,11 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
-from iris.claim_builder import auto_generate_claim, queue_onchain_fingerprint
+from iris.claim_builder import (
+    auto_generate_claim,
+    queue_onchain_fingerprint,
+    signature_mode_label,
+)
 from iris.sovereign_profile import (
     load_personal_profile_summary,
     normalize_mirror_greeting_style,
@@ -53,6 +57,7 @@ def print_sovereign_banner(config: dict) -> None:
     model_name = Path(str(config.get("model_path", "unknown"))).name or "unknown"
     port = config.get("port", 8000)
     gpu_status = "ON" if config.get("gpu_acceleration") else "OFF"
+    signatures = signature_mode_label(bool(config.get("post_quantum")))
     inner_width = 78
     lines = [
         "🚀  IRIS LOCAL — SOVEREIGN MODE ACTIVE",
@@ -65,6 +70,7 @@ def print_sovereign_banner(config: dict) -> None:
         f"Source fingerprint: {short_fingerprint} (v0.4.0 self-verified)",
         f"Model: {model_name:40}",
         f"Port : {port} | GPU: {gpu_status}",
+        f"Signatures: {signatures}",
     ]
 
     print("╔" + "═" * inner_width + "╗")
@@ -118,6 +124,7 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
         "mirror_greeting_style": "neutral_professional",
         "mirror_custom_greeting": "",
         "mirror_reflection_scope": "vault_only",
+        "post_quantum": False,
         "user_profile": {},
     }
 
@@ -138,6 +145,8 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
             defaults["port"] = cli_overrides.port
         if cli_overrides.gpu:
             defaults["gpu_acceleration"] = True
+        if getattr(cli_overrides, "post_quantum", False):
+            defaults["post_quantum"] = True
 
     return defaults
 
@@ -383,8 +392,13 @@ def create_app(
         if not isinstance(profile, dict):
             return JSONResponse({"error": "profile must be an object."}, status_code=400)
 
+        post_quantum = (
+            body.get("post_quantum")
+            if isinstance(body.get("post_quantum"), bool)
+            else bool(app.state.runtime_config.get("post_quantum"))
+        )
         try:
-            claim = auto_generate_claim(query, profile)
+            claim = auto_generate_claim(query, profile, post_quantum=post_quantum)
         except ValueError as exc:
             error = (
                 "profile must include vault_passphrase."
@@ -478,6 +492,9 @@ def create_app(
                 handle=str(body.get("handle", "ljbudgie")).strip() or "ljbudgie",
                 preferred_signature_block=str(body.get("preferred_signature_block", "")).strip() or None,
                 private_key_hex=str(body.get("private_key_hex", "")).strip() or None,
+                post_quantum=bool(app.state.runtime_config.get("post_quantum")),
+                post_quantum_private_key_hex=str(body.get("post_quantum_private_key_hex", "")).strip() or None,
+                post_quantum_public_key_hex=str(body.get("post_quantum_public_key_hex", "")).strip() or None,
                 mirror_mode_enabled=body.get("mirror_mode_enabled")
                 if isinstance(body.get("mirror_mode_enabled"), bool)
                 else None,
@@ -553,6 +570,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Enable GPU acceleration (requires compatible llama-cpp-python build)",
     )
     parser.add_argument(
+        "--post-quantum",
+        action="store_true",
+        default=False,
+        help="Enable hybrid signatures (Ed25519 plus an installed ML-DSA or SLH-DSA provider).",
+    )
+    parser.add_argument(
         "--no-browser",
         action="store_true",
         default=False,
@@ -565,7 +588,11 @@ def main(argv: list[str] | None = None) -> None:
     """Load config, load model, start server."""
     args = parse_args(argv)
     cfg = load_config(args)
-    print_sovereign_banner(cfg)
+    try:
+        print_sovereign_banner(cfg)
+    except ImportError as exc:
+        log.error("Post-quantum mode requested but is not available: %s", exc)
+        sys.exit(1)
 
     # Load system prompt
     if not _SYSTEM_PROMPT_PATH.exists():

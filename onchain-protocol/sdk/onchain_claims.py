@@ -148,7 +148,7 @@ _SLH_DSA_MODULES = (
     ("SLH-DSA", "pqcrypto.sign.sphincs_shake_256f_simple"),
     ("SLH-DSA", "pqcrypto.sign.sphincs_sha2_256f_simple"),
 )
-_PQ_PROVIDER_CACHE_SIZE = 3
+_PQ_PROVIDER_CACHE_SIZE = len(_ML_DSA_MODULES) + len(_SLH_DSA_MODULES) + 1
 
 
 # ---------------------------------------------------------------------------

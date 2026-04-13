@@ -36,13 +36,14 @@ from onchain_claims import (
 # ---------------------------------------------------------------------------
 
 class _FakePostQuantumProvider:
+    _FAKE_PQ_KEY_LENGTH = 48
     algorithm = "ML-DSA"
     module_name = "fake.mldsa"
     derive_public_key = None
 
     @staticmethod
     def generate_keypair():
-        key = b"\x42" * 48
+        key = b"\x42" * _FakePostQuantumProvider._FAKE_PQ_KEY_LENGTH
         return key, key
 
     @staticmethod

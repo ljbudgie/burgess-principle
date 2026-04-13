@@ -1,63 +1,35 @@
-# Case Studies
+# Case Studies Index
 
-Real-world applications of the Burgess Principle, refreshed into a shared operational format.
+This index is here to help people under pressure **quickly find a real example that feels close to their own situation**. If you are dealing with automated threats, confusing letters, or a process that seems to be moving without any real person taking responsibility, start with the table below and follow the nearest match. In Burgess Principle terms, the question is simple: **was there meaningful human review (SOVEREIGN), or was the action carried by system logic without that human accountability (NULL)?** As of April 2026, this is a growing evidence base for readers, researchers, and contributors who want calm, usable records of what happened and what helped.
 
-The completed records now show two distinct resolution patterns from the same binary test: debt NULL to £0.00 after human review, and enforcement NULL to cessation where the premise was false from inception.
+## Case Index
 
-Each case study now uses the same core fields:
+| Case / Sector | Trigger / Automated Action | Burgess Principle Application (SOVEREIGN or NULL) | Key Outcome | Status (Resolved / Ongoing) | Main Pattern Shown | Link to Full Case Study | Recommended Starting Template |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Wave Utilities / Water retail | Automated referral to iC&R with premises attendance and disconnection threats | **NULL at referral → SOVEREIGN at resolution** | Both accounts cleared to **£0.00**; **£795.14** removed; enforcement ceased; adjustments recorded | Resolved | A threshold-based debt process can be corrected once a named person reviews the live facts | [Wave Utilities](./CASE_STUDY_WAVE.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| TV Licensing / Broadcasting enforcement | Automated threatening letters sent because no licence was recorded for the address | **NULL** | Threatening letters ceased; address recorded as **"No Licence Needed"** until end of March 2027 | Resolved | Enforcement can stop once the false premise is corrected, even without any disclosed human review at the start | [TV Licensing](./CASE_STUDY_TVL.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Passport Office / Identity and travel documents | Passport issued through a centralised application and biometric-processing pipeline | **NULL at issuance** | Passport already issued; DSAR, Article 22, and Equality Act challenge sent; response due **29 April 2026** | Ongoing | A core identity document can appear institutionally authorised without any named reviewer being visible on the instrument | [Passport Office](./CASE_STUDY_PASSPORT.md) | [Article 22 challenge](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) |
+| E.ON Next / Energy | Forced entry under an unsigned warrant processed through bulk court architecture | **NULL** | Forced entry occurred; settlement reached; Ombudsman ruling due **6 May 2026** | Ongoing | High-stakes enforcement can still be driven by bulk processing rather than individual scrutiny | [E.ON Next](./CASE_STUDY_EON.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Equita / Council tax and PCN enforcement | Five enforcement statements sent in bulk across linked cases | **NULL** | Five cases remain challenged; no direct answer on human review; no certified orders, compliant notices, or substantive SAR response produced | Ongoing | Institutions may avoid the main accountability question by shifting the exchange into disability gatekeeping or procedure | [Equita](./CASE_STUDY_EQUITA.md) | [Council tax / PCN template](../templates/COUNCIL_TAX_PCN_TEMPLATE.md) |
+| Equifax / Credit file | Two CCJ entries recorded, followed by automated case closure during the challenge | **NULL** | Disputed entries remain live; automated closure received; ICO complaint ready if no substantive review arrives | Ongoing | Automated closure can preserve disputed data while still avoiding the question of who checked it | [Equifax / Credit File](./CASE_STUDY_CREDIT_FILE.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
 
-- **Current Status** — where the matter currently sits
-- **Current Finding** — the best present SOVEREIGN / NULL assessment for the case
-- **Response Classification** — whether the institution's actual reply was **SOVEREIGN**, **NULL**, or **AMBIGUOUS**
-- **Procedural Posture** — what stage the case has reached
-- **Next follow-up needed** — the cleanest next step for the reader
+## Observed Patterns
 
-Use this folder in three passes:
+- **Automation often acts first.** The recurring issue is not just a bad outcome, but action being taken before anyone is shown to have checked the specific facts.
+- **The reply may stay ambiguous even when the pattern is clear.** Institutions often answer with policy language, workflow language, or channel redirection instead of naming a real reviewer.
+- **Disability and accessibility issues are frequently part of the record.** Several cases involve hearing loss, email-only communication, or adjustment requests being ignored, delayed, or turned into a barrier.
+- **Resolution takes more than one form.** Some cases end when a named person finally reviews the matter; others end when the institution quietly stops or corrects a process that should not have started as it did.
+- **Written records matter.** The strongest cases are the ones where the letters, timestamps, named replies, and outcome documents can be placed side by side.
 
-1. **Scan the table** to find the case closest to your own situation.
-2. **Open the matching template** and copy the question style that worked.
-3. **Use Iris or Sovereign Local Mode** if you want to preserve a private record, produce a claim package, or export a signed receipt.
+## How to Use This Index
 
----
+1. **Start with the row that feels closest to your situation.** You do not need a perfect match; you are looking for the nearest pattern.
+2. **Open the full case study** and read the summary, the key SOVEREIGN / NULL question, and the recommended tools.
+3. **Use the starting template** linked in the table to begin a calm, factual first letter.
+4. **Keep your evidence together from the start** — screenshots, letters, emails, reference numbers, deadlines, and any accessibility requests.
+5. **Escalate step by step.** If the first answer is evasive, preserve it and move to the next clean follow-up rather than arguing in circles.
+6. **Use local-first tools if helpful.** If you want a private audit trail, store your record in Sovereign Local Mode or your own local system so the evidence stays under your control.
 
-## Case index
+If you are reading this while something stressful is happening, you are not alone, and you are not expected to solve everything at once. These case studies show a growing pattern: when the human-review question is asked clearly and the record is kept carefully, automated pressure becomes easier to understand, challenge, and sometimes reverse. This collection is still growing, and each careful contribution helps make the next person's path a little clearer.
 
-| Case | Sector | Current Status | Current Finding | Response Classification | Key outcome / position | Recommended starting point |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Wave Utilities](CASE_STUDY_WAVE.md) | Water retail | RESOLVED | MIXED — NULL at referral, SOVEREIGN at resolution | AMBIGUOUS | Both accounts cleared to £0.00; £795.14 removed; enforcement ceased | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) · [Follow-up rebuttal](../templates/FOLLOW_UP_WEASEL_RESPONSE.md) |
-| [TV Licensing](CASE_STUDY_TVL.md) | Broadcasting enforcement | RESOLVED | NULL | AMBIGUOUS | Threatening letters ceased; address marked "No Licence Needed" through March 2027 | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) · [DSAR](../templates/DSAR_WITH_BURGESS_PRINCIPLE.md) |
-| [Passport Office](CASE_STUDY_PASSPORT.md) | Identity and travel documents | ONGOING | NULL at issuance | AMBIGUOUS | DSAR / Article 22 / Equality Act challenge sent; response due 29 April 2026 | [Article 22 challenge](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) · [DSAR](../templates/DSAR_WITH_BURGESS_PRINCIPLE.md) |
-| [E.ON Next](CASE_STUDY_EON.md) | Energy | ONGOING | NULL | NULL | Settlement reached; Ombudsman ruling due 6 May 2026 | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) · [Equality Act](../templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md) |
-| [Equita](CASE_STUDY_EQUITA.md) | Council tax and PCN enforcement | ONGOING | NULL | AMBIGUOUS | Five enforcement cases challenged; no direct answer on human review | [Council tax / PCN](../templates/COUNCIL_TAX_PCN_TEMPLATE.md) · [Equality Act](../templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md) |
-| [Equifax](CASE_STUDY_CREDIT_FILE.md) | Credit reference | ONGOING | NULL | AMBIGUOUS | Automated closure without substantive review; ICO complaint ready | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) · [DSAR](../templates/DSAR_WITH_BURGESS_PRINCIPLE.md) |
-
----
-
-## How to read the classifications
-
-| Label | Meaning in these case studies |
-| --- | --- |
-| **SOVEREIGN** | A named person directly answered the question and showed meaningful individual review |
-| **NULL** | The institution directly confirmed that no such individual review occurred |
-| **AMBIGUOUS** | The institution avoided the question, wrapped the answer in policy language, or has not yet given a direct answer |
-
-A case can have a **NULL finding** even when the response classification is **AMBIGUOUS**. That means the surrounding evidence still shows no meaningful human review, even if the institution tried to blur it.
-
----
-
-## Reader workflow
-
-- **Need a first letter?** Start in [templates/README.md](../templates/README.md).
-- **Need step-by-step guidance?** See [tutorials/README.md](../tutorials/README.md).
-- **Need a conversational guide?** Use Iris from the hosted site or [Sovereign Local Mode](../SOVEREIGN_MODE.md).
-- **Need an evidence trail?** Record the event in your local Memory Palace and export a signed receipt if you later need to prove timing or integrity.
-
----
-
-## Contributing a new case study
-
-1. Duplicate [CASE_STUDY_TEMPLATE.md](CASE_STUDY_TEMPLATE.md).
-2. Keep the shared metadata block intact.
-3. Record both the **current finding** and the **response classification**.
-4. Add a short **If this is happening to you** section with the best template, tutorial, or Iris path.
-5. Move longer doctrinal material into appendices so the main case remains scannable.
+*Want to add a comparable record? Start with [CASE_STUDY_TEMPLATE.md](./CASE_STUDY_TEMPLATE.md) so new case studies stay easy to scan, compare, and reuse.*

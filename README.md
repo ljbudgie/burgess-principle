@@ -487,17 +487,17 @@ The framework has already been applied to documented institutional interactions.
 
 | Version | Summary |
 | --- | --- |
-| **[v1.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.4.0)** | Sovereign Local Mode & Verifiable Self-Proof — self-verifying SHA-256 startup banner, stronger offline guarantee, strengthened Neural baseline framing, and improved claim/setup test coverage |
-| **[v1.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0)** | Sovereign Core — unified verifiable architecture across profile, audit, and commitment flows |
-| **[v1.1.1](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1)** | Mirror Mode — local identity reflection and hardware-linked greeting flow |
-| **[v0.9.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.9.0)** | Phone-first installable PWA and voice-led claim flow |
-| **[v0.6.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.6.0)** | Sovereign Local Mode — run Iris entirely on your own hardware |
-| **[v0.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.4.0)** | Optional on-chain Burgess Claims with no personal data on-chain |
-| **[v0.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.1.0)** | Initial release — binary test, templates, cryptographic vault, 90+ tests |
+| **[v1.4.0](https://burgess-principle.vercel.app//releases/tag/v1.4.0)** | Sovereign Local Mode & Verifiable Self-Proof — self-verifying SHA-256 startup banner, stronger offline guarantee, strengthened Neural baseline framing, and improved claim/setup test coverage |
+| **[v1.3.0](./CHANGELOG.md)** | Sovereign Core — unified verifiable architecture across profile, audit, and commitment flows |
+| **[v1.1.1](https://burgess-principle.vercel.app//releases/tag/v1.1.1)** | Mirror Mode — local identity reflection and hardware-linked greeting flow |
+| **[v0.9.0](https://burgess-principle.vercel.app//releases/tag/v0.9.0)** | Phone-first installable PWA and voice-led claim flow |
+| **[v0.6.0](https://burgess-principle.vercel.app//releases/tag/v0.6.0)** | Sovereign Local Mode — run Iris entirely on your own hardware |
+| **[v0.4.0](https://burgess-principle.vercel.app//releases/tag/v0.4.0)** | Optional on-chain Burgess Claims with no personal data on-chain |
+| **[v0.1.0](https://burgess-principle.vercel.app//releases/tag/v0.1.0)** | Initial release — binary test, templates, cryptographic vault, 90+ tests |
 
 See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
-**Latest stable release:** [v1.4.0 — Sovereign Local Mode & Verifiable Self-Proof](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.4.0)  
+**Latest stable release:** [v1.4.0 — Sovereign Local Mode & Verifiable Self-Proof](https://burgess-principle.vercel.app//releases/tag/v1.4.0)  
 **Current repository branch:** aligned with Sovereign Local Mode, the self-verifying SHA-256 startup banner, the Time as Invertible Template offline guarantee, strengthened Neural baseline framing, and improved claim/setup coverage.
 
 ---

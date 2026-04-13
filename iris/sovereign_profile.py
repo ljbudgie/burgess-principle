@@ -210,7 +210,7 @@ def _apply_profile_signatures(
 def build_personal_profile(
     *,
     name: str,
-    handle: str = "ljbudgie",
+    handle: str = "sovereign-user",
     preferred_signature_block: str | None = None,
     private_key_hex: str | None = None,
     post_quantum: bool = False,
@@ -238,7 +238,7 @@ def build_personal_profile(
     profile = {
         "version": _PROFILE_VERSION,
         "name": sovereign_name,
-        "handle": (handle or "ljbudgie").strip() or "ljbudgie",
+        "handle": (handle or "sovereign-user").strip() or "sovereign-user",
         "preferred_signature_block": profile_signature_block(sovereign_name, preferred_signature_block),
         "public_key_hex": public_key_hex,
         "private_key_hex": signing_key.encode().hex(),
@@ -290,7 +290,7 @@ def summarize_personal_profile(profile: Mapping[str, Any]) -> dict[str, Any]:
     )
     return {
         "name": name,
-        "handle": _select_first_valid(profile, "handle") or "ljbudgie",
+        "handle": _select_first_valid(profile, "handle") or "sovereign-user",
         "preferred_signature_block": _select_first_valid(profile, "preferred_signature_block"),
         "key_fingerprint": _select_first_valid(profile, "key_fingerprint"),
         "public_key_hex": _select_first_valid(profile, "public_key_hex"),
@@ -382,7 +382,7 @@ def setup_personal_profile(
     vault_passphrase: str,
     root: Path | None = None,
     name: str | None = None,
-    handle: str = "ljbudgie",
+    handle: str = "sovereign-user",
     preferred_signature_block: str | None = None,
     private_key_hex: str | None = None,
     post_quantum: bool | None = None,

@@ -237,7 +237,7 @@ To move from **NULL** to **SOVEREIGN**, the entity must provide:
 
 ## Maintenance
 
-This register is maintained as part of the live audit trail at github.com/ljbudgie/burgess-principle. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
+This register is maintained as part of the live audit trail at burgess-principle.vercel.app. Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
 
 **Last updated:** 7 April 2026  
 **Maintained by** the Burgess Principle maintainer.

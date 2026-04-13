@@ -103,4 +103,4 @@ LJ
 The Burgess Principle  
 UK Certification Mark: UK00004343685  
 MIT Licence (repository materials) | Certification Mark (commercial standard)  
-[github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+[burgess-principle.vercel.app](https://burgess-principle.vercel.app/)

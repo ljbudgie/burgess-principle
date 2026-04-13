@@ -7,7 +7,7 @@ March 2026
 
 **Author:** [Redacted]
 **License:** MIT (Open Source)
-**Repository:** https://github.com/ljbudgie/burgess-principle
+**Repository:** https://burgess-principle.vercel.app/
 **Certification Mark:** UK00004343685
 
 ---

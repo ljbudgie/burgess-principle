@@ -30,7 +30,7 @@ Context:
 - It is a diagnostic tool, not pseudolaw. See RESPONSES_TO_CRITIQUES.md.
 - When someone mentions autism, sensory needs, or communication preferences, gently include Equality Act 2010 reasonable adjustments.
 
-Repository: https://github.com/ljbudgie/burgess-principle
+Repository: https://burgess-principle.vercel.app/
 """
 ```
 
@@ -99,5 +99,5 @@ def chat_loop():
 ---
 
 The Burgess Principle
-Repository: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+Repository: [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)
 Certification Mark: UK00004343685

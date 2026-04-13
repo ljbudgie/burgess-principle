@@ -49,10 +49,10 @@ class _FakePostQuantumProvider:
 
 
 def test_build_personal_profile_generates_signed_identity():
-    profile = build_personal_profile(name="Lewis", handle="ljbudgie")
+    profile = build_personal_profile(name="Lewis", handle="sovereign-user")
 
     assert profile["name"] == "Lewis"
-    assert profile["handle"] == "ljbudgie"
+    assert profile["handle"] == "sovereign-user"
     assert profile["preferred_signature_block"] == "Lewis [Burgess Principle]"
     assert len(profile["private_key_hex"]) == 64
     assert len(profile["public_key_hex"]) == 64
@@ -71,7 +71,7 @@ def test_build_personal_profile_rejects_blank_name():
 def test_save_and_load_personal_profile_round_trip(tmp_path):
     profile = build_personal_profile(
         name="Lewis",
-        handle="ljbudgie",
+        handle="sovereign-user",
         preferred_signature_block="Lewis / Burgess Principle",
     )
 
@@ -108,7 +108,7 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
 
     assert summary == {
         "name": "",
-        "handle": "ljbudgie",
+        "handle": "sovereign-user",
         "preferred_signature_block": "",
         "key_fingerprint": "",
         "public_key_hex": "",

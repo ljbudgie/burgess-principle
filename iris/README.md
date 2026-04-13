@@ -290,4 +290,4 @@ Whichever mode is used, Iris should make the user's situation **more reviewable*
 
 **The Burgess Principle**  
 UK Certification Mark: UK00004343685  
-[github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+[burgess-principle.vercel.app](https://burgess-principle.vercel.app/)

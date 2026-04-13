@@ -53,7 +53,7 @@ The review identified eight deficiencies in the pre-v0.3.0 vault:
 7. **No authenticated encryption** — AES-CBC does not verify ciphertext integrity. AES-256-GCM provides authentication.
 8. **Missing per-operation randomness** — IVs and salts were not guaranteed fresh. Every encryption now uses a random 12-byte IV and every commitment uses a fresh 32-byte salt.
 
-Every fix was merged, tested, and released as [v0.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v0.3.0). The pre-v0.3.0 code is superseded and must not be reintroduced.
+Every fix was merged, tested, and released as [v0.3.0](./CHANGELOG.md). The pre-v0.3.0 code is superseded and must not be reintroduced.
 
 ## Iris & API Security (v0.5.0+)
 

@@ -67,12 +67,12 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 **Context:** High-profile review of permission for Kanye West (Ye) to enter the UK for Wireless Festival, amid public debate on free movement vs blanket "conducive to the public good" policies.  
 **Actions taken:**  
 - On 7 April 2026, I sent a combined FOI + DSAR + Burgess Principle request via email to public.enquiries@homeoffice.gov.uk (with copy to subjectaccessrequest@homeoffice.gov.uk).  
-- The email applied the Burgess Principle, requested individual human review of the specific facts of the entry decision, incorporated reasonable adjustment for my deafness (email-only communication under Equality Act 2010), and asked the core binary question.  
+- The email applied the Burgess Principle, requested individual human review of the specific facts of the entry decision, incorporated a requested accessibility adjustment (written communication under Equality Act 2010), and asked the core binary question.  
 - CC'd to contact@yeezy.com for transparency.  
 - Received standard Zendesk auto-acknowledgment from YZY Customer Service within hours stating: "We received your message and are reviewing it. We will reply as soon as possible."  
 **Core Burgess Principle question asked:** Was a human member of the team able to personally review the specific facts of this case regarding the UK entry decision for Kanye West (Ye) in connection with the Wireless Festival?  
-**Legal basis:** Freedom of Information Act 2000 (FOI request on decision-making records and human scrutiny), UK GDPR Article 15 (subject access) and Article 22 (right to human intervention in automated decisions), plus reasonable adjustment for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only).  
-**Specific facts / my situation:** As a UK citizen and deaf resident of London supporting principles of free movement and individual consideration over blanket policies, I value documented human scrutiny in decisions affecting artists, public events, and citizen rights.  
+**Legal basis:** Freedom of Information Act 2000 (FOI request on decision-making records and human scrutiny), UK GDPR Article 15 (subject access) and Article 22 (right to human intervention in automated decisions), plus a requested accessibility adjustment under the Equality Act 2010 (written communication).  
+**Specific facts / my situation:** The request framed the issue around documented human scrutiny in decisions affecting artists, public events, and citizen rights.  
 **Status:** Awaiting substantive response from Home Office (statutory timescales: 20 working days for FOI, up to 1 month for DSAR). YZY provided initial Zendesk acknowledgment confirming receipt and review. Entry added to LIVE_AUDIT_LOG as an early application of the Burgess Principle to a live government immigration review.
 
 ---
@@ -82,7 +82,7 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 **Action:** Formal email sent to Reddit (Team / Moderation / Trust & Safety) applying the Burgess Principle.  
 **Binary question asked:** Was a human member of the Reddit team able to personally review the specific facts of my individual situation before my account was restricted / shadowbanned / filtered, preventing posts about the Burgess Principle repository from being visible or sendable?  
 **Specific facts:** Every post about the repo now shows “post insights unavailable” and cannot be seen by others. Unable to send modmail (including to r/opensource) or post in relevant communities. No notification, warning, or human-reviewed explanation provided.  
-**Legal basis:** UK GDPR Article 22 (right not to be subject to automated decision-making) and Article 15 (right of access). Reasonable adjustment requested for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only communication).  
+**Legal basis:** UK GDPR Article 22 (right not to be subject to automated decision-making) and Article 15 (right of access). Reasonable adjustment requested under the Equality Act 2010 (email-only communication).  
 **Status:** Awaiting human response to the binary question and name/job title of the reviewer (if Yes).
 
 ---
@@ -90,7 +90,7 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 ### 4 April 2026 – Pattern of Behaviour Letter to ICO
 **Institutions involved:** Apple, Phonak/Sonova, Trading 212, British Gas/Centrica (DSAR elements only)  
 **Action:** Formal “Pattern of Behaviour” complaint filed with the Information Commissioner linking all four active cases.  
-**Key point:** Highlighted repeated failures to provide meaningful DSAR responses and to honour reasonable adjustments for bilateral sensorineural hearing loss.  
+**Key point:** Highlighted repeated failures to provide meaningful DSAR responses and to honour requested accessibility adjustments.  
 **Status:** ICO now has full linked view of the pattern. Case reference IC-4999654-T1Q8 assigned.
 
 ---

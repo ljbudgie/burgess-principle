@@ -63,4 +63,4 @@ If you want to contribute, please use the repository issue or pull request flow 
 Thank you for being part of this quiet movement toward more human treatment.
 
 Take care,  
-LJ
+The Burgess Principle project

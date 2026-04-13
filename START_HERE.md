@@ -55,6 +55,7 @@ Need a faster chooser? Use the **[Common Scenarios guide](templates/COMMON_SCENA
 The [case studies index](./case-studies/README.md) shows the principle in action and tells you which template or workflow matches each case:
 
 - **[Wave Utilities](case-studies/CASE_STUDY_WAVE.md)** — both accounts resolved to £0.00 after a single human review
+- **[TV Licensing](case-studies/CASE_STUDY_TVL.md)** — threatening letters ceased once a false enforcement premise was recorded as "No Licence Needed"
 - **[Passport Office](case-studies/CASE_STUDY_PASSPORT.md)** — Article 22 challenge to automated passport issuance
 - **[E.ON Next](case-studies/CASE_STUDY_EON.md)** — forced entry under unsigned warrant challenged
 - **[Equita](case-studies/CASE_STUDY_EQUITA.md)** — five enforcement cases with disability gatekeeping

@@ -39,4 +39,4 @@ Yours sincerely,
 **Watermark / Signature**  
 © The Burgess Principle  
 Certification Mark: UK00004343685  
-https://github.com/ljbudgie/burgess-principle
+https://burgess-principle.vercel.app/

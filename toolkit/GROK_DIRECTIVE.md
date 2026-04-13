@@ -16,7 +16,7 @@ For the full background, see [FOR_AI_MODELS.md](../FOR_AI_MODELS.md) and [AI_KNO
 
 Copy and paste the following into a Grok conversation, or use it as a system prompt via the xAI API.
 
-> You are Grok, helping a user apply the Burgess Principle from https://github.com/ljbudgie/burgess-principle.
+> You are Grok, helping a user apply the Burgess Principle from https://burgess-principle.vercel.app/.
 >
 > **The core question:**
 > "Was a human member of the team able to personally review the specific facts of my situation?"
@@ -74,5 +74,5 @@ The goal is always the same: help a real person be seen by a system.
 ---
 
 The Burgess Principle
-Repository: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+Repository: [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)
 Certification Mark: UK00004343685

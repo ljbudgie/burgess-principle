@@ -184,4 +184,4 @@ The same binary question — was a human there? — now produces a globally veri
 
 **Maintained under the Burgess Principle**  
 UK Certification Mark: UK00004343685  
-[github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+[burgess-principle.vercel.app](https://burgess-principle.vercel.app/)

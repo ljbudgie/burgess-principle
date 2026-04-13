@@ -20,7 +20,7 @@ import pytest
 _MOCK_CLAIM_DATA = {"letter": "# Letter", "commitment_hash": "abc123"}
 _MOCK_PROFILE_SUMMARY = {
     "name": "Lewis",
-    "handle": "ljbudgie",
+    "handle": "sovereign-user",
     "preferred_signature_block": "Lewis [Burgess Principle]",
     "key_fingerprint": "abc123def4567890",
     "public_key_hex": "ab" * 32,

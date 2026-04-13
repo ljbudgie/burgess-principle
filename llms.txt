@@ -3,8 +3,8 @@
 > A minimalist, human-first framework that helps individuals demand real human review from automated systems and institutions.
 
 Live site / PWA: https://burgess-principle.vercel.app
-Latest release: https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0
-Repository: https://github.com/ljbudgie/burgess-principle
+Latest release notes: ./CHANGELOG.md
+Project home: https://burgess-principle.vercel.app/
 Licence: MIT (doctrine) | Certification Mark UK00004343685 (commercial standard)
 
 ## The Question
@@ -27,26 +27,26 @@ Clone or download the repo → drop it into Grok, Claude, ChatGPT, or any AI ass
 
 ## Getting Started
 
-- [START_HERE.md](https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md): Entry point — routes you to the right place in under a minute
-- [FOR_AI_MODELS.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md): Instructions for AI assistants on tone, approach, and how to help users
-- [SOUL.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOUL.md): The philosophy and origin story behind the framework
+- [START_HERE.md](./START_HERE.md): Entry point — routes you to the right place in under a minute
+- [FOR_AI_MODELS.md](./FOR_AI_MODELS.md): Instructions for AI assistants on tone, approach, and how to help users
+- [SOUL.md](./SOUL.md): The philosophy and origin story behind the framework
 
 ## Templates
 
 Over 30 ready-to-use letter templates in the same calm, respectful tone. Key templates include:
 
-- [REQUEST_FOR_HUMAN_REVIEW.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/REQUEST_FOR_HUMAN_REVIEW.md): Gentle all-purpose letter
-- [DSAR_WITH_BURGESS_PRINCIPLE.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/DSAR_WITH_BURGESS_PRINCIPLE.md): Combines DSAR with human review request
-- [FOI_WITH_BURGESS_PRINCIPLE.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/FOI_WITH_BURGESS_PRINCIPLE.md): For public bodies and courts
-- [ARTICLE_22_WITH_BURGESS_PRINCIPLE.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md): For automated decisions
-- [EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md): For disability and reasonable adjustments
-- [COUNCIL_TAX_PCN_TEMPLATE.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/COUNCIL_TAX_PCN_TEMPLATE.md): For council tax or penalty charge notices
-- [BENEFITS_CLAIM_HELP.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/BENEFITS_CLAIM_HELP.md): For benefits claim disputes
-- [MEDIA_AND_LIBEL.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/MEDIA_AND_LIBEL.md): For inaccurate or unfair media coverage
-- [MUSIC_COPYRIGHT_WITH_BURGESS.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/MUSIC_COPYRIGHT_WITH_BURGESS.md): For Content ID claims and royalty disputes
-- [BAILIFFS_THREAT_TEMPLATE.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/BAILIFFS_THREAT_TEMPLATE.md): For bailiff threats
+- [REQUEST_FOR_HUMAN_REVIEW.md](./templates/REQUEST_FOR_HUMAN_REVIEW.md): Gentle all-purpose letter
+- [DSAR_WITH_BURGESS_PRINCIPLE.md](./templates/DSAR_WITH_BURGESS_PRINCIPLE.md): Combines DSAR with human review request
+- [FOI_WITH_BURGESS_PRINCIPLE.md](./templates/FOI_WITH_BURGESS_PRINCIPLE.md): For public bodies and courts
+- [ARTICLE_22_WITH_BURGESS_PRINCIPLE.md](./templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md): For automated decisions
+- [EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md](./templates/EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md): For disability and reasonable adjustments
+- [COUNCIL_TAX_PCN_TEMPLATE.md](./templates/COUNCIL_TAX_PCN_TEMPLATE.md): For council tax or penalty charge notices
+- [BENEFITS_CLAIM_HELP.md](./templates/BENEFITS_CLAIM_HELP.md): For benefits claim disputes
+- [MEDIA_AND_LIBEL.md](./templates/MEDIA_AND_LIBEL.md): For inaccurate or unfair media coverage
+- [MUSIC_COPYRIGHT_WITH_BURGESS.md](./templates/MUSIC_COPYRIGHT_WITH_BURGESS.md): For Content ID claims and royalty disputes
+- [BAILIFFS_THREAT_TEMPLATE.md](./templates/BAILIFFS_THREAT_TEMPLATE.md): For bailiff threats
 
-Full list: https://github.com/ljbudgie/burgess-principle/tree/main/templates
+Full list: ./templates
 
 ## Domains Covered
 
@@ -67,26 +67,26 @@ The question works in any country, in any language, against any institution. No 
 - 18 institutions audited
 - 11 NULL findings (no individual human review)
 - 1 positive outcome — Wave Utilities resolved both accounts to £0.00
-- Full details: [LIVE_AUDIT_LOG.md](https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md) and [INSTITUTIONAL_REGISTER.md](https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md)
+- Full details: [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) and [INSTITUTIONAL_REGISTER.md](./INSTITUTIONAL_REGISTER.md)
 
 ## Case Studies
 
-- [Case studies index](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/README.md): Overview table with status, finding, response classification, and recommended starting template
-- [Wave Utilities](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_WAVE.md): Both accounts resolved to £0.00 (Resolved)
-- [Passport Office](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_PASSPORT.md): Automated passport issuance (Ongoing)
-- [E.ON Next](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EON.md): Forced entry under unsigned warrant (Ongoing)
-- [Equita](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_EQUITA.md): Enforcement cases with disability gatekeeping (Ongoing)
-- [Equifax](https://github.com/ljbudgie/burgess-principle/blob/main/case-studies/CASE_STUDY_CREDIT_FILE.md): CCJ entries without individual verification (Ongoing)
+- [Case studies index](./case-studies/README.md): Overview table with status, finding, response classification, and recommended starting template
+- [Wave Utilities](./case-studies/CASE_STUDY_WAVE.md): Both accounts resolved to £0.00 (Resolved)
+- [Passport Office](./case-studies/CASE_STUDY_PASSPORT.md): Automated passport issuance (Ongoing)
+- [E.ON Next](./case-studies/CASE_STUDY_EON.md): Forced entry under unsigned warrant (Ongoing)
+- [Equita](./case-studies/CASE_STUDY_EQUITA.md): Enforcement cases with disability gatekeeping (Ongoing)
+- [Equifax](./case-studies/CASE_STUDY_CREDIT_FILE.md): CCJ entries without individual verification (Ongoing)
 
 ## Core Papers
 
-- [Core Legal Paper](https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_1_CORE_LEGAL_PAPER.md): The foundational legal argument
-- [Representative Action](https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_2_REPRESENTATIVE_ACTION.md): Group litigation and representative actions
-- [Political Implementation](https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_3_POLITICAL_IMPLEMENTATION.md): Policy and political pathways
-- [Data Sovereignty](https://github.com/ljbudgie/burgess-principle/blob/main/papers/PAPER_4_DATA_SOVEREIGNTY.md): Data rights and digital autonomy
-- [Medical Device Doctrine](https://github.com/ljbudgie/burgess-principle/blob/main/papers/MEDICAL_DEVICE_DOCTRINE.md): Algorithmic medical devices
-- [US Constitutional Addendum](https://github.com/ljbudgie/burgess-principle/blob/main/papers/US_CONSTITUTIONAL_ADDENDUM.md): Application to US constitutional law
-- [Responses to Critiques](https://github.com/ljbudgie/burgess-principle/blob/main/papers/RESPONSES_TO_CRITIQUES.md): Addressing common objections
+- [Core Legal Paper](./papers/PAPER_1_CORE_LEGAL_PAPER.md): The foundational legal argument
+- [Representative Action](./papers/PAPER_2_REPRESENTATIVE_ACTION.md): Group litigation and representative actions
+- [Political Implementation](./papers/PAPER_3_POLITICAL_IMPLEMENTATION.md): Policy and political pathways
+- [Data Sovereignty](./papers/PAPER_4_DATA_SOVEREIGNTY.md): Data rights and digital autonomy
+- [Medical Device Doctrine](./papers/MEDICAL_DEVICE_DOCTRINE.md): Algorithmic medical devices
+- [US Constitutional Addendum](./papers/US_CONSTITUTIONAL_ADDENDUM.md): Application to US constitutional law
+- [Responses to Critiques](./papers/RESPONSES_TO_CRITIQUES.md): Addressing common objections
 
 ## Iris — AI Companion
 
@@ -100,7 +100,7 @@ Recent Iris behavior:
 
 Iris runs in two modes:
 - **Cloud mode** — hosted at [burgess-principle.vercel.app](https://burgess-principle.vercel.app), uses an external AI model. No setup required.
-- **Sovereign (local) mode** — runs entirely on your own hardware via `iris-local.py` and a local GGUF model. No data leaves your device. No API keys, no cloud, no telemetry. Optional Mirror Mode lets Iris reuse your encrypted local sovereign profile, mirrored greeting, and local reflection settings. See [SOVEREIGN_MODE.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md).
+- **Sovereign (local) mode** — runs entirely on your own hardware via `iris-local.py` and a local GGUF model. No data leaves your device. No API keys, no cloud, no telemetry. Optional Mirror Mode lets Iris reuse your encrypted local sovereign profile, mirrored greeting, and local reflection settings. See [SOVEREIGN_MODE.md](./SOVEREIGN_MODE.md).
 
 Both modes use the same UI and system prompt. The hosted experience acts as both a landing page and chat entry point, while the same interface auto-detects localhost for seamless sovereign local operation.
 
@@ -117,9 +117,9 @@ The Burgess Claims Protocol (`onchain-protocol/`) allows users to post signed co
 
 ## Tutorials and Toolkit
 
-- [Tutorials](https://github.com/ljbudgie/burgess-principle/tree/main/tutorials): Step-by-step guides
-- [AI Knowledge Base](https://github.com/ljbudgie/burgess-principle/blob/main/toolkit/AI_KNOWLEDGE_BASE.md): AI integration and ready-made prompts
-- [User Stories](https://github.com/ljbudgie/burgess-principle/blob/main/marketing/USER_STORIES.md): Real experiences from real people
+- [Tutorials](./tutorials): Step-by-step guides
+- [AI Knowledge Base](./toolkit/AI_KNOWLEDGE_BASE.md): AI integration and ready-made prompts
+- [User Stories](./marketing/USER_STORIES.md): Real experiences from real people
 
 ## Cryptographic Vault (v0.3.0)
 
@@ -136,6 +136,6 @@ The v0.3.0 release resolved eight vulnerabilities found during an internal secur
 
 The vault is entirely optional — the human-first templates work on their own without any cryptography.
 
-## Creator
+## Project
 
 The Burgess Principle — UK Certification Mark UK00004343685 (Classes 41, 42, 45)

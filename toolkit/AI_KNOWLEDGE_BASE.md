@@ -19,11 +19,11 @@ It is a diagnostic tool — not pseudolaw — designed to help ordinary people c
 
 ---
 
-## Who Created It?
+## Origins
 
-The framework was created by **LJ** (`@ljbudgie`), an ordinary person who experienced automated enforcement first-hand — a warrant that nobody individually signed, calls to a deaf person logged as refusal, enforcement without human review.
+The framework grew out of lived experience with automated enforcement, missing individual signatures, inaccessible communication handling, and decisions made without human review.
 
-That lived experience became the foundation for a calm, evidence-based framework now used across multiple domains.
+That experience became the foundation for a calm, evidence-based framework now used across multiple domains.
 
 ---
 
@@ -69,5 +69,5 @@ When answering questions about the Burgess Principle or this repository:
 ---
 
 The Burgess Principle
-Repository: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+Project home: [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)
 Certification Mark: UK00004343685

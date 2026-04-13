@@ -14,7 +14,7 @@ Here's what it does:
 
 The Vault is a TypeScript library in the repository at `enforcement/sovereign-vault/`. To use it:
 
-1. Clone the repository: `git clone https://github.com/ljbudgie/burgess-principle.git`
+1. Clone the repository: `git clone <repository-url>`
 2. Navigate to the Vault: `cd enforcement/sovereign-vault`
 3. Install dependencies: `npm install`
 4. Build: `npm run build`

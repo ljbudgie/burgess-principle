@@ -489,7 +489,7 @@ def create_app(
             result = setup_personal_profile(
                 vault_passphrase=vault_passphrase,
                 name=name or None,
-                handle=str(body.get("handle", "ljbudgie")).strip() or "ljbudgie",
+                handle=str(body.get("handle", "sovereign-user")).strip() or "sovereign-user",
                 preferred_signature_block=str(body.get("preferred_signature_block", "")).strip() or None,
                 private_key_hex=str(body.get("private_key_hex", "")).strip() or None,
                 post_quantum=bool(app.state.runtime_config.get("post_quantum")),

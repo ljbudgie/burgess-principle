@@ -17,7 +17,7 @@ def test_iris_html_contains_required_copy_and_controls():
     assert 'Your saved settings stay only in this browser.' in IRIS_HTML
     assert 'When you use Advanced, your browser sends requests directly to the provider or local endpoint you choose.' in IRIS_HTML
     assert 'claude-sonnet-4-20250514' in IRIS_HTML
-    assert 'https://iris-worker.ljbarbers15.workers.dev' in IRIS_HTML
+    assert 'https://iris-worker.burgess-principle.workers.dev' in IRIS_HTML
     assert 'sessionStorage' in IRIS_HTML
     assert 'localStorage' in IRIS_HTML
 

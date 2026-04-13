@@ -48,7 +48,7 @@ Lowell never answered that question directly. Instead, after about two months of
 
 ## Background
 
-- **Complainant / applicant:** Lewis James Burgess.
+- **Complainant / applicant:** [Redacted for privacy].
 - **Relevant account, document, or reference:** Lowell reference 382564532; original npower account 212216345; complaint reference 614420.
 - **Disability / adjustment context:** Bilateral sensorineural hearing loss; email-only communication asserted under sections 20 and 29 of the Equality Act 2010.
 - **What the institution did:** Lowell pursued a purchased npower debt for **£563.14** linked to a previous supply period from **29 June 2018 to 30 September 2019**.

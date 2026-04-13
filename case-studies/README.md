@@ -2,6 +2,8 @@
 
 Real-world applications of the Burgess Principle, refreshed into a shared operational format.
 
+The completed records now show two distinct resolution patterns from the same binary test: debt NULL to £0.00 after human review, and enforcement NULL to cessation where the premise was false from inception.
+
 Each case study now uses the same core fields:
 
 - **Current Status** — where the matter currently sits

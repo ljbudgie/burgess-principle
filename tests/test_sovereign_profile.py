@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -27,6 +28,26 @@ from iris.sovereign_profile import (
 )
 
 
+class _FakePostQuantumProvider:
+    _FAKE_PQ_KEY_LENGTH = 48
+    algorithm = "ML-DSA"
+    module_name = "fake.mldsa"
+    derive_public_key = None
+
+    @staticmethod
+    def generate_keypair():
+        key = b"\x11" * _FakePostQuantumProvider._FAKE_PQ_KEY_LENGTH
+        return key, key
+
+    @staticmethod
+    def sign(private_key: bytes, message: bytes) -> bytes:
+        return hashlib.sha256(private_key + message).digest()
+
+    @staticmethod
+    def verify(public_key: bytes, message: bytes, signature: bytes) -> bool:
+        return signature == hashlib.sha256(public_key + message).digest()
+
+
 def test_build_personal_profile_generates_signed_identity():
     profile = build_personal_profile(name="Lewis", handle="ljbudgie")
 
@@ -38,6 +59,7 @@ def test_build_personal_profile_generates_signed_identity():
     assert len(profile["key_fingerprint"]) == 16
     assert profile["mirror_mode_enabled"] is False
     assert profile["mirror_mode_activated_at"] == ""
+    assert profile["signature_mode"] == "classical"
     assert verify_personal_profile(profile) is True
 
 
@@ -91,6 +113,9 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
         "key_fingerprint": "",
         "public_key_hex": "",
         "profile_signature": "",
+        "signature_mode": "classical",
+        "post_quantum_algorithm": "",
+        "post_quantum_public_key_hex": "",
         "signed_at": "",
         "mirror_mode_enabled": False,
         "mirror_mode_activated_at": "",
@@ -108,6 +133,20 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
     assert normalize_mirror_reflection_scope("all documents") == "all_documents"
     assert fingerprint_public_key("ab" * 32, length=8) == "9a2db2e2"
     assert profile_path(tmp_path) == tmp_path / ".sovereign-vault" / "personal-profile.json"
+
+
+def test_build_personal_profile_can_use_hybrid_signatures(monkeypatch):
+    monkeypatch.setattr(
+        sovereign_profile._onchain_claims_module(),
+        "_resolve_post_quantum_provider",
+        lambda expected_algorithm=None: _FakePostQuantumProvider(),
+    )
+
+    profile = build_personal_profile(name="Lewis", post_quantum=True)
+
+    assert profile["signature_mode"] == "hybrid"
+    assert profile["post_quantum_algorithm"] == "ML-DSA"
+    assert verify_personal_profile(profile) is True
 
 
 def test_save_personal_profile_requires_passphrase(tmp_path):

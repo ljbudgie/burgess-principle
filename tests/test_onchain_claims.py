@@ -35,6 +35,26 @@ from onchain_claims import (
 # Helpers
 # ---------------------------------------------------------------------------
 
+class _FakePostQuantumProvider:
+    _FAKE_PQ_KEY_LENGTH = 48
+    algorithm = "ML-DSA"
+    module_name = "fake.mldsa"
+    derive_public_key = None
+
+    @staticmethod
+    def generate_keypair():
+        key = b"\x42" * _FakePostQuantumProvider._FAKE_PQ_KEY_LENGTH
+        return key, key
+
+    @staticmethod
+    def sign(private_key: bytes, message: bytes) -> bytes:
+        return hashlib.sha256(private_key + message).digest()
+
+    @staticmethod
+    def verify(public_key: bytes, message: bytes, signature: bytes) -> bool:
+        return signature == hashlib.sha256(public_key + message).digest()
+
+
 def _make_keypair():
     """Generate a fresh Ed25519 keypair using PyNaCl."""
     from nacl.signing import SigningKey
@@ -321,6 +341,28 @@ class TestOnchainClaimSerialisation:
         assert d1 == d2
         assert d1 is not d2
 
+    def test_hybrid_claim_serialises_post_quantum_metadata(self, monkeypatch):
+        monkeypatch.setattr(
+            "onchain_claims._resolve_post_quantum_provider",
+            lambda expected_algorithm=None: _FakePostQuantumProvider(),
+        )
+        claim = generate_onchain_claim(
+            claim_details="Test",
+            target_entity="Org",
+            category="enforcement",
+            private_key_hex=PRIVATE_KEY,
+            timestamp=FIXED_TIMESTAMP,
+            nonce=FIXED_NONCE,
+            post_quantum=True,
+        )
+
+        data = claim.to_dict()
+        assert data["signature_mode"] == "hybrid"
+        assert data["post_quantum_algorithm"] == "ML-DSA"
+        assert data["signatures"]["ed25519"] == claim.signature
+        assert data["public_keys"]["ed25519"] == claim.public_key
+        assert data["generated_post_quantum_private_key_hex"]
+
 
 # ---------------------------------------------------------------------------
 # verify_onchain_receipt — roundtrip
@@ -340,6 +382,32 @@ class TestVerifyOnchainReceipt:
             public_key_hex=claim.public_key,
         )
         assert result.valid is True
+
+    def test_hybrid_signature_returns_true(self, monkeypatch):
+        monkeypatch.setattr(
+            "onchain_claims._resolve_post_quantum_provider",
+            lambda expected_algorithm=None: _FakePostQuantumProvider(),
+        )
+        claim = generate_onchain_claim(
+            claim_details="Test claim",
+            target_entity="Test Org",
+            category="dispute",
+            private_key_hex=PRIVATE_KEY,
+            timestamp=FIXED_TIMESTAMP,
+            nonce=FIXED_NONCE,
+            post_quantum=True,
+        )
+
+        result = verify_onchain_receipt(
+            commitment_hash=claim.commitment_hash,
+            signature=claim.signature,
+            public_key_hex=claim.public_key,
+            signatures=claim.signatures,
+            public_keys=claim.public_keys,
+        )
+
+        assert result.valid is True
+        assert result.signature_mode == "hybrid"
         assert "verified" in result.details.lower()
 
     def test_wrong_signature_returns_false(self):

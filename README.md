@@ -108,6 +108,14 @@ In Burgess terms, the movement is:
 
 That is why Iris is framed as a sovereign inversion engine: it helps a person see the script beneath the process, preserve what they saw, and export verifiable evidence without surrendering control.
 
+#### Post-Quantum Readiness
+
+Iris now offers an **optional** hybrid signing mode for users who want stronger long-term verifiability: **Ed25519 + ML-DSA**, with **SLH-DSA** available as a fallback where appropriate. This does **not** change the default behavior, the offline guarantee, or the project’s **SHA-256 commitment** model. It is an additional signing posture for those who want it, not a new dependency for ordinary use.
+
+In hybrid mode, receipts and proofs are signed across both a classical and a post-quantum path, so an attacker would need to break **both** families of algorithms rather than just one. The **Sovereign Mode** startup banner now shows the active signature mode, keeping the proof boundary visible at the moment of execution rather than hidden behind implementation detail.
+
+**Relevance to the Burgess Principle:** The Burgess Principle is about long-term local trust, visible proof, and human scrutiny that can still be inspected years later. Optional post-quantum readiness serves that same aim in a calm way: it keeps sovereignty with the person, preserves self-verifying evidence on local hardware, and makes the trust posture more explicit without altering the human-first, advisory-only foundation.
+
 #### Time as Invertible Template — The Offline Guarantee
 
 The offline guarantee becomes clearest when **time** is understood as another detectable template or script. From the **1858** drive toward a global time-zone standard to the **2100** horizons encoded in modern tz databases, “now” can be handed down as a shared frame by external authority and then mistaken for neutral reality.

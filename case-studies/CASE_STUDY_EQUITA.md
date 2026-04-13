@@ -170,8 +170,8 @@ Build the evidence pack so another person can understand it quickly, even if you
 - **Core correspondence:** Keep the five enforcement statements, the covering email, and the written challenge together in date order.
 - **Adjustment evidence:** Keep the message where hearing loss was disclosed and email-only communication was requested.
 - **Document-gap record:** Keep a note that no certified court orders, compliant 7-day Notice of Enforcement, substantive SAR response, or named reviewer disclosure were provided with enforcement.
-- **Iris logging:** If helpful, log the case in [Iris](../iris/README.md) and keep your working notes in **Sovereign Local Mode** under your own control. This can help separate enforcement validity, data access, and adjustment issues cleanly.
-- **Memory Palace receipts:** For key items, export [Memory Palace](../iris/README.md) verifiable receipts where available, including the **SHA-256 commitment** and any **inclusion proof**. This helps show that the evidence set was recorded in a tamper-evident way.
+- **Iris logging:** If helpful, log the case in [Iris](../iris/README.md) and keep your working notes in **Sovereign Local Mode** (which keeps your notes under your direct control rather than on external servers). This can help separate enforcement validity, data access, and adjustment issues cleanly.
+- **Memory Palace receipts:** For key items, export [Memory Palace](../iris/README.md) verifiable receipts where available. These are tamper-evident evidence receipts that can include the **SHA-256 commitment** (the file's unique fingerprint) and any **inclusion proof** showing it was recorded in the wider evidence set.
 - **Simple filenames:** Use clear names such as `[2026-03-20]_Equita_covering-email_adjustment-demand` so nothing important gets lost.
 
 ---

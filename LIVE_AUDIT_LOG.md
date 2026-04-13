@@ -9,7 +9,7 @@ A chronological record of every institutional interaction, statutory filing, and
 | Field | Detail |
 | --- | --- |
 | **Originator** | [Redacted] |
-| **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
+| **Repository** | [burgess-principle.vercel.app](https://burgess-principle.vercel.app/) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |
 | **Date Range** | 27 May 2025 – 7 April 2026 |
@@ -139,4 +139,4 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 **End of Log**  
 Last updated: 7 April 2026  
 UK Certification Mark: UK00004343685  
-Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
+Maintained under the Burgess Principle — [burgess-principle.vercel.app](https://burgess-principle.vercel.app/)

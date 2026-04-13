@@ -90,14 +90,17 @@ If the deeper analysis is long, keep this section short and move extra material 
 **If This Is Happening To You**  
 **Write for someone under pressure.** Many people feel anxious when letters are formal, threatening, or confusing. You do not need to solve everything at once.
 
-- **Recommended starting template:** [General dispute with Burgess Principle](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md)  
-  If the issue looks like a solely automated decision, you may prefer [Article 22 with Burgess Principle](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md).
-- **Simple next steps:**  
-  1. Save the letter, email, screenshot, or portal message.  
-  2. Ask the Burgess Principle question in writing.  
-  3. Request any reasonable adjustments early if you need them.  
-  4. Keep dates, names, and reference numbers together.  
-  5. Follow up calmly if the answer is vague or evasive.
+**Recommended starting template:** [General dispute with Burgess Principle](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md)  
+If the issue looks like a solely automated decision, you may prefer [Article 22 with Burgess Principle](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md).
+
+**Simple next steps**
+
+1. Save the letter, email, screenshot, or portal message.
+2. Ask the Burgess Principle question in writing.
+3. Request any reasonable adjustments early if you need them.
+4. Keep dates, names, and reference numbers together.
+5. Follow up calmly if the answer is vague or evasive.
+
 - **Evidence tips:** [Keep the first threat, the first challenge, and the final outcome together. Preserve visible dates and reference numbers.]
 - **Private logging note:** If you want a private audit trail, you can draft and organise the record in [Iris](../iris/README.md). You can store copies in [Sovereign Local Mode](../README.md#run-sovereign-local-mode) so your working notes stay under your control.
 
@@ -111,7 +114,7 @@ Use this section to point readers back to the [case-studies index](./README.md) 
 - **SAR / DSAR replies:** Preserve acknowledgements, deadlines, and the final response, even if it is incomplete.
 - **Registration or account confirmations:** Keep anything that shows the corrected status, closure, removal, or ongoing dispute.
 - **Iris conversation logs:** If you used Iris to organise the case, keep the relevant prompts, summaries, and exports in date order.
-- **[Memory Palace](../iris/README.md#verifiable-memory-palace) verifiable receipts:** Where possible, create a tamper-evident receipt for key evidence using Memory Palace. Include the receipt ID, timestamp, a SHA-256 commitment (the file's unique fingerprint), and any available inclusion proof showing the receipt was recorded in the wider evidence set.
+- **[Memory Palace](../iris/README.md) verifiable receipts:** Where possible, create a tamper-evident receipt for key evidence using Memory Palace. Include the receipt ID, timestamp, a SHA-256 commitment (the file's unique fingerprint), and any available inclusion proof showing the receipt was recorded in the wider evidence set.
 - **Naming convention:** Use simple filenames such as `[YYYY-MM-DD]_[source]_[short-description]`.
 
 Try to keep one clean folder for the case so nothing important is lost when you are tired or stressed.

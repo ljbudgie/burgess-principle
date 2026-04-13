@@ -98,7 +98,7 @@ In short:
 ---
 
 Take care,  
-LJ
+The Burgess Principle project
 
 The Burgess Principle  
 UK Certification Mark: UK00004343685  

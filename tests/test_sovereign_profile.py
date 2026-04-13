@@ -49,11 +49,11 @@ class _FakePostQuantumProvider:
 
 
 def test_build_personal_profile_generates_signed_identity():
-    profile = build_personal_profile(name="Lewis", handle="ljbudgie")
+    profile = build_personal_profile(name="Alex", handle="sovereign-user")
 
-    assert profile["name"] == "Lewis"
-    assert profile["handle"] == "ljbudgie"
-    assert profile["preferred_signature_block"] == "Lewis [Burgess Principle]"
+    assert profile["name"] == "Alex"
+    assert profile["handle"] == "sovereign-user"
+    assert profile["preferred_signature_block"] == "Alex [Burgess Principle]"
     assert len(profile["private_key_hex"]) == 64
     assert len(profile["public_key_hex"]) == 64
     assert len(profile["key_fingerprint"]) == 16
@@ -70,9 +70,9 @@ def test_build_personal_profile_rejects_blank_name():
 
 def test_save_and_load_personal_profile_round_trip(tmp_path):
     profile = build_personal_profile(
-        name="Lewis",
-        handle="ljbudgie",
-        preferred_signature_block="Lewis / Burgess Principle",
+        name="Alex",
+        handle="sovereign-user",
+        preferred_signature_block="Alex / Burgess Principle",
     )
 
     saved = save_personal_profile(profile, "correct horse battery staple", root=tmp_path)
@@ -83,12 +83,12 @@ def test_save_and_load_personal_profile_round_trip(tmp_path):
     assert loaded["signed_profile"] == profile["signed_profile"]
     assert loaded["profile_signature"] == profile["profile_signature"]
     assert summary == saved["profile"]
-    assert summary["name"] == "Lewis"
+    assert summary["name"] == "Alex"
     assert summary["key_fingerprint"] == profile["key_fingerprint"]
 
 
 def test_load_personal_profile_rejects_wrong_passphrase(tmp_path):
-    profile = build_personal_profile(name="Lewis")
+    profile = build_personal_profile(name="Alex")
     save_personal_profile(profile, "correct horse battery staple", root=tmp_path)
 
     with pytest.raises(CryptoError):
@@ -96,7 +96,7 @@ def test_load_personal_profile_rejects_wrong_passphrase(tmp_path):
 
 
 def test_verify_personal_profile_rejects_tampered_signature():
-    profile = build_personal_profile(name="Lewis")
+    profile = build_personal_profile(name="Alex")
 
     assert (
         verify_personal_profile({**profile, "profile_signature": "00" * 64}) is False
@@ -108,7 +108,7 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
 
     assert summary == {
         "name": "",
-        "handle": "ljbudgie",
+        "handle": "sovereign-user",
         "preferred_signature_block": "",
         "key_fingerprint": "",
         "public_key_hex": "",
@@ -124,11 +124,11 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
         "mirror_reflection_scope": "vault_only",
         "mirror_greeting": "",
     }
-    assert profile_signature_block(" Lewis ", "  ") == ""
-    assert mirror_mode_prompt("Lewis") == "Lewis — Mirror Mode active. The handshake continues on this device."
-    assert mirror_mode_prompt("Lewis", greeting_style="warm_personal") == "Hello Lewis — Mirror Mode active. The handshake continues: your energy + my structure = sovereign record."
-    assert mirror_mode_prompt("Lewis", greeting_style="minimal") == "Mirror Mode active."
-    assert mirror_mode_prompt("Lewis", custom_greeting="Welcome back, Lewis.") == "Welcome back, Lewis."
+    assert profile_signature_block(" Alex ", "  ") == ""
+    assert mirror_mode_prompt("Alex") == "Alex — Mirror Mode active. The handshake continues on this device."
+    assert mirror_mode_prompt("Alex", greeting_style="warm_personal") == "Hello Alex — Mirror Mode active. The handshake continues: your energy + my structure = sovereign record."
+    assert mirror_mode_prompt("Alex", greeting_style="minimal") == "Mirror Mode active."
+    assert mirror_mode_prompt("Alex", custom_greeting="Welcome back, Alex.") == "Welcome back, Alex."
     assert normalize_mirror_greeting_style("Warm & Personal") == "warm_personal"
     assert normalize_mirror_reflection_scope("all documents") == "all_documents"
     assert fingerprint_public_key("ab" * 32, length=8) == "9a2db2e2"
@@ -142,7 +142,7 @@ def test_build_personal_profile_can_use_hybrid_signatures(monkeypatch):
         lambda expected_algorithm=None: _FakePostQuantumProvider(),
     )
 
-    profile = build_personal_profile(name="Lewis", post_quantum=True)
+    profile = build_personal_profile(name="Alex", post_quantum=True)
 
     assert profile["signature_mode"] == "hybrid"
     assert profile["post_quantum_algorithm"] == "ML-DSA"
@@ -150,14 +150,14 @@ def test_build_personal_profile_can_use_hybrid_signatures(monkeypatch):
 
 
 def test_save_personal_profile_requires_passphrase(tmp_path):
-    profile = build_personal_profile(name="Lewis")
+    profile = build_personal_profile(name="Alex")
 
     with pytest.raises(ValueError, match="vault_passphrase must be a non-empty string"):
         save_personal_profile(profile, "", root=tmp_path)
 
 
 def test_save_personal_profile_rejects_invalid_signature(tmp_path):
-    profile = build_personal_profile(name="Lewis")
+    profile = build_personal_profile(name="Alex")
 
     with pytest.raises(ValueError, match="profile signature verification failed"):
         save_personal_profile(
@@ -168,7 +168,7 @@ def test_save_personal_profile_rejects_invalid_signature(tmp_path):
 
 
 def test_load_personal_profile_requires_passphrase(tmp_path):
-    profile = build_personal_profile(name="Lewis")
+    profile = build_personal_profile(name="Alex")
     save_personal_profile(profile, "correct horse battery staple", root=tmp_path)
 
     with pytest.raises(ValueError, match="vault_passphrase must be a non-empty string"):
@@ -176,7 +176,7 @@ def test_load_personal_profile_requires_passphrase(tmp_path):
 
 
 def test_load_personal_profile_rejects_tampered_signature_after_decryption(tmp_path):
-    profile = build_personal_profile(name="Lewis")
+    profile = build_personal_profile(name="Alex")
     saved = save_personal_profile(profile, "correct horse battery staple", root=tmp_path)
     record = json.loads(Path(saved["path"]).read_text(encoding="utf-8"))
     record["encrypted_payload"] = sovereign_profile._encrypt_payload(  # noqa: SLF001
@@ -193,7 +193,7 @@ def test_setup_personal_profile_loads_existing_profile(tmp_path):
     created = setup_personal_profile(
         vault_passphrase="correct horse battery staple",
         root=tmp_path,
-        name="Lewis",
+        name="Alex",
     )
     loaded = setup_personal_profile(
         vault_passphrase="correct horse battery staple",
@@ -203,14 +203,14 @@ def test_setup_personal_profile_loads_existing_profile(tmp_path):
 
     assert created["created"] is True
     assert loaded["created"] is False
-    assert loaded["profile"]["name"] == "Lewis"
+    assert loaded["profile"]["name"] == "Alex"
 
 
 def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_path):
     setup_personal_profile(
         vault_passphrase="correct horse battery staple",
         root=tmp_path,
-        name="Lewis",
+        name="Alex",
     )
 
     updated = setup_personal_profile(
@@ -221,7 +221,7 @@ def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_
 
     assert updated["created"] is False
     assert updated["profile"]["mirror_mode_enabled"] is True
-    assert updated["profile"]["mirror_greeting"] == "Lewis — Mirror Mode active. The handshake continues on this device."
+    assert updated["profile"]["mirror_greeting"] == "Alex — Mirror Mode active. The handshake continues on this device."
     loaded = load_personal_profile("correct horse battery staple", root=tmp_path)
     assert loaded["mirror_mode_enabled"] is True
     assert loaded["mirror_mode_activated_at"]
@@ -231,7 +231,7 @@ def test_setup_personal_profile_can_store_mirror_preferences(tmp_path):
     setup_personal_profile(
         vault_passphrase="correct horse battery staple",
         root=tmp_path,
-        name="Lewis",
+        name="Alex",
     )
 
     updated = setup_personal_profile(
@@ -239,14 +239,14 @@ def test_setup_personal_profile_can_store_mirror_preferences(tmp_path):
         root=tmp_path,
         mirror_mode_enabled=True,
         mirror_greeting_style="warm_personal",
-        mirror_custom_greeting="Welcome back, Lewis.",
+        mirror_custom_greeting="Welcome back, Alex.",
         mirror_reflection_scope="all_documents",
     )
 
     assert updated["profile"]["mirror_greeting_style"] == "warm_personal"
-    assert updated["profile"]["mirror_custom_greeting"] == "Welcome back, Lewis."
+    assert updated["profile"]["mirror_custom_greeting"] == "Welcome back, Alex."
     assert updated["profile"]["mirror_reflection_scope"] == "all_documents"
-    assert updated["profile"]["mirror_greeting"] == "Welcome back, Lewis."
+    assert updated["profile"]["mirror_greeting"] == "Welcome back, Alex."
 
 
 def test_setup_personal_profile_requires_name_when_creating_new_profile(tmp_path):
@@ -261,7 +261,7 @@ def test_decrypt_profile_payload_returns_original_json(tmp_path):
     result = setup_personal_profile(
         vault_passphrase="correct horse battery staple",
         root=tmp_path,
-        name="Lewis",
+        name="Alex",
     )
     raw_record = json.loads(Path(result["stored_path"]).read_text(encoding="utf-8"))
 
@@ -270,7 +270,7 @@ def test_decrypt_profile_payload_returns_original_json(tmp_path):
         "correct horse battery staple",
     )
 
-    assert payload["name"] == "Lewis"
+    assert payload["name"] == "Alex"
     assert verify_personal_profile(payload) is True
 
 

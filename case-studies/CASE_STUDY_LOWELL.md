@@ -48,13 +48,13 @@ Lowell never answered that question directly. Instead, after about two months of
 
 ## Background
 
-- **Complainant / applicant:** Lewis James Burgess.
+- **Complainant / applicant:** [Redacted].
 - **Relevant account, document, or reference:** Lowell reference 382564532; original npower account 212216345; complaint reference 614420.
-- **Disability / adjustment context:** Bilateral sensorineural hearing loss; email-only communication asserted under sections 20 and 29 of the Equality Act 2010.
+- **Disability / adjustment context:** Accessible written communication requested as a reasonable adjustment under sections 20 and 29 of the Equality Act 2010.
 - **What the institution did:** Lowell pursued a purchased npower debt for **£563.14** linked to a previous supply period from **29 June 2018 to 30 September 2019**.
 - **Why the case matters:** It shows how a purchased-debt pipeline can keep moving until a person asks for proof of human review, limitation, accessibility compliance, and data-rights compliance all at once.
 
-The challenge disputed liability for the full period, questioned whether the balance had been individually verified, raised the statute-barred aspect, and required email-only communication because of hearing loss. Lowell then directed the DSAR process toward an online portal rather than simply dealing with the request by email. In an accessibility context, that matters. A channel redirection can become a barrier when a person has already explained what communication method they need.
+The challenge disputed liability for the full period, questioned whether the balance had been individually verified, raised the statute-barred aspect, and required email-only communication because of disclosed accessibility needs. Lowell then directed the DSAR process toward an online portal rather than simply dealing with the request by email. In an accessibility context, that matters. A channel redirection can become a barrier when a person has already explained what communication method they need.
 
 This case sits in the Burgess Principle evidence base because Lowell ultimately chose abandonment over explanation. The institution did not uphold the complaint. It also did not continue recovery. It simply closed the account once the record became too specific to ignore.
 
@@ -150,7 +150,7 @@ You are not alone if this feels draining. The goal is not to win an argument in 
 ## Key Evidence
 
 - **System architecture:** Lowell pursued a bulk-purchased npower debt through a standard collection pipeline without disclosing any named person who individually verified liability before enforcement activity began.
-- **Reasonable adjustment failure:** Email-only communication was requested because of bilateral sensorineural hearing loss, but Lowell redirected the DSAR process to an online portal instead of simply working within the requested accessible channel.
+- **Reasonable adjustment failure:** Email-only communication was requested as a reasonable adjustment, but Lowell redirected the DSAR process to an online portal instead of simply working within the requested accessible channel.
 - **Statute-barred aspect:** The debt originated in the **2018–2019** supply period, making limitation a central issue in the 2026 challenge.
 - **Final response:** On **13 April 2026**, Lowell did not uphold the complaint but confirmed no further recovery action and account closure.
 - **Data-rights follow-through:** Article 17 erasure and Article 21 objection requests were filed on the same day as the final response.

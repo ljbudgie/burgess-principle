@@ -8,14 +8,14 @@
 - **Current Finding:** NULL
 - **Response Classification:** AMBIGUOUS
 - **Procedural Posture:** Five enforcement cases challenged; the operative response was disability gatekeeping rather than a direct answer on human review.
-- **Last Updated:** 12 April 2026
+- **Last Updated:** 13 April 2026
 - **Outcome:** Enforcement remains challenged. No certified orders, compliant notices, or direct answer on human review have been produced.
 
 ---
 
 ## Summary
 
-On 20 March 2026, Equita issued five email statements for council tax and PCN debts totalling more than £4,350. Instead of answering whether anyone individually reviewed each case before enforcement began, Equita's representative demanded medical evidence before providing reasonable adjustments for the complainant's hearing loss. No certified court orders, compliant 7-day Notice of Enforcement, or substantive SAR response accompanied the enforcement statements. The case demonstrates an AMBIGUOUS institutional reply masking a NULL enforcement path.
+On 20 March 2026, Equita issued five email enforcement statements for council tax and PCN debts totalling more than £4,350. When asked whether any named person had individually reviewed each case before enforcement began, Equita's representative responded by demanding medical evidence before making the requested communication adjustment for hearing loss. No certified court orders, compliant 7-day Notice of Enforcement, or substantive SAR response accompanied the statements. The present record therefore remains NULL on individual review, with an AMBIGUOUS operative response.
 
 ---
 
@@ -57,6 +57,8 @@ This question matters because each debt, warrant date, notice, and adjustment re
 
 ### Why this classification applies
 
+- **Direct answer given? No.** The response did not say whether any human being individually reviewed any of the five cases.
+- **Named reviewer identified? No.** No officer, caseworker, or authorised decision-maker has been named for any case number.
 - **Current finding: NULL.** No evidence has been produced of any named person reviewing any of the five cases before enforcement was initiated.
 - **Response classification: AMBIGUOUS.** The operative reply was not a direct yes/no answer. It substituted disability gatekeeping for the requested disclosure about human review.
 - **What the evidence still proves:** Bulk statements were issued, no certified orders were provided, and the institution's first response was procedural resistance rather than case-specific explanation.
@@ -82,7 +84,7 @@ This question matters because each debt, warrant date, notice, and adjustment re
 
 ## Current Position
 
-The matter remains unresolved. Equita has not identified any named reviewer for any of the five cases. The current position is that enforcement was asserted, not evidenced, and that the complainant was met first with disability gatekeeping rather than an answer on accountability.
+The matter remains unresolved. Equita has not identified any named reviewer for any of the five cases, and it has not squarely answered whether individual scrutiny happened before enforcement was set in motion. The current record is therefore one of asserted enforcement without disclosed human accountability.
 
 ---
 
@@ -99,8 +101,8 @@ The matter remains unresolved. Equita has not identified any named reviewer for 
 ## Key Evidence
 
 - **Jay (Equita):** Demand for medical evidence before providing reasonable adjustments.
-- **Darlington Borough Council Stage 2 position:** PCN enforcement was described as "legislative design" that does not involve a judge.
-- **Document gap:** No certified court orders, compliant 7-day notice, or substantive SAR response were provided alongside enforcement.
+- **Five enforcement statements:** Bulk email statements covering cases 24277541, 24371333, 24519250, 24618815, and 24650546.
+- **Document gap:** No certified court orders, compliant 7-day notice, substantive SAR response, or named reviewer disclosure were provided alongside enforcement.
 
 ---
 
@@ -120,4 +122,4 @@ The matter remains unresolved. Equita has not identified any named reviewer for 
 
 ## Doctrinal Notes
 
-Equita shows that an institution does not need to deny the question outright to avoid accountability. It can simply change the subject. The new response-classification field makes that tactic visible instead of letting it hide inside the narrative.
+Equita shows that an institution does not need to deny the accountability question outright to avoid it. It can instead divert the exchange into adjustment gatekeeping and leave the underlying enforcement decision-maker unnamed. Making that distinction explicit helps separate the accessibility issue from the still-unanswered question of who, if anyone, individually reviewed the five cases.

@@ -14,10 +14,10 @@ Example prompt to replace:
 
 | Field | Detail |
 | --- | --- |
-| **Sector / Organisation** | [Example: Energy / E.ON Next] |
+| **Sector / organisation** | [Example: Energy / E.ON Next] |
 | **Date range** | [DD Month YYYY – DD Month YYYY or Ongoing] |
-| **Status** | [Resolved / Ongoing / Awaiting response] |
-| **Key Outcome** | [One line: what changed, stopped, or remains disputed] |
+| **Status** | [Resolved / Ongoing / Awaiting Response] |
+| **Key outcome** | [One line: what changed, stopped, or remains disputed] |
 
 **Background**  
 **State the facts without argument.** Keep this neutral, short, and concrete.
@@ -114,7 +114,7 @@ Use this section to point readers back to the [case-studies index](./README.md) 
 - **SAR / DSAR replies:** Preserve acknowledgements, deadlines, and the final response, even if it is incomplete.
 - **Registration or account confirmations:** Keep anything that shows the corrected status, closure, removal, or ongoing dispute.
 - **Iris conversation logs:** If you used Iris to organise the case, keep the relevant prompts, summaries, and exports in date order.
-- **[Memory Palace](../iris/README.md#verifiable-memory-palace) verifiable receipts:** Where possible, create a tamper-evident receipt for key evidence using Memory Palace. Include the receipt ID, timestamp, a SHA-256 commitment (the file's unique fingerprint), and any available inclusion proof showing the receipt was recorded in the wider evidence set.
+- **[Memory Palace](../iris/README.md) verifiable receipts:** Where possible, create a tamper-evident receipt for key evidence using Memory Palace. Include the receipt ID, timestamp, a SHA-256 commitment (the file's unique fingerprint), and any available inclusion proof showing the receipt was recorded in the wider evidence set.
 - **Naming convention:** Use simple filenames such as `[YYYY-MM-DD]_[source]_[short-description]`.
 
 Try to keep one clean folder for the case so nothing important is lost when you are tired or stressed.

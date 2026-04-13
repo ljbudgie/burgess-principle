@@ -57,7 +57,7 @@ We encourage you to use the materials thoughtfully and respectfully. The goal is
 Thank you for understanding.
 
 Take care,  
-LJ
+The Burgess Principle project
 
 The Burgess Principle  
 UK Certification Mark: UK00004343685  

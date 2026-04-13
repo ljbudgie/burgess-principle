@@ -15,7 +15,7 @@
 
 ## Summary
 
-Equifax registered two County Court Judgments on the complainant's credit file without disclosing any individual verification process. When the complainant challenged the entries and asked who had reviewed them before registration, Equifax closed the matter through an automated no-reply email that directed a deaf person to web and phone channels. The response did not engage with the Article 18 restriction request, the creditor disclaimers, or the request for a named reviewer. This makes the case a clean example of an AMBIGUOUS reply that still evidences a NULL process.
+Equifax registered two County Court Judgments on the complainant's credit file without disclosing any individual verification process. When the complainant challenged the entries and asked who had reviewed them before registration, Equifax closed the matter through an automated no-reply email that directed the complainant to web and phone channels despite a written accessibility request. The response did not engage with the Article 18 restriction request, the creditor disclaimers, or the request for a named reviewer. This makes the case a clean example of an AMBIGUOUS reply that still evidences a NULL process.
 
 ---
 
@@ -59,7 +59,7 @@ This question focuses on the exact moment when disputed debt data became a durab
 
 - **Current finding: NULL.** No evidence has been produced of any individual verifying the entries either before registration or during the later challenge.
 - **Response classification: AMBIGUOUS.** The institution did not say yes or no. It used automated closure and channel redirection instead of answering the question.
-- **What the evidence still proves:** A deaf person was routed toward inaccessible phone contact after disclosing disability, which strongly indicates that no one applied individual attention to the challenge.
+- **What the evidence still proves:** The complainant was routed toward inaccessible phone contact after disclosing disability, which strongly indicates that no one applied individual attention to the challenge.
 
 ### Next follow-up needed
 

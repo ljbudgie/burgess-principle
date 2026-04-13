@@ -19,9 +19,9 @@ import pytest
 
 _MOCK_CLAIM_DATA = {"letter": "# Letter", "commitment_hash": "abc123"}
 _MOCK_PROFILE_SUMMARY = {
-    "name": "Lewis",
-    "handle": "ljbudgie",
-    "preferred_signature_block": "Lewis [Burgess Principle]",
+    "name": "Alex",
+    "handle": "sovereign-user",
+    "preferred_signature_block": "Alex [Burgess Principle]",
     "key_fingerprint": "abc123def4567890",
     "public_key_hex": "ab" * 32,
     "profile_signature": "cd" * 64,
@@ -34,7 +34,7 @@ _MOCK_PROFILE_SUMMARY = {
     "mirror_greeting_style": "neutral_professional",
     "mirror_custom_greeting": "",
     "mirror_reflection_scope": "vault_only",
-    "mirror_greeting": "Lewis — Mirror Mode active. The handshake continues on this device.",
+    "mirror_greeting": "Alex — Mirror Mode active. The handshake continues on this device.",
 }
 
 # ---------------------------------------------------------------------------
@@ -117,7 +117,7 @@ class TestLoadConfig:
             json.dumps(
                 {
                     "user_profile": {
-                        "preferred_name": "Lewis",
+                        "preferred_name": "Alex",
                         "communication_needs": "Email only",
                     }
                 }
@@ -125,7 +125,7 @@ class TestLoadConfig:
         )
         with patch.object(_mod, "_CONFIG_PATH", config_file):
             cfg = load_config()
-        assert cfg["user_profile"]["preferred_name"] == "Lewis"
+        assert cfg["user_profile"]["preferred_name"] == "Alex"
         assert cfg["user_profile"]["communication_needs"] == "Email only"
 
     def test_cli_overrides_config_file(self, tmp_path):
@@ -207,7 +207,7 @@ class TestBuildRuntimeSystemPrompt:
         assert "Easy Mode is on" in prompt
         assert "Mirror greeting style: Neutral & Professional" in prompt
         assert "Current config: easy_mode=true, mirror_greeting_style=neutral_professional, mirror_reflection_scope=vault_only." in prompt
-        assert "Active local profile: Lewis." in prompt
+        assert "Active local profile: Alex." in prompt
 
     def test_includes_saved_local_user_profile_context(self):
         prompt = build_runtime_system_prompt(
@@ -215,7 +215,7 @@ class TestBuildRuntimeSystemPrompt:
             {
                 "easy_mode": True,
                 "user_profile": {
-                    "preferred_name": "Lewis",
+                    "preferred_name": "Alex",
                     "communication_needs": "Email only, plain language",
                     "location": "London",
                     "active_cases": ["Trading 212 DSAR", "Home Office FOI"],
@@ -227,7 +227,7 @@ class TestBuildRuntimeSystemPrompt:
         )
 
         assert "Saved Local User Profile" in prompt
-        assert "Preferred name: Lewis." in prompt
+        assert "Preferred name: Alex." in prompt
         assert "Communication needs: Email only, plain language." in prompt
         assert "Active cases: Trading 212 DSAR, Home Office FOI." in prompt
 
@@ -620,7 +620,7 @@ class TestMyProfileEndpoint:
     def test_setup_requires_passphrase(self):
         if not self.has_client:
             pytest.skip("starlette.testclient not available")
-        response = self.client.post("/api/my-profile/setup", json={"name": "Lewis"})
+        response = self.client.post("/api/my-profile/setup", json={"name": "Alex"})
         assert response.status_code == 400
         assert "vault_passphrase" in response.json()["error"]
 
@@ -649,7 +649,7 @@ class TestMyProfileEndpoint:
         ) as mock_setup:
             response = self.client.post(
                 "/api/my-profile/setup",
-                json={"name": "Lewis", "vault_passphrase": "secret"},
+                json={"name": "Alex", "vault_passphrase": "secret"},
             )
         assert response.status_code == 200
         assert response.json()["created"] is True
@@ -695,13 +695,13 @@ class TestMyProfileEndpoint:
                     "vault_passphrase": "secret",
                     "mirror_mode_enabled": True,
                     "mirror_greeting_style": "warm_personal",
-                    "mirror_custom_greeting": "Welcome back, Lewis.",
+                    "mirror_custom_greeting": "Welcome back, Alex.",
                     "mirror_reflection_scope": "all_documents",
                 },
             )
         assert response.status_code == 200
         assert mock_setup.call_args.kwargs["mirror_greeting_style"] == "warm_personal"
-        assert mock_setup.call_args.kwargs["mirror_custom_greeting"] == "Welcome back, Lewis."
+        assert mock_setup.call_args.kwargs["mirror_custom_greeting"] == "Welcome back, Alex."
         assert mock_setup.call_args.kwargs["mirror_reflection_scope"] == "all_documents"
 
     def test_setup_rejects_invalid_json(self):
@@ -740,7 +740,7 @@ class TestMyProfileEndpoint:
         ):
             response = self.client.post(
                 "/api/my-profile/setup",
-                json={"name": "Lewis", "vault_passphrase": "secret"},
+                json={"name": "Alex", "vault_passphrase": "secret"},
             )
         assert response.status_code == 400
         assert response.json()["error"] == "Invalid personal profile request."
@@ -755,7 +755,7 @@ class TestMyProfileEndpoint:
         ):
             response = self.client.post(
                 "/api/my-profile/setup",
-                json={"name": "Lewis", "vault_passphrase": "secret"},
+                json={"name": "Alex", "vault_passphrase": "secret"},
             )
         assert response.status_code == 500
         assert response.json()["error"] == "Personal profile setup failed. Check the server logs for details."

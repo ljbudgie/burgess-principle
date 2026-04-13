@@ -114,7 +114,7 @@ The matter remains ongoing. A settlement has been reached with E.ON, but the Ene
 | Status | ONGOING |
 | Current finding | NULL |
 | Response classification | NULL |
-| Immediate harm | Forced entry to a deaf person's home |
+| Immediate harm | Forced entry after accessibility needs went unheeded |
 | Present posture | Settlement reached; Ombudsman ruling pending |
 | Systemic scale referenced | 536,139 energy warrants in 18 months |
 | Next action | Record the Ombudsman outcome and whether it addresses human review |

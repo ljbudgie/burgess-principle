@@ -105,4 +105,4 @@ Hashtags: #BurgessPrinciple #OpenSource #HelpfulTools
 Feel free to adapt these scripts to your own voice. The goal is to help more people discover a calm, practical way to ask for real human review.
 
 Take care,  
-LJ
+The Burgess Principle project

@@ -284,4 +284,4 @@ We'd love to see what you create! Here's how to contribute:
 I'll review every contribution personally with the same care as everything else in the repo.
 
 Take care,  
-LJ
+The Burgess Principle project

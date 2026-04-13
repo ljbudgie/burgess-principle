@@ -72,7 +72,7 @@ To make evasive language easier to track, the register can now record these resp
 
 - **Sector:** Credit Reference
 - **Question Asked:** Who individually verified CCJs L9FG1818 and L7EC1P3M before registering them on the complainant's credit file?
-- **Response Summary:** Case closed via automated no-reply email directing deaf person to portal and phone numbers. No engagement with Article 18 restriction or creditor disclaimers.
+- **Response Summary:** Case closed via automated no-reply email directing the complainant to portal and phone channels despite a written accessibility request. No engagement with Article 18 restriction or creditor disclaimers.
 - **Finding:** **NULL** — case closed by automated system without individual review.
 - **Status:** ICO complaint ready to file. Durkin v DSG Retail authority (£8,000 per entry).
 
@@ -175,7 +175,7 @@ To make evasive language easier to track, the register can now record these resp
 - **Question Asked:** Was a human member of the Reddit team able to personally review the specific facts of the individual situation before the account was restricted / shadowbanned / filtered, preventing posts about the Burgess Principle repo from being visible or sendable?
 - **Response Summary:** Pending — formal email sent 4 April 2026 to Reddit Team / Moderation / Trust & Safety.
 - **Specific Facts:** Every post about the repo shows “post insights unavailable.” Unable to send modmail or post in relevant communities (r/opensource, r/privacy, r/SideProject, etc.). No notification, warning, or human-reviewed explanation provided. Restriction began immediately after attempting to share the open-source project.
-- **Legal Basis:** UK GDPR Article 22 (automated decision-making) and Article 15 (right of access). Reasonable adjustment requested for bilateral sensorineural hearing loss under the Equality Act 2010 (email-only communication).
+- **Legal Basis:** UK GDPR Article 22 (automated decision-making) and Article 15 (right of access). Reasonable adjustment requested under the Equality Act 2010 (written communication).
 - **Finding:** Pending — awaiting response.
 - **Status:** Formal Burgess Principle application sent. Awaiting human response to the binary question.
 
@@ -185,7 +185,7 @@ To make evasive language easier to track, the register can now record these resp
 - **Date First Contacted:** 7 April 2026
 - **Question Asked:** Was a human member of the team able to personally review the specific facts of the UK entry decision for Kanye West (Ye) in connection with the Wireless Festival?
 - **Response Summary:** Standard Zendesk auto-acknowledgment from YZY Customer Service confirming receipt and review. Awaiting substantive Home Office response (20 working days for FOI, up to 1 month for DSAR).
-- **Legal Basis:** Freedom of Information Act 2000, UK GDPR Article 15 and Article 22, Equality Act 2010 (reasonable adjustment for bilateral sensorineural hearing loss — email-only communication).
+- **Legal Basis:** Freedom of Information Act 2000, UK GDPR Article 15 and Article 22, Equality Act 2010 (reasonable adjustment for written communication).
 - **Finding:** Pending — awaiting response.
 - **Status:** Formal Burgess Principle application sent via combined FOI + DSAR + Burgess Principle email. CC'd to YZY for transparency.
 

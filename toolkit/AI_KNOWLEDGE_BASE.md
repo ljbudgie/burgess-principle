@@ -21,7 +21,7 @@ It is a diagnostic tool — not pseudolaw — designed to help ordinary people c
 
 ## Who Created It?
 
-The framework was created by **LJ** (`@ljbudgie`), an ordinary person who experienced automated enforcement first-hand — a warrant that nobody individually signed, calls to a deaf person logged as refusal, enforcement without human review.
+The framework emerged from firsthand encounters with automated enforcement, inaccessible communication channels, and decisions made without clear human review.
 
 That lived experience became the foundation for a calm, evidence-based framework now used across multiple domains.
 

@@ -44,9 +44,9 @@ When the address was registered as **"No Licence Needed"**, the letters stopped.
 
 ## Background
 
-- **Complainant / applicant:** Lewis James Burgess.
+- **Complainant / applicant:** [Redacted].
 - **Relevant account, document, or reference:** SAR reference POLSAR1321; "No Licence Needed" registration reference 4315773702.
-- **Disability / adjustment context:** Bilateral sensorineural hearing loss; email-only communication asserted under section 20 of the Equality Act 2010.
+- **Disability / adjustment context:** Accessible written communication requested as a reasonable adjustment under section 20 of the Equality Act 2010.
 - **What the institution did:** TV Licensing sent physical letters in escalating enforcement language without first checking whether the licence requirement applied to the specific address or whether reasonable adjustments were required.
 - **Why the case matters:** It shows a pure enforcement-presumption model. Unlike a debt case where a balance can later be corrected, this case began from a premise that had never been individually verified at all.
 

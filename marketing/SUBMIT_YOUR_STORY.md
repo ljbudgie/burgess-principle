@@ -42,4 +42,4 @@ Thank you for helping make the Burgess Principle more useful for other people.
 Every story matters.
 
 Take care,  
-LJ
+The Burgess Principle project

@@ -141,6 +141,7 @@ VALID_CATEGORIES: frozenset[str] = frozenset(
 _ML_DSA_MODULES = (
     ("ML-DSA", "pqcrypto.sign.ml_dsa_65"),
     ("ML-DSA", "pqcrypto.sign.ml_dsa_87"),
+    # Older wrappers may still expose ML-DSA variants under Dilithium names.
     ("ML-DSA", "pqcrypto.sign.dilithium3"),
     ("ML-DSA", "pqcrypto.sign.dilithium5"),
 )
@@ -255,6 +256,7 @@ def _load_pqcrypto_provider(
 
 @lru_cache(maxsize=_PQ_PROVIDER_CACHE_SIZE)
 def _resolve_post_quantum_provider(expected_algorithm: str | None = None) -> PostQuantumProvider:
+    """Return the preferred optional PQ provider, honouring algorithm hints."""
     candidates = (_ML_DSA_MODULES, _SLH_DSA_MODULES)
     expected = _normalise_algorithm_name(expected_algorithm or "")
     if expected.startswith("slhdsa") or expected.startswith("sphincs"):

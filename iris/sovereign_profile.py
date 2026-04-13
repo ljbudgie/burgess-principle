@@ -170,6 +170,8 @@ def _apply_profile_signatures(
         profile["profile_signature"] = bundle["signature"]
         return profile
 
+    # Generate or recover the PQ key material first, then sign the final visible
+    # profile payload once the PQ public key metadata has been embedded.
     provisional = module.build_signature_bundle(
         b"sovereign-profile",
         str(profile["private_key_hex"]).strip(),

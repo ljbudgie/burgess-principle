@@ -292,6 +292,8 @@ def generate_commitment(
         category,
         private_key,
         post_quantum=_post_quantum_enabled(profile, post_quantum),
+        # Support the new generic key names first while still accepting the
+        # legacy algorithm-specific aliases already present in local profiles.
         post_quantum_private_key_hex=_pick(
             profile,
             "post_quantum_private_key_hex",

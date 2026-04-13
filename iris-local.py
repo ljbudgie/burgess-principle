@@ -573,7 +573,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--post-quantum",
         action="store_true",
         default=False,
-        help="Enable hybrid signatures (Ed25519 + optional ML-DSA / SLH-DSA).",
+        help="Enable hybrid signatures (Ed25519 plus an installed ML-DSA or SLH-DSA provider).",
     )
     parser.add_argument(
         "--no-browser",

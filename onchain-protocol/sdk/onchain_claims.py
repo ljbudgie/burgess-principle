@@ -148,6 +148,7 @@ _SLH_DSA_MODULES = (
     ("SLH-DSA", "pqcrypto.sign.sphincs_shake_256f_simple"),
     ("SLH-DSA", "pqcrypto.sign.sphincs_sha2_256f_simple"),
 )
+_PQ_PROVIDER_CACHE_SIZE = 3
 
 
 # ---------------------------------------------------------------------------
@@ -252,7 +253,7 @@ def _load_pqcrypto_provider(
     )
 
 
-@lru_cache(maxsize=3)
+@lru_cache(maxsize=_PQ_PROVIDER_CACHE_SIZE)
 def _resolve_post_quantum_provider(expected_algorithm: str | None = None) -> PostQuantumProvider:
     candidates = (_ML_DSA_MODULES, _SLH_DSA_MODULES)
     expected = _normalise_algorithm_name(expected_algorithm or "")
@@ -279,6 +280,19 @@ def signature_mode_label(post_quantum: bool = False) -> str:
         return "Classical (Ed25519)"
     provider = _resolve_post_quantum_provider()
     return f"Hybrid (Ed25519 + {provider.algorithm})"
+
+
+def _ed25519_public_key_hex(ed25519_private_key_hex: str) -> str:
+    try:
+        from nacl.signing import SigningKey
+    except ImportError:
+        raise ImportError(
+            "The 'PyNaCl' package is required for Ed25519 signing. "
+            "Install it with:  pip install PyNaCl"
+        ) from None
+
+    _validate_hex_string(ed25519_private_key_hex, "ed25519_private_key_hex", expected_length=64)
+    return SigningKey(bytes.fromhex(ed25519_private_key_hex)).verify_key.encode().hex()
 
 
 # Hybrid signature note:
@@ -530,12 +544,7 @@ def generate_onchain_claim(
 
     _validate_hex_string(nonce, "nonce", expected_length=64)
 
-    signature_bundle = build_signature_bundle(
-        b"",
-        private_key_hex,
-        post_quantum=False,
-    )
-    public_key_hex = signature_bundle["public_key"]
+    public_key_hex = _ed25519_public_key_hex(private_key_hex)
 
     # --- Compute commitment ---
     commitment_hash = _compute_commitment(

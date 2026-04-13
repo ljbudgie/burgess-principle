@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 import importlib.util
+import hashlib
 import json
 import sys
 from datetime import datetime, timezone
@@ -29,6 +30,25 @@ _onchain_claims = importlib.util.module_from_spec(_spec)
 sys.modules[_spec.name] = _onchain_claims
 _spec.loader.exec_module(_onchain_claims)
 verify_onchain_receipt = _onchain_claims.verify_onchain_receipt
+
+
+class _FakePostQuantumProvider:
+    algorithm = "ML-DSA"
+    module_name = "fake.mldsa"
+    derive_public_key = None
+
+    @staticmethod
+    def generate_keypair():
+        key = b"\x24" * 48
+        return key, key
+
+    @staticmethod
+    def sign(private_key: bytes, message: bytes) -> bytes:
+        return hashlib.sha256(private_key + message).digest()
+
+    @staticmethod
+    def verify(public_key: bytes, message: bytes, signature: bytes) -> bool:
+        return signature == hashlib.sha256(public_key + message).digest()
 
 
 def _build_profile(tmp_path: Path) -> dict[str, str]:
@@ -347,6 +367,34 @@ def test_generate_commitment_uses_supplied_signing_key(tmp_path):
     ).valid is True
 
 
+def test_generate_commitment_can_emit_hybrid_signatures(tmp_path, monkeypatch):
+    profile = _build_profile(tmp_path)
+    monkeypatch.setattr(
+        claim_builder._ONCHAIN_CLAIMS,
+        "_resolve_post_quantum_provider",
+        lambda expected_algorithm=None: _FakePostQuantumProvider(),
+    )
+
+    claim = claim_builder.generate_commitment(
+        "Human review request for my frozen exchange account.",
+        profile,
+        category="exchange",
+        target_entity=profile["institution_name"],
+        post_quantum=True,
+    )
+
+    assert claim["signature_mode"] == "hybrid"
+    assert claim["post_quantum_algorithm"] == "ML-DSA"
+    assert "ml-dsa" in claim["signatures"]
+    assert claim_builder._ONCHAIN_CLAIMS.verify_onchain_receipt(
+        claim["commitment_hash"],
+        claim["signature"],
+        claim["public_key"],
+        signatures=claim["signatures"],
+        public_keys=claim["public_keys"],
+    ).valid is True
+
+
 def test_auto_generate_claim_can_include_mirror_reflection_block(tmp_path):
     profile = {
         **_build_profile(tmp_path),
@@ -365,6 +413,26 @@ def test_auto_generate_claim_can_include_mirror_reflection_block(tmp_path):
     assert result["mirror_reflection"]["enabled"] is True
     assert result["mirror_reflection"]["scope"] == "all_documents"
     assert "Mirror Reflection" in result["letter"]
+
+
+def test_auto_generate_claim_formats_hybrid_signature_reference(tmp_path, monkeypatch):
+    profile = _build_profile(tmp_path)
+    monkeypatch.setattr(
+        claim_builder._ONCHAIN_CLAIMS,
+        "_resolve_post_quantum_provider",
+        lambda expected_algorithm=None: _FakePostQuantumProvider(),
+    )
+
+    with patch.object(claim_builder, "_ROOT", tmp_path):
+        result = auto_generate_claim(
+            "I need to share a verifiable proof for this frozen account review.",
+            profile,
+            post_quantum=True,
+        )
+
+    assert result["signature_mode"] == "hybrid"
+    assert "ED25519:" in result["onchain_notice"]
+    assert "ML-DSA:" in result["onchain_notice"]
 
 
 def test_generate_commitment_raises_when_receipt_verification_fails(tmp_path):

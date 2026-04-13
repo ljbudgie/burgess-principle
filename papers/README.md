@@ -31,8 +31,10 @@ Some papers deliberately preserve earlier language such as **"human judicial min
 2. [PAPER_1_CORE_LEGAL_PAPER.md](./PAPER_1_CORE_LEGAL_PAPER.md) — core legal foundation
 3. [RESPONSES_TO_CRITIQUES.md](./RESPONSES_TO_CRITIQUES.md) — common objections and rebuttals
 4. [PAPER_4_DATA_SOVEREIGNTY.md](./PAPER_4_DATA_SOVEREIGNTY.md) — data rights and sovereignty extension
-5. [MEDICAL_DEVICE_DOCTRINE.md](./MEDICAL_DEVICE_DOCTRINE.md) — sensory and device-governance extension
-6. [LICENSING_STRUCTURE.md](./LICENSING_STRUCTURE.md) — licensing and certification-mark structure
+5. [PAPER_5_DEEMED_CONTRACTS.md](./PAPER_5_DEEMED_CONTRACTS.md) — deemed contracts, statutory consent, and automated enforcement
+6. [PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md](./PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md) — first principles, Aristotle's *epieikeia*, and the machine that asks the question
+7. [MEDICAL_DEVICE_DOCTRINE.md](./MEDICAL_DEVICE_DOCTRINE.md) — sensory and device-governance extension
+8. [LICENSING_STRUCTURE.md](./LICENSING_STRUCTURE.md) — licensing and certification-mark structure
 
 ## Papers and related documents in this folder
 
@@ -46,6 +48,8 @@ Some papers deliberately preserve earlier language such as **"human judicial min
 - [PAPER_2_REPRESENTATIVE_ACTION.md](./PAPER_2_REPRESENTATIVE_ACTION.md)
 - [PAPER_3_POLITICAL_IMPLEMENTATION.md](./PAPER_3_POLITICAL_IMPLEMENTATION.md)
 - [PAPER_4_DATA_SOVEREIGNTY.md](./PAPER_4_DATA_SOVEREIGNTY.md)
+- [PAPER_5_DEEMED_CONTRACTS.md](./PAPER_5_DEEMED_CONTRACTS.md)
+- [PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md](./PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md)
 - [MEDICAL_DEVICE_DOCTRINE.md](./MEDICAL_DEVICE_DOCTRINE.md)
 - [US_CONSTITUTIONAL_ADDENDUM.md](./US_CONSTITUTIONAL_ADDENDUM.md)
 - [CIVIL-DISOBEDIENCE-COMPARISON.md](./CIVIL-DISOBEDIENCE-COMPARISON.md)

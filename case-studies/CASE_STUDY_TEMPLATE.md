@@ -55,9 +55,9 @@ If there was no direct answer, say so plainly. A vague policy statement is still
 
 | Date | Event | My Action / Evidence |
 | --- | --- | --- |
-| [DD/MM/YYYY] | [What the organisation did] | [Letter, screenshot, email, Iris log, Memory Palace receipt, account note] |
-| [DD/MM/YYYY] | [What you did next] | [Sent challenge, requested review, asked for adjustment, filed SAR/DSAR] |
-| [DD/MM/YYYY] | [What happened after that] | [Reply received, deadline passed, account updated, enforcement stopped] |
+| [DD Month YYYY] | [What the organisation did] | [Letter, screenshot, email, Iris log, Memory Palace receipt, account note] |
+| [DD Month YYYY] | [What you did next] | [Sent challenge, requested review, asked for adjustment, filed SAR/DSAR] |
+| [DD Month YYYY] | [What happened after that] | [Reply received, deadline passed, account updated, enforcement stopped] |
 
 If you do not know the exact date, use the closest reliable date and say that clearly.
 
@@ -99,7 +99,7 @@ If the deeper analysis is long, keep this section short and move extra material 
   4. Keep dates, names, and reference numbers together.  
   5. Follow up calmly if the answer is vague or evasive.
 - **Evidence tips:** [Keep the first threat, the first challenge, and the final outcome together. Preserve visible dates and reference numbers.]
-- **Private logging note:** If you want a private audit trail, you can draft and organise the record in [Iris](../iris/README.md). You can store copies in [Sovereign Local Mode](../SOVEREIGN_MODE.md) so your working notes stay under your control.
+- **Private logging note:** If you want a private audit trail, you can draft and organise the record in [Iris](../iris/README.md). You can store copies in [Sovereign Local Mode](../README.md#run-sovereign-local-mode) so your working notes stay under your control.
 
 Use this section to point readers back to the [case-studies index](./README.md) so they can compare patterns and find the nearest starting point.
 

@@ -900,6 +900,12 @@ class TestMain:
                 main(["--no-browser"])
             assert exc_info.value.code == 1
 
+    def test_missing_post_quantum_provider_exits_cleanly(self):
+        with patch.object(_mod, "print_sovereign_banner", side_effect=ImportError("missing PQ provider")):
+            with pytest.raises(SystemExit) as exc_info:
+                main(["--no-browser"])
+        assert exc_info.value.code == 1
+
     def test_main_calls_uvicorn_run(self, tmp_path):
         """main orchestrates config → prompt → model → app → uvicorn.run."""
         mock_uvicorn_run = MagicMock()

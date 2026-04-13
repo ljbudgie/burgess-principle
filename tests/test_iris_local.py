@@ -25,6 +25,9 @@ _MOCK_PROFILE_SUMMARY = {
     "key_fingerprint": "abc123def4567890",
     "public_key_hex": "ab" * 32,
     "profile_signature": "cd" * 64,
+    "signature_mode": "classical",
+    "post_quantum_algorithm": "",
+    "post_quantum_public_key_hex": "",
     "signed_at": "2026-04-11T20:45:15+00:00",
     "mirror_mode_enabled": True,
     "mirror_mode_activated_at": "2026-04-11T21:00:00+00:00",
@@ -90,6 +93,7 @@ class TestLoadConfig:
         assert cfg["easy_mode"] is True
         assert cfg["mirror_greeting_style"] == "neutral_professional"
         assert cfg["mirror_reflection_scope"] == "vault_only"
+        assert cfg["post_quantum"] is False
 
     def test_reads_config_file(self, tmp_path):
         """Values from iris-config.json override defaults."""
@@ -133,6 +137,7 @@ class TestLoadConfig:
             context=4096,
             port=7777,
             gpu=True,
+            post_quantum=True,
         )
         with patch.object(_mod, "_CONFIG_PATH", config_file):
             cfg = load_config(args)
@@ -140,6 +145,7 @@ class TestLoadConfig:
         assert cfg["context_size"] == 4096
         assert cfg["port"] == 7777
         assert cfg["gpu_acceleration"] is True
+        assert cfg["post_quantum"] is True
 
     def test_invalid_json_uses_defaults(self, tmp_path):
         """Malformed config file falls back to defaults."""
@@ -153,7 +159,7 @@ class TestLoadConfig:
         """CLI args set to None don't override config file values."""
         config_file = tmp_path / "iris-config.json"
         config_file.write_text(json.dumps({"port": 5555}))
-        args = argparse.Namespace(model=None, context=None, port=None, gpu=False)
+        args = argparse.Namespace(model=None, context=None, port=None, gpu=False, post_quantum=False)
         with patch.object(_mod, "_CONFIG_PATH", config_file):
             cfg = load_config(args)
         assert cfg["port"] == 5555
@@ -169,6 +175,7 @@ class TestParseArgs:
         assert args.context is None
         assert args.port is None
         assert args.gpu is False
+        assert args.post_quantum is False
         assert args.no_browser is False
 
     def test_all_flags(self):
@@ -177,12 +184,14 @@ class TestParseArgs:
             "--context", "4096",
             "--port", "9000",
             "--gpu",
+            "--post-quantum",
             "--no-browser",
         ])
         assert args.model == "test.gguf"
         assert args.context == 4096
         assert args.port == 9000
         assert args.gpu is True
+        assert args.post_quantum is True
         assert args.no_browser is True
 
 
@@ -420,6 +429,27 @@ class TestGenerateClaimEndpoint:
         mock_auto.assert_called_once_with(
             "Need a letter",
             {"vault_passphrase": "secret"},
+            post_quantum=False,
+        )
+
+    def test_runtime_post_quantum_config_enables_hybrid_claims(self):
+        if not self.has_client:
+            pytest.skip("starlette.testclient not available")
+        app = create_app("test prompt", runtime_config={"post_quantum": True})
+        from starlette.testclient import TestClient
+
+        client = TestClient(app)
+        with patch.object(_mod, "auto_generate_claim", return_value=_MOCK_CLAIM_DATA) as mock_auto:
+            response = client.post(
+                "/api/generate-claim",
+                json={"query": "Need a letter", "profile": {"vault_passphrase": "secret"}},
+            )
+
+        assert response.status_code == 200
+        mock_auto.assert_called_once_with(
+            "Need a letter",
+            {"vault_passphrase": "secret"},
+            post_quantum=True,
         )
 
     def test_value_error_returns_400(self):

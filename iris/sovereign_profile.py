@@ -2,13 +2,17 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import os
+import sys
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Mapping
 
 _ROOT = Path(__file__).resolve().parent.parent
+_ONCHAIN = _ROOT / "onchain-protocol" / "sdk" / "onchain_claims.py"
 _VAULT_DIRNAME = ".sovereign-vault"
 _PROFILE_FILENAME = "personal-profile.json"
 _PROFILE_VERSION = "1.3.0"
@@ -25,6 +29,17 @@ _MIRROR_REFLECTION_SCOPES = {
     "vault_only": "Keep the Mirror Reflection block in the internal vault only",
     "all_documents": "Include the Mirror Reflection block in generated documents",
 }
+
+
+@lru_cache(maxsize=1)
+def _onchain_claims_module() -> Any:
+    spec = importlib.util.spec_from_file_location("iris_sovereign_onchain_claims", _ONCHAIN)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load on-chain claims module from {_ONCHAIN}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
 
 
 def _select_first_valid(values: Mapping[str, Any], *keys: str) -> str:
@@ -122,7 +137,72 @@ def _signed_profile_payload(profile: Mapping[str, str]) -> str:
         "preferred_signature_block": profile["preferred_signature_block"],
         "public_key_hex": profile["public_key_hex"],
     }
+    if profile.get("signature_mode") == "hybrid":
+        visible["signature_mode"] = "hybrid"
+        visible["post_quantum_algorithm"] = str(profile.get("post_quantum_algorithm", "")).strip()
+        visible["post_quantum_public_key_hex"] = str(
+            profile.get("post_quantum_public_key_hex", "")
+        ).strip()
     return json.dumps(visible, separators=(",", ":"), sort_keys=True)
+
+
+def _apply_profile_signatures(
+    profile: dict[str, Any],
+    *,
+    post_quantum: bool,
+    post_quantum_private_key_hex: str | None = None,
+    post_quantum_public_key_hex: str | None = None,
+) -> dict[str, Any]:
+    module = _onchain_claims_module()
+    if not post_quantum:
+        signed_profile = _signed_profile_payload(profile)
+        bundle = module.build_signature_bundle(
+            signed_profile.encode("utf-8"),
+            str(profile["private_key_hex"]).strip(),
+            post_quantum=False,
+        )
+        profile["signature_mode"] = "classical"
+        profile.pop("profile_signatures", None)
+        profile.pop("profile_public_keys", None)
+        profile.pop("post_quantum_algorithm", None)
+        profile.pop("post_quantum_public_key_hex", None)
+        profile["signed_profile"] = signed_profile
+        profile["profile_signature"] = bundle["signature"]
+        return profile
+
+    provisional = module.build_signature_bundle(
+        b"sovereign-profile",
+        str(profile["private_key_hex"]).strip(),
+        post_quantum=True,
+        post_quantum_private_key_hex=post_quantum_private_key_hex,
+        post_quantum_public_key_hex=post_quantum_public_key_hex,
+    )
+    profile["signature_mode"] = "hybrid"
+    profile["post_quantum_algorithm"] = provisional["post_quantum_algorithm"]
+    profile["post_quantum_public_key_hex"] = provisional["public_keys"][
+        provisional["post_quantum_algorithm"].lower()
+    ]
+    if provisional["generated_post_quantum_private_key_hex"]:
+        profile["post_quantum_private_key_hex"] = provisional[
+            "generated_post_quantum_private_key_hex"
+        ]
+    elif post_quantum_private_key_hex:
+        profile["post_quantum_private_key_hex"] = post_quantum_private_key_hex
+    signed_profile = _signed_profile_payload(profile)
+    bundle = module.build_signature_bundle(
+        signed_profile.encode("utf-8"),
+        str(profile["private_key_hex"]).strip(),
+        post_quantum=True,
+        post_quantum_private_key_hex=_select_first_valid(
+            profile, "post_quantum_private_key_hex"
+        ),
+        post_quantum_public_key_hex=profile["post_quantum_public_key_hex"],
+    )
+    profile["signed_profile"] = signed_profile
+    profile["profile_signature"] = bundle["signature"]
+    profile["profile_signatures"] = dict(bundle["signatures"])
+    profile["profile_public_keys"] = dict(bundle["public_keys"])
+    return profile
 
 
 def build_personal_profile(
@@ -131,6 +211,9 @@ def build_personal_profile(
     handle: str = "ljbudgie",
     preferred_signature_block: str | None = None,
     private_key_hex: str | None = None,
+    post_quantum: bool = False,
+    post_quantum_private_key_hex: str | None = None,
+    post_quantum_public_key_hex: str | None = None,
     mirror_mode_enabled: bool = False,
     mirror_greeting_style: str | None = None,
     mirror_custom_greeting: str | None = None,
@@ -165,23 +248,29 @@ def build_personal_profile(
         "mirror_custom_greeting": str(mirror_custom_greeting or "").strip(),
         "mirror_reflection_scope": normalize_mirror_reflection_scope(mirror_reflection_scope),
     }
-    signed_profile = _signed_profile_payload(profile)
-    profile["signed_profile"] = signed_profile
-    profile["profile_signature"] = signing_key.sign(signed_profile.encode("utf-8")).signature.hex()
-    return profile
+    return _apply_profile_signatures(
+        profile,
+        post_quantum=post_quantum,
+        post_quantum_private_key_hex=post_quantum_private_key_hex,
+        post_quantum_public_key_hex=post_quantum_public_key_hex,
+    )
 
 
 def verify_personal_profile(profile: Mapping[str, Any]) -> bool:
     """Verify the stored signed sovereign profile."""
-    from nacl.exceptions import BadSignatureError
-    from nacl.signing import VerifyKey
-
     try:
+        module = _onchain_claims_module()
         signed_profile = _select_first_valid(profile, "signed_profile")
-        signature = bytes.fromhex(_select_first_valid(profile, "profile_signature"))
-        public_key = bytes.fromhex(_select_first_valid(profile, "public_key_hex"))
-        VerifyKey(public_key).verify(signed_profile.encode("utf-8"), signature)
-    except (BadSignatureError, TypeError, ValueError):
+        result = module.verify_signature_bundle(
+            signed_profile.encode("utf-8"),
+            _select_first_valid(profile, "profile_signature"),
+            _select_first_valid(profile, "public_key_hex"),
+            signatures=profile.get("profile_signatures"),
+            public_keys=profile.get("profile_public_keys"),
+        )
+        if not result.valid:
+            return False
+    except (ImportError, TypeError, ValueError):
         return False
     return True
 
@@ -204,6 +293,11 @@ def summarize_personal_profile(profile: Mapping[str, Any]) -> dict[str, Any]:
         "key_fingerprint": _select_first_valid(profile, "key_fingerprint"),
         "public_key_hex": _select_first_valid(profile, "public_key_hex"),
         "profile_signature": _select_first_valid(profile, "profile_signature"),
+        "signature_mode": _select_first_valid(profile, "signature_mode") or "classical",
+        "post_quantum_algorithm": _select_first_valid(profile, "post_quantum_algorithm"),
+        "post_quantum_public_key_hex": _select_first_valid(
+            profile, "post_quantum_public_key_hex"
+        ),
         "signed_at": _select_first_valid(profile, "signed_at"),
         "mirror_mode_enabled": mirror_mode_enabled,
         "mirror_mode_activated_at": _select_first_valid(profile, "mirror_mode_activated_at"),
@@ -289,6 +383,9 @@ def setup_personal_profile(
     handle: str = "ljbudgie",
     preferred_signature_block: str | None = None,
     private_key_hex: str | None = None,
+    post_quantum: bool | None = None,
+    post_quantum_private_key_hex: str | None = None,
+    post_quantum_public_key_hex: str | None = None,
     mirror_mode_enabled: bool | None = None,
     mirror_greeting_style: str | None = None,
     mirror_custom_greeting: str | None = None,
@@ -316,6 +413,16 @@ def setup_personal_profile(
                 mirror_reflection_scope
             )
             should_save = True
+        if post_quantum is not None:
+            profile = _apply_profile_signatures(
+                dict(profile),
+                post_quantum=bool(post_quantum),
+                post_quantum_private_key_hex=post_quantum_private_key_hex
+                or _select_first_valid(profile, "post_quantum_private_key_hex"),
+                post_quantum_public_key_hex=post_quantum_public_key_hex
+                or _select_first_valid(profile, "post_quantum_public_key_hex"),
+            )
+            should_save = True
         if should_save:
             save_personal_profile(profile, vault_passphrase, root=root)
         return {"created": False, "stored_path": str(path), "profile": summarize_personal_profile(profile)}
@@ -327,6 +434,9 @@ def setup_personal_profile(
         handle=handle,
         preferred_signature_block=preferred_signature_block,
         private_key_hex=private_key_hex,
+        post_quantum=bool(post_quantum),
+        post_quantum_private_key_hex=post_quantum_private_key_hex,
+        post_quantum_public_key_hex=post_quantum_public_key_hex,
         mirror_mode_enabled=bool(mirror_mode_enabled),
         mirror_greeting_style=mirror_greeting_style,
         mirror_custom_greeting=mirror_custom_greeting,

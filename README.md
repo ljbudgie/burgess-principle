@@ -6,7 +6,8 @@
 ![Local-first](https://img.shields.io/badge/local--first-yes-14532d?style=flat-square)
 ![Offline-capable](https://img.shields.io/badge/offline-capable-1d4ed8?style=flat-square)
 ![Accessibility-minded](https://img.shields.io/badge/accessibility-human--centred-7c3aed?style=flat-square)
-![Project stage](https://img.shields.io/badge/stage-active_development-7c3aed?style=flat-square)
+![Project stage](https://img.shields.io/badge/stage-v1.0.0_released-0f766e?style=flat-square)
+![Status](https://img.shields.io/badge/status-deployed_in_live_proceedings-b91c1c?style=flat-square)
 
 > *"Was a human member of the team able to personally review the specific facts of my specific situation?"*
 
@@ -19,6 +20,86 @@ One question. Binary test. Human accountability before any system acts on a pers
 **Choose your path:** [`CHOOSE_YOUR_PATH.md`](CHOOSE_YOUR_PATH.md)  
 **Run locally:** [`SOVEREIGN_MODE.md`](SOVEREIGN_MODE.md)  
 **Iris architecture:** [`iris/README.md`](iris/README.md) · [`ARCHITECTURE.md`](ARCHITECTURE.md)
+
+---
+
+## Current status (April 2026)
+
+The Burgess Principle is a **certified legal-accountability framework** applying a single binary test:
+
+> *"Was the individual considered as an individual human being, or were they processed as a unit within a system?"*
+
+It is **not theoretical**. It is **deployed across live institutional and regulatory proceedings**.
+
+### Release and intellectual property
+
+- **v1.0.0 released 18 April 2026** — the framework is now operational and published as a stable, citable standard.
+- **UK Certification Mark UK00004343685** — in examination at the UK IPO. IPO Examiner: **Lisa Skeggs**. Classes 41, 42, 45.
+- **USPTO filing in progress** via a US-licensed attorney.
+- Author: **Lewis James Burgess**, Darlington, UK. Contact: ljbarbers15@gmail.com. Canonical source: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
+
+### Statutory integration
+
+The binary test integrates with, and is invoked under, existing UK and EU law:
+
+- **UK GDPR Article 22** — automated individual decision-making, including profiling
+- **Equality Act 2010, ss. 20 and 29** — duty to make reasonable adjustments; service-provider duties
+- **Contract law** — formation, variation, and individual consideration
+- **Freedom of Information Act 2000** — process disclosure
+- **Consumer protection law** — fairness and individual treatment in consumer contracts
+
+### Active institutional deployments
+
+| Front | Reference | Detail |
+| --- | --- | --- |
+| Energy Ombudsman | **EG021819-26** | E.ON — unsigned warrant, forced entry, smart meter dispute, **£129M claim** |
+| Energy Ombudsman | **EG037844-26** | British Gas — frozen meter, zero consumption, **£425 warrant charge** |
+| Local Government Ombudsman | **26000967** | Darlington Borough Council — five grounds including bulk PCN processing, disputed council tax, Equality Act failures |
+| Enforcement | **Equita** | Six DBC cases totalling **£3,413.82**; SAR received; liability orders not provided |
+| Equality regulator | **EHRC complaint** | Names E.ON and the Energy Ombudsman |
+| Energy regulator | **Ofgem scheme complaint** | Filed |
+| Government FOI | **Six FOI requests** | FSA, DWP, DfE, MoJ, Home Office, CQC, FCA — framing the binary test as a process question |
+| Streaming / consumer | **Article 22 challenges** | Sent to Amazon and Disney+ on 18 April 2026 challenging ad insertion in paid subscriptions |
+| Resolved (proof of concept) | **Wave Utilities** | First fully resolved case — both accounts brought to **£0.00** |
+| Court-side confirmation | **Andrew Fletcher**, Justices' Legal Adviser, Birmingham Magistrates' Court | Provided written confirmation of bulk warrant processing |
+
+A live, dated tracker is maintained in [`STATUS.md`](STATUS.md). The chronological evidence trail is in [`TIMELINE.md`](TIMELINE.md).
+
+### Adoption and integration
+
+- **OpenClaw** — adopted the Burgess Principle as its governance framework. **PR #68692** submitted to `openclaw/openclaw` (73.3k forks). Endorsed by Elon Musk on 18 April 2026 as the gateway to the X API.
+- **NousResearch** — **PR #12265** submitted to `NousResearch/hermes-agent` (99.1k stars) proposing Burgess Principle integration.
+- Both PRs are **additive** — no existing code is modified.
+
+The full adoption record, including institutional responses and the Wave Utilities resolution, is documented in [`ADOPTION.md`](ADOPTION.md).
+
+### Ecosystem repositories
+
+The Burgess Principle is the core standard. The implementation ecosystem is mapped in [`ECOSYSTEM.md`](ECOSYSTEM.md).
+
+| Repository | Layer | URL |
+| --- | --- | --- |
+| **burgess-principle** | Core framework and binary test | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
+| **Iris** | AI implementation layer; federation protocol; deployed at [iris-gate.vercel.app](https://iris-gate.vercel.app) | [github.com/ljbudgie/Iris](https://github.com/ljbudgie/Iris) |
+| **OpenHear** | Sovereign audio pipeline for hearing aid users; tested on Phonak Naída M70-SP and Signia Insio 7AX | [github.com/ljbudgie/openhear](https://github.com/ljbudgie/openhear) |
+| **Nexus AI Hub** | Intelligence layer | [github.com/ljbudgie/nexus-ai-hub](https://github.com/ljbudgie/nexus-ai-hub) |
+| **Hermes Agent fork** | Integration target for PR #12265 | [github.com/ljbudgie/hermes-agent](https://github.com/ljbudgie/hermes-agent) |
+| **OpenClaw fork** | Integration target for PR #68692 | [github.com/ljbudgie/openclaw](https://github.com/ljbudgie/openclaw) |
+
+### Published papers
+
+Six papers have been published, including **Paper VI: "What Would Aristotle Have Said?"**. See [`papers/`](papers/).
+
+### Licensing structure
+
+The MIT licence governs the source code. The certification mark (UK00004343685) governs commercial use of the standard, structured in four tiers:
+
+| Tier | Who | Terms |
+| --- | --- | --- |
+| **Tier 1** | Global tech companies | 0.01–0.1% of relevant revenue |
+| **Tier 2** | Corporate / institutional | £1,000 upfront + annual fee |
+| **Tier 3** | Public sector | Nil |
+| **Tier 4** | Litigation firms | £1 or nil + 2–5% royalty |
 
 ---
 

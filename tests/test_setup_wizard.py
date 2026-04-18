@@ -167,6 +167,28 @@ def test_detect_gpu_hint_reports_detected_hardware(monkeypatch, responses, expec
     assert detect_gpu_hint() == expected
 
 
+def test_detect_ram_gb_handles_windows_via_ctypes(monkeypatch):
+    """Cover the Windows ``ctypes.windll`` branch of ``detect_ram_gb``."""
+    import ctypes
+
+    monkeypatch.setattr(setup_wizard_module.sys, "platform", "win32")
+    monkeypatch.setattr(setup_wizard_module.os, "name", "nt")
+
+    class _FakeKernel:
+        def GlobalMemoryStatusEx(self, status_ref):
+            # Populate the structure pointed to with a known total_phys value.
+            status = status_ref._obj if hasattr(status_ref, "_obj") else status_ref.contents
+            status.total_phys = 32 * 1024 ** 3  # 32 GiB
+            return 1
+
+    class _FakeWindll:
+        kernel32 = _FakeKernel()
+
+    monkeypatch.setattr(ctypes, "windll", _FakeWindll(), raising=False)
+
+    assert detect_ram_gb() == 32.0
+
+
 @pytest.mark.parametrize(
     ("ram_gb", "expected"),
     [(None, 2048), (4.0, 1024), (8.0, 2048), (32.0, 4096)],

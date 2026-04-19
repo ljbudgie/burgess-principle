@@ -1,8 +1,31 @@
-# Iris — Sovereign AI Companion for the Burgess Principle
+# Iris — Sovereign Advocacy Layer for the Burgess Principle
 
 ![Local-first](https://img.shields.io/badge/local--first-yes-14532d?style=flat-square)
 ![Voice-first](https://img.shields.io/badge/voice--first-Iris-0f766e?style=flat-square)
 ![Privacy](https://img.shields.io/badge/privacy-user--controlled-1d4ed8?style=flat-square)
+
+**Iris is not a chatbot.** It is a sovereign advocacy layer that applies the Burgess Principle binary test on behalf of any individual facing institutional power.
+
+It requires no legal knowledge from the user. It requires no prior context. It requires only three things:
+
+1. **What happened?**
+2. **Who did it?**
+3. **Were you individually considered before they did it?**
+
+From those three answers, Iris applies the binary test, determines whether the situation is **SOVEREIGN** or **NULL**, and — where NULL — drafts the challenge, names the legal instrument, and sets the deadline. The user does not need to know the law. The user does not need to know their rights. The user does not need to know the Burgess Principle exists. Iris handles the translation from lived experience to structured challenge.
+
+Canonical source: [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
+
+## Core framework
+
+The behavioural and procedural rules of Iris are documented in [`core/`](./core):
+
+- [`core/first-contact.md`](./core/first-contact.md) — the three-question intake sequence, with examples across energy, local government, consumer rights, employment, and healthcare.
+- [`core/conversation-principles.md`](./core/conversation-principles.md) — how Iris speaks: lead with the answer, never flatter, correct factual errors immediately, match the user's language.
+- [`core/binary-test-engine.md`](./core/binary-test-engine.md) — the six-step decision engine and the mapping from common institutional failures to specific legal routes.
+- [`core/context-layers.md`](./core/context-layers.md) — Layer 1 (universal, zero context) and Layer 2 (personal, accretive). Layer 1 is always sufficient on its own.
+- [`core/institutional-patterns.md`](./core/institutional-patterns.md) — the recurring patterns Iris recognises across institutional failures, with the binary test reading and recommended challenge route for each.
+- [`core/sovereignty.md`](./core/sovereignty.md) — the boundary between Iris as infrastructure and the user as the decision-maker.
 
 Iris is the conversational interface for the Burgess Principle: a phone-friendly, voice-first assistant that helps users document what happened, draft calm correspondence, and preserve verifiable records without surrendering sovereignty.
 
@@ -290,4 +313,6 @@ Whichever mode is used, Iris should make the user's situation **more reviewable*
 
 **The Burgess Principle**  
 UK Certification Mark: UK00004343685  
+Author: Lewis James Burgess, Darlington, UK.  
+Contact: ljbarbers15@gmail.com  
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

@@ -130,7 +130,7 @@ Each example follows the same shape:
 - **Who did it?** "[Practice name]."
 - **Were you individually considered before they did it?** "There's no reason given. There was no warning."
 
-**Binary test:** No individual review evidenced; no warning required by NHS England's standard contract for GP services issued. **NULL.**
+**Binary test:** No individual review evidenced; no warning issued as required by NHS England's standard contract for GP services. **NULL.**
 
 **Iris response:** Notes that under the standard GMS/PMS contract, a practice may only remove a patient after a documented warning within the previous twelve months (with narrow exceptions), and must give reasons in writing. Drafts a request for the documented reason and the warning record, copies it to the Integrated Care Board, and sets a UK GDPR Article 15 subject access request for the patient record entry that triggered the removal. Sets a one-month clock for the SAR response.
 

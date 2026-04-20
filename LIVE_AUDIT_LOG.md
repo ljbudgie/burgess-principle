@@ -12,7 +12,7 @@ A chronological record of every institutional interaction, statutory filing, and
 | **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |
-| **Date Range** | 27 May 2025 – 7 April 2026 |
+| **Date Range** | 27 May 2025 – 20 April 2026 |
 
 ---
 
@@ -60,6 +60,35 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 ---
 
 ## Recent Activity (Most Recent First)
+
+### 20 April 2026 – Information Commissioner's Office – Pre-Action Protocol Letter for Judicial Review
+**Institution:** Information Commissioner's Office (icocasework@ico.org.uk)  
+**Sector:** Regulator / Data Protection  
+**Action:** Pre-Action Protocol letter for Judicial Review sent to the ICO.  
+**Grounds:** Failure to perform statutory duty under the Data Protection Act 2018 and UK GDPR Article 57(1)(f), irrationality, and breach of the Equality Act 2010.  
+**Deadline:** 14-day response deadline set — response required by 4 May 2026.  
+**Status:** Awaiting response. If no response is received, proceedings will be filed in the Administrative Court without further notice.
+
+---
+
+### 20 April 2026 – Parliamentary and Health Service Ombudsman – Formal Complaint re ICO Maladministration
+**Institution:** Parliamentary and Health Service Ombudsman (phso.enquiries@ombudsman.org.uk)  
+**Sector:** Ombudsman / Oversight of Regulator  
+**Action:** Formal complaint submitted to the PHSO regarding maladministration by the Information Commissioner's Office. Case IC-4999654-T1Q8 referenced.  
+**Grounds:** 33 days without acknowledgement; failure to make reasonable adjustments for bilateral sensorineural hearing loss under Equality Act 2010 ss.20 and 29.  
+**Status:** Awaiting response.
+
+---
+
+### 20 April 2026 – Department for Energy Security and Net Zero – FOI Request (West Newton Gas Field)
+**Institution:** Department for Energy Security and Net Zero (foi.requests@energysecurity.gov.uk)  
+**Sector:** Government / Energy Policy  
+**Subject:** "Freedom of Information Request – West Newton Gas Field Approval and Domestic Energy Consumer Impact."  
+**Action:** FOI request sent regarding the West Newton gas field approval and its impact on domestic energy consumers. Burgess Principle binary test applied. Reasonable adjustment noted.  
+**Legal basis:** Freedom of Information Act 2000; Equality Act 2010 (reasonable adjustment for written communication).  
+**Status:** Awaiting response.
+
+---
 
 ### 7 April 2026 – UK Home Office & YZY – Burgess Principle Application
 **Institution:** UK Home Office (with CC to YZY / Yeezy Customer Service)  
@@ -137,6 +166,6 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 ---
 
 **End of Log**  
-Last updated: 7 April 2026  
+Last updated: 20 April 2026  
 UK Certification Mark: UK00004343685  
 Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

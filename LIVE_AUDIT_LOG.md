@@ -61,6 +61,49 @@ This entry is a simulated testnet example. Live on-chain claims will be recorded
 
 ## Recent Activity (Most Recent First)
 
+### 20 April 2026 – Darlington Borough Council – Pre-Action Protocol Letter (Targeted Parking Enforcement Harassment)
+**Institution:** Darlington Borough Council (complaints@darlington.gov.uk, cc: dataprotection@darlington.gov.uk)  
+**Sector:** Local Authority / Parking Enforcement  
+**Action:** Pre-Action Protocol letter sent regarding targeted parking enforcement harassment.  
+**Grounds:** Protection from Harassment Act 1997; Equality Act 2010 s.26 (harassment); abuse of public law powers during active legal proceedings against the Council.  
+**Specific incidents documented:**  
+- PCN reference 4445032 dated 2 March 2026, issued at 13:17 against a vehicle displaying a valid ticket purchased at 13:16 (one minute earlier, valid until 15:16). Independent witness present at time of purchase and willing to provide a statement.  
+- Independent witness observed the enforcement officer walk past another vehicle without a ticket to specifically target mine.  
+**Pattern:** Targeted enforcement during active legal proceedings against the Council cited as abuse of public law powers. Burgess Principle binary test applied.  
+**Deadline:** 14-day response deadline — response required by 4 May 2026.  
+**Status:** Awaiting response. If no response is received, harassment claim under the Protection from Harassment Act 1997, Part 8 County Court injunction application, and an additional Judicial Review ground will follow without further notice.
+
+---
+
+### 20 April 2026 – Bureau of Investigative Journalism – Investigation Proposal
+**Institution:** Bureau of Investigative Journalism (info@thebureauinvestigates.com)  
+**Sector:** Investigative Press / Public Interest Journalism  
+**Action:** Investigation proposal sent regarding systemic automated warrant enforcement.  
+**Key evidence offered:** 536,139 warrants in 18 months; court admission of bulk processing; unsigned warrant; 18 institutions audited, 11 returning findings of no individual human review; ICO failures; Pre-Action Protocol letter issued; PHSO complaint submitted; EHRC confirmation of disability discrimination.  
+**Materials:** Full press pack and documentary evidence offered on request.  
+**Status:** Awaiting editorial response.
+
+---
+
+### 20 April 2026 – Leigh Day Solicitors – Follow-up Case Referral
+**Institution:** Leigh Day Solicitors (info@leighday.co.uk)  
+**Sector:** Legal / Claimant Firm  
+**Action:** Follow-up case referral sent following Leigh Day's February 2026 refusal.  
+**Significant new evidence since February:** court admission regarding bulk warrant processing; EHRC written confirmation of disability discrimination (Case 16525912); Energy Ombudsman accessibility failure; ICO maladministration; Pre-Action Protocol letter issued against the ICO; PHSO complaint submitted; 18 institutions audited; Joint Committee on Human Rights contacted.  
+**Proposal:** No-win-no-fee judicial review and discrimination case.  
+**Status:** Awaiting response.
+
+---
+
+### 20 April 2026 – Liberty – Fresh Case Referral
+**Institution:** Liberty (legalinformation@libertyhumanrights.org.uk)  
+**Sector:** Human Rights / Civil Liberties NGO  
+**Action:** Fresh case referral sent regarding unlawful enforcement, systemic institutional failure, and the Pre-Action Protocol issued against the ICO.  
+**Response:** Automated response received confirming Liberty no longer has capacity for individual legal queries.  
+**Status:** Avenue noted as closed for individual casework. Potential future partnership / campaign collaboration not ruled out.
+
+---
+
 ### 20 April 2026 – Information Commissioner's Office – Pre-Action Protocol Letter for Judicial Review
 **Institution:** Information Commissioner's Office (icocasework@ico.org.uk)  
 **Sector:** Regulator / Data Protection  

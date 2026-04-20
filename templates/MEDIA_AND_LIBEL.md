@@ -1,41 +1,26 @@
-# Template: Media Coverage and Libel – Burgess Principle Request for Human Review
+Subject: Formal Request for Human Review — Accuracy and Fairness of Coverage — [Insert Headline] — [Insert Date]
+Dear [Editor / Journalist Name],
+I am writing regarding your coverage titled "[Insert Headline]" published on [Insert Date] at [Insert Link].
+I am not writing to threaten litigation or demand favourable coverage. I am writing to ask one question — the same question I have asked of 18 institutions across energy, local government, financial services, data protection, and parliamentary bodies, and which I apply without exception to every institution that exercises power over my individual circumstances:
+"Was a human member of your team able to personally review the specific facts of my situation before the decision to publish or frame this story was reached?"
+This question is the foundation of the Burgess Principle — a certified open-source audit framework holding UK Certification Mark UK00004343685, with a USPTO filing in progress, adopted across regulatory, legal and governmental proceedings and published in full at github.com/ljbudgie/burgess-principle.
+The specific facts of my situation that I am asking a human reviewer to consider are:
 
-Use this template when dealing with inaccurate, unfair, or repeatedly negative media coverage.  
-It politely forces the outlet to confirm that a real human journalist or editor personally reviewed the specific facts of *your* case.
+[Insert specific fact that was omitted, misrepresented, or inadequately verified]
+[Insert specific fact]
+[Insert specific fact]
 
----
+These are not matters of opinion. They are verifiable, documented, and available for inspection upon request.
+The binary test I am applying:
+Was I considered as an individual human being with a specific, documented, verifiable set of circumstances — or was I processed as a unit within a pre-existing narrative template, group assumption, or editorial shorthand that did not individually examine the facts of my case?
+I am asking for written confirmation of the following within 7 days:
 
-**Subject:** Request for Human Review – Accuracy and Fairness of Coverage Regarding Me
+That a named human editor or journalist with full editorial authority has personally reviewed the specific facts listed above.
+The name and role of that individual, so that I have a verifiable record of human review having taken place.
+Whether any correction, clarification, or right of reply will be published — and if not, the editorial reasoning for that decision.
 
-Dear Editor / [Journalist Name],
-
-I am writing regarding your recent article(s) titled “[Insert Headline]” published on [Date] ([link]).
-
-I respectfully ask for written confirmation on this single binary question in line with the Burgess Principle:
-
-**“Was a human member of the team able to personally review the specific facts of my specific case before the decision to publish or frame the story was reached?”**
-
-The specific facts of my case include:
-
-• [Bullet 1 – accurate fact that was omitted or misrepresented]  
-• [Bullet 2 – another key point]  
-• [Bullet 3 – context or correction needed]
-
-I am not requesting favourable coverage or special treatment. I am simply requesting that a real human journalist with editorial judgment has personally examined the specific facts of this story about me, rather than relying on pre-existing narrative templates, group assumptions, or algorithmic incentives.
-
-I would be grateful for a response within 7 days confirming:
-
-1. That a named human editor or reviewer has reviewed my specific case.  
-2. Any corrections, clarifications, or right-of-reply that will be published.
-
-Thank you for treating me as an individual rather than just another subject in a running narrative.
-
-Yours sincerely,  
-[Your Full Name]
-
----
-
-**Watermark / Signature**  
-© The Burgess Principle  
-Certification Mark: UK00004343685  
-https://github.com/ljbudgie/burgess-principle
+A failure to respond within 7 days will be logged as a finding of no individual human review in my public audit register at github.com/ljbudgie/burgess-principle and may be referred to the relevant press regulator — IPSO, IMPRESS, or Ofcom — as evidence of a failure to apply Clause 1 (Accuracy) and Clause 2 (Right of Reply) of the applicable Editors' Code, without individual human review of the specific facts having been confirmed.
+This request is made as a reasonable adjustment under the Equality Act 2010 ss.20 and 29 in respect of bilateral sensorineural hearing loss. Email is my sole communication channel. Please do not telephone.
+© The Burgess Principle
+UK Certification Mark: UK00004343685
+github.com/ljbudgie/burgess-principle

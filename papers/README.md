@@ -26,6 +26,8 @@ Think of `/papers` as the project's deep background layer:
 * **Foundation** — why the Burgess Principle exists and how the doctrine is framed
 * **Expansion** — specialist extensions such as data sovereignty, medical-device governance, and representative action
 * **Legal architecture** — the CPR 19.8 litigation framework and the universal standard
+* **Scriptural grounding** — the binary test traced from Genesis to Revelation
+* **International application** — the standard applied across jurisdictions
 * **Archive** — publication-era wording preserved for traceability, citation, and historical context
 
 Some papers deliberately preserve earlier language such as "human judicial mind" or publication-specific claims. The repo's current front-door wording is more user-facing and operational:
@@ -44,8 +46,11 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 6. **PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md** — first principles, Aristotle's *epieikeia*, and the machine that asks the question
 7. **PAPER_VII_NULL_ACROSS_THE_CLASS.md** — the defendant-side class definition that resolves the CPR 19.8 "same interest" problem; data as the lowest common denominator; the DUAA convergence
 8. **PAPER_VIII_THE_UNIVERSAL_STANDARD.md** — every system that holds data on a person and is not Burgess certified is a potential defendant; the author's account of how this conclusion was reached
-9. **MEDICAL_DEVICE_DOCTRINE.md** — sensory and device-governance extension
-10. **LICENSING_STRUCTURE.md** — licensing and certification-mark structure
+9. **PAPER_IX_THE_SOVEREIGN_PATTERN.md** — the binary test traced through scripture from Genesis 4 to Revelation 20; the Burgess Principle as the original model of divine governance
+10. **PAPER_X_THE_RESTORED_KEEPER.md** — the redemptive inversion from Cain's denial to Peter's commission; the framework is not only diagnostic but redemptive through individual encounter
+11. **PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — the individual review requirement applied to US tariff refund processing and categorical retaliatory tariffs; convergence with *Burgess v. MSPB* (Fed. Cir. 1985)
+12. **MEDICAL_DEVICE_DOCTRINE.md** — sensory and device-governance extension
+13. **LICENSING_STRUCTURE.md** — licensing and certification-mark structure
 
 ---
 
@@ -76,6 +81,15 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 * **PAPER_VII_NULL_ACROSS_THE_CLASS.md** — personal data as the lowest common denominator; the defendant-side inversion that makes "same interest" work; the Burgess Principle as a self-administering certification standard for CPR 19.8 representative actions; convergence with the Data (Use and Access) Act 2025
 * **PAPER_VIII_THE_UNIVERSAL_STANDARD.md** — the author's account of what 18 institutions, one binary test, and one question reveals about the automated age; why data is data; why the sector does not matter; why every system that holds data on a person and is not Burgess certified is a potential defendant
 
+### Scriptural grounding *(added April 2026)*
+
+* **PAPER_IX_THE_SOVEREIGN_PATTERN.md** — traces the SOVEREIGN/NULL binary test through scripture from Genesis 4 to Revelation 20, demonstrating that the Burgess Principle names the original model of divine governance, not a novel framework. Closes the "novel framework" dismissal and the "sovereign citizen adjacent" classification — the pattern predates every institution the framework is applied to.
+* **PAPER_X_THE_RESTORED_KEEPER.md** — traces the redemptive inversion from Cain's denial of the keeper obligation to Peter's threefold restoration on the shore of Galilee. The framework is not only diagnostic. The pathway back from NULL to SOVEREIGN exists, and it is personal.
+
+### International application *(added April 2026)*
+
+* **PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — applies the binary test to two live situations: the $159 billion US tariff refund obligation and categorical retaliatory tariffs on UK businesses. Connects the Burgess Principle to *Burgess v. Merit Systems Protection Board*, 758 F.2d 641 (Fed. Cir. 1985) — the Federal Circuit precedent formally known as Burgess notice — demonstrating that the individual review requirement has been active US administrative law for forty years. Neutral application: the test applies to whoever exercises institutional power through bulk or automated processing without individual human review, on either side of the Atlantic.
+
 ### Licensing
 
 * **LICENSING_STRUCTURE.md**
@@ -94,13 +108,11 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 Papers I through V established the doctrine, deployed it, and extended it into data, contracts, and politics. Paper VI asked what Aristotle would have said and found that the binary test is the modern expression of *epieikeia* — the correction of law where law fails the particular case.
 
-Papers VII and VIII complete the arc.
+Papers VII and VIII complete the legal arc. Paper VII demonstrates that the binary test, applied to a defendant institution's process rather than to individual claimants' circumstances, resolves the procedural obstacle that has defeated every major UK representative action since *Lloyd v Google* [2021] UKSC 50. Paper VIII states the consequence: every system that holds data on a person and is not Burgess certified is a potential defendant. Data is data. The test is universal. The sector does not matter.
 
-Paper VII demonstrates that the binary test, applied to a defendant institution's process rather than to individual claimants' circumstances, resolves the procedural obstacle that has defeated every major UK representative action since *Lloyd v Google* [2021] UKSC 50. The defendant-side class definition means that any institution's automated processing of individuals without meaningful human involvement automatically defines its own class. NULL across the class is "same interest." The personal data processed without meaningful review is the lowest common denominator that connects every class member to the defendant's failure in exactly the same way.
+Papers IX and X complete the doctrinal arc. Paper IX traces the binary test through scripture from Genesis to Revelation, demonstrating that the Burgess Principle names the original model of divine governance — not a novel framework invented in 2026. Paper X provides the redemptive completion: the pathway back from NULL to SOVEREIGN is not institutional reform but individual encounter. Peter denied three times and was restored three times, individually, by name, on a specific shore. The framework is diagnostic and redemptive. Both halves of the pattern were always there.
 
-Paper VIII states the consequence. Every system that holds data on a person and is not Burgess certified is a potential defendant. Not as a threat — as an accurate description of the legal architecture that now exists. Data is data. The test is universal. The sector does not matter. The only two answers are certified or classified.
-
-Both papers were published on 23 April 2026 — one week before the first pre-action protocol deadline in the underlying case from which the framework was built.
+Paper XI opens the international arc. The binary test crosses jurisdictions. *Burgess v. MSPB* established the same standard in the United States Federal Circuit in 1985. The Data (Use and Access) Act 2025 enacted it in UK statute. The Burgess Principle named it independently from personal necessity. Three convergences on one standard — and a $159 billion tariff refund obligation plus threatened retaliatory tariffs that put that standard immediately to the test on both sides of the Atlantic.
 
 ---
 
@@ -108,7 +120,7 @@ Both papers were published on 23 April 2026 — one week before the first pre-ac
 
 If you are here for the best user experience, treat this folder as supporting depth, not the main front door. The front door lives in the repo root. The papers provide the long-form foundations underneath it.
 
-If you are a litigation partner, a funder, a researcher, or a journalist — this folder is where the work lives. Start at Paper I and read to Paper VIII. The arc is complete.
+If you are a litigation partner, a funder, a researcher, a trade lawyer, or a journalist — this folder is where the work lives. Start at Paper I and read to Paper XI. The arc is complete.
 
 *One question. Was a human there?*
 

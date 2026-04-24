@@ -34,16 +34,16 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 
 | Metric | Count |
 | --- | --- |
-| Total institutions tested | 27 |
-| NULL findings (confirmed) | 11 |
+| Total institutions tested | 29 |
+| NULL findings (confirmed) | 13 |
 | Partial sovereign findings | 1 (TV Licensing) |
 | SOVEREIGN findings | 1 (Wave Utilities) |
-| Pending substantive assessment | 4 (HM Treasury, Cabinet Office, FSA, HMPO) |
+| Pending substantive assessment | 5 (HM Treasury, Cabinet Office, FSA, HMPO, Ofgem) |
 | No data held (clean negative) | 1 (Palantir) |
 | Parliamentary contacts documented | 6 |
-| Legal representation active | 1 (Bindmans LLP — ref BUR303, 22 April 2026) |
-| Institutions scored under Taxonomy v1.0 | 23 |
-| Mean taxonomy score (scored institutions) | 3.0 / 20 |
+| Legal representation active | 2 (Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026) |
+| Institutions scored under Taxonomy v1.0 | 25 |
+| Mean taxonomy score (scored institutions) | 2.9 / 20 |
 
 ---
 
@@ -435,6 +435,42 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 
 ---
 
+### 24. Energy Ombudsman
+
+**Sector:** Statutory Redress Scheme
+**Date first contacted:** March 2026
+**Taxonomy score:** 1 / 20 — NULL
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+**Question asked (EG021819-26):** Did the Energy Ombudsman apply individual human consideration to the specific facts of my complaint, including my disability, before issuing its final decision?
+**Question asked (EG037844-26):** Was EG037844-26 closed following individual human review of whether the 8-week threshold had been met?
+**Response summary (EG021819-26):** Final decision issued omitting disability from reasoning entirely. Response mechanism directed complainant to telephone — inaccessible for a deaf PSR customer. No assessment of Ofgem's Involuntary PPM Code of Practice despite PPM installation being the core enforcement act. Challenge to all three grounds rejected without engagement. Both rulings declined.
+**Response summary (EG037844-26):** Case closed 8 April 2026 on basis of being under 8 weeks — incorrect: 8-week threshold from 27 February 2026 fell on 24 April 2026. Case closed within 20 minutes of receiving complainant's response, before handler's own evidence deadline of 28 April 2026. Reopening request filed 24 April 2026.
+**Finding:** NULL — the statutory redress scheme mandated to protect energy consumers from institutional failures has itself failed to apply individual human consideration to a disabled complainant's specific circumstances across two separate cases.
+**Status:** EG021819-26 closed — both rulings declined, ombudsman route exhausted. EG037844-26 reopening request filed 24 April 2026. Ofgem scheme complaint filed 24 April 2026. ESNZ Committee holds written evidence.
+
+---
+
+### 25. Ofgem
+
+**Sector:** Energy Regulator
+**Date first contacted:** 24 April 2026 (previous attempt 19 April 2026 bounced)
+**Taxonomy score:** 1 / 20 — NULL (provisional)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+**Question asked:** As scheme administrator for the Energy Ombudsman, has Ofgem individually reviewed the conduct of the scheme in EG021819-26 and EG037844-26, and can it confirm that the scheme's handling of both cases met its own accessibility and complaints handling standards?
+**Response summary:** Pending. Formal scheme complaint filed 24 April 2026 to consumeraffairs@ofgem.gov.uk. Previous contact attempt (19 April 2026) to consumers@ofgem.gov.uk bounced — address not found.
+**Finding:** NULL (provisional — within statutory response window). D3 scores 1: complaint received today, clock running.
+**Status:** New institution (24 April 2026). Substantive scoring to follow. ESNZ Committee has confirmed it will use written evidence to formulate questions to Ofgem and the Secretary of State.
+
+---
+
 ## Parliamentary Contacts
 
 | Contact | Response | Status |
@@ -452,8 +488,10 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 
 | Firm | Status | Reference |
 | --- | --- | --- |
-| Leigh Day Solicitors | Follow-up sent 20 April 2026 following February 2026 refusal. No-win-no-fee judicial review proposed. Awaiting response. | — |
-| Bindmans LLP | Responded to case referral 22 April 2026 (ref BUR303). Confirmed not seeking legal aid; conditional fee basis requested. Awaiting CFA response. | BUR303 |
+| Leigh Day Solicitors | Follow-up sent 20 April 2026 following February 2026 refusal. Named by Bindmans as suitable firm 24 April 2026. Awaiting response. | — |
+| Bindmans LLP | Declined 24 April 2026 — capacity refusal, not merits. Referred to Leigh Day, Deighton Pierce Glynn, Hodge Jones & Allen. | BUR303 |
+| Deighton Pierce Glynn | Referral sent 24 April 2026. Referred by Bindmans LLP. CFA basis requested. | — |
+| Hodge Jones & Allen | Referral sent 24 April 2026. Referred by Bindmans LLP. CFA basis requested. | — |
 
 ---
 
@@ -483,12 +521,14 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 | 21 | Cabinet Office | Government | 1 / 20 | Pending |
 | 13 | X / Twitter | Social media | 0 / 20 | NULL |
 | 23 | OpenAI Ireland Limited | AI / Consumer technology | 1 / 20 | NULL |
+| 24 | Energy Ombudsman | Statutory redress scheme | 1 / 20 | NULL |
+| 25 | Ofgem | Energy regulator | 1 / 20 | NULL (provisional) |
 | 15 | Palantir | Defence / tech | N/A | Clean negative |
 
-**Mean score (22 scored institutions): 3.0 / 20**
+**Mean score (24 scored institutions): 2.9 / 20**
 **NULL rate (confirmed): 77%**
-**Partial sovereign or above: 2 of 22**
-**SOVEREIGN: 1 of 22**
+**Partial sovereign or above: 2 of 24**
+**SOVEREIGN: 1 of 24**
 
 ---
 

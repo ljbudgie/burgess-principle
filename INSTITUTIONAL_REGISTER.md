@@ -8,7 +8,7 @@ A factual record of every institution tested under The Burgess Principle framewo
 
 This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding.
 
-As of 22 April 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally. Every institution is scored under Institution Audit Taxonomy v1.0.
+As of 24 April 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally. Every institution is scored under Institution Audit Taxonomy v1.0.
 
 ---
 
@@ -34,16 +34,16 @@ As of 22 April 2026, all completed assessments except one returned a NULL findin
 
 | Metric | Count |
 | --- | --- |
-| Total institutions tested | 26 |
-| NULL findings (confirmed) | 10 |
+| Total institutions tested | 27 |
+| NULL findings (confirmed) | 11 |
 | Partial sovereign findings | 1 (TV Licensing) |
 | SOVEREIGN findings | 1 (Wave Utilities) |
 | Pending substantive assessment | 4 (HM Treasury, Cabinet Office, FSA, HMPO) |
 | No data held (clean negative) | 1 (Palantir) |
 | Parliamentary contacts documented | 6 |
 | Legal representation active | 1 (Bindmans LLP — ref BUR303, 22 April 2026) |
-| Institutions scored under Taxonomy v1.0 | 22 |
-| Mean taxonomy score (scored institutions) | 3.2 / 20 |
+| Institutions scored under Taxonomy v1.0 | 23 |
+| Mean taxonomy score (scored institutions) | 3.0 / 20 |
 
 ---
 
@@ -71,7 +71,7 @@ As of 22 April 2026, all completed assessments except one returned a NULL findin
 **Question asked:** Who individually reviewed warrant Application 11160-544079 before forced entry was authorised?
 **Response summary:** Field team investigated themselves. Proposed remedy: letter of apology. Field notes disclosed "no contact psr's on account Cust is deaf."
 **Finding:** NULL — warrant unsigned on face, CSV batch processing, en bloc granting, no individual judicial scrutiny. Deafness noted only after three visits. Originating event. Doctrinal anchor for the Burgess Principle.
-**Status:** Energy Ombudsman investigation active. Ruling due 6 May 2026.
+**Status:** **Updated 24 April 2026 — Energy Ombudsman case EG021819-26 closed. Both preliminary and final rulings declined.** Final decision omitted disability from its reasoning and directed response by telephone — inaccessible for a deaf complainant. Challenge rejected without engaging with the disability omission. No assessment of Ofgem's Involuntary PPM Code of Practice. EHRC has confirmed in writing (Case 16525912) that the facts fit the case. **Ombudsman route exhausted. Litigation route active — Bindmans LLP CFA ref BUR303 (22 April 2026); Leigh Day follow-up pending.**
 
 ---
 
@@ -104,7 +104,7 @@ As of 22 April 2026, all completed assessments except one returned a NULL findin
 **Question asked:** Who individually reviewed account 602181316 before six enforcement visits to business premises?
 **Response summary:** Nitin Patel confirmed contract expired January 2022; meter stated functioning correctly while bill shows reading frozen at 1458; requested photograph of evidence own billing system already held; charged £425 for challenged enforcement visit.
 **Finding:** NULL — defective meter 0681410S; £1,806 demand (bill 811992368); unagreed tariff; eight Equality Act breaches.
-**Status:** Active Energy Ombudsman (filed 3 April 2026). DSAR extended to 8 June 2026. Bodycam confirmed for six visits.
+**Status:** **Updated 24 April 2026 — Energy Ombudsman case EG037844-26 prematurely closed 8 April 2026.** Handler closed as "under 8 weeks" within 20 minutes of receiving response, despite the 8-week threshold (from 27 February 2026) expiring on 24 April 2026. Handler's own evidence deadline was 28 April — case closed before it was met. **Re-referral to Energy Ombudsman available from 24 April 2026 — action required promptly.** DSAR extended to 8 June 2026. Bodycam confirmed for six visits. ICO complaint active.
 
 ---
 
@@ -418,6 +418,23 @@ As of 22 April 2026, all completed assessments except one returned a NULL findin
 
 ---
 
+### 23. OpenAI Ireland Limited
+
+**Sector:** AI / Consumer Technology
+**Date first contacted:** 24 April 2026
+**Taxonomy score:** 1 / 20 — NULL
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+**Question asked:** Was a named human being able to personally review why the complainant could not access confirmed personal data, and take action to remedy the failure?
+**Response summary:** Subject Access Request submitted 24 April 2026 via privacy.openai.com. Data download report confirmed ready by email at 21:16 (4-day availability window stated). 'View My Report' link returned authentication error at auth.openai.com (get_chatgpt_account_error; request ID: 7006c8d2-fdcb-4f02-a3d4-d472f6b5416b). Direct access via privacy.openai.com returned second error: "We could not verify that the login attempt was initiated from this website." OpenAI contacted directly — not resolved. No named individual engaged at any stage.
+**Finding:** NULL — UK GDPR Article 15 breach. Data confirmed ready; access denied through automated authentication failure with no human override, no named accountable individual, and no remedy provided. D3 scores 1: statutory clock running; no substantive response within session. Screenshot evidence held for all three stages.
+**Status:** ICO complaint filed 24 April 2026 as addition to pattern-of-behaviour case IC-4999654-T1Q8.
+
+---
+
 ## Parliamentary Contacts
 
 | Contact | Response | Status |
@@ -465,12 +482,13 @@ As of 22 April 2026, all completed assessments except one returned a NULL findin
 | 20 | HM Treasury | Government | 1 / 20 | Pending |
 | 21 | Cabinet Office | Government | 1 / 20 | Pending |
 | 13 | X / Twitter | Social media | 0 / 20 | NULL |
+| 23 | OpenAI Ireland Limited | AI / Consumer technology | 1 / 20 | NULL |
 | 15 | Palantir | Defence / tech | N/A | Clean negative |
 
-**Mean score (21 scored institutions): 3.2 / 20**
+**Mean score (22 scored institutions): 3.0 / 20**
 **NULL rate (confirmed): 77%**
-**Partial sovereign or above: 2 of 21**
-**SOVEREIGN: 1 of 21**
+**Partial sovereign or above: 2 of 22**
+**SOVEREIGN: 1 of 22**
 
 ---
 
@@ -497,7 +515,7 @@ The cryptographic verification pathway (SHA-256 commitment hash + Ed25519 sovere
 
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle). Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
 
-Last updated: 22 April 2026
+Last updated: 24 April 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

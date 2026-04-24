@@ -2,7 +2,7 @@
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
-- **Framework version:** v2.1.0 (released 24 April 2026)
+- **Framework version:** v1.0.0 (released 18 April 2026)
 - **Author:** Lewis James Burgess, Darlington, UK
 - **Contact:** ljbarbers15@gmail.com
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
@@ -16,8 +16,8 @@ A live, dated record of every active front, case reference, statutory deadline, 
 
 | Reference | Counterparty | Subject | Quantum | Status |
 | --- | --- | --- | --- | --- |
-| **EG021819-26** | E.ON | Unsigned warrant; forced entry; smart meter dispute | **£129M claim** | Open at the Energy Ombudsman |
-| **EG037844-26** | British Gas | Frozen meter; zero consumption; warrant charge | **£425** | Open at the Energy Ombudsman |
+| **EG021819-26** | E.ON | Unsigned warrant; forced entry; smart meter dispute | **£129M claim** | **Ombudsman route exhausted** — both rulings declined (final decision omitted disability; directed telephone response). Litigation route active — Bindmans LLP CFA ref BUR303; Leigh Day pending |
+| **EG037844-26** | British Gas | Frozen meter; zero consumption; warrant charge | **£425** | Case prematurely closed 8 April 2026. **Re-referral to Energy Ombudsman available from 24 April 2026 — action required** |
 | Wave Utilities | Wave Utilities | Disputed billing across two accounts | £0.00 | **Resolved** — both accounts brought to £0.00 (proof of concept) |
 
 ---
@@ -45,6 +45,7 @@ A live, dated record of every active front, case reference, statutory deadline, 
 | --- | --- | --- | --- |
 | 18 April 2026 | Amazon | UK GDPR Article 22 challenge to ad insertion in paid subscriptions | Sent; awaiting response |
 | 18 April 2026 | Disney+ | UK GDPR Article 22 challenge to ad insertion in paid subscriptions | Sent; awaiting response |
+| 24 April 2026 | OpenAI Ireland Limited | UK GDPR Article 15 — SAR confirmed ready; access denied via automated authentication failure; no named human accountable | **NULL finding recorded. ICO complaint filed as addition to IC-4999654-T1Q8. Re-referral window: 4 days from 24 April 2026** |
 
 ---
 

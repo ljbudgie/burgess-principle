@@ -12,7 +12,7 @@ A chronological record of every institutional interaction, statutory filing, and
 | **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |
-| **Date Range** | 27 May 2025 – 22 April 2026 |
+| **Date Range** | 27 May 2025 – 24 April 2026 |
 | **Taxonomy version** | Institution Audit Taxonomy v1.0 |
 
 ---
@@ -41,20 +41,20 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 
 | Metric | Value |
 | --- | --- |
-| **Total fronts** | 27 |
+| **Total fronts** | 29 |
 | **Resolved** | 1 (Wave Utilities) |
-| **Active regulatory proceedings** | 5 (ICO pattern letter + 3 individual ICO complaints + Reddit; Energy Ombudsman — British Gas re-referral due) |
+| **Active regulatory proceedings** | 6 (ICO pattern letter + 3 individual ICO complaints + Reddit; British Gas re-referral filed today; Ofgem scheme complaint filed today) |
 | **DSARs pending** | 8 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO, Home Office) |
 | **Darlington Borough Council DSAR** | Overdue — Lee Downey acknowledged delay 22 April 2026, response promised same day (DBC-3087-25) |
-| **Ombudsman referrals filed** | 1 (British Gas — filed 3 April 2026) |
-| **ICO complaints filed** | 4 (Apple; Phonak; Trading 212; pattern letter 4 Apr — ref IC-4999654-T1Q8) |
+| **Ombudsman referrals filed** | 2 (British Gas EG037844-26 — reopening request filed 24 April 2026; E.ON EG021819-26 — closed, both rulings declined) |
+| **ICO complaints filed** | 5 (Apple; Phonak; Trading 212; pattern letter 4 Apr — ref IC-4999654-T1Q8; OpenAI — filed 24 April 2026) |
 | **LGO referral ready to file** | 1 (Darlington Borough Council) |
 | **Financial Ombudsman referral available** | 1 (Vanquis — six-month window from 26 March 2026) |
 | **Active FOIs** | 6 (Home Office FOI2026/05685; HM Treasury FOI2026/08366; Cabinet Office FOI2026/07744 and FOI2026/07733; FSA FOI 00174 — response received 22 Apr; DESNZ — pending) |
-| **Legal representation** | Bindmans LLP — conditional fee enquiry active (ref BUR303, 22 April 2026) |
+| **Legal representation** | Bindmans LLP — declined 24 April 2026 (capacity); Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026; Leigh Day — follow-up pending |
 | **Press outreach** | Bureau of Investigative Journalism (pending); Newsquest / Gavin Foster — Darlington story (pending, 22 April 2026) |
-| **Institutions scored under Taxonomy v1.0** | 18 |
-| **Confirmed NULL findings** | 11 |
+| **Institutions scored under Taxonomy v1.0** | 20 |
+| **Confirmed NULL findings** | 13 |
 | **SOVEREIGN findings** | 1 (Wave Utilities) |
 
 ---
@@ -241,6 +241,26 @@ Subject Access Request submitted 24 April 2026 via privacy.openai.com. Data down
 
 ---
 
+### Energy Ombudsman — NULL (1 / 20)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+The statutory redress scheme for energy consumers has itself returned two NULL findings. EG021819-26 (E.ON): final decision omitted disability from reasoning and directed a deaf complainant to respond by telephone. Challenge rejected without engaging with either ground. No assessment of Ofgem's Involuntary PPM Code of Practice despite PPM installation being the core enforcement act. EG037844-26 (British Gas): case closed 8 April 2026 — 16 days before the 8-week threshold was met — within 20 minutes of receiving complainant's response, and before the handler's own stated evidence deadline of 28 April 2026. **Binary test result: NULL across both cases.** Reopening request filed 24 April 2026 for EG037844-26. Ofgem scheme complaint filed 24 April 2026. ESNZ Committee holds written evidence and has confirmed it will use it to formulate questions to Ofgem and the Secretary of State.
+
+---
+
+### Ofgem — NULL (1 / 20, provisional)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+Scheme administrator for the Energy Ombudsman under the Gas and Electricity (Consumer Complaints Handling Standards) Regulations 2008. Previous contact attempt (19 April 2026) bounced — incorrect address used. Formal scheme complaint filed 24 April 2026 to consumeraffairs@ofgem.gov.uk, raising: (1) final decision omitting disability from reasoning in EG021819-26; (2) telephone-directed response to a deaf complainant; (3) absence of Involuntary PPM Code of Practice assessment; (4) premature closure of EG037844-26 before 8-week threshold. D3 scores 1 provisionally — statutory clock running. Substantive scoring to follow on receipt of response.
+
+---
+
 ### HM Treasury — Pending (1 / 20 provisional)
 
 | D1 | D2 | D3 | D4 | D5 | Total |
@@ -297,9 +317,11 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 | Cabinet Office | Government | 1 / 20 | Pending |
 | X / Twitter | Social media | 0 / 20 | NULL |
 | OpenAI Ireland Limited | AI / Consumer technology | 1 / 20 | NULL |
+| Energy Ombudsman | Statutory redress scheme | 1 / 20 | NULL |
+| Ofgem | Energy regulator | 1 / 20 | NULL (provisional) |
 | Palantir | Defence / tech | N/A | Clean negative |
 
-**Mean score (scored institutions): 3.2 / 20**
+**Mean score (scored institutions): 2.9 / 20**
 **NULL rate (confirmed): 77%**
 **Partial sovereign or above: 2 institutions**
 **SOVEREIGN: 1 institution**
@@ -331,6 +353,40 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 ---
 
 ## Recent Activity (Most Recent First)
+
+### 24 April 2026 – Ofgem – Formal Scheme Complaint Filed
+**Institution:** Ofgem (consumeraffairs@ofgem.gov.uk)
+**Sector:** Energy Regulator
+**Taxonomy score:** 1 / 20 — NULL (provisional)
+**Action:** Formal scheme complaint filed covering conduct of Energy Ombudsman in both EG021819-26 and EG037844-26. Grounds: disability omitted from final decision; telephone-directed response to deaf complainant; no PPM Code of Practice assessment; premature closure of EG037844-26. Previous attempt (19 April 2026) bounced — incorrect address. Correct address confirmed: consumeraffairs@ofgem.gov.uk.
+**Status:** Awaiting response. Statutory clock running.
+
+---
+
+### 24 April 2026 – Energy Ombudsman – Reopening Request EG037844-26
+**Institution:** Energy Ombudsman
+**Sector:** Statutory Redress Scheme
+**Taxonomy score:** 1 / 20 — NULL
+**Action:** Formal reopening request submitted for EG037844-26. Grounds: case closed 16 days before 8-week threshold; closed within 20 minutes of receiving response; closed before handler's own evidence deadline of 28 April 2026. Nitin Patel's letter of 22 April 2026 submitted as functional deadlock / final position letter.
+**Status:** Awaiting Ombudsman response on reopening.
+
+---
+
+### 24 April 2026 – Deighton Pierce Glynn & Hodge Jones & Allen – Case Referrals
+**Institution:** Deighton Pierce Glynn / Hodge Jones & Allen
+**Sector:** Legal / Claimant Firms
+**Action:** Case referral emails sent to both firms on same day as Bindmans decline. Referred by Bindmans LLP. Both referrals frame: void warrant, Equality Act 2010 disability discrimination, UK GDPR Articles 22A-22C, Article 8 ECHR, CPR 19.8 representative action potential. CFA basis requested.
+**Status:** Awaiting response. Standard acknowledgement window 5–10 working days.
+
+---
+
+### 24 April 2026 – Bindmans LLP – Conditional Fee Enquiry Declined (Ref BUR303)
+**Institution:** Bindmans LLP
+**Sector:** Legal
+**Action:** Bindmans declined to act — capacity refusal, not merits refusal. Referred to Leigh Day, Deighton Pierce Glynn, and Hodge Jones & Allen. Response same day.
+**Status:** Avenue closed. Referrals actioned immediately.
+
+---
 
 ### 24 April 2026 – OpenAI Ireland Limited – SAR Access Failure – NULL Finding
 **Institution:** OpenAI Ireland Limited (privacy.openai.com)

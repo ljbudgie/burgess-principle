@@ -2,11 +2,11 @@
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
-- **Framework version:** v1.0.0 (released 18 April 2026)
+- **Framework version:** v2.1.0 (released 24 April 2026)
 - **Author:** Lewis James Burgess, Darlington, UK
 - **Contact:** ljbarbers15@gmail.com
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
-- **Last updated:** 18 April 2026
+- **Last updated:** 24 April 2026
 
 > Binary test: *"Was the individual considered as an individual human being, or were they processed as a unit within a system?"*
 

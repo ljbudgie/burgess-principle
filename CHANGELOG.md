@@ -5,12 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
-## Unreleased
+## v2.1.0 — The Pattern Completed (24 April 2026)
 
 ### Added
 - `POST /api/generate-claim` in `iris-local.py` for Sovereign Local Mode. The endpoint accepts a query plus profile data and returns the generated claim package with letter markdown.
 - New `templates/FOLLOW_UP_WEASEL_RESPONSE.md` for calm second letters when institutions reply with vague claims about "human oversight" or policy review.
 - New `setup-wizard.py` guided local setup for model choice, Easy Mode defaults, and first-run configuration.
+- New `enforcement/sovereign-vault/COMMITMENT_ONLY_WORKFLOW.md` — full step-by-step commitment-only workflow covering CLI, TypeScript, correspondence phrasing, receipt verification, evidence export, mobile options, and best practices.
+- `SOUL.md` now includes a new section — The Pattern Behind the Test — grounding the SOVEREIGN/NULL binary in its scriptural origin, from Cain's denial in Genesis 4 to Peter's threefold restoration on the shore of Galilee. The closing passage has been rewritten to reflect the redemptive dimension introduced in Paper X: the framework is not only diagnostic, the pathway back from NULL to SOVEREIGN exists and is personal.
 
 ### Changed
 - Sovereign Local claim generation now writes encrypted records to the default local `.sovereign-vault/` directory instead of honoring per-request vault path overrides.
@@ -20,6 +22,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - Mirror Mode now supports configurable greeting style, custom greeting text, and a user-controlled Mirror Reflection scope for internal vault use or outward-facing documents.
 - `case-studies/` now uses a shared operational format with explicit response classification, next-step guidance, a folder index, and a shorter passport case backed by appendices.
 - Hosted Iris API docs now distinguish the narrow Vercel helper routes from the richer local-first `/api/*` surface, and `api/chat.py` now returns a generic upstream failure message instead of exposing raw exception details.
+- Root `README.md` restructured to lead with the origin story and the binary test. Technical depth follows rather than competing for attention at the top. Sections covering Neuralink framing, time as invertible template, and Starlink connectivity have been moved to their dedicated documents.
+- `enforcement/sovereign-vault/README.md` updated to reference `COMMITMENT_ONLY_WORKFLOW.md` in the introduction and files table.
+
+---
 
 ## v1.3.0 — Sovereign Core: Unified Verifiable Architecture (12 April 2026)
 

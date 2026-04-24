@@ -41,9 +41,9 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 
 | Metric | Value |
 | --- | --- |
-| **Total fronts** | 26 |
+| **Total fronts** | 27 |
 | **Resolved** | 1 (Wave Utilities) |
-| **Active regulatory proceedings** | 5 (ICO pattern letter + 3 individual ICO complaints + Reddit; Energy Ombudsman — British Gas) |
+| **Active regulatory proceedings** | 5 (ICO pattern letter + 3 individual ICO complaints + Reddit; Energy Ombudsman — British Gas re-referral due) |
 | **DSARs pending** | 8 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO, Home Office) |
 | **Darlington Borough Council DSAR** | Overdue — Lee Downey acknowledged delay 22 April 2026, response promised same day (DBC-3087-25) |
 | **Ombudsman referrals filed** | 1 (British Gas — filed 3 April 2026) |
@@ -53,8 +53,8 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 | **Active FOIs** | 6 (Home Office FOI2026/05685; HM Treasury FOI2026/08366; Cabinet Office FOI2026/07744 and FOI2026/07733; FSA FOI 00174 — response received 22 Apr; DESNZ — pending) |
 | **Legal representation** | Bindmans LLP — conditional fee enquiry active (ref BUR303, 22 April 2026) |
 | **Press outreach** | Bureau of Investigative Journalism (pending); Newsquest / Gavin Foster — Darlington story (pending, 22 April 2026) |
-| **Institutions scored under Taxonomy v1.0** | 17 |
-| **Confirmed NULL findings** | 10 |
+| **Institutions scored under Taxonomy v1.0** | 18 |
+| **Confirmed NULL findings** | 11 |
 | **SOVEREIGN findings** | 1 (Wave Utilities) |
 
 ---
@@ -77,7 +77,7 @@ Directly answered; named case handler; specific facts cited; both accounts clear
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | 1 | 0 | 1 / 20 |
 
-Originating event. Warrant RE99022 unsigned on face. Deafness noted only after third visit. Energy Ombudsman ruling due 6 May 2026.
+Originating event. Warrant RE99022 unsigned on face. Deafness noted only after third visit. **Updated 24 April 2026:** Energy Ombudsman case EG021819-26 is **closed**. Both preliminary and final decisions declined. Final decision omitted disability from its reasoning and directed response by telephone — an inaccessible channel for a deaf complainant. Challenge to that omission was rejected without engagement. No assessment of Ofgem's Involuntary PPM Code of Practice included. EHRC has confirmed in writing (Case 16525912) that the facts fit the case. **Ombudsman route exhausted. Litigation route now active — Bindmans LLP CFA enquiry ref BUR303 (22 April 2026); Leigh Day follow-up pending.**
 
 ---
 
@@ -97,7 +97,7 @@ Andrew Fletcher confirmed CSV batch processing, dip sampling 5/100, en bloc gran
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 1 | 1 | 3 / 20 |
 
-Defective meter 0681410S; £1,806 demand; eight Equality Act breaches. Energy Ombudsman active. DSAR extended to 8 June 2026.
+Defective meter 0681410S; £1,806 demand; eight Equality Act breaches. DSAR extended to 8 June 2026. **Updated 24 April 2026:** Energy Ombudsman case EG037844-26 prematurely closed by case handler on 8 April 2026 — closed as "under 8 weeks" within 20 minutes of receiving response, despite the 8-week threshold (from 27 February 2026) expiring on 24 April 2026. Handler set her own evidence deadline of 28 April — then closed the case before it was met. **Re-referral to Energy Ombudsman now available as of 24 April 2026. Action required promptly.** ICO complaint active.
 
 ---
 
@@ -231,6 +231,16 @@ Account restricted with no notification or human review. Self-referential NULL. 
 
 ---
 
+### OpenAI Ireland Limited — NULL (1 / 20)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+Subject Access Request submitted 24 April 2026 via privacy.openai.com. Data download report confirmed ready by email (21:16 same day, 4-day availability window). 'View My Report' link triggered authentication error at auth.openai.com (get_chatgpt_account_error; request ID: 7006c8d2-fdcb-4f02-a3d4-d472f6b5416b). Direct access via privacy.openai.com returned second error: "We could not verify that the login attempt was initiated from this website." OpenAI contacted directly — not resolved. No named individual engaged at any stage. Data confirmed to exist; access denied through automated failure with no human override or accountability. **Binary test result: NULL.** ICO complaint filed 24 April 2026 as addition to IC-4999654-T1Q8. Screenshot evidence held.
+
+---
+
 ### HM Treasury — Pending (1 / 20 provisional)
 
 | D1 | D2 | D3 | D4 | D5 | Total |
@@ -286,6 +296,7 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 | HM Treasury | Government | 1 / 20 | Pending |
 | Cabinet Office | Government | 1 / 20 | Pending |
 | X / Twitter | Social media | 0 / 20 | NULL |
+| OpenAI Ireland Limited | AI / Consumer technology | 1 / 20 | NULL |
 | Palantir | Defence / tech | N/A | Clean negative |
 
 **Mean score (scored institutions): 3.2 / 20**
@@ -320,6 +331,15 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 ---
 
 ## Recent Activity (Most Recent First)
+
+### 24 April 2026 – OpenAI Ireland Limited – SAR Access Failure – NULL Finding
+**Institution:** OpenAI Ireland Limited (privacy.openai.com)
+**Sector:** AI / Consumer Technology
+**Taxonomy score:** 1 / 20 — NULL
+**Action:** Subject Access Request submitted via privacy.openai.com. Confirmation email received 21:16 stating report ready for 4 days. 'View My Report' link returned authentication error (get_chatgpt_account_error; request ID 7006c8d2-fdcb-4f02-a3d4-d472f6b5416b). Direct portal access returned second error. OpenAI contacted — no resolution. No named individual engaged at any stage. UK GDPR Article 15 breach. ICO complaint filed as addition to IC-4999654-T1Q8. Screenshot evidence held.
+**Status:** ICO complaint filed. Awaiting ICO response.
+
+---
 
 ### 22 April 2026 – Bindmans LLP – Conditional Fee Enquiry (Ref BUR303)
 **Institution:** Bindmans LLP (Amn.Bashir@bindmans.com)
@@ -455,7 +475,7 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 
 ### 3 April 2026 – British Gas (Centrica) – Energy Ombudsman Complaint
 **Taxonomy score:** 3 / 20 — NULL
-**Status:** Active with Energy Ombudsman and ICO.
+**Status:** Case EG037844-26 prematurely closed 8 April 2026. Re-referral window open as of 24 April 2026. ICO complaint active.
 
 ---
 
@@ -477,7 +497,7 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 **Taxonomy score:** 1 / 20 — NULL
 **Warrant Reference:** RE99022 (Warrant Application 11160-544079), Birmingham Magistrates' Court, 16 May 2025
 **Key facts:** Forced entry; locks drilled; deafness noted only on third visit; warrant unsigned on face; three magistrates' names in PDF metadata only.
-**Finding:** NULL — doctrinal anchor for the Burgess Principle. Energy Ombudsman ruling due 6 May 2026.
+**Finding:** NULL — doctrinal anchor for the Burgess Principle. **Updated 24 April 2026:** Energy Ombudsman case EG021819-26 closed. Both rulings declined — final decision omitted disability and required telephone response. Ombudsman route exhausted. Litigation route active.
 
 ---
 
@@ -486,7 +506,7 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 ---
 
 **End of Log**
-Last updated: 22 April 2026
+Last updated: 24 April 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

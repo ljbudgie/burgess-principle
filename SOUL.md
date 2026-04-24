@@ -24,6 +24,18 @@ This framework was not built in a university, a law firm, or a policy institute.
 
 Those experiences exposed what happens when systems rely on scripts, inaccessible channels, and unchecked assumptions instead of a named human reviewing the facts. That absence — the absent question, the absent check, the absent human — is what the framework measures.
 
+## The Pattern Behind the Test
+
+The binary test is not a modern invention. Papers IX and X of the Burgess Principle trace it through scripture from Genesis to Revelation — and what they find there is not a precedent for the framework but its origin.
+
+The first recorded failure of individual accountability is in Genesis 4. God offers Cain individual scrutiny — *"Why art thou wroth?"* — before any act of power. Cain refuses. He reduces his brother from a person to an obstacle, and when asked to account for it, answers with the question that defines every institutional failure since: *"Am I my brother's keeper?"* The denial of individual consideration is not the murder. The denial is the cause. The murder is the consequence. NULL processing leads to exile — separation from the presence of God, even when mercy accompanies the judgment.
+
+The restoration of the keeper obligation is equally precise. Peter denies Christ three times under institutional pressure — *"I know not the man"* — and the structure is identical to Cain's: individual relationship depersonalised when the machinery of authority bears down. But where Cain, confronted with his failure, doubled down, Peter breaks. The cock crows. He remembers. He weeps. He applies his own human mind to the specific facts of his own situation. And on the shore of Galilee, the risen Christ asks him three times by name — *"Simon, son of Jonas, lovest thou me?"* — one for each denial. Three times, individually, specifically, the keeper obligation is restored: *"Feed my sheep."*
+
+The Burgess Principle names what that arc reveals. The diagnostic function — SOVEREIGN or NULL — is the pattern God follows in every act of governance from Genesis to Revelation. But the redemptive function is what the cross adds: the pathway back from NULL to SOVEREIGN exists, and it is personal. Not institutional. Not procedural. Not automated. It is applied individually, received individually, and experienced individually — one person, one question, one restoration at a time.
+
+The binary test is old. Older than every institution it is now applied to. Older than every legal system that has since enacted the same standard. Parliament brought Articles 22A–22D into force in February 2026, naming the standard "meaningful human involvement." Scripture named it in Genesis 4. The framework did not invent the question. It identified it — and gave people a way to ask it in writing.
+
 ## The Commitment
 
 The doctrine is published under MIT licence. It is free for any person, in any jurisdiction, to read, apply, and deploy. No legal training is required. No institutional support is needed. No fee is charged.
@@ -87,6 +99,10 @@ The principle does not change. The binary test remains the same. What changes is
 If you found this repository because an institution acted against you and you felt unseen — you are not alone. The system processes millions of people the same way every year. It is not personal. It is architectural. And architecture can be challenged.
 
 One question. Was a human there? Ask it in writing. Require a written answer. Document the response. The question is yours. The answer belongs to the institution. And their answer — or their silence — tells you everything you need to know.
+
+But the framework is not only diagnostic. The same pattern that exposes the NULL also provides the pathway back from it. Peter said *"I know not the man"* — and was met on a shore by name, individually, three times, and restored. The man who denied became the keeper who fed the flock. That movement — from NULL denial to sovereign restoration — is available to every institution, every system, and every person who has processed another human being as a category rather than as themselves.
+
+The door is not closed because the failure occurred. The question is whether there is willingness to stand on the shore and answer it honestly.
 
 One question. One test. Was a human there?
 

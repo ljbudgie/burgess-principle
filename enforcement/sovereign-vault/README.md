@@ -4,7 +4,7 @@
 
 > **You do not need this to use the Burgess Principle.** The human-first templates and the one-question approach work perfectly on their own. This vault is for people who want an extra layer of mathematical proof — without revealing any personal details.
 
-The key capability in **v0.3.0** is **Commitment-Only Mode**: send a single SHA-256 hash instead of personal facts. No details leave your device. Generate a fresh commitment for every request so that no two messages can ever be linked together. A standalone generator and a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md)) make this easy to use from a phone or laptop with no setup.
+The key capability in **v0.3.0** is **Commitment-Only Mode**: send a single SHA-256 hash instead of personal facts. No details leave your device. Generate a fresh commitment for every request so that no two messages can ever be linked together. A standalone generator, a ready-made placeholder template ([COMMITMENT_ONLY_PLACEHOLDER.md](../../templates/COMMITMENT_ONLY_PLACEHOLDER.md)), and a full step-by-step workflow ([COMMITMENT_ONLY_WORKFLOW.md](./COMMITMENT_ONLY_WORKFLOW.md)) make this easy to use from a phone or laptop with no setup.
 
 ## What it does
 
@@ -30,7 +30,7 @@ The Sovereign Personal Vault is a lightweight TypeScript library that lets you:
 ### What changed in v0.3.0
 
 - **Replaced CryptoJS** (deprecated, AES-CBC, MD5-based KDF) with Node.js built-in AES-256-GCM.
-- **Proper KDF**: PBKDF2-SHA-256 with 210 000 iterations and per-encryption random salt, replacing a single unsalted SHA-256 hash of the passphrase.
+- **Proper KDF**: PBKDF2-SHA-256 with 210,000 iterations and per-encryption random salt, replacing a single unsalted SHA-256 hash of the passphrase.
 - **Commitment now hashes plaintext facts + fresh random salt**, not the ciphertext. Commitments are stable and verifiable.
 - **Receipt signature verification is mandatory**: receipts without a `reviewerPubKey` are rejected (previously silently accepted).
 - **Canonical JSON serialisation** for signed messages prevents concatenation ambiguity.
@@ -69,6 +69,8 @@ You don't need Node.js, a terminal, or any build tools. All you need is a way to
 That's it — about two minutes, entirely on your own device, no personal facts shared.
 
 > **Important:** Always generate a **new** commitment for each separate request. Never reuse a hash.
+
+For a full walkthrough including CLI and TypeScript options, see [COMMITMENT_ONLY_WORKFLOW.md](./COMMITMENT_ONLY_WORKFLOW.md).
 
 ### On a computer (one command)
 
@@ -110,6 +112,7 @@ This way, the AI never sees your actual commitment — and can never link it to 
 |---|---|
 | `src/index.ts` | Main library source code |
 | `src/generate-commitment.ts` | Standalone commitment generator (no build step needed) |
+| `COMMITMENT_ONLY_WORKFLOW.md` | Full step-by-step commitment-only workflow with CLI, TypeScript, and best practices |
 | `package.json` | Node.js package configuration |
 | `tsconfig.json` | TypeScript compiler settings |
 

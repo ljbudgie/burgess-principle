@@ -34,16 +34,17 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 
 | Metric | Count |
 | --- | --- |
-| Total institutions tested | 29 |
-| NULL findings (confirmed) | 13 |
+| Total institutions tested | 33 |
+| NULL findings (confirmed) | 17 |
 | Partial sovereign findings | 1 (TV Licensing) |
 | SOVEREIGN findings | 1 (Wave Utilities) |
 | Pending substantive assessment | 5 (HM Treasury, Cabinet Office, FSA, HMPO, Ofgem) |
 | No data held (clean negative) | 1 (Palantir) |
 | Parliamentary contacts documented | 6 |
 | Legal representation active | 2 (Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026) |
-| Institutions scored under Taxonomy v1.0 | 25 |
-| Mean taxonomy score (scored institutions) | 2.9 / 20 |
+| Institutions scored under Taxonomy v1.0 | 29 |
+| Mean taxonomy score (scored institutions) | 2.7 / 20 |
+| Accessibility NULL findings (email bounce / unmonitored) | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 
 ---
 
@@ -495,6 +496,74 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 
 ---
 
+### 26. County Durham and Darlington NHS Foundation Trust — ENT Audiology
+
+**Sector:** NHS / Medical Devices
+**Date first contacted:** 25 April 2026
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 0 / 20 |
+
+**Question asked:** Was a named human clinician able to personally review the specific facts of the complainant's case — including their individual audiogram profile, asymmetry, high-frequency drop, and disability-related reasonable adjustment needs — before the AutoSense OS fitting parameters applied to their Phonak Naída M70-SP devices were determined and implemented?
+**Response summary:** Email to audiology department bounced — address not found. No accessible contact route identified for a deaf patient whose sole reasonable adjustment is email correspondence.
+**Finding:** NULL (Accessibility) — a new category. The responsible NHS clinical body cannot be contacted by email by a deaf patient. This is not a failed send — it is a documented Equality Act failure at the access layer. The institution has not been asked the binary question because its email infrastructure prevents a deaf person from asking it.
+**Status:** Draft saved. CDDFT complaints team (`complaints@cddft.nhs.uk`) identified as alternative route. Equality Act breach documented. Entry to be updated on substantive contact.
+
+---
+
+### 27. NHS England AI Directorate
+
+**Sector:** NHS / AI Governance
+**Date first contacted:** 25 April 2026
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 0 / 20 |
+
+**Question asked:** Whether the NHS England AI governance framework applies to adaptive algorithms in Class IIa and above medical devices deployed by NHS Trusts; what individual clinical accountability standard applies; and what mechanism exists for a patient to request individual human review of an adaptive algorithm's ongoing decisions about them.
+**Response summary:** Email to `england.ai@nhs.net` — inbox confirmed in process of being shut down and unmonitored. NHS England AI Lab formally closed 2025. Governance function moved to joint NHS England / DHSC policy unit. No monitored email contact available to the public.
+**Finding:** NULL (Accessibility) — the national body responsible for NHS AI governance is unreachable by email. A deaf patient whose sole reasonable adjustment is written email correspondence cannot contact the institution responsible for overseeing the very algorithmic systems affecting their care.
+**Status:** Draft saved. Documented as accessibility NULL. Function now sits with DHSC joint policy unit — see entry 28.
+
+---
+
+### 28. Department of Health and Social Care (DHSC)
+
+**Sector:** Government / Health Policy
+**Date first contacted:** 25 April 2026
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 0 / 20 |
+
+**Question asked:** Whether DHSC's AI governance framework applies to adaptive algorithms in Class IIa and above medical devices; whether patients with atypical clinical profiles are entitled to confirmation of individual clinician review; what mechanism exists for patients to request human review of adaptive algorithmic decisions; and whether DHSC considers it consistent with its Equality Act obligations that NHS AI governance regulatory contacts are inaccessible by email to deaf patients.
+**Response summary:** Email to `dhsc.correspondence@dhsc.gov.uk` — address not found. Bounced on send.
+**Finding:** NULL (Accessibility) — the sponsoring government department for both the National Data Guardian and NHS England cannot be contacted by email by a deaf patient using their reasonable adjustment channel. The fourth question — whether inaccessible regulatory infrastructure is itself an Equality Act failure — cannot be delivered to the institution responsible for answering it.
+**Status:** Draft saved. Documented as accessibility NULL. Entry to be updated on identification of working contact route.
+
+---
+
+### 29. AI and Digital Regulations Service (NICE / CQC / MHRA / HRA)
+
+**Sector:** Multi-Agency Regulatory / NHS AI Governance
+**Date first contacted:** 25 April 2026
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 0 / 20 |
+
+**Question asked:** Whether the AutoSense OS adaptive algorithm constitutes MDSW subject to Medical Devices Regulations 2002; whether a manufacturer's assertion that audiogram-derived algorithmic outputs fall outside UK GDPR is consistent with the regulatory framework; whether patients with atypical profiles are entitled to confirmation of individual clinician review; and what mechanism exists for patients to request human review of adaptive algorithm decisions.
+**Response summary:** Email to `digitalregulations@nice.org.uk` — address not found. Bounced on send.
+**Finding:** NULL (Accessibility) — the multi-agency service specifically designed to handle patient and public concerns about AI and digital regulation in the NHS cannot be contacted by email. A deaf patient cannot reach the regulatory one-stop-shop created precisely for concerns of this nature.
+**Status:** Draft saved. Documented as accessibility NULL. Four regulators (NICE, CQC, MHRA, HRA) simultaneously unreachable through their joint contact point. Entry to be updated on identification of working contact route.
+
+---
+
 ## Aggregate Taxonomy Scores
 
 | # | Institution | Domain | Score | Band |
@@ -523,12 +592,17 @@ As of 24 April 2026, all completed assessments except one returned a NULL findin
 | 23 | OpenAI Ireland Limited | AI / Consumer technology | 1 / 20 | NULL |
 | 24 | Energy Ombudsman | Statutory redress scheme | 1 / 20 | NULL |
 | 25 | Ofgem | Energy regulator | 1 / 20 | NULL (provisional) |
+| 26 | CDDFT ENT Audiology | NHS / Medical devices | 0 / 20 | NULL (Accessibility) |
+| 27 | NHS England AI Directorate | NHS / AI Governance | 0 / 20 | NULL (Accessibility) |
+| 28 | DHSC | Government / Health policy | 0 / 20 | NULL (Accessibility) |
+| 29 | AI and Digital Regulations Service | Multi-agency regulatory | 0 / 20 | NULL (Accessibility) |
 | 15 | Palantir | Defence / tech | N/A | Clean negative |
 
-**Mean score (24 scored institutions): 2.9 / 20**
-**NULL rate (confirmed): 77%**
-**Partial sovereign or above: 2 of 24**
-**SOVEREIGN: 1 of 24**
+**Mean score (28 scored institutions): 2.7 / 20**
+**NULL rate (confirmed): 82%**
+**Partial sovereign or above: 2 of 28**
+**SOVEREIGN: 1 of 28**
+**Accessibility NULL (new category): 4 institutions — NHS regulatory infrastructure unreachable by email to deaf patient**
 
 ---
 
@@ -555,7 +629,7 @@ The cryptographic verification pathway (SHA-256 commitment hash + Ed25519 sovere
 
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle). Entries are updated as institutional responses are received. The register is permanent, timestamped by git version control, and publicly accessible.
 
-Last updated: 24 April 2026
+Last updated: 25 April 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

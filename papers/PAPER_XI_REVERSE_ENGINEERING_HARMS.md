@@ -30,6 +30,8 @@ The methodology is demonstrated in the domain of paediatric gender medicine, whe
 
 Parts 1 and 2 establish the methodology and the population evidence. Parts 3 through 5 apply the causal chain, identify the NULL decision nodes, and generalise the framework to other domains of contested medicine where the same structural failure pattern is present.
 
+This paper is one of a pair. Paper XII — *Burgess Notice and Mass Tariff Processing* — applies the same binary test at the opposite end of the scale of human experience: to $159 billion in US tariff refund obligations and to categorical retaliatory tariffs applied to UK businesses without individual review. Paper XI operates at the most intimate level of institutional power — decisions made inside a specific child's body. Paper XII operates at the most geopolitical level — decisions made across entire sectors and economies. The structure of the failure is identical in both. The question is the same. The standard is the same. Together they demonstrate that the Burgess Principle binary test is not domain-specific. It is the test that applies wherever institutional power is exercised over a specific human being without a named human being present at the decision.
+
 ---
 
 ## Part 1: The Method
@@ -446,6 +448,24 @@ That is the only claim this paper makes. It is a narrow claim. It is an evidence
 The question is always the same.
 
 SOVEREIGN or NULL.
+
+---
+
+## A Note on Paper XII
+
+This paper was completed alongside Paper XII — *Burgess Notice and Mass Tariff Processing: The Individual Review Requirement in Automated Trade Decisions*.
+
+The two papers are a pair. This one operates at the most intimate scale of institutional power: decisions made inside a specific child's body, by a clinical system that processed patients as pathway outputs rather than as individual human beings with specific facts. Paper XII operates at the most geopolitical scale: $159 billion in US tariff refund obligations processed categorically, and retaliatory tariffs imposed on UK businesses by sector and country of origin, without individual review of any specific business's specific circumstances.
+
+The scale is opposite. The structure is identical.
+
+In both cases a system exercises power over specific human beings — a child in a gender identity clinic, an importer facing a bulk-processed refund denial, a UK business facing a categorical trade sanction — without a named human being personally present at the decision point, reviewing the specific facts of that specific situation.
+
+Paper XII connects that failure to *Burgess v. Merit Systems Protection Board*, 758 F.2d 641 (Fed. Cir. 1985) — a forty-year-old Federal Circuit precedent, formally known in US administrative law as **Burgess notice**, that established the individual review requirement independently, under the same name, from a different starting point. Three independent convergences: the Federal Circuit in 1985, Parliament in 2026, and the Burgess Principle in 2026, from personal necessity in Darlington.
+
+The pair demonstrates what the framework has always claimed: the question does not change with the domain, the scale, or the institution. From the body of a child to the trade policy of a superpower — the answer is always either SOVEREIGN or NULL, and the test is always whether a named human being was present at the decision point.
+
+That is the only claim either paper makes. It is a narrow claim. It is an evidenced claim. And it is a claim that applies with equal force at every scale, in every domain, wherever institutional power meets a specific human being without a named human being present to account for it.
 
 ---
 

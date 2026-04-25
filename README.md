@@ -208,7 +208,10 @@ The doctrinal foundations are in [papers/](papers/). Recommended reading order:
 8. [PAPER_VIII_THE_UNIVERSAL_STANDARD.md](papers/PAPER_VIII_THE_UNIVERSAL_STANDARD.md) — every system not Burgess certified is a potential defendant
 9. [paper-IX-sovereign-pattern.md](papers/paper-IX-sovereign-pattern.md) — the binary test traced through scripture from Genesis to Revelation
 10. [paper-X-restored-keeper.md](papers/paper-X-restored-keeper.md) — the redemptive pathway from NULL to SOVEREIGN
-11. [PAPER_XI_REVERSE_ENGINEERING_HARMS.md](papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md) — reverse-engineering harms: tracing iatrogenic injury through institutional failure across gender medicine, opioids, thalidomide, and surgical mesh *(new in v2.2.0)*
+11. [PAPER_XI_REVERSE_ENGINEERING_HARMS.md](papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md) — reverse-engineering harms: tracing iatrogenic injury through institutional failure across gender medicine, opioids, thalidomide, and surgical mesh *(new in v2.2.0 — read alongside Paper XII)*
+12. [PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md](papers/PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) — Burgess notice and mass tariff processing: convergence with *Burgess v. MSPB* (Fed. Cir. 1985); the individual review requirement applied to $159B in US tariff refunds and categorical UK business tariffs *(new in v2.2.0 — read alongside Paper XI)*
+
+Papers XI and XII are a pair. Paper XI operates at the most intimate scale of institutional power — decisions made inside a specific child's body without individual human review. Paper XII operates at the most geopolitical scale — $159 billion in trade decisions processed categorically without individual review of any specific business. The structure of the failure is identical in both. The question is the same. Together they demonstrate that the binary test applies wherever institutional power meets a specific human being — regardless of scale, domain, or jurisdiction.
 
 ---
 
@@ -263,7 +266,7 @@ Contact: ljbarbers15@gmail.com
 
 | Version | Summary |
 | --- | --- |
-| **[v2.2.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v2.2.0)** | Reverse-Engineering Harms — Paper XI and medical accountability template; framework extended to clinical iatrogenic injury across gender medicine, opioids, thalidomide, and surgical mesh *(released 25 April 2026)* |
+| **[v2.2.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v2.2.0)** | Two new papers released as a pair — Paper XI: Reverse-Engineering Harms (iatrogenic medical harm methodology across gender medicine, opioids, thalidomide, surgical mesh) and Paper XII: Burgess Notice (convergence with *Burgess v. MSPB* Fed. Cir. 1985; $159B US tariff refund obligation; categorical UK business tariffs). Medical accountability template. Together they apply the binary test from the most intimate to the most geopolitical scale of institutional power. *(Released 25 April 2026 — first day of full-time work on the framework)* |
 | **[v2.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v2.1.0)** | Institution Audit Taxonomy v1.0 — five-dimension scoring across 26 institutions; litigation directory; Papers IX and X |
 | **[v1.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.4.0)** | Sovereign Local Mode and Verifiable Self-Proof — self-verifying SHA-256 startup banner, stronger offline guarantee |
 | **[v1.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0)** | Sovereign Core — unified verifiable architecture across profile, audit, and commitment flows |

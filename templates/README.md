@@ -49,7 +49,7 @@ If you want the shortest possible shortlist after the start flow above, use this
 | A public body or public-records request | [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md) |
 | Benefits, council tax, parking, or bailiff pressure | See [Life situations](#life-situations) |
 | Medical intervention, clinical pathway harm, or iatrogenic injury | See [Life situations](#life-situations) |
-| Tariff refund denied or bulk-processed without individual review; categorical trade sanction applied without individual consideration of your specific business | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) — see also [Paper XII](../papers/PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) for the Burgess notice framework |
+| Tariff refund denied or bulk-processed without individual review; categorical trade sanction applied without individual consideration of your specific business | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) — see also [Paper XII](../papers/PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) for the Burgess notice framework |
 | Crypto restrictions, proof, or selective disclosure | See [Crypto and proof](#crypto-and-proof) |
 | Platform, media, copyright, or creative work | See [Platform and media](#platform-and-media) |
 | Something niche, technical, or constitutional | See [Specialist and advanced](#specialist-and-advanced) |
@@ -137,7 +137,7 @@ These are more specialised, technical, or context-specific. If in doubt, start w
 | [`NOTICE_OF_NULLITY_ADVANCED.md`](./NOTICE_OF_NULLITY_ADVANCED.md) | More technical nullity framing |
 | [`POLITICIAN_CONTRADICTION_WITH_BURGESS.md`](./POLITICIAN_CONTRADICTION_WITH_BURGESS.md) | Political contradiction or accountability cases |
 | [`PUBLIC_SPENDING_PRIORITY_WITH_BURGESS.md`](./PUBLIC_SPENDING_PRIORITY_WITH_BURGESS.md) | Public-spending challenge framing |
-| [Paper XII — Burgess Notice](../papers/PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) | US tariff refund denials bulk-processed without individual review; categorical retaliatory tariffs on UK businesses; any mass trade decision where no named human individually reviewed your specific circumstances — use alongside [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| [Paper XII — Burgess Notice](../papers/PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) | US tariff refund denials bulk-processed without individual review; categorical retaliatory tariffs on UK businesses; any mass trade decision where no named human individually reviewed your specific circumstances — use alongside [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
 
 ---
 

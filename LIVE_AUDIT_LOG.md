@@ -41,7 +41,7 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 
 | Metric | Value |
 | --- | --- |
-| **Total fronts** | 29 |
+| **Total fronts** | 33 |
 | **Resolved** | 1 (Wave Utilities) |
 | **Active regulatory proceedings** | 6 (ICO pattern letter + 3 individual ICO complaints + Reddit; British Gas re-referral filed today; Ofgem scheme complaint filed today) |
 | **DSARs pending** | 8 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO, Home Office) |
@@ -53,8 +53,9 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 | **Active FOIs** | 6 (Home Office FOI2026/05685; HM Treasury FOI2026/08366; Cabinet Office FOI2026/07744 and FOI2026/07733; FSA FOI 00174 — response received 22 Apr; DESNZ — pending) |
 | **Legal representation** | Bindmans LLP — declined 24 April 2026 (capacity); Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026; Leigh Day — follow-up pending |
 | **Press outreach** | Bureau of Investigative Journalism (pending); Newsquest / Gavin Foster — Darlington story (pending, 22 April 2026) |
-| **Institutions scored under Taxonomy v1.0** | 20 |
-| **Confirmed NULL findings** | 13 |
+| **Institutions scored under Taxonomy v1.0** | 28 |
+| **Confirmed NULL findings** | 17 |
+| **Accessibility NULL findings (new category)** | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | **SOVEREIGN findings** | 1 (Wave Utilities) |
 
 ---
@@ -354,6 +355,46 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 
 ## Recent Activity (Most Recent First)
 
+### 25 April 2026 – AI and Digital Regulations Service (NICE / CQC / MHRA / HRA) – Accessibility NULL
+**Institution:** AI and Digital Regulations Service
+**Sector:** Multi-Agency Regulatory / NHS AI Governance
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+**Action:** Email sent to `digitalregulations@nice.org.uk` raising systemic clinical accountability gap in adaptive medical device algorithms, with Phonak AutoSense OS as documented evidence. Email bounced — address not found.
+**Finding:** NULL (Accessibility) — the multi-agency regulatory one-stop-shop for NHS AI and digital device concerns cannot be contacted by email. A deaf patient cannot reach the service created precisely for concerns of this nature. Four regulators (NICE, CQC, MHRA, HRA) simultaneously unreachable through their joint contact point.
+**Status:** Draft retained. Accessibility failure documented. Entry to be updated on identification of working contact route.
+
+---
+
+### 25 April 2026 – Department of Health and Social Care (DHSC) – Accessibility NULL
+**Institution:** Department of Health and Social Care
+**Sector:** Government / Health Policy
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+**Action:** Email sent to `dhsc.correspondence@dhsc.gov.uk` raising systemic clinical accountability gap in adaptive medical device algorithms and specifically asking whether DHSC considers it consistent with its Equality Act obligations that NHS AI governance regulatory contacts are inaccessible by email to deaf patients. Email bounced — address not found.
+**Finding:** NULL (Accessibility) — the sponsoring government department for both the National Data Guardian and NHS England cannot be contacted by email. The fourth question — whether inaccessible regulatory infrastructure is itself an Equality Act failure — cannot be delivered to the institution responsible for answering it. Self-referential NULL.
+**Status:** Draft retained. Accessibility failure documented. Entry to be updated on identification of working contact route.
+
+---
+
+### 25 April 2026 – NHS England AI Directorate – Accessibility NULL
+**Institution:** NHS England AI Directorate
+**Sector:** NHS / AI Governance
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+**Action:** Email sent to `england.ai@nhs.net` raising systemic clinical accountability gap in adaptive medical device algorithms. Inbox confirmed as in process of being shut down and unmonitored. NHS England AI Lab formally closed 2025.
+**Finding:** NULL (Accessibility) — the national body previously responsible for NHS AI governance has a publicly listed email address that is unmonitored and being shut down. No monitored public email contact exists for the successor function. A deaf patient whose sole reasonable adjustment is email cannot contact the institution responsible for overseeing adaptive algorithmic systems affecting their care.
+**Status:** Draft retained. Documented as accessibility NULL. Function confirmed moved to DHSC joint policy unit — see 25 April 2026 DHSC entry.
+
+---
+
+### 25 April 2026 – County Durham and Darlington NHS Foundation Trust (ENT Audiology) – Accessibility NULL
+**Institution:** CDDFT ENT Audiology Department
+**Sector:** NHS / Medical Devices
+**Taxonomy score:** 0 / 20 — NULL (Accessibility)
+**Action:** Email sent to audiology department at County Durham and Darlington NHS Foundation Trust — the responsible clinical body that fitted the complainant's Phonak Naída M70-SP hearing aids — asking the Burgess Principle binary question about individual human clinician review of AutoSense OS fitting parameters, and filing a Subject Access Request for all audiological records and fitting logs. Email bounced — address not found.
+**Finding:** NULL (Accessibility) — a new category introduced 25 April 2026. The responsible NHS clinical body cannot be contacted by email by a deaf patient whose sole reasonable adjustment is written email correspondence. The binary question has not been refused — it has not been receivable. This is an Equality Act failure at the access layer, distinct from and prior to any substantive NULL finding.
+**Status:** Draft retained. CDDFT complaints team (`complaints@cddft.nhs.uk`) identified as alternative route. Equality Act breach documented. Entry to be updated on substantive contact.
+
+---
+
 ### 24 April 2026 – Ofgem – Formal Scheme Complaint Filed
 **Institution:** Ofgem (consumeraffairs@ofgem.gov.uk)
 **Sector:** Energy Regulator
@@ -562,7 +603,7 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 ---
 
 **End of Log**
-Last updated: 24 April 2026
+Last updated: 25 April 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

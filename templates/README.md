@@ -16,9 +16,10 @@ If you are unsure, start with one of the default templates below and personalise
 2. **Already disputing an outcome?** Use [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md).
 3. **Got a vague "human oversight" reply?** Use [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md).
 4. **Need accessible communication or reasonable adjustments?** Use [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md).
-5. **Need a fast chooser instead of the full index?** Use [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
-6. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you while keeping an encrypted copy in the phone vault.
-7. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto or proof template only if needed.
+5. **Experienced harm from a clinical pathway — gender medicine, opioids, surgical mesh, or any medical intervention where no named clinician individually reviewed your case?** Use [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md). See also [Paper XI](../papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md) for the full methodology.
+6. **Need a fast chooser instead of the full index?** Use [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
+7. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you while keeping an encrypted copy in the phone vault.
+8. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto or proof template only if needed.
 
 ---
 
@@ -32,6 +33,7 @@ If you want the shortest possible shortlist after the start flow above, use this
 | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) | A wider dispute where you want to challenge an outcome, not just ask the binary question |
 | [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md) | A second letter when the institution replies with vague process language instead of a direct answer |
 | [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md) | When you need reasonable adjustments, email-only contact, or accessible communication |
+| [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md) | When you or someone you care for was harmed by a clinical pathway without individual human review at each decision node |
 | [`acknowledgment_email_template.txt`](./acknowledgment_email_template.txt) | A short, polite follow-up or acknowledgement |
 
 ---
@@ -46,6 +48,7 @@ If you want the shortest possible shortlist after the start flow above, use this
 | A data request or data-rights issue | [`DSAR_WITH_BURGESS_PRINCIPLE.md`](./DSAR_WITH_BURGESS_PRINCIPLE.md) |
 | A public body or public-records request | [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md) |
 | Benefits, council tax, parking, or bailiff pressure | See [Life situations](#life-situations) |
+| Medical intervention, clinical pathway harm, or iatrogenic injury | See [Life situations](#life-situations) |
 | Crypto restrictions, proof, or selective disclosure | See [Crypto and proof](#crypto-and-proof) |
 | Platform, media, copyright, or creative work | See [Platform and media](#platform-and-media) |
 | Something niche, technical, or constitutional | See [Specialist and advanced](#specialist-and-advanced) |
@@ -86,6 +89,7 @@ These are the main Burgess Principle starting points.
 | Bailiff threat, enforcement visit, or forced entry concerns | [`BAILIFFS_THREAT_TEMPLATE.md`](./BAILIFFS_THREAT_TEMPLATE.md) |
 | Direct debit dispute or refund issue | [`DIRECT_DEBIT_REFUND_WITH_BURGESS.md`](./DIRECT_DEBIT_REFUND_WITH_BURGESS.md) |
 | Urgent care or medical review concern | [`URGENT_CARE_REVIEW.md`](./URGENT_CARE_REVIEW.md) |
+| Clinical pathway harm — gender medicine, opioids, surgical mesh, medical device, or any intervention where no named clinician individually reviewed your specific case | [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md) |
 | Algorithmic medical device concern | [`ALGORITHMIC_MEDICAL_DEVICE_REVIEW_WITH_BURGESS.md`](./ALGORITHMIC_MEDICAL_DEVICE_REVIEW_WITH_BURGESS.md) |
 | Malicious communications issue | [`MALICIOUS_COMMUNICATIONS_WITH_BURGESS.md`](./MALICIOUS_COMMUNICATIONS_WITH_BURGESS.md) |
 | Vaccine harm concern | [`VACCINE_HARM_WITH_BURGESS.md`](./VACCINE_HARM_WITH_BURGESS.md) |

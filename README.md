@@ -6,7 +6,7 @@
 ![Local-first](https://img.shields.io/badge/local--first-yes-14532d?style=flat-square)
 ![Offline-capable](https://img.shields.io/badge/offline-capable-1d4ed8?style=flat-square)
 ![Accessibility-minded](https://img.shields.io/badge/accessibility-human--centred-7c3aed?style=flat-square)
-![Project stage](https://img.shields.io/badge/stage-v1.0.0_released-0f766e?style=flat-square)
+![Project stage](https://img.shields.io/badge/stage-v2.2.0_released-0f766e?style=flat-square)
 ![Status](https://img.shields.io/badge/status-deployed_in_live_proceedings-b91c1c?style=flat-square)
 
 ---
@@ -58,12 +58,12 @@ The Burgess Principle arrived at the same standard independently — from person
 
 ## Current status
 
-**v1.0.0 released 18 April 2026.** The framework is operational and published as a stable, citable standard.
+**v2.2.0 released 25 April 2026.** The framework is operational and published as a stable, citable standard.
 
 - **UK Certification Mark UK00004343685** — in examination at the UK IPO. Classes 41, 42, 45.
 - **USPTO filing in progress** via a US-licensed attorney.
-- **18+ institutions** audited — see [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md).
-- **Deployed in live proceedings** across energy, local government, enforcement, equality, and consumer fronts.
+- **26+ institutions** audited — see [LIVE_AUDIT_LOG.md](LIVE_AUDIT_LOG.md).
+- **Deployed in live proceedings** across energy, local government, enforcement, equality, consumer, and medical fronts.
 
 ### Live proceedings
 
@@ -204,6 +204,11 @@ The doctrinal foundations are in [papers/](papers/). Recommended reading order:
 4. [PAPER_4_DATA_SOVEREIGNTY.md](papers/PAPER_4_DATA_SOVEREIGNTY.md) — data rights extension
 5. [PAPER_5_DEEMED_CONTRACTS.md](papers/PAPER_5_DEEMED_CONTRACTS.md) — automated enforcement and deemed consent
 6. [PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md](papers/PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md) — first principles and *epieikeia*
+7. [PAPER_VII_NULL_ACROSS_THE_CLASS.md](papers/PAPER_VII_NULL_ACROSS_THE_CLASS.md) — defendant-side class definition for CPR 19.8 representative actions
+8. [PAPER_VIII_THE_UNIVERSAL_STANDARD.md](papers/PAPER_VIII_THE_UNIVERSAL_STANDARD.md) — every system not Burgess certified is a potential defendant
+9. [paper-IX-sovereign-pattern.md](papers/paper-IX-sovereign-pattern.md) — the binary test traced through scripture from Genesis to Revelation
+10. [paper-X-restored-keeper.md](papers/paper-X-restored-keeper.md) — the redemptive pathway from NULL to SOVEREIGN
+11. [PAPER_XI_REVERSE_ENGINEERING_HARMS.md](papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md) — reverse-engineering harms: tracing iatrogenic injury through institutional failure across gender medicine, opioids, thalidomide, and surgical mesh *(new in v2.2.0)*
 
 ---
 
@@ -258,6 +263,8 @@ Contact: ljbarbers15@gmail.com
 
 | Version | Summary |
 | --- | --- |
+| **[v2.2.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v2.2.0)** | Reverse-Engineering Harms — Paper XI and medical accountability template; framework extended to clinical iatrogenic injury across gender medicine, opioids, thalidomide, and surgical mesh *(released 25 April 2026)* |
+| **[v2.1.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v2.1.0)** | Institution Audit Taxonomy v1.0 — five-dimension scoring across 26 institutions; litigation directory; Papers IX and X |
 | **[v1.4.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.4.0)** | Sovereign Local Mode and Verifiable Self-Proof — self-verifying SHA-256 startup banner, stronger offline guarantee |
 | **[v1.3.0](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.3.0)** | Sovereign Core — unified verifiable architecture across profile, audit, and commitment flows |
 | **[v1.1.1](https://github.com/ljbudgie/burgess-principle/releases/tag/v1.1.1)** | Mirror Mode — local identity reflection and hardware-linked greeting flow |

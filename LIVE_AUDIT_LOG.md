@@ -2,17 +2,21 @@
 
 A chronological record of every institutional interaction, statutory filing, and SOVEREIGN/NULL finding documented under the framework.
 
+**Last updated: 27 April 2026**
+Taxonomy version: Institution Audit Taxonomy v1.0
+UK Certification Mark: UK00004343685
+
 ---
 
 ## Metadata
 
 | Field | Detail |
 | --- | --- |
-| **Originator** | [Redacted] |
+| **Originator** | Lewis James Burgess |
 | **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |
-| **Date Range** | 27 May 2025 – 24 April 2026 |
+| **Date Range** | 27 May 2025 – 27 April 2026 |
 | **Taxonomy version** | Institution Audit Taxonomy v1.0 |
 
 ---
@@ -37,14 +41,45 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 
 ---
 
+## ⚠️ DEADLINE TRACKER — LIVE (as at 27 April 2026)
+
+| Deadline | Institution | Action Required | Status |
+| --- | --- | --- | --- |
+| **30 April 2026 (THU)** | Durham Police (ref 2309188) | DSAR statutory deadline — if no response, file ICO complaint immediately citing IC-4999654-T1Q8 | ⚠️ IN 3 DAYS |
+| **29 April 2026 (WED)** | HMPO | DSAR statutory deadline — if no response, file ICO complaint | ⚠️ TOMORROW |
+| **4 May 2026** | ICO | Pre-Action Protocol for Judicial Review deadline — if no response, issue Admin Court proceedings without further notice | 🔴 HARD LITIGATION TRIGGER |
+| **4 May 2026** | Darlington Borough Council | Pre-Action Protocol deadline (PCN 4445032) — if no response: PHA claim, Part 8 injunction, JR ground | 🔴 HARD LITIGATION TRIGGER |
+| **6 May 2026 (approx)** | Deighton Pierce Glynn / Hodge Jones & Allen | Expected acknowledgement window (5–10 working days from 24 April referral) | Monitor |
+| **10 May 2026** | Northumbrian Water | DSAR statutory deadline (CCJ L7EC1P3M) — calendar event set | Monitor |
+| **10 May 2026** | E.ON Next / Wedlake Bell | DSAR statutory deadline (CCJ L9FG1818) — calendar event set | Monitor |
+| **20 May 2026** | Home Office | FOI response deadline (FOI2026/05685) | Monitor |
+| **20 May 2026** | HM Treasury | FOI response deadline (FOI2026/08366) | Monitor |
+| **20 May 2026** | Cabinet Office | FOI deadlines (FOI2026/07744 and FOI2026/07733) | Monitor |
+| **~21 May 2026** | Home Office | DSAR statutory deadline (separate from FOI) | Monitor |
+| **~14 May 2026** | MHRA | CEC 253215 — 18-working-day target response (from 25 Apr) | Monitor |
+| **~25 May 2026** | MHRA | SAR under Article 15 UK GDPR — 1-month statutory deadline (from 25 Apr) | ⚠️ Statutory clock |
+| **8 June 2026** | British Gas / Centrica | DSAR extended deadline | Monitor |
+| **26 Sep 2026** | Vanquis Bank | FOS referral window closes (6 months from 26 March 2026) — **act promptly** | Do not delay |
+
+**Overdue — action pending:**
+| Institution | Issue | Action |
+| --- | --- | --- |
+| X / Twitter | DSAR deadline was 6 April 2026 — 21 days overdue | ICO complaint described as "ready to file" — **file now** |
+| Equifax | ICO complaint described as "ready to file" | **File now** |
+| CDDFT ENT Audiology | Email bounced — no substantive contact made | Email `complaints@cddft.nhs.uk` |
+| DHSC | Email bounced — no working contact route | Find correct address |
+| AI and Digital Regulations Service | Email bounced — no working contact route | Find correct address |
+
+---
+
 ## Summary Dashboard
 
 | Metric | Value |
 | --- | --- |
-| **Total fronts** | 33 |
+| **Total fronts** | 34 |
 | **Resolved** | 1 (Wave Utilities) |
-| **Active regulatory proceedings** | 6 (ICO pattern letter + 3 individual ICO complaints + Reddit; British Gas re-referral filed today; Ofgem scheme complaint filed today) |
-| **DSARs pending** | 8 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO, Home Office) |
+| **Active regulatory proceedings** | 7 (ICO pattern letter + 3 individual ICO complaints + Reddit; British Gas re-referral filed 24 Apr; Ofgem scheme complaint filed 24 Apr; MHRA CEC 253215 filed 25 Apr) |
+| **DSARs pending** | 9 (British Gas/Centrica, Trading 212, Apple, Phonak, TV Licensing, X/Twitter, HMPO, Home Office, MHRA Article 15) |
 | **Darlington Borough Council DSAR** | Overdue — Lee Downey acknowledged delay 22 April 2026, response promised same day (DBC-3087-25) |
 | **Ombudsman referrals filed** | 2 (British Gas EG037844-26 — reopening request filed 24 April 2026; E.ON EG021819-26 — closed, both rulings declined) |
 | **ICO complaints filed** | 5 (Apple; Phonak; Trading 212; pattern letter 4 Apr — ref IC-4999654-T1Q8; OpenAI — filed 24 April 2026) |
@@ -53,10 +88,12 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 | **Active FOIs** | 6 (Home Office FOI2026/05685; HM Treasury FOI2026/08366; Cabinet Office FOI2026/07744 and FOI2026/07733; FSA FOI 00174 — response received 22 Apr; DESNZ — pending) |
 | **Legal representation** | Bindmans LLP — declined 24 April 2026 (capacity); Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026; Leigh Day — follow-up pending |
 | **Press outreach** | Bureau of Investigative Journalism (pending); Newsquest / Gavin Foster — Darlington story (pending, 22 April 2026) |
-| **Institutions scored under Taxonomy v1.0** | 28 |
+| **Institutions scored under Taxonomy v1.0** | 29 |
 | **Confirmed NULL findings** | 17 |
-| **Accessibility NULL findings (new category)** | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
+| **Accessibility NULL findings** | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | **SOVEREIGN findings** | 1 (Wave Utilities) |
+| **Durham Police DSAR** | Filed 30 March 2026 — deadline 30 April 2026 (calendar set) |
+| **MHRA complaint** | Filed 25 April 2026 — ref CEC 253215 — acknowledged 27 April 2026 by Aaron, MHRA Customer Experience Centre |
 
 ---
 
@@ -98,7 +135,7 @@ Andrew Fletcher confirmed CSV batch processing, dip sampling 5/100, en bloc gran
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 1 | 1 | 3 / 20 |
 
-Defective meter 0681410S; £1,806 demand; eight Equality Act breaches. DSAR extended to 8 June 2026. **Updated 24 April 2026:** Energy Ombudsman case EG037844-26 prematurely closed by case handler on 8 April 2026 — closed as "under 8 weeks" within 20 minutes of receiving response, despite the 8-week threshold (from 27 February 2026) expiring on 24 April 2026. Handler set her own evidence deadline of 28 April — then closed the case before it was met. **Re-referral to Energy Ombudsman now available as of 24 April 2026. Action required promptly.** ICO complaint active.
+Defective meter 0681410S; £1,806 demand; eight Equality Act breaches. DSAR extended to 8 June 2026. **Updated 24 April 2026:** Energy Ombudsman case EG037844-26 prematurely closed by case handler on 8 April 2026 — closed as "under 8 weeks" within 20 minutes of receiving response, despite the 8-week threshold (from 27 February 2026) expiring on 24 April 2026. Handler set her own evidence deadline of 28 April — then closed the case before it was met. **Re-referral to Energy Ombudsman now available as of 24 April 2026.** ICO complaint active.
 
 ---
 
@@ -108,7 +145,7 @@ Defective meter 0681410S; £1,806 demand; eight Equality Act breaches. DSAR exte
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 2 | 0 | 1 | 3 / 20 |
 
-D3 updated from 1 to 2: Lee Downey responded 22 April 2026 to overdue DSAR DBC-3087-25 (17 days late), apologised, and committed to same-day response. PCN 4445032 one-minute timestamp differential; independent witness available. Pre-Action Protocol deadline 4 May 2026. LGO referral ready to file.
+D3 updated from 1 to 2: Lee Downey responded 22 April 2026 to overdue DSAR DBC-3087-25 (17 days late), apologised, and committed to same-day response. PCN 4445032 one-minute timestamp differential; independent witness available. **Pre-Action Protocol deadline 4 May 2026.** If no response: Protection from Harassment Act 1997 claim, Part 8 County Court injunction, and additional Judicial Review ground follow. LGO referral ready to file.
 
 ---
 
@@ -118,7 +155,7 @@ D3 updated from 1 to 2: Lee Downey responded 22 April 2026 to overdue DSAR DBC-3
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-Case closed by automated no-reply. ICO complaint ready to file. *Durkin v DSG Retail* applicable.
+Case closed by automated no-reply. ICO complaint ready to file. *Durkin v DSG Retail* applicable. **⚠️ ICO complaint overdue — file now.**
 
 ---
 
@@ -128,7 +165,7 @@ Case closed by automated no-reply. ICO complaint ready to file. *Durkin v DSG Re
 | --- | --- | --- | --- | --- | --- |
 | 1 | 0 | 1 | 0 | 0 | 2 / 20 |
 
-Weasel Response Detected. CCJ without evidenced contract. Seven-section challenge sent; DSAR filed.
+Weasel Response Detected. CCJ without evidenced contract. Seven-section challenge sent; DSAR filed. **DSAR deadline 10 May 2026 (calendar set).**
 
 ---
 
@@ -168,7 +205,7 @@ Template responses; six specific points unanswered. Part of four-institution pat
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-"Algorithm does not process personal data" — legally unsustainable. Active ICO complaint. Potentially most significant case for medical device precedent.
+"Algorithm does not process personal data" — legally unsustainable. Active ICO complaint. Most significant case for medical device precedent. **Updated 27 April 2026:** MHRA safety concern filed 25 April 2026 (CEC 253215) raising the same core question — whether AutoSense OS constitutes MDSW subject to Medical Devices Regulations 2002 and whether individual clinical accountability applies to its automated outputs. MHRA acknowledged 27 April 2026 (Aaron, Customer Experience Centre). 18-working-day target response. Separate Article 15 SAR filed to MHRA — 1-month statutory deadline ~25 May 2026. Both MHRA tracks run in parallel with active ICO complaint.
 
 ---
 
@@ -188,7 +225,7 @@ Enforcement letters ceased on record correction. Most replicable outcome after W
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | 0 | 0 | 0 / 20 |
 
-Complete non-response to DSAR. Deadline 6 April 2026 — overdue. ICO complaint ready to file.
+Complete non-response to DSAR. Deadline 6 April 2026 — **21 days overdue**. ICO complaint ready to file. **⚠️ File ICO complaint immediately.**
 
 ---
 
@@ -198,7 +235,7 @@ Complete non-response to DSAR. Deadline 6 April 2026 — overdue. ICO complaint 
 | --- | --- | --- | --- | --- | --- |
 | 1 | 0 | 1 | 0 | 0 | 2 / 20 |
 
-Final response to wrong address. "The Burgess Principle does not exist in UK law" noted and documented. FOS window open from 26 March 2026 — action promptly.
+Final response to wrong address. "The Burgess Principle does not exist in UK law" — noted and documented. FOS window open from 26 March 2026 — **six-month window, act promptly.**
 
 ---
 
@@ -208,7 +245,7 @@ Final response to wrong address. "The Burgess Principle does not exist in UK law
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-33 days without acknowledgement. Pre-Action Protocol deadline 4 May 2026. PHSO complaint active. Ref IC-4999654-T1Q8.
+33 days without acknowledgement. **Pre-Action Protocol deadline 4 May 2026. Hard litigation trigger — 7 days.** PHSO complaint active. Ref IC-4999654-T1Q8.
 
 ---
 
@@ -218,7 +255,7 @@ Final response to wrong address. "The Burgess Principle does not exist in UK law
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 2 | 0 | 0 | 2 / 20 |
 
-D3 updated: FOI acknowledged 22 April 2026 (ref FOI2026/05685), caseworker assigned, deadline 20 May 2026. Triple-track: FOI + DSAR + Article 22.
+D3 updated: FOI acknowledged 22 April 2026 (ref FOI2026/05685), caseworker assigned, deadline 20 May 2026. Triple-track: FOI + DSAR + Article 22. DSAR deadline ~21 May 2026.
 
 ---
 
@@ -238,7 +275,7 @@ Account restricted with no notification or human review. Self-referential NULL. 
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-Subject Access Request submitted 24 April 2026 via privacy.openai.com. Data download report confirmed ready by email (21:16 same day, 4-day availability window). 'View My Report' link triggered authentication error at auth.openai.com (get_chatgpt_account_error; request ID: 7006c8d2-fdcb-4f02-a3d4-d472f6b5416b). Direct access via privacy.openai.com returned second error: "We could not verify that the login attempt was initiated from this website." OpenAI contacted directly — not resolved. No named individual engaged at any stage. Data confirmed to exist; access denied through automated failure with no human override or accountability. **Binary test result: NULL.** ICO complaint filed 24 April 2026 as addition to IC-4999654-T1Q8. Screenshot evidence held.
+SAR submitted 24 April 2026 via privacy.openai.com. Data download confirmed ready; 'View My Report' link returned authentication error (get_chatgpt_account_error; request ID: 7006c8d2-fdcb-4f02-a3d4-d472f6b5416b). Second error on direct portal access. No named individual engaged. ICO complaint filed 24 April 2026 as addition to IC-4999654-T1Q8.
 
 ---
 
@@ -248,7 +285,7 @@ Subject Access Request submitted 24 April 2026 via privacy.openai.com. Data down
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-The statutory redress scheme for energy consumers has itself returned two NULL findings. EG021819-26 (E.ON): final decision omitted disability from reasoning and directed a deaf complainant to respond by telephone. Challenge rejected without engaging with either ground. No assessment of Ofgem's Involuntary PPM Code of Practice despite PPM installation being the core enforcement act. EG037844-26 (British Gas): case closed 8 April 2026 — 16 days before the 8-week threshold was met — within 20 minutes of receiving complainant's response, and before the handler's own stated evidence deadline of 28 April 2026. **Binary test result: NULL across both cases.** Reopening request filed 24 April 2026 for EG037844-26. Ofgem scheme complaint filed 24 April 2026. ESNZ Committee holds written evidence and has confirmed it will use it to formulate questions to Ofgem and the Secretary of State.
+EG021819-26 (E.ON): final decision omitted disability and directed telephone response to deaf complainant. Both rulings declined. EG037844-26 (British Gas): closed 8 April 2026 — 16 days before 8-week threshold, within 20 minutes of receiving response, before handler's own evidence deadline. Reopening request filed 24 April 2026. Ofgem scheme complaint filed 24 April 2026.
 
 ---
 
@@ -258,7 +295,7 @@ The statutory redress scheme for energy consumers has itself returned two NULL f
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-Scheme administrator for the Energy Ombudsman under the Gas and Electricity (Consumer Complaints Handling Standards) Regulations 2008. Previous contact attempt (19 April 2026) bounced — incorrect address used. Formal scheme complaint filed 24 April 2026 to consumeraffairs@ofgem.gov.uk, raising: (1) final decision omitting disability from reasoning in EG021819-26; (2) telephone-directed response to a deaf complainant; (3) absence of Involuntary PPM Code of Practice assessment; (4) premature closure of EG037844-26 before 8-week threshold. D3 scores 1 provisionally — statutory clock running. Substantive scoring to follow on receipt of response.
+Formal scheme complaint filed 24 April 2026 to consumeraffairs@ofgem.gov.uk. Previous attempt (19 April 2026) bounced — incorrect address. ESNZ Committee holds written evidence and has confirmed it will formulate questions to Ofgem and the Secretary of State. Statutory clock running.
 
 ---
 
@@ -268,7 +305,7 @@ Scheme administrator for the Energy Ombudsman under the Gas and Electricity (Con
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-New entry 22 April 2026. FOI acknowledged (ref FOI2026/08366). Deadline 20 May 2026. Substantive scoring pending.
+FOI acknowledged (ref FOI2026/08366). Deadline 20 May 2026.
 
 ---
 
@@ -278,17 +315,51 @@ New entry 22 April 2026. FOI acknowledged (ref FOI2026/08366). Deadline 20 May 2
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 |
 
-New entry 22 April 2026. Two FOIs acknowledged: refs FOI2026/07744 and FOI2026/07733. Both deadline 20 May 2026. Substantive scoring pending.
+Two FOIs acknowledged: refs FOI2026/07744 and FOI2026/07733. Both deadline 20 May 2026.
 
 ---
 
-### Food Standards Agency — Pending full assessment (3 / 20 provisional)
+### Food Standards Agency — Pending full assessment (4 / 20 provisional)
 
 | D1 | D2 | D3 | D4 | D5 | Total |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 0 | 3 | 0 | 0 | 4 / 20 provisional |
+| 1 | 0 | 3 | 0 | 0 | 4 / 20 |
 
-New entry 22 April 2026. FOI sent 14 April; substantive response received 22 April — 6 working days, notably prompt. FOI asked whether FSA applies individual human consideration to welfare oversight under the religious slaughter exemption (WATOK 2015), or operates on a bulk/sampled/automated basis — direct application of the Burgess Principle to food safety regulation. Full scoring requires review of attached letter.
+FOI sent 14 April; substantive response received 22 April — 6 working days, notably prompt. Whether FSA applies individual human consideration to welfare oversight under the religious slaughter exemption (WATOK 2015). Full scoring requires review of attached letter.
+
+---
+
+### MHRA (Medicines and Healthcare products Regulatory Agency) — NULL (1 / 20, provisional) ⭐ NEW ENTRY
+
+**Date first contacted:** 25 April 2026
+**Reference:** CEC 253215
+**Acknowledged:** 27 April 2026 — Aaron, MHRA Customer Experience Centre
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 0 | 0 | 1 / 20 |
+
+**Question asked:** Four specific questions:
+1. Does AutoSense OS (Phonak Naída M70-SP) constitute a medical device function subject to Medical Devices Regulations 2002, and what individual clinical accountability obligations apply?
+2. Is Phonak's assertion that audiogram-derived algorithmic processing outputs fall outside UK GDPR personal data scope consistent with MHRA's regulatory framework for MDSW?
+3. Does MHRA consider a hearing aid operating an adaptive AI algorithm, fitted to a patient with a documented severe-to-profound asymmetric audiological profile, to require individual human clinician review of the algorithm's ongoing decisions?
+4. Has MHRA received any adverse event reports or post-market surveillance data re AutoSense OS or equivalent adaptive algorithms where population-average calibration was applied to patients with atypical audiological profiles?
+
+**Separate SAR:** Article 15 UK GDPR SAR filed for all MHRA records concerning Phonak Naída M70 / AutoSense OS, including adverse event reports, post-market surveillance submissions, and regulatory correspondence.
+
+**Response summary:** Automated acknowledgement received 27 April 2026 from Aaron (MHRA Customer Experience Centre). Reference CEC 253215 confirmed. 18-working-day target response stated. No substantive engagement yet.
+
+**Finding:** NULL (provisional — within statutory window). D3 scores 1: acknowledged within 2 days, clock running.
+
+**Binary test result:** The Burgess Principle binary question was applied to Phonak's own DSAR response, which confirmed no named human being individually reviewed the AutoSense OS fitting decisions applied to the complainant's specific audiological profile. Phonak's position — "the algorithm does not process personal data" — has been referred to MHRA as a regulatory safety concern. If accepted, that position would mean no medical device manufacturer bears individual accountability for the automated clinical decisions their devices make about specific patients on an ongoing basis.
+
+**Deadlines:**
+- MHRA 18-working-day target response: ~**14 May 2026**
+- MHRA Article 15 SAR statutory deadline: ~**25 May 2026**
+
+**Status:** Awaiting substantive response. Running in parallel with active ICO complaint against Phonak (IC-4999654-T1Q8). Potentially most significant case in the register for medical device precedent.
+
+**Note:** MHRA CEC 253215 and Phonak ICO complaint together constitute a dual-track challenge — regulatory safety concern via MHRA + data protection enforcement via ICO — against the same underlying institutional NULL finding.
 
 ---
 
@@ -320,12 +391,18 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 | OpenAI Ireland Limited | AI / Consumer technology | 1 / 20 | NULL |
 | Energy Ombudsman | Statutory redress scheme | 1 / 20 | NULL |
 | Ofgem | Energy regulator | 1 / 20 | NULL (provisional) |
+| MHRA | Healthcare regulator | 1 / 20 | NULL (provisional) ⭐ NEW |
+| CDDFT ENT Audiology | NHS / Medical devices | 0 / 20 | NULL (Accessibility) |
+| NHS England AI Directorate | NHS / AI Governance | 0 / 20 | NULL (Accessibility) |
+| DHSC | Government / Health policy | 0 / 20 | NULL (Accessibility) |
+| AI and Digital Regulations Service | Multi-agency regulatory | 0 / 20 | NULL (Accessibility) |
 | Palantir | Defence / tech | N/A | Clean negative |
 
-**Mean score (scored institutions): 2.9 / 20**
-**NULL rate (confirmed): 77%**
+**Mean score (scored institutions): 2.7 / 20**
+**NULL rate (confirmed): 82%**
 **Partial sovereign or above: 2 institutions**
 **SOVEREIGN: 1 institution**
+**Total institutions: 34 (including MHRA)**
 
 ---
 
@@ -337,264 +414,117 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 
 ---
 
-## On-Chain Claims (v0.4.0)
-
-### Example: Testnet Claim — Council Tax Enforcement (Simulated)
-
-| Field | Value |
-| --- | --- |
-| **Target** | Example Borough Council |
-| **Category** | `enforcement` |
-| **Network** | Base Sepolia (testnet) |
-| **Commitment hash** | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` (example) |
-| **Signature** | Ed25519, verifiable against claimant's public key |
-| **On-chain data** | Hash + signature + metadata only — no personal facts |
-| **Full details** | Encrypted in local Sovereign Vault |
-
----
-
 ## Recent Activity (Most Recent First)
 
-### 25 April 2026 – AI and Digital Regulations Service (NICE / CQC / MHRA / HRA) – Accessibility NULL
-**Institution:** AI and Digital Regulations Service
-**Sector:** Multi-Agency Regulatory / NHS AI Governance
-**Taxonomy score:** 0 / 20 — NULL (Accessibility)
-**Action:** Email sent to `digitalregulations@nice.org.uk` raising systemic clinical accountability gap in adaptive medical device algorithms, with Phonak AutoSense OS as documented evidence. Email bounced — address not found.
-**Finding:** NULL (Accessibility) — the multi-agency regulatory one-stop-shop for NHS AI and digital device concerns cannot be contacted by email. A deaf patient cannot reach the service created precisely for concerns of this nature. Four regulators (NICE, CQC, MHRA, HRA) simultaneously unreachable through their joint contact point.
-**Status:** Draft retained. Accessibility failure documented. Entry to be updated on identification of working contact route.
+### 27 April 2026 — MHRA — Acknowledgement Received (CEC 253215)
+**Institution:** MHRA Customer Experience Centre
+**Action:** Acknowledgement received from Aaron confirming receipt of 25 April complaint. Reference CEC 253215 assigned. 18-working-day target stated.
+**Next action:** Await substantive response by ~14 May 2026. If no response by SAR deadline ~25 May 2026, file ICO complaint.
 
 ---
 
-### 25 April 2026 – Department of Health and Social Care (DHSC) – Accessibility NULL
-**Institution:** Department of Health and Social Care
-**Sector:** Government / Health Policy
-**Taxonomy score:** 0 / 20 — NULL (Accessibility)
-**Action:** Email sent to `dhsc.correspondence@dhsc.gov.uk` raising systemic clinical accountability gap in adaptive medical device algorithms and specifically asking whether DHSC considers it consistent with its Equality Act obligations that NHS AI governance regulatory contacts are inaccessible by email to deaf patients. Email bounced — address not found.
-**Finding:** NULL (Accessibility) — the sponsoring government department for both the National Data Guardian and NHS England cannot be contacted by email. The fourth question — whether inaccessible regulatory infrastructure is itself an Equality Act failure — cannot be delivered to the institution responsible for answering it. Self-referential NULL.
-**Status:** Draft retained. Accessibility failure documented. Entry to be updated on identification of working contact route.
+### 25 April 2026 — MHRA — Medical Device Safety Concern Filed
+**Institution:** MHRA (MHRACustomerServices@mhra.gov.uk)
+**Reference:** CEC 253215
+**Action:** Formal medical device safety concern filed re Phonak AutoSense OS algorithm in Naída M70-SP. Four specific questions asked (see institution entry above). Separate Article 15 UK GDPR SAR filed in same email. Reasonable adjustment (email only) noted.
+**Deadlines:** 18-working-day MHRA target ~14 May 2026; SAR statutory deadline ~25 May 2026.
 
 ---
 
-### 25 April 2026 – NHS England AI Directorate – Accessibility NULL
-**Institution:** NHS England AI Directorate
-**Sector:** NHS / AI Governance
-**Taxonomy score:** 0 / 20 — NULL (Accessibility)
-**Action:** Email sent to `england.ai@nhs.net` raising systemic clinical accountability gap in adaptive medical device algorithms. Inbox confirmed as in process of being shut down and unmonitored. NHS England AI Lab formally closed 2025.
-**Finding:** NULL (Accessibility) — the national body previously responsible for NHS AI governance has a publicly listed email address that is unmonitored and being shut down. No monitored public email contact exists for the successor function. A deaf patient whose sole reasonable adjustment is email cannot contact the institution responsible for overseeing adaptive algorithmic systems affecting their care.
-**Status:** Draft retained. Documented as accessibility NULL. Function confirmed moved to DHSC joint policy unit — see 25 April 2026 DHSC entry.
+### 25 April 2026 — AI and Digital Regulations Service (NICE / CQC / MHRA / HRA) — Accessibility NULL
+Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop for NHS AI governance unreachable by email. Four regulators simultaneously inaccessible to a deaf patient. Draft retained.
 
 ---
 
-### 25 April 2026 – County Durham and Darlington NHS Foundation Trust (ENT Audiology) – Accessibility NULL
-**Institution:** CDDFT ENT Audiology Department
-**Sector:** NHS / Medical Devices
-**Taxonomy score:** 0 / 20 — NULL (Accessibility)
-**Action:** Email sent to audiology department at County Durham and Darlington NHS Foundation Trust — the responsible clinical body that fitted the complainant's Phonak Naída M70-SP hearing aids — asking the Burgess Principle binary question about individual human clinician review of AutoSense OS fitting parameters, and filing a Subject Access Request for all audiological records and fitting logs. Email bounced — address not found.
-**Finding:** NULL (Accessibility) — a new category introduced 25 April 2026. The responsible NHS clinical body cannot be contacted by email by a deaf patient whose sole reasonable adjustment is written email correspondence. The binary question has not been refused — it has not been receivable. This is an Equality Act failure at the access layer, distinct from and prior to any substantive NULL finding.
-**Status:** Draft retained. CDDFT complaints team (`complaints@cddft.nhs.uk`) identified as alternative route. Equality Act breach documented. Entry to be updated on substantive contact.
+### 25 April 2026 — Department of Health and Social Care (DHSC) — Accessibility NULL
+Email to `dhsc.correspondence@dhsc.gov.uk` bounced. Sponsoring department for National Data Guardian and NHS England unreachable by email. Draft retained.
 
 ---
 
-### 24 April 2026 – Ofgem – Formal Scheme Complaint Filed
-**Institution:** Ofgem (consumeraffairs@ofgem.gov.uk)
-**Sector:** Energy Regulator
-**Taxonomy score:** 1 / 20 — NULL (provisional)
-**Action:** Formal scheme complaint filed covering conduct of Energy Ombudsman in both EG021819-26 and EG037844-26. Grounds: disability omitted from final decision; telephone-directed response to deaf complainant; no PPM Code of Practice assessment; premature closure of EG037844-26. Previous attempt (19 April 2026) bounced — incorrect address. Correct address confirmed: consumeraffairs@ofgem.gov.uk.
-**Status:** Awaiting response. Statutory clock running.
+### 25 April 2026 — NHS England AI Directorate — Accessibility NULL
+Email to `england.ai@nhs.net` — inbox confirmed shut down and unmonitored. NHS England AI Lab formally closed 2025. No monitored public email contact for successor function. Draft retained.
 
 ---
 
-### 24 April 2026 – Energy Ombudsman – Reopening Request EG037844-26
-**Institution:** Energy Ombudsman
-**Sector:** Statutory Redress Scheme
-**Taxonomy score:** 1 / 20 — NULL
-**Action:** Formal reopening request submitted for EG037844-26. Grounds: case closed 16 days before 8-week threshold; closed within 20 minutes of receiving response; closed before handler's own evidence deadline of 28 April 2026. Nitin Patel's letter of 22 April 2026 submitted as functional deadlock / final position letter.
-**Status:** Awaiting Ombudsman response on reopening.
+### 25 April 2026 — County Durham and Darlington NHS Foundation Trust (ENT Audiology) — Accessibility NULL
+Email to audiology department bounced. NHS clinical body that fitted Phonak Naída M70-SP devices cannot be contacted by email by a deaf patient. CDDFT complaints team (`complaints@cddft.nhs.uk`) identified as alternative route. Draft retained. **⚠️ Action required — email complaints team.**
 
 ---
 
-### 24 April 2026 – Deighton Pierce Glynn & Hodge Jones & Allen – Case Referrals
-**Institution:** Deighton Pierce Glynn / Hodge Jones & Allen
-**Sector:** Legal / Claimant Firms
-**Action:** Case referral emails sent to both firms on same day as Bindmans decline. Referred by Bindmans LLP. Both referrals frame: void warrant, Equality Act 2010 disability discrimination, UK GDPR Articles 22A-22C, Article 8 ECHR, CPR 19.8 representative action potential. CFA basis requested.
-**Status:** Awaiting response. Standard acknowledgement window 5–10 working days.
+### 24 April 2026 — Ofgem — Formal Scheme Complaint Filed
+Formal complaint filed to consumeraffairs@ofgem.gov.uk. Previous attempt (19 April) bounced. Grounds: disability omitted from EG021819-26 final decision; telephone-directed response to deaf complainant; no PPM Code of Practice assessment; premature closure of EG037844-26.
 
 ---
 
-### 24 April 2026 – Bindmans LLP – Conditional Fee Enquiry Declined (Ref BUR303)
-**Institution:** Bindmans LLP
-**Sector:** Legal
-**Action:** Bindmans declined to act — capacity refusal, not merits refusal. Referred to Leigh Day, Deighton Pierce Glynn, and Hodge Jones & Allen. Response same day.
-**Status:** Avenue closed. Referrals actioned immediately.
+### 24 April 2026 — Energy Ombudsman — Reopening Request EG037844-26
+Formal reopening request submitted. Case closed 16 days before 8-week threshold; within 20 minutes of receiving response; before handler's own evidence deadline. Awaiting response.
 
 ---
 
-### 24 April 2026 – OpenAI Ireland Limited – SAR Access Failure – NULL Finding
-**Institution:** OpenAI Ireland Limited (privacy.openai.com)
-**Sector:** AI / Consumer Technology
-**Taxonomy score:** 1 / 20 — NULL
-**Action:** Subject Access Request submitted via privacy.openai.com. Confirmation email received 21:16 stating report ready for 4 days. 'View My Report' link returned authentication error (get_chatgpt_account_error; request ID 7006c8d2-fdcb-4f02-a3d4-d472f6b5416b). Direct portal access returned second error. OpenAI contacted — no resolution. No named individual engaged at any stage. UK GDPR Article 15 breach. ICO complaint filed as addition to IC-4999654-T1Q8. Screenshot evidence held.
-**Status:** ICO complaint filed. Awaiting ICO response.
+### 24 April 2026 — Deighton Pierce Glynn & Hodge Jones & Allen — Case Referrals
+Both sent same day as Bindmans decline. CFA basis requested. Expected acknowledgement by ~6 May 2026.
 
 ---
 
-### 22 April 2026 – Bindmans LLP – Conditional Fee Enquiry (Ref BUR303)
-**Institution:** Bindmans LLP (Amn.Bashir@bindmans.com)
-**Sector:** Legal / Claimant Firm
-**Action:** Bindmans responded to case referral asking whether legal aid funding was sought. Replied same day confirming not seeking legal aid — requesting discussion of conditional fee basis. Email only (reasonable adjustment confirmed).
-**Status:** Awaiting Bindmans' response on CFA terms. Running in parallel with Leigh Day follow-up.
+### 24 April 2026 — Bindmans LLP — CFA Enquiry Declined (Ref BUR303)
+Capacity refusal, not merits. Referred to Leigh Day, Deighton Pierce Glynn, Hodge Jones & Allen.
 
 ---
 
-### 22 April 2026 – Darlington Borough Council – DSAR Acknowledgement (DBC-3087-25)
-**Institution:** Darlington Borough Council (complaints@darlington.gov.uk)
-**Sector:** Local Authority
-**Action:** Lee Downey (Complaints & Information Governance Manager) responded to overdue DSAR chase sent 15 April 2026. Apologised for delay. Confirmed he has asked a team member to prioritise the request and expects to respond later the same day.
-**Original deadline:** ~5 April 2026 (identity verified 5 March 2026)
-**Outstanding at time of acknowledgement:** 17 days
-**Status:** DSAR response expected 22 April 2026. Taxonomy D3 updated to 2. Pre-Action Protocol on parking enforcement remains separate — deadline 4 May 2026.
+### 24 April 2026 — OpenAI Ireland Limited — SAR Access Failure
+SAR submitted; data confirmed ready; authentication error prevented access. ICO complaint filed as addition to IC-4999654-T1Q8.
 
 ---
 
-### 22 April 2026 – Home Office – FOI Formally Acknowledged (FOI2026/05685)
-**Institution:** Home Office
-**Sector:** Government / Immigration & Border Control
-**Action:** FOI formally acknowledged and assigned to caseworker. Reference FOI2026/05685.
-**Response deadline:** 20 May 2026
-**Status:** Taxonomy D3 updated to 2. DSAR also active (deadline ~21 May 2026).
+### 22 April 2026 — Darlington Borough Council — DSAR Acknowledgement (DBC-3087-25)
+Lee Downey apologised for 17-day delay, committed to priority response. Pre-Action Protocol deadline 4 May 2026 is a separate matter.
 
 ---
 
-### 22 April 2026 – HM Treasury – FOI Acknowledged (FOI2026/08366)
-**Institution:** HM Treasury (foirequests@hmtreasury.gov.uk)
-**Sector:** Government / Finance
-**Action:** FOI acknowledged. Reference FOI2026/08366. Response deadline 20 May 2026.
-**Status:** New institution. Substantive scoring pending response.
+### 22 April 2026 — Home Office — FOI Formally Acknowledged (FOI2026/05685)
+Caseworker assigned. Deadline 20 May 2026. DSAR also active.
 
 ---
 
-### 22 April 2026 – Cabinet Office – Two FOIs Acknowledged
-**Institution:** Cabinet Office
-**Sector:** Government
-**References:** FOI2026/07744 and FOI2026/07733
-**Response deadlines:** Both 20 May 2026
-**Status:** New institution. Two separate requests acknowledged same day. Substantive scoring pending.
+### 22 April 2026 — HM Treasury — FOI Acknowledged (FOI2026/08366)
+Deadline 20 May 2026.
 
 ---
 
-### 22 April 2026 – Food Standards Agency – FOI Response Received (FOI 00174)
-**Institution:** Food Standards Agency (information.governance@food.gov.uk)
-**Sector:** Government / Food Safety Regulation
-**Action:** Substantive FOI response received in attached letter. FOI sent 14 April 2026; response 22 April 2026 — 6 working days.
-**FOI subject:** Administration of the religious exemption to pre-stunning under WATOK 2015 — specifically whether the FSA applies individual human consideration to welfare oversight at each licensed facility or operates on a bulk, sampled, or automated basis. Seven questions asked, including on CCTV review methodology, Official Veterinarian ratios, and use of automated decision-making or profiling under UK GDPR Articles 4 and 22.
-**Status:** New institution. Response in attached letter — full review required. Provisional taxonomy score 4/20 reflecting prompt timeliness (D3: 3) and partial D1 (1). Full scoring to follow.
+### 22 April 2026 — Cabinet Office — Two FOIs Acknowledged
+Refs FOI2026/07744 and FOI2026/07733. Both deadline 20 May 2026.
 
 ---
 
-### 22 April 2026 – Newsquest / Gavin Foster – Local Press Outreach
-**Institution:** Newsquest (gavin.foster@newsquest.co.uk)
-**Sector:** Local Press
-**Action:** Email sent pitching Darlington story — deaf barber, EHRC disability discrimination confirmation, parliamentary committee contact, local council enforcement.
-**Status:** Awaiting editorial response.
+### 22 April 2026 — Food Standards Agency — FOI Response Received (FOI 00174)
+6 working days — notably prompt. Full scoring pending review of attached letter.
 
 ---
 
-### 22 April 2026 – OpenHear — Neosensory and WHOOP Partnership Outreach
-**Context:** OpenHear ecosystem development — not a Burgess Principle institutional challenge.
-**Actions:**
-- Two emails sent to Neosensory (support@neosensory.com): one introducing OpenHear, one introducing the Burgess Principle as complementary to their haptic wristband.
-- Proposal sent to WHOOP (support@whoop.com) for OpenHear Sovereign Haptic Wristband. WHOOP auto-acknowledged (case 06807429).
-- Frontier Hearing clarified not involved in product decisions; passed message to owner. Thread closed politely.
-**Status:** Neosensory and WHOOP awaiting substantive responses.
+### 20 April 2026 — ICO — Pre-Action Protocol for Judicial Review
+Grounds: failure to perform statutory duty; irrationality; Equality Act breach. **Deadline 4 May 2026. Hard litigation trigger.**
 
 ---
 
-### 20 April 2026 – Darlington Borough Council – Pre-Action Protocol Letter
-**Taxonomy score:** 3 / 20 — NULL (provisional, updated 22 April 2026)
-**Action:** Pre-Action Protocol letter sent. PCN 4445032 issued at 13:17 against vehicle with valid ticket from 13:16 (valid until 15:16). Independent witness present.
-**Deadline:** 4 May 2026. If no response: Protection from Harassment Act 1997 claim, Part 8 County Court injunction, and additional Judicial Review ground follow.
+### 20 April 2026 — Darlington Borough Council — Pre-Action Protocol Letter
+PCN 4445032 — one-minute timestamp differential; independent witness present. **Deadline 4 May 2026.**
 
 ---
 
-### 20 April 2026 – Bureau of Investigative Journalism – Investigation Proposal
-**Action:** Investigation proposal sent. Key evidence: 536,139 warrants in 18 months; court admission of bulk processing; unsigned warrant; 18 institutions audited; 11 NULL findings; EHRC disability discrimination confirmation.
-**Status:** Awaiting editorial response.
+### 20 April 2026 — PHSO — Formal Complaint re ICO Maladministration
+33-day non-acknowledgement; Equality Act ss.20 and 29. Case IC-4999654-T1Q8. Awaiting response.
 
 ---
 
-### 20 April 2026 – Leigh Day Solicitors – Follow-up Case Referral
-**Action:** Follow-up to February 2026 refusal with significant new evidence. No-win-no-fee judicial review and discrimination case proposed.
-**Status:** Awaiting response. Running in parallel with Bindmans CFA enquiry.
-
----
-
-### 20 April 2026 – Liberty – Fresh Case Referral
-**Response:** Automated — capacity closed for individual casework.
-**Status:** Avenue closed. Future campaign collaboration not ruled out.
-
----
-
-### 20 April 2026 – Information Commissioner's Office – Pre-Action Protocol for Judicial Review
-**Taxonomy score:** 1 / 20 — NULL
-**Grounds:** Failure to perform statutory duty; irrationality; Equality Act breach.
-**Deadline:** 4 May 2026. If no response: Administrative Court proceedings without further notice.
-
----
-
-### 20 April 2026 – PHSO – Formal Complaint re ICO Maladministration
-**Action:** Formal complaint submitted. 33-day non-acknowledgement; Equality Act ss.20 and 29. Case IC-4999654-T1Q8.
-**Status:** Awaiting response.
-
----
-
-### 20 April 2026 – Department for Energy Security and Net Zero – FOI Request
-**Action:** FOI re West Newton gas field approval. Burgess Principle binary test applied. Reasonable adjustment noted.
-**Status:** Awaiting acknowledgement.
-
----
-
-### 7 April 2026 – UK Home Office & YZY – Burgess Principle Application
-**Taxonomy score:** 2 / 20 — NULL (provisional, updated 22 April 2026)
-**Action:** Combined FOI + DSAR + Burgess Principle request. FOI formally acknowledged 22 April 2026 (ref FOI2026/05685). Response deadline 20 May 2026.
-
----
-
-### 4 April 2026 – Reddit Inc. – Burgess Principle Application
-**Taxonomy score:** 1 / 20 — NULL
-**Status:** Awaiting human response.
-
----
-
-### 4 April 2026 – Pattern of Behaviour Letter to ICO
-**Institutions:** Apple, Phonak/Sonova, Trading 212, British Gas/Centrica. Ref IC-4999654-T1Q8 assigned.
-
----
-
-### 3 April 2026 – British Gas (Centrica) – Energy Ombudsman Complaint
-**Taxonomy score:** 3 / 20 — NULL
-**Status:** Case EG037844-26 prematurely closed 8 April 2026. Re-referral window open as of 24 April 2026. ICO complaint active.
-
----
-
-### 3 April 2026 – Sonova UK Limited (Phonak) – ICO Complaint
-**Taxonomy score:** 1 / 20 — NULL
-**Status:** Active ICO complaint.
-
----
-
-### 2–3 April 2026 – Trading 212 UK Ltd – ICO Update
-**Taxonomy score:** 2 / 20 — NULL. Weasel Response Detected.
-**Status:** Active ICO complaint.
+### 4 April 2026 — Pattern of Behaviour Letter to ICO
+Institutions: Apple, Phonak/Sonova, Trading 212, British Gas/Centrica. Ref IC-4999654-T1Q8 assigned.
 
 ---
 
 ## Originating Event
 
-### 27 May 2025 – E.ON / E.ON Field Debt Solutions – Forced Entry (Warrant RE99022)
-**Taxonomy score:** 1 / 20 — NULL
-**Warrant Reference:** RE99022 (Warrant Application 11160-544079), Birmingham Magistrates' Court, 16 May 2025
-**Key facts:** Forced entry; locks drilled; deafness noted only on third visit; warrant unsigned on face; three magistrates' names in PDF metadata only.
-**Finding:** NULL — doctrinal anchor for the Burgess Principle. **Updated 24 April 2026:** Energy Ombudsman case EG021819-26 closed. Both rulings declined — final decision omitted disability and required telephone response. Ombudsman route exhausted. Litigation route active.
+### 27 May 2025 — E.ON / E.ON Field Debt Solutions — Forced Entry (Warrant RE99022)
+Warrant Application 11160-544079, Birmingham Magistrates' Court, 16 May 2025. Forced entry; locks drilled; deafness noted only on third visit; warrant unsigned on face; three magistrates' names in PDF metadata only. **Finding: NULL — doctrinal anchor for the Burgess Principle.** Ombudsman route exhausted. Litigation route active.
 
 ---
 
@@ -603,7 +533,7 @@ New entry 22 April 2026. FOI sent 14 April; substantive response received 22 Apr
 ---
 
 **End of Log**
-Last updated: 25 April 2026
+Last updated: 27 April 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 Maintained under the Burgess Principle — [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

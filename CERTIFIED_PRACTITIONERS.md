@@ -29,22 +29,18 @@ To apply or enquire: lewisjames@theburgessprinciple.com
 
 ## Certified Practitioners
 
-| Ref | Name / Brand | Trade | Location | Tier | Valid Until | Certificate |
-| --- | --- | --- | --- | --- | --- | --- |
-| BP-CERT-0001 | Lorraine Ewart | Book-keeping | Catterick Village, North Yorkshire | Tier 3 | 27 Apr 2027 | [View](./certified/lorraine-ewart/BP-CERT-0001.md) |
-| BP-CERT-0002 | LJ Barbers | Barbering (brand / network) | ljbarbers.co.uk | Tier 3 | 27 Apr 2027 | [View](./certified/lj-barbers/BP-CERT-0002.md) |
+| Ref | Name / Brand | Trade | Location | Tier | Valid Until |
+| --- | --- | --- | --- | --- | --- |
+| BP-CERT-0001 | Lorraine Ewart | Book-keeping | North Yorkshire | Tier 3 | 27 Apr 2027 |
+| BP-CERT-0002 | LJ Barbers | Barbering (brand / network) | ljbarbers.co.uk | Tier 3 | 27 Apr 2027 |
 
 ---
 
 ## Adding a Practitioner
 
-Each certified practitioner has their own folder under `/certified/` containing their certificate as a markdown file. The table above is the canonical index.
+To add a new entry, add a row to the table above with the next sequential certificate reference number.
 
-To add a new entry:
-1. Issue a certificate with the next sequential reference number
-2. Create a folder: `/certified/[practitioner-slug]/`
-3. Add the certificate as `[CERT-REF].md`
-4. Add a row to the table above
+To apply or enquire: lewisjames@theburgessprinciple.com
 
 ---
 

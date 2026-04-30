@@ -143,4 +143,4 @@ Use the correspondence templates in the Correspondence Packs for all of the abov
 ---
 
 *All Tiers | UK Certification Mark UK00004343685*
-*Lewis James Burgess | ljbarbers15@gmail.com | github.com/ljbudgie/burgess-principle*
+*Lewis James Burgess | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*

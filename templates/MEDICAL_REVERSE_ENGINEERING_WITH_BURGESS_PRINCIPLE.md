@@ -192,5 +192,5 @@ Their answer — or their silence — is the finding.
 
 *© 2026 The Burgess Principle. MIT Licensed.*
 *UK Certification Mark UK00004343685*
-*Lewis James Burgess | ljbarbers15@gmail.com*
+*Lewis James Burgess | lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle*

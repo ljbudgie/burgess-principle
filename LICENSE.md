@@ -259,7 +259,7 @@ These licensing terms are supplemented by the Regulations Governing Use of the C
 Originator and Proprietor
 Darlington, UK
 
-Email: ljbarbers15@gmail.com
+Email: lewisjames@theburgessprinciple.com
 GitHub: github.com/ljbudgie/burgess-principle
 Certification Mark: UK00004343685
 

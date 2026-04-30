@@ -238,7 +238,7 @@ And every system that holds data on a person already knows which side of that li
 - UK Certification Mark UK00004343685 (in examination, UK IPO — Classes 41, 42, 45)
 - Papers I through VII: papers/ directory
 - Institutional audit log: audit/ directory
-- LICENSING.md: tier licensing structure
+- papers/LICENSING_STRUCTURE.md: tier licensing structure
 - litigation/: CPR 19.8 operational toolkit
 
 **Preceding Papers in This Series**
@@ -253,7 +253,7 @@ And every system that holds data on a person already knows which side of that li
 
 *The Burgess Principle is published under the MIT licence. The certification mark (UK00004343685) governs commercial use of the standard.*
 
-*Lewis James Burgess | ljbarbers15@gmail.com | Darlington, April 2026*
+*Lewis James Burgess | lewisjames@theburgessprinciple.com | Darlington, April 2026*
 
 *"Was a human member of the team able to personally review the specific facts of my situation?"*
 

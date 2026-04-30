@@ -6,7 +6,7 @@
 
 -----
 
-This directory contains the operational litigation tools for Tier 4 licensed partners. A signed Tier 4 licence agreement is required to use these tools commercially. See [LICENSING.md](../LICENSING.md) for terms.
+This directory contains the operational litigation tools for Tier 4 licensed partners. A signed Tier 4 licence agreement is required to use these tools commercially. See [LICENSING_STRUCTURE.md](../papers/LICENSING_STRUCTURE.md) for terms.
 
 The tools here are the practical implementation of the framework set out in [Paper VII: NULL Across the Class](../papers/PAPER_VII_NULL_ACROSS_THE_CLASS.md) and [Paper VIII: The Universal Standard](../papers/PAPER_VIII_THE_UNIVERSAL_STANDARD.md). Read both papers first.
 
@@ -137,7 +137,7 @@ Using these tools commercially requires a signed Tier 4 agreement. Terms:
 - Trigger: Successful outcome only
 - Process: One email → one agreement → one signature → public commit in this repository
 
-Contact: ljbarbers15@gmail.com
+Contact: lewisjames@theburgessprinciple.com
 
 -----
 
@@ -150,4 +150,4 @@ Paper VIII says it plainly: “I built the Burgess Principle because I needed it
 -----
 
 *Tier 4 Licensed Partners Only*
-*Lewis James Burgess | ljbarbers15@gmail.com | github.com/ljbudgie/burgess-principle*
+*Lewis James Burgess | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*

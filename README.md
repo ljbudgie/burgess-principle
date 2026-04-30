@@ -1,3 +1,5 @@
+<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
+
 <!--
   GITHUB REPO DESCRIPTION (update via Settings > General > About):
 
@@ -12,8 +14,6 @@
   meaningful-human-involvement, accountability, equality-act, self-advocacy,
   certification, data-sovereignty, accessibility
 -->
-
-<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
 
 # The Burgess Principle
 
@@ -261,7 +261,7 @@ The MIT licence governs the source code. The certification mark (UK00004343685) 
 |**Tier 3**|Public sector            |Nil                          |
 |**Tier 4**|Litigation firms         |£1 or nil + 2–5% royalty     |
 
-Contact: ljbarbers15@gmail.com
+Contact: lewisjames@theburgessprinciple.com
 
 -----
 
@@ -342,5 +342,5 @@ Full disclaimer: <DISCLAIMER.md>
 
 The certification mark (UK00004343685) governs commercial use of the standard.
 
-*UK Certification Mark UK00004343685 | Lewis James Burgess | ljbarbers15@gmail.com*
+*UK Certification Mark UK00004343685 | Lewis James Burgess | lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle*

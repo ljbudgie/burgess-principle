@@ -128,7 +128,7 @@ The doctrinal papers are published at <papers/>. Key papers include:
 
 ## How do I contact the creator?
 
-Lewis James Burgess — ljbarbers15@gmail.com
+Lewis James Burgess — lewisjames@theburgessprinciple.com
 
 Email-only communication is asserted as a reasonable adjustment under Equality Act 2010 ss.20 and 29.
 

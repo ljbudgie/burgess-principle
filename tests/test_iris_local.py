@@ -1004,3 +1004,151 @@ class TestMain:
             runpy.run_path(str(script_path), run_name="__main__")
 
         mock_uvicorn.run.assert_called_once()
+
+
+# ---------------------------------------------------------------------------
+# /api/version + CLI flags + prompt injection (Step 6 + 7)
+# ---------------------------------------------------------------------------
+class TestVersionEndpoint:
+    def test_returns_iris_version(self):
+        from starlette.testclient import TestClient
+        app = create_app("test prompt")
+        response = TestClient(app).get("/api/version")
+        assert response.status_code == 200
+        body = response.json()
+        from iris import __version__ as IRIS_VERSION
+        assert body == {"version": IRIS_VERSION}
+
+
+class TestCorsTightening:
+    def test_default_cors_is_loopback_only(self):
+        from starlette.testclient import TestClient
+        app = create_app(
+            "test prompt",
+            runtime_config={"port": 8000, "cors_allow_all": False},
+        )
+        client = TestClient(app)
+        # Allowed loopback origin: middleware echoes Access-Control-Allow-Origin.
+        response = client.options(
+            "/api/chat",
+            headers={
+                "Origin": "http://localhost:8000",
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "content-type",
+            },
+        )
+        assert response.status_code == 200
+        assert response.headers.get("access-control-allow-origin") == "http://localhost:8000"
+
+        # Disallowed origin: middleware does not echo it.
+        response_blocked = client.options(
+            "/api/chat",
+            headers={
+                "Origin": "https://evil.example.com",
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "content-type",
+            },
+        )
+        assert response_blocked.headers.get("access-control-allow-origin") != "https://evil.example.com"
+
+    def test_cors_allow_all_opt_in(self):
+        from starlette.testclient import TestClient
+        app = create_app(
+            "test prompt",
+            runtime_config={"port": 8000, "cors_allow_all": True},
+        )
+        response = TestClient(app).options(
+            "/api/chat",
+            headers={
+                "Origin": "https://lan-tablet.local",
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "content-type",
+            },
+        )
+        assert response.status_code == 200
+        # Wildcard surfaces some way (either "*" or echoed origin).
+        allow = response.headers.get("access-control-allow-origin")
+        assert allow in {"*", "https://lan-tablet.local"}
+
+
+class TestCliNewFlags:
+    def test_host_flag(self):
+        args = parse_args(["--host", "0.0.0.0"])
+        assert args.host == "0.0.0.0"
+        cfg = load_config(args)
+        assert cfg["host"] == "0.0.0.0"
+
+    def test_default_host_is_loopback(self):
+        args = parse_args([])
+        cfg = load_config(args)
+        assert cfg["host"] == "127.0.0.1"
+
+    def test_cors_allow_all_flag(self):
+        args = parse_args(["--cors-allow-all"])
+        cfg = load_config(args)
+        assert cfg["cors_allow_all"] is True
+
+    def test_config_flag_uses_alternative_path(self, tmp_path):
+        alt = tmp_path / "alt-config.json"
+        alt.write_text(json.dumps({"port": 9876, "host": "192.0.2.1"}))
+        args = parse_args(["--config", str(alt)])
+        cfg = load_config(args)
+        assert cfg["port"] == 9876
+        assert cfg["host"] == "192.0.2.1"
+
+
+class TestPromptInjection:
+    def test_inject_replaces_script_tag_content(self):
+        canonical = "CANONICAL PROMPT TEXT"
+        html = (
+            '<html><body>'
+            '<script id="iris-system-prompt" type="text/plain">__IRIS_SYSTEM_PROMPT__</script>'
+            '<p>after</p></body></html>'
+        )
+        out = _mod._inject_system_prompt(html, canonical)
+        assert canonical in out
+        assert "__IRIS_SYSTEM_PROMPT__" not in out
+        assert "<p>after</p>" in out
+
+    def test_inject_is_noop_without_script_tag(self):
+        html = "<html><body>no prompt tag</body></html>"
+        assert _mod._inject_system_prompt(html, "X") == html
+
+    def test_iris_html_route_serves_canonical_prompt(self, tmp_path):
+        from starlette.testclient import TestClient
+        canonical = "CANONICAL_FROM_TEST"
+        app = create_app(canonical)
+        response = TestClient(app).get("/iris.html")
+        assert response.status_code == 200
+        assert "text/html" in response.headers["content-type"]
+        body = response.text
+        # The canonical prompt is injected into the embedded script tag.
+        assert canonical in body
+        # The placeholder/old prompt is no longer in the served body.
+        assert "__IRIS_SYSTEM_PROMPT__" not in body
+
+
+class TestChatErrorSanitisation:
+    def test_500_message_does_not_leak_exception_text(self):
+        """A failing inference call must return a generic, safe error message."""
+        from starlette.testclient import TestClient
+        app = create_app("test prompt")
+        mock_llm = MagicMock()
+        # Use a sensitive-looking message to confirm it's not leaked.
+        mock_llm.create_chat_completion.side_effect = RuntimeError(
+            "secret-trace: /home/user/model.gguf failed at offset 0xDEADBEEF"
+        )
+        _mod._llm = mock_llm
+        try:
+            client = TestClient(app, raise_server_exceptions=False)
+            response = client.post(
+                "/api/chat",
+                json={"messages": [{"role": "user", "content": "hi"}]},
+            )
+            assert response.status_code == 500
+            body = response.json()
+            assert "secret-trace" not in body["error"]
+            assert "0xDEADBEEF" not in body["error"]
+            assert "Model inference failed" in body["error"]
+        finally:
+            _mod._llm = None

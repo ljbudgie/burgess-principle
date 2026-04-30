@@ -4,7 +4,7 @@ A live, dated record of every active front, case reference, statutory deadline, 
 
 - **Framework version:** v1.0.0 (released 18 April 2026)
 - **Author:** Lewis James Burgess, Darlington, UK
-- **Contact:** ljbarbers15@gmail.com
+- **Contact:** lewisjames@theburgessprinciple.com
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 - **Last updated:** 24 April 2026
 

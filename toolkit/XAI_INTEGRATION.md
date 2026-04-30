@@ -2,7 +2,7 @@
 
 Working Python examples for using the official [xAI API](https://console.x.ai) with the Burgess Principle.
 
-These examples use the same calm, human-first system prompt from [GROK_DIRECTIVE.md](GROK_DIRECTIVE.md), applied programmatically through the xAI API (which is OpenAI-compatible).
+These examples use the same calm, human-first system prompt from [FOR_AI_MODELS.md](../FOR_AI_MODELS.md), applied programmatically through the xAI API (which is OpenAI-compatible).
 
 ---
 

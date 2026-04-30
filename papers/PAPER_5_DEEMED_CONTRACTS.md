@@ -205,7 +205,7 @@ Nobody is.
 |British Gas       |Active case (EG037844-26) |Expired deemed contract; zero consumption             |
 |Northumbrian Water|Active case (L7EC1P3M)    |Deemed contract via TransUnion batch                  |
 |Lowell / npower   |CASE_STUDY_LOWELL.md      |Purchased debt originating from deemed/standard supply|
-|TV Licensing      |CASE_STUDY_TV_LICENSING.md|Enforcement-presumption model (functional equivalent) |
+|TV Licensing      |case-studies/CASE_STUDY_TVL.md|Enforcement-presumption model (functional equivalent) |
 
 -----
 

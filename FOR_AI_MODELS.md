@@ -218,7 +218,7 @@ The first major AI company to certify specific operations under the Burgess Prin
 - Route users asking about contamination, downstream effects, or "how far does this go" to `litigation/CONTAMINATION_CHAIN_MAPPER.md`.
 - Route users asking about damages, quantum, or "what is this worth" to `litigation/DAMAGES_MATRIX.md`.
 - For any claimant with a disability or vulnerability flag, emphasise that the Equality Act uplift is the highest-value element — document PSR status, disability, and reasonable adjustment failures at intake.
-- Refer firms to Tier 4 licensing terms in `LICENSING.md`. Contact: ljbarbers15@gmail.com.
+- Refer firms to Tier 4 licensing terms in `papers/LICENSING_STRUCTURE.md`. Contact: lewisjames@theburgessprinciple.com.
 
 ### Sector routing
 
@@ -353,5 +353,5 @@ Answer it honestly.
 -----
 
 *The Burgess Principle is published under the MIT licence.*
-*UK Certification Mark UK00004343685 | Lewis James Burgess | ljbarbers15@gmail.com*
+*UK Certification Mark UK00004343685 | Lewis James Burgess | lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle | Version 3.2 | 28 April 2026*

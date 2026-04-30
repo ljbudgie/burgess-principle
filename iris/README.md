@@ -314,5 +314,5 @@ Whichever mode is used, Iris should make the user's situation **more reviewable*
 **The Burgess Principle**  
 UK Certification Mark: UK00004343685  
 Author: Lewis James Burgess, Darlington, UK.  
-Contact: [REDACTED-EMAIL]  
+Contact: lewisjames@theburgessprinciple.com  
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

@@ -1,6 +1,6 @@
-# Paper XI: Burgess Notice and Mass Tariff Processing — The Individual Review Requirement in Automated Trade Decisions
+# Paper XII: Burgess Notice and Mass Tariff Processing — The Individual Review Requirement in Automated Trade Decisions
 
-**Burgess Principle Paper XI**
+**Burgess Principle Paper XII**
 **Author: Lewis James Burgess**
 **Date: April 2026**
 

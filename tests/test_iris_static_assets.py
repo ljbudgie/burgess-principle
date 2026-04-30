@@ -2,6 +2,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 IRIS_HTML = (ROOT / "iris.html").read_text(encoding="utf-8")
+IRIS_SYSTEM_PROMPT = (ROOT / "iris" / "system-prompt.md").read_text(encoding="utf-8")
 WORKER = (ROOT / "worker.js").read_text(encoding="utf-8")
 README = (ROOT / "README.md").read_text(encoding="utf-8")
 
@@ -22,15 +23,28 @@ def test_iris_html_contains_required_copy_and_controls():
     assert 'localStorage' in IRIS_HTML
 
 
-def test_iris_html_keeps_the_exact_system_prompt():
-    assert 'You are Iris, the sovereign AI companion for the Burgess Principle (UK Certification Mark UK00004343685).' in IRIS_HTML
-    assert 'The core question: was a human member of the team able to personally review the specific facts of my specific situation?' in IRIS_HTML
-    assert 'SOVEREIGN (1) if yes. NULL (0) if no.' in IRIS_HTML
-    assert 'Never predict legal outcomes.' in IRIS_HTML
+def test_iris_html_embeds_canonical_system_prompt_via_script_tag():
+    """The single source of truth is iris/system-prompt.md.
+
+    iris.html must embed the canonical prompt as the content of a
+    `<script id="iris-system-prompt" type="text/plain">` block, and must
+    NOT carry a divergent inline JS string literal.
+    """
+    open_tag = '<script id="iris-system-prompt" type="text/plain">'
+    assert open_tag in IRIS_HTML, "iris.html must embed the canonical prompt as a script tag"
+    start = IRIS_HTML.index(open_tag) + len(open_tag)
+    end = IRIS_HTML.index('</script>', start)
+    embedded = IRIS_HTML[start:end]
+    assert embedded.strip() == IRIS_SYSTEM_PROMPT.strip(), (
+        "Embedded #iris-system-prompt must match iris/system-prompt.md exactly. "
+        "Run scripts/sync-iris-prompt.py or copy the file contents."
+    )
+    # Defence-in-depth: no second SYSTEM_PROMPT literal hard-codes the prompt.
+    assert 'const SYSTEM_PROMPT = "You are Iris' not in IRIS_HTML
 
 
 def test_iris_html_keeps_default_proxy_for_standard_mode():
-    assert 'return sendViaProxy();' in IRIS_HTML
+    assert 'sendViaProxy(' in IRIS_HTML
     assert 'fetch(DEFAULT_PROXY_URL' in IRIS_HTML
 
 
@@ -40,6 +54,44 @@ def test_iris_html_routes_byo_ai_directly_to_selected_provider():
     assert 'buildChatCompletionsUrl(baseUrl)' in IRIS_HTML
     assert 'const baseUrl = providerSelectEl.value === "compatible" ? endpointInputEl.value.trim() : undefined;' in IRIS_HTML
     assert 'if (normalized.endsWith("/chat/completions")) return normalized;' in IRIS_HTML
+
+
+def test_iris_html_streams_via_sse_with_abort_support():
+    """Replies must stream into the chat bubble and be cancellable."""
+    assert 'AbortController' in IRIS_HTML
+    assert 'text/event-stream' in IRIS_HTML
+    assert 'parseSSEEvent' in IRIS_HTML
+    assert 'readSSE' in IRIS_HTML
+    assert 'id="stopButton"' in IRIS_HTML
+
+
+def test_iris_html_has_accessibility_landmarks():
+    """Composer is a labelled form, advanced toggle reflects state, skip link present."""
+    assert 'class="skip-link"' in IRIS_HTML
+    assert 'href="#composerInput"' in IRIS_HTML
+    assert 'id="composerForm"' in IRIS_HTML
+    assert 'class="sr-only"' in IRIS_HTML
+    assert 'for="composerInput"' in IRIS_HTML
+    assert 'aria-expanded="false"' in IRIS_HTML
+    assert 'aria-controls="advancedPanel"' in IRIS_HTML
+    assert 'prefers-reduced-motion' in IRIS_HTML
+    assert 'prefers-color-scheme: dark' in IRIS_HTML
+
+
+def test_iris_html_has_conversation_toolbar():
+    """New / Export / Copy controls must be present and wired."""
+    assert 'id="newConversationButton"' in IRIS_HTML
+    assert 'id="exportMarkdownButton"' in IRIS_HTML
+    assert 'id="exportJsonButton"' in IRIS_HTML
+    assert 'id="copyLastReplyButton"' in IRIS_HTML
+    assert 'iris-conversation.md' in IRIS_HTML
+    assert 'iris-conversation.json' in IRIS_HTML
+
+
+def test_iris_html_advanced_panel_validates_and_protects_key():
+    assert 'id="apiKeyToggle"' in IRIS_HTML
+    assert "This key is saved only in this browser's localStorage" in IRIS_HTML
+    assert 'validateAdvancedSettings' in IRIS_HTML
 
 
 def test_worker_is_a_small_anthropic_proxy_without_logging():

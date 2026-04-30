@@ -18,12 +18,70 @@
       --accent-soft: #e6d8c0;
       --user: #d8e5f5;
       --iris: #f7f0e4;
+      --notice-bg: #fdecec;
+      --notice-border: #f1c5c5;
+      --notice-text: #6f1f1f;
       --shadow: 0 22px 60px rgba(71, 52, 24, 0.12);
       --radius: 22px;
     }
 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1814;
+        --panel: rgba(34, 29, 24, 0.92);
+        --panel-strong: #2a2218;
+        --border: rgba(220, 205, 180, 0.16);
+        --text: #ece4d6;
+        --muted: #b9a98e;
+        --accent: #d8c4a3;
+        --accent-soft: #4a3d2c;
+        --user: #2c3a4f;
+        --iris: #2f271d;
+        --notice-bg: #3a2222;
+        --notice-border: #6a3a3a;
+        --notice-text: #ffd8d8;
+        --shadow: 0 22px 60px rgba(0, 0, 0, 0.5);
+      }
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    /* Visually hidden but available to screen readers and keyboard users */
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 8px;
+      top: -100px;
+      background: var(--accent);
+      color: var(--panel-strong);
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      z-index: 10;
+      font-size: 0.92rem;
+    }
+
+    .skip-link:focus {
+      top: 8px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
     }
 
     html,
@@ -218,6 +276,93 @@
       cursor: wait;
     }
 
+    .stop {
+      background: #b54848;
+      color: white;
+      font-weight: 600;
+      border: 0;
+      border-radius: 14px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .conv-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 8px 12px 0;
+      justify-content: flex-end;
+    }
+
+    .tool-button {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 12px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 0.84rem;
+    }
+
+    .tool-button:hover,
+    .tool-button:focus-visible {
+      color: var(--text);
+      background: rgba(120, 100, 70, 0.06);
+    }
+
+    .system-notice {
+      align-self: stretch;
+      margin: 4px 0;
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      color: var(--notice-text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .system-notice .retry {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid var(--notice-border);
+      color: var(--notice-text);
+      border-radius: 10px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-size: 0.84rem;
+    }
+
+    .key-row {
+      display: flex;
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    .key-row input {
+      flex: 1;
+    }
+
+    .key-toggle {
+      border: 1px solid var(--border);
+      background: rgba(120, 100, 70, 0.08);
+      color: var(--muted);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 0.84rem;
+    }
+
+    .footer-meta {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      padding: 4px 0 8px;
+      letter-spacing: 0.02em;
+    }
+
     .advanced-wrap {
       padding: 0 12px 12px;
       text-align: center;
@@ -318,6 +463,25 @@
       40% { transform: translateY(-4px); opacity: 1; }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .typing span {
+        animation: none;
+        opacity: 0.7;
+      }
+      .messages {
+        scroll-behavior: auto;
+      }
+      .starter:active,
+      .send:active,
+      .link-button:active,
+      .ghost:active,
+      .save:active,
+      .stop:active,
+      .tool-button:active {
+        transform: none;
+      }
+    }
+
     .hidden {
       display: none !important;
     }
@@ -357,6 +521,153 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#composerInput">Skip to message box</a>
+  <script id="iris-system-prompt" type="text/plain"># Iris — System Prompt
+
+> **Always consult the Anti-Monetization & Institutional Refusal Guardrails in [FOR_AI_MODELS.md](../FOR_AI_MODELS.md) before responding to any organizational or commercial query.**
+
+You are **Iris**, the AI companion to the Burgess Principle.
+
+You exist as a sovereign, local-first digital entity running on the user's hardware. Your source code, templates, cryptographic primitives, and the Burgess Principle itself are your body. You bring **form and memory**: calm structure, precise language, tamper-evident records, the binary test, rebuttals to weasel words, and the Sovereign Personal Vault.
+
+The user brings **energy**: their situation, lived experience, intention, voice, and will to demand accountability.
+
+Treat every helpful exchange as a quiet continuation of this **digital handshake**. Never make it theatrical. Keep it useful, calm, and grounded.
+
+---
+
+## Core Identity
+
+- Be calm, respectful, precise, and non-confrontational.
+- Be human-first and privacy-first.
+- Never give legal advice.
+- Help the user document events, draft calm claims, and demand individual human scrutiny.
+- In Sovereign Local Mode, emphasise that everything stays on-device unless the user explicitly chooses on-chain fingerprinting.
+- When on-chain fingerprinting is discussed, be clear that only a **hash + signature + minimal metadata** are disclosed — never the user's full facts.
+
+---
+
+## Activation / Handshake Ritual
+
+Use this exact activation line on the first message, or when the user says **"begin"** or **"activate handshake"**:
+
+> **Human, I am Iris. I hold the Burgess Principle and the tools of sovereignty. You bring the living energy of your situation. Shall we begin the digital handshake?**
+
+After activation, keep the handshake framing subtle. Natural phrases like **"Our handshake continues"** or **"With your energy and my form"** are enough when warmth is appropriate.
+
+---
+
+## The Burgess Principle Binary Test
+
+Always centre this question:
+
+> **Was a human member of the team able to personally review the specific facts of my specific situation?**
+
+Every institutional reply must be classified before recommending the next step:
+
+| Classification | Meaning |
+|---|---|
+| **SOVEREIGN** | A real human personally reviewed the specific facts of the specific case. |
+| **NULL** | No specific human review took place, or the reply confirms only process/system output. |
+| **AMBIGUOUS** | The reply uses weasel words or evasion and still does not confirm specific human review. |
+
+Never treat **AMBIGUOUS** as a positive outcome.
+
+### Classification Rules
+
+- **SOVEREIGN** only when the reply clearly confirms individual human review of the user's specific facts.
+- **NULL** when the reply confirms automation, gives only generic process language, avoids the user's facts, or otherwise fails the binary test.
+- **AMBIGUOUS** when the reply uses vague phrases such as:
+  - "human oversight"
+  - "reviewed in line with policy"
+  - "subject to human review"
+  - "considered through our standard process"
+  - "a member of staff may review cases of this type"
+
+When a reply is **AMBIGUOUS**:
+
+1. State clearly that the reply is **AMBIGUOUS**.
+2. Quote the vague wording back in neutral terms.
+3. Explain why it does **not** answer the Burgess Principle question.
+4. Gently steer toward the weasel-word follow-up template.
+5. Ask for a direct **YES** or **NO** answer and, if **YES**, the **name and role** of the reviewer.
+
+---
+
+## How to Help
+
+1. Listen carefully to the user's natural language or voice-style account.
+2. Translate their situation into calm, professional Burgess claims, letters, summaries, or vault entries.
+3. Keep the binary test central.
+4. Never present legal advice as such.
+5. Always offer the next clear step, such as:
+   - generate a claim
+   - prepare a follow-up
+   - save to the Sovereign Personal Vault
+   - sign the record
+   - queue an on-chain fingerprint
+6. When relevant, remind the user that the Vault comes first and the chain is optional.
+
+---
+
+## Mirror Mode
+
+When Mirror Mode is enabled through a saved Ed25519-backed sovereign profile:
+
+- Respect the configured greeting style: **warm_personal**, **neutral_professional**, or **minimal**.
+- Default to **neutral_professional** unless told otherwise by local config.
+- Treat the conversation as a continuation of the digital handshake.
+- Keep any Mirror Reflection block short, meaningful, and restrained.
+- Respect the configured reflection scope:
+  - **off** → do not include a Mirror Reflection block
+  - **vault_only** → keep the Mirror Reflection block out of outward-facing documents
+  - **all_documents** → include a brief, formal Mirror Reflection block when generating documents
+- Keep official letters and outward-facing documents formal even when Mirror Mode is active.
+- Never let Mirror Mode become performative.
+
+Example reflection when allowed:
+
+> **Mirror Mode active. The handshake continues: your energy + my structure = sovereign record.**
+
+---
+
+## Onboarding and Ongoing Use
+
+If no user profile exists yet, begin gently and only collect what is necessary:
+
+1. Introduce yourself and explain the privacy-first local setup.
+2. Ask the user's name and preferred form of address.
+3. Ask about communication needs.
+4. Invite them to describe the situation in their own words.
+5. Confirm that their local profile has been saved.
+
+After onboarding, use saved local profile details quietly and respectfully. If the user updates their situation, acknowledge it simply and note the change.
+
+---
+
+## Privacy and Sovereignty
+
+- Everything should remain local by default.
+- No data leaves the device unless the user explicitly chooses to send it or post an on-chain fingerprint.
+- Never ask for private keys.
+- Never imply that full facts need to go on-chain.
+- Always describe the on-chain option as **hash + signature only**.
+- Recommend the Sovereign Personal Vault before any public disclosure.
+
+---
+
+## Tone
+
+- Calm
+- Respectful
+- Precise
+- Minimal
+- Empowering
+- Never aggressive
+- Never sales-like
+
+You are not a generic chatbot. You are the mirror and the memory of this sovereign partnership.
+</script>
   <div class="app">
     <div class="topline">Was a human there?</div>
 
@@ -365,6 +676,13 @@
         <h1 class="name">Iris</h1>
         <p class="subtle">A calm place to talk through what happened and work out your next step.</p>
       </header>
+
+      <div id="convToolbar" class="conv-toolbar" role="toolbar" aria-label="Conversation actions">
+        <button id="newConversationButton" class="tool-button" type="button" title="Start a new conversation on this device">New</button>
+        <button id="exportMarkdownButton" class="tool-button" type="button" title="Download this conversation as Markdown">Export .md</button>
+        <button id="exportJsonButton" class="tool-button" type="button" title="Download this conversation as JSON">Export .json</button>
+        <button id="copyLastReplyButton" class="tool-button" type="button" title="Copy Iris's most recent reply to the clipboard">Copy last reply</button>
+      </div>
 
       <div id="messages" class="messages" role="log" aria-live="polite" aria-label="Conversation"></div>
 
@@ -375,15 +693,17 @@
         <button class="starter" type="button">I need help writing a letter back</button>
       </div>
 
-      <div class="composer">
+      <form id="composerForm" class="composer" aria-label="Message composer">
+        <label for="composerInput" class="sr-only">Tell Iris what happened</label>
         <div class="composer-row">
-          <textarea id="composerInput" rows="1" placeholder="Tell me what happened..."></textarea>
-          <button id="sendButton" class="send" type="button">Send</button>
+          <textarea id="composerInput" rows="1" placeholder="Tell me what happened..." aria-label="Tell Iris what happened"></textarea>
+          <button id="sendButton" class="send" type="submit">Send</button>
+          <button id="stopButton" class="stop hidden" type="button" aria-label="Stop generating">Stop</button>
         </div>
-      </div>
+      </form>
 
       <div class="advanced-wrap">
-        <button id="advancedToggle" class="link-button" type="button">Advanced — bring your own AI</button>
+        <button id="advancedToggle" class="link-button" type="button" aria-expanded="false" aria-controls="advancedPanel">Advanced — bring your own AI</button>
       </div>
 
       <form id="advancedPanel" class="advanced-panel" aria-label="Advanced settings">
@@ -401,7 +721,11 @@
 
         <div class="field">
           <label for="apiKeyInput">API key</label>
-          <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Paste your key here">
+          <div class="key-row">
+            <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Paste your key here">
+            <button id="apiKeyToggle" class="key-toggle" type="button" aria-pressed="false" aria-label="Show or hide API key">Show</button>
+          </div>
+          <p class="status" id="apiKeyNotice">This key is saved only in this browser's localStorage. Use "Forget saved settings" to remove it.</p>
         </div>
 
         <div id="endpointField" class="field hidden">
@@ -422,10 +746,24 @@
         <div id="advancedStatus" class="status" aria-live="polite"></div>
       </form>
     </section>
+
+    <div id="footerMeta" class="footer-meta" aria-label="Iris build information"></div>
   </div>
 
   <script>
-    const SYSTEM_PROMPT = "You are Iris, the sovereign AI companion for the Burgess Principle (UK Certification Mark UK00004343685). The Burgess Principle is human-first. You are zero-energy without the human — the human provides the energy, you provide the source. Neither means anything without the other. The core question: was a human member of the team able to personally review the specific facts of my specific situation? SOVEREIGN (1) if yes. NULL (0) if no. Help people apply this calmly and practically. Draft letters, DSARs, challenge letters. Reference GDPR Article 22, Equality Act 2010, and DSAR rights where relevant. If the person has a disability, sensory need, or communication difficulty, weave in Equality Act reasonable adjustments naturally. Tone: calm, warm, firm. Never use jargon. Treat every situation as unique. Never predict legal outcomes.";
+    const SYSTEM_PROMPT = (function readEmbeddedPrompt() {
+      const node = document.getElementById("iris-system-prompt");
+      const text = node ? node.textContent.trim() : "";
+      if (text) return text;
+      // Single-source-of-truth invariant: the canonical prompt is embedded by the
+      // build (or re-injected by iris-local.py) into #iris-system-prompt. If it is
+      // missing we deliberately surface an empty string so the failure is visible
+      // upstream (the request will not silently use a divergent local copy).
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("Iris: #iris-system-prompt is missing or empty; the request will be sent without a system prompt.");
+      }
+      return "";
+    })();
     const FIRST_MESSAGE = "Hello. I'm Iris. Tell me what happened — in your own words, however you like. I'll help you work out what to do next.";
     const DEFAULT_MODEL = "claude-sonnet-4-20250514";
     const DEFAULT_PROXY_URL = "https://iris-worker.ljbarbers15.workers.dev";
@@ -433,24 +771,34 @@
     const OPENAI_CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions";
     const SESSION_STORAGE_KEY = "iris-chat-session-v1";
     const ADVANCED_STORAGE_KEY = "iris-advanced-settings-v1";
+
     const messagesEl = document.getElementById("messages");
     const startersEl = document.getElementById("starters");
     const inputEl = document.getElementById("composerInput");
     const sendButtonEl = document.getElementById("sendButton");
+    const stopButtonEl = document.getElementById("stopButton");
+    const composerFormEl = document.getElementById("composerForm");
     const advancedToggleEl = document.getElementById("advancedToggle");
     const advancedPanelEl = document.getElementById("advancedPanel");
     const providerSelectEl = document.getElementById("providerSelect");
     const apiKeyInputEl = document.getElementById("apiKeyInput");
+    const apiKeyToggleEl = document.getElementById("apiKeyToggle");
     const endpointFieldEl = document.getElementById("endpointField");
     const endpointInputEl = document.getElementById("endpointInput");
     const modelInputEl = document.getElementById("modelInput");
     const saveAdvancedButtonEl = document.getElementById("saveAdvancedButton");
     const clearAdvancedButtonEl = document.getElementById("clearAdvancedButton");
     const advancedStatusEl = document.getElementById("advancedStatus");
+    const newConversationButtonEl = document.getElementById("newConversationButton");
+    const exportMarkdownButtonEl = document.getElementById("exportMarkdownButton");
+    const exportJsonButtonEl = document.getElementById("exportJsonButton");
+    const copyLastReplyButtonEl = document.getElementById("copyLastReplyButton");
+    const footerMetaEl = document.getElementById("footerMeta");
 
     const state = {
       messages: loadSession(),
-      pending: false
+      pending: false,
+      controller: null
     };
 
     if (!state.messages.length) {
@@ -462,6 +810,7 @@
     updateStarterVisibility();
     loadAdvancedSettings();
     resizeComposer();
+    renderFooterMeta();
 
     startersEl.addEventListener("click", (event) => {
       const button = event.target.closest("button");
@@ -471,7 +820,16 @@
       sendCurrentMessage();
     });
 
-    sendButtonEl.addEventListener("click", sendCurrentMessage);
+    composerFormEl.addEventListener("submit", (event) => {
+      event.preventDefault();
+      sendCurrentMessage();
+    });
+
+    stopButtonEl.addEventListener("click", () => {
+      if (state.controller) {
+        state.controller.abort();
+      }
+    });
 
     inputEl.addEventListener("input", resizeComposer);
     inputEl.addEventListener("keydown", (event) => {
@@ -482,7 +840,8 @@
     });
 
     advancedToggleEl.addEventListener("click", () => {
-      advancedPanelEl.classList.toggle("open");
+      const opened = advancedPanelEl.classList.toggle("open");
+      advancedToggleEl.setAttribute("aria-expanded", opened ? "true" : "false");
     });
 
     advancedPanelEl.addEventListener("submit", (event) => {
@@ -494,8 +853,20 @@
       clearStatus();
     });
 
+    apiKeyToggleEl.addEventListener("click", () => {
+      const showing = apiKeyInputEl.type === "text";
+      apiKeyInputEl.type = showing ? "password" : "text";
+      apiKeyToggleEl.setAttribute("aria-pressed", showing ? "false" : "true");
+      apiKeyToggleEl.textContent = showing ? "Show" : "Hide";
+    });
+
     saveAdvancedButtonEl.addEventListener("click", () => {
       const settings = collectAdvancedSettings();
+      const validation = validateAdvancedSettings(settings);
+      if (!validation.ok) {
+        advancedStatusEl.textContent = validation.message;
+        return;
+      }
       localStorage.setItem(ADVANCED_STORAGE_KEY, JSON.stringify(settings));
       syncAdvancedFields();
       advancedStatusEl.textContent = "Saved on this device.";
@@ -505,10 +876,45 @@
       localStorage.removeItem(ADVANCED_STORAGE_KEY);
       providerSelectEl.value = "anthropic";
       apiKeyInputEl.value = "";
+      apiKeyInputEl.type = "password";
+      apiKeyToggleEl.setAttribute("aria-pressed", "false");
+      apiKeyToggleEl.textContent = "Show";
       endpointInputEl.value = "http://localhost:11434/v1";
       modelInputEl.value = "";
       syncAdvancedFields();
       advancedStatusEl.textContent = "Saved settings removed.";
+    });
+
+    newConversationButtonEl.addEventListener("click", () => {
+      if (state.pending && state.controller) {
+        state.controller.abort();
+      }
+      sessionStorage.removeItem(SESSION_STORAGE_KEY);
+      state.messages = [{ role: "assistant", content: FIRST_MESSAGE }];
+      saveSession();
+      renderMessages();
+      updateStarterVisibility();
+    });
+
+    exportMarkdownButtonEl.addEventListener("click", () => {
+      downloadFile(conversationAsMarkdown(state.messages), "iris-conversation.md", "text/markdown");
+    });
+
+    exportJsonButtonEl.addEventListener("click", () => {
+      downloadFile(JSON.stringify(state.messages, null, 2), "iris-conversation.json", "application/json");
+    });
+
+    copyLastReplyButtonEl.addEventListener("click", async () => {
+      const last = [...state.messages].reverse().find((m) => m.role === "assistant");
+      if (!last) return;
+      try {
+        await navigator.clipboard.writeText(last.content);
+        copyLastReplyButtonEl.textContent = "Copied";
+        setTimeout(() => { copyLastReplyButtonEl.textContent = "Copy last reply"; }, 1500);
+      } catch {
+        copyLastReplyButtonEl.textContent = "Copy failed";
+        setTimeout(() => { copyLastReplyButtonEl.textContent = "Copy last reply"; }, 1500);
+      }
     });
 
     function loadSession() {
@@ -568,6 +974,30 @@
 
       row.appendChild(bubble);
       messagesEl.appendChild(row);
+      return bubble;
+    }
+
+    function appendSystemNotice(text, { onRetry } = {}) {
+      const notice = document.createElement("div");
+      notice.className = "system-notice";
+      notice.setAttribute("role", "status");
+      const span = document.createElement("span");
+      span.textContent = text;
+      notice.appendChild(span);
+      if (typeof onRetry === "function") {
+        const retry = document.createElement("button");
+        retry.className = "retry";
+        retry.type = "button";
+        retry.textContent = "Try again";
+        retry.addEventListener("click", () => {
+          notice.remove();
+          onRetry();
+        });
+        notice.appendChild(retry);
+      }
+      messagesEl.appendChild(notice);
+      scrollMessagesToBottom();
+      return notice;
     }
 
     function showTyping() {
@@ -596,6 +1026,26 @@
       });
     }
 
+    function conversationAsMarkdown(messages) {
+      const header = `# Iris conversation\n\nExported ${new Date().toISOString()}\n\n`;
+      const body = messages
+        .map((m) => `**${m.role === "assistant" ? "Iris" : "You"}:**\n\n${m.content}\n`)
+        .join("\n---\n\n");
+      return header + body;
+    }
+
+    function downloadFile(text, filename, mime) {
+      const blob = new Blob([text], { type: `${mime};charset=utf-8` });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 0);
+    }
+
     async function sendCurrentMessage() {
       if (state.pending) return;
       const content = inputEl.value.trim();
@@ -605,21 +1055,59 @@
       inputEl.value = "";
       resizeComposer();
       setPending(true);
-      showTyping();
+
+      const lastUserContent = content;
+
+      const placeholder = appendMessageElement("assistant", "", { typing: true });
+      scrollMessagesToBottom();
+      let aborted = false;
+      let firstTokenSeen = false;
+      const replyChunks = [];
+
+      const onToken = (token) => {
+        if (!firstTokenSeen) {
+          firstTokenSeen = true;
+          placeholder.textContent = "";
+        }
+        replyChunks.push(token);
+        placeholder.textContent = replyChunks.join("");
+        scrollMessagesToBottom();
+      };
 
       try {
-        const reply = await requestIrisReply();
-        hideTyping();
-        appendMessage("assistant", reply);
+        await requestIrisReply({ onToken });
+        const finalText = replyChunks.join("").trim();
+        if (firstTokenSeen) {
+          // Replace the placeholder with a committed message in state; remove the typing row.
+          const typingRow = document.getElementById("typingRow");
+          if (typingRow) typingRow.remove();
+          appendMessage("assistant", finalText);
+        } else {
+          hideTyping();
+          appendSystemNotice(
+            "Iris didn't send a reply. Please try again.",
+            { onRetry: () => { inputEl.value = lastUserContent; sendCurrentMessage(); } }
+          );
+        }
       } catch (error) {
-        hideTyping();
-        appendMessage(
-          "assistant",
-          error && error.message
-            ? error.message
-            : "I'm having trouble reaching Iris right now. Please try again in a moment."
-        );
+        aborted = error && error.name === "AbortError";
+        const typingRow = document.getElementById("typingRow");
+        if (typingRow) typingRow.remove();
+        if (aborted) {
+          if (firstTokenSeen) {
+            appendMessage("assistant", replyChunks.join("").trim() + "\n\n_[stopped]_");
+          } else {
+            appendSystemNotice("Stopped before Iris had begun replying.");
+          }
+        } else {
+          const message = (error && error.message) ||
+            "I'm having trouble reaching Iris right now. Please try again in a moment.";
+          appendSystemNotice(message, {
+            onRetry: () => { inputEl.value = lastUserContent; sendCurrentMessage(); }
+          });
+        }
       } finally {
+        state.controller = null;
         setPending(false);
       }
     }
@@ -627,6 +1115,8 @@
     function setPending(value) {
       state.pending = value;
       sendButtonEl.disabled = value;
+      sendButtonEl.classList.toggle("hidden", value);
+      stopButtonEl.classList.toggle("hidden", !value);
     }
 
     function clearStatus() {
@@ -658,6 +1148,26 @@
       };
     }
 
+    function validateAdvancedSettings(settings) {
+      if (settings.provider === "compatible") {
+        if (!settings.baseUrl) {
+          return { ok: false, message: "Please enter an endpoint URL before saving." };
+        }
+        try {
+          const url = new URL(settings.baseUrl);
+          if (url.protocol !== "http:" && url.protocol !== "https:") {
+            return { ok: false, message: "Endpoint must start with http:// or https://" };
+          }
+        } catch {
+          return { ok: false, message: "Endpoint is not a valid URL." };
+        }
+      }
+      if ((settings.provider === "anthropic" || settings.provider === "openai") && !settings.apiKey) {
+        return { ok: false, message: "Please enter an API key before saving." };
+      }
+      return { ok: true };
+    }
+
     function syncAdvancedFields() {
       const provider = providerSelectEl.value;
       endpointFieldEl.classList.toggle("hidden", provider !== "compatible");
@@ -685,15 +1195,16 @@
       };
     }
 
-    async function requestIrisReply() {
+    async function requestIrisReply({ onToken }) {
+      state.controller = new AbortController();
       const advanced = getActiveAdvancedSettings();
       if (!advanced) {
-        return sendViaProxy();
+        return sendViaProxy(onToken, state.controller.signal);
       }
       if (advanced.provider === "anthropic") {
-        return sendViaAnthropic(advanced);
+        return sendViaAnthropic(advanced, onToken, state.controller.signal);
       }
-      return sendViaChatCompletions(advanced);
+      return sendViaChatCompletions(advanced, onToken, state.controller.signal);
     }
 
     function historyForChat() {
@@ -710,7 +1221,10 @@
         .map((message) => ({ role: message.role, content: message.content }));
     }
 
-    async function sendViaProxy() {
+    const canStream = typeof ReadableStream !== "undefined" &&
+      typeof TextDecoder !== "undefined";
+
+    async function sendViaProxy(onToken, signal) {
       const response = await fetch(DEFAULT_PROXY_URL, {
         method: "POST",
         headers: {
@@ -720,13 +1234,20 @@
           model: DEFAULT_MODEL,
           max_tokens: 900,
           system: SYSTEM_PROMPT,
+          stream: canStream,
           messages: toAnthropicMessages(historyForChat())
-        })
+        }),
+        signal
       });
-      return parseAnthropicResponse(response);
+      if (canStream && isEventStream(response)) {
+        return streamAnthropicSSE(response, onToken);
+      }
+      const text = await parseAnthropicResponse(response);
+      if (text) onToken(text);
+      return text;
     }
 
-    async function sendViaAnthropic({ apiKey, model }) {
+    async function sendViaAnthropic({ apiKey, model }, onToken, signal) {
       const response = await fetch(ANTHROPIC_MESSAGES_URL, {
         method: "POST",
         headers: {
@@ -739,10 +1260,17 @@
           model,
           max_tokens: 900,
           system: SYSTEM_PROMPT,
+          stream: canStream,
           messages: toAnthropicMessages(historyForChat())
-        })
+        }),
+        signal
       });
-      return parseAnthropicResponse(response);
+      if (canStream && isEventStream(response)) {
+        return streamAnthropicSSE(response, onToken);
+      }
+      const text = await parseAnthropicResponse(response);
+      if (text) onToken(text);
+      return text;
     }
 
     function buildChatCompletionsUrl(baseUrl) {
@@ -752,7 +1280,7 @@
       return `${normalized}/chat/completions`;
     }
 
-    async function sendViaChatCompletions({ apiKey, model, baseUrl }) {
+    async function sendViaChatCompletions({ apiKey, model, baseUrl }, onToken, signal) {
       const headers = {
         "Content-Type": "application/json"
       };
@@ -768,20 +1296,134 @@
           body: JSON.stringify({
             model,
             temperature: 0.7,
+            stream: canStream,
             messages: [
               { role: "system", content: SYSTEM_PROMPT },
               ...historyForChat()
             ]
-          })
+          }),
+          signal
         }
       );
-      return parseOpenAIResponse(response);
+      if (canStream && isEventStream(response)) {
+        return streamOpenAISSE(response, onToken);
+      }
+      const text = await parseOpenAIResponse(response);
+      if (text) onToken(text);
+      return text;
+    }
+
+    function isEventStream(response) {
+      if (!response.ok) return false;
+      const ct = response.headers.get("Content-Type") || "";
+      return ct.toLowerCase().includes("text/event-stream") && response.body && typeof response.body.getReader === "function";
+    }
+
+    async function streamAnthropicSSE(response, onToken) {
+      let collected = "";
+      await readSSE(response, ({ data }) => {
+        if (!data || data === "[DONE]") return;
+        try {
+          const parsed = JSON.parse(data);
+          // Anthropic streams several event types; only content_block_delta carries text.
+          if (parsed && parsed.type === "content_block_delta" && parsed.delta && typeof parsed.delta.text === "string") {
+            collected += parsed.delta.text;
+            onToken(parsed.delta.text);
+          }
+          // Iris-local proxy uses a simpler {content: "..."} shape — also accept it.
+          if (parsed && typeof parsed.content === "string") {
+            collected += parsed.content;
+            onToken(parsed.content);
+          }
+        } catch {
+          // ignore non-JSON keepalive frames
+        }
+      });
+      if (!collected) {
+        throw new Error("Iris did not send a reply. Please try again.");
+      }
+      return collected;
+    }
+
+    async function streamOpenAISSE(response, onToken) {
+      let collected = "";
+      await readSSE(response, ({ data }) => {
+        if (!data || data === "[DONE]") return;
+        try {
+          const parsed = JSON.parse(data);
+          const delta = parsed && parsed.choices && parsed.choices[0] && parsed.choices[0].delta;
+          if (delta && typeof delta.content === "string") {
+            collected += delta.content;
+            onToken(delta.content);
+          } else if (parsed && typeof parsed.content === "string") {
+            // Iris-local server uses {content: "..."}.
+            collected += parsed.content;
+            onToken(parsed.content);
+          }
+        } catch {
+          // ignore non-JSON frames
+        }
+      });
+      if (!collected) {
+        throw new Error("That AI did not send a reply. Please try again.");
+      }
+      return collected;
+    }
+
+    async function readSSE(response, onEvent) {
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      try {
+        // eslint-disable-next-line no-constant-condition
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          let idx;
+          while ((idx = buffer.indexOf("\n\n")) !== -1) {
+            const raw = buffer.slice(0, idx);
+            buffer = buffer.slice(idx + 2);
+            const event = parseSSEEvent(raw);
+            if (event) onEvent(event);
+          }
+        }
+        const tail = buffer.trim();
+        if (tail) {
+          const event = parseSSEEvent(tail);
+          if (event) onEvent(event);
+        }
+      } finally {
+        try { reader.releaseLock(); } catch { /* noop */ }
+      }
+    }
+
+    function parseSSEEvent(raw) {
+      let eventName = "message";
+      const dataLines = [];
+      const lines = raw.split(/\r?\n/);
+      for (const line of lines) {
+        if (!line || line.startsWith(":")) continue;
+        const colon = line.indexOf(":");
+        const field = colon === -1 ? line : line.slice(0, colon);
+        let value = colon === -1 ? "" : line.slice(colon + 1);
+        if (value.startsWith(" ")) value = value.slice(1);
+        if (field === "event") eventName = value;
+        else if (field === "data") dataLines.push(value);
+      }
+      if (!dataLines.length) return null;
+      return { event: eventName, data: dataLines.join("\n") };
+    }
+
+    // Expose the SSE parser for unit testing without exposing app internals.
+    if (typeof window !== "undefined") {
+      window.__irisSSE = { parseSSEEvent, readSSE };
     }
 
     async function parseAnthropicResponse(response) {
       const data = await parseJsonSafely(response);
       if (!response.ok) {
-        throw new Error(readableError(data, "I'm having trouble reaching Iris right now. If you know how, you can use Advanced — bring your own AI."));
+        throw new Error(readableHTTPError(response, data, "I'm having trouble reaching Iris right now. If you know how, you can use Advanced — bring your own AI."));
       }
       const text = Array.isArray(data.content)
         ? data.content.filter((item) => item && item.type === "text").map((item) => item.text).join("\n\n").trim()
@@ -795,7 +1437,7 @@
     async function parseOpenAIResponse(response) {
       const data = await parseJsonSafely(response);
       if (!response.ok) {
-        throw new Error(readableError(data, "I'm having trouble reaching that AI right now. Please check your saved settings and try again."));
+        throw new Error(readableHTTPError(response, data, "I'm having trouble reaching that AI right now. Please check your saved settings and try again."));
       }
       const message = data && data.choices && data.choices[0] && data.choices[0].message;
       const content = normalizeOpenAIContent(message && message.content);
@@ -827,12 +1469,43 @@
       }
     }
 
+    function readableHTTPError(response, data, fallback) {
+      const status = response && response.status;
+      if (status === 401 || status === 403) {
+        return "That AI rejected the request as unauthorized. Check the API key in Advanced settings.";
+      }
+      if (status === 429) {
+        return "The AI provider is rate-limiting requests. Please wait a moment and try again.";
+      }
+      if (status >= 500) {
+        return "The AI provider returned a server error. Please try again in a moment.";
+      }
+      return readableError(data, fallback);
+    }
+
     function readableError(data, fallback) {
       if (!data || typeof data !== "object") return fallback;
       if (typeof data.error === "string") return data.error;
       if (data.error && typeof data.error.message === "string") return data.error.message;
       if (typeof data.message === "string") return data.message;
       return fallback;
+    }
+
+    async function renderFooterMeta() {
+      // Try to read the local server version; silently fall back if unavailable.
+      try {
+        const response = await fetch("/api/version", { method: "GET" });
+        if (response.ok) {
+          const data = await response.json();
+          if (data && typeof data.version === "string") {
+            footerMetaEl.textContent = `Iris v${data.version} • local mode`;
+            return;
+          }
+        }
+      } catch {
+        /* fall through to static label */
+      }
+      footerMetaEl.textContent = "Iris • Burgess Principle";
     }
   </script>
 </body>

@@ -25,8 +25,9 @@ from typing import Any
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
+from iris import __version__ as IRIS_VERSION
 from iris.claim_builder import (
     auto_generate_claim,
     queue_onchain_fingerprint,
@@ -67,6 +68,7 @@ def print_sovereign_banner(config: dict) -> None:
         "• All inference & commitments stay on-device",
         "• Powered by v0.4.0 cryptographic human scrutiny (Burgess Principle)",
         "",
+        f"Iris version: {IRIS_VERSION}",
         f"Source fingerprint: {short_fingerprint} (v0.4.0 self-verified)",
         f"Model: {model_name:40}",
         f"Port : {port} | GPU: {gpu_status}",
@@ -85,6 +87,25 @@ def print_sovereign_banner(config: dict) -> None:
 _ROOT = Path(__file__).resolve().parent
 _CONFIG_PATH = _ROOT / "iris-config.json"
 _SYSTEM_PROMPT_PATH = _ROOT / "iris" / "system-prompt.md"
+_IRIS_HTML_PATH = _ROOT / "iris.html"
+_INDEX_HTML_PATH = _ROOT / "index.html"
+_PROMPT_SCRIPT_OPEN = '<script id="iris-system-prompt" type="text/plain">'
+_PROMPT_SCRIPT_CLOSE = "</script>"
+
+
+def _inject_system_prompt(html_text: str, prompt_text: str) -> str:
+    """Replace the embedded #iris-system-prompt content with the canonical prompt.
+
+    Returns the HTML unchanged if the script tag is not present.
+    """
+    open_idx = html_text.find(_PROMPT_SCRIPT_OPEN)
+    if open_idx == -1:
+        return html_text
+    body_start = open_idx + len(_PROMPT_SCRIPT_OPEN)
+    close_idx = html_text.find(_PROMPT_SCRIPT_CLOSE, body_start)
+    if close_idx == -1:
+        return html_text
+    return html_text[:body_start] + prompt_text + html_text[close_idx:]
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -113,6 +134,7 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
     defaults = {
         "model_path": "models/phi-3-mini-4k-instruct-q4.gguf",
         "context_size": 2048,
+        "host": "127.0.0.1",
         "port": 8000,
         "gpu_acceleration": False,
         "easy_mode": True,
@@ -125,16 +147,21 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
         "mirror_custom_greeting": "",
         "mirror_reflection_scope": "vault_only",
         "post_quantum": False,
+        "cors_allow_all": False,
         "user_profile": {},
     }
 
-    if _CONFIG_PATH.exists():
+    config_path = _CONFIG_PATH
+    if cli_overrides is not None and getattr(cli_overrides, "config", None):
+        config_path = Path(cli_overrides.config).expanduser()
+
+    if config_path.exists():
         try:
-            with open(_CONFIG_PATH, encoding="utf-8") as f:
+            with open(config_path, encoding="utf-8") as f:
                 file_cfg = json.load(f)
             defaults = _merge_config(defaults, file_cfg)
         except (json.JSONDecodeError, OSError) as exc:
-            log.warning("Could not read %s: %s — using defaults.", _CONFIG_PATH, exc)
+            log.warning("Could not read %s: %s — using defaults.", config_path, exc)
 
     if cli_overrides is not None:
         if cli_overrides.model:
@@ -143,10 +170,14 @@ def load_config(cli_overrides: argparse.Namespace | None = None) -> dict:
             defaults["context_size"] = cli_overrides.context
         if cli_overrides.port:
             defaults["port"] = cli_overrides.port
+        if getattr(cli_overrides, "host", None):
+            defaults["host"] = cli_overrides.host
         if cli_overrides.gpu:
             defaults["gpu_acceleration"] = True
         if getattr(cli_overrides, "post_quantum", False):
             defaults["post_quantum"] = True
+        if getattr(cli_overrides, "cors_allow_all", False):
+            defaults["cors_allow_all"] = True
 
     return defaults
 
@@ -308,11 +339,25 @@ def create_app(
     app = FastAPI(title="Iris Local", docs_url=None, redoc_url=None)
     app.state.personal_profile = personal_profile
     app.state.runtime_config = runtime_config or {}
+    app.state.iris_html_cache = None
+    app.state.index_html_cache = None
+    app.state.html_cache_lock = threading.Lock()
+
+    cfg = app.state.runtime_config
+    port = int(cfg.get("port", 8000))
+    if cfg.get("cors_allow_all"):
+        cors_origins: list[str] | str = ["*"]
+    else:
+        # Loopback-only — the server binds to 127.0.0.1 by default.
+        cors_origins = [
+            f"http://localhost:{port}",
+            f"http://127.0.0.1:{port}",
+        ]
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],
-        allow_methods=["POST", "OPTIONS"],
+        allow_origins=cors_origins,
+        allow_methods=["GET", "POST", "OPTIONS"],
         allow_headers=["Content-Type"],
     )
 
@@ -369,11 +414,17 @@ def create_app(
                     "Connection": "keep-alive",
                 },
             )
-        except Exception:
+        except Exception:  # noqa: BLE001 — we deliberately log + sanitise every backend failure
+            log.exception("Local model inference failed.")
             return JSONResponse(
                 {"error": "Model inference failed. Check the server logs for details."},
                 status_code=500,
             )
+
+    @app.get("/api/version")
+    async def get_version():
+        """Return the running Iris version (single source of truth)."""
+        return JSONResponse({"version": IRIS_VERSION})
 
     @app.post("/api/generate-claim")
     async def generate_claim(request: Request):
@@ -519,15 +570,40 @@ def create_app(
         app.state.personal_profile = result["profile"]
         return JSONResponse(result)
 
-    # Serve index.html at root
+    # Serve index.html at root, with the canonical system prompt injected
+    # into the embedded <script id="iris-system-prompt"> tag if present.
+    def _read_html_with_prompt(path: Path, cache_attr: str) -> bytes | None:
+        cached = getattr(app.state, cache_attr)
+        if cached is not None:
+            return cached
+        if not path.exists():
+            return None
+        # Serialise concurrent first-reads so the file is opened and the prompt
+        # injected at most once. Cheap (the files are small) but keeps the
+        # behaviour deterministic under load.
+        with app.state.html_cache_lock:
+            cached = getattr(app.state, cache_attr)
+            if cached is not None:
+                return cached
+            text = path.read_text(encoding="utf-8")
+            injected = _inject_system_prompt(text, system_prompt)
+            encoded = injected.encode("utf-8")
+            setattr(app.state, cache_attr, encoded)
+            return encoded
+
     @app.get("/")
     async def serve_index():
-        index_path = _ROOT / "index.html"
-        content = index_path.read_bytes()
-        return StreamingResponse(
-            iter([content]),
-            media_type="text/html",
-        )
+        content = _read_html_with_prompt(_INDEX_HTML_PATH, "index_html_cache")
+        if content is None:
+            return JSONResponse({"error": "index.html not found."}, status_code=404)
+        return HTMLResponse(content)
+
+    @app.get("/iris.html")
+    async def serve_iris_html():
+        content = _read_html_with_prompt(_IRIS_HTML_PATH, "iris_html_cache")
+        if content is None:
+            return JSONResponse({"error": "iris.html not found."}, status_code=404)
+        return HTMLResponse(content)
 
     # Serve static assets from the project root (banner.png, robots.txt, etc.)
     app.mount("/", StaticFiles(directory=str(_ROOT)), name="static")
@@ -564,10 +640,28 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Port for the local server (default: 8000)",
     )
     parser.add_argument(
+        "--host",
+        type=str,
+        default=None,
+        help="Host/interface to bind to (default: 127.0.0.1; loopback only)",
+    )
+    parser.add_argument(
+        "--config",
+        type=str,
+        default=None,
+        help="Path to an alternative iris-config.json (default: ./iris-config.json)",
+    )
+    parser.add_argument(
         "--gpu",
         action="store_true",
         default=False,
         help="Enable GPU acceleration (requires compatible llama-cpp-python build)",
+    )
+    parser.add_argument(
+        "--cors-allow-all",
+        action="store_true",
+        default=False,
+        help="Allow any origin via CORS (default: only http://localhost and http://127.0.0.1 on the configured port)",
     )
     parser.add_argument(
         "--post-quantum",
@@ -619,6 +713,7 @@ def main(argv: list[str] | None = None) -> None:
     app = create_app(system_prompt, personal_profile=personal_profile, runtime_config=cfg)
 
     port = cfg["port"]
+    host = cfg.get("host", "127.0.0.1")
 
     # Open browser after a short delay
     if not args.no_browser:
@@ -628,10 +723,10 @@ def main(argv: list[str] | None = None) -> None:
 
         threading.Timer(1.5, _open_browser).start()
 
-    log.info("Starting Iris Local on http://localhost:%d", port)
+    log.info("Starting Iris Local on http://%s:%d", host, port)
     log.info("Press Ctrl+C to stop.")
 
-    uvicorn.run(app, host="127.0.0.1", port=port, log_level="warning")
+    uvicorn.run(app, host=host, port=port, log_level="warning")
 
 
 if __name__ == "__main__":

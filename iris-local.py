@@ -341,6 +341,7 @@ def create_app(
     app.state.runtime_config = runtime_config or {}
     app.state.iris_html_cache = None
     app.state.index_html_cache = None
+    app.state.html_cache_lock = threading.Lock()
 
     cfg = app.state.runtime_config
     port = int(cfg.get("port", 8000))
@@ -413,7 +414,7 @@ def create_app(
                     "Connection": "keep-alive",
                 },
             )
-        except (ValueError, OSError, RuntimeError):
+        except Exception:  # noqa: BLE001 — we deliberately log + sanitise every backend failure
             log.exception("Local model inference failed.")
             return JSONResponse(
                 {"error": "Model inference failed. Check the server logs for details."},
@@ -577,11 +578,18 @@ def create_app(
             return cached
         if not path.exists():
             return None
-        text = path.read_text(encoding="utf-8")
-        injected = _inject_system_prompt(text, system_prompt)
-        encoded = injected.encode("utf-8")
-        setattr(app.state, cache_attr, encoded)
-        return encoded
+        # Serialise concurrent first-reads so the file is opened and the prompt
+        # injected at most once. Cheap (the files are small) but keeps the
+        # behaviour deterministic under load.
+        with app.state.html_cache_lock:
+            cached = getattr(app.state, cache_attr)
+            if cached is not None:
+                return cached
+            text = path.read_text(encoding="utf-8")
+            injected = _inject_system_prompt(text, system_prompt)
+            encoded = injected.encode("utf-8")
+            setattr(app.state, cache_attr, encoded)
+            return encoded
 
     @app.get("/")
     async def serve_index():

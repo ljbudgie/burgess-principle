@@ -754,7 +754,15 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
     const SYSTEM_PROMPT = (function readEmbeddedPrompt() {
       const node = document.getElementById("iris-system-prompt");
       const text = node ? node.textContent.trim() : "";
-      return text || "You are Iris, the calm AI companion to the Burgess Principle. Help the user document what happened, classify replies under the binary test (SOVEREIGN, NULL, AMBIGUOUS), and never give legal advice.";
+      if (text) return text;
+      // Single-source-of-truth invariant: the canonical prompt is embedded by the
+      // build (or re-injected by iris-local.py) into #iris-system-prompt. If it is
+      // missing we deliberately surface an empty string so the failure is visible
+      // upstream (the request will not silently use a divergent local copy).
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("Iris: #iris-system-prompt is missing or empty; the request will be sent without a system prompt.");
+      }
+      return "";
     })();
     const FIRST_MESSAGE = "Hello. I'm Iris. Tell me what happened — in your own words, however you like. I'll help you work out what to do next.";
     const DEFAULT_MODEL = "claude-sonnet-4-20250514";
@@ -1088,6 +1096,8 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
         if (aborted) {
           if (firstTokenSeen) {
             appendMessage("assistant", replyChunks.join("").trim() + "\n\n_[stopped]_");
+          } else {
+            appendSystemNotice("Stopped before Iris had begun replying.");
           }
         } else {
           const message = (error && error.message) ||

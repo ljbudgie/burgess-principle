@@ -248,6 +248,38 @@ python3 iris-local.py
 
 The same `index.html` serves both modes; local mode auto-routes API calls to the local server when running on localhost. Configuration lives in [`../iris-config.json`](../iris-config.json).
 
+#### CLI flags
+
+| Flag | Default | Purpose |
+| --- | --- | --- |
+| `--port <n>` | `8000` | Port for the local server. |
+| `--host <addr>` | `127.0.0.1` | Interface to bind to. The default is loopback only; pass `0.0.0.0` only if you intentionally want a LAN device (e.g. a tablet) to reach Iris on a network you trust. |
+| `--config <path>` | `./iris-config.json` | Use an alternative config file. Useful for tests and multi-profile setups. |
+| `--model <path>` | from config | Override the GGUF model path. |
+| `--context <n>` | from config | Context window size. |
+| `--gpu` | off | Enable GPU acceleration (requires a compatible llama-cpp-python build). |
+| `--cors-allow-all` | off | Opt back into the legacy `*` CORS wildcard. By default CORS is restricted to `http://localhost:<port>` and `http://127.0.0.1:<port>` because the server binds to loopback. |
+| `--no-browser` | — | Don't auto-open the browser at startup. |
+| `--post-quantum` | off | Sign with a hybrid classical + post-quantum signature. |
+
+#### Local API surface
+
+In addition to the sovereign vault and claim-builder routes documented elsewhere, the local server exposes:
+
+- `POST /api/chat` — streaming Server-Sent Events (`text/event-stream`) of token deltas from the local model. Returns `{ "error": "Model inference failed. Check the server logs for details." }` with HTTP 500 on inference failure (the underlying exception class and message are deliberately not leaked to the client; they are written to the server log via `log.exception`).
+- `GET /api/version` — returns `{ "version": "<iris.__version__>" }`. Used by the PWA footer to display the running build.
+
+The server also serves `iris.html` and `index.html` and re-injects the canonical system prompt from [`./system-prompt.md`](./system-prompt.md) into the embedded `<script id="iris-system-prompt" type="text/plain">…</script>` block on each first read so the local UI cannot drift from the canonical prompt.
+
+#### Streaming, Stop, and conversation export
+
+The PWA in `iris.html`:
+
+- **Streams** replies into the chat bubble as Server-Sent Events arrive (works against the Cloudflare proxy, the local server, Anthropic, and OpenAI/OpenAI-compatible endpoints). If `ReadableStream` isn't available, it falls back to non-streaming JSON.
+- **Stop button** replaces Send while a reply is being generated. It calls `AbortController.abort()`; any partial text that already arrived is preserved with a `_[stopped]_` marker.
+- **Conversation toolbar** (top-right) lets you start a new conversation, export the current conversation as `.md` or `.json`, or copy Iris's last reply to the clipboard. Everything happens in-browser; nothing is uploaded.
+- **Backend errors** (401/403/429/5xx) are now rendered as a distinct system notice with a "Try again" button rather than spoken in Iris's voice.
+
 ---
 
 ## Architecture

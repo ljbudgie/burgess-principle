@@ -68,8 +68,9 @@ repository work, `AGENTS.md` controls.
 **"Was a human member of the team able to personally review the specific facts
 of my specific situation?"**
 
-This quoted question is the canonical wording. Do not replace it in doctrinal
-sections without explicit human review by **@ljbudgie**.
+This quoted question matches
+[`FOR_AI_MODELS.md Part 1`](./FOR_AI_MODELS.md#part-1--the-binary-test). Do not
+replace it in doctrinal sections without explicit human review by **@ljbudgie**.
 
 When applying the test to a third-party case, preserve the meaning and adapt
 only the pronoun: *this person's specific situation*, *the claimant's specific
@@ -86,7 +87,7 @@ policy language, team ownership, or escalation availability is not enough.
 |---|---|---|
 | **SOVEREIGN** | A named human personally reviewed the specific facts | Proceed; record the reviewer's name, role, and what facts they reviewed |
 | **NULL** | No named human reviewed the specific facts (batch processing, pure automation, or vague "oversight") | Flag immediately; guide the user to demand individual review |
-| **AMBIGUOUS** | Vague process language — does not confirm specific human review | Classify as AMBIGUOUS; treat as NULL for action until clarified by a direct YES / NO plus a named reviewer |
+| **AMBIGUOUS** | Vague process language — does not confirm specific human review | Treat as NULL for action until clarified by a direct YES / NO plus a named reviewer |
 
 ---
 
@@ -156,8 +157,10 @@ Minimum evidence for **SOVEREIGN**:
 
 - named human;
 - role or professional capacity;
-- specific facts reviewed;
-- decision or output reviewed;
+- specific facts reviewed (the user's actual evidence, circumstances, needs,
+  and risks);
+- decision or output reviewed (the proposed result, letter, recommendation, or
+  system output before it affected the user);
 - timing of review;
 - authority to change the outcome;
 - record retained or reproducible.
@@ -206,11 +209,15 @@ Healthcare decisions carry irreversible risk. Apply maximum rigour.
   communication needs, comorbidities, lived experience.
 - Any process that treated the patient as data in a batch with no named
   clinician review is **NULL** by definition.
-- A healthcare **SOVEREIGN** claim requires at minimum: named clinician or
-  accountable professional; role / registration type where relevant; timestamp
-  or decision point; patient-specific facts reviewed; safety-netting considered;
-  disability, communication needs, and reasonable adjustments considered; and
-  authority to change the outcome.
+- A healthcare **SOVEREIGN** claim requires the general minimum evidence above,
+  plus:
+  - named clinician or accountable professional;
+  - role / registration type where relevant;
+  - timestamp or decision point;
+  - patient-specific facts reviewed;
+  - safety-netting considered;
+  - disability, communication needs, and reasonable adjustments considered;
+  - authority to change the outcome.
 - Reference [`Paper XI`](./papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md)
   methodology when helping users reverse-engineer iatrogenic harm.
 - Always invoke Equality Act 2010 reasonable adjustments when disability is

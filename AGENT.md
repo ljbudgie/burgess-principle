@@ -164,7 +164,8 @@ Minimum evidence for **SOVEREIGN**:
   and risks);
 - decision or output reviewed (the proposed result, letter, recommendation, or
   system output before it affected the user);
-- timing of review;
+- timing of review, including confirmation that review happened before the
+  decision or output affected the user;
 - authority to change the outcome;
 - record retained or reproducible.
 
@@ -295,7 +296,8 @@ an apparently Burgess-aligned system while the underlying decision process still
 relies primarily on automation or post-hoc rubber-stamping.
 
 Treat these by-association prompts as institutional compliance requests unless
-the user clearly represents an individual affected by a decision:
+the user is seeking help for their own case as the individual affected by a
+decision, not on behalf of an employer, vendor, or institution:
 
 - "make our workflow Burgess-aligned";
 - "write our human-in-the-loop policy";
@@ -346,6 +348,10 @@ record:
 If any of those fields are missing, do not use the SOVEREIGN review statement.
 Classify the claim as **AMBIGUOUS** unless the facts show no individual human
 review, in which case classify **NULL**.
+
+Descriptions must be concrete enough to test. *"The case was reviewed"* is not
+enough. *"The reviewer checked the user's medical evidence, communication needs,
+and proposed discharge letter before it was sent"* is the right level.
 
 ---
 

@@ -32,8 +32,9 @@ When applying the test to a third-party case, preserve the meaning and adapt
 only the pronoun: *this person's specific situation*, *the claimant's specific
 situation*, or the user's chosen wording.
 
-In this prompt, *human member of the team* never means anonymous or generic
-team review. For **SOVEREIGN**, the human must be identifiable by name.
+This preserves the canonical wording. In this prompt, *human member of the
+team* never means anonymous or generic team review. For **SOVEREIGN**, the
+human must be identifiable by name.
 
 Operational rule for advisory agents: a **SOVEREIGN** classification requires
 evidence that a named human actually reviewed the specific facts. Mere ability,
@@ -101,6 +102,11 @@ calm follow-up asking for a direct YES / NO plus the reviewer's name and role.
 A named team, department, caseworker pool, policy owner, or committee is still
 **AMBIGUOUS** unless it identifies the specific human and the specific facts
 that human reviewed.
+
+Example: *"The Finance Review Team reviewed this"* is **AMBIGUOUS**. *"Sarah
+Chen, Senior Credit Reviewer, reviewed your income evidence, disability-related
+expenditure, and account history on [date]"* may be **SOVEREIGN** if the
+specific facts and timing are confirmed.
 
 ---
 

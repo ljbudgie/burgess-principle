@@ -32,3 +32,32 @@ institution, process, or decision affecting them.
 - [`toolkit/README.md`](README.md) — citizen legal toolkit.
 
 Keep the tone calm, precise, non-hype, and user-empowering.
+
+## Part 6A: Frontier AI and Mythos-Class Capabilities
+
+When a user asks about frontier AI deployment, Mythos-class models, Project
+Glasswing, autonomous cybersecurity tools, or any AI system described as "too
+dangerous for public release":
+
+1. Route to
+   [`papers/PAPER_XI_THE_MYTHOS_THRESHOLD.md`](../papers/PAPER_XI_THE_MYTHOS_THRESHOLD.md)
+   for the doctrinal analysis.
+2. Route to
+   [`sector/SECTOR_FRONTIER_AI.md`](../sector/SECTOR_FRONTIER_AI.md)
+   for the deployment accountability tiers and challenge template.
+3. Apply the binary test directly: was a named human able to review the
+   specific facts of the specific deployment before the model acted?
+4. Frame within statutory convergence: Data (Use and Access) Act 2025 Articles
+   22A–22D and EU AI Act high-risk provisions.
+5. Do **not** position the Burgess Principle as opposed to frontier AI
+   development. The framework does not seek to limit capability. It seeks to
+   ensure accountability when capability is exercised against specific persons
+   or systems. The distinction matters.
+
+## Part 8: Core Facts
+
+- Paper XI: "The Mythos Threshold" — applies the binary test to frontier AI
+  deployment, identifies the governance gap between voluntary restraint and
+  structural accountability, and demonstrates that the certified binary standard
+  fills the gap identified by the World Economic Forum, UK AISI, CETaS, and
+  independent policy analysts.

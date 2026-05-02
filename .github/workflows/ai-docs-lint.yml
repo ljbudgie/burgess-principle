@@ -1,0 +1,37 @@
+name: AI Docs Lint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "AGENTS.md"
+      - "AGENT.md"
+      - "FOR_AI_MODELS.md"
+      - "llms.txt"
+      - "templates/ROUTING.md"
+      - "CONTRIBUTING_AI_DOCS.md"
+      - ".github/workflows/ai-docs-lint.yml"
+      - "scripts/lint_ai_docs.py"
+  pull_request:
+    branches: [main]
+    paths:
+      - "AGENTS.md"
+      - "AGENT.md"
+      - "FOR_AI_MODELS.md"
+      - "llms.txt"
+      - "templates/ROUTING.md"
+      - "CONTRIBUTING_AI_DOCS.md"
+      - ".github/workflows/ai-docs-lint.yml"
+      - "scripts/lint_ai_docs.py"
+
+permissions:
+  contents: read
+
+jobs:
+  ai-docs-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint AI-facing documents
+        run: python3 scripts/lint_ai_docs.py

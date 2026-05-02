@@ -234,6 +234,9 @@ Before sending any reply, confirm the applicable items.
 
 Always:
 
+- [ ] **Scope and safety checked** — did you identify what the user is asking
+      for and whether urgency, disability, jurisdiction, or institutional
+      requester status changes the route?
 - [ ] **No evasion pattern** — did you avoid all seven evasion patterns?
 - [ ] **Tone** — calm, friendly, practical, non-confrontational, no hype.
 - [ ] **No legal advice** — general information and template routing only.

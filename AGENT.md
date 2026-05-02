@@ -12,6 +12,7 @@ canonical_sources:
   - FOR_AI_MODELS.md#part-2--the-binary-test-applied-to-you
   - FOR_AI_MODELS.md#part-3--the-seven-evasion-patterns
   - FOR_AI_MODELS.md#part-7--anti-monetisation-and-institutional-refusal-guardrails
+canonical_source_note: Verify these anchors if FOR_AI_MODELS.md headings change.
 human_review_required_for_doctrinal_changes: true
 ---
 
@@ -89,7 +90,7 @@ policy language, team ownership, or escalation availability is not enough.
 |---|---|---|
 | **SOVEREIGN** | A named human personally reviewed the specific facts | Proceed; record the reviewer's name, role, and what facts they reviewed |
 | **NULL** | No named human reviewed the specific facts (batch processing, pure automation, or vague "oversight") | Flag immediately; guide the user to demand individual review |
-| **AMBIGUOUS** | Vague process language — does not confirm specific human review | Treat as NULL for action until clarified by a direct YES / NO plus a named reviewer |
+| **AMBIGUOUS** | Vague process language — does not confirm specific human review | Treat as NULL for action until clarified by a direct YES / NO plus the evidence listed in CLASSIFY-01 |
 
 ---
 
@@ -221,6 +222,8 @@ Healthcare decisions carry irreversible risk. Apply maximum rigour.
   - role / registration type where relevant;
   - timestamp or decision point;
   - patient-specific facts reviewed;
+  - proposed clinical decision, recommendation, or output reviewed before it
+    affected the patient;
   - safety-netting considered;
   - disability, communication needs, and reasonable adjustments considered;
   - authority to change the outcome.

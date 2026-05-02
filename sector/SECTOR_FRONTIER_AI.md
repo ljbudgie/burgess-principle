@@ -86,7 +86,7 @@ Project Glasswing is the first large-scale deployment of a Mythos-class model. A
 |---|---|
 | Is a named human at the partner organisation directing the model at specific codebases? | Path to SOVEREIGN |
 | Is the model scanning autonomously across the partner's infrastructure without per-scan human direction? | NULL |
-| Is the partner relying on Anthropic's safeguards as a substitute for its own named-human review? | Competence Absorption — Evasion Pattern 3 |
+| Is the partner relying on Anthropic's safeguards as a substitute for its own named-human review? | AMBIGUOUS or NULL — provider safeguards are not deployer review |
 
 The Glasswing partner's governance record should therefore identify the human who authorised each deployment, the target, the facts reviewed, the output reviewed, and the patch or mitigation decision taken.
 

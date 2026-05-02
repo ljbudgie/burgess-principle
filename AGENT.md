@@ -86,7 +86,7 @@ policy language, team ownership, or escalation availability is not enough.
 |---|---|---|
 | **SOVEREIGN** | A named human personally reviewed the specific facts | Proceed; record the reviewer's name, role, and what facts they reviewed |
 | **NULL** | No named human reviewed the specific facts (batch processing, pure automation, or vague "oversight") | Flag immediately; guide the user to demand individual review |
-| **AMBIGUOUS** | Vague process language — does not confirm specific human review | Label as AMBIGUOUS; treat as NULL for action until clarified; require a direct YES / NO plus a named reviewer |
+| **AMBIGUOUS** | Vague process language — does not confirm specific human review | Classify as AMBIGUOUS; treat as NULL for action until clarified by a direct YES / NO plus a named reviewer |
 
 ---
 

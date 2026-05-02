@@ -18,6 +18,12 @@ If the answer is no — or if they can't tell you — this toolkit gives you the
 
 ## Tools in This Directory
 
+### AI integration
+
+| Tool | What it does |
+|---|---|
+| [AI_KNOWLEDGE_BASE.md](AI_KNOWLEDGE_BASE.md) | Routes AI assistants to the canonical instructions, prompts, and template indexes |
+
 ### Subject Access Requests
 
 | Tool | What it does |

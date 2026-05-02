@@ -15,7 +15,7 @@ and the lightweight CI lint that protects the canonical wording.
 | [`docs/AGENT_90_DAY_PLAN.md`](./docs/AGENT_90_DAY_PLAN.md) | The transformation roadmap (ages quickly)                                  | Anyone                                                     |
 | [`iris/prompts/*`](./iris/prompts/)                  | Drop-in system prompts at three lengths                                            | Anyone — keep in tone with `FOR_AI_MODELS.md`              |
 | Tool shims (`.github/copilot-instructions.md`, `CLAUDE.md`, `.cursor/rules/burgess.mdc`, `.windsurfrules`, `.clinerules`, `.aider.conf.yml`) | Thin redirects to the canonical files | Anyone — keep them ≤20 lines and faithful to the canonical files |
-| `AGENT.md`                                           | Back-compat pointer to `AGENTS.md`                                                 | Do not expand — it is intentionally minimal                |
+| [`AGENT.md`](./AGENT.md)                             | Master operational prompt for **advisory agents** helping users apply the Principle | Anyone — doctrinal changes require @ljbudgie review        |
 
 ## Doctrinal sections (require explicit human review by @ljbudgie)
 
@@ -52,6 +52,10 @@ Every PR that touches an AI-facing file must include a filled-in **Burgess
 Compliance Note** (template in [`AGENTS.md`](./AGENTS.md)). It is the
 single-page record that the change strengthens, or at least does not weaken,
 meaningful human oversight.
+
+If a PR changes `canonical_sources` or other anchored cross-references in
+`AGENT.md`, manually verify that each target heading still exists in the linked
+file and mention that check in the PR description.
 
 ## Tone
 

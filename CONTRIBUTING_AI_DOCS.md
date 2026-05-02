@@ -15,7 +15,7 @@ and the lightweight CI lint that protects the canonical wording.
 | [`docs/AGENT_90_DAY_PLAN.md`](./docs/AGENT_90_DAY_PLAN.md) | The transformation roadmap (ages quickly)                                  | Anyone                                                     |
 | [`iris/prompts/*`](./iris/prompts/)                  | Drop-in system prompts at three lengths                                            | Anyone — keep in tone with `FOR_AI_MODELS.md`              |
 | Tool shims (`.github/copilot-instructions.md`, `CLAUDE.md`, `.cursor/rules/burgess.mdc`, `.windsurfrules`, `.clinerules`, `.aider.conf.yml`) | Thin redirects to the canonical files | Anyone — keep them ≤20 lines and faithful to the canonical files |
-| `AGENT.md`                                           | Back-compat pointer to `AGENTS.md`                                                 | Do not expand — it is intentionally minimal                |
+| [`AGENT.md`](./AGENT.md)                             | Master operational prompt for **advisory agents** helping users apply the Principle | Anyone — doctrinal changes require @ljbudgie review        |
 
 ## Doctrinal sections (require explicit human review by @ljbudgie)
 

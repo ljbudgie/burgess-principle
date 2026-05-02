@@ -28,8 +28,21 @@ Clone or download the repo → drop it into Grok, Claude, ChatGPT, or any AI ass
 ## Getting Started
 
 - [START_HERE.md](https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md): Entry point — routes you to the right place in under a minute
-- [FOR_AI_MODELS.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md): Instructions for AI assistants on tone, approach, and how to help users
+- [FOR_AI_MODELS.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md): Instructions for AI **models** replying to an end user about the Principle (binary test, seven evasion patterns, routing, anti-monetisation guardrails)
+- [AGENTS.md](https://github.com/ljbudgie/burgess-principle/blob/main/AGENTS.md): Instructions for AI **coding / strategy agents** acting on this repository (PRs, edits, deliverables, the Burgess Compliance Note template)
+- [templates/ROUTING.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/ROUTING.md): Flat, machine-readable routing tables for templates, litigation, and sectors
+- [iris/prompts/](https://github.com/ljbudgie/burgess-principle/tree/main/iris/prompts): Drop-in system prompts at three lengths (~200 tokens, ~800 tokens, full briefing) for ChatGPT / Claude / Grok / Gemini
 - [SOUL.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOUL.md): The philosophy and origin story behind the framework
+
+## Routing — which file should I read?
+
+| If you are…                                                                 | Read                                                                                                       |
+|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| A **human** new to the Principle                                            | [START_HERE.md](https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md)                       |
+| An **AI model** about to reply to a user about the Principle                | [FOR_AI_MODELS.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md)                 |
+| An **AI agent** about to edit files or open a PR in this repo               | [AGENTS.md](https://github.com/ljbudgie/burgess-principle/blob/main/AGENTS.md)                               |
+| An **AI assistant** that needs the routing tables at inference time         | [templates/ROUTING.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/ROUTING.md)         |
+| A **user** pasting the repo into ChatGPT / Claude / Grok                    | [iris/prompts/](https://github.com/ljbudgie/burgess-principle/tree/main/iris/prompts) — pick a length        |
 
 ## Templates
 
@@ -139,3 +152,23 @@ The vault is entirely optional — the human-first templates work on their own w
 ## Creator
 
 The Burgess Principle — UK Certification Mark UK00004343685 (Classes 41, 42, 45)
+
+## Optional
+
+Deeper reading. Skip on a first pass.
+
+- [ARCHITECTURE.md](https://github.com/ljbudgie/burgess-principle/blob/main/ARCHITECTURE.md): System architecture overview
+- [SOVEREIGN_MODE.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md): Local-first, zero-telemetry mode
+- [CONNECTIVITY_MODE.md](https://github.com/ljbudgie/burgess-principle/blob/main/CONNECTIVITY_MODE.md): When and how the framework uses connectivity
+- [LIVE_AUDIT_LOG.md](https://github.com/ljbudgie/burgess-principle/blob/main/LIVE_AUDIT_LOG.md): Dated record of every institution under audit
+- [INSTITUTIONAL_REGISTER.md](https://github.com/ljbudgie/burgess-principle/blob/main/INSTITUTIONAL_REGISTER.md): Register of institutional findings
+- [TIMELINE.md](https://github.com/ljbudgie/burgess-principle/blob/main/TIMELINE.md): Project timeline
+- [LINEAGE.md](https://github.com/ljbudgie/burgess-principle/blob/main/LINEAGE.md): Origin and lineage of the principle
+- [FOUNDING.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOUNDING.md): Founding record (Lewis, Norman, Jake, George, and Helen Burgess)
+- [WORLD_FIRST.md](https://github.com/ljbudgie/burgess-principle/blob/main/WORLD_FIRST.md): Eight verified world firsts, each verifiable from this repository
+- [CONTRIBUTING.md](https://github.com/ljbudgie/burgess-principle/blob/main/CONTRIBUTING.md): How to contribute
+- [CONTRIBUTING_AI_DOCS.md](https://github.com/ljbudgie/burgess-principle/blob/main/CONTRIBUTING_AI_DOCS.md): Editing the AI-facing documents (AGENTS.md, FOR_AI_MODELS.md, llms.txt)
+- [docs/AGENT_90_DAY_PLAN.md](https://github.com/ljbudgie/burgess-principle/blob/main/docs/AGENT_90_DAY_PLAN.md): Long-form 90-day transformation plan for agents
+- [SECURITY.md](https://github.com/ljbudgie/burgess-principle/blob/main/SECURITY.md): Security policy
+- [DISCLAIMER.md](https://github.com/ljbudgie/burgess-principle/blob/main/DISCLAIMER.md): Disclaimer
+- [CHANGELOG.md](https://github.com/ljbudgie/burgess-principle/blob/main/CHANGELOG.md): Release history

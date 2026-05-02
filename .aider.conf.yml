@@ -1,0 +1,9 @@
+# Aider configuration for the Burgess Principle repository.
+#
+# Thin shim. The canonical AI-facing files are AGENTS.md (for coding agents)
+# and FOR_AI_MODELS.md (for models replying to a user). Both are loaded into
+# the chat by default so Aider sees the rules and the doctrine on every run.
+
+read:
+  - AGENTS.md
+  - FOR_AI_MODELS.md

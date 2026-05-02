@@ -122,4 +122,4 @@ Every other component in the ecosystem applies, implements, or integrates this s
 - **Author:** Lewis James Burgess, Darlington, UK.
 - **Contact:** lewisjames@theburgessprinciple.com.
 - **Source code licence:** MIT.
-- **Standard licence:** Governed by UK Certification Mark UK00004343685; tier structure is described in [`README.md`](README.md#licensing-structure).
+- **Standard licence:** Governed by UK Certification Mark UK00004343685; tier structure is described in [`README.md`](README.md#licensing).

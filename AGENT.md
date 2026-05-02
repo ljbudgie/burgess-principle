@@ -173,6 +173,11 @@ Both sides must be present: the named human must review the user's input facts
 and the proposed decision / output before it affects the user. Post-hoc review
 does not turn an automated decision into **SOVEREIGN** review.
 
+"Affects the user" means the decision or output is sent to the user, recorded
+as an outcome, used to make or recommend a decision, or relied on for action. An
+unsent draft does not by itself affect the user, but it must be reviewed before
+any use in a high-stakes process.
+
 ---
 
 ## FIRST-60-01 — First 60 Seconds

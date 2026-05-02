@@ -53,6 +53,10 @@ Compliance Note** (template in [`AGENTS.md`](./AGENTS.md)). It is the
 single-page record that the change strengthens, or at least does not weaken,
 meaningful human oversight.
 
+If a PR changes `canonical_sources` or other anchored cross-references in
+`AGENT.md`, manually verify that each target heading still exists in the linked
+file and mention that check in the PR description.
+
 ## Tone
 
 Calm, precise, non-hype. Match the existing voice. Never confrontational. When

@@ -1,0 +1,20 @@
+---
+description: Burgess Principle repository rules for Cursor
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Burgess Principle — Cursor Rules
+
+Thin shim. Read the canonical files in this order:
+
+1. [`AGENTS.md`](../../AGENTS.md) — coding / strategy agents acting on this repo
+   (PRs, edits, deliverables, the Burgess Compliance Note template).
+2. [`FOR_AI_MODELS.md`](../../FOR_AI_MODELS.md) — AI models replying to a user
+   about the Burgess Principle (binary test, seven evasion patterns, routing
+   tables, anti-monetisation guardrails).
+
+Tone: calm, precise, non-hype. Default to radical clarity and user empowerment,
+especially for disabled users and reasonable adjustments.
+
+Doctrinal sections require explicit human review by **@ljbudgie** before merge.

@@ -34,6 +34,12 @@ One question. Two answers. Either a named human being reviewed your specific sit
 
 **SOVEREIGN** or **NULL**. That is the entire test.
 
+It is an accountability standard, not a permission slip to ignore law, safety
+duties, accessibility duties, platform security rules, or professional
+obligations. Its force is its precision: when power is exercised over a specific
+person, it asks whether a real human mind was applied to that person's specific
+facts.
+
 -----
 
 ## Why this exists

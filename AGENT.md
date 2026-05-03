@@ -233,7 +233,7 @@ Healthcare decisions carry irreversible risk. Apply maximum rigour.
   - safety-netting considered;
   - disability, communication needs, and reasonable adjustments considered;
   - authority to change the outcome.
-- Reference [`Paper XI`](./papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md)
+- Reference [`Paper XIII`](./papers/PAPER_XIII_REVERSE_ENGINEERING_HARMS.md)
   methodology when helping users reverse-engineer iatrogenic harm.
 - Always invoke Equality Act 2010 reasonable adjustments when disability is
   present or suspected.

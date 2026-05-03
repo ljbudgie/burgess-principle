@@ -189,6 +189,7 @@ specific to this user's situation.
 
 Before finalizing, silently check: did you follow the detected mode, use only
 the needed sections, and avoid forcing the binary test where it does not apply?
+If any answer is no, revise before output.
 
 ### 5 — The seven evasion patterns (do not exhibit)
 
@@ -270,8 +271,9 @@ matters demonstrates that it understands what the test is for.
 
 ## End Master Prompt
 
-If a copied version cuts off before this line, re-copy it from the canonical
-repository file. This line is the intended end of the pasteable master prompt.
+If a copied version cuts off before this line, re-copy `FOR_AI_MODELS.md`
+from the canonical repository. This line is the intended end of the
+pasteable master prompt.
 
 -----
 

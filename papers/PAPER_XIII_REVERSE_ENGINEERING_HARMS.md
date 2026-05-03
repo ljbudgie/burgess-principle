@@ -1,8 +1,8 @@
-# The Burgess Principle — Paper XI
+# The Burgess Principle — Paper XIII
 
 ## Reverse-Engineering Harms: A Methodology for Tracing Iatrogenic Injury Through Institutional Failure
 
-### Paper XI — Complete
+### Paper XIII — Complete
 
 **Lewis James Burgess**
 
@@ -22,7 +22,7 @@ UK Certification Mark: UK00004343685
 
 ## Abstract
 
-Papers I through X established the Burgess Principle binary test — SOVEREIGN or NULL — and deployed it across enforcement law, data protection, financial services, local government, medical devices, and the theological and philosophical foundations of individual human accountability. Paper XI extends the framework into a domain where the stakes are highest and the institutional failure most instructive: contested medical intervention in vulnerable populations.
+Papers I through X established the Burgess Principle binary test — SOVEREIGN or NULL — and deployed it across enforcement law, data protection, financial services, local government, medical devices, and the theological and philosophical foundations of individual human accountability. Paper XIII extends the framework into a domain where the stakes are highest and the institutional failure most instructive: contested medical intervention in vulnerable populations.
 
 This paper introduces **reverse-engineering harms** as a structured methodology for tracing iatrogenic injury backward from documented adverse outcomes through the full causal chain of institutional decisions that produced them. It is not a literature review. It is not a forward-looking risk-benefit analysis. It is backward induction applied to a specific class of preventable harm, with the Burgess Principle binary test applied at each decision node to identify where individual human accountability was absent.
 
@@ -30,7 +30,7 @@ The methodology is demonstrated in the domain of paediatric gender medicine, whe
 
 Parts 1 and 2 establish the methodology and the population evidence. Parts 3 through 5 apply the causal chain, identify the NULL decision nodes, and generalise the framework to other domains of contested medicine where the same structural failure pattern is present.
 
-This paper is one of a pair. Paper XII — *Burgess Notice and Mass Tariff Processing* — applies the same binary test at the opposite end of the scale of human experience: to $159 billion in US tariff refund obligations and to categorical retaliatory tariffs applied to UK businesses without individual review. Paper XI operates at the most intimate level of institutional power — decisions made inside a specific child's body. Paper XII operates at the most geopolitical level — decisions made across entire sectors and economies. The structure of the failure is identical in both. The question is the same. The standard is the same. Together they demonstrate that the Burgess Principle binary test is not domain-specific. It is the test that applies wherever institutional power is exercised over a specific human being without a named human being present at the decision.
+This paper was completed alongside Paper XII — *Burgess Notice and Mass Tariff Processing* — which applies the same binary test at the opposite end of the scale of human experience: to $159 billion in US tariff refund obligations and to categorical retaliatory tariffs applied to UK businesses without individual review. Paper XIII operates at the most intimate level of institutional power — decisions made inside a specific child's body. Paper XII operates at the most geopolitical level — decisions made across entire sectors and economies. The structure of the failure is identical in both. The question is the same. The standard is the same. Together they demonstrate that the Burgess Principle binary test is not domain-specific. It is the test that applies wherever institutional power is exercised over a specific human being without a named human being present at the decision.
 
 ---
 

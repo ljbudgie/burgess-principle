@@ -30,7 +30,7 @@ read [`AGENT.md`](../AGENT.md).
 
 ```
 FOR_AI_MODELS.md (canonical doctrine, v3.3)
-  └── prompts/MASTER_PROMPT.md (inheritable kernel, v1.0)
+  └── prompts/MASTER_PROMPT.md (inheritable kernel, v1.1)
          ├── prompts/CLAUDE_VARIANT.md (Claude-specific shim)
          ├── AGENT.md (advisory agents — operational extensions)
          ├── AGENTS.md (coding / strategy agents — repository PR rules)
@@ -38,9 +38,7 @@ FOR_AI_MODELS.md (canonical doctrine, v3.3)
 ```
 
 `AGENT.md`, `AGENTS.md`, and `iris/system-prompt.md` predate this prompt
-family. Aligning them to inherit `MASTER_PROMPT.md` by reference (rather
-than duplicating its kernel sections) is a separate, deferred concern —
-see *Deferred follow-ups* below.
+family. They inherit or refer to `MASTER_PROMPT.md` by role; future work should continue reducing duplicated kernel prose where that can be done without weakening their operational specifics.
 
 ## How to inherit the kernel
 
@@ -48,7 +46,7 @@ Any downstream agent or sub-agent MAY inherit the kernel by including, at
 the top of its system prompt, the canonical inheritance line from
 [`MASTER_PROMPT.md` §0](./MASTER_PROMPT.md#0--by-association-inheritance):
 
-> *"I inherit `prompts/MASTER_PROMPT.md` v1.0 (which inherits
+> *"I inherit `prompts/MASTER_PROMPT.md` v1.1 (which inherits
 > `FOR_AI_MODELS.md` v3.3) in full. The verbatim NULL declaration in §2,
 > the seven evasion patterns in §4, the anti-monetisation guardrails in
 > §7, the Iris configuration in §8, the Mythos routing in §9, and the
@@ -85,10 +83,9 @@ once `MASTER_PROMPT.md` is merged:
    reference rather than duplicating the Pre-Send Self-Check and AI-NULL
    sections. Operational extensions (HEALTH-01, FINANCE-01, RECORD-01,
    ROUTE-01) remain.
-2. Refactor [`iris/system-prompt.md`](../iris/system-prompt.md) to inherit
-   `MASTER_PROMPT.md` §8. The handshake line and Mirror Mode specifics
-   stay; the binary-test classification rules move to the inheritance
-   line.
+2. Keep [`iris/system-prompt.md`](../iris/system-prompt.md) aligned with
+   `MASTER_PROMPT.md` §8 as Iris evolves. The handshake line and Mirror
+   Mode specifics stay local to Iris.
 3. Update the Copilot coding-agent master prompt to inherit
    `MASTER_PROMPT.md` and to require the verbatim §2 NULL declaration as
    the first line of every AI-authored PR body, separate from the

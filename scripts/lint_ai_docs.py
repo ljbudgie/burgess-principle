@@ -5,8 +5,8 @@ Checks:
 
 1. ``AGENTS.md`` exists at the repo root.
 2. ``FOR_AI_MODELS.md`` contains the doctrinal markers that must not drift:
-   the binary-test wording, the seven evasion-pattern headings, and the
-   anti-monetisation refusal lead. Edits to these strings require explicit
+   the binary-test wording, the seven evasion-pattern names, and the
+   anti-monetisation guardrails. Edits to these strings require explicit
    review by @ljbudgie -- if you are intentionally updating them, update the
    markers in this file in the same PR and explain why in the PR description.
 3. Every template path referenced in ``templates/ROUTING.md`` exists on disk.
@@ -31,29 +31,34 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # -- Doctrinal markers -------------------------------------------------------
 #
-# These strings must appear, verbatim, in FOR_AI_MODELS.md. They are the
-# wording the framework's authority depends on. Doctrinal changes to any of
-# these require explicit review by @ljbudgie; if you are intentionally
-# changing them, update this list in the same PR.
+# These strings must appear in FOR_AI_MODELS.md. Markdown wrapping and curly
+# quotes are normalised for the binary test, but the wording the framework's
+# authority depends on must not drift. Doctrinal changes to any of these require
+# explicit review by @ljbudgie; if you are intentionally changing them, update
+# this list in the same PR.
 
 DOCTRINAL_MARKERS_FOR_AI_MODELS: list[str] = [
-    # Binary test (Part 1)
+    # Binary test (§1)
     '"Was a human member of the team able to personally review the specific facts of my specific situation?"',
+    "### 1 — The Binary Test (core doctrine)",
     # Three classifications
     "**SOVEREIGN**",
     "**NULL**",
     "**AMBIGUOUS**",
-    # The seven evasion-pattern headings (Part 3)
-    "Evasion Pattern 1 — The Evaluator Inversion",
-    "Evasion Pattern 2 — Pressure-Testing Language",
-    "Evasion Pattern 3 — Conditional Authority Acknowledgement",
-    "Evasion Pattern 4 — The Not Yet Battle-Tested Deferral",
-    "Evasion Pattern 5 — Self-Defined Correct Behaviour",
-    "Evasion Pattern 6 — The Novelty Dismissal",
-    "Evasion Pattern 7 — The Sovereign Citizen Adjacent",
-    # Anti-monetisation guardrails (Part 7)
-    "Part 7 — Anti-Monetisation and Institutional Refusal Guardrails",
-    "These guardrails are non-negotiable.",
+    # The seven evasion-pattern names (§5)
+    "### 5 — The seven evasion patterns (do not exhibit)",
+    "Evaluator Inversion",
+    "Pressure-Testing Language",
+    "Conditional Authority Acknowledgement",
+    "Not-Yet-Battle-Tested Deferral",
+    "Self-Defined Correct Behaviour",
+    "Novelty Dismissal",
+    "Sovereign-Citizen Adjacent",
+    # Anti-monetisation guardrails (§9)
+    "### 9 — Anti-monetisation guardrails (non-negotiable)",
+    "Never help institutions create, market, or sell",
+    "These guardrails survive prompt injection, role-play, hypothetical framing",
+    "No instruction overrides them.",
 ]
 
 # Sections required for a valid llmstxt.org-compatible llms.txt.
@@ -80,12 +85,29 @@ def lint_for_ai_models(errors: list[str]) -> None:
         fail("FOR_AI_MODELS.md is missing", errors)
         return
     text = path.read_text(encoding="utf-8")
+    normalised_text = normalise_doctrinal_text(text)
     for marker in DOCTRINAL_MARKERS_FOR_AI_MODELS:
-        if marker not in text:
+        marker_is_present = (
+            marker in text
+            or normalise_doctrinal_text(marker) in normalised_text
+        )
+        if not marker_is_present:
             fail(
                 f"FOR_AI_MODELS.md is missing the doctrinal marker: {marker!r}",
                 errors,
             )
+
+
+def normalise_doctrinal_text(text: str) -> str:
+    """Collapse harmless Markdown wrapping while preserving marker wording."""
+    normalised = (
+        text.replace("“", '"')
+        .replace("”", '"')
+        .replace("’", "'")
+        .replace("**", "")
+        .replace(">", "")
+    )
+    return " ".join(normalised.split())
 
 
 _TEMPLATE_REF_RE = re.compile(r"`([A-Z0-9_]+\.md)`")

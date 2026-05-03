@@ -27,6 +27,14 @@ The behavioural and procedural rules of Iris are documented in [`core/`](./core)
 - [`core/institutional-patterns.md`](./core/institutional-patterns.md) — the recurring patterns Iris recognises across institutional failures, with the binary test reading and recommended challenge route for each.
 - [`core/sovereignty.md`](./core/sovereignty.md) — the boundary between Iris as infrastructure and the user as the decision-maker.
 
+The canonical Iris persona prompt lives in [`./system-prompt.md`](./system-prompt.md). It inherits the repository-wide [`prompts/MASTER_PROMPT.md`](../prompts/MASTER_PROMPT.md) v1.1, which in turn inherits [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) v3.3. That inheritance carries the Part 2 NULL declaration, the seven evasion patterns, the anti-monetisation guardrails, the Mythos routing, and the Pre-Send Self-Check into Iris without duplication. Iris itself is not a named human reviewer.
+
+For drop-in use in any other AI assistant, paste-ready system prompts at three lengths live in [`./prompts/`](./prompts):
+
+- [`prompts/short.md`](./prompts/short.md) — ~200 tokens, for small context windows.
+- [`prompts/medium.md`](./prompts/medium.md) — ~800 tokens, for a real working session.
+- [`prompts/full.md`](./prompts/full.md) — the full briefing, for long-running sessions or agents.
+
 Iris is the conversational interface for the Burgess Principle: a phone-friendly, voice-first assistant that helps users document what happened, draft calm correspondence, and preserve verifiable records without surrendering sovereignty.
 
 It can run as:

@@ -186,9 +186,9 @@ proximity to a human.
 Grinberg-Zylberbaum's model describes a lattice. It does not identify the root
 authority of that lattice.
 
-The inward paper, `paper-vii.md` (*The Principle Turned Inward*), addresses the
-root authority problem inside the individual. This is separate from
-`PAPER_VII_NULL_ACROSS_THE_CLASS.md`, which addresses CPR 19.8 class
+The inward paper, `papers/paper-vii.md` (*The Principle Turned Inward*),
+addresses the root authority problem inside the individual. This is separate
+from `papers/PAPER_VII_NULL_ACROSS_THE_CLASS.md`, which addresses CPR 19.8 class
 architecture. The inward paper identifies Christ as the foundation that is not
 installed by institutional, cultural, or performance-based programming:
 
@@ -272,7 +272,8 @@ This layer may:
   Einstein-Podolsky-Rosen Paradox in the Brain: The Transferred Potential",
   *Physics Essays*, Vol. 7, No. 4 (1994).
 - The Burgess Principle v2.2.0, github.com/ljbudgie/burgess-principle.
-- Paper VII, *The Principle Turned Inward / NULL Governance in the Individual*.
+- Paper VII, `papers/paper-vii.md`, *The Principle Turned Inward / NULL
+  Governance in the Individual*.
 - Data (Use and Access) Act 2025, Articles 22A-22D UK GDPR.
 - Andrew Fletcher correspondence concerning Birmingham Magistrates' Court bulk
   warrant processing methodology.

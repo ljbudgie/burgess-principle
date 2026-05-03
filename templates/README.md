@@ -16,7 +16,7 @@ If you are unsure, start with one of the default templates below and personalise
 2. **Already disputing an outcome?** Use [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md).
 3. **Got a vague "human oversight" reply?** Use [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md).
 4. **Need accessible communication or reasonable adjustments?** Use [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md).
-5. **Experienced harm from a clinical pathway — gender medicine, opioids, surgical mesh, or any medical intervention where no named clinician individually reviewed your case?** Use [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md). See also [Paper XI](../papers/PAPER_XI_REVERSE_ENGINEERING_HARMS.md) for the full methodology.
+5. **Experienced harm from a clinical pathway — gender medicine, opioids, surgical mesh, or any medical intervention where no named clinician individually reviewed your case?** Use [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md). See also [Paper XIII](../papers/PAPER_XIII_REVERSE_ENGINEERING_HARMS.md) for the full methodology.
 6. **Need a fast chooser instead of the full index?** Use [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
 7. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you while keeping an encrypted copy in the phone vault.
 8. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto or proof template only if needed.

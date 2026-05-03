@@ -22,7 +22,7 @@ This template is suitable for:
 ## Guidance Before You Send
 
 **Step 1 — Identify each decision node.**
-Before filling in the template, write down the key decisions that were made in your clinical pathway. Use the node structure from Paper XI as a guide:
+Before filling in the template, write down the key decisions that were made in your clinical pathway. Use the node structure from Paper XIII as a guide:
 
 - Who referred you, and on what basis?
 - Who made the initial prescription or intervention decision?
@@ -180,7 +180,7 @@ This record belongs to you. Keep it. It is your evidence trail.
 
 ## A Note on Using This Template
 
-This template was built from the methodology in Paper XI of the Burgess Principle — *Reverse-Engineering Harms: A Methodology for Tracing Iatrogenic Injury Through Institutional Failure* — completed on Saturday, 25 April 2026.
+This template was built from the methodology in Paper XIII of the Burgess Principle — *Reverse-Engineering Harms: A Methodology for Tracing Iatrogenic Injury Through Institutional Failure* — completed on Saturday, 25 April 2026.
 
 The paper demonstrates that in every domain of contested medicine — paediatric gender medicine, opioid prescribing, thalidomide, surgical mesh — the harm that was produced by identifiable institutional decisions shares the same structure: a named human being was absent from a decision that required individual human review of specific facts.
 

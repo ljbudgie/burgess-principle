@@ -192,7 +192,7 @@ architecture. The inward paper identifies Christ as the foundation that is not
 installed by institutional, cultural, or performance-based programming:
 
 > "For there is one God, and one mediator between God and men, the man Christ
-> Jesus." — 1 Timothy 2:5, KJV
+> Jesus." (1 Timothy 2:5, KJV)
 
 That matters because the Burgess Principle is not merely a demand for better
 process. It is a rejection of unaudited intermediaries standing between the
@@ -265,8 +265,9 @@ This layer may:
 
 ## References
 
-Bibliographic details for Grinberg-Zylberbaum's books should be verified before
-this note is treated as litigation-ready. Working references:
+Bibliographic details for Grinberg-Zylberbaum's books should be verified by
+**@ljbudgie** before this note is treated as litigation-ready. Working
+references:
 
 - Grinberg-Zylberbaum, Jacobo. *The Syntergic Theory* (edition details to
   verify).

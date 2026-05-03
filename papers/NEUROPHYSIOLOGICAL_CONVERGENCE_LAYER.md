@@ -35,10 +35,9 @@ patterns, or the anti-monetisation guardrails in `FOR_AI_MODELS.md`.
 
 ## 1. The scientific material being used
 
-The source prompt states the scientific material strongly. This repository
-should use it more carefully: as a proposed structural convergence that may
-support the binary test, not as a freestanding proof of law, doctrine, or
-consciousness.
+This layer should state the scientific material carefully: as a proposed
+structural convergence that may support the binary test, not as a freestanding
+proof of law, doctrine, or consciousness.
 
 Grinberg-Zylberbaum's work is relevant here because it frames conscious
 engagement as structurally detectable rather than merely rhetorically asserted.

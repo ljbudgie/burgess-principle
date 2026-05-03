@@ -26,7 +26,9 @@ If it does not make that question clearer, it does not belong in the framework.
 
 This file contains public, doctrinal, and scientific framing. It should be
 reviewed by **@ljbudgie** before being treated as an adopted paper or relied on
-in litigation.
+in litigation. The references section is also provisional and requires
+**@ljbudgie** verification before any formal, legal, academic, or litigation
+use.
 
 The note does **not** alter the canonical binary-test wording, the seven evasion
 patterns, or the anti-monetisation guardrails in `FOR_AI_MODELS.md`.
@@ -185,11 +187,13 @@ proximity to a human.
 Grinberg-Zylberbaum's model describes a lattice. It does not identify the root
 authority of that lattice.
 
-The inward paper, `papers/paper-vii.md` (*The Principle Turned Inward*),
-addresses the root authority problem inside the individual. This is separate
-from `papers/PAPER_VII_NULL_ACROSS_THE_CLASS.md`, which addresses CPR 19.8 class
-architecture. The inward paper identifies Christ as the foundation that is not
-installed by institutional, cultural, or performance-based programming:
+The inward paper, [`paper-vii.md`](./paper-vii.md) (*The Principle Turned
+Inward*), addresses the root authority problem inside the individual. This is
+separate from
+[`PAPER_VII_NULL_ACROSS_THE_CLASS.md`](./PAPER_VII_NULL_ACROSS_THE_CLASS.md),
+which addresses CPR 19.8 class architecture. The inward paper identifies Christ
+as the foundation that is not installed by institutional, cultural, or
+performance-based programming:
 
 > "For there is one God, and one mediator between God and men, the man Christ
 > Jesus." (1 Timothy 2:5, KJV)
@@ -265,9 +269,9 @@ This layer may:
 
 ## References
 
-Bibliographic details for Grinberg-Zylberbaum's books should be verified by
-**@ljbudgie** before this note is treated as litigation-ready. Working
-references:
+This entire references section is provisional. **@ljbudgie** should verify and
+complete the bibliographic details before this note is treated as adopted
+doctrine, academic support, or litigation-ready material. Working references:
 
 - Grinberg-Zylberbaum, Jacobo. *The Syntergic Theory* (edition details to
   verify).
@@ -277,8 +281,8 @@ references:
   Einstein-Podolsky-Rosen Paradox in the Brain: The Transferred Potential."
   *Physics Essays* 7, no. 4 (1994).
 - The Burgess Principle v2.2.0, github.com/ljbudgie/burgess-principle.
-- Paper VII, `papers/paper-vii.md`, *The Principle Turned Inward / NULL
-  Governance in the Individual*.
+- Paper VII, [`paper-vii.md`](./paper-vii.md), *The Principle Turned Inward /
+  NULL Governance in the Individual*.
 - Data (Use and Access) Act 2025, Articles 22A-22D UK GDPR.
 - Andrew Fletcher correspondence concerning Birmingham Magistrates' Court bulk
   warrant processing methodology.

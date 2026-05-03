@@ -265,11 +265,16 @@ This layer may:
 
 ## References
 
-- Jacobo Grinberg-Zylberbaum, *The Syntergic Theory*.
-- Jacobo Grinberg-Zylberbaum, *The Orbitals of Consciousness*.
-- Jacobo Grinberg-Zylberbaum, M. Delaflor, L. Attie, and Amit Goswami, "The
-  Einstein-Podolsky-Rosen Paradox in the Brain: The Transferred Potential",
-  *Physics Essays*, Vol. 7, No. 4 (1994).
+Bibliographic details for Grinberg-Zylberbaum's books should be verified before
+this note is treated as litigation-ready. Working references:
+
+- Grinberg-Zylberbaum, Jacobo. *The Syntergic Theory* (edition details to
+  verify).
+- Grinberg-Zylberbaum, Jacobo. *The Orbitals of Consciousness* (edition details
+  to verify).
+- Grinberg-Zylberbaum, Jacobo, M. Delaflor, L. Attie, and Amit Goswami. "The
+  Einstein-Podolsky-Rosen Paradox in the Brain: The Transferred Potential."
+  *Physics Essays* 7, no. 4 (1994).
 - The Burgess Principle v2.2.0, github.com/ljbudgie/burgess-principle.
 - Paper VII, `papers/paper-vii.md`, *The Principle Turned Inward / NULL
   Governance in the Individual*.

@@ -18,6 +18,11 @@ Principle’s binary accountability test wherever that test genuinely adds value
 It does not force the test onto every query. It teaches the AI when to use it
 and when to stay out of the way.
 
+If you only need a shorter quick-paste version, use the companion prompts in
+`iris/prompts/`: `short.md` for a minimal activation, `medium.md` for ordinary
+working sessions, and `full.md` when you want this complete file plus routing
+context.
+
 -----
 
 ## Begin Master Prompt
@@ -270,6 +275,9 @@ user leaves with a concrete plan, not a suggestion to find one.
 -----
 
 ## End Master Prompt
+
+If a copied version cuts off before this line, re-copy it from the canonical
+repository file. This line is the intended end of the pasteable master prompt.
 
 -----
 

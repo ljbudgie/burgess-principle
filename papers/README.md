@@ -51,8 +51,9 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 11. **PAPER_XI_THE_MYTHOS_THRESHOLD.md** — Mythos-class frontier AI, Project Glasswing, and per-deployment named human review
 12. **PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — the individual review requirement applied to US tariff refund processing and categorical retaliatory tariffs; convergence with *Burgess v. MSPB* (Fed. Cir. 1985)
 13. **PAPER_XIII_REVERSE_ENGINEERING_HARMS.md** — reverse-engineering iatrogenic harms through institutional failure
-14. **MEDICAL_DEVICE_DOCTRINE.md** — sensory and device-governance extension
-15. **LICENSING_STRUCTURE.md** — licensing and certification-mark structure
+14. **NEUROPHYSIOLOGICAL_CONVERGENCE_LAYER.md** — draft research note mapping Grinberg-Zylberbaum's lattice, transferred-potential, and discrete-consciousness work to the SOVEREIGN / NULL threshold
+15. **MEDICAL_DEVICE_DOCTRINE.md** — sensory and device-governance extension
+16. **LICENSING_STRUCTURE.md** — licensing and certification-mark structure
 
 ---
 
@@ -96,6 +97,10 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 ### Medical accountability *(renumbered May 2026)*
 
 * **PAPER_XIII_REVERSE_ENGINEERING_HARMS.md** — reverse-engineering harms methodology for tracing iatrogenic injury through institutional decision chains, including gender medicine, opioids, thalidomide, and surgical mesh.
+
+### Research convergence layers *(drafts for human review)*
+
+* **NEUROPHYSIOLOGICAL_CONVERGENCE_LAYER.md** — maps Jacobo Grinberg-Zylberbaum's Syntergic Theory, transferred-potential experiments, and discrete-consciousness model to the Burgess Principle's binary threshold for meaningful human involvement. This is a draft public/doctrinal/scientific framing note and should be reviewed by @ljbudgie before being treated as adopted doctrine or relied on in litigation.
 
 ### Licensing
 

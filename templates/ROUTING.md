@@ -38,6 +38,7 @@
 | Bailiff threat                                       | `BAILIFFS_THREAT_TEMPLATE.md`                                                                    |
 | FOI request to a public body                         | `FOI_WITH_BURGESS_PRINCIPLE.md`                                                                  |
 | Generic, all-purpose first letter                    | `REQUEST_FOR_HUMAN_REVIEW.md`                                                                    |
+| Mythos, Project Glasswing, frontier AI, autonomous vulnerability discovery, o1-class or hyper-disciplined agents | `papers/PAPER_XI_THE_MYTHOS_THRESHOLD.md` + apply per-deployment binary classification before any capability analysis |
 
 Always recommend local Vault usage before on-chain commitments. If the user
 asks about privacy, mention Sovereign Mode.

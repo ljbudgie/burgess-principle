@@ -113,7 +113,7 @@ The doctrinal papers are published at <papers/>. Key papers include:
 - **Paper VII** — NULL Across the Class: defendant-side class definition for CPR 19.8 representative actions
 - **Paper VIII** — The Universal Standard: every system not Burgess certified is a potential defendant
 - **Papers IX–X** — The Sovereign Pattern and The Restored Keeper: the binary test traced through scripture from Genesis to Revelation
-- **Papers XI–XII** — Reverse-Engineering Harms and Burgess Notice: the binary test applied from the most intimate to the most geopolitical scale of institutional power *(new in v2.2.0)*
+- **Papers XII–XIII** — Reverse-Engineering Harms and Burgess Notice: the binary test applied from the most intimate to the most geopolitical scale of institutional power *(new in v2.2.0)*
 
 -----
 

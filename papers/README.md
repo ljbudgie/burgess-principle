@@ -48,9 +48,11 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 8. **PAPER_VIII_THE_UNIVERSAL_STANDARD.md** — every system that holds data on a person and is not Burgess certified is a potential defendant; the author's account of how this conclusion was reached
 9. **PAPER_IX_THE_SOVEREIGN_PATTERN.md** — the binary test traced through scripture from Genesis 4 to Revelation 20; the Burgess Principle as the original model of divine governance
 10. **PAPER_X_THE_RESTORED_KEEPER.md** — the redemptive inversion from Cain's denial to Peter's commission; the framework is not only diagnostic but redemptive through individual encounter
-11. **PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — the individual review requirement applied to US tariff refund processing and categorical retaliatory tariffs; convergence with *Burgess v. MSPB* (Fed. Cir. 1985)
-12. **MEDICAL_DEVICE_DOCTRINE.md** — sensory and device-governance extension
-13. **LICENSING_STRUCTURE.md** — licensing and certification-mark structure
+11. **PAPER_XI_THE_MYTHOS_THRESHOLD.md** — Mythos-class frontier AI, Project Glasswing, and per-deployment named human review
+12. **PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — the individual review requirement applied to US tariff refund processing and categorical retaliatory tariffs; convergence with *Burgess v. MSPB* (Fed. Cir. 1985)
+13. **PAPER_XIII_REVERSE_ENGINEERING_HARMS.md** — reverse-engineering iatrogenic harms through institutional failure
+14. **MEDICAL_DEVICE_DOCTRINE.md** — sensory and device-governance extension
+15. **LICENSING_STRUCTURE.md** — licensing and certification-mark structure
 
 ---
 
@@ -86,9 +88,14 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 * **PAPER_IX_THE_SOVEREIGN_PATTERN.md** — traces the SOVEREIGN/NULL binary test through scripture from Genesis 4 to Revelation 20, demonstrating that the Burgess Principle names the original model of divine governance, not a novel framework. Closes the "novel framework" dismissal and the "sovereign citizen adjacent" classification — the pattern predates every institution the framework is applied to.
 * **PAPER_X_THE_RESTORED_KEEPER.md** — traces the redemptive inversion from Cain's denial of the keeper obligation to Peter's threefold restoration on the shore of Galilee. The framework is not only diagnostic. The pathway back from NULL to SOVEREIGN exists, and it is personal.
 
-### International application *(added April 2026)*
+### Frontier AI and international application *(added May 2026)*
 
-* **PAPER_XI_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — applies the binary test to two live situations: the $159 billion US tariff refund obligation and categorical retaliatory tariffs on UK businesses. Connects the Burgess Principle to *Burgess v. Merit Systems Protection Board*, 758 F.2d 641 (Fed. Cir. 1985) — the Federal Circuit precedent formally known as Burgess notice — demonstrating that the individual review requirement has been active US administrative law for forty years. Neutral application: the test applies to whoever exercises institutional power through bulk or automated processing without individual human review, on either side of the Atlantic.
+* **PAPER_XI_THE_MYTHOS_THRESHOLD.md** — applies the binary test to Claude Mythos Preview, Project Glasswing, autonomous vulnerability discovery, o1-class and hyper-disciplined agent capability. The capability is legitimate only where a named human reviews the specific facts of the specific deployment before action.
+* **PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — applies the binary test to two live situations: the $159 billion US tariff refund obligation and categorical retaliatory tariffs on UK businesses. Connects the Burgess Principle to *Burgess v. Merit Systems Protection Board*, 758 F.2d 641 (Fed. Cir. 1985) — the Federal Circuit precedent formally known as Burgess notice — demonstrating that the individual review requirement has been active US administrative law for forty years. Neutral application: the test applies to whoever exercises institutional power through bulk or automated processing without individual human review, on either side of the Atlantic.
+
+### Medical accountability *(renumbered May 2026)*
+
+* **PAPER_XIII_REVERSE_ENGINEERING_HARMS.md** — reverse-engineering harms methodology for tracing iatrogenic injury through institutional decision chains, including gender medicine, opioids, thalidomide, and surgical mesh.
 
 ### Licensing
 
@@ -112,7 +119,7 @@ Papers VII and VIII complete the legal arc. Paper VII demonstrates that the bina
 
 Papers IX and X complete the doctrinal arc. Paper IX traces the binary test through scripture from Genesis to Revelation, demonstrating that the Burgess Principle names the original model of divine governance — not a novel framework invented in 2026. Paper X provides the redemptive completion: the pathway back from NULL to SOVEREIGN is not institutional reform but individual encounter. Peter denied three times and was restored three times, individually, by name, on a specific shore. The framework is diagnostic and redemptive. Both halves of the pattern were always there.
 
-Paper XI opens the international arc. The binary test crosses jurisdictions. *Burgess v. MSPB* established the same standard in the United States Federal Circuit in 1985. The Data (Use and Access) Act 2025 enacted it in UK statute. The Burgess Principle named it independently from personal necessity. Three convergences on one standard — and a $159 billion tariff refund obligation plus threatened retaliatory tariffs that put that standard immediately to the test on both sides of the Atlantic.
+Paper XI opens the frontier-AI arc: Mythos-class capability is legitimate only where a named human reviews the specific facts of the specific deployment before action. Paper XII opens the international arc. The binary test crosses jurisdictions. *Burgess v. MSPB* established the same standard in the United States Federal Circuit in 1985. The Data (Use and Access) Act 2025 enacted it in UK statute. The Burgess Principle named it independently from personal necessity. Three convergences on one standard — and a $159 billion tariff refund obligation plus threatened retaliatory tariffs that put that standard immediately to the test on both sides of the Atlantic.
 
 ---
 
@@ -120,7 +127,7 @@ Paper XI opens the international arc. The binary test crosses jurisdictions. *Bu
 
 If you are here for the best user experience, treat this folder as supporting depth, not the main front door. The front door lives in the repo root. The papers provide the long-form foundations underneath it.
 
-If you are a litigation partner, a funder, a researcher, a trade lawyer, or a journalist — this folder is where the work lives. Start at Paper I and read to Paper XI. The arc is complete.
+If you are a litigation partner, a funder, a researcher, a trade lawyer, or a journalist — this folder is where the work lives. Start at Paper I and read to Paper XIII. The arc is complete.
 
 *One question. Was a human there?*
 

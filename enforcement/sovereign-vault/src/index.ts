@@ -1,8 +1,7 @@
-import { sha256 } from '@noble/hashes/sha256';
-import { ed25519 } from '@noble/curves/ed25519';
-import { randomBytes as nobleRandomBytes } from '@noble/hashes/utils';
-import { pbkdf2 } from '@noble/hashes/pbkdf2';
-import { bytesToHex, hexToBytes } from '@noble/hashes/utils';
+import { ed25519 } from '@noble/curves/ed25519.js';
+import { pbkdf2 } from '@noble/hashes/pbkdf2.js';
+import { sha256 } from '@noble/hashes/sha2.js';
+import { bytesToHex, hexToBytes, randomBytes as nobleRandomBytes } from '@noble/hashes/utils.js';
 
 // ---------- AES-256-GCM helpers (Node.js built-in crypto) ----------
 import { createCipheriv, createDecipheriv } from 'crypto';

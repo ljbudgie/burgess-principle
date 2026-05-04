@@ -229,7 +229,7 @@ gate = assess_scrutiny(
     specific_facts_reviewed=True,
     review_timing="before_action",
 )
-if not gate:
+if gate.result.label != "SOVEREIGN":
     raise RuntimeError(gate.required_action)
 
 # Only now parse the payload or call the downstream model/workflow.

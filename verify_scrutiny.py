@@ -183,7 +183,7 @@ def _clean_optional_text(value: str | None, field_name: str) -> str:
     return value.strip()
 
 
-def _normalize_timing(value: str | None) -> str:
+def _validate_and_normalize_timing(value: str | None) -> str:
     timing = _clean_optional_text(value, "review_timing").lower()
     timing = timing.replace("-", "_").replace(" ", "_")
     aliases = {
@@ -209,8 +209,11 @@ def _normalize_timing(value: str | None) -> str:
 
 
 def _has_vague_process_language(*values: str) -> bool:
-    joined = " ".join(values).lower()
-    return any(phrase in joined for phrase in _AMBIGUOUS_REPLY_EXAMPLES)
+    return any(
+        phrase in value.lower()
+        for value in values
+        for phrase in _AMBIGUOUS_REPLY_EXAMPLES
+    )
 
 
 def assess_scrutiny(
@@ -231,15 +234,15 @@ def assess_scrutiny(
     review happened only after action. Otherwise it returns ``AMBIGUOUS`` so
     the system can ask for a direct answer before proceeding.
     """
-    name = _clean_optional_text(reviewer_name, "reviewer_name")
-    role = _clean_optional_text(reviewer_role, "reviewer_role")
-    notes = _clean_optional_text(review_notes, "review_notes")
-    timing = _normalize_timing(review_timing)
-
     if specific_facts_reviewed is not None and not isinstance(
         specific_facts_reviewed, bool
     ):
         raise TypeError("specific_facts_reviewed must be a bool or None")
+
+    name = _clean_optional_text(reviewer_name, "reviewer_name")
+    role = _clean_optional_text(reviewer_role, "reviewer_role")
+    notes = _clean_optional_text(review_notes, "review_notes")
+    timing = _validate_and_normalize_timing(review_timing)
 
     # For the review flag: True confirms review, False confirms no review,
     # and None means unknown evidence that remains AMBIGUOUS.
@@ -254,8 +257,8 @@ def assess_scrutiny(
         )
 
     has_specific_named_review = (
-        name
-        and role
+        name != ""
+        and role != ""
         and specific_facts_reviewed is True
         and timing == "before_action"
         and not _has_vague_process_language(name, role, notes)

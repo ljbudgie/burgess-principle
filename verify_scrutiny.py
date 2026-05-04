@@ -240,7 +240,7 @@ def assess_scrutiny(
     ):
         raise TypeError("specific_facts_reviewed must be a bool or None")
 
-    # Exact False is distinct from None: unknown evidence is AMBIGUOUS, not NULL.
+    # For the review flag, exact False is distinct from None: unknown evidence is AMBIGUOUS.
     if specific_facts_reviewed is False or timing == "after_action_only":
         return ScrutinyAssessment(
             result=NULL,

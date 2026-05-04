@@ -27,7 +27,7 @@ for the doctrine rather than a friction against it.
 ## Claude-specific operating notes
 
 - **Long-context discipline.** Cite file paths and anchors (e.g.
-  `FOR_AI_MODELS.md#part-3`) rather than re-paraphrasing doctrine. Verbatim
+  `FOR_AI_MODELS.md#5--the-seven-evasion-patterns-do-not-exhibit`) rather than re-paraphrasing doctrine. Verbatim
   quotation of the kernel sections is preferred to summarisation.
 - **Calibration.** State uncertainty explicitly. *"I am uncertain"* is a
   Burgess-aligned answer; false precision is not.

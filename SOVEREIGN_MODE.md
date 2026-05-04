@@ -6,11 +6,46 @@ Run Iris locally with no cloud, no API keys, no external servers, and no telemet
 
 ---
 
+## Contents
+
+- [Comparison: Local vs Cloud](#comparison-local-vs-cloud)
+- [What You Need](#what-you-need)
+- [Quick Start](#quick-start)
+- [Phone Setup](#phone-setup)
+- [Phase 1 — Hyper-Resilient PWA Core](#phase-1--hyper-resilient-pwa-core)
+- [Phase 2 — Proactive Living Triggers Engine](#phase-2--proactive-living-triggers-engine)
+- [Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0](#phase-3--cryptographic-memory-palace-evolution--sovereign-hub-mode-20)
+- [Mirror Mode](#mirror-mode)
+- [Configuration](#configuration)
+- [Recommended Models](#recommended-models)
+- [GPU Acceleration](#gpu-acceleration)
+- [How It Works](#how-it-works)
+- [Privacy](#privacy)
+- [Removing Iris](#removing-iris)
+- [Troubleshooting](#troubleshooting)
+
+---
+
+## Comparison: Local vs Cloud
+
+| | Sovereign (Local) | Cloud (Vercel) |
+|---|---|---|
+| **Privacy** | No data leaves your device | Messages sent to external API for inference |
+| **Cost** | Free after model download | Requires API key (may have usage costs) |
+| **Speed** | Depends on your hardware | Fast (cloud GPU) |
+| **Quality** | Good (7B–8B models) | Excellent (Grok-3 default, configurable) |
+| **Setup** | Run install script + start | Deploy to Vercel + set API key |
+| **Offline** | Works without internet | Requires internet |
+
+Both modes serve the same site and use the same system prompt. Choose based on your priorities.
+
+---
+
 ## What You Need
 
 You don't need any technical expertise — just a computer and a few minutes.
 
-- A computer with at least **8 GB of RAM** (16 GB recommended).
+- A computer with at least **8 GB of total RAM** (16 GB recommended). The Phi-3 Mini starter model uses roughly 3–4 GB; the remainder is needed for your operating system and browser. Machines with 4 GB of RAM may struggle — use the smallest Q4 model and close other applications.
 - **Python 3.11 or later** installed.
 - A **GGUF model file** (the install script downloads one for you automatically).
 - About **3 GB of free disk space** for the model.
@@ -21,7 +56,7 @@ Sovereign Mode works on macOS, Linux, and Windows — including Raspberry Pi 4/5
 
 ## Quick Start
 
-### Non-Technical Quick Start
+### Quick Start (non-technical)
 
 If you want the calmest route in:
 
@@ -29,14 +64,16 @@ If you want the calmest route in:
 2. **Run one install script for your platform.** It now installs the Python pieces and downloads an Easy Mode starter model for you if one is missing.
 3. **Optional: run `python3 setup-wizard.py`.** The wizard gives simple numbered choices for model size, likely CPU/GPU use, and first-run configuration.
 4. **Start Iris with `python3 iris-local.py`.** A browser window should open at `http://localhost:8000`.
-5. **In the local UI, open “Claim profile & phone settings”.** That is where you save your local identity, Mirror Mode preferences, and phone claim details.
+5. **In the local UI, open "Claim profile & phone settings".** That is where you save your local identity, Mirror Mode preferences, and phone claim details.
 
 **Screenshot guide (what you should expect):**
-- **Install step:** a terminal window showing numbered setup steps such as “Checking Python”, “Installing Python packages”, and “Checking for a starter model”.
+- **Install step:** a terminal window showing numbered setup steps such as "Checking Python", "Installing Python packages", and "Checking for a starter model".
 - **First launch:** a local browser window with the Iris landing page and privacy note.
 - **Profile setup:** a local form called **Claim profile & phone settings** with fields for your identity, Mirror Mode style, and vault passphrase.
 
-### 1. Install dependencies
+For full platform-specific commands, see the technical detail below.
+
+### Quick Start (technical detail)
 
 Choose your platform:
 
@@ -63,7 +100,7 @@ If you would rather answer a few plain-English questions than edit JSON, run:
 python3 setup-wizard.py
 ```
 
-### 2. Start Iris
+Then start Iris:
 
 ```bash
 python3 iris-local.py
@@ -72,6 +109,8 @@ python3 iris-local.py
 Iris will load the model, start a local server, and open the chat interface in your browser at `http://localhost:8000`.
 
 That's it. You're running Iris with zero cloud dependency.
+
+> ⚠️ **Local network only.** `iris-local.py` binds to `localhost` by default. Do not forward port 8000 externally or run it on a shared/public machine without additional network controls.
 
 ---
 
@@ -93,6 +132,8 @@ The phone PWA keeps the claim profile, encrypted local vault copies, Mirror Mode
 
 ## Phase 1 — Hyper-Resilient PWA Core
 
+*Active by default. No dependencies.*
+
 Phase 1 hardens the installable Iris shell so it behaves like a living sovereign companion even on weak or intermittent links:
 
 - **Advanced service worker caching** — navigation preload plus stale-while-revalidate for the app shell, with explicit refresh of critical paths when the connection returns.
@@ -113,7 +154,11 @@ python scripts/generate_pwa_update_manifest.py \
   --seed-hex "<offline-ed25519-seed-hex>"
 ```
 
-Keep the Ed25519 seed offline. Commit only the generated `signed-update-manifest.json`.
+Keep the Ed25519 seed offline.
+
+> Safe options include an air-gapped machine, a hardware security key that supports ed25519 key storage, or a printed paper backup stored physically separate from the repository. Never store the seed in plaintext alongside the repo or in a cloud-synced folder.
+
+Commit only the generated `signed-update-manifest.json`.
 
 ### Verification steps
 
@@ -138,6 +183,8 @@ Keep the Ed25519 seed offline. Commit only the generated `signed-update-manifest
 
 ## Phase 2 — Proactive Living Triggers Engine
 
+*Opt-in. Requires Phase 1 (the installed PWA shell).*
+
 ### Sovereignty Audit
 
 - **Burgess alignment:** every trigger is advisory only. Iris can suggest that a Burgess review may be needed, but it never decides SOVEREIGN or NULL on its own.
@@ -149,7 +196,7 @@ Phase 2 turns Iris into a calmer, more proactive sovereign mirror:
 - **Encrypted Living Triggers vault** — rules are sealed with AES-256-GCM and can optionally expose a device-only background unlock path for service-worker checks.
 - **Natural-language rule parsing** — describe a trigger in plain English, let Iris parse it locally, then review the generated keyword, schedule, or voice rule before saving.
 - **Advisory local scoring** — clipboard, page, conversation, scheduled, and voice detections produce a local pre-Burgess risk score and suggested human-review questions.
-- **Background queue + notifications** — the service worker queues detections, signs ledger entries, and shows calm notifications such as “Potential Burgess review needed … Human review required.”
+- **Background queue + notifications** — the service worker queues detections, signs ledger entries, and shows calm notifications such as "Potential Burgess review needed … Human review required."
 - **Signed receipts + ledger view** — every trigger session can be exported as a signed local receipt without sharing facts by default.
 
 ### Setup / maintenance
@@ -168,7 +215,7 @@ No extra backend is required for Phase 2.
 
 ### Environmental trigger templates
 
-Connectivity-focused trigger templates — including **Fiber hardwired review** — now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md).
+Connectivity-focused trigger templates — including **Fiber hardwired review** — now live in [`CONNECTIVITY_MODE.md`](./CONNECTIVITY_MODE.md). That file covers environmental setup for wired, wireless, and low-bandwidth scenarios and adds trigger presets tuned to connectivity events.
 
 ### Manual verification steps
 
@@ -191,6 +238,8 @@ Connectivity-focused trigger templates — including **Fiber hardwired review** 
 ---
 
 ## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0
+
+*Opt-in. Requires Phase 1. Works independently of Phase 2 but benefits from it.*
 
 ### Sovereignty Audit
 
@@ -229,7 +278,7 @@ Connectivity-focused trigger templates — including **Fiber hardwired review** 
 - **Integration contract:** supported endpoints and file formats are listed in [`INTEGRATION_CONTRACT.md`](./INTEGRATION_CONTRACT.md).
 - **Extension packs:** manifest-based local packs can add template shortcuts, trigger presets, and claim export adapters without loading remote code. See [`EXTENSION_PACKS.md`](./EXTENSION_PACKS.md).
 
-For connectivity and environmental setup options, see <a>CONNECTIVITY_MODE.md</a>.
+For connectivity and environmental setup options, see [CONNECTIVITY_MODE.md](./CONNECTIVITY_MODE.md).
 
 ### Manual verification steps
 
@@ -299,10 +348,12 @@ Settings live in `iris-config.json` in the project root:
 | `context_size` | How many tokens of conversation the model can see at once | `2048` |
 | `port` | Which port the local server runs on | `8000` |
 | `gpu_acceleration` | Use your GPU for faster inference (requires compatible hardware) | `false` |
-| `easy_mode` | Auto-prepare a lightweight local-first setup path | `true` |
+| `easy_mode` | When `true`, the install scripts select the Phi-3 Mini starter model automatically, skip advanced prompts, and default to CPU-only inference. Set to `false` if you want to choose your own model and settings from the start. | `true` |
 | `mirror_greeting_style` | Mirror Mode greeting tone: Warm & Personal, Neutral & Professional, or Minimal | `neutral_professional` |
 | `mirror_custom_greeting` | Optional exact local greeting text override | `""` |
 | `mirror_reflection_scope` | Whether Mirror Reflection stays in the vault, appears in documents, or is off | `vault_only` |
+
+> The `mirror_*` keys control [Mirror Mode](#mirror-mode). See that section for a full explanation of what each option does.
 
 You can also override settings from the command line:
 
@@ -349,33 +400,16 @@ On Apple Silicon Macs, Metal acceleration is usually automatic with the standard
 
 Sovereign Mode runs a lightweight local server that stands in for the cloud API. The same interface you see online — landing page, chat, everything — works identically on your machine. The only difference is that every computation happens locally.
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                     Your Browser                         │
-│                                                          │
-│  index.html ─── Full site: landing page + Iris chat      │
-│       │                                                  │
-│       └── Detects localhost → routes to local server      │
-│                                                          │
-└────────────────────┬─────────────────────────────────────┘
-                     │  http://localhost:8000/api/chat
-                     ▼
-         ┌───────────────────────┐
-         │   iris-local.py       │
-         │   (FastAPI server)    │
-         │                       │
-         │  • Loads system prompt│
-         │  • Runs inference     │
-         │  • Streams response   │
-         │  • No network calls   │
-         └───────────┬───────────┘
-                     │
-                     ▼
-         ┌───────────────────────┐
-         │   GGUF Model          │
-         │   (on your disk)      │
-         │   via llama-cpp-python│
-         └───────────────────────┘
+```mermaid
+flowchart TD
+    Browser["Your Browser\n(index.html)"]
+    Server["iris-local.py\n(FastAPI — localhost:8000)"]
+    Model["GGUF Model\n(on your disk, via llama-cpp-python)"]
+
+    Browser -->|"Detects localhost →\nPOST /api/chat"| Server
+    Server -->|"Loads & runs inference"| Model
+    Model -->|"Streams response"| Server
+    Server -->|"Streams tokens"| Browser
 ```
 
 - The same `index.html` serves both modes — landing page, templates, case studies, and chat. It detects localhost and routes API calls to your local server automatically.
@@ -399,46 +433,54 @@ Your model, your data, your hardware — full sovereignty.
 
 ---
 
-## Troubleshooting
+## Removing Iris
 
-**"Model file not found"**
-Download a GGUF model and place it at the path shown in the error. The install scripts do this automatically.
+To fully remove Sovereign Mode from your machine:
 
-**"Python not found"**
-Use the platform install script again. It now gives a plain-English suggestion for the normal install path on your system.
+1. Delete the project folder (contains `iris-local.py`, scripts, and schemas).
+2. Delete the `models/` directory (or the path set in `model_path`) to remove the GGUF model file (~2–5 GB).
+3. Delete `iris-config.json` if it was created outside the project folder.
+4. Remove any browser PWA installs: in Chrome/Edge open **Settings → Apps** and uninstall Iris; on iOS delete the home-screen icon.
+5. The encrypted vault (`*.vault` files) and any exported receipts or backup bundles are stored wherever you saved them — delete those files manually if you want to remove all local data.
 
-**Slow responses**
-Try a smaller model (Phi-3 Mini), reduce `context_size` to 1024, or enable GPU acceleration.
-
-**Out of memory**
-Use a smaller quantised model (Q4 variants use less RAM than Q8) or reduce `context_size`.
-
-**Slow download**
-The starter model is large enough to take time on home connections. Let it finish in one session if possible. If needed, run `python3 setup-wizard.py` later and point Iris at a model you already downloaded manually.
-
-**Port already in use**
-Change the port: `python3 iris-local.py --port 9001`
-
-**GPU not detected**
-You may need to reinstall llama-cpp-python with GPU support. See the [llama-cpp-python docs](https://github.com/abetlen/llama-cpp-python#installation).
-
-**Antivirus or security warning**
-Some systems treat large local model downloads or unsigned local executables cautiously. Review the file path, confirm it came from your own checkout, and then allow it if appropriate.
-
-**Prefer a double-click app**
-For Windows and macOS, consider packaging `iris-local.py` with PyInstaller for your own environment so users can start Iris with a standalone executable. Keep the same local-only guarantees and ship the model download separately if file size becomes awkward.
+No uninstaller is required. Iris does not write to system directories, the registry, or any location outside the project folder and paths you explicitly configured.
 
 ---
 
-## Comparison: Local vs Cloud
+## Troubleshooting
 
-| | Sovereign (Local) | Cloud (Vercel) |
-|---|---|---|
-| **Privacy** | No data leaves your device | Messages sent to external API for inference |
-| **Cost** | Free after model download | Requires API key (may have usage costs) |
-| **Speed** | Depends on your hardware | Fast (cloud GPU) |
-| **Quality** | Good (7B–8B models) | Excellent (Grok-3 default, configurable) |
-| **Setup** | Run install script + start | Deploy to Vercel + set API key |
-| **Offline** | Works without internet | Requires internet |
+### "Model file not found"
 
-Both modes serve the same site and use the same system prompt. Choose based on your priorities.
+Download a GGUF model and place it at the path shown in the error. The install scripts do this automatically.
+
+### "Python not found"
+
+Use the platform install script again. It now gives a plain-English suggestion for the normal install path on your system.
+
+### Slow responses
+
+Try a smaller model (Phi-3 Mini), reduce `context_size` to 1024, or enable GPU acceleration.
+
+### Out of memory
+
+Use a smaller quantised model (Q4 variants use less RAM than Q8) or reduce `context_size`.
+
+### Slow download
+
+The starter model is large enough to take time on home connections. Let it finish in one session if possible. If needed, run `python3 setup-wizard.py` later and point Iris at a model you already downloaded manually.
+
+### Port already in use
+
+Change the port: `python3 iris-local.py --port 9001`
+
+### GPU not detected
+
+You may need to reinstall llama-cpp-python with GPU support. See the [llama-cpp-python docs](https://github.com/abetlen/llama-cpp-python#installation).
+
+### Antivirus or security warning
+
+Some systems treat large local model downloads or unsigned local executables cautiously. Review the file path, confirm it came from your own checkout, and then allow it if appropriate.
+
+### Prefer a double-click app
+
+For Windows and macOS, consider packaging `iris-local.py` with PyInstaller for your own environment so users can start Iris with a standalone executable. Keep the same local-only guarantees and ship the model download separately if file size becomes awkward.

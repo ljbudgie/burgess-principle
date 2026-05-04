@@ -354,16 +354,21 @@ regardless of scale, domain, or jurisdiction.
 
 ## Licensing
 
-The MIT licence governs the source code. The certification mark (UK00004343685) governs commercial use of the standard.
+The repository materials are MIT licensed. The certification mark
+(UK00004343685) is governed separately so official or certified use always
+means real individual human scrutiny, not a badge on an unchanged automated
+process.
 
-|Tier      |Who                      |Terms                        |
-|----------|-------------------------|-----------------------------|
-|**Tier 1**|Global tech companies    |0.01–0.1% of relevant revenue|
-|**Tier 2**|Corporate / institutional|£1,000 upfront + annual fee  |
-|**Tier 3**|Public sector            |Nil                          |
-|**Tier 4**|Litigation firms         |£1 or nil + 2–5% royalty     |
+|Layer|Position|
+|---|---|
+|Repository materials|MIT — free to use, fork, adapt, and redistribute with attribution|
+|Individual and open-source use|Free — no permission or payment needed|
+|Independent commercial use|Allowed under MIT if it does not imply official certification or endorsement|
+|Certification mark / official branding|Controlled separately under UK00004343685|
+|Certified processes|Must preserve named human review before action affecting an identified person|
 
-Contact: lewisjames@theburgessprinciple.com
+See [LICENSE.md](LICENSE.md) and [papers/LICENSING_STRUCTURE.md](papers/LICENSING_STRUCTURE.md).
+Certification enquiries: lewisjames@theburgessprinciple.com
 
 -----
 
@@ -440,9 +445,11 @@ Full disclaimer: <DISCLAIMER.md>
 
 ## Licence
 
-[MIT](LICENSE.md) — the framework is free to use and adapt.
+[MIT](LICENSE.md) — the repository materials are free to use and adapt with
+attribution.
 
-The certification mark (UK00004343685) governs commercial use of the standard.
+The certification mark (UK00004343685) governs official certified use of the
+standard. It is not a restriction on ordinary MIT reuse.
 
 *UK Certification Mark UK00004343685 | Lewis James Burgess | lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle*

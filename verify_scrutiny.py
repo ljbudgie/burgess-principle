@@ -27,7 +27,7 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
-# Exact wording from FOR_AI_MODELS.md; keep this aligned with the canonical source.
+# Exact wording from FOR_AI_MODELS.md lines 45-46; verify there before editing.
 BINARY_TEST_QUESTION = (
     "Was a human member of the team able to personally review the specific "
     "facts of my specific situation?"
@@ -174,6 +174,7 @@ def verify_instrument(
 
 
 def _clean_optional_text(value: str | None, field_name: str) -> str:
+    """Validate optional text fields and normalise absent values to empty strings."""
     if value is None:
         return ""
     if not isinstance(value, str):
@@ -251,8 +252,8 @@ def assess_scrutiny(
         )
 
     has_specific_named_review = (
-        bool(name)
-        and bool(role)
+        name
+        and role
         and specific_facts_reviewed is True
         and timing == "before_action"
         and not _has_vague_process_language(name, role, notes)

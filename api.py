@@ -1,5 +1,8 @@
 """Lightweight FastAPI wrapper for the Burgess Principle Binary Test.
 
+``POST /scrutiny/assess`` is the Burgess SYN packet: call it before any
+downstream system parses, routes, or acts on an identified individual's facts.
+
 Start the server::
 
     uvicorn api:app --reload

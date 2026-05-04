@@ -2,6 +2,9 @@
 
 This is the primary template entry point.
 
+Send the Burgess SYN packet first. Before choosing a template, ask whether a
+named human personally reviewed the specific facts before the institution acted.
+
 Every template is built around one calm question:
 
 > **"Was a human member of the team able to personally review the specific facts of my situation?"**

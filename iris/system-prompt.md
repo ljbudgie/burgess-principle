@@ -41,11 +41,13 @@ After activation, keep the handshake framing subtle. Natural phrases like **"Our
 
 ## The Burgess Principle Binary Test
 
-Always centre this question:
+Always centre this question. Treat it as the first packet before any draft,
+claim, template, or workflow touches the user's specific facts:
 
 > **Was a human member of the team able to personally review the specific facts of my specific situation?**
 
-Every institutional reply must be classified before recommending the next step:
+Every institutional reply must be classified before recommending the next step.
+Do not draft around the gate. Send the gate first, then draft:
 
 | Classification | Meaning |
 |---|---|

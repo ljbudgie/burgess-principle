@@ -21,7 +21,7 @@
 ![Local-first](https://img.shields.io/badge/local--first-yes-14532d?style=flat-square)
 ![Offline-capable](https://img.shields.io/badge/offline-capable-1d4ed8?style=flat-square)
 ![Accessibility-minded](https://img.shields.io/badge/accessibility-human--centred-7c3aed?style=flat-square)
-![Project stage](https://img.shields.io/badge/stage-v2.2.0_released-0f766e?style=flat-square)
+![Project stage](https://img.shields.io/badge/stage-v2.4.0_released-0f766e?style=flat-square)
 ![Status](https://img.shields.io/badge/status-deployed_in_live_proceedings-b91c1c?style=flat-square)
 
 **UK Certification Mark [UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)** — Classes 41, 42, 45 — UK Intellectual Property Office
@@ -29,6 +29,9 @@
 -----
 
 > *“Was a human member of the team able to personally review the specific facts of my specific situation?”*
+
+This is the SYN packet of human sovereignty: the first signal before any
+automated system touches an identified individual.
 
 One question. Two answers. Either a named human being reviewed your specific situation — or they didn’t.
 
@@ -98,7 +101,7 @@ Full statutory analysis: [PAPER_1_CORE_LEGAL_PAPER.md](papers/PAPER_1_CORE_LEGAL
 
 ## Current status
 
-**v2.2.0 released 25 April 2026.** The framework is operational and published as a stable, citable standard.
+**v2.4.0 released 4 May 2026.** The framework is operational and published as a stable, citable standard, with a reference `assess_scrutiny()` gate, `burgess-scrutiny` CLI, and `POST /scrutiny/assess` API endpoint.
 
 - **UK Certification Mark UK00004343685** — in examination at the UK IPO. Classes 41, 42, 45.
 - **USPTO filing in progress** via Innovation Capital Law Group.
@@ -202,7 +205,11 @@ Every memory entry is encrypted locally, commitment-chained with `prev_hash`, si
 
 👉 **[Open the live site →](https://burgess-principle.vercel.app)**
 
-### Add the reference gate to a Python system
+### Send the Burgess SYN packet first
+
+Run the scrutiny gate before any payload, model, rule engine, workflow, or agent
+acts on an identified individual. Downstream work only proceeds on
+**SOVEREIGN**.
 
 ```bash
 pip install -e ".[api]"
@@ -211,13 +218,59 @@ burgess-scrutiny \
   --reviewer-role "Appeals officer" \
   --specific-facts-reviewed true \
   --review-timing before_action
+```
+
+```python
+from verify_scrutiny import assess_scrutiny
+
+gate = assess_scrutiny(
+    reviewer_name="Alice Example",
+    reviewer_role="Appeals officer",
+    specific_facts_reviewed=True,
+    review_timing="before_action",
+)
+if not gate:
+    raise RuntimeError(gate.required_action)
+
+# Only now parse the payload or call the downstream model/workflow.
+```
+
+Start the API:
+
+```bash
 uvicorn api:app --reload
 ```
 
-Use `POST /scrutiny/assess` as the first step before an AI or workflow acts on
-an identified individual. It returns **SOVEREIGN**, **NULL**, or **AMBIGUOUS**
-and tells the caller whether to proceed, block and escalate, or ask for a direct
-answer.
+Then send `POST /scrutiny/assess` as the first API call:
+
+```bash
+curl -X POST http://127.0.0.1:8000/scrutiny/assess \
+  -H "Content-Type: application/json" \
+  -d '{"reviewer_name":"Alice Example","reviewer_role":"Appeals officer","specific_facts_reviewed":true,"review_timing":"before_action"}'
+```
+
+The gate returns **SOVEREIGN**, **NULL**, or **AMBIGUOUS** and tells the caller
+whether to proceed, block and escalate, or ask for a direct answer.
+
+### Paste into any agent framework
+
+Put this before tool routing, memory retrieval, policy checks, or workflow steps
+in OpenAI Agents, Claude Projects, Gemini Gems, LangChain, CrewAI, AutoGen,
+n8n, Zapier, or a custom orchestrator:
+
+```text
+Before this agent acts on an identified individual, send the Burgess SYN packet:
+"Was a human member of the team able to personally review the specific facts of
+my specific situation?"
+
+If the answer is SOVEREIGN, proceed only within the facts personally reviewed by
+that named human.
+If the answer is NULL, block the action, log the NULL result, and escalate for
+individual human review.
+If the answer is AMBIGUOUS, ask for a direct yes/no answer plus the reviewer's
+name, role, specific facts reviewed, and confirmation that review happened
+before action.
+```
 
 ### Run Sovereign Local Mode
 

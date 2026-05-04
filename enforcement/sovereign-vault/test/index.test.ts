@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { ed25519 } from '@noble/curves/ed25519';
+import { ed25519 } from '@noble/curves';
 import { bytesToHex } from '@noble/hashes/utils';
 
 import { generateCommitment } from '../src/generate-commitment.ts';

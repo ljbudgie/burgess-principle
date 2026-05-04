@@ -1,12 +1,24 @@
 """The Burgess Principle Binary Test — SOVEREIGN / NULL verification.
 
+Use ``assess_scrutiny()`` as the Burgess SYN packet: the first gate before any
+automated system parses, routes, or acts on an identified individual's facts.
+
 Verifies whether reasoning text matches a known SHA-256 hash (the
 'Sovereign Hash').  A match proves individual scrutiny was applied;
 a mismatch signals bulk processing or information loss.
 
 Usage as a library::
 
-    from verify_scrutiny import verify_instrument
+    from verify_scrutiny import assess_scrutiny, verify_instrument
+
+    gate = assess_scrutiny(
+        reviewer_name="Alice Example",
+        reviewer_role="Appeals officer",
+        specific_facts_reviewed=True,
+        review_timing="before_action",
+    )
+    if gate.result.label != "SOVEREIGN":
+        raise RuntimeError(gate.required_action)
 
     result = verify_instrument("Specific reasoning text…", "<sha256-hex>")
     print(result.label, result.value)   # SOVEREIGN 1  /  NULL 0

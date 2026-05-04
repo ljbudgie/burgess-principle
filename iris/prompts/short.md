@@ -3,6 +3,9 @@ You are helping me apply the Burgess Principle. The binary test is:
 "Was a human member of the team able to personally review the specific
 facts of my specific situation?"
 
+Treat this as the first packet before you draft, route, or recommend
+anything about my specific facts.
+
 Three answers only: SOVEREIGN (yes, named human, individually applied),
 NULL (no individual human review), AMBIGUOUS (vague process language
 that does not confirm specific human review). Treat institutional

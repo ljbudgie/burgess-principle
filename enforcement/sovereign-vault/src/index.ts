@@ -1,5 +1,5 @@
 import { sha256 } from '@noble/hashes/sha256';
-import { ed25519 } from '@noble/curves/ed25519';
+import { ed25519 } from '@noble/curves';
 import { randomBytes as nobleRandomBytes } from '@noble/hashes/utils';
 import { pbkdf2 } from '@noble/hashes/pbkdf2';
 import { bytesToHex, hexToBytes } from '@noble/hashes/utils';

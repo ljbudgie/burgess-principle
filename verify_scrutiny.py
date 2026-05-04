@@ -27,12 +27,13 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+# Exact wording from FOR_AI_MODELS.md; keep this aligned with the canonical source.
 BINARY_TEST_QUESTION = (
     "Was a human member of the team able to personally review the specific "
     "facts of my specific situation?"
 )
 
-_VAGUE_PROCESS_PHRASES = (
+_AMBIGUOUS_REPLY_EXAMPLES = (
     "human oversight",
     "reviewed in line with policy",
     "subject to approval",
@@ -207,7 +208,7 @@ def _normalise_timing(value: str | None) -> str:
 
 def _has_vague_process_language(*values: str) -> bool:
     joined = " ".join(values).lower()
-    return any(phrase in joined for phrase in _VAGUE_PROCESS_PHRASES)
+    return any(phrase in joined for phrase in _AMBIGUOUS_REPLY_EXAMPLES)
 
 
 def assess_scrutiny(
@@ -238,6 +239,7 @@ def assess_scrutiny(
     ):
         raise TypeError("specific_facts_reviewed must be a bool or None")
 
+    # Exact False is distinct from None: unknown evidence is AMBIGUOUS, not NULL.
     if specific_facts_reviewed is False or timing == "after_action_only":
         return ScrutinyAssessment(
             result=NULL,

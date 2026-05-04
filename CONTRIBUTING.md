@@ -85,8 +85,15 @@ Be kind, respectful, and constructive. We want this to remain a welcoming space 
 
 ### Licensing Note
 
-The core framework is MIT licensed and free for personal use.  
-Commercial use of the Certification Mark “THE BURGESS PRINCIPLE” (UK00004343685) requires a licence agreement.
+The repository materials are MIT licensed. Individuals, researchers, open-source
+projects, and independent commercial users may use, fork, adapt, and redistribute
+them under the MIT terms with attribution.
+
+The Certification Mark “THE BURGESS PRINCIPLE” (UK00004343685) is governed
+separately. Do not imply official approval, affiliation, certification, or
+endorsement unless the proprietor has authorised that mark use. Certified use
+must mean real individual human scrutiny, not a badge on an unchanged automated
+process.
 
 Thank you for helping make the Burgess Principle more useful while keeping its heart intact.
 

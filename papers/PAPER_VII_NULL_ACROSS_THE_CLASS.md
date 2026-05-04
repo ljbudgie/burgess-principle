@@ -295,6 +295,6 @@ papers/PAPER_VII_NULL_ACROSS_THE_CLASS.md
 
 ---
 
-*The Burgess Principle is published under the MIT licence. The certification mark (UK00004343685) governs commercial use of the standard. This paper is citable as a working paper in the Burgess Principle series. Author contact: lewisjames@theburgessprinciple.com*
+*The Burgess Principle is published under the MIT licence. The certification mark (UK00004343685) governs official certified use of the standard. This paper is citable as a working paper in the Burgess Principle series. Author contact: lewisjames@theburgessprinciple.com*
 
 *"Was a human member of the team able to personally review the specific facts of my specific situation?"*

@@ -251,7 +251,7 @@ And every system that holds data on a person already knows which side of that li
 
 ---
 
-*The Burgess Principle is published under the MIT licence. The certification mark (UK00004343685) governs commercial use of the standard.*
+*The Burgess Principle is published under the MIT licence. The certification mark (UK00004343685) governs official certified use of the standard.*
 
 *Lewis James Burgess | lewisjames@theburgessprinciple.com | Darlington, April 2026*
 

@@ -16,7 +16,8 @@ If you need formal legal advice for your particular circumstances, please consul
 
 The Burgess Principle is offered **"as is"** with no warranties or guarantees of any kind. Using the principle, templates, or any materials from this repository is entirely at your own risk. Results can vary depending on your specific situation and how the institution responds.
 
-For the full licence terms — including the distinction between personal and commercial use — please see [LICENSE.md](LICENSE.md).
+For the full licence terms — including the distinction between MIT reuse and
+certification-mark governance — please see [LICENSE.md](LICENSE.md).
 
 ### Jurisdictional Scope
 
@@ -61,5 +62,5 @@ The Burgess Principle project
 
 The Burgess Principle  
 UK Certification Mark: UK00004343685  
-MIT Licence (doctrine) | Certification Mark (commercial standard)  
+MIT Licence (repository materials) | Certification Mark (certified standard)  
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

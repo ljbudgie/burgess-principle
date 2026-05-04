@@ -1,69 +1,104 @@
 # Licensing Structure
 
-> **Reader note (April 2026):** `/papers` is the Burgess Principle's foundational paper archive. Some documents preserve earlier publication wording or a narrower doctrinal focus. For the current operational language, user journey, and release state, start with [README.md](../README.md), [START_HERE.md](../START_HERE.md), [CHANGELOG.md](../CHANGELOG.md), and [FOR_AI_MODELS.md](../FOR_AI_MODELS.md).
+> **Reader note (May 2026):** this paper now mirrors the current repository
+> governance position. The canonical operational file is
+> [`../LICENSE.md`](../LICENSE.md). If there is any inconsistency, use
+> `LICENSE.md` for the current position.
 
-**UK Certification Mark UK00004343685**
-Version 1.0 – March 2026
-
-**Author:** [Redacted]
-**License:** MIT (Open Source)
-**Repository:** https://github.com/ljbudgie/burgess-principle
-
----
-
-Hi 👋
-
-The Burgess Principle was created to help ordinary people be seen and treated as real individuals rather than numbers in a system.
-
-### Free for Personal Use
-Individuals may freely use, copy, modify, and share the Burgess Principle, all templates, and the full repository for their own personal matters.
-
-This includes:
-- Using the templates to write your own letters
-- Dropping the repo into any AI for personalised help
-- Sharing it with family, friends, or others who need it
-
-No permission or payment is required for personal use.
-
-### Commercial or Professional Use Requires a Licence
-If you are a law firm, barrister, claims-management company, charity, business, or any organisation wanting to use the Burgess Principle (or its templates and materials) in a **professional, commercial, or group-litigation** capacity, you must obtain a paid licence from the creator.
-
-This includes offering services based on the principle, the templates, or the framework to clients or members.
-
-### Trademark Protection
-"The Burgess Principle" and the certification mark [UK00004343685] are protected trademarks. Unauthorised commercial use of the name or branded elements may constitute trademark infringement.
-
-### Code vs Content
-The underlying code and repository structure remain available under the MIT licence for anyone to fork and build upon. However, the core doctrine, templates, branding, and framework are reserved for licensed commercial use.
+**UK Certification Mark UK00004343685**  
+**Repository:** https://github.com/ljbudgie/burgess-principle  
+**Repository licence:** MIT
 
 ---
 
-The Principle is free (MIT). The mark is licensed. Payment occurs only when value is delivered.
+## Purpose
 
-## The Four Tiers
+The licensing structure has one job: keep the Burgess Principle open for the
+people who need it while protecting the certification mark from institutional
+badging.
 
-| Tier | Partner Type                        | Upfront     | Ongoing                  | Payment Trigger             |
-|------|-------------------------------------|-------------|--------------------------|-----------------------------| 
-| 1    | Global Technology                   | Negotiated  | 0.01–0.1% relevant revenue | Quarterly from certification |
-| 2    | Corporate / Institutional           | £1,000      | £5,000–£50,000 annual    | Annually from certification |
-| 3    | Public Sector / Regulatory          | £1          | Nil – public interest    | None                        |
-| 4    | Litigation                          | £1 or nil   | 2–5% fee share           | On successful outcome       |
-
-## Deliverables Table
-
-| Deliverable                     | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
-|---------------------------------|--------|--------|--------|--------|
-| Burgess Certified mark          | All products | Specified ops | Adoption credit | Qualifying cases |
-| Full operational toolkit        | ✓      | ✓      | ✓      | ✓      |
-| Litigation framework (CPR 19.8) | —      | —      | —      | ✓      |
-| Damages matrix                  | —      | —      | —      | ✓      |
-| Public commit in repo           | 24 hrs | 24 hrs | 7 days | 24 hrs |
-| Priority support                | ✓      | —      | —      | —      |
-
-First-mover advantage applies.
+The repository is open. The standard is accountable. The mark is governed.
 
 ---
 
-**Full authoritative versions** of all papers are available as separate PDFs in this repository.
-Contact: Open an issue on the repository.
-Originator: The Burgess Principle, March 2026
+## The split
+
+| Layer | Position |
+| --- | --- |
+| Repository materials | MIT licensed — use, fork, adapt, redistribute, and build on them with attribution |
+| Personal and open-source use | Free — no permission or payment needed |
+| Independent commercial use of MIT materials | Allowed under MIT, provided it does not imply official certification or endorsement |
+| Certification mark / official branding | Controlled separately under UK00004343685 |
+| Certified processes | Must preserve individual human review before action affecting an identified person |
+
+The MIT licence is not a certification grant. The certification mark is not a
+restriction on ordinary MIT reuse.
+
+---
+
+## Governance standard for certification
+
+A certified process must show that:
+
+1. the binary test is applied before action is taken;
+2. a named human reviewer can personally review the specific facts of the
+   specific person's situation, applying the question: *"Was a human member of
+   the team able to personally review the specific facts of my specific
+   situation?"*;
+3. the reviewer has authority to stop, change, or approve the action;
+4. SOVEREIGN / NULL / AMBIGUOUS outcomes are recorded;
+5. NULL or AMBIGUOUS outcomes are escalated for individual human review, not
+   treated as approval; and
+6. accessibility, legal, safety, and security duties remain intact.
+
+Certification is therefore a governance claim, not a marketing label.
+
+---
+
+## Routes
+
+| Route | Typical applicant | Governance focus |
+| --- | --- | --- |
+| Open / individual use | Individuals, researchers, open-source maintainers | MIT use with attribution; no mark claim |
+| Practitioner certification | Sole traders, advisers, community practitioners | Every client matter receives personal review |
+| Institutional certification | Public bodies, companies, platforms, charities | Decision processes affecting identified people include individual human review |
+| Technology certification | AI agents, workflow tools, developer platforms | The Burgess gate sits before decision logic and cannot be bypassed by prompts |
+| Litigation / advocacy partners | Law firms, funders, claims groups, advocates | Client matters use the framework with individual review and clear records |
+
+Commercial terms, if any, belong in a separate written agreement. Public
+interest, accessibility, and community uses may be licensed at nominal or no cost
+where that best serves the governance purpose.
+
+---
+
+## What requires permission
+
+Permission is required before using the Burgess Principle name, certification
+mark, official branding, or equivalent trust signal to suggest approval,
+affiliation, certification, or official status.
+
+That includes marketing a product, service, workflow, legal pack, audit, AI
+agent, practitioner, institution, or decision process as **Burgess Certified** or
+officially compliant.
+
+Independent use of the MIT-licensed repository materials is allowed. Official
+certified use of the mark is separate.
+
+---
+
+## Public record and revocation
+
+Certified uses should be traceable by scope, date, conditions, and verification
+route. Certification may be refused, suspended, or revoked if a party uses vague
+process language, exceeds scope, keeps returning NULL or AMBIGUOUS without
+escalation, misleads affected people, or undermines accessibility, legal, safety,
+or security duties.
+
+---
+
+## In short
+
+The principle is free. The repository is MIT. The mark is licensed. The mark only
+means something if it points to real individual human scrutiny.
+
+Contact: lewisjames@theburgessprinciple.com

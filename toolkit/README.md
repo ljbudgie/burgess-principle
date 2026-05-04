@@ -85,4 +85,4 @@ For the litigation architecture (Tier 4 licensed partners only), see [litigation
 *One question. Was a human there?*
 
 UK Certification Mark UK00004343685 | github.com/ljbudgie/burgess-principle
-MIT Licence — free for personal use | Certification mark licensed separately
+MIT Licence — free to use and adapt | Certification mark governed separately

@@ -140,7 +140,7 @@ def test_docs_cover_phase_3_memory_palace_and_hub():
     assert '## Phase 3 — Cryptographic Memory Palace Evolution + Sovereign Hub Mode 2.0' in docs
     assert '### Backup bundles, schemas, and extension packs' in docs
     assert 'Verify receipt file' in docs
-    assert 'For connectivity and environmental setup options, see <a>CONNECTIVITY_MODE.md</a>.' in docs
+    assert 'For connectivity and environmental setup options, see [CONNECTIVITY_MODE.md](./CONNECTIVITY_MODE.md).' in docs
     assert '### Hardwired connectivity options for personal environmental preferences' not in docs
     assert '### Memory Palace environmental notes' not in docs
     assert '#### Diagram — Hardwired Connectivity Options Flow' not in docs

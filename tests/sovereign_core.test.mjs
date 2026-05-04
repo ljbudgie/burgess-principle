@@ -81,7 +81,7 @@ test('utils build connectivity tags from preferences and exact text matches', ()
     {
       connectivity_profile: '',
       low_wireless_mode: true,
-      connectivity_note: 'ONT to Ethernet, Wi-Fi off, fixed wireless fallback; starfleet is not Starlink.',
+      connectivity_note: 'ONT to Ethernet, Wi-Fi off, fixed wireless fallback; starfleet is not a connectivity profile.',
     },
     'Manual sync over DSL or cable if needed.'
   );
@@ -97,7 +97,7 @@ test('utils build connectivity tags from preferences and exact text matches', ()
   assert.ok(tags.includes('queued-sync'));
   assert.ok(tags.includes('dsl'));
   assert.ok(tags.includes('cable'));
-  assert.equal(tags.includes('starlink'), true);
+  assert.equal(tags.includes('starlink'), false);
 });
 
 test('utils trigger presets expose complete advisory template metadata', () => {

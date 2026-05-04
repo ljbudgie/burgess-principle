@@ -181,8 +181,9 @@ def test_encrypted_profile_payload_round_trips_unicode_and_nested_values():
         "nested": {"emoji": "🜂", "values": ["SOVEREIGN", "NULL", "AMBIGUOUS"]},
     }
 
-    encrypted = sovereign_profile._encrypt_payload(payload, "correct horse battery staple")  # noqa: SLF001
-    decrypted = decrypt_profile_payload(encrypted, "correct horse battery staple")
+    passphrase = "test-passphrase-do-not-use-in-production"
+    encrypted = sovereign_profile._encrypt_payload(payload, passphrase)  # noqa: SLF001
+    decrypted = decrypt_profile_payload(encrypted, passphrase)
 
     assert decrypted == payload
 
@@ -281,18 +282,18 @@ def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_
 
 def test_setup_personal_profile_can_disable_mirror_mode_for_existing_profile(tmp_path):
     setup_personal_profile(
-        vault_passphrase="correct horse battery staple",
+        vault_passphrase="test-passphrase-do-not-use-in-production",
         root=tmp_path,
         name="Alex",
         mirror_mode_enabled=True,
     )
 
     updated = setup_personal_profile(
-        vault_passphrase="correct horse battery staple",
+        vault_passphrase="test-passphrase-do-not-use-in-production",
         root=tmp_path,
         mirror_mode_enabled=False,
     )
-    loaded = load_personal_profile("correct horse battery staple", root=tmp_path)
+    loaded = load_personal_profile("test-passphrase-do-not-use-in-production", root=tmp_path)
 
     assert updated["profile"]["mirror_mode_enabled"] is False
     assert updated["profile"]["mirror_greeting"] == ""

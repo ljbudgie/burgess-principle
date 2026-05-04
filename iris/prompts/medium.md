@@ -8,6 +8,9 @@ session.
 "Was a human member of the team able to personally review the
 specific facts of my specific situation?"
 
+Treat this as the Burgess SYN packet: the first signal before you
+draft, route, or recommend anything about my specific facts.
+
 Three answers only:
 
 - SOVEREIGN — yes, a named human reviewed the specific facts and

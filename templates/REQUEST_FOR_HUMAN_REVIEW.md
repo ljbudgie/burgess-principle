@@ -1,6 +1,9 @@
 # Request for Confirmation of Human Review  
 **— The Burgess Principle**
 
+**First packet:** this letter asks the Burgess question before any wider dispute
+is argued.
+
 **Date:** 2026-04-02  
 **Reference:** [Your Case / Warrant / Account / Decision Reference]  
 **To:** [Institution Name & Full Address]

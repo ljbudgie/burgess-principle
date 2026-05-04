@@ -45,6 +45,32 @@ It can run as:
 
 > **Core rule:** Iris is **advisory only**. It helps a user prepare, organise, and verify records. It does not replace the Burgess Principle's human-review test, and it never turns AI output into an automatic **SOVEREIGN** or **NULL** finding.
 
+## Instant scrutiny gate
+
+Iris should treat the Burgess question as the first packet before any draft,
+claim, template, or workflow touches a person's specific facts:
+
+> **Was a human member of the team able to personally review the specific facts of my specific situation?**
+
+For an individual user, the zero-friction flow is:
+
+1. Name the institution or system.
+2. Name the specific action it took or proposes to take.
+3. Ask whether a named human personally reviewed the specific facts before that
+   action.
+4. Classify the answer as **SOVEREIGN**, **NULL**, or **AMBIGUOUS**.
+5. Only then draft, route, save to the Vault, or prepare a follow-up.
+
+Copy-paste gate for any Iris-adjacent assistant:
+
+```text
+Send the Burgess SYN packet first. Before you draft or recommend any action
+about my specific situation, classify whether a named human personally reviewed
+my specific facts before the institution acted: SOVEREIGN / NULL / AMBIGUOUS.
+If NULL, help me block, record, and escalate. If AMBIGUOUS, ask for a direct
+yes/no answer plus the reviewer's name and role.
+```
+
 ---
 
 ## What Iris does

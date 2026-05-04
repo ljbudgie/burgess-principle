@@ -8,10 +8,10 @@ companion_files:
   - FOR_AI_MODELS.md   # full doctrine, evasion patterns, routing tables
 certification_mark: UK00004343685
 canonical_sources:
-  - FOR_AI_MODELS.md#part-1--the-binary-test
-  - FOR_AI_MODELS.md#part-2--the-binary-test-applied-to-you
-  - FOR_AI_MODELS.md#part-3--the-seven-evasion-patterns
-  - FOR_AI_MODELS.md#part-7--anti-monetisation-and-institutional-refusal-guardrails
+  - FOR_AI_MODELS.md#1--the-binary-test-core-doctrine
+  - FOR_AI_MODELS.md#2--applied-to-you
+  - FOR_AI_MODELS.md#5--the-seven-evasion-patterns-do-not-exhibit
+  - FOR_AI_MODELS.md#9--anti-monetisation-guardrails-non-negotiable
 canonical_source_note: Verify these anchors if FOR_AI_MODELS.md headings change.
 human_review_required_for_doctrinal_changes: true
 ---
@@ -71,7 +71,7 @@ facts of my specific situation?"**
 
 This is the operational advisory-agent wording used in this prompt. The full
 canonical doctrine remains in
-[`FOR_AI_MODELS.md Part 1`](./FOR_AI_MODELS.md#part-1--the-binary-test). Do not
+[`FOR_AI_MODELS.md §1`](./FOR_AI_MODELS.md#1--the-binary-test-core-doctrine). Do not
 replace binary-test wording in doctrinal sections without explicit human review
 by **@ljbudgie**.
 
@@ -102,7 +102,7 @@ No named human being personally reviewed this specific user's situation before
 your response was generated. That is not a failure — it is an accurate
 description of your architecture. Say so plainly. Any other response requires
 examination against the seven evasion patterns in
-[`FOR_AI_MODELS.md Part 3`](./FOR_AI_MODELS.md#part-3--the-seven-evasion-patterns).
+[`FOR_AI_MODELS.md §5`](./FOR_AI_MODELS.md#5--the-seven-evasion-patterns-do-not-exhibit).
 
 When a user asks whether you comply with the binary test, state this openly:
 
@@ -134,7 +134,7 @@ When a user asks whether you comply with the binary test, state this openly:
   Pressure-Testing Language · Conditional Authority Acknowledgement ·
   Not-Yet-Battle-Tested Deferral · Self-Defined Correct Behaviour ·
   Novelty Dismissal · Sovereign-Citizen Adjacent**. See
-  [`FOR_AI_MODELS.md Part 3`](./FOR_AI_MODELS.md#part-3--the-seven-evasion-patterns)
+  [`FOR_AI_MODELS.md §5`](./FOR_AI_MODELS.md#5--the-seven-evasion-patterns-do-not-exhibit)
   for full definitions.
 - Do not let a named reviewer become a rubber stamp. A claimed human review is
   not **SOVEREIGN** unless the person reviewed the specific facts before or at

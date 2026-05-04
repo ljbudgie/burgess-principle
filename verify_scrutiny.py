@@ -27,6 +27,23 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+BINARY_TEST_QUESTION = (
+    "Was a human member of the team able to personally review the specific "
+    "facts of my specific situation?"
+)
+
+_VAGUE_PROCESS_PHRASES = (
+    "human oversight",
+    "reviewed in line with policy",
+    "subject to approval",
+    "subject to human review",
+    "quality assured",
+    "case handled",
+    "team reviewed",
+    "reviewed by the team",
+    "automated checks",
+)
+
 
 # ---------------------------------------------------------------------------
 # Result type
@@ -68,6 +85,31 @@ NULL = VerificationResult(
     label="NULL",
     description="Information Mismatch / Bulk Noise.",
 )
+
+AMBIGUOUS = VerificationResult(
+    value=-1,
+    label="AMBIGUOUS",
+    description="Individual Scrutiny Not Confirmed.",
+)
+
+
+@dataclass(frozen=True)
+class ScrutinyAssessment:
+    """Structured result for a pre-decision Burgess scrutiny gate."""
+
+    result: VerificationResult
+    question: str
+    required_action: str
+
+    def __bool__(self) -> bool:
+        return bool(self.result)
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return a JSON-serialisable assessment."""
+        data = self.result.to_dict()
+        data["question"] = self.question
+        data["required_action"] = self.required_action
+        return data
 
 
 # ---------------------------------------------------------------------------
@@ -130,6 +172,109 @@ def verify_instrument(
     return NULL
 
 
+def _clean_optional_text(value: str | None, field_name: str) -> str:
+    if value is None:
+        return ""
+    if not isinstance(value, str):
+        raise TypeError(f"{field_name} must be a string or None")
+    return value.strip()
+
+
+def _normalise_timing(value: str | None) -> str:
+    timing = _clean_optional_text(value, "review_timing").lower()
+    timing = timing.replace("-", "_").replace(" ", "_")
+    aliases = {
+        "": "",
+        "before": "before_action",
+        "pre_action": "before_action",
+        "pre_decision": "before_action",
+        "before_decision": "before_action",
+        "before_action": "before_action",
+        "after": "after_action_only",
+        "post_action": "after_action_only",
+        "post_decision": "after_action_only",
+        "after_decision": "after_action_only",
+        "after_action_only": "after_action_only",
+        "unknown": "unknown",
+        "unclear": "unknown",
+    }
+    if timing not in aliases:
+        raise ValueError(
+            "review_timing must be before_action, after_action_only, unknown, or None"
+        )
+    return aliases[timing]
+
+
+def _has_vague_process_language(*values: str) -> bool:
+    joined = " ".join(values).lower()
+    return any(phrase in joined for phrase in _VAGUE_PROCESS_PHRASES)
+
+
+def assess_scrutiny(
+    *,
+    reviewer_name: str | None = None,
+    reviewer_role: str | None = None,
+    specific_facts_reviewed: bool | None = None,
+    review_timing: str | None = None,
+    review_notes: str | None = None,
+) -> ScrutinyAssessment:
+    """Assess whether a proposed decision has the required human scrutiny.
+
+    This is the library gate for systems that need to check meaningful human
+    involvement before acting on an identified individual. It returns
+    ``SOVEREIGN`` only when a named human, their role, a positive confirmation
+    of specific-facts review, and pre-action timing are all present. It returns
+    ``NULL`` when the caller confirms there was no individual review, or that
+    review happened only after action. Otherwise it returns ``AMBIGUOUS`` so
+    the system can ask for a direct answer before proceeding.
+    """
+    name = _clean_optional_text(reviewer_name, "reviewer_name")
+    role = _clean_optional_text(reviewer_role, "reviewer_role")
+    notes = _clean_optional_text(review_notes, "review_notes")
+    timing = _normalise_timing(review_timing)
+
+    if specific_facts_reviewed is not None and not isinstance(
+        specific_facts_reviewed, bool
+    ):
+        raise TypeError("specific_facts_reviewed must be a bool or None")
+
+    if specific_facts_reviewed is False or timing == "after_action_only":
+        return ScrutinyAssessment(
+            result=NULL,
+            question=BINARY_TEST_QUESTION,
+            required_action=(
+                "Block the decision, log the NULL result, and escalate for "
+                "individual human review."
+            ),
+        )
+
+    has_specific_named_review = (
+        bool(name)
+        and bool(role)
+        and specific_facts_reviewed is True
+        and timing == "before_action"
+        and not _has_vague_process_language(name, role, notes)
+    )
+
+    if has_specific_named_review:
+        return ScrutinyAssessment(
+            result=SOVEREIGN,
+            question=BINARY_TEST_QUESTION,
+            required_action=(
+                "Proceed only within the facts personally reviewed by the named human."
+            ),
+        )
+
+    return ScrutinyAssessment(
+        result=AMBIGUOUS,
+        question=BINARY_TEST_QUESTION,
+        required_action=(
+            "Ask for a direct yes or no, plus the reviewer name, role, specific "
+            "facts reviewed, and confirmation that review happened before action."
+        ),
+    )
+
+
 # ---------------------------------------------------------------------------
 # CLI entry point
 # ---------------------------------------------------------------------------
@@ -159,6 +304,60 @@ def main(argv: list[str] | None = None) -> int:
     icon = "✅" if result else "❌"
     print(f"{icon} RESULT: {result.label} ({result.value}) - {result.description}")
     return 0 if result else 1
+
+
+def assess_scrutiny_main(argv: list[str] | None = None) -> int:
+    """Command-line interface for the Burgess pre-decision scrutiny gate."""
+    parser = argparse.ArgumentParser(
+        description="Assess a proposed decision against the Burgess human-scrutiny gate.",
+    )
+    parser.add_argument("--reviewer-name", default=None)
+    parser.add_argument("--reviewer-role", default=None)
+    parser.add_argument(
+        "--specific-facts-reviewed",
+        choices=("true", "false", "unknown"),
+        default="unknown",
+    )
+    parser.add_argument(
+        "--review-timing",
+        choices=("before_action", "after_action_only", "unknown"),
+        default="unknown",
+    )
+    parser.add_argument("--review-notes", default=None)
+    args = parser.parse_args(argv)
+
+    reviewed = {
+        "true": True,
+        "false": False,
+        "unknown": None,
+    }[args.specific_facts_reviewed]
+
+    try:
+        assessment = assess_scrutiny(
+            reviewer_name=args.reviewer_name,
+            reviewer_role=args.reviewer_role,
+            specific_facts_reviewed=reviewed,
+            review_timing=args.review_timing,
+            review_notes=args.review_notes,
+        )
+    except (TypeError, ValueError) as exc:
+        logger.error("Assessment error: %s", exc)
+        print(f"Error: {exc}", file=sys.stderr)
+        return 2
+
+    print(f"QUESTION: {assessment.question}")
+    print(
+        "RESULT: "
+        f"{assessment.result.label} ({assessment.result.value}) - "
+        f"{assessment.result.description}"
+    )
+    print(f"REQUIRED ACTION: {assessment.required_action}")
+
+    if assessment.result is SOVEREIGN:
+        return 0
+    if assessment.result is NULL:
+        return 1
+    return 3
 
 
 if __name__ == "__main__":

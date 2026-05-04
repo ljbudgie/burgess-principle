@@ -24,6 +24,7 @@ The following schemas are published in [`/schemas`](./schemas):
 
 ### Core verification
 - `POST /verify` — verify Burgess reasoning text against a SHA-256 digest.
+- `POST /scrutiny/assess` — run the pre-decision Burgess gate before a system acts on an identified individual; returns SOVEREIGN, NULL, or AMBIGUOUS with the required next action.
 - `POST /claims/verify` — verify an Ed25519-signed on-chain claim receipt.
 
 ### Hosted Cloud Mode helpers

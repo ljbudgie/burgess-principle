@@ -167,6 +167,69 @@ class TestVerifyEndpoint:
         assert resp.json()["status"] == "SOVEREIGN"
 
 
+class TestScrutinyAssessmentEndpoint:
+    def test_confirmed_pre_action_review_returns_sovereign(self, client):
+        resp = client.post(
+            "/scrutiny/assess",
+            json={
+                "reviewer_name": "Alice Example",
+                "reviewer_role": "Appeals officer",
+                "specific_facts_reviewed": True,
+                "review_timing": "before_action",
+                "review_notes": "Reviewed the specific facts before action.",
+            },
+        )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["status"] == "SOVEREIGN"
+        assert body["code"] == 1
+        assert "Was a human member of the team" in body["question"]
+        assert "Proceed only" in body["required_action"]
+
+    def test_confirmed_no_review_returns_null(self, client):
+        resp = client.post(
+            "/scrutiny/assess",
+            json={
+                "specific_facts_reviewed": False,
+                "review_timing": "before_action",
+            },
+        )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["status"] == "NULL"
+        assert body["code"] == 0
+        assert "Block the decision" in body["required_action"]
+
+    def test_vague_process_language_returns_ambiguous(self, client):
+        resp = client.post(
+            "/scrutiny/assess",
+            json={
+                "reviewer_name": "Case team",
+                "reviewer_role": "Human oversight",
+                "specific_facts_reviewed": True,
+                "review_timing": "before_action",
+                "review_notes": "Reviewed in line with policy.",
+            },
+        )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["status"] == "AMBIGUOUS"
+        assert body["code"] == -1
+        assert "Ask for a direct yes or no" in body["required_action"]
+
+    def test_unknown_payload_returns_ambiguous(self, client):
+        resp = client.post("/scrutiny/assess", json={})
+        assert resp.status_code == 200
+        assert resp.json()["status"] == "AMBIGUOUS"
+
+    def test_invalid_review_timing_returns_422(self, client):
+        resp = client.post(
+            "/scrutiny/assess",
+            json={"review_timing": "eventually"},
+        )
+        assert resp.status_code == 422
+
+
 # ---------------------------------------------------------------------------
 # /claims/verify endpoint
 # ---------------------------------------------------------------------------

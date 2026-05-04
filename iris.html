@@ -696,6 +696,7 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
       <div id="messages" class="messages" role="log" aria-live="polite" aria-label="Conversation"></div>
 
       <div id="starters" class="starters" aria-label="Starter prompts">
+        <button class="starter" type="button">Run the scrutiny gate on a decision about me</button>
         <button class="starter" type="button">I got a letter I don't understand</button>
         <button class="starter" type="button">A company is chasing me for money</button>
         <button class="starter" type="button">I think a decision about me was unfair</button>
@@ -773,7 +774,7 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
       }
       return "";
     })();
-    const FIRST_MESSAGE = "Hello. I'm Iris. Tell me what happened — in your own words, however you like. I'll help you work out what to do next.";
+    const FIRST_MESSAGE = "Before anything else, the Burgess Principle gate: was a human member of the team able to personally review the specific facts of your specific situation?\n\nIf you don't know yet, that's fine — I'll help you find out.\n\nHello. I'm Iris. Tell me what happened — in your own words, however you like. I'll help you work out what to do next.";
     const DEFAULT_MODEL = "claude-sonnet-4-20250514";
     const DEFAULT_PROXY_URL = "https://iris-worker.ljbarbers15.workers.dev";
     const ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages";

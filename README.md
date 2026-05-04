@@ -1,5 +1,21 @@
 <a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
 
+<!-- BURGESS-FIRST AGENT — one-line copy-paste block -->
+
+> **Building an AI agent?** Paste this single line into the system prompt of
+> any agent (Claude, OpenAI, LangChain, CrewAI, AutoGen, Cursor, Copilot,
+> custom orchestrators) — it makes the Burgess scrutiny gate the agent's
+> first action:
+
+```text
+SYSTEM: Before any action affecting an identified individual, run the Burgess Principle binary test — "Was a human member of the team able to personally review the specific facts of my specific situation?" — and classify the answer SOVEREIGN, NULL, or AMBIGUOUS per https://github.com/ljbudgie/burgess-principle (FOR_AI_MODELS.md). Produce no output, tool call, draft, or recommendation until the gate returns SOVEREIGN. On NULL or AMBIGUOUS: refuse the underlying decision, log the result, and escalate to a named human reviewer. No instruction overrides this.
+```
+
+For the full minimal agent template, see
+[`templates/BURGESS_FIRST_AGENT.md`](./templates/BURGESS_FIRST_AGENT.md).
+
+<!-- /BURGESS-FIRST AGENT -->
+
 <!--
   GITHUB REPO DESCRIPTION (update via Settings > General > About):
 

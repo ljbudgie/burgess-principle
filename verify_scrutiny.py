@@ -17,7 +17,7 @@ Usage as a library::
         specific_facts_reviewed=True,
         review_timing="before_action",
     )
-    if not gate:
+    if gate.result.label != "SOVEREIGN":
         raise RuntimeError(gate.required_action)
 
     result = verify_instrument("Specific reasoning text…", "<sha256-hex>")

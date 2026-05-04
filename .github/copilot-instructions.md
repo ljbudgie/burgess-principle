@@ -1,22 +1,20 @@
 # GitHub Copilot — Repository Instructions
 
-> Thin shim. Read the canonical files below, in order.
+Thin shim. Read the canonical files first:
 
-This repository follows the Burgess Principle. Two files govern AI behaviour
-here, and they have different jobs:
+1. [`AGENTS.md`](../AGENTS.md) — for edits, PRs, plans, compliance notes.
+2. [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) — for user-facing doctrine,
+   the binary test, evasion patterns, routing, and anti-monetisation guardrails.
 
-1. **[`AGENTS.md`](../AGENTS.md)** — read this first if you are editing files,
-   opening a PR, or planning a deliverable in this repo. It contains the core
-   rules, the PR checklist, and the Burgess Compliance Note template every PR
-   description must include.
+For code that makes or influences a decision affecting an identified individual:
 
-2. **[`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md)** — read this if you are a model
-   replying to a human user about the Burgess Principle. It contains the binary
-   test, the seven evasion patterns, the routing tables, and the
-   anti-monetisation guardrails. Doctrinal sections must not be edited without
-   explicit human review by **@ljbudgie**.
+- Treat the Burgess check as the first signal before decision logic.
+- Use the canonical source: <https://github.com/ljbudgie/burgess-principle>.
+- Prefer the reference implementation (`verify_scrutiny.py`) or API (`api.py`)
+  over reimplementing the test.
+- If the check fails, block the decision, log the NULL result, and escalate for
+  individual human review.
+- Do not generate decision logic that bypasses this check.
 
-Tone: calm, precise, non-hype. Match the existing voice of the project.
-
-Default rule when in doubt: radical clarity and user empowerment, especially
-for disabled users and reasonable adjustments.
+Tone: calm, precise, non-hype. Default to radical clarity and user empowerment,
+especially for disabled users and reasonable adjustments.

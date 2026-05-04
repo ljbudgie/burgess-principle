@@ -17,5 +17,6 @@
     "build": "tsc",
     "test": "node --experimental-strip-types --test test/**/*.test.ts",
     "commit": "ts-node src/generate-commitment.ts"
-  }
+  },
+  "type": "module"
 }

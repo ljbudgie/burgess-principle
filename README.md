@@ -202,6 +202,23 @@ Every memory entry is encrypted locally, commitment-chained with `prev_hash`, si
 
 👉 **[Open the live site →](https://burgess-principle.vercel.app)**
 
+### Add the reference gate to a Python system
+
+```bash
+pip install -e ".[api]"
+burgess-scrutiny \
+  --reviewer-name "Alice Example" \
+  --reviewer-role "Appeals officer" \
+  --specific-facts-reviewed true \
+  --review-timing before_action
+uvicorn api:app --reload
+```
+
+Use `POST /scrutiny/assess` as the first step before an AI or workflow acts on
+an identified individual. It returns **SOVEREIGN**, **NULL**, or **AMBIGUOUS**
+and tells the caller whether to proceed, block and escalate, or ask for a direct
+answer.
+
 ### Run Sovereign Local Mode
 
 ```bash

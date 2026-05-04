@@ -7,9 +7,14 @@ from pathlib import Path
 import pytest
 
 from verify_scrutiny import (
+    AMBIGUOUS,
+    BINARY_TEST_QUESTION,
     NULL,
     SOVEREIGN,
+    ScrutinyAssessment,
     VerificationResult,
+    assess_scrutiny,
+    assess_scrutiny_main,
     main,
     verify_instrument,
 )
@@ -39,6 +44,9 @@ class TestVerificationResult:
     def test_null_is_falsy(self):
         assert bool(NULL) is False
 
+    def test_ambiguous_is_falsy(self):
+        assert bool(AMBIGUOUS) is False
+
     def test_sovereign_value(self):
         assert SOVEREIGN.value == 1
         assert SOVEREIGN.label == "SOVEREIGN"
@@ -46,6 +54,10 @@ class TestVerificationResult:
     def test_null_value(self):
         assert NULL.value == 0
         assert NULL.label == "NULL"
+
+    def test_ambiguous_value(self):
+        assert AMBIGUOUS.value == -1
+        assert AMBIGUOUS.label == "AMBIGUOUS"
 
     def test_immutable(self):
         with pytest.raises(AttributeError):
@@ -56,6 +68,9 @@ class TestVerificationResult:
 
     def test_null_description(self):
         assert NULL.description == "Information Mismatch / Bulk Noise."
+
+    def test_ambiguous_description(self):
+        assert AMBIGUOUS.description == "Individual Scrutiny Not Confirmed."
 
     def test_null_immutable(self):
         with pytest.raises(AttributeError):
@@ -84,6 +99,14 @@ class TestVerificationResult:
     def test_null_to_dict(self):
         d = NULL.to_dict()
         assert d == {"status": "NULL", "code": 0, "description": "Information Mismatch / Bulk Noise."}
+
+    def test_ambiguous_to_dict(self):
+        d = AMBIGUOUS.to_dict()
+        assert d == {
+            "status": "AMBIGUOUS",
+            "code": -1,
+            "description": "Individual Scrutiny Not Confirmed.",
+        }
 
     def test_custom_to_dict(self):
         custom = VerificationResult(value=1, label="X", description="Y")
@@ -138,6 +161,153 @@ class TestVerifyInstrumentHappyPath:
     def test_very_long_text_verified(self):
         text = "x" * 100_000
         assert verify_instrument(text, _hash(text)) is SOVEREIGN
+
+
+# ---------------------------------------------------------------------------
+# assess_scrutiny — pre-decision gate
+# ---------------------------------------------------------------------------
+
+class TestAssessScrutiny:
+    def test_complete_pre_action_review_returns_sovereign(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Alice Example",
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=True,
+            review_timing="before_action",
+            review_notes="Reviewed the account facts and disability adjustment request.",
+        )
+        assert assessment.result is SOVEREIGN
+        assert bool(assessment) is True
+        assert assessment.question == BINARY_TEST_QUESTION
+        assert "Proceed only" in assessment.required_action
+
+    def test_pre_decision_alias_returns_sovereign(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Alice Example",
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=True,
+            review_timing="pre-decision",
+        )
+        assert assessment.result is SOVEREIGN
+
+    def test_confirmed_no_specific_review_returns_null(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Alice Example",
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=False,
+            review_timing="before_action",
+        )
+        assert assessment.result is NULL
+        assert bool(assessment) is False
+        assert "Block the decision" in assessment.required_action
+
+    def test_after_action_review_returns_null(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Alice Example",
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=True,
+            review_timing="after_action_only",
+        )
+        assert assessment.result is NULL
+
+    def test_missing_name_returns_ambiguous(self):
+        assessment = assess_scrutiny(
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=True,
+            review_timing="before_action",
+        )
+        assert assessment.result is AMBIGUOUS
+        assert "Ask for a direct yes or no" in assessment.required_action
+
+    def test_vague_process_language_returns_ambiguous(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Case team",
+            reviewer_role="Human oversight",
+            specific_facts_reviewed=True,
+            review_timing="before_action",
+            review_notes="Reviewed in line with policy.",
+        )
+        assert assessment.result is AMBIGUOUS
+
+    def test_unknown_review_status_returns_ambiguous(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Alice Example",
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=None,
+            review_timing="unknown",
+        )
+        assert assessment.result is AMBIGUOUS
+
+    def test_assessment_to_dict_includes_gate_fields(self):
+        assessment = assess_scrutiny(
+            reviewer_name="Alice Example",
+            reviewer_role="Appeals officer",
+            specific_facts_reviewed=True,
+            review_timing="before_action",
+        )
+        data = assessment.to_dict()
+        assert data["status"] == "SOVEREIGN"
+        assert data["code"] == 1
+        assert data["question"] == BINARY_TEST_QUESTION
+        assert "required_action" in data
+
+    def test_scrutiny_assessment_bool_delegates_to_result(self):
+        assessment = ScrutinyAssessment(
+            result=AMBIGUOUS,
+            question=BINARY_TEST_QUESTION,
+            required_action="Ask again.",
+        )
+        assert bool(assessment) is False
+
+    def test_invalid_review_timing_raises_value_error(self):
+        with pytest.raises(ValueError, match="review_timing"):
+            assess_scrutiny(review_timing="eventually")
+
+    def test_invalid_specific_facts_type_raises_type_error(self):
+        with pytest.raises(TypeError, match="specific_facts_reviewed"):
+            assess_scrutiny(specific_facts_reviewed="yes")  # type: ignore[arg-type]
+
+    def test_invalid_reviewer_name_type_raises_type_error(self):
+        with pytest.raises(TypeError, match="reviewer_name"):
+            assess_scrutiny(reviewer_name=123)  # type: ignore[arg-type]
+
+
+class TestAssessScrutinyCLI:
+    def test_sovereign_exits_zero(self, capsys):
+        code = assess_scrutiny_main(
+            [
+                "--reviewer-name",
+                "Alice Example",
+                "--reviewer-role",
+                "Appeals officer",
+                "--specific-facts-reviewed",
+                "true",
+                "--review-timing",
+                "before_action",
+            ]
+        )
+        captured = capsys.readouterr()
+        assert code == 0
+        assert "SOVEREIGN" in captured.out
+
+    def test_null_exits_one(self, capsys):
+        code = assess_scrutiny_main(
+            [
+                "--specific-facts-reviewed",
+                "false",
+                "--review-timing",
+                "before_action",
+            ]
+        )
+        captured = capsys.readouterr()
+        assert code == 1
+        assert "NULL" in captured.out
+
+    def test_ambiguous_exits_three(self, capsys):
+        code = assess_scrutiny_main([])
+        captured = capsys.readouterr()
+        assert code == 3
+        assert "AMBIGUOUS" in captured.out
 
 
 # ---------------------------------------------------------------------------

@@ -19,6 +19,7 @@ onchain = ["PyNaCl>=1.5.0"]
 
 [project.scripts]
 verify-scrutiny = "verify_scrutiny:main"
+burgess-scrutiny = "verify_scrutiny:assess_scrutiny_main"
 
 [tool.setuptools]
 py-modules = ["verify_scrutiny", "api"]

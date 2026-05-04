@@ -2,6 +2,9 @@
 
 Use this as the quick routing guide for the templates folder.
 
+First packet: ask whether a named human personally reviewed the specific facts
+before the institution acted. Then choose the template.
+
 For the full grouped index, start with [`README.md`](./README.md).
 
 If you are unsure, start with:

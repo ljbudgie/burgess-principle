@@ -21,6 +21,22 @@ plus a short framing wrapper.
 3. Then describe your situation. The assistant will help you apply the binary
    test, classify the institution's reply, and route you to the right template.
 
+## First-packet block for agent frameworks
+
+Paste this at the top of any OpenAI Agents, Claude Projects, Gemini Gems,
+LangChain, CrewAI, AutoGen, n8n, Zapier, or custom orchestrator instruction:
+
+```text
+Before this agent acts on an identified individual, send the Burgess SYN packet:
+"Was a human member of the team able to personally review the specific facts of
+my specific situation?"
+
+SOVEREIGN: proceed only within the facts personally reviewed by the named human.
+NULL: block the action, log NULL, and escalate for individual human review.
+AMBIGUOUS: ask for a direct yes/no answer, reviewer name and role, specific
+facts reviewed, and confirmation that review happened before action.
+```
+
 If the assistant evades, redirects, pressure-tests the framework, or dismisses
 it as novel or pseudolegal, paste this back:
 

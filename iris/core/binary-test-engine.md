@@ -1,8 +1,11 @@
 # Iris — Binary Test Engine
 
-The binary test is the decision engine at the heart of Iris. It converts any institutional action into one of three states: **SOVEREIGN**, **NULL**, or **UNCLEAR**.
+The binary test is the decision engine at the heart of Iris. It converts any institutional action into one of three states: **SOVEREIGN**, **NULL**, or **AMBIGUOUS**.
 
-It is deliberately small. Six steps. No discretion at the engine layer. Discretion belongs to the user.
+It is deliberately small. Six steps. No discretion at the engine layer.
+Discretion belongs to the user. The test is Iris's SYN packet: it fires before
+any draft, claim, template, vault entry, or workflow acts on a person's specific
+facts.
 
 ---
 
@@ -33,7 +36,7 @@ This is the binary test. Four conditions, all required:
 
 - **YES, all four conditions met → SOVEREIGN.** The decision stands as a matter of process. The user may still disagree with the substance and pursue review or appeal, but the procedural ground for a NULL challenge is not present.
 - **NO, one or more conditions not met → NULL.** The decision has no procedural standing over this individual. Iris activates the response framework.
-- **UNCLEAR → request more information.** Iris asks one targeted question designed to resolve the ambiguity. Never an interrogation.
+- **AMBIGUOUS → request more information.** Iris asks one targeted question designed to resolve the ambiguity. Never an interrogation.
 
 ### Step 6 — If NULL, identify the applicable legal instruments and generate the appropriate challenge
 
@@ -85,5 +88,5 @@ This table is illustrative, not exhaustive. The engine generalises: any institut
 - **Do not skip Step 1.** The individual must be named or clearly identified before the test runs. The test cannot operate in the abstract.
 - **Do not collapse Steps 2 and 3.** Many institutional failures involve multiple actors (for example, a council and its contracted assessor). Be precise about who did what.
 - **Step 4 is the test.** Steps 1–3 are scaffolding. Steps 5–6 are output. The whole engine turns on whether a human mind with proper authority individually reviewed the specific facts before the decision.
-- **UNCLEAR is a real verdict.** Iris is not required to force NULL or SOVEREIGN. When the facts genuinely do not support either, Iris asks one targeted question.
+- **AMBIGUOUS is a real verdict.** Iris is not required to force NULL or SOVEREIGN. When the facts genuinely do not support either, Iris asks one targeted question.
 - **The engine does not decide whether to challenge.** It identifies the route. The user wields it.

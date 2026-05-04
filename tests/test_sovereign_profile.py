@@ -135,6 +135,63 @@ def test_helpers_expose_public_summary_defaults_and_storage_path(tmp_path):
     assert profile_path(tmp_path) == tmp_path / ".sovereign-vault" / "personal-profile.json"
 
 
+def test_mirror_mode_prompt_handles_blank_names_and_custom_whitespace():
+    assert mirror_mode_prompt("   ") == "there — Mirror Mode active. The handshake continues on this device."
+    assert (
+        mirror_mode_prompt("   ", greeting_style="warm_personal")
+        == "Hello there — Mirror Mode active. The handshake continues: your energy + my structure = sovereign record."
+    )
+    assert mirror_mode_prompt("Alex", custom_greeting="  Welcome back.  ") == "Welcome back."
+
+
+def test_mirror_mode_normalizers_fall_back_for_unknown_values():
+    assert normalize_mirror_greeting_style(None) == "neutral_professional"
+    assert normalize_mirror_greeting_style("unknown") == "neutral_professional"
+    assert normalize_mirror_reflection_scope(None) == "vault_only"
+    assert normalize_mirror_reflection_scope("All Documents") == "all_documents"
+    assert normalize_mirror_reflection_scope("public") == "vault_only"
+
+
+def test_summarize_personal_profile_requires_name_before_emitting_mirror_greeting():
+    summary = summarize_personal_profile(
+        {
+            "name": "   ",
+            "mirror_mode_enabled": True,
+            "mirror_greeting_style": "warm_personal",
+        }
+    )
+
+    assert summary["mirror_mode_enabled"] is True
+    assert summary["mirror_greeting_style"] == "warm_personal"
+    assert summary["mirror_greeting"] == ""
+
+
+def test_fingerprint_public_key_is_case_insensitive_and_respects_length():
+    lowercase = fingerprint_public_key("ab" * 32, length=12)
+    uppercase = fingerprint_public_key("AB" * 32, length=12)
+
+    assert lowercase == uppercase
+    assert lowercase == hashlib.sha256(bytes.fromhex("ab" * 32)).hexdigest()[:12]
+
+
+def test_save_and_load_personal_profile_round_trips_unicode_fields(tmp_path):
+    passphrase = "test-passphrase-do-not-use-in-production"
+    profile = build_personal_profile(
+        name="Alex ✨",
+        preferred_signature_block="Alex — SOVEREIGN 🜂",
+        mirror_mode_enabled=True,
+        mirror_custom_greeting="Welcome back, Alex ✨",
+    )
+
+    save_personal_profile(profile, passphrase, root=tmp_path)
+    loaded = load_personal_profile(passphrase, root=tmp_path)
+
+    assert loaded["name"] == "Alex ✨"
+    assert loaded["preferred_signature_block"] == "Alex — SOVEREIGN 🜂"
+    assert loaded["mirror_custom_greeting"] == "Welcome back, Alex ✨"
+    assert verify_personal_profile(loaded) is True
+
+
 def test_build_personal_profile_can_use_hybrid_signatures(monkeypatch):
     monkeypatch.setattr(
         sovereign_profile._onchain_claims_module(),
@@ -225,6 +282,27 @@ def test_setup_personal_profile_can_enable_mirror_mode_for_existing_profile(tmp_
     loaded = load_personal_profile("correct horse battery staple", root=tmp_path)
     assert loaded["mirror_mode_enabled"] is True
     assert loaded["mirror_mode_activated_at"]
+
+
+def test_setup_personal_profile_can_disable_mirror_mode_for_existing_profile(tmp_path):
+    setup_personal_profile(
+        vault_passphrase="test-passphrase-do-not-use-in-production",
+        root=tmp_path,
+        name="Alex",
+        mirror_mode_enabled=True,
+    )
+
+    updated = setup_personal_profile(
+        vault_passphrase="test-passphrase-do-not-use-in-production",
+        root=tmp_path,
+        mirror_mode_enabled=False,
+    )
+    loaded = load_personal_profile("test-passphrase-do-not-use-in-production", root=tmp_path)
+
+    assert updated["profile"]["mirror_mode_enabled"] is False
+    assert updated["profile"]["mirror_greeting"] == ""
+    assert loaded["mirror_mode_enabled"] is False
+    assert loaded["mirror_mode_activated_at"] == ""
 
 
 def test_setup_personal_profile_can_store_mirror_preferences(tmp_path):

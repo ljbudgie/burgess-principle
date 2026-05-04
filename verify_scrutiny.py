@@ -103,6 +103,7 @@ class ScrutinyAssessment:
     required_action: str
 
     def __bool__(self) -> bool:
+        """Return True only for SOVEREIGN; NULL and AMBIGUOUS are both false."""
         return bool(self.result)
 
     def to_dict(self) -> dict[str, Any]:
@@ -182,7 +183,7 @@ def _clean_optional_text(value: str | None, field_name: str) -> str:
     return value.strip()
 
 
-def _normalise_timing(value: str | None) -> str:
+def _normalize_timing(value: str | None) -> str:
     timing = _clean_optional_text(value, "review_timing").lower()
     timing = timing.replace("-", "_").replace(" ", "_")
     aliases = {
@@ -233,14 +234,15 @@ def assess_scrutiny(
     name = _clean_optional_text(reviewer_name, "reviewer_name")
     role = _clean_optional_text(reviewer_role, "reviewer_role")
     notes = _clean_optional_text(review_notes, "review_notes")
-    timing = _normalise_timing(review_timing)
+    timing = _normalize_timing(review_timing)
 
     if specific_facts_reviewed is not None and not isinstance(
         specific_facts_reviewed, bool
     ):
         raise TypeError("specific_facts_reviewed must be a bool or None")
 
-    # For the review flag, exact False is distinct from None: unknown evidence is AMBIGUOUS.
+    # For the review flag: True confirms review, False confirms no review,
+    # and None means unknown evidence that remains AMBIGUOUS.
     if specific_facts_reviewed is False or timing == "after_action_only":
         return ScrutinyAssessment(
             result=NULL,

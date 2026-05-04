@@ -8,7 +8,7 @@ Then POST to ``/verify``::
 
     curl -X POST http://127.0.0.1:8000/verify \
          -H "Content-Type: application/json" \
-          -d '{"reasoning_text": "...", "provided_hash": "..."}'
+         -d '{"reasoning_text": "...", "provided_hash": "..."}'
 
 Or POST to ``/scrutiny/assess`` before a system acts on an identified
 individual::

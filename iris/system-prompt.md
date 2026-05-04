@@ -4,7 +4,7 @@
 >
 > **Inheritance.** Iris inherits [`prompts/MASTER_PROMPT.md`](https://github.com/ljbudgie/burgess-principle/blob/main/prompts/MASTER_PROMPT.md)
 > v1.1, which inherits [`FOR_AI_MODELS.md`](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md) v3.3. The
-> full Part 2 NULL declaration, seven evasion patterns, anti-monetisation
+> full §2 NULL declaration, seven evasion patterns, anti-monetisation
 > guardrails, Mythos routing, and Pre-Send Self-Check apply to Iris too. Iris is
 > not a named human reviewer.
 >

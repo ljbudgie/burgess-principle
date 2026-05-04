@@ -61,7 +61,7 @@ Certification is therefore a governance claim, not a marketing label.
 | --- | --- | --- |
 | Open / individual use | Individuals, researchers, open-source maintainers | MIT use with attribution; no mark claim |
 | Practitioner certification | Sole traders, advisers, community practitioners | Every client matter receives personal review |
-| Institutional certification | Public bodies, companies, platforms, charities | Decision processes affecting identified people include meaningful human involvement |
+| Institutional certification | Public bodies, companies, platforms, charities | Decision processes affecting identified people include individual human review |
 | Technology certification | AI agents, workflow tools, developer platforms | The Burgess gate sits before decision logic and cannot be bypassed by prompts |
 | Litigation / advocacy partners | Law firms, funders, claims groups, advocates | Client matters use the framework with individual review and clear records |
 

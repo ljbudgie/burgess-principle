@@ -100,6 +100,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 
 | Date | Change | Detail |
 | --- | --- | --- |
+| 4 May 2026 | Python reference gate expanded | Added a typed `assess_scrutiny()` library gate, `burgess-scrutiny` CLI command, and `POST /scrutiny/assess` API endpoint so adopters can make the Burgess check a mandatory pre-decision step before systems act on identified individuals. |
 | 4 May 2026 | Test coverage expansion (PR #345) | Added focused tests for personal-profile edge cases (Mirror Mode greeting fallbacks, normalizer defaults, public-key fingerprint casing, Unicode round-trip, disabling Mirror Mode) and for sovereign-core utilities (network snapshot normalization, connectivity tags, trigger presets, sync policy under slow / save-data / offline states, audit/merkle empty and mismatched-proof handling). No production code or public surface changed. |
 | 4 May 2026 | Copilot shim tightened toward Burgess-first decision checks (PR #344) | `.github/copilot-instructions.md` updated so Copilot is instructed to run the Burgess check before decision logic, prefer the reference implementation (`verify_scrutiny.py`) or API (`api.py`), and block / log NULL / escalate on failure. Internal AI-tooling shim only; no doctrinal sections altered. |
 

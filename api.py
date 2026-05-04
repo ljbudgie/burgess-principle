@@ -10,6 +10,13 @@ Then POST to ``/verify``::
          -H "Content-Type: application/json" \
          -d '{"reasoning_text": "...", "provided_hash": "..."}'
 
+Or POST to ``/scrutiny/assess`` before a system acts on an identified
+individual::
+
+    curl -X POST http://127.0.0.1:8000/scrutiny/assess \
+         -H "Content-Type: application/json" \
+         -d '{"reviewer_name": "Alice Example", "reviewer_role": "Appeals officer", "specific_facts_reviewed": true, "review_timing": "before_action"}'
+
 Or POST to ``/claims/verify`` to verify an on-chain claim receipt::
 
     curl -X POST http://127.0.0.1:8000/claims/verify \
@@ -26,10 +33,10 @@ from __future__ import annotations
 import sys
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from verify_scrutiny import verify_instrument
+from verify_scrutiny import assess_scrutiny, verify_instrument
 
 app = FastAPI(
     title="Burgess Principle Binary Test",
@@ -63,6 +70,41 @@ class VerifyResponse(BaseModel):
     status: str
     code: int
     description: str
+
+
+class ScrutinyAssessmentRequest(BaseModel):
+    """Payload for the /scrutiny/assess endpoint."""
+
+    reviewer_name: str | None = Field(
+        None,
+        description="Name of the human reviewer, if confirmed.",
+    )
+    reviewer_role: str | None = Field(
+        None,
+        description="Role of the human reviewer, if confirmed.",
+    )
+    specific_facts_reviewed: bool | None = Field(
+        None,
+        description="Whether that human reviewed the specific facts.",
+    )
+    review_timing: str | None = Field(
+        None,
+        description="before_action, after_action_only, unknown, or an accepted alias.",
+    )
+    review_notes: str | None = Field(
+        None,
+        description="Short evidence note or institutional wording.",
+    )
+
+
+class ScrutinyAssessmentResponse(BaseModel):
+    """Structured result returned by the /scrutiny/assess endpoint."""
+
+    status: str
+    code: int
+    description: str
+    question: str
+    required_action: str
 
 
 class ClaimVerifyRequest(BaseModel):
@@ -110,6 +152,24 @@ def verify(payload: VerifyRequest) -> VerifyResponse:
     result = verify_instrument(payload.reasoning_text, payload.provided_hash)
     data = result.to_dict()
     return VerifyResponse(**data)
+
+
+@app.post("/scrutiny/assess", response_model=ScrutinyAssessmentResponse)
+def assess_scrutiny_gate(
+    payload: ScrutinyAssessmentRequest,
+) -> ScrutinyAssessmentResponse:
+    """Assess whether a decision has confirmed individual human scrutiny."""
+    try:
+        assessment = assess_scrutiny(
+            reviewer_name=payload.reviewer_name,
+            reviewer_role=payload.reviewer_role,
+            specific_facts_reviewed=payload.specific_facts_reviewed,
+            review_timing=payload.review_timing,
+            review_notes=payload.review_notes,
+        )
+    except (TypeError, ValueError) as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return ScrutinyAssessmentResponse(**assessment.to_dict())
 
 
 @app.post("/claims/verify", response_model=ClaimVerifyResponse)

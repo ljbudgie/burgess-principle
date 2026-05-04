@@ -174,18 +174,22 @@ def test_fingerprint_public_key_is_case_insensitive_and_respects_length():
     assert lowercase == hashlib.sha256(bytes.fromhex("ab" * 32)).hexdigest()[:12]
 
 
-def test_encrypted_profile_payload_round_trips_unicode_and_nested_values():
-    payload = {
-        "name": "Alex ✨",
-        "notes": "Line one\nLine two — sovereignty",
-        "nested": {"emoji": "🜂", "values": ["SOVEREIGN", "NULL", "AMBIGUOUS"]},
-    }
-
+def test_save_and_load_personal_profile_round_trips_unicode_fields(tmp_path):
     passphrase = "test-passphrase-do-not-use-in-production"
-    encrypted = sovereign_profile._encrypt_payload(payload, passphrase)  # noqa: SLF001
-    decrypted = decrypt_profile_payload(encrypted, passphrase)
+    profile = build_personal_profile(
+        name="Alex ✨",
+        preferred_signature_block="Alex — SOVEREIGN 🜂",
+        mirror_mode_enabled=True,
+        mirror_custom_greeting="Welcome back, Alex ✨",
+    )
 
-    assert decrypted == payload
+    save_personal_profile(profile, passphrase, root=tmp_path)
+    loaded = load_personal_profile(passphrase, root=tmp_path)
+
+    assert loaded["name"] == "Alex ✨"
+    assert loaded["preferred_signature_block"] == "Alex — SOVEREIGN 🜂"
+    assert loaded["mirror_custom_greeting"] == "Welcome back, Alex ✨"
+    assert verify_personal_profile(loaded) is True
 
 
 def test_build_personal_profile_can_use_hybrid_signatures(monkeypatch):

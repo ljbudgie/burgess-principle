@@ -6,6 +6,7 @@ Live site / PWA: https://burgess-principle.vercel.app
 Latest release: https://github.com/ljbudgie/burgess-principle/releases/tag/v2.2.0
 Repository: https://github.com/ljbudgie/burgess-principle
 Licence: MIT (doctrine) | Certification Mark UK00004343685 (commercial standard)
+IP / operator: IP owned by Lewis James Burgess personally; The Burgess Principle Limited (company number 17199287, incorporated 5 May 2026) operates commercially under formal IP licence.
 
 ## The Question
 

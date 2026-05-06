@@ -93,6 +93,11 @@ The defensible advantage is the split between open materials and controlled mark
 use. The repository can remain open under MIT terms. The official certification
 mark remains controlled, traceable, and enforceable.
 
+IP ownership remains with Lewis James Burgess personally. The Burgess Principle
+Limited (company number 17199287, incorporated 5 May 2026, registered office
+[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]) is the incorporated commercial operator under
+a formal IP Licence Agreement.
+
 ---
 
 ## 5. Early adopter protection
@@ -183,7 +188,7 @@ Use this launch message:
 > they want the right to issue them.**
 
 That protects the mission, protects early adopters, controls the mark, and gives
-The Burgess Principle Ltd a realistic path to sustainable revenue without
+The Burgess Principle Limited a realistic path to sustainable revenue without
 turning accessibility certification into a paywall.
 
 Contact: lewisjames@theburgessprinciple.com

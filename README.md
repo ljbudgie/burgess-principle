@@ -368,7 +368,22 @@ process.
 |Certified processes|Must preserve named human review before action affecting an identified person|
 
 See [LICENSE.md](LICENSE.md) and [papers/LICENSING_STRUCTURE.md](papers/LICENSING_STRUCTURE.md).
-Certification enquiries: lewisjames@theburgessprinciple.com
+
+### Incorporation and governance
+
+IP ownership remains with **Lewis James Burgess personally**. **The Burgess
+Principle Limited** is the incorporated commercial operator of the framework
+under a formal IP Licence Agreement.
+
+|Field|Detail|
+|---|---|
+|Company number|17199287|
+|Company type|Private Limited by Shares|
+|Incorporated|5 May 2026|
+|Registered office|[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]|
+|Director and PSC|Lewis James Burgess|
+
+Certification and licensing enquiries: lewisjames@theburgessprinciple.com
 
 -----
 
@@ -451,5 +466,7 @@ attribution.
 The certification mark (UK00004343685) governs official certified use of the
 standard. It is not a restriction on ordinary MIT reuse.
 
-*UK Certification Mark UK00004343685 | Lewis James Burgess | lewisjames@theburgessprinciple.com*
+*UK Certification Mark UK00004343685 | IP proprietor: Lewis James Burgess |
+Commercial operator: The Burgess Principle Limited (company number 17199287) |
+lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle*

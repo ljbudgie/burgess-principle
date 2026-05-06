@@ -87,9 +87,14 @@ The honest answer is **NULL** — no named human at the AI company personally re
 
 The framework is published under the MIT licence. The certification mark is UK00004343685. The repository is open. The principle is free. The mark is licensed. The standard is set.
 
+IP ownership remains with Lewis James Burgess personally. The Burgess Principle
+Limited (company number 17199287) is the incorporated commercial operator under
+a formal IP Licence Agreement.
+
 You really can just do things.
 
 **Lewis James Burgess**
 lewisjames@theburgessprinciple.com
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
-April 2026
+The Burgess Principle Limited — incorporated 5 May 2026 — registered office [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]
+May 2026

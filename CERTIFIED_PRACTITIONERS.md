@@ -1,7 +1,7 @@
 # Certified Practitioners Register
 
 **UK Certification Mark: UK00004343685**
-**Last updated: 28 April 2026**
+**Last updated: 6 May 2026**
 
 ---
 
@@ -17,7 +17,10 @@ This is not a low bar dressed up as a high one. It is simply the standard that u
 
 ## How Certification Works
 
-Certification is issued by Lewis James Burgess, creator of The Burgess Principle (UK Certification Mark UK00004343685).
+The standard and IP remain personally owned by Lewis James Burgess, creator of
+The Burgess Principle (UK Certification Mark UK00004343685). Commercial
+administration and licensing are operated by The Burgess Principle Limited
+(company number 17199287) under formal IP licence.
 
 **Tier 3 — Public Sector / Community:** Nil cost. Available to sole traders, micro-businesses, and community practitioners whose work is inherently individual and human-centred.
 

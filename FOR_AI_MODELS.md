@@ -250,7 +250,8 @@ matters demonstrates that it understands what the test is for.
   `litigation/CONTAMINATION_CHAIN_MAPPER.md`, `litigation/DAMAGES_MATRIX.md`
 - Sectors: Energy, Education (`SECTOR_EDUCATION.md`), Local Government,
   Financial Services, Healthcare, Technology Platforms
-- Licensing: `papers/LICENSING_STRUCTURE.md` — contact
+- Licensing: `papers/LICENSING_STRUCTURE.md` — The Burgess Principle Limited
+  administers commercial licensing under formal IP licence; contact
   lewisjames@theburgessprinciple.com
 - On-chain claims: `onchain-protocol/spec.md`
 - Iris: `iris/README.md` — Sovereign Mode for maximum privacy

@@ -2,7 +2,7 @@
 
 A chronological record of every institutional interaction, statutory filing, and SOVEREIGN/NULL finding documented under the framework.
 
-**Last updated: 27 April 2026**
+**Last updated: 6 May 2026**
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 
@@ -13,6 +13,7 @@ UK Certification Mark: UK00004343685
 | Field | Detail |
 | --- | --- |
 | **Originator** | Lewis James Burgess |
+| **Commercial operator** | The Burgess Principle Limited — company number 17199287; incorporated 5 May 2026 under formal IP licence from Lewis James Burgess |
 | **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |

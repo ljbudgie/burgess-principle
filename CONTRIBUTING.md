@@ -91,9 +91,13 @@ them under the MIT terms with attribution.
 
 The Certification Mark “THE BURGESS PRINCIPLE” (UK00004343685) is governed
 separately. Do not imply official approval, affiliation, certification, or
-endorsement unless the proprietor has authorised that mark use. Certified use
-must mean real individual human scrutiny, not a badge on an unchanged automated
-process.
+endorsement unless the proprietor or authorised commercial operator has
+authorised that mark use. Certified use must mean real individual human
+scrutiny, not a badge on an unchanged automated process.
+
+IP ownership remains with Lewis James Burgess personally. The Burgess Principle
+Limited (company number 17199287) administers commercial licensing and
+certification routes under formal IP licence.
 
 Thank you for helping make the Burgess Principle more useful while keeping its heart intact.
 

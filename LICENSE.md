@@ -101,7 +101,32 @@ certified use of the mark is separate.
 
 ---
 
-## 6. Certification Standard
+## 6. Incorporation and IP Ownership
+
+The intellectual property in the Burgess Principle remains owned by **Lewis James
+Burgess personally** unless and until a formal written assignment says otherwise.
+
+**The Burgess Principle Limited** is the incorporated commercial operator of the
+framework:
+
+| Field | Detail |
+| --- | --- |
+| Company name | The Burgess Principle Limited |
+| Company number | 17199287 |
+| Company type | Private Limited by Shares |
+| Incorporated | 5 May 2026 |
+| Registered office | [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS] |
+| Director and Person of Significant Control | Lewis James Burgess |
+| Primary contact | lewisjames@theburgessprinciple.com |
+
+The company operates the framework commercially under a formal IP Licence
+Agreement from Lewis James Burgess. That commercial operating structure does not
+alter the MIT licence for repository materials and does not transfer ownership of
+the certification mark or underlying IP away from Lewis James Burgess personally.
+
+---
+
+## 7. Certification Standard
 
 Certification is available only where the process preserves meaningful human
 involvement for decisions affecting identified individuals. A certified process
@@ -125,7 +150,7 @@ exists to make visible.
 
 ---
 
-## 7. Certification Routes
+## 8. Certification Routes
 
 The governance route depends on who is being certified, not on who can pay the
 most.
@@ -138,13 +163,14 @@ most.
 | **Technology certification** | AI agents, workflow tools, developer platforms | Burgess gate is built before decision logic and cannot be bypassed by prompts |
 | **Litigation / advocacy partners** | Law firms, funders, claims groups, advocates | Use of the framework in client matters with individual review and clear records |
 
-Commercial terms, if any, are handled in a separate written agreement. Public
-interest, accessibility, and community uses may be licensed at nominal or no cost
-where that best serves the governance purpose.
+Commercial terms, if any, are handled through The Burgess Principle Limited under
+the formal IP Licence Agreement from Lewis James Burgess. Public interest,
+accessibility, and community uses may be licensed at nominal or no cost where
+that best serves the governance purpose.
 
 ---
 
-## 8. Public Record, Renewal, and Revocation
+## 9. Public Record, Renewal, and Revocation
 
 Certified uses should be traceable. Where appropriate, certification may be
 recorded in this repository or another public register with:
@@ -166,7 +192,7 @@ Certification may be refused, suspended, or revoked if a certified party:
 
 ---
 
-## 9. Anti-Monetisation Guardrail
+## 10. Anti-Monetisation Guardrail
 
 The project does not support selling "Burgess Principle compliant" products that
 continue to rely on automated decisions about individuals without meaningful
@@ -176,7 +202,7 @@ exercised.
 
 ---
 
-## 10. Regulations and Mark Position
+## 11. Regulations and Mark Position
 
 These terms sit alongside the Regulations Governing Use of the Certification
 Mark filed with the UK Intellectual Property Office under application number
@@ -188,11 +214,15 @@ position for open reuse, attribution, certification, and mark control.
 
 ---
 
-## 11. Contact
+## 12. Contact
 
 **Lewis James Burgess**  
-Originator and Proprietor  
+Originator, IP proprietor, Director and PSC of The Burgess Principle Limited  
 Darlington, UK
+
+**The Burgess Principle Limited**  
+Company number: 17199287  
+Registered office: [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]  
 
 Email: lewisjames@theburgessprinciple.com  
 GitHub: github.com/ljbudgie/burgess-principle  

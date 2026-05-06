@@ -134,5 +134,23 @@ Email-only communication is asserted as a reasonable adjustment under Equality A
 
 -----
 
+## Who owns and operates the Burgess Principle?
+
+IP ownership remains with Lewis James Burgess personally. The Burgess Principle
+Limited is the incorporated commercial operator of the framework under a formal
+IP Licence Agreement.
+
+- Company number: 17199287
+- Company type: Private Limited by Shares
+- Incorporated: 5 May 2026
+- Registered office: [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]
+- Director and Person of Significant Control: Lewis James Burgess
+- Primary contact: lewisjames@theburgessprinciple.com
+
+This does not change the MIT licence for repository materials or the separate
+governance of UK Certification Mark UK00004343685.
+
+-----
+
 *UK Certification Mark [UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685) | Lewis James Burgess*
 *[github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) | MIT Licence*

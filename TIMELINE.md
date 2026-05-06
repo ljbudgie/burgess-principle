@@ -40,6 +40,12 @@ A chronological record of key events, from the originating incident in December 
 
 - **UK Certification Mark UK00004343685** filed — Classes 41, 42, 45 — and entered examination at the UK IPO. Examiner: **Lisa Skeggs**.
 - **USPTO filing** initiated via a US-licensed attorney; in progress.
+- **5 May 2026 — incorporation.** The Burgess Principle Limited was incorporated
+  as a Private Limited by Shares, company number **17199287**, registered office
+  **[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]**. Lewis James Burgess is Director and
+  Person of Significant Control. IP ownership remains with Lewis James Burgess
+  personally; the company operates the framework commercially under a formal IP
+  Licence Agreement.
 
 ## Papers
 

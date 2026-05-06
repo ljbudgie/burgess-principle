@@ -218,6 +218,7 @@ position for open reuse, attribution, certification, and mark control.
 
 **Lewis James Burgess**  
 Originator, IP proprietor, Director and PSC of The Burgess Principle Limited  
+
 **The Burgess Principle Limited**  
 Company number: 17199287  
 Registered office: [registered office redacted]  

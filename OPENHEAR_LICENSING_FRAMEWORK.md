@@ -191,4 +191,4 @@ That protects the mission, protects early adopters, controls the mark, and gives
 The Burgess Principle Limited a realistic path to sustainable revenue without
 turning accessibility certification into a paywall.
 
-Contact: [contact redacted]
+Commercial terms: lewisjames@theburgessprinciple.com

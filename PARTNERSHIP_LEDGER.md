@@ -36,7 +36,7 @@ commercial operations of The Burgess Principle Limited under formal IP licence.
 
 ## 📬 How to Become Certified
 
-1. Email [contact redacted]
+1. Email lewisjames@theburgessprinciple.com for commercial certification terms
 1. Receive the tier agreement — same day
 2. Sign by email (electronic signature accepted)
 3. Originator commits the signature to this repository within 24 hours

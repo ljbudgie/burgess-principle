@@ -383,7 +383,7 @@ under a formal IP Licence Agreement.
 |Registered office|[registered office redacted]|
 |Director and PSC|Lewis James Burgess|
 
-Certification and licensing enquiries: [contact redacted]
+Commercial certification and licensing terms: lewisjames@theburgessprinciple.com
 
 -----
 

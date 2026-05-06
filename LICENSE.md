@@ -117,7 +117,7 @@ framework:
 | Incorporated | 5 May 2026 |
 | Registered office | [registered office redacted] |
 | Director and Person of Significant Control | Lewis James Burgess |
-| Primary contact | [contact redacted] |
+| Commercial terms contact | lewisjames@theburgessprinciple.com |
 
 The company operates the framework commercially under a formal IP Licence
 Agreement from Lewis James Burgess. That commercial operating structure does not

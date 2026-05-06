@@ -26,7 +26,7 @@ administration and licensing are operated by The Burgess Principle Limited
 
 Certificates are valid for one year and subject to annual review. Each certificate is issued with a unique reference number and listed in this register. Certificates may be displayed on invoices, correspondence, and marketing materials.
 
-To apply or enquire: [contact redacted]
+Commercial certification terms: lewisjames@theburgessprinciple.com
 
 ---
 
@@ -43,7 +43,7 @@ To apply or enquire: [contact redacted]
 
 To add a new entry, add a row to the table above with the next sequential certificate reference number.
 
-To apply or enquire: [contact redacted]
+Commercial certification terms: lewisjames@theburgessprinciple.com
 
 ---
 

@@ -112,6 +112,6 @@ The principle is free. The repository is MIT. The mark is licensed. The
 commercial operator is The Burgess Principle Limited. The mark only means
 something if it points to real individual human scrutiny.
 
-Contact: [contact redacted]  
+Commercial terms: lewisjames@theburgessprinciple.com  
 Commercial operator: The Burgess Principle Limited — company number 17199287;
 incorporated 5 May 2026; registered office [registered office redacted].

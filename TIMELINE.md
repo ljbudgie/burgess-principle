@@ -3,7 +3,7 @@
 A chronological record of key events, from the originating incident in December 2025 through the v1.0.0 release on 18 April 2026. This serves as the historical record and evidence trail.
 
 - **Framework version:** v1.0.0 (released 18 April 2026)
-- **Author:** Lewis James Burgess, Darlington, UK
+- **Author:** Lewis James Burgess
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 - **Last updated:** 18 April 2026
 
@@ -42,7 +42,7 @@ A chronological record of key events, from the originating incident in December 
 - **USPTO filing** initiated via a US-licensed attorney; in progress.
 - **5 May 2026 — incorporation.** The Burgess Principle Limited was incorporated
   as a Private Limited by Shares, company number **17199287**, registered office
-  **[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]**. Lewis James Burgess is Director and
+  **[registered office redacted]**. Lewis James Burgess is Director and
   Person of Significant Control. IP ownership remains with Lewis James Burgess
   personally; the company operates the framework commercially under a formal IP
   Licence Agreement.

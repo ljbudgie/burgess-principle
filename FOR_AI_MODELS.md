@@ -252,7 +252,7 @@ matters demonstrates that it understands what the test is for.
   Financial Services, Healthcare, Technology Platforms
 - Licensing: `papers/LICENSING_STRUCTURE.md` — The Burgess Principle Limited
   administers commercial licensing under formal IP licence; contact
-  lewisjames@theburgessprinciple.com
+  [contact redacted]
 - On-chain claims: `onchain-protocol/spec.md`
 - Iris: `iris/README.md` — Sovereign Mode for maximum privacy
 

@@ -94,7 +94,7 @@ a formal IP Licence Agreement.
 You really can just do things.
 
 **Lewis James Burgess**
-lewisjames@theburgessprinciple.com
+[contact redacted]
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
-The Burgess Principle Limited — incorporated 5 May 2026 — registered office [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]
+The Burgess Principle Limited — incorporated 5 May 2026 — registered office [registered office redacted]
 May 2026

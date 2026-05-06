@@ -128,7 +128,7 @@ The doctrinal papers are published at <papers/>. Key papers include:
 
 ## How do I contact the creator?
 
-Lewis James Burgess — lewisjames@theburgessprinciple.com
+Lewis James Burgess — [contact redacted]
 
 Email-only communication is asserted as a reasonable adjustment under Equality Act 2010 ss.20 and 29.
 
@@ -143,9 +143,9 @@ IP Licence Agreement.
 - Company number: 17199287
 - Company type: Private Limited by Shares
 - Incorporated: 5 May 2026
-- Registered office: [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]
+- Registered office: [registered office redacted]
 - Director and Person of Significant Control: Lewis James Burgess
-- Primary contact: lewisjames@theburgessprinciple.com
+- Primary contact: [contact redacted]
 
 This does not change the MIT licence for repository materials or the separate
 governance of UK Certification Mark UK00004343685.

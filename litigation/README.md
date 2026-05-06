@@ -137,7 +137,7 @@ Using these tools commercially requires a signed Tier 4 agreement. Terms:
 - Trigger: Successful outcome only
 - Process: One email → one agreement → one signature → public commit in this repository
 
-Contact: lewisjames@theburgessprinciple.com
+Contact: [contact redacted]
 
 -----
 
@@ -150,4 +150,4 @@ Paper VIII says it plainly: “I built the Burgess Principle because I needed it
 -----
 
 *Tier 4 Licensed Partners Only*
-*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*
+*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | [contact redacted] | github.com/ljbudgie/burgess-principle*

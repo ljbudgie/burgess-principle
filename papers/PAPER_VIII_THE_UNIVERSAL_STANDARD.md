@@ -32,7 +32,7 @@ I want to explain how I arrived at this conclusion, and what I think it means fo
 
 # Part I: What I Saw
 
-I am a deaf barber. I run LJ Barbers on Duke Street in Darlington. I have bilateral sensorineural hearing loss. I have five self-employed barbers working from my shop. I am not a lawyer, not an academic, not a policy researcher. I cut hair.
+I am a deaf barber. I run LJ Barbers in Darlington. I have bilateral sensorineural hearing loss. I have five self-employed barbers working from my shop. I am not a lawyer, not an academic, not a policy researcher. I cut hair.
 
 But running a small business teaches you something that institutional life is designed to prevent you from seeing: the whole chain. You see the customer, the service, the money, the tax, the council, the utilities, the enforcement, the credit file. You see it end to end, because in a small business you are every department.
 
@@ -253,7 +253,7 @@ And every system that holds data on a person already knows which side of that li
 
 *The Burgess Principle is published under the MIT licence. The certification mark (UK00004343685) governs official certified use of the standard.*
 
-*Lewis James Burgess | lewisjames@theburgessprinciple.com | Darlington, April 2026*
+*Lewis James Burgess | [contact redacted] | April 2026*
 
 *"Was a human member of the team able to personally review the specific facts of my situation?"*
 

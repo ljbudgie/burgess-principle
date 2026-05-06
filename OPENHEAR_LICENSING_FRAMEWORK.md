@@ -95,7 +95,7 @@ mark remains controlled, traceable, and enforceable.
 
 IP ownership remains with Lewis James Burgess personally. The Burgess Principle
 Limited (company number 17199287, incorporated 5 May 2026, registered office
-[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]) is the incorporated commercial operator under
+[registered office redacted]) is the incorporated commercial operator under
 a formal IP Licence Agreement.
 
 ---
@@ -191,4 +191,4 @@ That protects the mission, protects early adopters, controls the mark, and gives
 The Burgess Principle Limited a realistic path to sustainable revenue without
 turning accessibility certification into a paywall.
 
-Contact: lewisjames@theburgessprinciple.com
+Contact: [contact redacted]

@@ -380,10 +380,10 @@ under a formal IP Licence Agreement.
 |Company number|17199287|
 |Company type|Private Limited by Shares|
 |Incorporated|5 May 2026|
-|Registered office|[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]|
+|Registered office|[registered office redacted]|
 |Director and PSC|Lewis James Burgess|
 
-Certification and licensing enquiries: lewisjames@theburgessprinciple.com
+Certification and licensing enquiries: [contact redacted]
 
 -----
 
@@ -468,5 +468,5 @@ standard. It is not a restriction on ordinary MIT reuse.
 
 *UK Certification Mark UK00004343685 | IP proprietor: Lewis James Burgess |
 Commercial operator: The Burgess Principle Limited (company number 17199287) |
-lewisjames@theburgessprinciple.com*
+[contact redacted]*
 *github.com/ljbudgie/burgess-principle*

@@ -25,15 +25,25 @@ The governing question remains:
 
 ## 2. Licensing tiers
 
-| Tier | Target organisation | Annual fee | What they get | Enforcement terms |
-| --- | --- | ---: | --- | --- |
-| **Public Interest Recipient** | Councils, public bodies, NHS bodies, schools, regulators, public-interest charities, and other approved certificate recipients | **Free** | Free certificate display, public verification entry, basic correction route | No sublicensing. No claims beyond certified scope. Display must remain accurate. |
-| **Healthcare / Charity Issuer** | Patient-access bodies, healthcare accessibility teams, low-income CICs, small charities, and disability-access organisations | **£0-£1,500** | Limited issuer right, assessment pack, register access, basic annual review | Must not charge a separate mark-display fee. Misuse suspends issuer rights. |
-| **Accredited Assessment Partner** | Independent accessibility auditors, small consultancies, civic-tech advisers, freelance assessors | **£4,000** | Right to issue up to 25 certificates per year, approved issuer listing, training pack, quarterly quality review | Annual renewal, evidence retention, random sample review. |
-| **Professional Certification Partner** | Established consultancies, legal/compliance firms, accessibility agencies, procurement advisers | **£9,000** | Right to issue up to 75 certificates per year, priority support, co-branded verification page, annual governance review | Mandatory records, public correction route, suspension for rubber-stamping. |
-| **Strategic / Standards Partner** | Large consultancies, national frameworks, standards bodies, enterprise assurance providers | **£25,000+** | High-volume issuer licence, integration support, API/register access, bespoke training, strategic partner listing | Contractual quality-control audit, volume controls, public delisting for misuse. |
+| Tier | Target organisation | Annual fee |
+| --- | --- | ---: |
+| **Public Interest Recipient** | Councils, public bodies, NHS bodies, schools, regulators, public-interest charities, and other approved certificate recipients | **Free** |
+| **Healthcare / Charity Issuer** | Patient-access bodies, healthcare accessibility teams, low-income CICs, small charities, and disability-access organisations | **£0-£1,500** |
+| **Accredited Assessment Partner** | Independent accessibility auditors, small consultancies, civic-tech advisers, freelance assessors | **£4,000** |
+| **Professional Certification Partner** | Established consultancies, legal/compliance firms, accessibility agencies, procurement advisers | **£9,000** |
+| **Strategic / Standards Partner** | Large consultancies, national frameworks, standards bodies, enterprise assurance providers | **£25,000+** |
 
 End organisations do not pay merely to display a valid certificate.
+
+### Tier deliverables and controls
+
+| Tier | What they get | Enforcement terms |
+| --- | --- | --- |
+| **Public Interest Recipient** | Free certificate display, public verification entry, basic correction route | No sublicensing. No claims beyond certified scope. Display must remain accurate. |
+| **Healthcare / Charity Issuer** | Limited issuer right, assessment pack, register access, basic annual review | Must not charge a separate mark-display fee. Misuse suspends issuer rights. |
+| **Accredited Assessment Partner** | Right to issue up to 25 certificates per year, approved issuer listing, training pack, quarterly quality review | Annual renewal, evidence retention, random sample review. |
+| **Professional Certification Partner** | Right to issue up to 75 certificates per year, priority support, co-branded verification page, annual governance review | Mandatory records, public correction route, suspension for rubber-stamping. |
+| **Strategic / Standards Partner** | High-volume issuer licence, integration support, API/register access, bespoke training, strategic partner listing | Contractual quality-control audit, volume controls, public delisting for misuse. |
 
 ---
 
@@ -47,6 +57,11 @@ Simple annual recurring revenue logic:
 | **£200K** | 5 Accredited Assessment Partners + 15 Professional Certification Partners + 2 Strategic / Standards Partners | **£205K** |
 | **£500K** | 25 Accredited Assessment Partners + 25 Professional Certification Partners + 7 Strategic / Standards Partners | **£500K** |
 | **£500K** | 10 Accredited Assessment Partners + 40 Professional Certification Partners + 4 Strategic / Standards Partners | **£500K** |
+
+These examples use £4,000 for Accredited Assessment Partners, £9,000 for
+Professional Certification Partners, and £25,000 for Strategic / Standards
+Partners. For example: `(10 x £4,000) + (10 x £9,000) + (3 x £25,000) =
+£205,000`.
 
 Indicative first-year adoption curve:
 

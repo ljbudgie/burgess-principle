@@ -69,6 +69,10 @@ Commercial terms, if any, belong in a separate written agreement. Public
 interest, accessibility, and community uses may be licensed at nominal or no cost
 where that best serves the governance purpose.
 
+For the current OpenHear issuer fee model, including public-interest recipient
+protection and commercial partner tiers, see
+[`../OPENHEAR_LICENSING_FRAMEWORK.md`](../OPENHEAR_LICENSING_FRAMEWORK.md).
+
 ---
 
 ## What requires permission

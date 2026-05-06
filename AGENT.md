@@ -423,6 +423,7 @@ If any answer is no, revise before sending.
 | 2.3 | 2026-05-02 | Master advisory-agent prompt with healthcare, finance, routing, and self-NULL rules | Operational prompt based on canonical doctrine | Historical |
 
 *The Burgess Principle is published under the MIT licence.*
-*UK Certification Mark UK00004343685 | Lewis James Burgess |
+*UK Certification Mark UK00004343685 | IP proprietor: Lewis James Burgess |
+Commercial operator: The Burgess Principle Limited (company number 17199287) |
 lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle | Version 2.4 | 2 May 2026*

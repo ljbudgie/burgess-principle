@@ -208,4 +208,4 @@ This is the access to justice narrative the Supreme Court wanted to enable in Ll
 ---
 
 *Tier 4 Licensed Partners Only | UK Certification Mark UK00004343685*
-*Lewis James Burgess | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*
+*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*

@@ -30,9 +30,14 @@ The repository is open. The standard is accountable. The mark is governed.
 | Independent commercial use of MIT materials | Allowed under MIT, provided it does not imply official certification or endorsement |
 | Certification mark / official branding | Controlled separately under UK00004343685 |
 | Certified processes | Must preserve individual human review before action affecting an identified person |
+| Commercial operator | The Burgess Principle Limited, company number 17199287, operating under formal IP licence from Lewis James Burgess |
 
 The MIT licence is not a certification grant. The certification mark is not a
 restriction on ordinary MIT reuse.
+
+IP ownership remains with Lewis James Burgess personally. The Burgess Principle
+Limited is the incorporated commercial operator, not a transfer of the underlying
+IP or certification-mark ownership.
 
 ---
 
@@ -65,9 +70,10 @@ Certification is therefore a governance claim, not a marketing label.
 | Technology certification | AI agents, workflow tools, developer platforms | The Burgess gate sits before decision logic and cannot be bypassed by prompts |
 | Litigation / advocacy partners | Law firms, funders, claims groups, advocates | Client matters use the framework with individual review and clear records |
 
-Commercial terms, if any, belong in a separate written agreement. Public
-interest, accessibility, and community uses may be licensed at nominal or no cost
-where that best serves the governance purpose.
+Commercial operation is through The Burgess Principle Limited under formal IP
+licence from Lewis James Burgess. Public interest, accessibility, and community
+uses may be licensed at nominal or no cost where that best serves the governance
+purpose.
 
 For the current OpenHear issuer fee model, including public-interest recipient
 protection and commercial partner tiers, see
@@ -102,7 +108,10 @@ or security duties.
 
 ## In short
 
-The principle is free. The repository is MIT. The mark is licensed. The mark only
-means something if it points to real individual human scrutiny.
+The principle is free. The repository is MIT. The mark is licensed. The
+commercial operator is The Burgess Principle Limited. The mark only means
+something if it points to real individual human scrutiny.
 
-Contact: lewisjames@theburgessprinciple.com
+Contact: lewisjames@theburgessprinciple.com  
+Commercial operator: The Burgess Principle Limited — company number 17199287;
+incorporated 5 May 2026; registered office [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS].

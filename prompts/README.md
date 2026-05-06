@@ -100,5 +100,5 @@ once `MASTER_PROMPT.md` is merged:
 ---
 
 *The Burgess Principle is published under the MIT licence.*
-*UK Certification Mark UK00004343685 | Lewis James Burgess | lewisjames@theburgessprinciple.com*
+*UK Certification Mark UK00004343685 | IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | lewisjames@theburgessprinciple.com*
 *github.com/ljbudgie/burgess-principle*

@@ -66,7 +66,7 @@ The most powerful evidence is a written admission from the court itself. In the 
 
 > *"The Court confirms that energy warrants are processed in batches. [Specific number] warrants were granted in [period]. The process involves CSV upload of applications."*
 
-*(Exact wording held in the audit log — request from the originator under Tier 4 licence.)*
+*(Exact wording held in the audit log — request from the commercial operator under Tier 4 licence.)*
 
 To obtain the equivalent admission for your specific court:
 
@@ -143,4 +143,4 @@ Use the correspondence templates in the Correspondence Packs for all of the abov
 ---
 
 *All Tiers | UK Certification Mark UK00004343685*
-*Lewis James Burgess | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*
+*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*

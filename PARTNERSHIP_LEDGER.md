@@ -3,8 +3,13 @@
 ## The Burgess Principle — UK Certification Mark UK00004343685
 
 **Proprietor:** Lewis James Burgess, Darlington  
-**Last Updated:** 2026-05-05  
+**Commercial operator:** The Burgess Principle Limited — company number 17199287  
+**Last Updated:** 2026-05-06  
 **Status:** Public — This ledger is the authoritative record of all certified partners.
+
+IP and certification-mark ownership remain with Lewis James Burgess personally
+unless formally assigned. Partner agreements and certification administration are
+commercial operations of The Burgess Principle Limited under formal IP licence.
 
 > The audit register is public. The partnership ledger is public.  
 > The only thing that moves an institution from one to the other is a signature.
@@ -25,7 +30,7 @@
 
 | # | Entity | Date | Tier | Certificate | Commitment | Contact | Status |
 |---|--------|------|------|-------------|------------|---------|--------|
-| 1 | Lorraine Ewart — Book-keeping | 30-Apr-2026 | Tier 3 | BP-CERT-0001 | Company Secretary, The Burgess Principle Ltd. 2% profit share. QuickBooks integration. First certified practitioner worldwide. | Lorraine Ewart | SOVEREIGN (1) |
+| 1 | Lorraine Ewart — Book-keeping | 30-Apr-2026 | Tier 3 | BP-CERT-0001 | Company Secretary, The Burgess Principle Limited. 2% profit share. QuickBooks integration. First certified practitioner worldwide. | Lorraine Ewart | SOVEREIGN (1) |
 
 ---
 

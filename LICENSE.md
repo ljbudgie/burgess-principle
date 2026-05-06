@@ -115,9 +115,9 @@ framework:
 | Company number | 17199287 |
 | Company type | Private Limited by Shares |
 | Incorporated | 5 May 2026 |
-| Registered office | [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS] |
+| Registered office | [registered office redacted] |
 | Director and Person of Significant Control | Lewis James Burgess |
-| Primary contact | lewisjames@theburgessprinciple.com |
+| Commercial terms contact | lewisjames@theburgessprinciple.com |
 
 The company operates the framework commercially under a formal IP Licence
 Agreement from Lewis James Burgess. That commercial operating structure does not
@@ -218,13 +218,12 @@ position for open reuse, attribution, certification, and mark control.
 
 **Lewis James Burgess**  
 Originator, IP proprietor, Director and PSC of The Burgess Principle Limited  
-Darlington, UK
 
 **The Burgess Principle Limited**  
 Company number: 17199287  
-Registered office: [REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]  
+Registered office: [registered office redacted]  
 
-Email: lewisjames@theburgessprinciple.com  
+Email: [contact redacted]  
 GitHub: github.com/ljbudgie/burgess-principle  
 Certification Mark: UK00004343685
 

@@ -3,8 +3,8 @@
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
 - **Framework version:** v2.4.0 (released 4 May 2026)
-- **Author:** Lewis James Burgess, Darlington, UK
-- **Contact:** lewisjames@theburgessprinciple.com
+- **Author:** Lewis James Burgess
+- **Contact:** [contact redacted]
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 - **Last updated:** 6 May 2026
 
@@ -83,7 +83,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 | --- | --- | --- |
 | **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | In examination at the UK IPO; Examiner: **Lisa Skeggs** |
 | USPTO filing | Filed via US-licensed attorney | In progress |
-| The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[REDACTED-ADDRESS], Catterick, [REDACTED-ADDRESS]** | Commercial operator under formal IP Licence Agreement; IP ownership remains personally with **Lewis James Burgess**, Director and PSC |
+| The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Commercial operator under formal IP Licence Agreement; IP ownership remains personally with **Lewis James Burgess**, Director and PSC |
 
 ---
 

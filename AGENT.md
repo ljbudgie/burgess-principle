@@ -425,5 +425,5 @@ If any answer is no, revise before sending.
 *The Burgess Principle is published under the MIT licence.*
 *UK Certification Mark UK00004343685 | IP proprietor: Lewis James Burgess |
 Commercial operator: The Burgess Principle Limited (company number 17199287) |
-lewisjames@theburgessprinciple.com*
+[contact redacted]*
 *github.com/ljbudgie/burgess-principle | Version 2.4 | 2 May 2026*

@@ -251,7 +251,7 @@ matters demonstrates that it understands what the test is for.
 - Sectors: Energy, Education (`SECTOR_EDUCATION.md`), Local Government,
   Financial Services, Healthcare, Technology Platforms
 - Licensing: `papers/LICENSING_STRUCTURE.md` — The Burgess Principle Limited
-  administers commercial licensing under formal IP licence; contact
+  administers commercial licensing under formal IP licence; commercial terms:
   lewisjames@theburgessprinciple.com
 - On-chain claims: `onchain-protocol/spec.md`
 - Iris: `iris/README.md` — Sovereign Mode for maximum privacy

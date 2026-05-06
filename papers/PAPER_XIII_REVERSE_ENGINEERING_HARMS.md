@@ -499,6 +499,6 @@ All sources cited in this paper are independently published, peer-reviewed, gove
 
 *© 2026 The Burgess Principle. MIT Licensed.*
 *UK Certification Mark UK00004343685*
-*Lewis James Burgess | lewisjames@theburgessprinciple.com*
+*Lewis James Burgess | [contact redacted]*
 *github.com/ljbudgie/burgess-principle*
 *Completed: Saturday, 25 April 2026*

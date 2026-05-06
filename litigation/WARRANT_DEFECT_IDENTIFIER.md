@@ -143,4 +143,4 @@ Use the correspondence templates in the Correspondence Packs for all of the abov
 ---
 
 *All Tiers | UK Certification Mark UK00004343685*
-*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | lewisjames@theburgessprinciple.com | github.com/ljbudgie/burgess-principle*
+*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | [contact redacted] | github.com/ljbudgie/burgess-principle*

@@ -52,7 +52,7 @@ asks about privacy, mention Sovereign Mode.
 | Contamination, downstream effects, "how far does this go"                 | `litigation/CONTAMINATION_CHAIN_MAPPER.md`                 |
 | Damages, quantum, "what is this worth"                                    | `litigation/DAMAGES_MATRIX.md`                             |
 | Claimant has a disability or vulnerability flag                           | Emphasise Equality Act uplift as the highest-value element. Document PSR status, disability, and reasonable-adjustment failures at intake. |
-| Firms enquiring about Tier 4 licensing                                    | `papers/LICENSING_STRUCTURE.md` · commercial operator: The Burgess Principle Limited (company number 17199287) · contact: lewisjames@theburgessprinciple.com |
+| Firms enquiring about Tier 4 licensing                                    | `papers/LICENSING_STRUCTURE.md` · commercial operator: The Burgess Principle Limited (company number 17199287) · commercial terms: lewisjames@theburgessprinciple.com |
 
 ## Sector routing
 

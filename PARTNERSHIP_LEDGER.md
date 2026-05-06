@@ -2,7 +2,7 @@
 
 ## The Burgess Principle — UK Certification Mark UK00004343685
 
-**Proprietor:** Lewis James Burgess, Darlington  
+**Proprietor:** Lewis James Burgess  
 **Commercial operator:** The Burgess Principle Limited — company number 17199287  
 **Last Updated:** 2026-05-06  
 **Status:** Public — This ledger is the authoritative record of all certified partners.
@@ -36,7 +36,7 @@ commercial operations of The Burgess Principle Limited under formal IP licence.
 
 ## 📬 How to Become Certified
 
-1. Email lewisjames@theburgessprinciple.com
+1. Email lewisjames@theburgessprinciple.com for commercial certification terms
 1. Receive the tier agreement — same day
 2. Sign by email (electronic signature accepted)
 3. Originator commits the signature to this repository within 24 hours

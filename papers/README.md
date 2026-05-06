@@ -105,6 +105,9 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 ### Licensing
 
 * **LICENSING_STRUCTURE.md**
+* **../OPENHEAR_LICENSING_FRAMEWORK.md** — one-page issuer licensing framework
+  for OpenHear certificates, public-interest recipient protection, and
+  commercial partner tiers
 
 ### Publication files
 

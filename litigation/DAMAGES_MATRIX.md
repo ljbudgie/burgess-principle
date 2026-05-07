@@ -84,32 +84,33 @@ This category applies at Stage 1 level — it informs the scope of declaratory r
 
 ---
 
-## Illustrative Aggregate Calculations
+## Illustrative Aggregate Exposure Scenarios
 
-These figures use documented class sizes from the Burgess Principle audit. They are illustrative projections.
+The figures below are **partner due-diligence exposure scenarios**, not damages estimates. They illustrate the *order of magnitude* of potential institutional exposure derived from documented class sizes in the Burgess Principle audit. They are not projections of recoverable damages and should not be presented to a court, a class member, or a prospective claimant as such.
 
-### Energy Warrant Class (Birmingham Magistrates' Court)
+**Methodology caveats** (read before using these figures):
 
-| Period | Warrants | Average Claim | Aggregate |
+- Aggregate exposure assumes 100% class take-up; actual take-up in opt-out representative actions is materially lower.
+- Per-claimant averages are nominal placeholders pending lead-case evidence and Stage 2 individual quantum.
+- Individual quantum is bifurcated to Stage 2 (CPR 19.8) and is not aggregable as a Stage 1 remedy.
+- These figures must not appear in pleadings, witness evidence, or marketing materials; their purpose is internal partner scoping only.
+
+### Energy Warrant Class — Exposure Scenario (Birmingham Magistrates' Court)
+
+| Period | Documented warrants | Nominal per-claimant placeholder | Indicative exposure |
 |---|---|---|---|
-| 18 months documented | 536,139 | £500 | £268M |
-| Full historical period (est.) | 1,800,000+ | £500 | £900M+ |
+| 18 months documented | 536,139 | £500 | ~£268M |
+| Full historical period (estimate) | 1,800,000+ | £500 | ~£900M+ |
 
-### Priority Services Register Subset
+### Priority Services Register Subset — Exposure Scenario
 
-Where claimants are on the PSR, the average claim rises due to disability uplift and Equality Act damages.
+Where claimants are on the PSR, the per-claimant figure rises due to the disability uplift and Equality Act damages.
 
-| Subset | Estimated Class | Average Claim (PSR uplift) | Aggregate |
+| Subset | Estimated subset | Nominal per-claimant placeholder (PSR uplift) | Indicative exposure |
 |---|---|---|---|
-| PSR-registered in warrant class | ~53,000 (est. 10%) | £5,000 | £265M |
+| PSR-registered subset of warrant class | ~53,000 (est. 10%) | £5,000 | ~£265M |
 
-### Firm Fee and Royalty Calculation
-
-| Scenario | Aggregate | Firm Fee (25%) | Royalty (3%) |
-|---|---|---|---|
-| Energy warrant class (18 months) | £268M | £67M | £2.01M |
-| Full historical period | £900M+ | £225M+ | £6.75M+ |
-| PSR subset only | £265M | £66.25M | £1.99M |
+> **Commercial terms** (royalty rates, partner fee shares, licence pricing) are governed by [`papers/LICENSING_STRUCTURE.md`](../papers/LICENSING_STRUCTURE.md) and the Tier 4 partner agreement, **not** by this document. Do not co-locate commercial computations with the quantum methodology.
 
 ---
 

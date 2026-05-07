@@ -6,9 +6,11 @@
 
 ## Purpose
 
-This tool assesses whether an entry warrant issued under the Rights of Entry (Gas and Electricity Boards) Act 1954 — or equivalent enforcement instrument — is void ab initio due to facial defect or procedural invalidity arising from automated batch processing.
+This tool assesses whether an entry warrant issued under the Rights of Entry (Gas and Electricity Boards) Act 1954 — or equivalent enforcement instrument — is *void or voidable* (i.e. liable to be set aside) due to facial defect or procedural invalidity arising from automated batch processing.
 
-A warrant that is void ab initio never existed in law. Every enforcement action built upon it — forced entry, meter installation, bailiff instruction, credit reporting, CCJ registration — inherits that nullity.
+A warrant that is void ab initio never existed in law. A warrant that is voidable is valid until set aside, but once set aside it is treated as if it never had effect. The distinction matters: English public law often treats procedural defects as voidable rather than automatically void (see, by analogy, *R (Lumba) v Secretary of State for the Home Department* [2011] UKSC 12 on the relationship between unlawfulness and downstream consequences). Plead in the alternative — *void ab initio, alternatively voidable and liable to be set aside* — and let the court take the stronger characterisation if the facts support it.
+
+Where the warrant is set aside (or treated as never having had effect), the enforcement actions built upon it — forced entry, meter installation, bailiff instruction, credit reporting, CCJ registration — are open to challenge as having lacked lawful authority. The strength of the downstream challenge depends on the characterisation the court adopts and on the cause of action; do not assume automatic nullity flows through every link.
 
 ---
 
@@ -31,7 +33,7 @@ Examine the face of the warrant against each requirement:
 
 | Element | Required | Present? | Notes |
 |---|---|---|---|
-| Judicial signature | Yes — must be signed by a Justice of the Peace or District Judge | ☐ Yes ☐ No | An unsigned warrant is void ab initio |
+| Judicial signature | Yes — must be signed by a Justice of the Peace or District Judge | ☐ Yes ☐ No | An unsigned warrant is, on the strongest characterisation, void ab initio; at minimum it is voidable and liable to be set aside |
 | Named justice | Yes — name of signing justice must be legible | ☐ Yes ☐ No | Anonymous signature is insufficient |
 | Named occupier / address | Yes — warrant must identify the specific premises | ☐ Yes ☐ No | Generic or batch-addressed warrants are defective |
 | Date of issue | Yes | ☐ Yes ☐ No | |
@@ -39,7 +41,7 @@ Examine the face of the warrant against each requirement:
 | Statutory basis cited | Yes — Rights of Entry Act 1954 s.2(1) | ☐ Yes ☐ No | |
 | Specific authorisation | Yes — must authorise specific acts at specific premises | ☐ Yes ☐ No | |
 
-**If any mandatory element is absent: the warrant is void ab initio.**
+**If any mandatory element is absent: the warrant is, on the strongest available characterisation, void ab initio; in the alternative it is voidable and liable to be set aside, with the same practical consequence once set aside.**
 
 ### Procedural Validity Checklist
 
@@ -56,7 +58,7 @@ Examine the face of the warrant against each requirement:
 
 The binary test asks: *"Was a human member of the team [the issuing justice] able to personally review the specific facts of this person's situation?"*
 
-If warrants were processed in CSV batches — as Birmingham Magistrates' Court has admitted in writing — the answer is NULL. No individual judicial mind was applied to the specific facts. The warrant is void.
+If warrants were processed in CSV batches — as Birmingham Magistrates' Court has admitted in writing — the answer is NULL. No individual judicial mind was applied to the specific facts. The warrant is, at minimum, liable to be set aside; on the strongest characterisation, void ab initio.
 
 ---
 
@@ -78,10 +80,10 @@ To obtain the equivalent admission for your specific court:
 
 ## Step 4 — Contamination Chain
 
-Once a warrant is identified as void, trace the contamination chain:
+Once a warrant is identified as defective, trace the contamination chain. Each downstream link is *open to challenge*; whether it falls automatically depends on the characterisation the court adopts (void / voidable) and on the cause of action being pleaded:
 
 ```
-VOID WARRANT
+DEFECTIVE WARRANT (void ab initio / voidable and liable to be set aside)
     │
     ├── Forced entry authorised under void warrant
     │       → Trespass claim
@@ -116,11 +118,11 @@ VOID WARRANT
 
 Once defect is confirmed:
 
-1. **Write to the energy company** — formal notice that the warrant was void ab initio, all enforcement under it was unlawful, and a claim will follow if not remedied within 14 days.
+1. **Write to the energy company** — formal notice that the warrant was defective (void ab initio, alternatively voidable and liable to be set aside), that enforcement under it is open to challenge as having lacked lawful authority, and a claim will follow if not remedied within 14 days.
 
-2. **Write to all credit bureaus** — Article 16 correction request citing the void warrant as the basis for any adverse data. Require removal within one month.
+2. **Write to all credit bureaus** — Article 16 correction request citing the defective warrant as the basis for any adverse data. Require removal within one month.
 
-3. **Write to the ICO** — complaint that the energy company processed personal data on the basis of a void instrument, in breach of the accuracy principle (Art.5(1)(a)) and without lawful basis.
+3. **Write to the ICO** — complaint that the energy company processed personal data on the basis of a defective instrument, in breach of the accuracy principle (Art.5(1)(a)) and (where the controller cannot demonstrate lawful basis independent of the warrant) without lawful basis.
 
 4. **Write to the court** — formal challenge to the warrant's validity, requesting confirmation of the process by which it was issued.
 

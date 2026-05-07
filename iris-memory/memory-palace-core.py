@@ -26,9 +26,8 @@ RECEIPT_PATH = BASE_DIR / "memory-palace-receipt.json"
 
 def canonical_json(data: Any) -> bytes:
     """Return stable JSON bytes so hashes and signatures are reproducible."""
-    return json.dumps(data, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode(
-        "utf-8"
-    )
+    encoded = json.dumps(data, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+    return encoded.encode("utf-8")
 
 
 def sha256_hex(data: bytes) -> str:

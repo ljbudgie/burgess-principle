@@ -83,12 +83,8 @@ def keywords_for(title: str, content: str) -> list[str]:
         if word not in STOPWORDS:
             ranked[word] = ranked.get(word, 0) + 1
 
-    return [
-        word
-        for word, _count in sorted(ranked.items(), key=lambda item: (-item[1], item[0]))[
-            :MAX_KEYWORDS
-        ]
-    ]
+    sorted_words = sorted(ranked.items(), key=lambda item: (-item[1], item[0]))
+    return [word for word, _count in sorted_words[:MAX_KEYWORDS]]
 
 
 def build_memory_palace(base_dir: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:

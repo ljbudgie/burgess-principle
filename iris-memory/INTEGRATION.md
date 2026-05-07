@@ -18,7 +18,9 @@ Then load `iris-memory/memory-palace.json` into Iris either:
   when a session needs founder, case, partner, or infrastructure memory.
 
 Keep the file local unless Lewis explicitly chooses to export it. The Memory
-Palace is a retrieval aid, not an automated authority.
+Palace is a retrieval aid, not an automated authority. Exporting it does not
+give it authority over decisions; it remains a reference source requiring human
+interpretation wherever it is used.
 
 ## Citing the Memory Palace
 

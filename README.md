@@ -1,3 +1,5 @@
+<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
+
 # The Burgess Principle
 
 > **“Was a human member of the team able to personally review the specific facts of my specific situation?”**

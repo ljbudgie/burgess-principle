@@ -5,12 +5,13 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
-import runpy
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
+from types import ModuleType
 from typing import Any
 
 from cryptography.hazmat.primitives import serialization
@@ -25,7 +26,7 @@ RECEIPT_PATH = BASE_DIR / "memory-palace-receipt.json"
 
 def canonical_json(data: Any) -> bytes:
     """Return stable JSON bytes so hashes and signatures are reproducible."""
-    return json.dumps(data, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode(
+    return json.dumps(data, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode(
         "utf-8"
     )
 
@@ -163,14 +164,47 @@ class MemoryPalace:
         return path
 
 
+def load_builder_module() -> ModuleType:
+    """Load the builder script as a module without executing its CLI wrapper."""
+    builder_path = BASE_DIR / "build-memory-palace.py"
+    spec = importlib.util.spec_from_file_location("iris_memory_builder", builder_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Could not load builder module from {builder_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def write_memory_json() -> None:
+    """Build and write the structured memory JSON files used by the core."""
+    builder = load_builder_module()
+    palace, index = builder.build_memory_palace(BASE_DIR)
+
+    PALACE_PATH.write_text(
+        json.dumps(palace, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    (BASE_DIR / "memory-palace-index.json").write_text(
+        json.dumps(index, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    print("Iris Memory Palace build complete.")
+    print(f"- Version: {palace['version']}")
+    print(f"- Source files: {len(palace['documents'])}")
+    print(f"- Output: {PALACE_PATH.name}")
+    print("- Search index: memory-palace-index.json")
+
+
 def ensure_memory_json() -> None:
     """Run the builder if the structured Memory Palace JSON does not exist."""
     if not PALACE_PATH.exists():
-        runpy.run_path(str(BASE_DIR / "build-memory-palace.py"), run_name="__main__")
+        write_memory_json()
 
 
 def build_command() -> int:
-    runpy.run_path(str(BASE_DIR / "build-memory-palace.py"), run_name="__main__")
+    write_memory_json()
+    if not PALACE_PATH.exists():
+        raise FileNotFoundError(f"{PALACE_PATH.name} was not created")
     palace = MemoryPalace()
     receipt_path = palace.write_receipt()
     print("Verifiable Memory Palace receipt created.")

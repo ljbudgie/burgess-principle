@@ -12,6 +12,7 @@ from typing import Any
 
 
 VERSION = "0.1.0"
+MAX_KEYWORDS = 24
 SOURCE_FILES = [
     "01-identity.md",
     "02-lewis-profile.md",
@@ -76,16 +77,17 @@ def split_sections(content: str) -> list[dict[str, str]]:
 
 def keywords_for(title: str, content: str) -> list[str]:
     """Create a small deterministic keyword list for lightweight search."""
-    words = re.findall(r"[A-Za-z][A-Za-z0-9'-]{2,}", f"{title} {content}".lower())
+    words = re.findall(r"[A-Za-z][A-Za-z0-9]{2,}", f"{title} {content}".lower())
     ranked: dict[str, int] = {}
     for word in words:
-        normalized = word.strip("'-")
-        if normalized and normalized not in STOPWORDS:
-            ranked[normalized] = ranked.get(normalized, 0) + 1
+        if word not in STOPWORDS:
+            ranked[word] = ranked.get(word, 0) + 1
 
     return [
         word
-        for word, _count in sorted(ranked.items(), key=lambda item: (-item[1], item[0]))[:24]
+        for word, _count in sorted(ranked.items(), key=lambda item: (-item[1], item[0]))[
+            :MAX_KEYWORDS
+        ]
     ]
 
 

@@ -1,8 +1,19 @@
-<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
-
 # The Burgess Principle
 
+[Talk to Iris](./iris.html) — open in your browser, no account or install needed.
+
 **The binary test for meaningful human involvement in automated systems.**
+
+## Start In 60 Seconds
+
+If a decision has already affected you, do this now:
+
+1. Ask the binary question below in writing.
+2. Request the reviewer's name, role, and what facts they reviewed.
+3. Classify the response as **SOVEREIGN**, **NULL**, or **AMBIGUOUS**.
+4. On **NULL** or **AMBIGUOUS**, escalate for individual human review before further action.
+
+Use [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste letters and next steps.
 
 May 2026. Across your energy supply, your benefits, your credit score, your job prospect, and your platform access — institutions are processing decisions about your life without any named human being able to say they reviewed your specific facts. Not an appeal process. Not a complaint button. Not "human oversight." But a specific human who knew your case and considered it, before the decision was made.
 
@@ -23,6 +34,18 @@ The EU AI Act demands it. UK GDPR Articles 22A–22D (DUAA 2025) enacted it. But
 | **AMBIGUOUS** | The institution replies with vague process language — "subject to human oversight," "reviewed in line with policy" — without actually confirming a specific human reviewed your specific facts. | "We have a human review layer" — but they cannot name the person or describe what facts they reviewed about you. |
 
 **That is the entire framework.** Record the answer. On SOVEREIGN, proceed. On NULL or AMBIGUOUS, escalate for individual human review or block the decision. Applied to every institution, system, and regulation.
+
+## What Good Evidence Looks Like
+
+For a response to count as **SOVEREIGN**, you need all of the following:
+
+- A named human reviewer
+- Their role or professional capacity
+- The specific facts they reviewed about your case
+- Confirmation this happened before the decision affected you
+- Confirmation they had authority to change the outcome
+
+Anything less should be treated as **AMBIGUOUS** until clarified.
 
 ---
 
@@ -99,6 +122,8 @@ asks whether the individual was personally considered before action was taken.
 ## How to use it
 
 **Quick start (5 minutes):** See [GETTING_STARTED.md](./GETTING_STARTED.md) for an interactive decision tree and copy-paste templates for the five most common scenarios.
+
+**Need to act today:** Go straight to [templates/README.md](./templates/README.md) and send a request for individual human review, then keep all replies as evidence.
 
 **If something has already happened to you:** Use [START_HERE.md](./START_HERE.md) or the [templates](./templates/README.md) to write a request for confirmation of individual human review, escalate an AMBIGUOUS response, or file a formal complaint with the binary test embedded.
 

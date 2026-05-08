@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgess Score Badge Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .tagline {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            margin-bottom: 15px;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            border-left: 4px solid #ddd;
+        }
+        .result.show {
+            display: block;
+        }
+        .result.sovereign {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        .result.null {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        .result.ambiguous {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .result-title {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .result.sovereign .result-title {
+            color: #155724;
+        }
+        .result.null .result-title {
+            color: #721c24;
+        }
+        .result.ambiguous .result-title {
+            color: #856404;
+        }
+        .result-text {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .badge-section {
+            margin-top: 20px;
+        }
+        .badge-section h3 {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        .badge.sovereign {
+            background: #28a745;
+            color: white;
+        }
+        .badge.null {
+            background: #dc3545;
+            color: white;
+        }
+        .badge.ambiguous {
+            background: #ffc107;
+            color: #333;
+        }
+        .embed-code {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+        .copy-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 8px;
+            float: right;
+        }
+        .copy-button:hover {
+            background: #5568d3;
+        }
+        .copied-notice {
+            display: none;
+            color: #28a745;
+            font-size: 12px;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+        .examples {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        .examples h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .example-item {
+            margin-bottom: 8px;
+            padding-left: 20px;
+        }
+        .example-label {
+            font-weight: 500;
+            color: #667eea;
+        }
+        .scenario-preset {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .preset-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .preset-btn:hover {
+            background: #e8e8e8;
+            border-color: #667eea;
+        }
+        .mark {
+            font-size: 12px;
+            color: #666;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+        }
+        .mark a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .mark a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Burgess Score Badge</h1>
+        <p class="tagline">Test an institutional response. Classify it. Get a badge.</p>
+
+        <div class="section">
+            <div class="section-title">📋 Test Scenario</div>
+            
+            <label>What is the institutional context?</label>
+            <select id="context">
+                <option value="">-- Select a common scenario --</option>
+                <option value="energy">Energy / Utilities</option>
+                <option value="benefits">Benefits / Social Security</option>
+                <option value="lending">Lending / Credit</option>
+                <option value="moderation">Content Moderation</option>
+                <option value="disability">Disability / Reasonable Adjustments</option>
+                <option value="other">Other / Custom</option>
+            </select>
+
+            <label>What was the decision or action?</label>
+            <input type="text" id="decision" placeholder="e.g., 'Account suspension', 'Claim rejection', 'Warrant issued'">
+
+            <label>What did the institution say when you asked for individual human review?</label>
+            <textarea id="response" placeholder="Paste the exact response you received. Include evasive language, process language, or their answer about who reviewed your case."></textarea>
+
+            <div class="examples">
+                <h4>Quick Examples:</h4>
+                <div class="example-item">✓ SOVEREIGN: "Sarah Chen in our customer team personally reviewed your case and approved the adjustment."</div>
+                <div class="example-item">✗ NULL: "Your account was processed through our automated system. No individual review record available."</div>
+                <div class="example-item">? AMBIGUOUS: "We have a human review layer. All decisions are subject to our quality assurance process."</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" onclick="analyzeResponse()">Analyze Response</button>
+            <button class="btn-secondary" onclick="resetForm()">Clear</button>
+        </div>
+
+        <div id="resultSection" class="result">
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-text" id="resultText"></div>
+            
+            <div class="badge-section">
+                <h3>Your Badge:</h3>
+                <div id="badgeDisplay"></div>
+                
+                <h3 style="margin-top: 15px;">Embed this badge on your website:</h3>
+                <div id="embedCode" class="embed-code"></div>
+                <button class="copy-button" onclick="copyToClipboard()">Copy Embed Code</button>
+                <div class="copied-notice" id="copiedNotice">✓ Copied to clipboard!</div>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1);">
+                <p style="font-size: 13px; color: #666;">
+                    <strong>Next step:</strong> If you received this response, consider filing a formal complaint with your regulator or ombudsman. See <a href="./GETTING_STARTED.md" style="color: #667eea;">GETTING_STARTED.md</a> for template letters and escalation routes.
+                </p>
+            </div>
+        </div>
+
+        <div class="mark">
+            <p style="font-size: 12px; margin-bottom: 10px;">
+                <strong>UK Certification Mark UK00004343685</strong><br>
+                Part of the <a href="./README.md">Burgess Principle</a> — 
+                the binary test for meaningful human involvement in automated systems.
+            </p>
+            <p style="font-size: 11px; color: #999;">
+                MIT Licence | <a href="https://github.com/ljbudgie/burgess-principle">github.com/ljbudgie/burgess-principle</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function analyzeResponse() {
+            const context = document.getElementById('context').value || 'general';
+            const decision = document.getElementById('decision').value;
+            const response = document.getElementById('response').value;
+
+            if (!response.trim()) {
+                alert('Please paste or describe the institutional response.');
+                return;
+            }
+
+            const result = classifyResponse(response);
+            displayResult(result, decision, context);
+        }
+
+        function classifyResponse(response) {
+            const lower = response.toLowerCase();
+
+            // SOVEREIGN indicators: past tense confirmations, named individuals, specific facts
+            const sovereignPatterns = [
+                /\b(john|james|sarah|michael|david|emma|robert|jennifer|william|lisa|thomas|mary|charles|patricia|christopher|linda|daniel|barbara|matthew|nancy|anthony|carol|mark|diane|donald|julie|steven|joyce|paul|victoria|andrew|brittany|joshua|kathleen|kenneth|karen|kevin|nancy|brian|lisa|george|betty|edward|helen|ronald|sandra|timothy|donna|jason|catherine|jeffrey|ann|ryan|ann|jacob|anne|ryan|ruth|gary|diane|nicholas|julie|eric|joyce|jonathan|evelyn|stephen|alice|larry|jean|justin|abigail|scott|olivia|brandon|isabella|benjamin|sophia|samuel|charlotte|raymond|amelia|patrick|mia|alexander|harper|jack|luna|dennis|grace|jerry|chloe|tyler|penelope|aaron|layla|jose|camilla|adam|selena)\s+(?:from|in|at|with)\b.*(?:reviewed|examined|considered|assessed|evaluated|looked|approved|checked|verified)\b/i,
+                /\b(reviewed|examined|considered|assessed|evaluated|looked at|approved|checked|verified|analyzed)\s+(?:your|the)\s+(?:case|file|application|account|situation|facts|circumstances)\b/i,
+                /\b(personally|individually|specifically)\s+(?:reviewed|examined|considered|assessed|evaluated|approved|checked)\b/i,
+                /\b(confirmed|confirmed)\s+that\s+(?:i|we|a)\s+(?:reviewed|examined|considered)\b/i,
+                /\byes,?\s+(?:a\s+)?(?:named\s+)?human\b/i,
+            ];
+
+            const nullPatterns = [
+                /\b(automated|algorithmic|system|machine|automatic|bot|process|algorithm|computer)\s+.*?\b(decided|processed|determined|made|rejected|approved|issued)\b/i,
+                /\b(no\s+)?(?:individual\s+)?human\s+review\b/i,
+                /\bno\s+named\b/i,
+                /\b(bulk[\s-]?processed|batch[\s-]?processed|mass[\s-]?processed)\b/i,
+                /\b(not\s+available|no\s+record|unable\s+to\s+identify)\b.*?(?:review|human|individual)\b/i,
+            ];
+
+            const ambiguousPatterns = [
+                /\b(subject\s+to\s+human\s+(?:review|oversight)|human\s+oversight|review\s+layer|compliance\s+review|quality\s+assurance|oversight\s+process)\b/i,
+                /\b(may\s+be\s+reviewed|will\s+be\s+reviewed|can\s+be\s+reviewed)\b/i,
+                /\b(all\s+decisions|in\s+line\s+with|in\s+accordance\s+with|policy\s+review|escalation)\b/i,
+                /\b(might|may|could)\s+(?:have|been|been\s+[\w\s]+)?\b(?:reviewed|considered)\b/i,
+                /\b(we\s+take|we\s+consider)\s+(?:individual|personal)\b/i,
+            ];
+
+            let sovereignScore = 0;
+            let nullScore = 0;
+            let ambiguousScore = 0;
+
+            sovereignPatterns.forEach(p => {
+                if (p.test(response)) sovereignScore += 2;
+            });
+
+            nullPatterns.forEach(p => {
+                if (p.test(response)) nullScore += 2;
+            });
+
+            ambiguousPatterns.forEach(p => {
+                if (p.test(response)) ambiguousScore += 1;
+            });
+
+            if (sovereignScore > nullScore && sovereignScore > ambiguousScore) {
+                return 'sovereign';
+            } else if (nullScore > ambiguousScore) {
+                return 'null';
+            } else {
+                return 'ambiguous';
+            }
+        }
+
+        function displayResult(classification, decision, context) {
+            const resultSection = document.getElementById('resultSection');
+            resultSection.className = `result show ${classification}`;
+
+            const titles = {
+                sovereign: '✓ SOVEREIGN — Individual Human Review Confirmed',
+                null: '✗ NULL — No Individual Human Review',
+                ambiguous: '? AMBIGUOUS — Unclear If Individual Review Occurred'
+            };
+
+            const explanations = {
+                sovereign: 'The institution has confirmed that a named human reviewed your specific facts before the decision was made. This is the gold standard. The review happened; you now have clarity.',
+                null: 'The institution has admitted (or your evidence shows) that no individual human reviewed your specific facts. The decision was automated or bulk-processed. Under the Data (Use and Access) Act 2025, this admission may constitute a violation. You should escalate this to your regulator or ombudsman.',
+                ambiguous: 'The institution used vague process language ("subject to human oversight," "compliance review," etc.) without confirming that a specific human reviewed your specific facts. This is evasion. Send a follow-up asking them to answer clearly: Yes or No. If they cannot name the person or describe what facts they reviewed, it is NULL.'
+            };
+
+            document.getElementById('resultTitle').textContent = titles[classification];
+            document.getElementById('resultText').textContent = explanations[classification];
+
+            // Generate badge display
+            const badgeText = {
+                sovereign: 'SOVEREIGN',
+                null: 'NULL',
+                ambiguous: 'AMBIGUOUS'
+            };
+
+            document.getElementById('badgeDisplay').innerHTML = 
+                `<div class="badge ${classification}">${badgeText[classification]}</div>`;
+
+            // Generate embed code
+            const embedCode = `<img src="https://burgess-principle.vercel.app/api/badge?score=${classification}" alt="Burgess Principle: ${badgeText[classification]}" style="display:inline-block; height:32px;">`;
+            document.getElementById('embedCode').textContent = embedCode;
+
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function copyToClipboard() {
+            const embedCode = document.getElementById('embedCode').textContent;
+            navigator.clipboard.writeText(embedCode).then(() => {
+                const notice = document.getElementById('copiedNotice');
+                notice.style.display = 'block';
+                setTimeout(() => {
+                    notice.style.display = 'none';
+                }, 2000);
+            });
+        }
+
+        function resetForm() {
+            document.getElementById('context').value = '';
+            document.getElementById('decision').value = '';
+            document.getElementById('response').value = '';
+            document.getElementById('resultSection').classList.remove('show');
+        }
+
+        // Preset scenarios
+        function loadPreset(name) {
+            const presets = {
+                sovereign: {
+                    decision: 'Account approval',
+                    response: 'Yes, Sarah Chen from our customer review team personally examined your application file and supporting documents. She reviewed your credit history, income verification, and the specific facts of your situation before recommending approval.'
+                },
+                null: {
+                    decision: 'Warrant issued',
+                    response: 'We are unable to identify who reviewed your warrant application. The warrant was issued through our standard processing system based on algorithmic assessment. No individual review record is available.'
+                },
+                ambiguous: {
+                    decision: 'Content removal',
+                    response: 'All content removal decisions are subject to human oversight. Your content was reviewed in line with our community standards policy and our quality assurance process.'
+                }
+            };
+
+            if (presets[name]) {
+                document.getElementById('decision').value = presets[name].decision;
+                document.getElementById('response').value = presets[name].response;
+            }
+        }
+    </script>
+</body>
+</html>

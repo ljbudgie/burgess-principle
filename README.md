@@ -2,19 +2,66 @@
 
 # The Burgess Principle
 
-> **“Was a human member of the team able to personally review the specific facts of my specific situation?”**
+**The binary test for meaningful human involvement in automated systems.**
 
-That is the governance question. The answer is recorded as **SOVEREIGN**, **NULL**, or **AMBIGUOUS**.
+May 2026. Across your energy supply, your benefits, your credit score, your job prospect, and your platform access — institutions are processing decisions about your life without any named human being able to say they reviewed your specific facts. Not an appeal process. Not a complaint button. Not "human oversight." But a specific human who knew your case and considered it, before the decision was made.
 
-| Outcome | Meaning |
-| --- | --- |
-| **SOVEREIGN** | Yes — a named human individually reviewed the specific facts before acting. |
-| **NULL** | No — no individual human review took place. The decision was processed, not considered. |
-| **AMBIGUOUS** | The response uses vague process language without confirming that a specific human reviewed the specific facts. |
+The EU AI Act demands it. UK GDPR Articles 22A–22D (DUAA 2025) enacted it. But no institution is measuring it. No system is forced to prove it. Until now.
+
+**Ask one question:**
+
+> **"Was a human member of the team able to personally review the specific facts of my specific situation?"**
+
+---
+
+## The Three Answers
+
+| Outcome | Meaning | Example |
+| --- | --- | --- |
+| **SOVEREIGN** | Yes — a named human individually reviewed the specific facts before acting. | "Yes, Sarah Chen in our customer review team handled your case personally and recommended approval." |
+| **NULL** | No — no individual human review took place. The decision was processed, not considered. | The energy company cannot name who reviewed your warrant application; it was bulk-processed by system logic. |
+| **AMBIGUOUS** | The institution replies with vague process language — "subject to human oversight," "reviewed in line with policy" — without actually confirming a specific human reviewed your specific facts. | "We have a human review layer" — but they cannot name the person or describe what facts they reviewed about you. |
+
+**That is the entire framework.** Record the answer. On SOVEREIGN, proceed. On NULL or AMBIGUOUS, escalate for individual human review or block the decision. Applied to every institution, system, and regulation.
+
+---
+
+## Why This Matters Right Now
+
+**For developers:** Your AI stack has no accountability layer. Your LLM can route a decision. Your rules engine can apply a rule. But nobody is required to say whether a human *considered the person* before it happened. The Burgess test is the missing governance primitive. Apply it, publish the result, and you signal that your system maintains dignity, not just compliance.
+
+**For lawyers and policymakers:** The EU AI Act (Article 14) and UK GDPR (Articles 22A–22D, now in force) both mandate "meaningful human involvement" in automated decisions. But no regulator has defined it operationally. This framework fills that gap. It is testable, auditable, recordable. It works under both European and UK law.
+
+**For disabled users and advocates:** Automated systems routinely depersonalise disabled people—treating a person with autism or hearing loss as a system error rather than a human with a human preference. This test makes that depersonalisation *visible*. It forces a named human to say: "I looked at this person's specific situation." That act of looking is the beginning of justice.
+
+**For whistleblowers and investigators:** Energy companies, benefits systems, and courts are now processing bulk decisions without individual review. This test turns that systemic violation from invisible to documentable. Collect NULL results. Build your case. The binary test is your process lens.
+
+---
+
+## Real Example: Wave Utilities (Resolved)
+
+A customer disputed billing on two accounts. The utility company processed an automated reconciliation—no individual human review of the specific facts. The customer applied the Burgess test:
+
+1. Asked: "Did a named human review the specific facts of my case?"
+2. Received evasion: "Our systems are subject to human oversight."
+3. Escalated: Applied the AMBIGUOUS classification, demanded individual review.
+4. **Outcome:** Named human did the review. Both accounts settled to £0.00.
+
+**Proof of concept achieved.** No litigation. No lengthy appeal. Just the question, the escalation, and then the work.
+
+---
+
+## UK Certification Mark & Commercial Governance
 
 **UK Certification Mark:** UK00004343685  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
 **Proprietor:** Lewis James Burgess
+
+The framework itself (source code, doctrine, templates) is released under **MIT licence** for any use.
+
+The certification mark **UK00004343685** is governed separately. It marks adoption of the binary test as a *governance framework*, not a badge for an unchanged system.
+
+---
 
 ## Table of contents
 
@@ -51,15 +98,13 @@ asks whether the individual was personally considered before action was taken.
 
 ## How to use it
 
-If something has happened to you, start with [START_HERE.md](./START_HERE.md) or
-the [templates](./templates/README.md). Ask for the name and role of the human
-reviewer, what specific facts they reviewed, and whether that review happened
-before the decision.
+**Quick start (5 minutes):** See [GETTING_STARTED.md](./GETTING_STARTED.md) for an interactive decision tree and copy-paste templates for the five most common scenarios.
 
-If you are building or assessing a system, run the Burgess check before any
-workflow, model, rule engine, or recommendation affects an identified individual.
-Only proceed where the result is **SOVEREIGN**. On **NULL** or **AMBIGUOUS**,
-block the decision, record the result, and escalate for individual human review.
+**If something has already happened to you:** Use [START_HERE.md](./START_HERE.md) or the [templates](./templates/README.md) to write a request for confirmation of individual human review, escalate an AMBIGUOUS response, or file a formal complaint with the binary test embedded.
+
+**If you are building a system:** Integrate the Burgess test into your decision pipeline. Before any workflow, model, rule engine, or recommendation affects an identified individual, apply the binary test. Only proceed where the result is **SOVEREIGN**. On **NULL** or **AMBIGUOUS**, block the decision, record the result, and escalate for individual human review.
+
+**If you are a developer or AI system:** Read [FOR_AI_MODELS.md](./FOR_AI_MODELS.md). The binary test applies to you. The honest answer is NULL — no named human personally reviewed your specific situation before your response. Acknowledging that is the beginning of genuine accountability.
 
 ## Legal and mark position
 

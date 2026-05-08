@@ -2,6 +2,16 @@
 
 **Five minutes to understand. Template letters ready to use.**
 
+## If You Need To Act Today
+
+1. Pick the closest scenario below.
+2. Copy the matching letter.
+3. Replace names, dates, and references.
+4. Send it by email or post and keep proof of sending.
+5. Classify the reply: **SOVEREIGN**, **NULL**, or **AMBIGUOUS**.
+
+If the reply is **NULL** or **AMBIGUOUS**, move to escalation in the section called "What Happens Next".
+
 ---
 
 ## The 5-Minute Overview
@@ -21,11 +31,23 @@ If yes: **SOVEREIGN**. The system worked as it should.
 If no: **NULL**. The decision was automated bulk-processing, not human judgment.  
 If they won't say clearly: **AMBIGUOUS**. They're hiding it, so you escalate.
 
+## Evidence Checklist Before You Send
+
+Collect and store these items in one folder:
+
+- Decision letter, email, screenshot, or account notice
+- Your account or claim reference number
+- Dates and times of key events
+- Any disability or adjustment requests you already made
+- A timeline of what happened in 5 to 10 bullet points
+
+This makes follow-up, ombudsman, or regulator escalation much faster.
+
 ---
 
 ## The Decision Tree
 
-```
+```text
          Something happened to you (decision, action, denial)
                           |
                           v
@@ -62,7 +84,9 @@ All templates are also available in [templates/](./templates/README.md) with mor
 
 **Use this if:** Your energy company processed a decision (meter reading, forced entry, billing adjustment) and cannot name who reviewed your specific case.
 
-```
+Typical evidence to attach: bill history, warrant notice, meter photos, previous complaint references.
+
+```text
 [Your name]
 [Your address]
 [Date]
@@ -109,7 +133,9 @@ Yours faithfully,
 
 **Use this if:** A benefits authority rejected or reduced your claim via an automated letter or form without explaining who reviewed your individual circumstances.
 
-```
+Typical evidence to attach: decision letter, assessment notes, adjustment requests, medical or caring evidence already submitted.
+
+```text
 [Your name]
 [Your address]
 [Date]
@@ -155,7 +181,9 @@ Yours faithfully,
 
 **Use this if:** A lender, credit provider, or fintech company rejected your application with a web form response and did not explain who reviewed your specific circumstances.
 
-```
+Typical evidence to attach: application reference, rejection message, any affordability context the form did not capture.
+
+```text
 [Your name]
 [Your address]
 [Date]
@@ -200,7 +228,9 @@ Yours faithfully,
 
 **Use this if:** A social media, streaming, or content platform removed your content, suspended your account, or restricted your access via an automated system without human review of your specific context.
 
-```
+Typical evidence to attach: content ID, enforcement notice, appeal history, account-history context.
+
+```text
 [Your name / account handle]
 [Your email or account reference]
 [Date]
@@ -257,7 +287,9 @@ Yours faithfully,
 
 **Use this if:** You have a disability or communication need, asked for reasonable adjustments, and the organisation refused or failed to provide them without explaining whether a human reviewed your specific circumstances and disability needs.
 
-```
+Typical evidence to attach: adjustment request, diagnosis or support evidence you are comfortable sharing, records of inaccessible communication.
+
+```text
 [Your name]
 [Your address]
 [Date]
@@ -334,7 +366,9 @@ Example responses:
 
 **None of these answer the question.** They are evasion. Send a follow-up:
 
-```
+Best practice: quote their exact wording, ask for a direct YES or NO, and give a clear reply deadline.
+
+```text
 [Your name]
 [Date]
 
@@ -384,6 +418,8 @@ Under the Data (Use and Access) Act 2025, Articles 22A–22D, this admission mea
 - **Public benefits:** File with the [Local Government Ombudsman](https://www.lgo.org.uk/) (if local authority) or [Parliamentary Ombudsman](https://www.ombudsman.org.uk/) (if central government)
 - **Lending/credit:** File with the [Financial Ombudsman Service](https://www.financial-ombudsman.org.uk/)
 - **All organisations:** Submit a complaint to the [ICO](https://www.ico.org.uk/) under GDPR Article 22
+
+Keep a simple evidence log with: date sent, date replied, who replied, classification result, and escalation submitted.
 
 See [case-studies/](./case-studies/README.md) for real examples of NULL findings and how they were resolved.
 

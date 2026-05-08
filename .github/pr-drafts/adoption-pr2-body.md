@@ -1,26 +1,33 @@
-### What this changes
-- Adds a complete adoption documentation set for organisations implementing Burgess governance:
+# PR 2 Body: Adoption Infrastructure Docs
+
+## What this changes
+
+- Adds adoption infrastructure documents:
   - institutional adoption tracker
-  - Burgess-ready implementation checklist
-  - public transparency leaderboard
-  - ambassadors programme framework
-  - adoption directory entrypoint README
+  - Burgess-ready checklist
+  - public leaderboard
+  - ambassadors programme guidance
+  - adoption index documentation
 
-### Why this matters
-This creates a practical implementation path from evaluation to deployment to public accountability, while preserving doctrinal clarity and keeping enforcement focused on meaningful individual human review.
+## Why this matters
 
-### Validation
+This package converts principle-level agreement into trackable institutional practice with clear readiness signals and public accountability artifacts.
+
+## Validation
+
 - Documentation-only change
-- No runtime code paths modified
-- No edits to canonical doctrinal wording files
+- No runtime code modified
+- No edits to canonical doctrinal wording in FOR_AI_MODELS.md
 
-### Risk and mitigation
-- Scope risk: mitigated by keeping this PR confined to adoption docs
-- Overclaim risk: mitigated by framing outcomes as tracked, verifiable, and evidence-based
+## Risk and mitigation
 
-### Burgess Compliance Note
-- **What changes:** Adds adoption infrastructure docs for implementation, transparency, and community onboarding.
-- **Effect on meaningful human involvement:** **Strengthens** by operationalizing SOVEREIGN/NULL/AMBIGUOUS usage in organisational workflows and public accountability artifacts.
+- Scope risk mitigated by isolating adoption artifacts in one PR
+- Overclaim risk mitigated through evidence-oriented, process-focused language
+
+## Burgess Compliance Note
+
+- **What changes:** Adds adoption-tracking and readiness documentation set.
+- **Effect on meaningful human involvement:** **Strengthens** by making named-review expectations visible and auditable at organisational level.
 - **Doctrinal sections touched:** None.
-- **Risk and mitigation:** Scope and overclaim risks mitigated through documentation-only, evidence-oriented framing.
-- **Burgess test applied to this change:** **SOVEREIGN** (intended for explicit human review in PR process).
+- **Risk and mitigation:** Managed via docs-only scope and explicit accountability framing.
+- **Burgess test applied to this change:** **SOVEREIGN** (submitted for explicit human review).

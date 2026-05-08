@@ -1,4 +1,4 @@
-# PR 2 Draft: Adoption Infrastructure Documentation
+# PR 2 Draft: Adoption Infrastructure Docs
 
 ## Proposed Branch
 
@@ -6,7 +6,7 @@ phase3/adoption-infrastructure-docs
 
 ## Scope
 
-Focused, single-concern PR containing adoption infrastructure docs only.
+Focused, single-concern PR containing adoption and readiness documentation.
 
 ## Files to Include
 

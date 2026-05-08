@@ -6,7 +6,14 @@ self.importScripts(
   '/sovereign-core/profile-manager.js',
 );
 
-const PWA_CORE_VERSION = '1.3.0';
+// === Service Worker v2.4.0 (released 4 May 2026) ===
+// Updated to reflect Mirror Mode, Sovereign Local Mode, and expanded API surface.
+// Key changes: iris-config.json now in precache; trigger scoring includes follow-up/escalation patterns;
+// commitment orchestration unified across PWA, Memory Palace, Hub Mode, and background tasks.
+// Burgess Compliance: Background tasks remain advisory-only; no substantive SOVEREIGN/NULL judgment
+// is made in the background layer. All escalation and human review decisions surface locally and auditably.
+
+const PWA_CORE_VERSION = '2.4.0';
 const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
 const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
 const API_CACHE_NAME = `burgess-principle-api-${PWA_CORE_VERSION}`;
@@ -24,6 +31,7 @@ const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/iris-config.json',
   '/service-worker.js',
   '/phase3-memory-hub.js',
   '/memory-palace-worker.js',
@@ -350,6 +358,8 @@ function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source =
     { pattern: /(reasonable adjustment|disability|accessibility)/, add: 0.2, question: 'Who personally considered the requested adjustment and the specific barriers?' },
     { pattern: /(urgent|deadline|court|enforcement|bailiff|fraud)/, add: 0.16, question: 'Is there an urgent decision or enforcement step that needs a documented human review?' },
     { pattern: /(help me now|help me|panic)/, add: 0.2, question: 'Do you need an immediate human review flow to stabilise the situation?' },
+    { pattern: /(follow.?up|escalation|appeal|dispute|we reject|we decline|we cannot)/, add: 0.14, question: 'Is this a follow-up or appeal that needs explicit human re-review of the original decision?' },
+    { pattern: /(mirror mode|local device|offline|vault|stored claim)/, add: 0.08, question: 'Is this a local/offline decision or claim that needs human signoff before transmission?' },
   ];
   const suggested_questions = [];
   for (const item of weightMap) {

@@ -76,10 +76,10 @@ governance models:
 
    A material conflict includes:
 
-   - a financial interest;
-   - a close personal relationship;
-   - a partnership or sponsorship interest; or
-   - an adversarial interest that could reasonably affect the review.
+   - a financial interest, such as paid work for the applicant;
+   - a close personal relationship, such as family or household connection;
+   - a partnership or sponsorship interest, such as a joint programme; or
+   - an adversarial interest, such as an active dispute with the applicant.
 
    This advice does not create a standing committee and does not replace final
    responsibility, but it reduces the risk of self-certification or insular

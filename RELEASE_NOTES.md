@@ -19,6 +19,13 @@ certification documents are now easier to find and review.
 
 ## Draft GitHub Release Description
 
+### Release Signing Warning
+
+Before publishing the GitHub Release, the maintainer must regenerate
+`signed-update-manifest.json` with the offline Ed25519 PWA update-signing private
+key. Keep that private key offline and never commit it to the repository. Follow
+`SOVEREIGN_MODE.md` under "Signed update envelope" for the signing process.
+
 ### What's New
 
 - Added `GOVERNANCE.md` for roles, lazy consensus, sensitive-change escalation,
@@ -54,11 +61,9 @@ certification documents are now easier to find and review.
 - For Sovereign Vault users, run `npm ci` in `enforcement/sovereign-vault/` and
   rebuild with `npm run build`.
 - Refresh any cached PWA assets so the service worker moves to the v2.5.0 cache.
-- Maintainer release-signing step before publishing the GitHub Release:
-  regenerate `signed-update-manifest.json` with the offline Ed25519 PWA
-  update-signing private key, kept offline and never committed to the repository,
-  before enabling signed PWA update activation for the tagged release. The
-  process is documented in `SOVEREIGN_MODE.md` under "Signed update envelope".
+- Complete the release-signing step in the warning above before publishing the
+  GitHub Release and enabling signed PWA update activation for the tagged
+  release.
 - Review `GOVERNANCE.md`, `CODE_OF_CONDUCT.md`, `LICENSE.md`, and
   `CERTIFICATION_TIERS.md` before making public certification claims.
 

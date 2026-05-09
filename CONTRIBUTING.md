@@ -46,6 +46,14 @@ All contributions must maintain the respectful, non-confrontational voice that d
 
 We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
 
+### Optional Contributor Licence Agreement
+
+The project includes an optional draft Contributor Licence Agreement at
+[.github/CLA.md](./.github/CLA.md) for future flexibility on relicensing and
+long-term stewardship. It is **not currently required** for ordinary
+contributions unless the maintainer explicitly asks for it in a specific issue,
+pull request, or project notice.
+
 ### Cryptographic Standards (Vault Contributions)
 
 Contributions that touch the Sovereign Personal Vault (`enforcement/sovereign-vault/`) must meet the v0.3.0 cryptographic baseline. In summary:

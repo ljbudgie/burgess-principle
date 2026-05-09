@@ -108,6 +108,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 | 4 May 2026 | Copilot shim tightened toward Burgess-first decision checks (PR #344) | `.github/copilot-instructions.md` updated so Copilot is instructed to run the Burgess check before decision logic, prefer the reference implementation (`verify_scrutiny.py`) or API (`api.py`), and block / log NULL / escalate on failure. Internal AI-tooling shim only; no doctrinal sections altered. |
 | 6 May 2026 | Incorporation governance recorded | Added The Burgess Principle Limited incorporation details and clarified that commercial operation is under formal IP Licence Agreement while IP ownership remains personally with Lewis James Burgess. |
 | 9 May 2026 | Licensing sustainability messaging aligned | Reviewed licensing-related public surfaces and clarified the hybrid model: open MIT materials drive adoption and contribution while certification, consulting, training, sponsorship, and company licensing fund maintenance, enforcement, and standards integrity. |
+| 9 May 2026 | Lightweight governance and neutral certification oversight clarified | Added merit-based maintainer promotion, lazy consensus, advisory review, and impartiality safeguards for certification decisions without creating a standing bureaucracy. |
 
 ---
 

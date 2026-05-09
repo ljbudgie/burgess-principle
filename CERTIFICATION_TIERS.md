@@ -27,6 +27,11 @@ named humans personally reviewed the specific facts before decisions affected
 identified people. The ledger records certified adoption; it is not a
 substitute for actually doing the review.
 
+Certification is granted based on evidence, not payment. The Burgess Principle
+Limited may charge for assessment, renewal, training, and support, but payment
+does not confer certification and cannot convert a NULL or AMBIGUOUS finding
+into a SOVEREIGN finding.
+
 If a decision has already affected you, **you do not need certification**.
 Start with [`START_HERE.md`](./START_HERE.md) or copy a
 [template letter](./templates/README.md).
@@ -74,6 +79,39 @@ Start with [`START_HERE.md`](./START_HERE.md) or copy a
 
 > Founding rate available until **31 July 2026**. Full institutional pricing
 > from £25,000/year thereafter.
+
+---
+
+## Neutral Oversight and Impartiality
+
+The Burgess Principle Limited administers certification separately from ordinary
+MIT reuse. To preserve impartiality when certifying organisations:
+
+- certification is granted, renewed, refused, suspended, or withdrawn against
+  the published Burgess evidence standard, not the applicant's commercial value;
+- assessment records should identify the scope reviewed, the evidence relied on,
+  the named accountable person, and any NULL or AMBIGUOUS findings that were
+  escalated;
+- any material commercial, personal, or partnership interest between the company
+  and the applicant should be recorded before the certification decision;
+- where that interest could reasonably affect perceived neutrality, any tier
+  must use an external verifier or defined advisory reviewer before the mark is
+  granted or renewed;
+- Tier 01 institutional certification must use external verification unless
+  documented exceptional circumstances explain why a defined advisory reviewer is
+  the only proportionate route. All of the following conditions must be met:
+  - a narrow or time-limited scope;
+  - documented contact with at least two plausible external verifiers, or a
+    record that only one, or no, plausible external verifier could be identified;
+    and
+  - an advisory reviewer with relevant expertise and no material conflict;
+- paid support may help an organisation prepare, but it must not be treated as
+  independent certification of the same evidence unless the conflict is recorded
+  and mitigated.
+
+The mark remains controlled because self-certification would weaken the standard.
+Neutral oversight is intended to keep the finding specific, evidenced, and
+reviewable without creating heavy bureaucracy.
 
 ---
 

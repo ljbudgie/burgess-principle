@@ -35,6 +35,32 @@ Commercial certification terms: lewisjames@theburgessprinciple.com
 
 ---
 
+## Neutral Oversight and Impartiality
+
+Certification is not self-awarded and is not created by payment alone. The
+Burgess Principle Limited administers the register against the same evidence
+standard for every applicant: named human review of the specific facts before
+action is taken.
+
+To preserve impartiality:
+
+- the certificate scope, evidence basis, and renewal date should be clear enough
+  for a third party to understand what was certified;
+- any material commercial, personal, or partnership interest in an applicant
+  should be recorded before certification or renewal;
+- where neutrality could reasonably be questioned — for example where the
+  applicant is a sponsor, strategic partner, close commercial counterparty, or
+  connected person such as a family member, business associate, or person with a
+  shared financial interest — the company must seek a defined external verifier
+  or advisory reviewer before issuing, renewing, suspending, or withdrawing
+  certification; and
+- certification may be refused, suspended, or withdrawn if evidence shows badge
+  use without the underlying SOVEREIGN practice.
+
+This keeps the register a governance record, not a marketing list.
+
+---
+
 ## Certified Practitioners
 
 | Ref | Name / Brand | Trade | Location | Tier | Valid Until |

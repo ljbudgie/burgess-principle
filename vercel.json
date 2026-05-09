@@ -8,5 +8,8 @@
     "api/chat.py": {
       "maxDuration": 60
     }
+  },
+  "env": {
+    "BURGESS_RELEASE_VERSION": "2.5.0"
   }
 }

@@ -4,7 +4,7 @@
 
 - **GitHub:** github.com/ljbudgie/burgess-principle
 - **Licence:** MIT for code; UK00004343685 certification mark controlled by Lewis personally
-- **Framework version:** v2.4.0 (released 4 May 2026)
+- **Framework version:** v2.5.0 (released 9 May 2026)
 - **Last STATUS update:** 6 May 2026
 
 ## Key repository files

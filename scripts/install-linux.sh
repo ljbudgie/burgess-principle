@@ -7,6 +7,7 @@ REPO_ROOT="$(cd -- "$SCRIPT_DIR/.." && pwd)"
 MODEL_DIR="$REPO_ROOT/models"
 MODEL_FILE="$MODEL_DIR/phi-3-mini-4k-instruct-q4.gguf"
 MODEL_URL="https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf"
+RELEASE_VERSION="2.5.0"
 
 step() {
     echo ""
@@ -19,6 +20,7 @@ die() {
 }
 
 echo "=== Iris Local — Linux Setup ==="
+echo "Burgess Principle release v$RELEASE_VERSION"
 echo "This installs local dependencies and a small starter model for Sovereign Local Mode."
 
 step 1 "Checking Python"

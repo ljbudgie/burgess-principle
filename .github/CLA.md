@@ -9,6 +9,15 @@ flexibility to maintain, distribute, enforce, and, if necessary, relicense
 contributions while preserving the Burgess Principle's MIT open-source baseline
 and separate certification-mark governance.
 
+Plain-English rights flow:
+
+1. The contributor grants rights to Lewis James Burgess as the personal IP
+   proprietor.
+2. The Burgess Principle Limited may administer those rights only while formally
+   appointed as the project operator.
+3. Downstream users receive rights through the repository's outbound licence,
+   currently MIT.
+
 ## Individual Contributor Licence Agreement
 
 By submitting a contribution under this CLA, I agree as follows:

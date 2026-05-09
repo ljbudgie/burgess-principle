@@ -21,6 +21,9 @@ _CORE_PATH = _ROOT / "iris-memory" / "memory-palace-core.py"
 def _load_module(name: str, path: Path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
+    # Dataclasses inspect sys.modules during class creation; replace any stale
+    # test module with the same name before executing the hyphenated script.
+    sys.modules.pop(name, None)
     sys.modules[name] = module
     spec.loader.exec_module(module)
     return module
@@ -81,6 +84,8 @@ def test_builder_split_sections_preserves_preamble_and_heading_content():
 
 
 def test_builder_keywords_are_ranked_limited_and_filter_stopwords():
+    # Use more than MAX_KEYWORDS unique terms to prove the deterministic cap is
+    # applied after frequency ranking and stopword filtering.
     keywords = _BUILDER.keywords_for(
         "Review Review Alpha",
         "the and review beta beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi omicron pi rho sigma tau upsilon phi chi psi omega aardvark buffalo cougar",

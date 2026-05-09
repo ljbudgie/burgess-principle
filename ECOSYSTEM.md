@@ -4,7 +4,7 @@ The Burgess Principle is the **core standard**. The surrounding repositories imp
 
 - **Framework version:** v1.0.0 (released 18 April 2026)
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
-- **Last updated:** 18 April 2026
+- **Last updated:** 9 May 2026
 
 ---
 
@@ -20,17 +20,26 @@ The Burgess Principle is the **core standard**. The surrounding repositories imp
                                            │ defines the standard
                 ┌──────────────────────────┼────────────────────────────┐
                 │                          │                            │
-        ┌───────▼────────┐        ┌────────▼─────────┐         ┌────────▼─────────┐
-        │      Iris      │        │     OpenHear     │         │  Nexus AI Hub    │
-        │ AI implementation│      │  Sovereign audio │         │ Intelligence layer│
-        │ Federation proto │      │  pipeline (HA)   │         │                  │
-        │ iris-gate.vercel │      │ Phonak Naída M70 │         │                  │
-        │            .app  │      │ Signia Insio 7AX │         │                  │
-        └───────┬──────────┘      └──────────────────┘         └──────────────────┘
-                │
-                │ integrates with / proposes integration to
-                │
-   ┌────────────▼─────────────┐                  ┌────────────────────────────┐
+         ┌───────▼────────┐        ┌────────▼─────────┐         ┌────────▼─────────┐
+         │      Iris      │        │     OpenHear     │         │  Nexus AI Hub    │
+         │ AI implementation│      │  Sovereign audio │         │ Intelligence layer│
+         │ Federation proto │      │  pipeline (HA)   │         │                  │
+         │ iris-gate.vercel │      │ Phonak Naída M70 │         │                  │
+         │            .app  │      │ Signia Insio 7AX │         │                  │
+         └───────┬──────────┘      └──────────────────┘         └──────────────────┘
+                 │
+                 ├──── uses local identity reflection from ────┐
+                 │                                             │
+                 │                                  ┌──────────▼─────────┐
+                 │                                  │       Mirror       │
+                 │                                  │ local sovereign    │
+                 │                                  │ identity layer     │
+                 │                                  │ ljbudgie/Mirror    │
+                 │                                  └────────────────────┘
+                 │
+                 │ integrates with / proposes integration to
+                 │
+    ┌────────────▼─────────────┐                  ┌────────────────────────────┐
    │  OpenClaw (upstream)     │                  │  Hermes Agent (upstream)   │
    │  openclaw/openclaw       │                  │  NousResearch/hermes-agent │
    │  PR #68692 — adopted as  │                  │  PR #12265 — integration   │
@@ -67,6 +76,13 @@ Every other component in the ecosystem applies, implements, or integrates this s
 - **Role:** The flagship voice-first sovereign AI companion that operationalises the binary test in daily use.
 - **Federation protocol:** Iris implements a federation protocol so that sovereign nodes can exchange commitments, signed receipts, and Merkle roots without surrendering local control.
 - **Relationship to core:** Direct implementation of the Burgess Principle as advisory-only software with local cryptographic proof.
+
+### Mirror — local sovereign identity layer
+
+- **Repository:** [github.com/ljbudgie/Mirror](https://github.com/ljbudgie/Mirror)
+- **Renamed from:** `Mirror-`.
+- **Role:** Local identity-reflection layer for Mirror Mode, including encrypted sovereign profile reuse, mirrored greetings, and user-controlled reflection settings.
+- **Relationship to core:** Supports Iris and Sovereign Local Mode without changing the Burgess test; it preserves local user control and keeps identity context advisory rather than authoritative.
 
 ### OpenHear — sovereign audio pipeline
 
@@ -109,6 +125,8 @@ Every other component in the ecosystem applies, implements, or integrates this s
 | --- | --- | --- |
 | `burgess-principle` | All other repositories | Defines the standard, certification mark, and templates |
 | Iris | `burgess-principle` | Reference implementation; consumes templates and schemas |
+| Iris | Mirror | Uses the local sovereign identity layer for Mirror Mode profile and reflection behaviour |
+| Mirror | `burgess-principle` | Applies the core standard to identity reflection without replacing human review |
 | Iris ↔ Iris | Other Iris nodes | Federation protocol — exchanges signed receipts and Merkle roots |
 | Iris | Nexus AI Hub | Calls into the intelligence layer for higher-order reasoning |
 | OpenHear | Iris / `burgess-principle` | Applies the binary test at the audio boundary |

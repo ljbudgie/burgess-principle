@@ -91,7 +91,7 @@ The certification mark **UK00004343685** is governed separately. It marks adopti
 | Area | Link | What it is for |
 | --- | --- | --- |
 | Case studies | [case-studies/](./case-studies/) | Public examples of the test applied to real situations. |
-| Docs | [docs/](./docs/) | Project planning and supporting documentation. |
+| Docs | [docs/README.md](./docs/README.md) | Certification-site files, project planning, and supporting documentation. |
 | Enforcement | [enforcement/](./enforcement/) | Sovereign Vault and technical enforcement tools. |
 | Iris | [iris/](./iris/) | Prompting and companion materials for Iris. |
 | Litigation | [litigation/](./litigation/) | CPR 19.8, damages, warrant defects, and contamination mapping. |

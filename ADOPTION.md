@@ -2,7 +2,7 @@
 
 A factual record of every known adoption of the Burgess Principle as a governance or accountability framework, including voluntary adoptions, open pull requests proposing integration, institutional responses, and resolved cases held out as proof of concept.
 
-- **Framework version:** v1.0.0 (released 18 April 2026)
+- **Framework version:** v2.5.0 (released 9 May 2026)
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 - **Last updated:** 9 May 2026
 

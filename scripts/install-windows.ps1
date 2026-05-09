@@ -6,6 +6,7 @@ $repoRoot = Resolve-Path (Join-Path $scriptDir "..")
 $modelDir = Join-Path $repoRoot "models"
 $modelFile = Join-Path $modelDir "phi-3-mini-4k-instruct-q4.gguf"
 $modelUrl = "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf"
+$releaseVersion = "2.5.0"
 
 function Step([int]$Number, [string]$Message) {
     Write-Host ""
@@ -18,6 +19,7 @@ function Stop-Setup([string]$Message) {
 }
 
 Write-Host "=== Iris Local — Windows Setup ===" -ForegroundColor Cyan
+Write-Host "Burgess Principle release v$releaseVersion"
 Write-Host "This installs local dependencies and an easy starter model for Sovereign Local Mode."
 
 Step 1 "Checking Python"

@@ -101,6 +101,25 @@ CLA process is needed.
 
 ---
 
+## Project Governance
+
+Project governance is documented in [GOVERNANCE.md](./GOVERNANCE.md). The short
+version is simple: the repository remains MIT-open for ordinary reuse,
+contribution, and forkability, while official "Certified Burgess Principle" use
+and the UK Certification Mark **UK00004343685** are governed separately to
+protect the standard from badge-washing.
+
+This hybrid MIT + Certification Mark model lets developers, researchers,
+advocates, and institutions adopt the binary test openly while keeping certified
+claims evidence-led, neutral, and reviewable.
+
+**Ready for Certification:** If your organisation can evidence named human
+review before decisions affect identified people, start with
+[CERTIFICATION_TIERS.md](./CERTIFICATION_TIERS.md) and the public certification
+site at [certify.theburgessprinciple.com](https://certify.theburgessprinciple.com).
+
+---
+
 ## Table of contents
 
 | Area | Link | What it is for |

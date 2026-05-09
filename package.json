@@ -1,6 +1,6 @@
 {
   "name": "iris-agent",
-  "version": "1.0.0",
+  "version": "2.5.0",
   "description": "Iris — persistent AI agent for The Burgess Principle",
   "type": "module",
   "main": "index.js",

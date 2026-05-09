@@ -5,6 +5,38 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.0 — Governance & Ecosystem: Certified Pathways and Community Foundations (9 May 2026)
+
+### Added
+- `GOVERNANCE.md` establishes lightweight project governance: maintainer roles, lazy consensus for ordinary work, founder review for doctrinal and mark-sensitive changes, contribution ladder, succession guidance, and neutral advisory review for sensitive certification questions.
+- `CODE_OF_CONDUCT.md` adds a calm, accessibility-aware community standard adapted from Contributor Covenant 2.1, including explicit protection against misleading certification claims.
+- Contributor onboarding now includes issue-friendly community paths, with an Iris enhancement template suitable for good first issues around Iris, Sovereign Core, and supporting workflows.
+- LangChain governance overlay documentation in `integrations/LANGCHAIN_BURGESS_OVERLAY.md`, plus integration PR templates for AutoGen, CrewAI, LlamaIndex, and related ecosystem routes.
+- `ECOSYSTEM.md` updates the surrounding project map, including Iris, Mirror, OpenHear, Nexus AI Hub, OpenClaw, Hermes Agent, and their relationship to the Burgess Principle core.
+- Certification-site materials now include public routes for certified pathways, GoCardless confirmation, partnership ledger automation, and `CERTIFICATION_TIERS.md` as a repository mirror of the live tier structure.
+- Founding rate information for certification pathways is now recorded: Tier 03 practitioner, Tier 02 technology and advocacy, and Tier 01 institutional routes, with the founding-rate window documented to 31 July 2026.
+- Optional contributor licence agreement draft at `.github/CLA.md` for future maintainer use if relicensing flexibility ever requires a formal process.
+- Adoption and community foundation materials, including adoption trackers, ambassador programme notes, public leaderboard scaffolding, and certification-ready checklists.
+
+### Changed
+- Root `README.md` now links hosted Iris and the certification site separately, clarifies public-facing project structure, and explains the hybrid MIT + Certification Mark model.
+- `LICENSE.md`, `CONTRIBUTING.md`, docs routing, and certification pages now clarify that MIT reuse remains open while official "Certified Burgess Principle" mark use requires separate authorisation.
+- `ECOSYSTEM.md`, `ADOPTION.md`, `STATUS.md`, `SOUL.md`, and Iris memory files now align with the v2.5.0 governance and ecosystem release framing.
+- Vercel-facing PWA metadata, service-worker cache versioning, package metadata, Python package metadata, API version metadata, Iris local version reporting, and local install scripts now report v2.5.0.
+- Public docs and certification pages now use stronger accessibility patterns, clearer skip links, and more direct certification copy without changing the binary test.
+- The Sovereign Vault dependency baseline was refreshed through Dependabot updates for `@noble/curves`, `@noble/hashes`, TypeScript, and related build/test expectations.
+- Python/API dependencies were refreshed through Dependabot updates, including `uvicorn`, `cryptography`, and `openai` requirement updates.
+
+### Fixed
+- Documentation links and Iris prompt references were synced so AI-facing docs, README paths, and public routing remain lint-clean.
+- Sovereign Vault TypeScript build warnings and stale test expectations were corrected after dependency updates.
+- Personal contact/address details were redacted from public-facing repository records, leaving only appropriate commercial certification contact routes.
+
+### Release Notes
+- Short adopter and contributor release notes are available in [`RELEASE_NOTES.md`](./RELEASE_NOTES.md), including a draft GitHub Release description in Keep a Changelog style.
+
+---
+
 ## v2.1.0 — The Pattern Completed (24 April 2026)
 
 ### Added

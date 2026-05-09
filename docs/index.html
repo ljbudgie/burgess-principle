@@ -217,6 +217,12 @@
     padding: 0 3rem 3rem;
   }
 
+  .bp-paths-section:focus,
+  .bp-tiers-section:focus {
+    outline: 2px solid var(--red);
+    outline-offset: -2px;
+  }
+
   .bp-paths-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -496,10 +502,10 @@
 <body>
 
 <div class="bp-root">
-  <div class="bp-skip-links" aria-label="Skip links">
+  <nav class="bp-skip-links" aria-label="Skip links">
     <a class="bp-skip" href="#main-content">Skip to main content</a>
     <a class="bp-skip" href="#certification-tiers">Skip to certification tiers</a>
-  </div>
+  </nav>
 
   <header class="bp-header">
     <div>

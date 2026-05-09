@@ -40,7 +40,7 @@ All contributions must maintain the respectful, non-confrontational voice that d
 New contributors are welcome. The safest first step is to choose a small,
 reviewable improvement: a typo fix, a clearer README paragraph, a new sector
 template, a translation, or a beginner tutorial. If you are unsure where to
-start, open an Issue or Discussion and say what kind of contribution you would
+start, open an issue or discussion and say what kind of contribution you would
 like to make. The maintainer or community can help shape it into a focused pull
 request.
 

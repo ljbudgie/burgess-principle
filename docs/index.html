@@ -41,16 +41,26 @@
 
   .bp-skip-links {
     position: absolute;
-    left: 1rem;
-    top: -4rem;
     z-index: 10;
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
-    transition: top 0.2s;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
   }
 
-  .bp-skip-links:focus-within { top: 1rem; }
+  .bp-skip-links:focus-within {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+  }
 
   .bp-skip {
     background: var(--ink);
@@ -217,10 +227,9 @@
     padding: 0 3rem 3rem;
   }
 
-  .bp-paths-section:focus,
-  .bp-tiers-section:focus {
+  .bp-tiers-label:target {
     outline: 2px solid var(--red);
-    outline-offset: -2px;
+    outline-offset: 4px;
   }
 
   .bp-paths-grid {
@@ -503,8 +512,8 @@
 
 <div class="bp-root">
   <nav class="bp-skip-links" aria-label="Skip links">
-    <a class="bp-skip" href="#main-content">Skip to main content</a>
-    <a class="bp-skip" href="#certification-tiers">Skip to certification tiers</a>
+    <a class="bp-skip" href="#bp-paths-title">Skip to main content</a>
+    <a class="bp-skip" href="#bp-tiers-title">Skip to certification tiers</a>
   </nav>
 
   <header class="bp-header">
@@ -552,8 +561,8 @@
     </div>
   </section>
 
-  <section class="bp-paths-section" id="main-content" tabindex="-1" aria-labelledby="bp-paths-title">
-    <div class="bp-tiers-label" id="bp-paths-title">Choose your route</div>
+  <section class="bp-paths-section" id="main-content" aria-labelledby="bp-paths-title">
+    <h2 class="bp-tiers-label" id="bp-paths-title">Choose your route</h2>
     <div class="bp-paths-grid">
       <article class="bp-path-card">
         <h2>I need help now</h2>
@@ -573,8 +582,8 @@
     </div>
   </section>
 
-  <section class="bp-tiers-section" id="certification-tiers" tabindex="-1" aria-labelledby="bp-tiers-title">
-    <div class="bp-tiers-label" id="bp-tiers-title">Certification tiers</div>
+  <section class="bp-tiers-section" id="certification-tiers" aria-labelledby="bp-tiers-title">
+    <h2 class="bp-tiers-label" id="bp-tiers-title">Certification tiers</h2>
     <div class="bp-tiers-grid">
 
       <!-- TIER 3 -->

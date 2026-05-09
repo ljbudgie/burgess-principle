@@ -30,6 +30,9 @@ commercial operations of The Burgess Principle Limited under formal IP licence.
 
 ## 09 May 2026 — New Certification
 
+*Template placeholders must be replaced with final partner details before the
+certification is treated as a live ledger record.*
+
 | # | Entity | Certificate | Tier | Certified | Status |
 |---|--------|-------------|------|-----------|--------|
 | X | {{customer.name}} | BP-CERT-2605-{{randomNumber}} | {{metadata.tier}} | 09 May 2026 | ✅ Certified |

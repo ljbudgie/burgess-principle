@@ -27,9 +27,10 @@ named humans personally reviewed the specific facts before decisions affected
 identified people. The ledger records certified adoption; it is not a
 substitute for actually doing the review.
 
-Certification is evidence-led, not pay-to-badge. The Burgess Principle Limited
-may charge for assessment, renewal, training, and support, but payment does not
-create certification and cannot override a NULL or AMBIGUOUS evidence record.
+Certification is granted based on evidence, not payment. The Burgess Principle
+Limited may charge for assessment, renewal, training, and support, but payment
+does not confer certification and cannot override a NULL or AMBIGUOUS evidence
+record.
 
 If a decision has already affected you, **you do not need certification**.
 Start with [`START_HERE.md`](./START_HERE.md) or copy a

@@ -63,7 +63,7 @@ governance models:
    judgment about the binary test, and respect for the mark boundary. Volume of
    commits alone is not enough.
 2. **Lazy consensus for ordinary work.** Routine repository changes proceed when
-   they are visible, scoped, reviewed, and no unresolved objection remains.
+   they are visible, scoped, reviewed, and when no unresolved objection remains.
    Objections should be specific and evidence-based, not blocking for its own
    sake.
 3. **Neutral advisory oversight for sensitive questions.** Where certification,
@@ -100,8 +100,8 @@ Open use of the materials must not imply certification, endorsement,
 affiliation, or official approval unless that authorisation exists.
 
 Certification decisions should be evidence-led and impartial. Payment, adoption
-interest, sponsorship, or contributor status must not by itself justify certified
-use of the mark. Where Burgess Principle Ltd has a material commercial,
+interest, sponsorship, or contributor status must not on its own justify
+certified use of the mark. Where Burgess Principle Ltd has a material commercial,
 personal, or partnership interest in an applicant, the review should record that
 interest and use an external verifier or advisory reviewer before certification
 is granted, renewed, refused, suspended, or withdrawn.

@@ -1,4 +1,4 @@
-# Live Cases (as of 6 May 2026)
+# Live Cases (as of 9 May 2026)
 
 Source: STATUS.md — framework v2.5.0
 

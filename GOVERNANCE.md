@@ -61,7 +61,8 @@ governance models:
 1. **Merit-based maintainer promotion.** Maintainer trust is earned through
    sustained, public contribution: careful reviews, precise documentation, good
    judgment about the binary test, and respect for the mark boundary. Volume of
-   commits alone is not enough.
+   commits alone is not enough. "Sustained" normally means several months of
+   visible, useful contribution or multiple meaningful contributions over time.
 2. **Lazy consensus for ordinary work.** Routine repository changes proceed when
    they are visible, scoped, reviewed, and when no unresolved objection remains.
    Objections should be specific and evidence-based, not blocking for its own
@@ -76,7 +77,8 @@ governance models:
 
    A material conflict includes:
 
-   - a financial interest, such as paid work for the applicant;
+   - a financial interest, such as paid work for the applicant or holding stock
+     or equity in it;
    - a close personal relationship, such as family or household connection;
    - a partnership or sponsorship interest, such as a joint programme; or
    - an adversarial interest, such as an active dispute with the applicant.

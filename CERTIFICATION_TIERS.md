@@ -102,8 +102,8 @@ MIT reuse. To preserve impartiality when certifying organisations:
   the only proportionate route. All of the following conditions must be met:
   - a narrow or time-limited scope;
   - documented contact with at least two plausible external verifiers, or a
-    record of why fewer than two plausible external verifiers could be
-    identified; and
+    record that only one, or no, plausible external verifier could be identified;
+    and
   - an advisory reviewer with relevant expertise and no material conflict;
 - paid support may help an organisation prepare, but it must not be treated as
   independent certification of the same evidence unless the conflict is recorded

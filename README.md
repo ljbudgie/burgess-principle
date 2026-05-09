@@ -92,7 +92,7 @@ explicit authorization to preserve the integrity and neutrality of the standard.
 
 See [LICENSE.md](./LICENSE.md) for the full MIT licence and certification-mark
 governance position. An optional draft contributor licence agreement is available
-at [.github/CLA.md](.github/CLA.md) for future use if the maintainer decides a
+at [.github/CLA.md](./.github/CLA.md) for future use if the maintainer decides a
 CLA process is needed.
 
 ---

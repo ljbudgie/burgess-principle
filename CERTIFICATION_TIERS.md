@@ -99,7 +99,7 @@ MIT reuse. To preserve impartiality when certifying organisations:
   granted or renewed;
 - Tier 01 institutional certification must use external verification unless
   documented exceptional circumstances explain why a defined advisory reviewer is
-  the only proportionate route. Exceptional circumstances should be limited to:
+  the only proportionate route. All of the following conditions must be met:
   - a narrow or time-limited scope;
   - documented contact with at least two plausible external verifiers, or a
     record of why fewer exist; and

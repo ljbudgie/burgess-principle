@@ -71,8 +71,8 @@ governance models:
    or Certification Oversight may invite a defined reviewer or small review group
    to give a recommendation recorded in the relevant issue, pull request,
    certification record, or `STATUS.md` entry. A defined reviewer should match
-   the Advisory Reviewers role above: relevant expertise, no material conflict,
-   and a clearly stated review scope.
+   the Advisory Reviewers role above: relevant expertise, no material conflict
+   (defined below), and a clearly stated review scope.
 
    A material conflict includes:
 
@@ -97,8 +97,9 @@ governance models:
 Maintainer status is earned through sustained judgment, not volume of commits.
 Promotion should normally follow sustained public contributions over time:
 visible repository work, calm conduct, understanding of the certification
-boundary, and willingness to escalate doctrinal or mark-governance questions
-rather than decide them unilaterally.
+boundary (the distinction between MIT reuse and certified mark use), and
+willingness to escalate doctrinal or mark-governance questions rather than
+decide them unilaterally.
 
 ## How the Certification Mark Fits
 

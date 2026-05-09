@@ -72,11 +72,18 @@ governance models:
    to give a recommendation recorded in the relevant issue, pull request,
    certification record, or `STATUS.md` entry. A defined reviewer should match
    the Advisory Reviewers role above: relevant expertise, no material conflict,
-   and a clearly stated review scope. A material conflict includes a financial,
-   close personal, partnership, or adversarial interest that could reasonably
-   affect the review. This advice does not create a standing committee and does
-   not replace final responsibility, but it reduces the risk of
-   self-certification or insular judgment.
+   and a clearly stated review scope.
+
+   A material conflict includes:
+
+   - a financial interest;
+   - a close personal relationship;
+   - a partnership or sponsorship interest; or
+   - an adversarial interest that could reasonably affect the review.
+
+   This advice does not create a standing committee and does not replace final
+   responsibility, but it reduces the risk of self-certification or insular
+   judgment.
 
 ## Contribution Ladder
 

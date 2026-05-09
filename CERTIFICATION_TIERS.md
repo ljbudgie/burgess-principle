@@ -29,8 +29,8 @@ substitute for actually doing the review.
 
 Certification is granted based on evidence, not payment. The Burgess Principle
 Limited may charge for assessment, renewal, training, and support, but payment
-does not confer certification and cannot override a NULL or AMBIGUOUS evidence
-record.
+does not confer certification and cannot convert a NULL or AMBIGUOUS finding
+into a SOVEREIGN finding.
 
 If a decision has already affected you, **you do not need certification**.
 Start with [`START_HERE.md`](./START_HERE.md) or copy a
@@ -99,10 +99,11 @@ MIT reuse. To preserve impartiality when certifying organisations:
   granted or renewed;
 - Tier 01 institutional certification must use external verification unless
   documented exceptional circumstances explain why a defined advisory reviewer is
-  the only proportionate route. Exceptional circumstances should be limited to a
-  narrow or time-limited scope, documented contact with at least two plausible
-  external verifiers or a record of why fewer exist, and an advisory reviewer
-  with relevant expertise and no material conflict; and
+  the only proportionate route. Exceptional circumstances should be limited to:
+  - a narrow or time-limited scope;
+  - documented contact with at least two plausible external verifiers, or a
+    record of why fewer exist; and
+  - an advisory reviewer with relevant expertise and no material conflict;
 - paid support may help an organisation prepare, but it must not be treated as
   independent certification of the same evidence unless the conflict is recorded
   and mitigated.

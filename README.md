@@ -144,13 +144,10 @@ asks whether the individual was personally considered before action was taken.
 
 ## Legal and mark position
 
-The core framework, prompts, templates, schemas, and code are released under the
-MIT License for anyone to use, fork, or build upon.
-
-The UK Certification Mark (UK00004343685) and official "Certified Burgess
-Principle" usage are managed separately by The Burgess Principle Limited.
-Commercial licensing, training, audits, or branded certification require
-explicit authorization to preserve the integrity and neutrality of the standard.
+The licensing and certification boundary is stated in
+[Licensing & Certification](#licensing--certification): repository materials are
+open under MIT terms, while official "Certified Burgess Principle" usage and the
+UK Certification Mark **UK00004343685** are governed separately.
 
 IP ownership remains with Lewis James Burgess personally. The Burgess Principle
 Limited, company number **17199287**, administers commercial licensing and

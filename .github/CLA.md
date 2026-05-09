@@ -19,10 +19,11 @@ By submitting a contribution under this CLA, I agree as follows:
    the Burgess Principle repository.
 
 2. **Licence grant.** I grant Lewis James Burgess, The Burgess Principle Limited,
-   and downstream recipients a perpetual, worldwide, non-exclusive, no-charge,
-   royalty-free, irrevocable copyright licence to reproduce, prepare derivative
-   works of, publicly display, publicly perform, sublicense, and distribute my
-   Contribution and derivative works.
+   and downstream recipients (users of the project or derivative works) a
+   perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright licence to reproduce, prepare derivative works of, publicly display,
+   publicly perform, sublicense, and distribute my Contribution and derivative
+   works.
 
 3. **Patent grant.** If my Contribution includes any patent claim that I can
    license and that would necessarily be infringed by using my Contribution
@@ -44,7 +45,7 @@ By submitting a contribution under this CLA, I agree as follows:
    maintenance, updates, indemnities, or further changes for my Contribution.
 
 7. **Outbound licence.** I understand that the project currently publishes
-   repository materials under the MIT License, while the UK Certification Mark
+   repository materials under the MIT licence, while the UK Certification Mark
    (UK00004343685) and official "Certified Burgess Principle" usage are governed
    separately.
 

@@ -131,6 +131,12 @@ The repository materials are MIT licensed. Individuals, researchers, open-source
 projects, and independent commercial users may use, fork, adapt, and redistribute
 them under the MIT terms with attribution.
 
+This openness is the adoption engine: broad reuse, forks, translations, audits,
+and improvements make the standard stronger. Certification-mark licensing,
+consulting, training, and sponsorship are separate sustainability routes that
+fund maintenance, enforcement, and standards integrity without converting the
+repository into a closed product.
+
 The Certification Mark “THE BURGESS PRINCIPLE” (UK00004343685) is governed
 separately. Do not imply official approval, affiliation, certification, or
 endorsement unless the proprietor or authorised commercial operator has

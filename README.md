@@ -89,6 +89,10 @@ The UK Certification Mark (UK00004343685) and official "Certified Burgess
 Principle" usage are managed separately by The Burgess Principle Limited.
 Commercial licensing, training, audits, or branded certification require
 explicit authorization to preserve the integrity and neutrality of the standard.
+That hybrid model is intentional: the MIT core drives broad adoption,
+contributions, and innovation, while certification-mark licensing and paid
+organisational support fund maintenance, enforcement, training, and standards
+integrity without closing the repository.
 
 See [LICENSE.md](./LICENSE.md) for the full MIT licence and certification-mark
 governance position. An optional draft contributor licence agreement is available

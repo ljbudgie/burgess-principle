@@ -2,7 +2,10 @@
 
 This directory contains ready-to-use tools for deploying the Burgess Principle framework against any institution.
 
-No legal training is required. No fee is charged. Everything here is free under the MIT licence.
+No legal training is required. No fee is charged. Everything here is free under
+the MIT licence. Certification, consulting, training, and company licensing are
+separate support routes for organisations that need official mark use or
+implementation help; they do not restrict the free toolkit.
 
 ---
 
@@ -85,4 +88,4 @@ For the litigation architecture (Tier 4 licensed partners only), see [litigation
 *One question. Was a human there?*
 
 UK Certification Mark UK00004343685 | github.com/ljbudgie/burgess-principle
-MIT Licence — free to use and adapt | Certification mark governed separately
+MIT Licence — free to use and adapt | Certification mark and company support governed separately

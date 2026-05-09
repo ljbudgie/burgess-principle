@@ -26,7 +26,7 @@ project overview, see [README.md](./README.md). There is no separate
 | Role | Current holder / route | Responsibilities |
 | --- | --- | --- |
 | Founder / Maintainer | Lewis James Burgess | Sets project direction, protects the doctrine, reviews sensitive changes, and has final responsibility for official standards. |
-| Future Maintainers | Trusted contributors promoted on merit by the Founder / Maintainer, after public contribution history | Review focused PRs, steward agreed areas of the repository, and uphold the binary test and contribution standards. |
+| Future Maintainers | Trusted contributors promoted on merit by the Founder / Maintainer, after demonstrating sustained public contributions over time | Review focused PRs, steward agreed areas of the repository, and uphold the binary test and contribution standards. |
 | Contributors | Anyone submitting issues, discussions, documentation, templates, tests, or code | Improve the project while preserving its human-first tone and scope. |
 | Certification Oversight | Burgess Principle Ltd, with conflict-sensitive evidence review and external verification where appropriate | Administers authorised use of the Certification Mark and certified routes separately from ordinary MIT use. |
 | Advisory Reviewers | Trusted subject-matter contributors or independent reviewers invited for a defined question | Give non-binding advice on governance, certification integrity, accessibility, or technical risk where neutrality would be strengthened by a second view. |
@@ -69,9 +69,10 @@ governance models:
 3. **Neutral advisory oversight for sensitive questions.** Where certification,
    doctrine, accessibility, or public trust is affected, the Founder / Maintainer
    or Certification Oversight may invite a defined reviewer or small review group
-   to give a recorded recommendation. This advice does not create a standing
-   committee and does not replace final responsibility, but it reduces the risk of
-   self-certification or insular judgment.
+   to give a recommendation recorded in the relevant issue, pull request,
+   certification record, or `STATUS.md` entry. This advice does not create a
+   standing committee and does not replace final responsibility, but it reduces
+   the risk of self-certification or insular judgment.
 
 ## Contribution Ladder
 

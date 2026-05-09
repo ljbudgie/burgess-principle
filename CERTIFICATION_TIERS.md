@@ -94,9 +94,12 @@ MIT reuse. To preserve impartiality when certifying organisations:
   escalated;
 - any material commercial, personal, or partnership interest between the company
   and the applicant should be recorded before the certification decision;
-- where that interest could reasonably affect perceived neutrality, Tier 01
-  institutional certification should use an external verifier or defined advisory
-  reviewer before the mark is granted or renewed; and
+- where that interest could reasonably affect perceived neutrality, any tier
+  should use an external verifier or defined advisory reviewer before the mark is
+  granted or renewed;
+- Tier 01 institutional certification should normally use external verification
+  because the applicant is an organisation and the public reliance risk is
+  higher; and
 - paid support may help an organisation prepare, but it must not be treated as
   independent certification of the same evidence unless the conflict is recorded
   and mitigated.

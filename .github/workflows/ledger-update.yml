@@ -1,0 +1,29 @@
+name: Update Partnership Ledger
+
+on:
+  repository_dispatch:
+    types: [new-certification]
+
+jobs:
+  update-ledger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_FOR_LEDGER }}   # We'll create this
+
+      - name: Append new entry
+        run: |
+          cat >> PARTNERSHIP_LEDGER.md << EOF
+
+          ## $(date -u +"%d %B %Y %H:%M") — New Certification via GoCardless
+
+          | # | Entity | Certificate | Tier | Certified | Status |
+          |---|--------|-------------|------|-----------|--------|
+          | AUTO | ${{ github.event.client_payload.customer }} | BP-CERT-${{ github.event.client_payload.cert_id }} | ${{ github.event.client_payload.tier }} | $(date -u +"%d %B %Y") | ✅ Certified |
+          EOF
+
+      - name: Commit & Push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ledger): add new ${{ github.event.client_payload.tier }} partner"

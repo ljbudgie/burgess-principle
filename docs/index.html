@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Burgess Principle — Certification Licensing</title>
+<meta name="description" content="Certification routes for organisations that can evidence named, individual human review under the Burgess Principle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -33,6 +34,28 @@
     font-size: 15px;
     line-height: 1.6;
   }
+
+  body {
+    background: var(--paper);
+  }
+
+  .bp-skip {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 10;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.75rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: top 0.2s;
+  }
+
+  .bp-skip:focus { top: 1rem; }
 
   /* ── HEADER ── */
   .bp-header {
@@ -73,6 +96,30 @@
     text-transform: uppercase;
     color: var(--mid);
     line-height: 1.8;
+  }
+
+  .bp-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+  }
+
+  .bp-nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .bp-nav a:hover,
+  .bp-nav a:focus {
+    color: var(--red);
+    border-bottom-color: var(--red);
   }
 
   /* ── HERO ── */
@@ -127,11 +174,78 @@
     background: #fdf3f2;
   }
 
+  .bp-verdict-ambiguous {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: #fbf6e8;
+  }
+
   .bp-hero-body {
     font-size: 15px;
     color: var(--mid);
     max-width: 580px;
     line-height: 1.75;
+  }
+
+  .bp-plain-route {
+    margin-top: 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    max-width: 620px;
+  }
+
+  .bp-plain-route p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .bp-plain-route a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
+  }
+
+  .bp-paths-section {
+    padding: 0 3rem 3rem;
+  }
+
+  .bp-paths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .bp-path-card {
+    background: var(--cream);
+    padding: 1.5rem;
+  }
+
+  .bp-path-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .bp-path-card p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .bp-path-card a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
   }
 
   /* ── TIERS ── */
@@ -357,20 +471,26 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .bp-tiers-grid { grid-template-columns: 1fr; }
+    .bp-tiers-grid,
+    .bp-paths-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 640px) {
     .bp-header,
     .bp-hero,
+    .bp-paths-section,
     .bp-tiers-section,
     .bp-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
     .bp-eu-notice { margin-left: 1.5rem; margin-right: 1.5rem; }
-    .bp-header-meta { display: none; }
+    .bp-header-meta { text-align: left; }
+    .bp-nav { justify-content: flex-start; }
   }
 </style>
+</head>
+<body>
 
 <div class="bp-root">
+  <a class="bp-skip" href="#certification-tiers">Skip to certification tiers</a>
 
   <header class="bp-header">
     <div>
@@ -381,6 +501,11 @@
       <p>The Burgess Principle Limited</p>
       <p>Co. No. 17199287</p>
       <p>lewisjames@theburgessprinciple.com</p>
+      <nav class="bp-nav" aria-label="Helpful links">
+        <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">Start here</a>
+        <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/README.md">Templates</a>
+        <a href="#certification-tiers">Certify</a>
+      </nav>
     </div>
   </header>
 
@@ -393,16 +518,48 @@
     <div class="bp-binary">
       <span class="bp-verdict bp-verdict-sovereign">SOVEREIGN &mdash; Standard met</span>
       <span class="bp-verdict bp-verdict-null">NULL &mdash; Standard not met</span>
+      <span class="bp-verdict bp-verdict-ambiguous">AMBIGUOUS &mdash; Not yet answered</span>
     </div>
     <p class="bp-hero-body">
-      Certification is the right to claim this standard has been met. The ledger is public,
-      permanent, and committed within 24 hours of signing. Payment is collected securely
-      via GoCardless &mdash; no card details stored.
+      Certification is for organisations and practitioners who can evidence that
+      named humans personally review specific facts before decisions affect
+      identified people. The ledger records certified adoption; it is not a
+      substitute for actually doing the review.
     </p>
+    <div class="bp-plain-route">
+      <p>
+        If a decision has already affected you, you do not need certification.
+        Start with the free
+        <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">Start Here guide</a>
+        or copy a
+        <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/README.md">template letter</a>.
+      </p>
+    </div>
   </section>
 
-  <section class="bp-tiers-section">
-    <div class="bp-tiers-label">Certification tiers</div>
+  <section class="bp-paths-section" aria-labelledby="bp-paths-title">
+    <div class="bp-tiers-label" id="bp-paths-title">Choose your route</div>
+    <div class="bp-paths-grid">
+      <article class="bp-path-card">
+        <h2>I need help now</h2>
+        <p>Ask the binary question, gather the name and facts, and classify the reply.</p>
+        <a href="https://github.com/ljbudgie/burgess-principle/blob/main/GETTING_STARTED.md">Open the 5-minute guide &rarr;</a>
+      </article>
+      <article class="bp-path-card">
+        <h2>I am building a system</h2>
+        <p>Integrate the Burgess check before any workflow acts on an identified person.</p>
+        <a href="https://github.com/ljbudgie/burgess-principle/blob/main/INTEGRATION_CONTRACT.md">Read the integration contract &rarr;</a>
+      </article>
+      <article class="bp-path-card">
+        <h2>I want certification</h2>
+        <p>Use the tiers below only if your practice can evidence named individual review.</p>
+        <a href="#certification-tiers">View certification tiers &rarr;</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="bp-tiers-section" id="certification-tiers" aria-labelledby="bp-tiers-title">
+    <div class="bp-tiers-label" id="bp-tiers-title">Certification tiers</div>
     <div class="bp-tiers-grid">
 
       <!-- TIER 3 -->

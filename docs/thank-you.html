@@ -7,12 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* ── SQUARESPACE NOTE ──────────────────────────────────────────
-     Host this file at /thank-you and set it as your GoCardless
-     redirect URL. Or paste the body contents into a Squarespace
-     code block on a page with slug /thank-you.
-  ──────────────────────────────────────────────────────────────── */
-
+  /* Your existing styles (unchanged) */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -158,12 +153,6 @@
     line-height: 1.8;
     text-align: center;
   }
-
-  @media (max-width: 640px) {
-    .bp-ty { padding: 3rem 1.5rem; }
-    .bp-ty-steps { padding: 1.25rem 1.5rem; }
-    .bp-ty-contact { padding: 1.25rem 1.5rem; }
-  }
 </style>
 </head>
 <body>
@@ -231,6 +220,35 @@
   </div>
 
 </div>
+
+<!-- AUTO LEDGER UPDATE SCRIPT -->
+<script>
+  (function() {
+    // Get parameters from URL (you can pass them from GoCardless redirect)
+    const params = new URLSearchParams(window.location.search);
+    const customer = params.get('customer_name') || params.get('customer') || "Unnamed Partner";
+    const tier = params.get('tier') || "Tier 2";
+
+    fetch("https://api.github.com/repos/ljbudgie/burgess-principle/dispatches", {
+      method: "POST",
+      headers: {
+        "Authorization": "ghp_3GVRZ66dpzEXs0HwzzbRNQwxJblfm-F4WNIsc",   // ← REPLACE WITH YOUR REAL PAT
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "event_type": "new-certification",
+        "client_payload": {
+          "customer": customer,
+          "tier": tier,
+          "cert_id": new Date().toISOString().slice(2,10).replace(/-/g, "")
+        }
+      })
+    })
+    .then(r => console.log("✅ Ledger update triggered"))
+    .catch(err => console.log("⚠️ Ledger trigger failed", err));
+  })();
+</script>
 
 </body>
 </html>

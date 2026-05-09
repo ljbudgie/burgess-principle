@@ -35,6 +35,40 @@ Experimental changes or large new features should happen in your own fork first.
 
 All contributions must maintain the respectful, non-confrontational voice that defines the Burgess Principle.
 
+### Mentorship & Onboarding
+
+New contributors are welcome. The safest first step is to choose a small,
+reviewable improvement: a typo fix, a clearer README paragraph, a new sector
+template, a translation, or a beginner tutorial. If you are unsure where to
+start, open an issue or discussion and say what kind of contribution you would
+like to make. The maintainer or community can help shape it into a focused pull
+request.
+
+A good first contribution usually does four things:
+
+1. Keeps the exact binary test and SOVEREIGN / NULL / AMBIGUOUS meanings intact.
+2. Improves clarity for ordinary people, especially disabled users and people
+   seeking reasonable adjustments.
+3. Avoids implying official certification, endorsement, affiliation, or approved
+   use of the UK Certification Mark unless that authorisation has been given.
+4. Stays small enough for one human reviewer to understand without needing to
+   reconstruct the whole project.
+
+AI-assisted contributions are allowed. You may use AI-assisted development tools
+— including Cursor, Aider, Copilot, Claude, ChatGPT, local models, or similar
+tools — to draft, search, refactor, or check your work. You remain responsible
+for the final contribution. Before opening a PR, read the diff yourself, remove
+hallucinated claims, check links and legal references, and say in the PR
+description if AI materially assisted the change.
+Do not ask an AI tool to rewrite doctrinal sections unless the maintainer has
+explicitly asked for that work.
+
+This project is maintained by a small number of humans, with the founder carrying
+a large share of the work. To keep the project sustainable, please prefer calm,
+patient, low-pressure collaboration: small PRs, clear acceptance criteria, no
+urgent demands, and no repeated pings. A slower review is not rejection. The goal
+is durable accountability work without burning out the people protecting it.
+
 ### How to Submit a Pull Request
 
 1. Discuss the change first in an Issue or Discussion.

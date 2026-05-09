@@ -1,6 +1,6 @@
-# The Burgess Principle
+<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
 
-[Talk to Iris](./iris.html) — open in your browser, no account or install needed.
+# The Burgess Principle
 
 **The binary test for meaningful human involvement in automated systems.**
 

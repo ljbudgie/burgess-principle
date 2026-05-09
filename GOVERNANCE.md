@@ -26,9 +26,10 @@ project overview, see [README.md](./README.md). There is no separate
 | Role | Current holder / route | Responsibilities |
 | --- | --- | --- |
 | Founder / Maintainer | Lewis James Burgess | Sets project direction, protects the doctrine, reviews sensitive changes, and has final responsibility for official standards. |
-| Future Maintainers | Trusted contributors appointed by the Founder / Maintainer | Review focused PRs, steward areas of the repository, and uphold the binary test and contribution standards. |
+| Future Maintainers | Trusted contributors promoted on merit by the Founder / Maintainer, after public contribution history | Review focused PRs, steward agreed areas of the repository, and uphold the binary test and contribution standards. |
 | Contributors | Anyone submitting issues, discussions, documentation, templates, tests, or code | Improve the project while preserving its human-first tone and scope. |
-| Certification Oversight | Burgess Principle Ltd | Administers authorised use of the Certification Mark and certified routes separately from ordinary MIT use. |
+| Certification Oversight | Burgess Principle Ltd, with conflict-sensitive evidence review and external verification where appropriate | Administers authorised use of the Certification Mark and certified routes separately from ordinary MIT use. |
+| Advisory Reviewers | Trusted subject-matter contributors or independent reviewers invited for a defined question | Give non-binding advice on governance, certification integrity, accessibility, or technical risk where neutrality would be strengthened by a second view. |
 
 ## Decision Making Process
 
@@ -52,6 +53,26 @@ Disputes should be escalated calmly: first in the relevant issue or pull request
 then to direct maintainer review, and finally to Founder / Maintainer decision
 where doctrine, mark governance, or project integrity is affected.
 
+## Lightweight Governance Elements Adopted
+
+This project borrows only the low-bureaucracy parts of mature open-source
+governance models:
+
+1. **Merit-based maintainer promotion.** Maintainer trust is earned through
+   sustained, public contribution: careful reviews, precise documentation, good
+   judgment about the binary test, and respect for the mark boundary. Volume of
+   commits alone is not enough.
+2. **Lazy consensus for ordinary work.** Routine repository changes proceed when
+   they are visible, scoped, reviewed, and no unresolved objection remains.
+   Objections should be specific and evidence-based, not blocking for its own
+   sake.
+3. **Neutral advisory oversight for sensitive questions.** Where certification,
+   doctrine, accessibility, or public trust is affected, the Founder / Maintainer
+   or Certification Oversight may invite a defined reviewer or small review group
+   to give a recorded recommendation. This advice does not create a standing
+   committee and does not replace final responsibility, but it reduces the risk of
+   self-certification or insular judgment.
+
 ## Contribution Ladder
 
 | Stage | Typical path | Trust signal |
@@ -62,6 +83,9 @@ where doctrine, mark governance, or project integrity is affected.
 | Maintainer | Appointed by the Founder / Maintainer | Can review and merge in agreed areas while escalating certification, doctrine, and dispute questions. |
 
 Maintainer status is earned through sustained judgment, not volume of commits.
+Promotion should normally be based on visible repository work, calm conduct,
+understanding of the certification boundary, and willingness to escalate
+doctrinal or mark-governance questions rather than decide them unilaterally.
 
 ## How the Certification Mark Fits
 
@@ -74,6 +98,13 @@ framework. To preserve neutrality and prevent badge-washing, certified use
 requires separate authorisation through Burgess Principle Ltd or the proprietor.
 Open use of the materials must not imply certification, endorsement,
 affiliation, or official approval unless that authorisation exists.
+
+Certification decisions should be evidence-led and impartial. Payment, adoption
+interest, sponsorship, or contributor status must not by itself justify certified
+use of the mark. Where Burgess Principle Ltd has a material commercial,
+personal, or partnership interest in an applicant, the review should record that
+interest and use an external verifier or advisory reviewer before certification
+is granted, renewed, refused, suspended, or withdrawn.
 
 ## Succession and Conflict Resolution
 

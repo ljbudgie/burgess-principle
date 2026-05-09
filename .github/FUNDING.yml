@@ -1,0 +1,9 @@
+# These are supported funding model platforms
+
+github: ljbudgie  # Your GitHub Sponsors username (or org if you set one up)
+
+# Custom links for your certification & payments (up to 4)
+custom: 
+  - "https://certify.theburgessprinciple.com"   # Main certification / licensing
+  - "https://github.com/sponsors/ljbudgie"      # Direct Sponsors fallback
+  # Add more if needed, e.g. a specific GoCardless link or Stripe page

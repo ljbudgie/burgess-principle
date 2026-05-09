@@ -24,6 +24,9 @@ commercial operations of The Burgess Principle Limited under formal IP licence.
 | **Tier 2** | Technology / Advocacy | Tools, platforms, law firms, claims groups, and advocacy organisations. |
 | **Tier 3** | Practitioner | Individual practitioners personally applying the binary test in client work. |
 
+Published rates and application links for each tier are mirrored from the live
+certification site in [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
+
 ---
 
 ## Certified Partners

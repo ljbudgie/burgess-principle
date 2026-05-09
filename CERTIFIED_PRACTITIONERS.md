@@ -22,7 +22,12 @@ The Burgess Principle (UK Certification Mark UK00004343685). Commercial
 administration and licensing are operated by The Burgess Principle Limited
 (company number 17199287) under formal IP licence.
 
-**Tier 3 — Public Sector / Community:** Nil cost. Available to sole traders, micro-businesses, and community practitioners whose work is inherently individual and human-centred.
+**Tier 3 — Practitioner:** Sole traders, advisers, and community practitioners
+whose work is inherently individual and human-centred. The published Tier 3
+rate is **£500/year + VAT** — see [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md)
+for the full tier table and application route. Existing register entries below
+were issued under earlier nil-cost terms and remain grandfathered for the
+duration of their current certificate.
 
 Certificates are valid for one year and subject to annual review. Each certificate is issued with a unique reference number and listed in this register. Certificates may be displayed on invoices, correspondence, and marketing materials.
 

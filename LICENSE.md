@@ -168,6 +168,10 @@ the formal IP Licence Agreement from Lewis James Burgess. Public interest,
 accessibility, and community uses may be licensed at nominal or no cost where
 that best serves the governance purpose.
 
+Published certification rates and application links for the Practitioner,
+Technology & Advocacy, and Institutional tiers are mirrored from the live
+certification site in [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
+
 ---
 
 ## 9. Public Record, Renewal, and Revocation

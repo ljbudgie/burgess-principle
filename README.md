@@ -76,15 +76,24 @@ A customer disputed billing on two accounts. The utility company processed an au
 
 ---
 
-## UK Certification Mark & Commercial Governance
+## Licensing & Certification
 
 **UK Certification Mark:** UK00004343685  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
 **Proprietor:** Lewis James Burgess
 
-The framework itself (source code, doctrine, templates) is released under **MIT licence** for any use.
+The core framework, prompts, templates, schemas, and code are released under the
+MIT License for anyone to use, fork, or build upon.
 
-The certification mark **UK00004343685** is governed separately. It marks adoption of the binary test as a *governance framework*, not a badge for an unchanged system.
+The UK Certification Mark (UK00004343685) and official "Certified Burgess
+Principle" usage are managed separately by The Burgess Principle Limited.
+Commercial licensing, training, audits, or branded certification require
+explicit authorization to preserve the integrity and neutrality of the standard.
+
+See [LICENSE.md](./LICENSE.md) for the full MIT licence and certification-mark
+governance position. An optional draft contributor licence agreement is available
+at [.github/CLA.md](./.github/CLA.md) for future use if the maintainer decides a
+CLA process is needed.
 
 ---
 
@@ -135,9 +144,13 @@ asks whether the individual was personally considered before action was taken.
 
 ## Legal and mark position
 
-The repository materials are published under the MIT licence. The certification
-mark **UK00004343685** is governed separately so official or certified use means
-real individual human scrutiny, not a badge on an unchanged automated process.
+The core framework, prompts, templates, schemas, and code are released under the
+MIT License for anyone to use, fork, or build upon.
+
+The UK Certification Mark (UK00004343685) and official "Certified Burgess
+Principle" usage are managed separately by The Burgess Principle Limited.
+Commercial licensing, training, audits, or branded certification require
+explicit authorization to preserve the integrity and neutrality of the standard.
 
 IP ownership remains with Lewis James Burgess personally. The Burgess Principle
 Limited, company number **17199287**, administers commercial licensing and

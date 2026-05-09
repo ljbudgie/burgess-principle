@@ -26,7 +26,7 @@ project overview, see [README.md](./README.md). There is no separate
 | Role | Current holder / route | Responsibilities |
 | --- | --- | --- |
 | Founder / Maintainer | Lewis James Burgess | Sets project direction, protects the doctrine, reviews sensitive changes, and has final responsibility for official standards. |
-| Future Maintainers | Trusted contributors promoted on merit | Review focused PRs, steward agreed areas of the repository, and uphold the binary test and contribution standards. |
+| Future Maintainers | Trusted contributors promoted on merit | Review focused PRs, steward areas assigned in writing by the Founder / Maintainer, and uphold the binary test and contribution standards. |
 | Contributors | Anyone submitting issues, discussions, documentation, templates, tests, or code | Improve the project while preserving its human-first tone and scope. |
 | Certification Oversight | Burgess Principle Ltd | Administers authorised use of the Certification Mark and certified routes separately from ordinary MIT use. |
 | Advisory Reviewers | Trusted subject-matter contributors or independent reviewers invited for a defined question | Give non-binding advice on governance, certification integrity, accessibility, or technical risk where neutrality would be strengthened by a second view. |
@@ -70,9 +70,11 @@ governance models:
    doctrine, accessibility, or public trust is affected, the Founder / Maintainer
    or Certification Oversight may invite a defined reviewer or small review group
    to give a recommendation recorded in the relevant issue, pull request,
-   certification record, or `STATUS.md` entry. This advice does not create a
-   standing committee and does not replace final responsibility, but it reduces
-   the risk of self-certification or insular judgment.
+   certification record, or `STATUS.md` entry. A defined reviewer should match
+   the Advisory Reviewers role above: relevant expertise, no material conflict,
+   and a clearly stated review scope. This advice does not create a standing
+   committee and does not replace final responsibility, but it reduces the risk
+   of self-certification or insular judgment.
 
 ## Contribution Ladder
 

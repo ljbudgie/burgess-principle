@@ -10,8 +10,8 @@
 <style>
   /* ── SQUARESPACE NOTE ──────────────────────────────────────────
      To paste into a Squarespace code block, copy everything
-     from the opening <style> tag through to the closing </div>
-     before the </body> tag. Omit DOCTYPE, html, head, and body.
+     from the opening <style> tag through to the closing </div>.
+     Omit the document wrapper tags when embedding in Squarespace.
   ──────────────────────────────────────────────────────────────── */
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,11 +39,20 @@
     background: var(--paper);
   }
 
-  .bp-skip {
+  .bp-skip-links {
     position: absolute;
     left: 1rem;
     top: -4rem;
     z-index: 10;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    transition: top 0.2s;
+  }
+
+  .bp-skip-links:focus-within { top: 1rem; }
+
+  .bp-skip {
     background: var(--ink);
     color: var(--paper);
     padding: 0.75rem 1rem;
@@ -52,12 +61,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: top 0.2s;
   }
-
-  .bp-skip:focus { top: 1rem; }
-
-  .bp-skip + .bp-skip { left: 13.5rem; }
 
   /* ── HEADER ── */
   .bp-header {
@@ -492,8 +496,10 @@
 <body>
 
 <div class="bp-root">
-  <a class="bp-skip" href="#bp-paths-title">Skip to main content</a>
-  <a class="bp-skip" href="#certification-tiers">Skip to certification tiers</a>
+  <div class="bp-skip-links" aria-label="Skip links">
+    <a class="bp-skip" href="#main-content">Skip to main content</a>
+    <a class="bp-skip" href="#certification-tiers">Skip to certification tiers</a>
+  </div>
 
   <header class="bp-header">
     <div>
@@ -540,7 +546,7 @@
     </div>
   </section>
 
-  <section class="bp-paths-section" aria-labelledby="bp-paths-title">
+  <section class="bp-paths-section" id="main-content" tabindex="-1" aria-labelledby="bp-paths-title">
     <div class="bp-tiers-label" id="bp-paths-title">Choose your route</div>
     <div class="bp-paths-grid">
       <article class="bp-path-card">
@@ -561,7 +567,7 @@
     </div>
   </section>
 
-  <section class="bp-tiers-section" id="certification-tiers" aria-labelledby="bp-tiers-title">
+  <section class="bp-tiers-section" id="certification-tiers" tabindex="-1" aria-labelledby="bp-tiers-title">
     <div class="bp-tiers-label" id="bp-tiers-title">Certification tiers</div>
     <div class="bp-tiers-grid">
 

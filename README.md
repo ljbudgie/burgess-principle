@@ -1,4 +1,4 @@
-<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
+<a href="./iris.html">Talk to Iris locally</a> · <a href="https://burgess-principle.vercel.app">Hosted Iris</a> · <a href="https://certify.theburgessprinciple.com">Certification site</a>
 
 # The Burgess Principle
 

@@ -40,7 +40,7 @@ Examples of unacceptable behaviour include:
   misleading claims.
 - Presenting an unchanged automated process as "Burgess Principle certified" or
   otherwise suggesting certification neutrality has been waived (the mark remains
-  neutral unless authorised certified use is granted).
+  neutral unless approved certified use is granted).
 - Other conduct that could reasonably be considered inappropriate in a
   professional community setting.
 

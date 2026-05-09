@@ -56,9 +56,10 @@ A good first contribution usually does four things:
 
 AI-assisted contributions are allowed. You may use AI-assisted development tools
 — including Cursor, Aider, Copilot, Claude, ChatGPT, local models, or similar
-tools — to draft, search, refactor, or check your work. You remain responsible for the final contribution. Before opening a
-PR, read the diff yourself, remove hallucinated claims, check links and legal
-references, and say in the PR description if AI materially assisted the change.
+tools — to draft, search, refactor, or check your work. You remain responsible
+for the final contribution. Before opening a PR, read the diff yourself, remove
+hallucinated claims, check links and legal references, and say in the PR
+description if AI materially assisted the change.
 Do not ask an AI tool to rewrite doctrinal sections unless the maintainer has
 explicitly asked for that work.
 

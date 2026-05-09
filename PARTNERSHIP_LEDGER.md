@@ -4,7 +4,7 @@
 
 **Proprietor:** Lewis James Burgess  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
-**Last updated:** 6 May 2026  
+**Last updated:** 09 May 2026  
 **Status:** Public — this ledger is the authoritative record of all certified partners.
 
 IP and certification-mark ownership remain with Lewis James Burgess personally
@@ -27,6 +27,12 @@ commercial operations of The Burgess Principle Limited under formal IP licence.
 ---
 
 ## Certified Partners
+
+## 09 May 2026 — New Certification
+
+| # | Entity | Certificate | Tier | Certified | Status |
+|---|--------|-------------|------|-----------|--------|
+| X | {{customer.name}} | BP-CERT-2605-{{randomNumber}} | {{metadata.tier}} | 09 May 2026 | ✅ Certified |
 
 | # | Entity | Certificate | Tier | Certified | Status |
 | --- | --- | --- | --- | --- | --- |

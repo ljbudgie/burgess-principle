@@ -2,7 +2,8 @@
 
 This folder now serves two jobs:
 
-1. **Public certification pages** for `certify.theburgessprinciple.com`.
+1. **Public certification pages** for `certify.theburgessprinciple.com` when the
+   GitHub Pages custom domain is enabled.
 2. **Project planning documents** that support agents and contributors.
 
 If you are trying to use the Burgess Principle in a live situation, start with

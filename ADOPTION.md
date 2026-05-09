@@ -4,7 +4,7 @@ A factual record of every known adoption of the Burgess Principle as a governanc
 
 - **Framework version:** v1.0.0 (released 18 April 2026)
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
-- **Last updated:** 18 April 2026
+- **Last updated:** 9 May 2026
 
 ---
 

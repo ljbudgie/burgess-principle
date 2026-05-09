@@ -55,8 +55,9 @@ certification documents are now easier to find and review.
   rebuild with `npm run build`.
 - Refresh any cached PWA assets so the service worker moves to the v2.5.0 cache.
 - Maintainer release-signing step: regenerate `signed-update-manifest.json` with
-  the offline PWA signing seed before enabling signed PWA update activation for
-  the tagged release.
+  the offline Ed25519 PWA update-signing private seed before enabling signed PWA
+  update activation for the tagged release. The process is documented in
+  `SOVEREIGN_MODE.md` under "Signed update envelope".
 - Review `GOVERNANCE.md`, `CODE_OF_CONDUCT.md`, `LICENSE.md`, and
   `CERTIFICATION_TIERS.md` before making public certification claims.
 

@@ -4,7 +4,7 @@ A factual record of every known adoption of the Burgess Principle as a governanc
 
 - **Framework version:** v1.0.0 (released 18 April 2026)
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
-- **Last updated:** 18 April 2026
+- **Last updated:** 9 May 2026
 
 ---
 
@@ -31,7 +31,29 @@ Both PRs preserve the upstream codebase: they add documentation, hooks, and the 
 
 ---
 
-## 3. Institutional responses
+## 3. Sustainability & Monetization
+
+The Burgess Principle uses a hybrid model so the standard can spread without
+being captured or diluted.
+
+- **Open MIT core:** repository materials remain free to use, fork, adapt, and
+  improve. This drives broad adoption, contributions, translations, audits, and
+  innovation.
+- **Certification mark and company licensing:** official mark use,
+  organisational certification, consulting, training, and sponsorship are
+  handled separately through the proprietor and The Burgess Principle Limited.
+  These routes fund maintenance, enforcement, education, and standards integrity.
+- **No compromise on openness:** paid support never turns the repository into a
+  closed product and never permits a badge on an unchanged automated process.
+  Certified use must evidence real individual human scrutiny.
+
+Companies and organisations can support the project by seeking certification for
+real human-review processes, commissioning implementation or training support,
+or sponsoring maintenance while keeping the MIT-licensed core open for everyone.
+
+---
+
+## 4. Institutional responses
 
 | Source | Form | Substance |
 | --- | --- | --- |
@@ -45,7 +67,7 @@ Both PRs preserve the upstream codebase: they add documentation, hooks, and the 
 
 ---
 
-## 4. Resolved — proof of concept
+## 5. Resolved — proof of concept
 
 ### Wave Utilities
 
@@ -55,7 +77,7 @@ Both PRs preserve the upstream codebase: they add documentation, hooks, and the 
 
 ---
 
-## 5. Ecosystem-internal adoption
+## 6. Ecosystem-internal adoption
 
 The following repositories under the same author already implement or build upon the Burgess Principle. See [`ECOSYSTEM.md`](ECOSYSTEM.md) for the full map.
 

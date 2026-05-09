@@ -41,3 +41,8 @@ The certification mark is governed separately from the MIT-licensed repository
 materials. Do not imply official approval, affiliation, certification, or
 endorsement unless the proprietor or authorised commercial operator has
 authorised that mark use.
+
+The hybrid model is deliberate: open MIT materials keep adoption, contribution,
+and innovation frictionless; certification-mark licensing, consulting, training,
+and sponsorship help fund maintenance, enforcement, public education, and
+standards integrity.

@@ -19,6 +19,11 @@ The Burgess Principle is offered **"as is"** with no warranties or guarantees of
 For the full licence terms — including the distinction between MIT reuse and
 certification-mark governance — please see [LICENSE.md](LICENSE.md).
 
+The open MIT core is meant to stay usable without friction. Paid certification,
+consulting, training, sponsorship, or other company licensing routes support
+maintenance, enforcement, and standards integrity; they do not narrow the MIT
+rights granted for repository materials.
+
 ### Jurisdictional Scope
 
 The framework is designed to work across jurisdictions (see the global legal equivalents in the [README](README.md)), but laws, rights, and available remedies differ from country to country. Nothing in this repository should be taken as advice on the law of any specific jurisdiction. Always check what applies where you are.

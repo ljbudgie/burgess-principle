@@ -50,7 +50,7 @@ To preserve impartiality:
   should be recorded before certification or renewal;
 - where neutrality could reasonably be questioned — for example where the
   applicant is a sponsor, strategic partner, close commercial counterparty, or
-  connected person — the company should seek a defined external verifier or
+  connected person — the company must seek a defined external verifier or
   advisory reviewer before issuing, renewing, suspending, or withdrawing
   certification; and
 - certification may be refused, suspended, or withdrawn if evidence shows badge

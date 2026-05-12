@@ -4,7 +4,7 @@
 
 **Proprietor:** Lewis James Burgess  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
-**Last updated:** 09 May 2026  
+**Last updated:** 12 May 2026  
 **Status:** Public — this ledger is the authoritative record of all certified partners.
 
 IP and certification-mark ownership remain with Lewis James Burgess personally
@@ -31,18 +31,12 @@ certification site in [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
 
 ## Certified Partners
 
-## 09 May 2026 — New Certification
+## 12 May 2026 — Verified Certifications
 
-*Template placeholders must be replaced with final partner details before the
-certification is treated as a live ledger record.*
-
-| # | Entity | Certificate | Tier | Certified | Status |
-|---|--------|-------------|------|-----------|--------|
-| X | {{customer.name}} | BP-CERT-2605-{{randomNumber}} | {{metadata.tier}} | 09 May 2026 | ✅ Certified |
-
-| # | Entity | Certificate | Tier | Certified | Status |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Lorraine Ewart — Book-keeping | BP-CERT-0001 | Tier 3 | 30 April 2026 | Certified practitioner |
+| # | Entity | Certificate | Tier | Certified at (UTC) | Named individual | Role / scope | Evidence reference | Classification | Address | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | RMOK Legal Consulting Limited | BP-CERT-260512-RMOK | Tier 2 | 2026-05-12T15:57:37Z | Rory O’Keeffe, Solicitor (SRA No. 8008227) | Fractional General Counsel — IP structuring, certification agreements, commercial advisory, EU AI Act compliance | Signed engagement letter dated 12 May 2026; Phase 1 fixed-fee agreement (£5,000 + VAT); monthly advisory retainer confirmed (£1,500 + VAT/month) | SOVEREIGN | 60 Cannon Street, City of London, EC4N 6NP | ✅ Certified |
+| 2 | Lorraine Ewart (individual) | BP-CERT-260512-LE | Tier 3 | 2026-05-12T15:57:37Z | Lorraine Ewart | Company Secretary, Bookkeeper, Personal Assistant | Written acceptance of role proposal via email dated 12 May 2026; existing profit share agreement (2% annual distributable profits); share certificate issued; company email provisioned | SOVEREIGN | — | ✅ Certified |
 
 ---
 

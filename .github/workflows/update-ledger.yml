@@ -13,16 +13,45 @@ jobs:
           token: ${{ secrets.PAT_FOR_LEDGER }}
 
       - name: Append new certification
+        env:
+          ENTITY: ${{ github.event.client_payload.entity || github.event.client_payload.customer }}
+          CERT_ID: ${{ github.event.client_payload.cert_id }}
+          TIER: ${{ github.event.client_payload.tier }}
+          NAMED_INDIVIDUAL: ${{ github.event.client_payload.named_individual }}
+          ROLE_SCOPE: ${{ github.event.client_payload.role || github.event.client_payload.scope }}
+          EVIDENCE_REFERENCE: ${{ github.event.client_payload.evidence_reference || github.event.client_payload.evidence }}
+          CLASSIFICATION: ${{ github.event.client_payload.classification }}
+          ADDRESS: ${{ github.event.client_payload.address }}
         run: |
-          cat >> PARTNERSHIP_LEDGER.md << 'EOF'
+          python3 - <<'PY'
+          from datetime import datetime, timezone
+          import os
 
-          ## $(date -u +"%d %B %Y %H:%M UTC") — New Certification via GoCardless
+          def value(name, default="—"):
+              raw = os.environ.get(name, "").strip()
+              return raw.replace("\n", " ") if raw else default
 
-          | # | Entity | Certificate | Tier | Certified | Status |
-          |---|--------|-------------|------|-----------|--------|
-          | AUTO | ${{ github.event.client_payload.customer }} | BP-CERT-${{ github.event.client_payload.cert_id }} | ${{ github.event.client_payload.tier }} | $(date -u +"%d %B %Y") | ✅ Certified |
+          now = datetime.now(timezone.utc)
+          timestamp = now.replace(microsecond=0).isoformat().replace("+00:00", "Z")
+          entity = value("ENTITY", "Unnamed Partner")
+          cert_id = value("CERT_ID", now.strftime("%y%m%d%H%M%S"))
+          row = (
+              f"| AUTO | {entity} | BP-CERT-{cert_id} | {value('TIER')} | "
+              f"{timestamp} | {value('NAMED_INDIVIDUAL')} | {value('ROLE_SCOPE')} | "
+              f"{value('EVIDENCE_REFERENCE')} | {value('CLASSIFICATION')} | "
+              f"{value('ADDRESS')} | ✅ Certified |"
+          )
 
-          EOF
+          with open("PARTNERSHIP_LEDGER.md", "a", encoding="utf-8") as ledger:
+              ledger.write(
+                  "\n\n"
+                  f"## {now.strftime('%d %B %Y %H:%M UTC')} — New Certification via GoCardless\n\n"
+                  "| # | Entity | Certificate | Tier | Certified at (UTC) | Named individual | "
+                  "Role / scope | Evidence reference | Classification | Address | Status |\n"
+                  "|---|---|---|---|---|---|---|---|---|---|---|\n"
+                  f"{row}\n"
+              )
+          PY
 
       - name: Commit & Push
         uses: stefanzweifel/git-auto-commit-action@v5

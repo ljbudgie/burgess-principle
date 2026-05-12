@@ -29,7 +29,8 @@ jobs:
 
           def value(name, default="—"):
               raw = os.environ.get(name, "").strip()
-              return raw.replace("\n", " ") if raw else default
+              safe = raw.replace("\r", " ").replace("\n", " ").replace("|", "\\|")
+              return safe if safe else default
 
           now = datetime.now(timezone.utc)
           timestamp = now.replace(microsecond=0).isoformat().replace("+00:00", "Z")

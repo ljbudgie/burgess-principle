@@ -35,7 +35,7 @@ certification site in [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
 
 | # | Entity | Certificate | Tier | Certified at (UTC) | Named individual | Role / scope | Evidence reference | Classification | Address | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | RMOK Legal Consulting Limited | BP-CERT-260512-RMOK | Tier 2 | 2026-05-12T15:57:37Z | Rory O’Keeffe, Solicitor (SRA No. 8008227) | Fractional General Counsel — IP structuring, certification agreements, commercial advisory, EU AI Act compliance | Signed engagement letter dated 12 May 2026; Phase 1 fixed-fee agreement (£5,000 + VAT); monthly advisory retainer confirmed (£1,500 + VAT/month) | SOVEREIGN | 60 Cannon Street, City of London, EC4N 6NP | ✅ Certified |
+| 1 | RMOK Legal Consulting Limited | BP-CERT-260512-RMOK | Tier 2 | 2026-05-12T15:57:37Z | Rory O’Keeffe, Solicitor (SRA No. 8008227) | Fractional General Counsel — IP structuring, certification agreements, commercial advisory, EU AI Act compliance | Signed engagement letter dated 12 May 2026; Phase 1 fixed-fee agreement and monthly advisory retainer confirmed | SOVEREIGN | 60 Cannon Street, City of London, EC4N 6NP | ✅ Certified |
 | 2 | Lorraine Ewart (individual) | BP-CERT-260512-LE | Tier 3 | 2026-05-12T15:57:37Z | Lorraine Ewart | Company Secretary, Bookkeeper, Personal Assistant | Written acceptance of role proposal via email dated 12 May 2026; existing profit share agreement (2% annual distributable profits); share certificate issued; company email provisioned | SOVEREIGN | — | ✅ Certified |
 
 ---

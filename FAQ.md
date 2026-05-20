@@ -64,7 +64,7 @@ The first fully resolved case — [Wave Utilities](case-studies/CASE_STUDY_WAVE.
 
 As of April 2026, the framework has been deployed across **26+ institutions** including energy suppliers, local government, enforcement agencies, regulators, and technology platforms. Live proceedings include references before the Energy Ombudsman, the Local Government Ombudsman, the EHRC, Ofgem, the ICO, and HMCTS.
 
-Key active fronts include E.ON (unsigned warrant, forced entry, £129M claim, litigation active via Bindmans LLP), British Gas (frozen meter, £425 warrant charge), Darlington Borough Council (bulk PCN processing, Equality Act failures), and multiple ICO complaints (Article 22 and DSAR challenges).
+Key active fronts include E.ON (unsigned warrant, forced entry, £129M claim, litigation route active), British Gas (frozen meter, £425 warrant charge), Darlington Borough Council (bulk PCN processing, Equality Act failures), and multiple ICO complaints (Article 22 and DSAR challenges).
 
 The first case to be fully resolved — Wave Utilities — resulted in both accounts cleared to £0.00 with all fees removed. A full dated record is maintained in <LIVE_AUDIT_LOG.md>.
 

@@ -45,7 +45,7 @@ As of 27 April 2026, all completed assessments except one returned a NULL findin
 | Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | Parliamentary contacts documented | 9 |
 | Legal representation active | 3 (Leigh Day — under review ref 01534845/1; Deighton Pierce Glynn — referral sent 24 Apr; Hodge Jones & Allen — referral sent 24 Apr) |
-| Legal representation declined | 1 (Bindmans LLP — capacity, ref BUR303, 24 Apr 2026) |
+| Legal representation declined | 1 (capacity, 24 Apr 2026) |
 | Mean taxonomy score (scored institutions) | 2.5 / 20 |
 | NEW since last update | Equita Ltd, Companies House, Law Commission, Darlington Council Leader (Cllr Harker), DBC FOI DBC-3045-25 |
 
@@ -445,7 +445,6 @@ These contacts are not scored under the taxonomy but are documented as active en
 | **Leigh Day Solicitors** | 20–23 April 2026 | Eleri Slade (Client Care Executive) confirmed referral passed to team for review (ref 01534845/1 — Human Rights NCE, 23 April 2026) | Active — under review |
 | **Deighton Pierce Glynn** | 24 April 2026 | Auto-acknowledged | Awaiting substantive response (~6 May 2026) |
 | **Hodge Jones & Allen** | 24 April 2026 | Auto-acknowledged | Awaiting substantive response (~6 May 2026) |
-| **Bindmans LLP** | 22–24 April 2026 | Declined — capacity (ref BUR303, Amn Bashir) | Closed. Referred to Leigh Day, DPG, HJA |
 | **ESNZ Committee** | Prior | Confirmed written evidence retained, will formulate questions to Ofgem and SoS | Active |
 | **Women and Equalities Committee** | Prior | Holds written evidence re EHRC enforcement duties | Active |
 | **JCHR** | April 2026 | Contacted — awaiting response | Pending |

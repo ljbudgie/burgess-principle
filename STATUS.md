@@ -20,7 +20,7 @@ Version: v2.5.0
 Licences signed: 0
 Pipeline: Active
 Certified partners: 2 (legal counsel, company secretary)
-Sales consultants: 1 active (Lewis Poole, Haus and Haus)
+Sales consultants: 0 active
 
 ## Legal
 HMCTS: 80553951 (active)

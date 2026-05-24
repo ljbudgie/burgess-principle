@@ -51,7 +51,7 @@ A live, dated record of every active front, case reference, statutory deadline, 
 
 | Reference | Counterparty | Subject | Quantum | Status |
 | --- | --- | --- | --- | --- |
-| **EG021819-26** | E.ON | Unsigned warrant; forced entry; smart meter dispute | **£129M claim** | **Ombudsman route exhausted** — both rulings declined (final decision omitted disability; directed telephone response). Litigation route active — Leigh Day pending |
+| **EG021819-26** | E.ON | Unsigned warrant; forced entry; smart meter dispute | **£129M claim** | **Ombudsman route exhausted** — both rulings declined (final decision omitted disability; directed telephone response). Litigation route active |
 | **EG037844-26** | British Gas | Frozen meter; zero consumption; warrant charge | **£425** | Case prematurely closed 8 April 2026. **Re-referral to Energy Ombudsman available from 24 April 2026 — action required** |
 | Wave Utilities | Wave Utilities | Disputed billing across two accounts | £0.00 | **Resolved** — both accounts brought to £0.00 (proof of concept) |
 

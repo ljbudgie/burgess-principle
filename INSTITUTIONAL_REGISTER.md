@@ -44,7 +44,7 @@ As of 27 April 2026, all completed assessments except one returned a NULL findin
 | No data held (clean negative) | 1 (Palantir) |
 | Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | Parliamentary contacts documented | 9 |
-| Legal representation active | 3 (Leigh Day — under review ref 01534845/1; Deighton Pierce Glynn — referral sent 24 Apr; Hodge Jones & Allen — referral sent 24 Apr) |
+| Legal representation active | 2 (Deighton Pierce Glynn — referral sent 24 Apr; Hodge Jones & Allen — referral sent 24 Apr) |
 | Legal representation declined | 1 (capacity, 24 Apr 2026) |
 | Mean taxonomy score (scored institutions) | 2.5 / 20 |
 | NEW since last update | Equita Ltd, Companies House, Law Commission, Darlington Council Leader (Cllr Harker), DBC FOI DBC-3045-25 |
@@ -71,9 +71,7 @@ The following institutions and developments were identified from inbox review an
 
 8. **PACAC** — submission sent 26 April 2026 ("Who Audits the Auditor? The Oversight Stack Is NULL"). Auto-acknowledged. Parliamentary contact — not a NULL/SOVEREIGN test.
 
-9. **Leigh Day** — UPDATE: Eleri Slade (Client Care Executive) responded 23 April 2026 confirming referral passed to team for review (ref 01534845/1 — Human Rights NCE). Active — under review. Previous email to info@leighday.co.uk bounced (20 April); correct route now confirmed.
-
-10. **DBC Reasonable Adjustment dispute** — documented exchange with Lee Downey 23 April 2026. DBC position: "we do not have a single Council-wide system" — declined to record email-only adjustment centrally. Directed to LGO. This is an independent Equality Act NULL finding within the DBC entry — DBC is refusing to discharge the anticipatory duty under s.20, on the basis that it lacks a centralised system. That is not a lawful basis for non-compliance. **DBC D1 score updated: remains 0 — question not answered; new Equality Act dimension documented.**
+9. **DBC Reasonable Adjustment dispute** — documented exchange with Lee Downey 23 April 2026. DBC position: "we do not have a single Council-wide system" — declined to record email-only adjustment centrally. Directed to LGO. This is an independent Equality Act NULL finding within the DBC entry — DBC is refusing to discharge the anticipatory duty under s.20, on the basis that it lacks a centralised system. That is not a lawful basis for non-compliance. **DBC D1 score updated: remains 0 — question not answered; new Equality Act dimension documented.**
 
 ---
 
@@ -90,7 +88,7 @@ The following institutions and developments were identified from inbox review an
 **Question asked:** Who individually reviewed warrant Application 11160-544079 before forced entry was authorised?
 **Response summary:** Field team investigated themselves. Letter of apology offered. Field notes disclosed "no contact psr's on account Cust is deaf." Warrant RE99022 unsigned on face.
 **Finding:** NULL — CSV batch processing, en bloc granting, no individual judicial scrutiny. Deafness noted only after three visits. Doctrinal anchor for the Burgess Principle.
-**Status:** Ombudsman route exhausted (EG021819-26 — both rulings declined). Final decision omitted disability; directed telephone response to deaf complainant. EHRC Case 16525912 confirmed discrimination. Litigation route active: Leigh Day (ref 01534845/1 — under review); Deighton Pierce Glynn and Hodge Jones & Allen (referrals sent 24 April 2026).
+**Status:** Ombudsman route exhausted (EG021819-26 — both rulings declined). Final decision omitted disability; directed telephone response to deaf complainant. EHRC Case 16525912 confirmed discrimination. Litigation route active: Deighton Pierce Glynn and Hodge Jones & Allen (referrals sent 24 April 2026).
 
 ---
 
@@ -442,7 +440,6 @@ These contacts are not scored under the taxonomy but are documented as active en
 | Contact | Date | Response | Status |
 | --- | --- | --- | --- |
 | **Law Commission** | 21 April 2026 | Forwarded to Public Law team by Enquiries (23 April 2026) | Active — awaiting substantive response from Public Law team. Most significant legal reform engagement to date. |
-| **Leigh Day Solicitors** | 20–23 April 2026 | Eleri Slade (Client Care Executive) confirmed referral passed to team for review (ref 01534845/1 — Human Rights NCE, 23 April 2026) | Active — under review |
 | **Deighton Pierce Glynn** | 24 April 2026 | Auto-acknowledged | Awaiting substantive response (~6 May 2026) |
 | **Hodge Jones & Allen** | 24 April 2026 | Auto-acknowledged | Awaiting substantive response (~6 May 2026) |
 | **ESNZ Committee** | Prior | Confirmed written evidence retained, will formulate questions to Ofgem and SoS | Active |

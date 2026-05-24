@@ -5,6 +5,31 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.0 — May 2026
+
+### Added
+- Institutional Certification workflow with encrypted local vault
+- Statutory Challenge Generator (7 challenge types)
+- Evidence Bundle Builder
+- Institutional Register Export (Framer CMS format)
+- Tier 1 Integration Package (burgess-gate.js, system prompt generator, /integration/docs)
+- Hermes 5-domain autonomous agent
+- Memory Palace institutional intelligence
+- Federation Protocol distributed ledger
+- OpenHear Bridge haptic notification system
+- Sovereign Command Centre dashboard
+- Burgess brand applied throughout (navy/gold/cream)
+- localStorage form persistence
+- Ollama graceful fallback
+
+### Framework
+- Academic paper submitted to SSRN and peer-reviewed journals
+- ORCID registered
+- Burgess Bond financial instrument concept documented
+- Consumer Rights Act 2015 Section 49 convergence identified
+
+---
+
 ## v2.5.0 — Governance & Ecosystem: Certified Pathways and Community Foundations (9 May 2026)
 
 ### Added

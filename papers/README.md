@@ -111,6 +111,9 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 ### Publication files
 
+* **BURGESS_TEST_2026.md** — paper documentation for *The Burgess Test:
+  Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data
+  Rights*; submitted to SSRN and peer-reviewed journals, DOI pending.
 * `The Burgess Principle v1 03:03:26.pdf`
 * `The Burgess Principle Part2 03:03:26.pdf`
 * `The Burgess Principle Part3 Politics.pdf`

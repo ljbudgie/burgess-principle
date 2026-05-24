@@ -63,6 +63,45 @@ Anything less should be treated as **AMBIGUOUS** until clarified.
 
 ---
 
+## Academic Publication
+
+**The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights**  
+*Lewis James Burgess, The Burgess Principle Ltd, May 2026*
+
+Submitted to SSRN and peer-reviewed journals. Documents 18 institutional audits,
+11 NULL findings, and the full methodology for operationalising meaningful human
+involvement in automated decisions across the Data (Use and Access) Act 2025,
+EU AI Act, and NIST AI Risk Management Framework.
+
+> "No regulator has furnished an operational definition of meaningful human involvement." — Abstract
+
+[View paper documentation](./papers/BURGESS_TEST_2026.md) | MIT licensed
+
+---
+
+## Legal Convergence
+
+The Burgess Principle has documented convergence with the following statutory
+frameworks:
+
+**Data (Use and Access) Act 2025** — Articles 22A-22D (in force
+5 February 2026). Establishes statutory requirements for meaningful human
+involvement in automated decisions affecting individuals.
+
+**EU AI Act** — High-risk system oversight provisions. Manufacturers and
+deployers of high-risk AI systems must demonstrate meaningful human oversight.
+
+**NIST AI Risk Management Framework** — US federal alignment. Governance and
+accountability requirements for AI systems.
+
+**Consumer Rights Act 2015 — Section 49** — Every contract to supply a service
+includes a term that the service is performed with reasonable care and skill.
+Industry standards define the reasonable care and skill test. The Burgess
+Principle is the only registered binary standard for meaningful human
+involvement in automated decision-making services.
+
+---
+
 ## Real Example: Wave Utilities (Resolved)
 
 A customer disputed billing on two accounts. The utility company processed an automated reconciliation—no individual human review of the specific facts. The customer applied the Burgess test:

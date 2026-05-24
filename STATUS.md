@@ -1,3 +1,38 @@
+# Burgess Principle — Current Status
+Last updated: 24 May 2026
+
+## Certification Mark
+UK00004343685 — ex parte hearing 13 May 2026 — Hearing Officer Darren Smith — decision pending
+TM21A filed to update contact email
+IPO escalation: TribunalHearings@ipo.gov.uk
+
+## Academic Paper
+Status: SSRN affiliation review pending (Shawna D.)
+ORCID: Registered — number to be added
+Peer review: Submitted
+
+## Platform
+Iris: Running locally, Next.js 16, Postgres, Docker
+Public deployment: burgess-principle.vercel.app
+Version: v2.5.0
+
+## Commercial
+Licences signed: 0
+Pipeline: Active
+Certified partners: 2 (legal counsel, company secretary)
+Sales consultants: 1 active (Lewis Poole, Haus and Haus)
+
+## Legal
+HMCTS: 80553951 (active)
+ICO complaint: Filed 23 May 2026
+Litigation counsel: Under assessment
+
+---
+
+## Historical tracker through 9 May 2026
+
+The previous living tracker is preserved below for continuity and audit history.
+
 # STATUS — Burgess Principle (Living Tracker)
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.

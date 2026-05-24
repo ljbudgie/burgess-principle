@@ -23,6 +23,35 @@ The governing question remains:
 
 ---
 
+## OpenHear — Sovereign Audio Pipeline
+
+World-first sovereign audio pipeline for bilateral sensorineural hearing loss.
+No ear devices. 24 LRA haptic actuators, sound-to-wrist vibration.
+
+**Hardware**
+- PCB: 4-layer, 65x30mm, ENIG finish — ordered via PCBWay, under engineering
+  review
+- 24 LRA haptic actuators
+- ESP32-S3 microcontroller
+- Target: wristband form factor
+
+**Personalised Binaural Beats**
+- Session generated from actual audiogram (County Durham and Darlington NHS
+  Foundation Trust)
+- Left ear: 250Hz carrier (40dB HL compensation), Right ear: 256Hz carrier
+  (50dB HL compensation)
+- Beat frequency: 6Hz theta protocol (neuroplasticity / relaxation)
+- Pink noise masking, 30s fade in/out, hard limiter ±0.7
+- Duration: 10 minutes
+- File: openhear_theta_LJB_250Hz_6beat.wav
+
+**Iris Bridge**
+- BLE Web API integration
+- Haptic patterns mapped to Burgess Principle classification outcomes
+- Local-first, no cloud dependency
+
+---
+
 ## 2. Licensing tiers
 
 | Tier | Target organisation | Annual fee |

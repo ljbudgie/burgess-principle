@@ -86,6 +86,69 @@ Iris helps users:
 
 ---
 
+## Iris Platform — Current Features (v2.5.0)
+
+Running locally. Next.js 16, Postgres, Docker, Ollama (graceful fallback).
+
+**Certification**
+- Institutional Certification workflow — intake form, binary test runner,
+  printable certificate bearing UK00004343685
+- AES-256-GCM encrypted local vault — all certifications stored locally, never
+  transmitted
+- PersonGate SHA-256 commitment hash on every certification
+- localStorage persistence — form state survives page refresh
+
+**Challenge Generation**
+- Statutory Challenge Generator — SAR, Article 15(1)(h), Article 16, Article 17,
+  DUAA 2025, EA 2010, Pre-Action Protocol
+- Deadline dashboard — active statutory challenges sorted by urgency, overdue
+  flagged red
+- Response log — records institutional responses and updates classification
+
+**Export and Evidence**
+- Register Export — Framer CMS-ready JSON for public institutional register
+- Evidence Bundle Builder — complete case package: certification, challenge
+  letters, response log, timeline, printable PDF
+- Ledger JSON export — per-certification structured record
+
+**Tier 1 Integration**
+- burgess-gate.js — self-contained API module, runs in browser or Node.js, zero
+  dependencies
+- System prompt generator — custom AI agent integration snippets for any
+  orchestrator
+- /integration/docs — formal technical reference for Tier 1 clients
+- burgess-badge-live.js — embeddable SOVEREIGN status badge
+
+**Autonomous Agent — Hermes**
+- Domain 1: Deadline Sentinel — real-time deadline monitoring with browser
+  notifications
+- Domain 2: Pattern Detector — identifies systemic NULL patterns across
+  certifications
+- Domain 3: Autonomous Challenge Responder — pre-stages challenge letters on NULL
+  findings
+- Domain 4: Regulatory Monitor — EU AI Act and DUAA 2025 compliance countdown
+- Domain 5: Evidence Chain Mapper — visual contamination chain, exportable SVG
+
+**Intelligence**
+- Memory Palace — institutional profile persistence, searchable history
+- Federation Protocol — distributed peer-to-peer ledger, anonymised signed JSON
+- Sovereign Command Centre — real-time operational dashboard (three-panel layout)
+- Conversational AI — Ollama local model with full vault context injection
+
+**Accessibility**
+- Visual-only alerts — no audio dependency
+- Email-only contact fields with reasonable adjustment pre-populated
+- Keyboard navigation throughout
+- High contrast mode toggle
+
+**OpenHear Bridge**
+- BLE Web API connection to OpenHear wristband
+- Haptic notification patterns: NULL = short-short-long, SOVEREIGN = single
+  long, urgent deadline = rapid triple
+- Graceful fallback if no wristband paired
+
+---
+
 ## Phase 3 in Iris
 
 | Capability | What Iris now adds |

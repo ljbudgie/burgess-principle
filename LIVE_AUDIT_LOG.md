@@ -87,7 +87,7 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 | **LGO referral ready to file** | 1 (Darlington Borough Council) |
 | **Financial Ombudsman referral available** | 1 (Vanquis — six-month window from 26 March 2026) |
 | **Active FOIs** | 6 (Home Office FOI2026/05685; HM Treasury FOI2026/08366; Cabinet Office FOI2026/07744 and FOI2026/07733; FSA FOI 00174 — response received 22 Apr; DESNZ — pending) |
-| **Legal representation** | Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026; Leigh Day — follow-up pending |
+| **Legal representation** | Deighton Pierce Glynn — referral sent 24 April 2026; Hodge Jones & Allen — referral sent 24 April 2026 |
 | **Press outreach** | Bureau of Investigative Journalism (pending); Newsquest / Gavin Foster — Darlington story (pending, 22 April 2026) |
 | **Institutions scored under Taxonomy v1.0** | 29 |
 | **Confirmed NULL findings** | 17 |
@@ -116,7 +116,7 @@ Directly answered; named case handler; specific facts cited; both accounts clear
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | 1 | 0 | 1 / 20 |
 
-Originating event. Warrant RE99022 unsigned on face. Deafness noted only after third visit. **Updated 24 April 2026:** Energy Ombudsman case EG021819-26 is **closed**. Both preliminary and final decisions declined. Final decision omitted disability from its reasoning and directed response by telephone — an inaccessible channel for a deaf complainant. Challenge to that omission was rejected without engagement. No assessment of Ofgem's Involuntary PPM Code of Practice included. EHRC has confirmed in writing (Case 16525912) that the facts fit the case. **Ombudsman route exhausted. Litigation route now active — Leigh Day follow-up pending.**
+Originating event. Warrant RE99022 unsigned on face. Deafness noted only after third visit. **Updated 24 April 2026:** Energy Ombudsman case EG021819-26 is **closed**. Both preliminary and final decisions declined. Final decision omitted disability from its reasoning and directed response by telephone — an inaccessible channel for a deaf complainant. Challenge to that omission was rejected without engagement. No assessment of Ofgem's Involuntary PPM Code of Practice included. EHRC has confirmed in writing (Case 16525912) that the facts fit the case. **Ombudsman route exhausted. Litigation route remains active.**
 
 ---
 

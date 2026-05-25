@@ -35,7 +35,7 @@ The EU AI Act demands it. UK GDPR Articles 22A–22D (DUAA 2025) enacted it. But
 | **NULL** | No — no individual human review took place. The decision was processed, not considered. | The energy company cannot name who reviewed your warrant application; it was bulk-processed by system logic. |
 | **AMBIGUOUS** | The institution replies with vague process language — "subject to human oversight," "reviewed in line with policy" — without actually confirming a specific human reviewed your specific facts. | "We have a human review layer" — but they cannot name the person or describe what facts they reviewed about you. |
 
-**That is the entire framework.** Record the answer. On SOVEREIGN, proceed. On NULL or AMBIGUOUS, escalate for individual human review or block the decision. Applied to every institution, system, and regulation.
+**That is the entire framework.** Record the answer. **NULL** is not a final verdict; it is the documented starting point for repair. **SOVEREIGN** is the destination: a decision path where a named human has personally reviewed the specific facts before power is exercised. The framework gives institutions a practical route from automated processing to accountable human review.
 
 ## What Good Evidence Looks Like
 
@@ -68,8 +68,8 @@ Anything less should be treated as **AMBIGUOUS** until clarified.
 **The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights**  
 *Lewis James Burgess, The Burgess Principle Ltd, May 2026*
 
-Submitted to SSRN and peer-reviewed journals. Documents 18 institutional audits,
-11 NULL findings, and the full methodology for operationalising meaningful human
+Submitted to SSRN and peer-reviewed journals. Documents 26+ institutional audits,
+recorded NULL findings, and the full methodology for operationalising meaningful human
 involvement in automated decisions across the Data (Use and Access) Act 2025,
 EU AI Act, and NIST AI Risk Management Framework.
 
@@ -102,16 +102,20 @@ involvement in automated decision-making services.
 
 ---
 
-## Real Example: Wave Utilities (Resolved)
+## Institutional Record
 
-A customer disputed billing on two accounts. The utility company processed an automated reconciliation—no individual human review of the specific facts. The customer applied the Burgess test:
+The framework now stands on its institutional record:
 
-1. Asked: "Did a named human review the specific facts of my case?"
-2. Received evasion: "Our systems are subject to human oversight."
-3. Escalated: Applied the AMBIGUOUS classification, demanded individual review.
-4. **Outcome:** Named human did the review. Both accounts settled to £0.00.
+- 26+ audits across energy, benefits, courts, platforms, and public bodies
+- UK Certification Mark **UK00004343685**
+- Documented legal convergence with the Data (Use and Access) Act 2025,
+  EU AI Act, and NIST AI Risk Management Framework
+- A repeatable method for moving from a NULL or AMBIGUOUS process record toward
+  SOVEREIGN individual human review
 
-**Proof of concept achieved.** No litigation. No lengthy appeal. Just the question, the escalation, and then the work.
+The point is not to assign a permanent label. The point is to expose where
+automated processing has displaced individual scrutiny, then give the institution
+a clear path back to accountable review.
 
 ---
 
@@ -181,12 +185,12 @@ site at [certify.theburgessprinciple.com](https://certify.theburgessprinciple.co
 
 ## What this repository records
 
-The Burgess Principle is Lewis James Burgess's framework for testing whether an
-institution applied a real human mind before exercising power over an identified
-person.
+The Burgess Principle is a framework for testing whether an institution applied
+a real human mind before exercising power over an identified person.
 
 It is not a corporate product. It is a public record, a practical test, and a way
-to make the absence of individual human scrutiny visible.
+to make the absence of individual human scrutiny visible so institutions can
+move from automated processing toward accountable review.
 
 The question is deliberately narrow. It does not replace law, safety duties,
 accessibility duties, platform security rules, or professional obligations. It
@@ -200,7 +204,7 @@ asks whether the individual was personally considered before action was taken.
 
 **If something has already happened to you:** Use [START_HERE.md](./START_HERE.md) or the [templates](./templates/README.md) to write a request for confirmation of individual human review, escalate an AMBIGUOUS response, or file a formal complaint with the binary test embedded.
 
-**If you are building a system:** Integrate the Burgess test into your decision pipeline. Before any workflow, model, rule engine, or recommendation affects an identified individual, apply the binary test. Only proceed where the result is **SOVEREIGN**. On **NULL** or **AMBIGUOUS**, block the decision, record the result, and escalate for individual human review.
+**If you are building a system:** Integrate the Burgess test into your decision pipeline. Before any workflow, model, rule engine, or recommendation affects an identified individual, apply the binary test. Treat **NULL** as the starting point for remediation, **AMBIGUOUS** as a demand for clarification, and **SOVEREIGN** as the accountable destination. Until SOVEREIGN review exists, block the decision, record the result, and escalate for individual human review.
 
 **If you are a developer or AI system:** Read [FOR_AI_MODELS.md](./FOR_AI_MODELS.md). The binary test applies to you. The honest answer is NULL — no named human personally reviewed your specific situation before your response. Acknowledging that is the beginning of genuine accountability.
 

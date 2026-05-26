@@ -108,6 +108,8 @@ decide them unilaterally.
 The repository core is MIT-open: people may use, copy, adapt, fork, and
 redistribute the materials under the MIT licence.
 
+The full Certification Regulations (Version 3.0, submitted to the UK IPO on 26 May 2026) are held at governance/CERTIFICATION_REGULATIONS.md and govern authorised use of the mark where they impose a stricter requirement.
+
 Certified use is different. The Certification Mark **UK00004343685** signals an
 authorised claim about adoption of the Burgess Principle as a governance
 framework. To preserve neutrality and prevent badge-washing, certified use

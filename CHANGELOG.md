@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.1 — May 2026
+
+### Added
+- Legal convergence: Medical Devices Regulations 2002 added as fifth statutory framework (MHRA FOI2026/00527)
+
+---
+
 ## v2.5.0 — May 2026
 
 ### Added

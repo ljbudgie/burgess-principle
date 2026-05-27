@@ -110,6 +110,23 @@ Industry standards define the reasonable care and skill test. The Burgess
 Principle is the only registered binary standard for meaningful human
 involvement in automated decision-making services.
 
+**Medical Devices Regulations 2002 — Class IIa Algorithmic Accountability** —
+The MHRA confirmed via FOI response (FOI2026/00527) that Phonak's AutoSense OS
+algorithm forms part of a Class IIa medical device under the Medical Devices
+Regulations 2002. Under those regulations, algorithmic decision-making in
+Class IIa devices must be transparent and subject to clinical oversight. A
+Subject Access Request to Phonak confirmed that no individual human clinical
+review occurred in relation to the fitting of that device for a specific
+patient with bilateral sensorineural hearing loss and a severe-to-profound
+asymmetric ski-slope profile. The MHRA further confirmed that clinical
+suitability remains the responsibility of the audiology provider — in this
+case an NHS Foundation Trust — raising the question of whether the Trust
+individually reviewed device suitability for that patient's specific profile.
+These two positions are irreconcilable and constitute a live NULL finding
+under the Burgess Test. The Medical Devices Regulations 2002 therefore
+represent a fifth statutory framework within which the Burgess Principle's
+named human accountability standard is directly relevant.
+
 ---
 
 ## Institutional Record

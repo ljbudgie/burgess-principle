@@ -79,6 +79,16 @@ EU AI Act, and NIST AI Risk Management Framework.
 
 ---
 
+## Live NULL Findings Ledger
+
+A public audit log of institutions assessed against the Burgess Test is maintained at <a>`audits/LIVE_AUDIT_LOG.md`</a>.
+
+The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
+
+Current findings: 15 institutions audited — 11 NULL, 0 SOVEREIGN, 4 AMBIGUOUS. Updated: 27 May 2026.
+
+---
+
 ## Legal Convergence
 
 The Burgess Principle has documented convergence with the following statutory

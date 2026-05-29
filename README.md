@@ -63,31 +63,6 @@ Anything less should be treated as **AMBIGUOUS** until clarified.
 
 ---
 
-## Academic Publication
-
-**The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights**  
-*Lewis James Burgess, The Burgess Principle Ltd, May 2026*
-
-Submitted to SSRN and peer-reviewed journals. Documents 26+ institutional audits,
-recorded NULL findings, and the full methodology for operationalising meaningful human
-involvement in automated decisions across the Data (Use and Access) Act 2025,
-EU AI Act, and NIST AI Risk Management Framework.
-
-> "No regulator has furnished an operational definition of meaningful human involvement." — Abstract
-
-[View paper documentation](./papers/BURGESS_TEST_2026.md) | MIT licensed
-
-**ORCID:** 0009-0001-8691-3366  
-<https://orcid.org/0009-0001-8691-3366>
-
-<a href="https://doi.org/10.5281/zenodo.20449193"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20449193.svg"></a>
-
-**Case Study:** The Burgess Test — The Liability Transfer Chain  
-DOI: <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>  
-Published: 29 May 2026 — Zenodo
-
----
-
 ## Live NULL Findings Ledger
 
 A public audit log of institutions assessed against the Burgess Test is maintained at <a>`audits/LIVE_AUDIT_LOG.md`</a>.
@@ -135,6 +110,18 @@ These two positions are irreconcilable and constitute a live NULL finding
 under the Burgess Test. The Medical Devices Regulations 2002 therefore
 represent a fifth statutory framework within which the Burgess Principle's
 named human accountability standard is directly relevant.
+
+---
+
+## Academic Publication
+
+**Paper:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
+**Author:** Lewis James Burgess  
+**ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>  
+**SSRN Abstract ID:** 6759778  
+**Case Study:** The Burgess Test — The Liability Transfer Chain  
+**DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>  
+Published: 29 May 2026
 
 ---
 

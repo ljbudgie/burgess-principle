@@ -80,8 +80,11 @@ EU AI Act, and NIST AI Risk Management Framework.
 **ORCID:** 0009-0001-8691-3366  
 <https://orcid.org/0009-0001-8691-3366>
 
-**Case Study:** The Burgess Test — The Liability Transfer Chain
-(Zenodo DOI: to be added on publication)
+<a href="https://doi.org/10.5281/zenodo.20449193"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20449193.svg"></a>
+
+**Case Study:** The Burgess Test — The Liability Transfer Chain  
+DOI: <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>  
+Published: 29 May 2026 — Zenodo
 
 ---
 

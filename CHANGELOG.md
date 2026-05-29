@@ -11,6 +11,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - ORCID iD (0009-0001-8691-3366) added to Academic Publication section of `README.md`
 - Legal convergence: Medical Devices Regulations 2002 added as fifth statutory framework (MHRA FOI2026/00527)
 - Case study: "The Burgess Test — The Liability Transfer Chain" added to `papers/` directory (Zenodo DOI to be added on publication)
+- Case study published on Zenodo — DOI: 10.5281/zenodo.20449193
 - NULL findings ledger published at `audits/LIVE_AUDIT_LOG.md` (15-institution audit: 11 NULL, 0 SOVEREIGN, 4 AMBIGUOUS)
 
 ---

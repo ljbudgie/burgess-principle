@@ -77,6 +77,12 @@ EU AI Act, and NIST AI Risk Management Framework.
 
 [View paper documentation](./papers/BURGESS_TEST_2026.md) | MIT licensed
 
+**ORCID:** 0009-0001-8691-3366  
+<https://orcid.org/0009-0001-8691-3366>
+
+**Case Study:** The Burgess Test — The Liability Transfer Chain
+(Zenodo DOI: to be added on publication)
+
 ---
 
 ## Live NULL Findings Ledger

@@ -1,6 +1,6 @@
 # Live Cases (as of 9 May 2026)
 
-Source: STATUS.md — framework v2.5.0
+Source: STATUS.md — framework v2.5.1
 
 ## 1. Energy
 

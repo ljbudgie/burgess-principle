@@ -2,7 +2,7 @@
 
 The Burgess Principle is the **core standard**. The surrounding repositories implement, apply, or integrate it. This document maps the full technical ecosystem and how each component relates to the others.
 
-- **Framework version:** v2.5.0 (released 9 May 2026)
+- **Framework version:** v2.5.1 (released 31 May 2026)
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
 - **Last updated:** 9 May 2026
 

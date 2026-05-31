@@ -1,7 +1,7 @@
 Subject: Formal Request for Human Review — Accuracy and Fairness of Coverage — [Insert Headline] — [Insert Date]
 Dear [Editor / Journalist Name],
 I am writing regarding your coverage titled "[Insert Headline]" published on [Insert Date] at [Insert Link].
-I am not writing to threaten litigation or demand favourable coverage. I am writing to ask one question — the same question I have asked of 18 institutions across energy, local government, financial services, data protection, and parliamentary bodies, and which I apply without exception to every institution that exercises power over my individual circumstances:
+I am not writing to threaten litigation or demand favourable coverage. I am writing to ask one question — the same question I apply, without exception, to every institution that exercises power over my individual circumstances — across energy, local government, financial services, data protection, and public bodies:
 "Was a human member of your team able to personally review the specific facts of my situation before the decision to publish or frame this story was reached?"
 This question is the foundation of the Burgess Principle — a certified open-source audit framework holding UK Certification Mark UK00004343685, with a USPTO filing in progress, adopted across regulatory, legal and governmental proceedings and published in full at github.com/ljbudgie/burgess-principle.
 The specific facts of my situation that I am asking a human reviewer to consider are:

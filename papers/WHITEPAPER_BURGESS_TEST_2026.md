@@ -8,6 +8,10 @@
 **Repository:** github.com/ljbudgie/burgess-principle  
 **Certification Mark:** UK00004343685
 
+**Cite as:**
+- **Academic paper:** *The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights* — SSRN: [ssrn.com/abstract=6759778](https://ssrn.com/abstract=6759778) — ORCID: [orcid.org/0009-0001-8691-3366](https://orcid.org/0009-0001-8691-3366)
+- **Case study:** *The Burgess Test — The Liability Transfer Chain* — DOI: [doi.org/10.5281/zenodo.20449193](https://doi.org/10.5281/zenodo.20449193) (Zenodo, 29 May 2026)
+
 ---
 
 ## Abstract

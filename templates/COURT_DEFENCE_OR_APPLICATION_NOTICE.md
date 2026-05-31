@@ -33,6 +33,8 @@ A cryptographic commitment of this notice has been generated and stored in my pe
 
 I would be grateful for the court's consideration and for any directions that ensure proper individual scrutiny of my situation.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 
 [Your Full Name]

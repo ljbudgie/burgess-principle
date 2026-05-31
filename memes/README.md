@@ -34,7 +34,7 @@ Every meme is built around the same warm, respectful question at the heart of th
 
 No sarcasm, no anger — just friendly, shareable reminders that we're all individuals, not rows in a database.
 
-> **Quick context (as of v1.3.0):** The project now includes 35+ letter templates, 18 institutions tested, real case studies, **Iris** (a calm AI companion on the website and locally via Sovereign Mode), an on-chain claims protocol, and a cryptographic evidence trail — all built around the same one-question test. Memes from any of these areas are welcome.
+> **Quick context (as of v1.3.0):** The project now includes 35+ letter templates, real institutions tested and openly recorded, real case studies, **Iris** (a calm AI companion on the website and locally via Sovereign Mode), an on-chain claims protocol, and a cryptographic evidence trail — all built around the same one-question test. Memes from any of these areas are welcome.
 
 ### Meme Psychology – Why This Works
 Memes have a quiet but powerful effect on how people think and share ideas. Here's why they're such a good fit for the Burgess Principle:

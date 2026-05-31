@@ -38,6 +38,8 @@ I would appreciate your prompt response from the named individual who has carrie
 
 Thank you for your attention. I remain open to constructive resolution once the requested human review has taken place.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 
 [Your Full Name]

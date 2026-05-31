@@ -45,6 +45,8 @@ I would be grateful for your prompt response, ideally from the named individual 
 
 Thank you for your attention to this matter. I remain open to resolving this constructively once the requested human review has taken place.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 
 [Your Full Name]

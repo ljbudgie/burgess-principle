@@ -29,6 +29,8 @@ I would be grateful for a response within 14 days confirming:
 
 Thank you for treating residents and taxpayers as individuals who deserve transparency on how public funds are spent.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Address / Ward / Constituency if relevant]  

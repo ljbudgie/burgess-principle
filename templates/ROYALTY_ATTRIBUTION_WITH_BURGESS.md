@@ -29,6 +29,8 @@ I would be grateful for a response within 7 days confirming:
 
 Thank you for treating my creative contribution as an individual piece of work.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Contact email]

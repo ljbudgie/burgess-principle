@@ -41,6 +41,8 @@ I am keen to cooperate and provide anything genuinely needed. I simply ask that 
 
 Thank you for your time and for treating this as a matter requiring real human judgment.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]

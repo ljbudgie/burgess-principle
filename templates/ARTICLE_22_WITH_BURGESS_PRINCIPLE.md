@@ -28,6 +28,8 @@ I’m happy to provide any further information that would help.
 
 Thank you for treating me as the individual I am. I look forward to your reply within the statutory timeframe.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]

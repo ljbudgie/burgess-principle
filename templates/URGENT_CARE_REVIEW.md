@@ -49,6 +49,8 @@ If a timely individual clinical review is not possible, please explain why and p
 
 Thank you for treating me [or my loved one] as a real person who deserves to be seen and helped when unwell.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Relationship to the patient if advocating for someone else, e.g. Son / Daughter / Carer]  

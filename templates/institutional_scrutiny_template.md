@@ -22,6 +22,8 @@ If not, I understand it may have gone through standard systems — in which case
 
 Thank you for your time and for treating me as the individual I am. I look forward to your reply by [reasonable date, e.g. 14 days].
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]

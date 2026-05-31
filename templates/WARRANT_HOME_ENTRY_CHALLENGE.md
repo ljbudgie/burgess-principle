@@ -34,6 +34,8 @@ I would be grateful for your response from the named reviewer. Please direct all
 
 Thank you for addressing this matter with the specific attention it requires.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 
 [Your Full Name]

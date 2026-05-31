@@ -26,6 +26,8 @@ If it helps, I am not asking for a description of your usual policy. I am asking
 
 Thank you for your time. I would be grateful for a direct written response within [7 / 14] days.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]

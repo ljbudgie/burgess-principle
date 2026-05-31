@@ -28,6 +28,8 @@ Please treat this as a formal FOI request and respond within the 20-working-day 
 
 Thank you for your time and for giving my situation the personal attention it deserves.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]

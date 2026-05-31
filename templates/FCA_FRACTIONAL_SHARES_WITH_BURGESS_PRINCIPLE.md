@@ -22,6 +22,8 @@ A general statement that matters are handled in accordance with rules or existin
 
 Please confirm receipt and the date from which the 20-working-day response period will run. I would appreciate a full response within the statutory timeframe.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]  

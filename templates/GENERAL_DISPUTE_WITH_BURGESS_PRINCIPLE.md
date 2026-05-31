@@ -37,6 +37,8 @@ I'm happy to provide any further details that would help your team handle this a
 
 Thank you for your time and for treating me as a real person rather than a generic reference.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your full name]
 

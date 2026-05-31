@@ -29,6 +29,8 @@ I would be grateful for a response within 14 days confirming:
 
 Thank you for treating me as a real constituent whose life is affected by the gap between words and actions.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Constituency / Location]  

@@ -20,9 +20,10 @@ If you are unsure, start with one of the default templates below and personalise
 3. **Got a vague "human oversight" reply?** Use [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md).
 4. **Need accessible communication or reasonable adjustments?** Use [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md).
 5. **Experienced harm from a clinical pathway — gender medicine, opioids, surgical mesh, or any medical intervention where no named clinician individually reviewed your case?** Use [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md). See also [Paper XIII](../papers/PAPER_XIII_REVERSE_ENGINEERING_HARMS.md) for the full methodology.
-6. **Need a fast chooser instead of the full index?** Use [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
-7. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you while keeping an encrypted copy in the phone vault.
-8. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto or proof template only if needed.
+6. **Been referred to a third-party assessor — medical examiner, occupational health, work capability assessment, or an expert report your decision relies on?** Use [`THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md`](./THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md).
+7. **Need a fast chooser instead of the full index?** Use [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
+8. **On a phone?** Use the Sovereign Mode PWA, tap **+ New Claim**, and let Iris route you while keeping an encrypted copy in the phone vault.
+9. **Need privacy-preserving evidence?** Use the local Vault first, then choose a crypto or proof template only if needed.
 
 ---
 
@@ -50,6 +51,7 @@ If you want the shortest possible shortlist after the start flow above, use this
 | A broader dispute already underway | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
 | A data request or data-rights issue | [`DSAR_WITH_BURGESS_PRINCIPLE.md`](./DSAR_WITH_BURGESS_PRINCIPLE.md) |
 | A public body or public-records request | [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md) |
+| A decision based on a third-party assessor (medical/OH/work capability/expert report) | [`THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md`](./THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md) |
 | Benefits, council tax, parking, or bailiff pressure | See [Life situations](#life-situations) |
 | Medical intervention, clinical pathway harm, or iatrogenic injury | See [Life situations](#life-situations) |
 | Tariff refund denied or bulk-processed without individual review; categorical trade sanction applied without individual consideration of your specific business | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) — see also [Paper XII](../papers/PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) for the Burgess notice framework |

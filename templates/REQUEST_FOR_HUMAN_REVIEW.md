@@ -28,6 +28,8 @@ I'm happy to provide any extra details that would help.
 
 Thank you for your time and for treating this as the individual matter it is. I look forward to hearing back by [suggest a reasonable date, e.g. 14 days from now].
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Contact Details]

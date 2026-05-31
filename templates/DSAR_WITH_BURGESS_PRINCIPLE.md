@@ -25,6 +25,8 @@ Please send the full DSAR response (including any relevant logs, decision ration
 
 Thank you for treating this as the individual matter it is. I look forward to receiving everything within the statutory one-month period.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Your Email Address]  

@@ -33,6 +33,8 @@ I would be grateful for a response within 7 days confirming:
 
 Thank you for treating my creative work as an individual artistic piece rather than just another automated match in the system.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name / Artist Name]  
 [Contact email]  

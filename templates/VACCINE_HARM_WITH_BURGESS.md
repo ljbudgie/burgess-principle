@@ -30,6 +30,8 @@ I would be grateful for a response within 14 days confirming:
 
 Thank you for treating me as an individual rather than just another report in the system.
 
+I am also requesting reasonable adjustments under the Equality Act 2010 (sections 20 and 29) if applicable. My preferred method of communication is email only.
+
 Yours sincerely,  
 [Your Full Name]  
 [Date of birth / NHS number / Vaccination record reference if relevant]  

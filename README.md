@@ -6,6 +6,8 @@ Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · 
 
 **The binary test for meaningful human involvement in automated systems.**
 
+- **Framework version:** v2.5.1 (released 31 May 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+
 ## Start In 60 Seconds
 
 If a decision has already affected you, do this now:
@@ -65,7 +67,7 @@ Anything less should be treated as **AMBIGUOUS** until clarified.
 
 ## Live NULL Findings Ledger
 
-A public audit log of institutions assessed against the Burgess Test is maintained at <a>`audits/LIVE_AUDIT_LOG.md`</a>.
+A public audit log of institutions assessed against the Burgess Test is maintained at [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md).
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
@@ -118,10 +120,14 @@ named human accountability standard is directly relevant.
 **Paper:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
 **Author:** Lewis James Burgess  
 **ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>  
-**SSRN Abstract ID:** 6759778  
+**SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778)  
 **Case Study:** The Burgess Test — The Liability Transfer Chain  
 **DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>  
 Published: 29 May 2026
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights.* SSRN Abstract 6759778. Zenodo. https://doi.org/10.5281/zenodo.20449193
 
 ---
 
@@ -129,7 +135,7 @@ Published: 29 May 2026
 
 The framework now stands on its institutional record:
 
-- 26+ audits across energy, benefits, courts, platforms, and public bodies
+- A sustained audit programme across energy, benefits, courts, platforms, and public bodies — see the [live ledger](./audits/LIVE_AUDIT_LOG.md) for the current snapshot
 - UK Certification Mark **UK00004343685**
 - Documented legal convergence with the Data (Use and Access) Act 2025,
   EU AI Act, and NIST AI Risk Management Framework
@@ -201,7 +207,7 @@ site at [certify.theburgessprinciple.com](https://certify.theburgessprinciple.co
 | Schemas | [schemas/](./schemas/) | Structured records and validation shapes. |
 | Scripts | [scripts/](./scripts/) | Repository utilities. |
 | Sector materials | [sector/](./sector/) | Domain-specific routes and adaptations. |
-| Templates | [templates/](./templates/) | Letters, requests, follow-ups, and common scenarios. |
+| Templates | [templates/](./templates/) | Letters, requests, follow-ups, and common scenarios. UK letter templates now carry an Equality Act 2010 ss.20/29 reasonable-adjustment footer (v2.5.1 accessibility coverage: 41 templates). Includes the v2.5.1 [third-party referral template](./templates/THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md) for decisions that rely on a medical, occupational-health, work-capability, or expert assessment. |
 | Toolkit | [toolkit/](./toolkit/) | Practical support materials. |
 | Tracer | [tracer/](./tracer/) | Process tracing utilities. |
 | Tutorials | [tutorials/](./tutorials/) | Walkthroughs and working examples. |
@@ -225,7 +231,7 @@ asks whether the individual was personally considered before action was taken.
 
 **Need to act today:** Go straight to [templates/README.md](./templates/README.md) and send a request for individual human review, then keep all replies as evidence.
 
-**If something has already happened to you:** Use [START_HERE.md](./START_HERE.md) or the [templates](./templates/README.md) to write a request for confirmation of individual human review, escalate an AMBIGUOUS response, or file a formal complaint with the binary test embedded.
+**If something has already happened to you:** Use [START_HERE.md](./START_HERE.md) or the [templates](./templates/README.md) to write a request for confirmation of individual human review, escalate an AMBIGUOUS response, or file a formal complaint with the binary test embedded. If the decision relied on a third-party assessor (medical, occupational health, work capability, or expert report), use [templates/THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md](./templates/THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md) to apply the binary test to both the assessment and the institution's reliance on it.
 
 **If you are building a system:** Integrate the Burgess test into your decision pipeline. Before any workflow, model, rule engine, or recommendation affects an identified individual, apply the binary test. Treat **NULL** as the starting point for remediation, **AMBIGUOUS** as a demand for clarification, and **SOVEREIGN** as the accountable destination. Until SOVEREIGN review exists, block the decision, record the result, and escalate for individual human review.
 

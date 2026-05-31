@@ -86,7 +86,7 @@ Iris helps users:
 
 ---
 
-## Iris Platform — Current Features (v2.5.0)
+## Iris Platform — Current Features (v2.5.1)
 
 Running locally. Next.js 16, Postgres, Docker, Ollama (graceful fallback).
 

@@ -2,7 +2,7 @@
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
-- **Framework version:** v2.5.0 (released 9 May 2026)
+- **Framework version:** v2.5.1 (released 31 May 2026)
 - **Author:** Lewis James Burgess
 - **Contact:** [contact redacted]
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

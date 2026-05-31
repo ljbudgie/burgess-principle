@@ -14,7 +14,7 @@ Peer review: Submitted
 ## Platform
 Iris: Running locally, Next.js 16, Postgres, Docker
 Public deployment: burgess-principle.vercel.app
-Version: v2.5.0
+Version: v2.5.1
 
 ## Commercial
 Licences signed: 0
@@ -37,7 +37,7 @@ The previous living tracker is preserved below for continuity and audit history.
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
-- **Framework version:** v2.5.0 (released 9 May 2026)
+- **Framework version:** v2.5.1 (released 31 May 2026)
 - **Author:** Lewis James Burgess
 - **Contact:** [contact redacted]
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

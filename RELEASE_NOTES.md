@@ -1,21 +1,20 @@
-# Release Notes — v2.5.0
+# Release Notes — v2.5.1
 
-## Governance & Ecosystem: Certified Pathways and Community Foundations
+## On the Record: Academic Publication, Accessibility, and a Transparent Ledger
 
-Released: 9 May 2026
+Released: 31 May 2026
 
-v2.5.0 matters because the Burgess Principle now has clearer public governance,
-community expectations, certification pathways, and ecosystem routing around the
-same narrow test: was a named human able to personally review the specific facts
-before a decision affected an identified person?
+v2.5.1 is a credibility-and-accessibility release. It puts the framework on the
+academic record, widens the statutory convergence it rests on, makes the live
+audit evidence public and honest, and strengthens the accessibility footing of
+the templates people actually send — all around the same narrow test: was a
+named human able to personally review the specific facts before a decision
+affected an identified person?
 
-For adopters, this release makes the boundary easier to trust: repository
-materials remain MIT-open, while official "Certified Burgess Principle" use and
-the UK Certification Mark **UK00004343685** remain separately governed.
-
-For contributors, it creates a calmer path into the project: governance rules,
-conduct standards, good-first-issue style routes, integration overlays, and
-certification documents are now easier to find and review.
+For adopters and a sceptical professional audience (academics, trade-union
+officials, NGO directors), this release is about being checkable: cite-able
+references, a transparent findings ledger framed as a path to sovereignty rather
+than a scoreboard, and accessibility commitments stated plainly in the templates.
 
 ## Draft GitHub Release Description
 
@@ -28,54 +27,56 @@ key. Keep that private key offline and never commit it to the repository. Follow
 
 ### What's New
 
-- Added `GOVERNANCE.md` for roles, lazy consensus, sensitive-change escalation,
-  neutral advisory review, certification-mark boundaries, and succession.
-- Added `CODE_OF_CONDUCT.md` with accessibility-aware community standards.
-- Added contributor and onboarding routes, including Iris enhancement issues
-  suitable for good first contributions.
-- Added LangChain governance overlay documentation and integration templates for
-  agent/RAG ecosystems.
-- Updated `ECOSYSTEM.md` with Iris, Mirror, OpenHear, Nexus AI Hub, OpenClaw, and
-  Hermes Agent relationships.
-- Clarified founding certification rates, certification tiers, partnership ledger
-  routes, and post-payment certification-site flow.
-- Clarified the hybrid MIT + Certification Mark model across README, licence,
-  contributing, docs, and certification materials.
-- Bumped package, API, PWA, Vercel-facing, and local install metadata to v2.5.0.
+- Academic publication: SSRN abstract 6759778 and ORCID iD 0009-0001-8691-3366,
+  with a "Cite as" block added to the whitepaper header.
+- Case study "The Burgess Test — The Liability Transfer Chain" published on
+  Zenodo — DOI 10.5281/zenodo.20449193.
+- Legal convergence: Medical Devices Regulations 2002 added as the fifth
+  statutory framework (MHRA FOI2026/00527).
+- Live NULL findings ledger published at `audits/LIVE_AUDIT_LOG.md`
+  (15-institution audit: 11 NULL, 0 SOVEREIGN, 4 AMBIGUOUS).
+- Accessibility: Equality Act 2010 (ss.20/29) reasonable-adjustment line added to
+  29 letter templates — footer coverage rises from 12 to 41 templates.
+- New template `THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md` for
+  decisions based on a third-party assessor (medical / occupational health / work
+  capability / expert report), applying the binary test to both the assessment
+  and the institution's reliance on it.
+- Reframed institution statistics toward a path-to-sovereignty framing (help,
+  not shame); removed brittle hardcounts in favour of the live register.
+- Bumped package, API, PWA, Vercel-facing, and local install metadata to v2.5.1.
 
 ### Why It Matters
 
-- Adopters can use the MIT-open core without implying certification.
-- Organisations seeking certified use now have clearer public pathways and
-  stronger neutrality safeguards.
-- Contributors have clearer expectations for conduct, governance, issue routing,
-  and doctrinal escalation.
-- Agent-framework maintainers have concrete overlay material for adding the
-  SOVEREIGN / NULL / AMBIGUOUS check without replacing their existing systems.
+- The framework is now cite-able and on the academic record, which matters for
+  the regulators, researchers, and advocates it is meant to serve.
+- A wider statutory base (now five converging frameworks) strengthens its claim
+  to operationalise existing law rather than invent a new standard.
+- The public, honestly-framed findings ledger lets a sceptical reader verify the
+  evidence instead of taking a number on trust.
+- More templates now state reasonable-adjustment and email-only preferences,
+  which is central to the framework's disability-rights purpose.
 
 ### Upgrade Path
 
-- Pull the v2.5.0 release.
+- Pull the v2.5.1 release.
 - Reinstall local Python tooling where needed with `pip install -e ".[local]"` or
   the platform install script in `scripts/`.
 - For Sovereign Vault users, run `npm ci` in `enforcement/sovereign-vault/` and
   rebuild with `npm run build`.
-- Refresh any cached PWA assets so the service worker moves to the v2.5.0 cache.
+- Refresh any cached PWA assets so the service worker moves to the v2.5.1 cache.
 - Complete the release-signing step in the warning above before publishing the
   GitHub Release and enabling signed PWA update activation for the tagged
   release.
-- Review `GOVERNANCE.md`, `CODE_OF_CONDUCT.md`, `LICENSE.md`, and
-  `CERTIFICATION_TIERS.md` before making public certification claims.
 
 ### Adoption Next Steps
 
 - If you are affected by a decision now, start with `START_HERE.md` and the
   templates.
+- If a decision relies on a third-party assessor (medical, occupational health,
+  work capability, or an expert report), use
+  `templates/THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md`.
 - If you are building a system that acts on identified people, add the Burgess
   gate before decision logic and block NULL or AMBIGUOUS results for individual
   human review.
-- If you maintain an AI framework, adapt the LangChain overlay pattern or the
-  integration templates to your stack.
-- If your organisation can evidence named human review, review
-  `CERTIFICATION_TIERS.md` and the certification site before applying for
-  official mark use.
+- To cite the framework, use the SSRN abstract (6759778) and the Liability
+  Transfer Chain DOI (10.5281/zenodo.20449193).

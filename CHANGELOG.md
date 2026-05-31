@@ -13,6 +13,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - Case study: "The Burgess Test — The Liability Transfer Chain" added to `papers/` directory (Zenodo DOI to be added on publication)
 - Case study published on Zenodo — DOI: 10.5281/zenodo.20449193
 - NULL findings ledger published at `audits/LIVE_AUDIT_LOG.md` (15-institution audit: 11 NULL, 0 SOVEREIGN, 4 AMBIGUOUS)
+- Equality Act 2010 (ss.20/29) reasonable-adjustment line added to 29 letter templates — accessibility footer coverage rises from 12 to 41 templates
+- New template `templates/THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md` for decisions based on a third-party assessor (medical / occupational health / work capability / expert report); applies the binary test to both the assessment and the institution's reliance on it
+- "Cite as" academic citation block (SSRN abstract 6759778, ORCID 0009-0001-8691-3366, Zenodo DOI 10.5281/zenodo.20449193) added to the whitepaper header
+
+### Changed
+- Reframed institution statistics away from a NULL "scoreboard" toward a path-to-sovereignty framing (help, not shame); removed brittle hardcounts in favour of the live register in `llms.txt`, `toolkit/XAI_INTEGRATION.md`, `memes/README.md`, and `templates/MEDIA_AND_LIBEL.md`
+- Bumped package, API, PWA, Vercel-facing, and local install metadata to v2.5.1
 
 ---
 

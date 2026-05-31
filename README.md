@@ -1,6 +1,6 @@
-[Talk to Iris](./iris.html) — open in your browser, no account or install needed.
+<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
 
-Hosted links: [Vercel Iris](https://burgess-principle.vercel.app) · [Certification site](https://certify.theburgessprinciple.com)
+Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · <a href="https://certify.theburgessprinciple.com">Certification site</a>
 
 # The Burgess Principle
 

@@ -71,7 +71,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current findings: 15 institutions audited — 11 NULL, 0 SOVEREIGN, 4 AMBIGUOUS. Updated: 27 May 2026.
+Current findings: 17 institutions audited — 13 NULL, 0 SOVEREIGN, 4 AMBIGUOUS. Updated: 1 June 2026.
 
 ---
 

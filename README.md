@@ -73,6 +73,8 @@ The test: *Was a named human being's mind applied to the specific facts of a spe
 
 Current findings: 17 institutions audited — 13 NULL, 0 SOVEREIGN, 4 AMBIGUOUS. Updated: 1 June 2026.
 
+Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
+
 ---
 
 ## Legal Convergence
@@ -135,7 +137,7 @@ Published: 29 May 2026
 
 The framework now stands on its institutional record:
 
-- A sustained audit programme across energy, benefits, courts, platforms, and public bodies — see the [live ledger](./audits/LIVE_AUDIT_LOG.md) for the current snapshot
+- A sustained audit programme across energy, benefits, courts, platforms, public bodies, and communications infrastructure (email triage) — see the [live ledger](./audits/LIVE_AUDIT_LOG.md) for the current snapshot
 - UK Certification Mark **UK00004343685**
 - Documented legal convergence with the Data (Use and Access) Act 2025,
   EU AI Act, and NIST AI Risk Management Framework

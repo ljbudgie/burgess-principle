@@ -86,6 +86,27 @@ Iris helps users:
 
 ---
 
+## Email Triage Audit
+
+Iris can help individuals identify whether their incoming or outgoing
+correspondence has been subject to automated triage decisions without human
+review. Iris operates locally on the user's device, with no data leaving their
+hardware. Iris can:
+
+- help users document instances where important correspondence was buried,
+  delayed, or mischaracterised by automated triage systems;
+- generate a Burgess Test assessment of the triage system in use;
+- produce a formal **NULL** finding record where no named human reviewer can be
+  identified;
+- assist users in raising formal challenges to organisations whose automated
+  triage systems affected significant correspondence.
+
+See [`docs/applications/email-triage-adm.md`](../docs/applications/email-triage-adm.md)
+for the full analysis of email triage as automated decision-making under the
+Burgess Test.
+
+---
+
 ## Iris Platform — Current Features (v2.5.1)
 
 Running locally. Next.js 16, Postgres, Docker, Ollama (graceful fallback).

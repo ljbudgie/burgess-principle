@@ -45,6 +45,13 @@ architecture. Triage systems are *designed* to operate without a named human in
 the loop — which is precisely why the result is structurally NULL rather than
 incidentally so.
 
+Two things follow, and they must be kept apart. That triage is *structurally*
+NULL under the test is a description of its architecture, and it holds for every
+automated triage system. Whether a given NULL carries **regulatory force** is a
+separate, context-dependent question — answered not by the test alone but by the
+significance of the effect in the specific case (§4). The test diagnoses; the
+law attaches consequences only where the effect is significant.
+
 ## 3. The accountability gap
 
 Communications infrastructure has never previously been named or tested as an
@@ -56,20 +63,34 @@ other documented gaps.
 
 ## 4. Regulatory relevance
 
-Articles 22A–22D UK GDPR (as amended by the Data (Use and Access) Act 2025, in
-force 5 February 2026) apply to automated processing that produces legal or
-similarly significant effects for an individual. Communications triage meets
-that threshold where it affects:
+The strongest and most direct footing is **accessibility and correspondence
+rights**:
 
-- **legal correspondence** (service, deadlines, disputes);
-- **democratic participation** (correspondence with an MP or public body);
-- **professional correspondence** with significant consequences.
-
-Two further rights are engaged where triage suppresses or distorts correspondence:
-
-- **Article 8 ECHR** — the right to respect for private correspondence;
+- **Equality Act 2010 (ss.20–21)** — where email is a reasonable adjustment and
+  the only accessible channel, triage that buries or mischaracterises that
+  correspondence — or the volume it produces — engages the duty directly.
+- **Article 8 ECHR** — the right to respect for private correspondence.
 - **Article 10 ECHR** — freedom of expression, which includes the freedom to
   *impart* information to a recipient.
+
+The position under **Articles 22A–22D UK GDPR** (as amended by the Data (Use and
+Access) Act 2025, in force 5 February 2026) is narrower and more
+context-dependent, and is stated here with that discipline. Article 22 governs
+decisions *about an individual*, based solely on automated processing, that
+produce legal or similarly significant effects — a deliberately high bar built
+for decisions such as credit, benefits, and enforcement. Ordinary inbox ordering
+will not usually meet it. Triage credibly engages Article 22 only in specific
+contexts where the effect is significant — for example where it suppresses or
+materially delays:
+
+- **legal correspondence** (service, deadlines, disputes);
+- **correspondence with an MP or public body** (democratic participation);
+- **professional correspondence** with significant consequences.
+
+Claimed indiscriminately, the Article 22 argument weakens. Claimed precisely — in
+those contexts, and especially alongside an accessibility duty — it holds. The
+framework is a precision instrument; applied to communications, that discipline
+matters more, not less.
 
 ## 5. A live documented NULL finding chain
 

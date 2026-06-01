@@ -85,7 +85,7 @@ exact.
 - **Sector:** Communications Infrastructure
 - **Status:** **NULL** (structural — no named human reviewer by design)
 - **Finding basis:** Automated processing of correspondence without individual human review, affecting legal rights, democratic participation, and personal communications. Examples include Google Priority Inbox, Microsoft Copilot for Outlook, SaneBox, Superhuman, and Front.
-- **Regulatory exposure:** Articles 22A–22D UK GDPR (DUAA 2025); Article 10 ECHR (freedom of expression); Article 8 ECHR (right to private correspondence).
+- **Regulatory exposure:** Equality Act 2010 ss.20–21 and Article 8 ECHR (private correspondence) where email is a reasonable adjustment; Article 10 ECHR (freedom to impart information); and Articles 22A–22D UK GDPR (DUAA 2025) in the specific contexts where triage produces significant effects (legal correspondence, MP/public-body correspondence, significant professional correspondence) — not as a blanket claim.
 - **Certification pathway:** Tier 2 for organisations operating email-management platforms commercially; Tier 3 (free) for public-sector bodies using triage systems to manage constituent correspondence.
 - **Full analysis:** [`docs/applications/email-triage-adm.md`](../docs/applications/email-triage-adm.md)
 

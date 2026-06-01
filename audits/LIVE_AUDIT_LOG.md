@@ -73,6 +73,24 @@ Seven institutions have live formal proceedings beyond initial correspondence:
 
 ---
 
+## SECTOR-LEVEL / STRUCTURAL FINDINGS
+
+Some NULL findings are structural — they arise by design across an entire class
+of system rather than from one institution's handling of a single case. They are
+recorded here separately so the institution-by-institution count above stays
+exact.
+
+### Email Triage Systems
+
+- **Sector:** Communications Infrastructure
+- **Status:** **NULL** (structural — no named human reviewer by design)
+- **Finding basis:** Automated processing of correspondence without individual human review, affecting legal rights, democratic participation, and personal communications. Examples include Google Priority Inbox, Microsoft Copilot for Outlook, SaneBox, Superhuman, and Front.
+- **Regulatory exposure:** Articles 22A–22D UK GDPR (DUAA 2025); Article 10 ECHR (freedom of expression); Article 8 ECHR (right to private correspondence).
+- **Certification pathway:** Tier 2 for organisations operating email-management platforms commercially; Tier 3 (free) for public-sector bodies using triage systems to manage constituent correspondence.
+- **Full analysis:** [`docs/applications/email-triage-adm.md`](../docs/applications/email-triage-adm.md)
+
+---
+
 ## NOTES
 
 **SOVEREIGN count: 0.** No institution audited has been able to demonstrate that a named, competent human being personally applied their mind to the specific facts of Lewis James Burgess's case before exercising institutional power over him.

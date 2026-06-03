@@ -1,0 +1,38 @@
+Institution,Sector,Finding,Score,D1,D2,D3,D4,D5,Status,Key Reference
+E.ON Next / E.ON Field Debt Solutions,Energy,NULL,1/20,0,0,0,1,0,Litigation active. Billing challenge filed June 2026.,EG021819-26 / Application 11160-544079
+HMCTS / Birmingham Magistrates Court,Courts,NULL,1/20,1,0,0,0,0,Admission documented. Justice Committee written evidence submitted May 2026.,HMCTS complaint 80553951
+British Gas / Centrica,Energy,NULL,3/20,0,0,1,1,1,DSAR overdue. Holding response challenged June 2026.,EG054013-26 / Account 602181316
+Darlington Borough Council,Local Government,NULL,3/20,0,0,2,0,1,TPT appeal DK00003-2605 filed. LGO 26000967 published without human consideration.,LGO 26000967 / TPT DK00003-2605
+Equita Ltd,Enforcement Agent,NULL (provisional),1/20,0,0,1,0,0,"£3,008.82 disputed. Liability Orders not produced. Enforcement Conduct Board notified June 2026.",Case ID 24650546
+Equifax,Credit Reference,NULL,1/20,0,0,1,0,0,ICO complaint ready to file.,Durkin v DSG Retail applicable
+Northumbrian Water,Utilities,NULL,2/20,1,0,1,0,0,DSAR deadline passed.,CCJ L7EC1P3M
+Wave Utilities,Utilities,SOVEREIGN,16/20,4,4,3,4,1,Resolved — both accounts £0.00. £795.14 removed. Template SOVEREIGN outcome.,Full case study CASE_STUDY_WAVE.md
+iC&R,Debt Collection,NULL,3/20,2,0,1,0,0,Pulled back by Wave on resolution.,
+Trading 212 UK Ltd,Financial Services,NULL,2/20,1,0,1,0,0,ICO complaint active.,
+Apple Inc.,Technology,NULL,1/20,0,0,1,0,0,Pattern letter IC-4999654-T1Q8.,
+Phonak / Sonova UK Ltd,Medical Device,NULL,1/20,0,0,1,0,0,ICO + MHRA dual track active.,CEC 253215 / MHRA FOI2026/00527
+TV Licensing / BBC,Public Broadcaster,Partial Sovereign,12/20,3,2,3,3,1,Enforcement ceased on record correction.,DSAR pending
+X / Twitter,Technology,NULL,0/20,0,0,0,0,0,Complete non-response.,DSAR overdue
+Vanquis Bank,Financial Services,NULL,2/20,1,0,1,0,0,FOS window open until September 2026.,
+Palantir,Technology,Clean Negative,N/A,,,,,,No records found. Proper institutional response.,
+HMPO,Government,NULL (provisional),1/20,0,0,1,0,0,DSAR overdue.,
+Reddit Inc.,Technology,NULL,1/20,0,0,1,0,0,Account restricted without human review.,UK GDPR Article 22
+UK Home Office,Government,NULL (provisional),2/20,0,0,2,0,0,FOI and DSAR active. Internal review filed June 2026 re Kanye West/Ye entry refusal.,FOI2026/05301 / FOI2026/05685
+Information Commissioner's Office,Regulator,NULL,1/20,0,0,1,0,0,Pre-Action Protocol issued.,IC-4999654-T1Q8
+HM Treasury,Government,Pending,1/20,0,0,1,0,0,FOI acknowledged.,FOI2026/08366
+Cabinet Office,Government,Pending,1/20,0,0,1,0,0,FOI acknowledged.,FOI2026/07744 / FOI2026/07733
+Food Standards Agency,Government,Pending,4/20,1,0,3,0,0,Substantive response received.,
+OpenAI Ireland Limited,Technology,NULL,1/20,0,0,1,0,0,ICO complaint filed.,
+Energy Ombudsman,Ombudsman,NULL,1/20,0,0,1,0,0,Both rulings declined. Disability omitted.,EG021819-26 / EG037844-26
+Ofgem,Regulator,NULL (provisional),1/20,0,0,1,0,0,Formal complaint filed.,
+MHRA,Healthcare Regulator,NULL (provisional),1/20,0,0,1,0,0,FOI2026/00527 active. Dual track ICO + MHRA.,CEC 253215
+CDDFT ENT Audiology,NHS,NULL (Accessibility),0/20,0,0,0,0,0,No working email route.,
+NHS England AI Directorate,NHS,NULL (Accessibility),0/20,0,0,0,0,0,Email bounced.,
+DHSC,Government,NULL (Accessibility),0/20,0,0,0,0,0,Email bounced.,
+AI and Digital Regulations Service,Government,NULL (Accessibility),0/20,0,0,0,0,0,Email bounced.,
+Companies House,Government,Pending,,,,,,,Automated acknowledgement only.,COH2041148X
+Law Commission,Legal Reform,Engagement,,,,,,,Forwarded to Public Law team.,14th Programme of Law Reform
+VWFS Financial Crime Team,Financial Services,NULL,,,,,,,ICO complaint filed 1 June 2026.,IC-521371-M3C2 / DBC-3571-26
+Durham Constabulary,Police,NULL,,,,,,,Professional Standards complaint registered June 2026. Parliamentary Standards complaint PCS302 filed.,SAR 2309188 / IC-4999654-T1Q8
+Department for Business and Trade,Government,NULL,,,,,,,FOI confirmed zero records for WEF data verification. Internal review under consideration.,FOI2026/06561
+Lola McEvoy MP,Parliament,NULL,,,,,,,Parliamentary Standards complaint PCS302. Police attendance at constituent's home re lawful correspondence.,PCS302

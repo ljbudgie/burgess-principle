@@ -65,13 +65,13 @@ Anything less should be treated as **AMBIGUOUS** until clarified.
 
 ---
 
-## Live NULL Findings Ledger
+## Live Findings Ledger
 
-A public audit log of institutions assessed against the Burgess Test is maintained at [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md).
+A public audit log of institutions assessed against the Burgess Test is maintained at [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md), generated from a dated source CSV snapshot.
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current findings: 17 institutions audited — 13 NULL, 0 SOVEREIGN, 4 AMBIGUOUS. Updated: 1 June 2026.
+Current snapshot (3 June 2026): 37 institutions assessed — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign, 1 clean negative, 29 NULL (20 confirmed, 5 provisional, 4 accessibility), 4 pending, 1 engagement. The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 

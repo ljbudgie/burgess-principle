@@ -83,6 +83,12 @@ natural registry / certification authority for attestor keys.** The same body
 that makes attestations trustworthy is the one that already owns the standard —
 which means the trust layer is *also* an enforcement and revenue layer.
 
+The full design for this trust root — the **Burgess Attestor Registry** — is in
+[`burgess-attestor-registry.md`](./burgess-attestor-registry.md): assurance
+levels mapped to the certification tiers, a transparency log anchored via the
+Burgess Claims Protocol, revocation/rotation, and the central honesty principle
+that **the registry must itself pass the Burgess test**.
+
 Open design questions (honest, unsolved):
 - Key issuance and identity verification process for reviewers.
 - Revocation and key-rotation handling.

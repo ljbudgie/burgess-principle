@@ -25,6 +25,7 @@ the practical routes below rather than reading every file in this folder.
 | Document | What it is |
 | --- | --- |
 | [`applications/email-triage-adm.md`](./applications/email-triage-adm.md) | Email triage as automated decision-making — Communications Infrastructure NULL finding |
+| [`applications/null-hunter.md`](./applications/null-hunter.md) | Local-first, advisory scanner that flags SOVEREIGN/NULL/AMBIGUOUS language in institutional replies (module: `iris/null_hunter.py`) |
 | [`applications/burgess-witness-concept.md`](./applications/burgess-witness-concept.md) | **Concept / draft** — proposed hardware + cryptographic attestor device (non-repudiable named accountability). Not built; not a product. |
 
 ## What belongs here

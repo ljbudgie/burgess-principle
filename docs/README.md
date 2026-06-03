@@ -20,6 +20,13 @@ the practical routes below rather than reading every file in this folder.
 | Confirm what happens after certification payment | [`thank-you.html`](./thank-you.html) |
 | Read the agent transformation roadmap | [`AGENT_90_DAY_PLAN.md`](./AGENT_90_DAY_PLAN.md) |
 
+## Applications & concepts
+
+| Document | What it is |
+| --- | --- |
+| [`applications/email-triage-adm.md`](./applications/email-triage-adm.md) | Email triage as automated decision-making — Communications Infrastructure NULL finding |
+| [`applications/burgess-witness-concept.md`](./applications/burgess-witness-concept.md) | **Concept / draft** — proposed hardware + cryptographic attestor device (non-repudiable named accountability). Not built; not a product. |
+
 ## What belongs here
 
 - Static public pages used by the certification site.

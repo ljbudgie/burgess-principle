@@ -155,7 +155,8 @@ compromise the evidence-based core.
 A software-only **"NULL Hunter"** classifier — running locally inside/alongside
 Iris — that scans incoming institutional communications and flags
 SOVEREIGN / NULL / AMBIGUOUS language, then suggests the next Burgess question,
-is the pragmatic first build:
+is the pragmatic first build (**now implemented** — see
+[`null-hunter.md`](./null-hunter.md) and `iris/null_hunter.py`):
 
 - no identity or adoption problem;
 - runs on-device today;

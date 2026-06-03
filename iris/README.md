@@ -107,6 +107,24 @@ Burgess Test.
 
 ---
 
+## NULL Hunter (advisory signal scanner)
+
+Iris includes a local-first scanner ([`iris/null_hunter.py`](./null_hunter.py))
+that reads an institutional reply and flags the language patterns associated with
+**SOVEREIGN / NULL / AMBIGUOUS** classifications, then suggests the next Burgess
+step and routes to the right template.
+
+It is **advisory only** — the tool that hunts NULLs must not itself be a NULL.
+Every result is provisional, requires human confirmation, and lists the exact
+phrases it matched. It is pure standard library: no network, nothing leaves the
+device. See [`docs/applications/null-hunter.md`](../docs/applications/null-hunter.md).
+
+```bash
+pbpaste | python -m iris.null_hunter
+```
+
+---
+
 ## Iris Platform — Current Features (v2.5.1)
 
 Running locally. Next.js 16, Postgres, Docker, Ollama (graceful fallback).

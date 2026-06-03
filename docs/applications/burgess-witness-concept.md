@@ -11,7 +11,9 @@
 
 ## 1. What it is
 
-**Burgess Witness** (working name; "Sovereign Attestor") is a proposed small,
+**Burgess Witness** (working name; see the proposed
+[naming & lexicon note](./burgess-witness-naming.md) — family *Burgess Witness*,
+device *Signet*, act *Seal*) is a proposed small,
 open-source personal hardware device — a key-fob, wristband module, or USB-C
 token — that lets a **named human reviewer cryptographically sign an
 attestation** at the moment they take responsibility for a decision about an

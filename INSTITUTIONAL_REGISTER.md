@@ -1,6 +1,6 @@
 # Institutional Register — SOVEREIGN/NULL Compliance Record
 
-**Last updated: 27 April 2026**
+**Last updated: 3 June 2026**
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 
@@ -10,7 +10,7 @@ UK Certification Mark: UK00004343685
 
 This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding.
 
-As of 27 April 2026, all completed assessments except one returned a NULL finding. The sole SOVEREIGN finding (Wave Utilities — at point of resolution) demonstrates that the framework identifies compliance equally.
+As of 3 June 2026, the great majority of completed assessments returned a NULL finding. The framework records compliance equally: one full SOVEREIGN finding (Wave Utilities — resolved to £0.00), one partial sovereign (TV Licensing), and one clean negative (Palantir — no records held, a proper institutional response) sit alongside the NULL results.
 
 ---
 
@@ -32,22 +32,25 @@ As of 27 April 2026, all completed assessments except one returned a NULL findin
 
 ---
 
-## Summary Statistics (27 April 2026)
+## Summary Statistics (3 June 2026)
+
+*Finding counts are generated from the dated snapshot [`audits/2026-06-03_institutional_register.csv`](./audits/2026-06-03_institutional_register.csv); the full ledger is [`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md). Counts move as cases progress — treat the committed snapshot as authoritative. Engagement metrics marked "as at 27 Apr 2026" predate this snapshot.*
 
 | Metric | Count |
 | --- | --- |
 | Total institutions tested | 37 |
-| NULL findings (confirmed) | 19 |
+| NULL findings (confirmed) | 20 |
+| NULL findings (provisional) | 5 (Equita, HMPO, UK Home Office, Ofgem, MHRA) |
+| Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | Partial sovereign findings | 1 (TV Licensing) |
 | SOVEREIGN findings | 1 (Wave Utilities) |
-| Pending substantive assessment | 6 (HM Treasury, Cabinet Office, FSA, HMPO, Ofgem, MHRA) |
 | No data held (clean negative) | 1 (Palantir) |
-| Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
-| Parliamentary contacts documented | 9 |
-| Legal representation active | 2 (Deighton Pierce Glynn — referral sent 24 Apr; Hodge Jones & Allen — referral sent 24 Apr) |
-| Legal representation declined | 1 (capacity, 24 Apr 2026) |
-| Mean taxonomy score (scored institutions) | 2.5 / 20 |
-| NEW since last update | Equita Ltd, Companies House, Law Commission, Darlington Council Leader (Cllr Harker), DBC FOI DBC-3045-25 |
+| Pending substantive assessment | 4 (HM Treasury, Cabinet Office, FSA, Companies House) |
+| Constructive engagement | 1 (Law Commission) |
+| Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
+| Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
+| Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |
+| New since last update | VWFS Financial Crime Team, Durham Constabulary, Department for Business and Trade, Lola McEvoy MP |
 
 ---
 

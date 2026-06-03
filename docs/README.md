@@ -28,6 +28,7 @@ the practical routes below rather than reading every file in this folder.
 | [`applications/null-hunter.md`](./applications/null-hunter.md) | Local-first, advisory scanner that flags SOVEREIGN/NULL/AMBIGUOUS language in institutional replies (module: `iris/null_hunter.py`) |
 | [`applications/burgess-witness-concept.md`](./applications/burgess-witness-concept.md) | **Concept / draft** — proposed hardware + cryptographic attestor device (non-repudiable named accountability). Not built; not a product. |
 | [`applications/burgess-attestor-registry.md`](./applications/burgess-attestor-registry.md) | **Concept / draft** — identity & trust-root (CA) design for attestor keys; the registry must pass its own Burgess test. |
+| [`applications/burgess-witness-naming.md`](./applications/burgess-witness-naming.md) | **Proposed / draft** — naming & lexicon for the Witness: family *Burgess Witness*, device *Signet*, act *Seal*. |
 
 ## What belongs here
 

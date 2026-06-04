@@ -184,6 +184,12 @@ The protocol targets **EVM-compatible L2 chains** for low gas costs and broad to
 
 The contract is standard Solidity and can be deployed to any EVM chain.
 
+**For proof-of-existence anchoring** — the default for *evidence integrity*
+(findings ledger, attestations, registry transparency log) — see
+[`bitcoin-anchoring.md`](./bitcoin-anchoring.md): Bitcoin via OpenTimestamps,
+**no token, hash-only**. The EVM backend above remains for programmable
+composability; Bitcoin anchoring is for neutral, un-capturable timestamping.
+
 ---
 
 ## 8. Privacy Considerations

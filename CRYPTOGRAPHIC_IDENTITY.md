@@ -105,6 +105,25 @@ added in the off-chain canonical JSON preimage and receipt bundle:
 The chain still stores the compact fingerprint. Full identity material stays in
 the local vault or disclosed evidence bundle.
 
+### 3.4 Provenance edges (Accountability Provenance Graph)
+
+The same `did:key` + Ed25519 + VC profile signs **provenance edges** — the single
+new artefact that links findings, challenges, review outcomes, and key-events into
+the [Accountability Provenance Graph](./ACCOUNTABILITY_PROVENANCE_GRAPH.md). An edge
+is a named-human assertion that two artefacts (each addressed by its `sha256:`
+commitment) stand in a closed-vocabulary relationship, signed with the asserter's
+DID key and validated by
+[`schemas/provenance-edge-credential.v1.json`](./schemas/provenance-edge-credential.v1.json).
+
+The identity discipline carries straight over: an edge is SOVEREIGN-grade only
+where the asserter is a named human accountable for the link, the signing key
+resolves through their anchored key-event log (§10.4) as valid and unrevoked at the
+edge's `observedAt`, and any disclosed `evidenceHash` reasoning shows genuine
+individual consideration. Automation may *propose* edges
+(`confidence = proposed_unsigned`); it never signs one. Selective disclosure and
+zero-knowledge threshold proofs (§6) let a pattern be proven across institutions
+without exposing the underlying findings.
+
 ---
 
 ## 4. Minimal DID document example

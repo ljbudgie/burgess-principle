@@ -1,4 +1,4 @@
-# Burgess Claims Protocol — Specification v0.5.0
+# Burgess Claims Protocol — Specification v0.6.0
 
 > Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.
 
@@ -239,6 +239,55 @@ so operators SHOULD anchor the log head on every rotation or revocation. A verif
 resolving a finding walks the anchored key-event log to the head anchored at or
 before the finding/VC `validFrom` to confirm the signing key's status.
 
+### 2.7 Provenance Edges (Accountability Provenance Graph)
+
+Findings, challenges, review outcomes, key-events, and claims MAY be *linked* into
+provenance chains and graphs through the
+[Accountability Provenance Graph](../ACCOUNTABILITY_PROVENANCE_GRAPH.md). The graph
+introduces exactly one new artefact — a signed **provenance edge** — and no new
+node types: every node is an existing Burgess artefact addressed by the
+`sha256:<hex>` commitment the rest of this protocol already produces.
+
+An edge is a signed Verifiable Credential (`BurgessProvenanceEdgeCredential`) that
+commits to two node hashes (`from`, `to`), a closed-vocabulary relationship
+(`rel`), and an optional `evidenceHash` over the asserter's private reasoning.
+Schema:
+[`schemas/provenance-edge-credential.v1.json`](../schemas/provenance-edge-credential.v1.json).
+The relationship vocabulary (lineage: `supersedes`, `challenges`, `resolves`,
+`relies_on`, `escalates`; pattern: `same_decision_maker`, `same_institution`,
+`same_template`, `same_pattern`, `recurs_within`) is defined in the Accountability
+Provenance Graph §4. A `same_pattern` edge MUST carry a closed-vocabulary
+`patternTag`.
+
+On-chain or Bitcoin-anchored representation is hash-only:
+
+| Field | Type | Description |
+|---|---|---|
+| `fromHash` | bytes32 | `SHA-256` of the source node artefact (off-chain identifier) |
+| `toHash` | bytes32 | `SHA-256` of the target node artefact |
+| `rel` | string | Closed-vocabulary relationship; see Provenance Graph §4 |
+| `edgeCommitment` | bytes32 | `SHA-256` of the canonical Provenance Edge VC |
+| `asserterSignature` | bytes | Ed25519 signature over the edge commitment |
+| `clusterRoot` | bytes32 | Optional Merkle root over member edge hashes (for an anchored cluster claim) |
+
+An edge MUST NOT be anchored before *both* endpoints are anchored; an edge whose
+commitment predates either endpoint is anomalous and SHOULD be rejected. An edge
+MAY reuse the existing `respondToClaim` shape — treating the source node as the
+claim and the edge commitment as `responseCommitment` — or be recorded purely
+through Git + OpenTimestamps with no EVM transaction. The contract never asserts or
+adjudicates a link: every signed edge carries a named DID controller's signature,
+and the policy wrapper may only *propose* candidate edges (`confidence =
+proposed_unsigned`), never sign them. A verifier walks the asserter's key-event log
+(§2.6) to confirm the signing key was valid and unrevoked at the edge's
+`observedAt`.
+
+Systemic patterns are surfaced from *structure* (which opaque nodes are linked by
+which `rel`) without exposing facts. Stronger privacy uses blinded node aliases
+`SHA-256(nodeHash || edgeSalt)` and optional zero-knowledge threshold proofs over
+an anchored `clusterRoot` (e.g. "≥N findings share a `patternTag` across ≥K
+institutions") — optional profiles only; the base layer needs only SHA-256 and
+Ed25519.
+
 ---
 
 ## 3. Smart Contract Interface
@@ -338,6 +387,7 @@ If the claim originated from Sovereign Local Mode, the claimant may also pair th
 | `challenge` | Contesting a SOVEREIGN/NULL finding via the Dispute / Challenge Layer |
 | `review` | Recording a named human's review outcome (upheld/overturned/amended) |
 | `keyevent` | Recording a hash-only key rotation/revocation log head (see §2.6) |
+| `provenance` | Recording a hash-only provenance edge or cluster root linking findings/challenges/outcomes (see §2.7) |
 | `oversight` | Demanding human oversight of automated decisions |
 | `disclosure` | Data subject access or FOI requests |
 | `dao` | DAO governance disputes |
@@ -463,6 +513,7 @@ This specification is versioned independently from the Sovereign Vault:
 
 | Version | Status |
 |---|---|
+| v0.6.0 | Draft — adds provenance edges (Accountability Provenance Graph): hash-only typed links between findings/challenges/outcomes/key-events |
 | v0.5.0 | Draft — adds hash-only key lifecycle events (rotation/revocation/recovery) for sovereign key management |
 | v0.4.0 | Draft — adds Dispute / Challenge Layer (challenge + review-outcome commitments), hash-only |
 | v0.3.0 | Draft — adds DID/VC identity profile while preserving hashes-only on-chain storage |

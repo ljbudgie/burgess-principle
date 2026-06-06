@@ -1,4 +1,4 @@
-# Burgess Claims Protocol — Specification v0.3.0
+# Burgess Claims Protocol — Specification v0.4.0
 
 > Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.
 
@@ -157,6 +157,49 @@ A counterparty may respond to a claim:
 | `responseCommitment` | bytes32 | SHA-256 hash of the response details |
 | `responderSignature` | bytes | Signature from the responding party |
 
+### 2.5 Challenge and Review Outcome (Dispute / Challenge Layer)
+
+A SOVEREIGN/NULL finding MAY be contested through the
+[Dispute / Challenge Layer](../DISPUTE_CHALLENGE_LAYER.md). Challenges and their
+resolutions are represented exactly like claims and responses: full content stays
+off-chain (committed by hash), and public ledgers or anchors receive only the
+`sha256:<hex>` commitment to the relevant Verifiable Credential.
+
+Two off-chain credential types carry the detail:
+
+- **`BurgessChallengeCredential`** — links the original finding by `vcHash`,
+  states closed-vocabulary `grounds`, and commits to the challenger's written
+  statement by `statementHash`. Schema:
+  [`schemas/challenge-credential.v1.json`](../schemas/challenge-credential.v1.json).
+- **`BurgessReviewOutcomeCredential`** — links the challenge by `challengeHash`,
+  records a named human's `outcome` (`UPHELD` / `OVERTURNED` / `AMENDED`), and
+  commits to the reviewer's reasoning by `reasoningHash`. Schema:
+  [`schemas/review-outcome-credential.v1.json`](../schemas/review-outcome-credential.v1.json).
+
+On-chain or Bitcoin-anchored representation (hash-only):
+
+| Field | Type | Description |
+|---|---|---|
+| `findingId` | string/URN | The finding being contested (off-chain identifier) |
+| `challengeCommitment` | bytes32 | `SHA-256` of the canonical Challenge VC |
+| `challengerSignature` | bytes | Ed25519 signature over the challenge commitment |
+| `grounds` | string | Closed-vocabulary ground(s); see Dispute Layer §4.2 |
+| `outcomeCommitment` | bytes32 | `SHA-256` of the canonical Review Outcome VC (set when resolved) |
+| `reviewerSignature` | bytes | Ed25519 signature over the outcome commitment |
+| `state` | string | `CHALLENGED` \| `UNDER_REVIEW` \| `UPHELD` \| `OVERTURNED` \| `AMENDED` \| `ESCALATED` \| `WITHDRAWN` \| `EXPIRED` |
+| `window` | uint256 | Optional close timestamp for time-bounded disputes (0 = none) |
+
+A challenge MAY reuse the existing `respondToClaim` shape — treating the original
+finding as the claim and the challenge commitment as `responseCommitment` — or be
+recorded purely through Git + OpenTimestamps with no EVM transaction. The contract
+never adjudicates: it stores fingerprints and signatures only, and the
+`UPHELD`/`OVERTURNED`/`AMENDED` decision is always a named human's signed VC.
+
+Independence rule (enforced off-chain, surfaced in the VC): the reviewer who signs
+the outcome MUST NOT be the challenger. The `independence` object in the Review
+Outcome VC records `reviewerIsChallenger` and `reviewerIsIssuer` so any verifier
+can check it.
+
 ---
 
 ## 3. Smart Contract Interface
@@ -253,6 +296,8 @@ If the claim originated from Sovereign Local Mode, the claimant may also pair th
 |---|---|
 | `enforcement` | Challenging automated enforcement actions |
 | `dispute` | General disputes with institutions |
+| `challenge` | Contesting a SOVEREIGN/NULL finding via the Dispute / Challenge Layer |
+| `review` | Recording a named human's review outcome (upheld/overturned/amended) |
 | `oversight` | Demanding human oversight of automated decisions |
 | `disclosure` | Data subject access or FOI requests |
 | `dao` | DAO governance disputes |
@@ -378,6 +423,7 @@ This specification is versioned independently from the Sovereign Vault:
 
 | Version | Status |
 |---|---|
+| v0.4.0 | Draft — adds Dispute / Challenge Layer (challenge + review-outcome commitments), hash-only |
 | v0.3.0 | Draft — adds DID/VC identity profile while preserving hashes-only on-chain storage |
 | v0.2.0 | Draft — aligned with v1.3.0 local-first workflows and canonical JSON commitments |
 | v0.1.0 | Historical draft — original concatenation-based commitment preimage |

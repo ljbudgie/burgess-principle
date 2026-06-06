@@ -79,6 +79,41 @@ self-asserted.
 - The **Attestor Registry transparency log** head, periodically — so issuance and
   revocation cannot be secretly backdated.
 
+### Git commit anchoring (BGSP)
+
+The [Burgess Git Sovereignty Protocol](../protocols/burgess-git-sovereignty.md)
+makes each decision a signed `burgess:` commit. The same OpenTimestamps machinery
+anchors those decisions, extending anchoring from evidence *files* to *decisions*:
+
+- A **single commit hash** — proves one signed SOVEREIGN/NULL decision existed,
+  unaltered, at a point in time. The commit hash is already a SHA over the
+  decision and (for signed commits) its signature, so it is anchorable as-is.
+- A **tree root or tag** — proves the state of an entire decision ledger at a
+  date (e.g. a dated snapshot of `examples/decision-ledger/`).
+
+Walkthrough:
+
+```bash
+# Resolve the object to anchor: a commit, or a tree root for a whole ledger.
+git rev-parse HEAD              # one decision
+git rev-parse HEAD^{tree}       # the ledger state
+
+# Stamp that 40/64-hex object id (hash-only — no commit contents leave the repo):
+echo -n "<object-id>" > decision.txt
+ots stamp decision.txt          # OpenTimestamps; yields decision.txt.ots
+
+# Later, anyone verifies existence-at-time against Bitcoin:
+ots verify decision.txt.ots
+```
+
+Record the resulting proof reference in the commit's optional `Burgess-Anchor`
+trailer (added via `git notes` or an amend, since the `.ots` proof only exists
+after the commit does). The discipline is unchanged: the chain sees a **commit
+hash**, never the decision facts — those stay in the Vault under selective
+disclosure (BGSP §7). Anchoring proves the **signed decision existed at time T**;
+the signature proves **who**; the payload digest proves **over which facts**.
+None of it proves the decision was correct.
+
 ## 6. Honest limits
 
 - OpenTimestamps proves *existence and integrity*, not authorship or truth; pair it

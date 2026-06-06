@@ -513,12 +513,41 @@ This specification is versioned independently from the Sovereign Vault:
 
 | Version | Status |
 |---|---|
+| v0.7.0 | Draft — adds Git commit anchoring for the Burgess Git Sovereignty Protocol (anchor signed `burgess:` commit hashes / tree roots, hash-only) |
 | v0.6.0 | Draft — adds provenance edges (Accountability Provenance Graph): hash-only typed links between findings/challenges/outcomes/key-events |
 | v0.5.0 | Draft — adds hash-only key lifecycle events (rotation/revocation/recovery) for sovereign key management |
 | v0.4.0 | Draft — adds Dispute / Challenge Layer (challenge + review-outcome commitments), hash-only |
 | v0.3.0 | Draft — adds DID/VC identity profile while preserving hashes-only on-chain storage |
 | v0.2.0 | Draft — aligned with v1.3.0 local-first workflows and canonical JSON commitments |
 | v0.1.0 | Historical draft — original concatenation-based commitment preimage |
+
+---
+
+## 13. Git commit anchoring (BGSP)
+
+The [Burgess Git Sovereignty Protocol](../protocols/burgess-git-sovereignty.md)
+represents each act of power as a signed `burgess:` commit whose
+`Burgess-Payload-SHA256` uses the **same canonical sorted-key JSON SHA-256** as
+§2.2 of this spec — so a BGSP decision and an on-chain claim commit to facts
+identically and interchangeably.
+
+Anchoring a decision is the file-anchoring flow
+([`bitcoin-anchoring.md`](./bitcoin-anchoring.md)) applied to a Git object id:
+
+1. **Select** the object: a commit hash (one decision) or a tree root / tag (a
+   whole decision ledger snapshot).
+2. **Stamp** that hex object id via OpenTimestamps — hash-only, no commit
+   contents leave the repo.
+3. **Store** the `.ots` proof alongside the ledger; optionally record it in the
+   commit's `Burgess-Anchor` trailer (via `git notes` or amend).
+4. **Verify** later against Bitcoin — proving the signed decision existed,
+   unaltered, at that block's time.
+
+Selective-disclosure verification mirrors §5.2: the holder reveals one subject's
+`{action, facts, subject}`, the verifier recomputes the canonical SHA-256, and
+compares it to the commit's `Burgess-Payload-SHA256`. The anchor proves
+existence-at-time; the commit signature proves the named human; neither proves
+the decision was correct.
 
 ---
 

@@ -26,6 +26,7 @@ The behavioural and procedural rules of Iris are documented in [`core/`](./core)
 - [`core/context-layers.md`](./core/context-layers.md) — Layer 1 (universal, zero context) and Layer 2 (personal, accretive). Layer 1 is always sufficient on its own.
 - [`core/institutional-patterns.md`](./core/institutional-patterns.md) — the recurring patterns Iris recognises across institutional failures, with the binary test reading and recommended challenge route for each.
 - [`core/sovereignty.md`](./core/sovereignty.md) — the boundary between Iris as infrastructure and the user as the decision-maker.
+- [`core/burgess-commits.md`](./core/burgess-commits.md) — how Iris drafts and proposes `burgess:` commits (BGSP) and walks a named human through signing — Iris drafts NULL, it never signs.
 
 The canonical Iris persona prompt lives in [`./system-prompt.md`](./system-prompt.md). It inherits the repository-wide [`prompts/MASTER_PROMPT.md`](../prompts/MASTER_PROMPT.md) v1.1, which in turn inherits [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) v3.3. That inheritance carries the Part 2 NULL declaration, the seven evasion patterns, the anti-monetisation guardrails, the Mythos routing, and the Pre-Send Self-Check into Iris without duplication. Iris itself is not a named human reviewer.
 

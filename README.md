@@ -199,6 +199,7 @@ site at [certify.theburgessprinciple.com](https://certify.theburgessprinciple.co
 | Area | Link | What it is for |
 | --- | --- | --- |
 | Case studies | [case-studies/](./case-studies/) | Public examples of the test applied to real situations. |
+| Accountability Provenance Graph | [ACCOUNTABILITY_PROVENANCE_GRAPH.md](./ACCOUNTABILITY_PROVENANCE_GRAPH.md) | Hash-only signed edges linking findings, challenges, and outcomes into provenance chains that surface systemic NULL patterns without exposing data. |
 | Dispute / Challenge Layer | [DISPUTE_CHALLENGE_LAYER.md](./DISPUTE_CHALLENGE_LAYER.md) | Minimalist, hash-only process for contesting a SOVEREIGN or NULL finding. |
 | Docs | [docs/README.md](./docs/README.md) | Certification-site files, project planning, and supporting documentation. |
 | Enforcement | [enforcement/](./enforcement/) | Sovereign Vault and technical enforcement tools. |

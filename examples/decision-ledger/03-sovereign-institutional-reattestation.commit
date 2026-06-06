@@ -1,0 +1,21 @@
+# bgsp-meta: example decision-ledger commit (illustrative; signature is simulated)
+# signature-status: G
+# signer: J. Okafor <j.okafor@example-lender.co.uk>
+# commit-id: 03-sovereign-institutional-reattestation
+burgess(credit): re-open declined application for individual review
+
+This commit forks the NULL automated decline (01-null-automated-credit) and
+applies sovereign review: a named, authorised officer individually considered
+the specific facts of this specific customer's case. Naming the NULL decision as
+Burgess-Parent heals the decision chain from this point forward.
+
+Facts considered: Customer complaint 2026-06-04; original decline was automated (NULL); officer reviewed income evidence, bank statements Apr-Jun 2026, and prior repayment history
+
+Burgess-Principle: One question: was a human mind with proper authority individually applied to the specific facts of this specific person's case? SOVEREIGN or NULL.
+Burgess-Subject: subject:credit:9b21d4a0
+Burgess-Authority: J. Okafor, Senior Credit Officer (delegated lending authority, ref DLA-2241)
+Burgess-Review: I individually reviewed the specific facts of this specific case and apply my own authority to the action above.
+Burgess-Action: Re-open credit application for individual decision; offer review meeting
+Burgess-Payload-SHA256: f8da0c983267bc84b2771abbbd88080fdbb66cb4d8fd46bda20b08c5d792ccb8
+Burgess-Parent: 01-null-automated-credit
+Burgess-Classification: SOVEREIGN

@@ -1,0 +1,16 @@
+# bgsp-meta: example decision-ledger commit (illustrative; not a real signature)
+# signature-status: N
+# signer:
+# commit-id: 01-null-automated-credit
+burgess(credit): decline application via automated affordability model
+
+Facts considered: Application 2026-06-01; automated affordability model score 412 < threshold 500; no manual review
+
+Burgess-Principle: One question: was a human mind with proper authority individually applied to the specific facts of this specific person's case? SOVEREIGN or NULL.
+Burgess-Subject: subject:credit:9b21d4a0
+Burgess-Authority: automated affordability engine v7 (no named human)
+Burgess-Review: None. Decision produced by automated model; no individual human review of this case.
+Burgess-Action: Decline credit application; close account to new lending
+Burgess-Payload-SHA256: 07d430a3bb215117900c8ebdc8edfaf95ca86fa882a02352e89dadc01e10084d
+Burgess-Parent: none
+Burgess-Classification: NULL

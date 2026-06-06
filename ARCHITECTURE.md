@@ -97,3 +97,16 @@ It does **not** change the Burgess Principle itself:
 - AI remains advisory,
 - cryptography proves record integrity, not legal truth,
 - exported receipts support human accountability rather than replacing it.
+
+---
+
+## Git Sovereignty Layer (BGSP)
+
+The [Burgess Git Sovereignty Protocol](protocols/burgess-git-sovereignty.md)
+sits on top of this ledger and makes the Git commit the native primitive for the
+SOVEREIGN / NULL test. The Verifiable Memory Palace holds the **facts** behind
+each decision; BGSP commits only the `Burgess-Payload-SHA256` **digest** of those
+facts to Git history, preserving the same selective-disclosure and hash-only
+discipline described above. See
+[`git-sovereignty/ARCHITECTURE.md`](git-sovereignty/ARCHITECTURE.md) for how the
+layers relate.

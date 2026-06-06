@@ -1,0 +1,16 @@
+# bgsp-meta: example decision-ledger commit (illustrative; signature is simulated)
+# signature-status: G
+# signer: Dr A. Reviewer <a.reviewer@example-clinic.nhs.uk>
+# commit-id: 02-sovereign-openhear-fitting
+burgess(openhear): approve left-ear OpenHear fitting at prescribed gain
+
+Facts considered: Audiogram 2026-05-30: left moderate sensorineural loss; patient consents; no contraindication on otoscopy
+
+Burgess-Principle: One question: was a human mind with proper authority individually applied to the specific facts of this specific person's case? SOVEREIGN or NULL.
+Burgess-Subject: subject:openhear:7f3a9c1e
+Burgess-Authority: Dr A. Reviewer, HCPC-registered clinical audiologist (clinical authority)
+Burgess-Review: I individually reviewed the specific facts of this specific case and apply my own authority to the action above.
+Burgess-Action: Approve OpenHear left-ear fitting at prescribed gain profile
+Burgess-Payload-SHA256: 63b24d9753a48f6ad65367beee221ba3fcafad5f258a262153c671da5508a32c
+Burgess-Parent: none
+Burgess-Classification: SOVEREIGN

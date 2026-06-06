@@ -1,4 +1,4 @@
-# Burgess Claims Protocol — Specification v0.4.0
+# Burgess Claims Protocol — Specification v0.5.0
 
 > Lightweight on-chain protocol for issuing, storing, and verifying Burgess Claims as immutable, cryptographically signed commitment fingerprints.
 
@@ -200,6 +200,45 @@ the outcome MUST NOT be the challenger. The `independence` object in the Review
 Outcome VC records `reviewerIsChallenger` and `reviewerIsIssuer` so any verifier
 can check it.
 
+### 2.6 Key Lifecycle Events (rotation / revocation)
+
+`did:key` identifiers cannot mutate in place, so key rotation and revocation are
+expressed as signed events in an append-only **key-event log** held locally by the
+operator. This keeps sovereign key management (see
+[`CRYPTOGRAPHIC_IDENTITY.md` §10](../CRYPTOGRAPHIC_IDENTITY.md)) entirely
+local-first and free of any registry, custodian, or new chain, while still giving
+verifiers an auditable answer to "was this key valid and unrevoked when it signed?".
+
+Each event is a small JSON object signed by the key authoritative at event time and
+validated by
+[`schemas/key-event-credential.v1.json`](../schemas/key-event-credential.v1.json):
+
+| Event | Signed by | Meaning |
+|---|---|---|
+| `KeyBirth` | the new key (self-signed) | Establishes a DID |
+| `KeyRotation` | the *outgoing* key | Marks succession to a new DID (`supersedesDid`) |
+| `KeyRevocation` | the authoritative key (or reconstituted threshold) | Retires a key/DID with a `reason` code |
+| `KeyRecovery` | the restored key | Records a restore for the audit trail |
+
+Each event references the **previous log head** (`prev`), forming a SHA-256 hash
+chain back to `KeyBirth`. On-chain or Bitcoin-anchored representation is hash-only:
+
+| Field | Type | Description |
+|---|---|---|
+| `did` | DID string | Controller asserted by the event (off-chain identifier) |
+| `eventCommitment` | bytes32 | `SHA-256` of the canonical key-event object |
+| `keyEventHead` | bytes32 | `SHA-256` of the resulting append-only log head |
+| `signature` | bytes | Ed25519 signature by the key authoritative at event time |
+| `event` | string | `KeyBirth` \| `KeyRotation` \| `KeyRevocation` \| `KeyRecovery` |
+
+The contract never stores keys, seeds, or DID documents. A rotation/revocation MAY
+reuse the existing `respondToClaim` shape — treating the key-event head as the
+`responseCommitment` — or be recorded purely through Git + OpenTimestamps with no
+EVM transaction. Timeliness of revocation equals the timeliness of the last anchor,
+so operators SHOULD anchor the log head on every rotation or revocation. A verifier
+resolving a finding walks the anchored key-event log to the head anchored at or
+before the finding/VC `validFrom` to confirm the signing key's status.
+
 ---
 
 ## 3. Smart Contract Interface
@@ -298,6 +337,7 @@ If the claim originated from Sovereign Local Mode, the claimant may also pair th
 | `dispute` | General disputes with institutions |
 | `challenge` | Contesting a SOVEREIGN/NULL finding via the Dispute / Challenge Layer |
 | `review` | Recording a named human's review outcome (upheld/overturned/amended) |
+| `keyevent` | Recording a hash-only key rotation/revocation log head (see §2.6) |
 | `oversight` | Demanding human oversight of automated decisions |
 | `disclosure` | Data subject access or FOI requests |
 | `dao` | DAO governance disputes |
@@ -423,6 +463,7 @@ This specification is versioned independently from the Sovereign Vault:
 
 | Version | Status |
 |---|---|
+| v0.5.0 | Draft — adds hash-only key lifecycle events (rotation/revocation/recovery) for sovereign key management |
 | v0.4.0 | Draft — adds Dispute / Challenge Layer (challenge + review-outcome commitments), hash-only |
 | v0.3.0 | Draft — adds DID/VC identity profile while preserving hashes-only on-chain storage |
 | v0.2.0 | Draft — aligned with v1.3.0 local-first workflows and canonical JSON commitments |

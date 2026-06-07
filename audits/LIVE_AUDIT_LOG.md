@@ -3,8 +3,8 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 3 June 2026
-**Source data:** [`audits/2026-06-03_institutional_register.csv`](./2026-06-03_institutional_register.csv) and [`audits/2026-06-03_live_audit_log.csv`](./2026-06-03_live_audit_log.csv) — this table is generated from those snapshots.
+**Updated:** 7 June 2026
+**Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
 full **SOVEREIGN** result (Wave Utilities) and a **clean negative** (Palantir —
@@ -56,6 +56,14 @@ not shame.
 | 35 | Durham Constabulary | Police | **NULL** | — | Professional Standards complaint registered June 2026. Parliamentary Standards complaint PCS302 filed — SAR 2309188 / IC-4999654-T1Q8 |
 | 36 | Department for Business and Trade | Government | **NULL** | — | FOI confirmed zero records for WEF data verification. Internal review under consideration — FOI2026/06561 |
 | 37 | Lola McEvoy MP | Parliament | **NULL** | — | Parliamentary Standards complaint PCS302. Police attendance at constituent's home re lawful correspondence — PCS302 |
+| 38 | NPCC | National Police Body | **NULL** | — | Submission filed 6 June 2026 re two-directional impartiality gap in APP guidance. Henry Nowak — CC Gavin Stephens |
+| 39 | College of Policing | Police Training Body | **NULL** | — | National training standards submission 6 June 2026. Henry Nowak / policing impartiality gap — Sir Andy Marsh |
+| 40 | APP Team (College of Policing) | Police Training Standards | **NULL** | — | Impartiality guidance gap — structural NULL confirmed in APP guidance. Submission 6 June 2026 |
+| 41 | IOPC | Police Oversight | **NULL** | — | Henry Nowak formal submission 6 June 2026 — Derrick Campbell |
+| 42 | Home Affairs Committee | Parliament | **NULL** | — | Written submission 6 June 2026 re two-directional impartiality gap in policing / Henry Nowak — Dame Karen Bradley |
+| 43 | Hodge Jones & Allen LLP | Legal Services | **Engagement** | — | CPR 19.8 / Equality Act CFA enquiry 4 June 2026 — Susie Labinjoh |
+| 44 | E.ON Next DPO | Energy | **NULL** | — | Article 15(1)(h) request formally served 4 June 2026. Two first-name-only agents (Jessica / Riya) — no surnames, no job titles, automated triage pattern confirmed. Deadline 13 June 2026 — HMCTS 80553951 |
+| 45 | Fujitsu | Technology | **Pending** | — | Data protection enquiry |
 
 ---
 
@@ -63,18 +71,18 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total institutions assessed** | **37** |
+| **Total institutions assessed** | **45** |
 | **SOVEREIGN** | **1** (Wave Utilities) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
-| **NULL — confirmed** | **20** |
+| **NULL — confirmed** | **26** |
 | **NULL — provisional** | **5** |
 | **NULL — accessibility** (no working contact route) | **4** |
-| **Pending** substantive assessment | **4** |
-| **Engagement** (constructive) | **1** |
+| **Pending** substantive assessment | **5** |
+| **Engagement** (constructive) | **2** |
 
-NULL findings of all kinds total **29**. Counts move as cases progress — this is a
-snapshot dated 3 June 2026, generated from the source CSVs above; treat the
+NULL findings of all kinds total **35**. Counts move as cases progress — this is a
+snapshot dated 7 June 2026, generated from the source CSVs above; treat the
 committed snapshot, not any single number quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -82,9 +90,11 @@ committed snapshot, not any single number quoted elsewhere, as authoritative.
 | Sector | Count |
 |---|---|
 | Government | 9 |
-| Technology | 5 |
+| Police / Policing Bodies | 5 |
+| Technology | 6 |
 | Financial Services | 3 |
-| Energy | 2 |
+| Energy | 3 |
+| Parliament | 2 |
 | Utilities | 2 |
 | Regulator | 2 |
 | NHS | 2 |
@@ -98,17 +108,17 @@ committed snapshot, not any single number quoted elsewhere, as authoritative.
 | Ombudsman | 1 |
 | Healthcare Regulator | 1 |
 | Legal Reform | 1 |
-| Police | 1 |
-| Parliament | 1 |
+| Legal Services | 1 |
 
-### Notable live proceedings (3 June 2026)
+### Notable live proceedings (7 June 2026)
 
-- **E.ON Next** — HMCTS claim 80553951 (active litigation); billing challenge filed 3 June.
-- **Darlington BC** — TPT appeal DK00003-2605; LGO 26000967 published "without human consideration".
-- **VWFS Financial Crime Team** — ICO complaint IC-521371-M3C2 registered 1 June.
+- **E.ON Next** — HMCTS claim 80553951 (active litigation); Article 15(1)(h) served on named DPO 4 June — agent surnames requested, system returned question to data subject. Deadline 13 June 2026.
+- **Darlington BC** — TPT appeal DK00003-2605 — supplementary submission 4 June; liability transfer document absent; Carolyn Pistellato conflict noted. Decision option deadline **11 June 2026**. LGO 26000967 published "without human consideration".
+- **VWFS / DBC** — ICO complaint IC-521371-M3C2 confirmed active; Lee Downey confirmed no DPA for VWFS data sharing; Prolific Offender label not disclosed in SAR.
 - **Durham Constabulary** — Professional Standards complaint (SAR 2309188) and Parliamentary Standards complaint PCS302.
 - **UK Home Office** — FOI/DSAR internal reviews filed (FOI2026/05301, FOI2026/05685).
 - **Equita Ltd** — enforcement notice; Enforcement Conduct Board CC'd.
+- **Henry Nowak / Policing Impartiality** — submissions filed 6 June 2026 to NPCC (CC Gavin Stephens), IOPC (Derrick Campbell), College of Policing (Sir Andy Marsh), APP Team, and Home Affairs Committee (Dame Karen Bradley) on two-directional impartiality gap in policing training standards. Structural NULL confirmed in APP guidance.
 
 ---
 

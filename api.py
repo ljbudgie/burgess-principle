@@ -44,7 +44,7 @@ from verify_scrutiny import assess_scrutiny, verify_instrument
 app = FastAPI(
     title="Burgess Principle Binary Test",
     description="SOVEREIGN / NULL verification API with optional on-chain claims support.",
-    version="2.5.1",
+    version="2.5.2",
 )
 
 

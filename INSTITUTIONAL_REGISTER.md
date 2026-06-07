@@ -1,6 +1,6 @@
 # Institutional Register — SOVEREIGN/NULL Compliance Record
 
-**Last updated: 3 June 2026**
+**Last updated: 7 June 2026**
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 
@@ -10,7 +10,7 @@ UK Certification Mark: UK00004343685
 
 This register documents every institution that has been tested under The Burgess Principle — a constitutional compliance standard protected by UK Certification Mark UK00004343685. Each institution was asked a single question: was a human mind with proper authority individually applied to the specific facts of the specific case before enforcement action was taken against the individual? The register records the sector, the question asked, the institution's response (or silence), and the resulting SOVEREIGN or NULL finding.
 
-As of 3 June 2026, the great majority of completed assessments returned a NULL finding. The framework records compliance equally: one full SOVEREIGN finding (Wave Utilities — resolved to £0.00), one partial sovereign (TV Licensing), and one clean negative (Palantir — no records held, a proper institutional response) sit alongside the NULL results.
+As of 7 June 2026, the great majority of completed assessments returned a NULL finding. The framework records compliance equally: one full SOVEREIGN finding (Wave Utilities — resolved to £0.00), one partial sovereign (TV Licensing), and one clean negative (Palantir — no records held, a proper institutional response) sit alongside the NULL results.
 
 ---
 
@@ -32,25 +32,25 @@ As of 3 June 2026, the great majority of completed assessments returned a NULL f
 
 ---
 
-## Summary Statistics (3 June 2026)
+## Summary Statistics (7 June 2026)
 
-*Finding counts are generated from the dated snapshot [`audits/2026-06-03_institutional_register.csv`](./audits/2026-06-03_institutional_register.csv); the full ledger is [`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md). Counts move as cases progress — treat the committed snapshot as authoritative. Engagement metrics marked "as at 27 Apr 2026" predate this snapshot.*
+*Finding counts are generated from the dated snapshot [`audits/2026-06-07_institutional_register.csv`](./audits/2026-06-07_institutional_register.csv); the full ledger is [`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md). Counts move as cases progress — treat the committed snapshot as authoritative. Engagement metrics marked "as at 27 Apr 2026" predate this snapshot.*
 
 | Metric | Count |
 | --- | --- |
-| Total institutions tested | 37 |
-| NULL findings (confirmed) | 20 |
+| Total institutions tested | 45 |
+| NULL findings (confirmed) | 26 |
 | NULL findings (provisional) | 5 (Equita, HMPO, UK Home Office, Ofgem, MHRA) |
 | Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | Partial sovereign findings | 1 (TV Licensing) |
 | SOVEREIGN findings | 1 (Wave Utilities) |
 | No data held (clean negative) | 1 (Palantir) |
-| Pending substantive assessment | 4 (HM Treasury, Cabinet Office, FSA, Companies House) |
-| Constructive engagement | 1 (Law Commission) |
+| Pending substantive assessment | 5 (HM Treasury, Cabinet Office, FSA, Companies House, Fujitsu) |
+| Constructive engagement | 2 (Law Commission; Hodge Jones & Allen LLP) |
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
 | Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |
-| New since last update | VWFS Financial Crime Team, Durham Constabulary, Department for Business and Trade, Lola McEvoy MP |
+| New since last update | NPCC, College of Policing, APP Team, IOPC, Home Affairs Committee, Hodge Jones & Allen LLP, E.ON Next DPO, Fujitsu |
 
 ---
 
@@ -420,7 +420,7 @@ Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop un
 
 ---
 
-### 33. Durham Police — Pending ⭐ NEW ENTRY (from calendar)
+### 33. Durham Constabulary — NULL ⭐ UPDATED
 
 **Sector:** Police / Law Enforcement
 **SAR reference:** ref 2309188
@@ -433,6 +433,139 @@ Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop un
 | 0 | 0 | 1 | 0 | 0 | 1 / 20 (provisional) |
 
 **Context:** SAR connected to police attendance at complainant's home 30 March 2026 in connection with statutory correspondence — visit arranged following contact from Lola McEvoy MP's office. **⚠️ Deadline tomorrow — if no response, file ICO complaint immediately referencing IC-4999654-T1Q8.**
+
+---
+
+### 34. VWFS Financial Crime Team — NULL ⭐ UPDATED
+
+**Sector:** Financial Services
+**ICO reference:** IC-521371-M3C2 / DBC-3571-26
+
+**Finding:** NULL — Lee Downey (DBC-3571-26) confirmed in writing: no data processing agreement exists for VWFS data sharing. Article 6(1)(e) was cited but misapplied — sharing with a private finance company is not a task carried out in the public interest. The "Prolific Offender" label was communicated to VWFS without disclosure in the original SAR, constituting a transparency failure under Article 13–14 UK GDPR.
+**Status:** ICO complaint IC-521371-M3C2 confirmed active (1 June 2026). DBC data sharing track now separate from the VWFS billing/enforcement track.
+
+---
+
+### 35. Durham Constabulary — NULL ⭐ UPDATED
+
+**Sector:** Police
+**SAR reference:** SAR 2309188
+**Professional Standards complaint registered:** June 2026
+**Parliamentary Standards complaint:** PCS302
+
+**Finding:** NULL — Professional Standards complaint registered following police attendance at complainant's home on 30 March 2026 in connection with lawful statutory correspondence sent to Lola McEvoy MP's office. Parliamentary Standards complaint PCS302 filed. BWV footage confirms no wrongdoing by complainant.
+**Status:** Active — professional standards track and parliamentary track running concurrently.
+
+---
+
+### 36. Department for Business and Trade — NULL ⭐ UPDATED
+
+**Sector:** Government
+**FOI reference:** FOI2026/06561
+
+**Finding:** NULL — FOI confirmed zero records across entire DBT tenant for WEF data verification request.
+**Status:** Internal review under consideration.
+
+---
+
+### 37. Lola McEvoy MP — NULL ⭐ UPDATED
+
+**Sector:** Parliament
+**Complaint reference:** PCS302
+
+**Finding:** NULL — Parliamentary Standards complaint PCS302 filed. Police attendance at disabled constituent's home on 30 March 2026 following contact from MP's office re lawful statutory correspondence.
+**Status:** PCS302 active.
+
+---
+
+### 38. NPCC — NULL ⭐ NEW ENTRY (6 June 2026)
+
+**Sector:** National Police Body
+**Named contact:** CC Gavin Stephens
+**Date:** 6 June 2026
+**Subject:** Henry Nowak / two-directional impartiality gap in APP guidance on policing training standards
+
+**Finding:** NULL (structural) — submission filed identifying a structural gap in APP guidance on policing training standards: no equivalent impartiality standard applies in both directions. The binary test is not applied in APP training to cover both sets of circumstances equally. Named contact: CC Gavin Stephens.
+**Status:** Submission filed 6 June 2026. Awaiting response.
+
+---
+
+### 39. College of Policing — NULL ⭐ NEW ENTRY (6 June 2026)
+
+**Sector:** Police Training Body
+**Named contact:** Sir Andy Marsh (Chief Executive)
+**Date:** 6 June 2026
+**Subject:** National policing training standards / Henry Nowak / impartiality gap
+
+**Finding:** NULL (structural) — submission filed identifying the impartiality gap in national training standards published by the College of Policing. APP guidance does not address the two-directional impartiality standard equally. Named contact: Sir Andy Marsh.
+**Status:** Submission filed 6 June 2026. Awaiting response.
+
+---
+
+### 40. APP Team (College of Policing) — NULL ⭐ NEW ENTRY (6 June 2026)
+
+**Sector:** Police Training Standards
+**Date:** 6 June 2026
+**Subject:** Impartiality guidance gap in APP (Authorised Professional Practice)
+
+**Finding:** NULL (structural) — the APP guidance on impartiality in policing does not cover both directions of the standard equivalently. The structural gap has been confirmed and submitted formally.
+**Status:** Submission filed 6 June 2026. Awaiting response from APP Team.
+
+---
+
+### 41. IOPC — NULL ⭐ NEW ENTRY (6 June 2026)
+
+**Sector:** Police Oversight
+**Named contact:** Derrick Campbell (Director General)
+**Date:** 6 June 2026
+**Subject:** Henry Nowak formal submission / policing impartiality gap
+
+**Finding:** NULL (structural) — formal submission to IOPC re Henry Nowak / Hampshire Constabulary Inclusion Matters and the structural gap in APP guidance on policing impartiality. Named contact: Derrick Campbell.
+**Status:** Submission filed 6 June 2026. Awaiting response.
+
+---
+
+### 42. Home Affairs Committee — NULL ⭐ NEW ENTRY (6 June 2026)
+
+**Sector:** Parliament
+**Named contact:** Dame Karen Bradley (Chair)
+**Date:** 6 June 2026
+**Subject:** Written submission on two-directional impartiality gap in policing training / Henry Nowak
+
+**Finding:** NULL (structural) — written submission to the Home Affairs Committee re policing training standards and the impartiality gap in APP guidance. Named contact: Dame Karen Bradley (Chair). The structural gap confirmed in APP guidance is the finding; this submission is the escalation route.
+**Status:** Submission filed 6 June 2026.
+
+---
+
+### 43. Hodge Jones & Allen LLP — Engagement ⭐ UPDATED ENTRY (4 June 2026)
+
+**Sector:** Legal Services
+**Named contact:** Susie Labinjoh (solicitor)
+**Date:** 4 June 2026
+**Subject:** CPR 19.8 representative action / Equality Act CFA enquiry
+
+**Status:** Formal engagement — CPR 19.8 route and Equality Act conditional fee arrangement enquiry submitted to Susie Labinjoh, Hodge Jones & Allen, 4 June 2026. The firm previously auto-acknowledged the general referral (24 April 2026). This is a substantive new instruction enquiry. Awaiting response.
+
+---
+
+### 44. E.ON Next DPO — NULL ⭐ NEW ENTRY (4 June 2026)
+
+**Sector:** Energy
+**Date:** 4 June 2026
+**Subject:** Article 15(1)(h) request / named case handler / HMCTS 80553951
+**Statutory deadline:** 13 June 2026
+
+**Finding:** NULL — Article 15(1)(h) request formally served on E.ON's named Data Protection Officer 4 June 2026, requesting the identity (name and role) of every agent who handled the account. Correspondence pattern analysis preceding this request identified: two first-name-only agents (Jessica; Riya), no surnames, no job titles, and an identical response structure consistent with automated triage. When asked to provide the agent's surname, the E.ON system returned the question to the data subject asking for their own surname. This is a textbook automated-response pattern.
+**Status:** Article 15(1)(h) deadline 13 June 2026. Connected to HMCTS claim 80553951.
+
+---
+
+### 45. Fujitsu — Pending ⭐ NEW ENTRY
+
+**Sector:** Technology
+**Subject:** Data protection
+
+**Status:** Pending — data protection enquiry initiated. Awaiting substantive engagement.
 
 ---
 
@@ -540,6 +673,6 @@ To move from NULL to SOVEREIGN, the entity must provide:
 
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
 
-Last updated: 27 April 2026
+Last updated: 7 June 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685

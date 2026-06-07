@@ -10,6 +10,6 @@
     }
   },
   "env": {
-    "BURGESS_RELEASE_VERSION": "2.5.1"
+    "BURGESS_RELEASE_VERSION": "2.5.2"
   }
 }

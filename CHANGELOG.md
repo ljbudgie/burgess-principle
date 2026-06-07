@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.2 — June 2026
+
+### Added
+- Live findings ledger expanded from 37 to 45 institutions (7 June 2026 snapshot): NPCC, College of Policing, APP Team (College of Policing), IOPC, Home Affairs Committee, Hodge Jones & Allen LLP, E.ON Next DPO, Fujitsu
+- New dated source CSVs: `audits/2026-06-07_institutional_register.csv` and `audits/2026-06-07_live_audit_log.csv`
+- Four new audit log events (4–6 June 2026):
+  - DBC TPT DK00003-2605 supplementary submission — liability transfer document absent; Carolyn Pistellato conflict noted; decision option deadline 11 June
+  - E.ON Next Article 15(1)(h) served on named DPO — automated triage pattern confirmed (Jessica / Riya; no surnames; system returned question to data subject)
+  - DBC / VWFS ICO complaint IC-521371-M3C2 confirmed active — Lee Downey: no DPA, Article 6(1)(e) misapplied, Prolific Offender label undisclosed
+  - Henry Nowak / policing impartiality — submissions to 5 bodies (NPCC, IOPC, College of Policing, APP Team, Home Affairs Committee); structural NULL in APP guidance confirmed
+- DBC Accountability Audit File produced (12-section formal document)
+- HJA intake submission (7-section document; Route A/B bifurcation)
+- Live site launched: [theburgessprinciple.framer.website](https://theburgessprinciple.framer.website)
+- Second SSRN paper published: *The Accountability Gap* (Abstract 6864621, submitted 1 June 2026)
+- Live proceedings count added to README snapshot: 20 formal active proceedings
+
+### Changed
+- README snapshot updated: 37 → 45 institutions; NULL total 29 → 35; proceedings count added
+- `INSTITUTIONAL_REGISTER.md` summary statistics updated to 7 June 2026
+- `audits/LIVE_AUDIT_LOG.md` summary, sector breakdown, and notable live proceedings updated
+- `README.md` Academic Publication section updated: now lists both SSRN papers with individual citation blocks
+
+---
+
 ## v2.5.1 — May 2026
 
 ### Added

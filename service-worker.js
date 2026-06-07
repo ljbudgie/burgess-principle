@@ -6,14 +6,13 @@ self.importScripts(
   '/sovereign-core/profile-manager.js',
 );
 
-// === Service Worker v2.5.1 (released 31 May 2026) ===
-// Updated to reflect Governance & Ecosystem certification pathways and community foundations.
-// Key changes: iris-config.json now in precache; trigger scoring includes follow-up/escalation patterns;
-// commitment orchestration unified across PWA, Memory Palace, Hub Mode, and background tasks.
+// === Service Worker v2.5.2 (released 7 June 2026) ===
+// Updated to reflect June 2026 ledger expansion: 45 institutions, 20 live proceedings.
+// Key changes: version bump to v2.5.2; no structural service worker changes.
 // Burgess Compliance: Background tasks remain advisory-only; no substantive SOVEREIGN/NULL judgment
 // is made in the background layer. All escalation and human review decisions surface locally and auditably.
 
-const PWA_CORE_VERSION = '2.5.1';
+const PWA_CORE_VERSION = '2.5.2';
 const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
 const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
 const API_CACHE_NAME = `burgess-principle-api-${PWA_CORE_VERSION}`;

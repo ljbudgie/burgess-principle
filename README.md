@@ -6,7 +6,7 @@ Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · 
 
 **The binary test for meaningful human involvement in automated systems.**
 
-- **Framework version:** v2.5.1 (released 31 May 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+- **Framework version:** v2.5.2 (released 7 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
 
 ## Start In 60 Seconds
 
@@ -71,7 +71,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (3 June 2026): 37 institutions assessed — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign, 1 clean negative, 29 NULL (20 confirmed, 5 provisional, 4 accessibility), 4 pending, 1 engagement. The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (7 June 2026): 45 institutions assessed — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign, 1 clean negative, 35 NULL (26 confirmed, 5 provisional, 4 accessibility), 5 pending, 2 engagement. 20 live formal proceedings active. The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 
@@ -117,12 +117,15 @@ named human accountability standard is directly relevant.
 
 ---
 
-## Academic Publication
+## Academic Publications
 
-**Paper:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
 **Author:** Lewis James Burgess  
-**ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>  
-**SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778)  
+**ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>
+
+---
+
+**Paper 1:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
+**SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778) — publicly available; 8 downloads  
 **Case Study:** The Burgess Test — The Liability Transfer Chain  
 **DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>  
 Published: 29 May 2026
@@ -130,6 +133,16 @@ Published: 29 May 2026
 **Cite as:**
 
 > Burgess, L. J. (2026). *The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights.* SSRN Abstract 6759778. Zenodo. https://doi.org/10.5281/zenodo.20449193
+
+---
+
+**Paper 2:** The Accountability Gap  
+**SSRN Abstract ID:** [6864621](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621) — published  
+Submitted: 1 June 2026. Reclassification from preliminary status obtained via SSRN ticket 260527-026838 (Elise Steele, ssrnsupport@elsevier.com).
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *The Accountability Gap.* SSRN Abstract 6864621. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621
 
 ---
 

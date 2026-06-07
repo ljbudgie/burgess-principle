@@ -363,6 +363,7 @@ burden — which is the entire point.
 | `onchain-protocol/` | Commit/tree-root anchoring extends evidence anchoring. |
 | Verifiable Memory Palace (`ARCHITECTURE.md`) | Holds the facts behind each payload digest under selective disclosure. |
 | `git-sovereignty/ARCHITECTURE.md` | How this layer sits alongside the others. |
+| [`burgess-sovereign-exit.md`](./burgess-sovereign-exit.md) | **Successor application (BSEP):** applies this signed-commit primitive to the act of *leaving* a system — an individual's sovereign, accountable exit. |
 
 ---
 

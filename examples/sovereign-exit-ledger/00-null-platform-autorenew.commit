@@ -1,0 +1,26 @@
+# bgsp-meta: example sovereign-exit-ledger commit (illustrative; not a real signature)
+# signature-status: N
+# signer:
+# commit-id: 00-null-platform-autorenew
+burgess(exit): record prior NULL auto-renewal by the platform
+
+This is not an exit. It records, honestly, the NULL decision the platform
+imposed: an automated 12-month auto-renewal with no human review, re-locking the
+user's data behind a paywall. It is the NULL gap that exit 04 later heals.
+
+Facts considered: Account auto-renewed 2026-05-01 for a further 12 months by automated billing; no human reviewed; renewal notice was a system email only; cancellation page looped
+
+Burgess-Principle: One question: was a human mind with proper authority individually applied to the specific facts of this specific person's case? SOVEREIGN or NULL.
+Burgess-Subject: subject:platform:5c8e1f00
+Burgess-Authority: automated billing system (no named human)
+Burgess-Review: None. Renewal produced by automated billing; no individual human review of this account.
+Burgess-Action: Auto-renew subscription for 12 months and re-lock data export behind paywall
+Burgess-Payload-SHA256: 5e3fd081d59a5fb644135d3e03e0084533f2b8f523561f4195f5d1899b233b65
+Burgess-Parent: none
+Burgess-Classification: NULL
+Exit-System: Examplegram — social/identity platform subscription
+Exit-Type: platform
+Exit-Obligations: in-process:disputed-auto-renewal
+Exit-Notice: not-given (imposed by system, not by the individual)
+Exit-Effective: 2026-05-01
+Exit-Heals: none

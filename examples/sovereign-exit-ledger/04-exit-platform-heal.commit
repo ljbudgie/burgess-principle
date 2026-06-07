@@ -1,0 +1,27 @@
+# bgsp-meta: example sovereign-exit-ledger commit (illustrative; signature is simulated)
+# signature-status: G
+# signer: Robin Hale <robin.hale@example.org>
+# commit-id: 04-exit-platform-heal
+burgess(exit): close Examplegram account and heal the NULL auto-renewal
+
+This exit forks and heals the prior NULL auto-renewal (00-null-platform-autorenew):
+a named human individually reviewed the specific facts and closed the account on
+their own terms. Naming the NULL decision in Exit-Heals and as Burgess-Parent
+caps the NULL chain — the gap is closed with a SOVEREIGN full stop.
+
+Facts considered: Decided to leave platform 2026-06-22; data export downloaded and verified; auto-renewal disabled; erasure of personal data requested and acknowledged ref ER-90412; prior NULL auto-renewal (00) reviewed and closed
+
+Burgess-Principle: One question: was a human mind with proper authority individually applied to the specific facts of this specific person's case? SOVEREIGN or NULL.
+Burgess-Subject: subject:platform:5c8e1f00
+Burgess-Authority: Robin Hale, account holder exercising self-sovereign authority over own affairs
+Burgess-Review: I individually reviewed the specific facts of this exit and exercise my own authority to release myself from the system named above.
+Burgess-Action: Close platform account; export data; disable auto-renew; request erasure
+Burgess-Payload-SHA256: d4f3974c82f6ce394a04a90f9abe2043a039467b856ff4a348ecbe94465eacca
+Burgess-Parent: 00-null-platform-autorenew
+Burgess-Classification: SOVEREIGN
+Exit-System: Examplegram — social/identity platform subscription
+Exit-Type: platform
+Exit-Obligations: settled
+Exit-Notice: cancellation confirmation EG-CANCEL-21809; erasure acknowledged ER-90412
+Exit-Effective: 2026-06-23
+Exit-Heals: 00-null-platform-autorenew

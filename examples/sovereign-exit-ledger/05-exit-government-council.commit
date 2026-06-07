@@ -1,0 +1,22 @@
+# bgsp-meta: example sovereign-exit-ledger commit (illustrative; signature is simulated)
+# signature-status: G
+# signer: Robin Hale <robin.hale@example.org>
+# commit-id: 05-exit-government-council
+burgess(exit): end council tax liability on move-out
+
+Facts considered: Moving out of the property 2026-06-30; council tax move-out notice submitted online ref CT-MV-55821; final bill requested; new occupier date provided
+
+Burgess-Principle: One question: was a human mind with proper authority individually applied to the specific facts of this specific person's case? SOVEREIGN or NULL.
+Burgess-Subject: subject:council:2b6d8e54
+Burgess-Authority: Robin Hale, liable person exercising self-sovereign authority over own affairs
+Burgess-Review: I individually reviewed the specific facts of this exit and exercise my own authority to release myself from the system named above.
+Burgess-Action: End council tax liability at old address on move-out; serve statutory notice
+Burgess-Payload-SHA256: a9512e120108734a580f1d5d54a05fdc5605303c04b9285941628a0a2214fbf9
+Burgess-Parent: none
+Burgess-Classification: SOVEREIGN
+Exit-System: Example Borough Council — council tax (local authority)
+Exit-Type: government
+Exit-Obligations: in-process:final-bill-pending
+Exit-Notice: move-out notice CT-MV-55821 submitted 2026-06-24
+Exit-Effective: 2026-06-24/2026-06-30
+Exit-Heals: none

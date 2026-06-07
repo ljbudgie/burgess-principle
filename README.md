@@ -71,7 +71,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (7 June 2026): 45 institutions assessed — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign, 1 clean negative, 35 NULL (26 confirmed, 5 provisional, 4 accessibility), 5 pending, 2 engagement. 20 live formal proceedings active. The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (7 June 2026): 45 institutions assessed — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign, 1 clean negative, 35 NULL (26 confirmed, 5 provisional, 4 accessibility), 6 pending, 1 engagement. 20 live formal proceedings active. The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 

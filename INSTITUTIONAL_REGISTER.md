@@ -46,7 +46,8 @@ As of 7 June 2026, the great majority of completed assessments returned a NULL f
 | SOVEREIGN findings | 1 (Wave Utilities) |
 | No data held (clean negative) | 1 (Palantir) |
 | Pending substantive assessment | 5 (HM Treasury, Cabinet Office, FSA, Companies House, Fujitsu) |
-| Constructive engagement | 2 (Law Commission; Hodge Jones & Allen LLP) |
+| Constructive engagement | 1 (Law Commission) |
+| Pending — intake submitted | 1 (Hodge Jones & Allen LLP — intake response submitted 4 June 2026, no substantive response yet) |
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
 | Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |

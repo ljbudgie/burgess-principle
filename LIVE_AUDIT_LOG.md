@@ -2,7 +2,7 @@
 
 A chronological record of every institutional interaction, statutory filing, and SOVEREIGN/NULL finding documented under the framework.
 
-**Last updated: 6 May 2026**
+**Last updated: 7 June 2026**
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 
@@ -42,34 +42,30 @@ Each institution is scored across five dimensions, each 0–4. Total is out of 2
 
 ---
 
-## ⚠️ DEADLINE TRACKER — LIVE (as at 27 April 2026)
+## ⚠️ DEADLINE TRACKER — LIVE (as at 7 June 2026)
 
 | Deadline | Institution | Action Required | Status |
-| --- | --- | --- | --- |
-| **30 April 2026 (THU)** | Durham Police (ref 2309188) | DSAR statutory deadline — if no response, file ICO complaint immediately citing IC-4999654-T1Q8 | ⚠️ IN 3 DAYS |
-| **29 April 2026 (WED)** | HMPO | DSAR statutory deadline — if no response, file ICO complaint | ⚠️ TOMORROW |
-| **4 May 2026** | ICO | Pre-Action Protocol for Judicial Review deadline — if no response, issue Admin Court proceedings without further notice | 🔴 HARD LITIGATION TRIGGER |
-| **4 May 2026** | Darlington Borough Council | Pre-Action Protocol deadline (PCN 4445032) — if no response: PHA claim, Part 8 injunction, JR ground | 🔴 HARD LITIGATION TRIGGER |
-| **6 May 2026 (approx)** | Deighton Pierce Glynn / Hodge Jones & Allen | Expected acknowledgement window (5–10 working days from 24 April referral) | Monitor |
-| **10 May 2026** | Northumbrian Water | DSAR statutory deadline (CCJ L7EC1P3M) — calendar event set | Monitor |
-| **10 May 2026** | E.ON Next / Wedlake Bell | DSAR statutory deadline (CCJ L9FG1818) — calendar event set | Monitor |
-| **20 May 2026** | Home Office | FOI response deadline (FOI2026/05685) | Monitor |
-| **20 May 2026** | HM Treasury | FOI response deadline (FOI2026/08366) | Monitor |
-| **20 May 2026** | Cabinet Office | FOI deadlines (FOI2026/07744 and FOI2026/07733) | Monitor |
-| **~21 May 2026** | Home Office | DSAR statutory deadline (separate from FOI) | Monitor |
-| **~14 May 2026** | MHRA | CEC 253215 — 18-working-day target response (from 25 Apr) | Monitor |
-| **~25 May 2026** | MHRA | SAR under Article 15 UK GDPR — 1-month statutory deadline (from 25 Apr) | ⚠️ Statutory clock |
-| **8 June 2026** | British Gas / Centrica | DSAR extended deadline | Monitor |
-| **26 Sep 2026** | Vanquis Bank | FOS referral window closes (6 months from 26 March 2026) — **act promptly** | Do not delay |
+|---|---|---|---|
+| **11 June 2026 (THU)** | Darlington Borough Council — TPT DK00003-2605 | Select decision option on foam.tpt.gov.uk — adjudicator awaiting | 🔴 4 DAYS |
+| **13 June 2026 (SAT)** | E.ON Next — Article 15(1)(h) UK GDPR | Substantive response required from named DPO — automated triage pattern documented | 🔴 6 DAYS |
+| **13 June 2026 (SAT)** | Rose Rouse, CEO, Darlington Borough Council | Personal response required — third formal contact sent 7 June 2026 | 🔴 6 DAYS |
+| **8 June 2026** | British Gas / Centrica | DSAR deadline — check for compliant response; file ICO complaint if non-compliant | ⚠️ TOMORROW |
+| **5 July 2026** | Fujitsu Services Limited | DSAR statutory deadline — original transmission 5 June 2026, resent 7 June 2026 to privacy@uk.fujitsu.com | Monitor |
+| **22 July 2026** | VWFS — Nicola Rice | DSAR deadline | Monitor |
+| **15 July 2026** | British Gas / Centrica — Sharon Aspinall | Energy Ombudsman decision due | Monitor |
+| **~30 June 2026** | DWP FOI2026/32316 | Internal review statutory deadline | Monitor |
+| **~2 July 2026** | Twitter/X | SAR statutory deadline | Monitor |
+| **~4 July 2026** | PHSO / HMRC | SAR statutory deadlines | Monitor |
+| **26 June 2026** | TPT DK00003-2605 | Appeal deadline (outer limit) | Monitor |
 
 **Overdue — action pending:**
 | Institution | Issue | Action |
-| --- | --- | --- |
-| X / Twitter | DSAR deadline was 6 April 2026 — 21 days overdue | ICO complaint described as "ready to file" — **file now** |
-| Equifax | ICO complaint described as "ready to file" | **File now** |
-| CDDFT ENT Audiology | Email bounced — no substantive contact made | Email `complaints@cddft.nhs.uk` |
-| DHSC | Email bounced — no working contact route | Find correct address |
-| AI and Digital Regulations Service | Email bounced — no working contact route | Find correct address |
+|---|---|---|
+| Hampshire PCC | Email in retry — possible delivery failure | Monitor; use web form at hampshire-pcc.gov.uk/contact-us if permanent failure confirmed |
+| HMCTS Accessibility Team | Original address bounced — resent 7 June 2026 to HMCTSforms@justice.gov.uk | Monitor for acknowledgement |
+| Home Office FOI | Internal review filed re Kanye West/Ye entry refusal — overdue | Chase |
+| DBT FOI2026/06561 | Internal review under consideration | Monitor |
+| CQC FOI IAT 2627 0061 | ICO complaint filed 4 June 2026 | Monitor |
 
 ---
 

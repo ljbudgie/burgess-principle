@@ -1,0 +1,37 @@
+Date,Institution,Event_Type,Finding,Score,Reference,Notes
+2025-05-27,E.ON Next / E.ON Field Debt Solutions,Forced Entry,NULL,1/20,Application 11160-544079 / RE99022,Warrant unsigned and undated. Doctrinal anchor for framework.
+2025-08-01,Wave Utilities,DSAR / Challenge,SOVEREIGN,16/20,,Both accounts cleared to £0.00. £795.14 removed.
+2025-09-01,TV Licensing / BBC,Challenge,AMBIGUOUS,12/20,,Enforcement letters ceased on record correction.
+2025-10-01,iC&R,Challenge,NULL,3/20,,Data processor — pulled back by Wave on resolution.
+2025-11-01,Trading 212 UK Ltd,DSAR,NULL,2/20,,Seven DSAR categories unanswered.
+2025-12-01,Northumbrian Water,CCJ Challenge,NULL,2/20,CCJ L7EC1P3M,CCJ without evidenced contract.
+2026-01-01,Apple Inc.,DSAR,NULL,1/20,,Template responses. Six specific points unanswered.
+2026-01-01,Phonak / Sonova UK Ltd,DSAR / Challenge,NULL,1/20,,Algorithm does not process personal data — legally unsustainable.
+2026-01-01,X / Twitter,DSAR,NULL,0/20,,Complete non-response.
+2026-01-01,Vanquis Bank,Challenge,NULL,2/20,,The Burgess Principle does not exist in UK law — documented.
+2026-02-01,Reddit Inc.,DSAR,NULL,1/20,,Account restricted with no human review.
+2026-02-01,Equifax,DSAR / Challenge,NULL,1/20,,Automated closure. Durkin v DSG Retail applicable.
+2026-03-01,HMCTS / Birmingham Magistrates Court,Evidence Submission,NULL,1/20,HMCTS 80553951,"Fletcher admission: 536,139 warrants via CSV batch / 5% dip sample / en bloc grant."
+2026-03-01,Darlington Borough Council,PCN Challenge / DSAR,NULL,3/20,LGO 26000967,PCN enforcement without individual review. Reasonable adjustment refused.
+2026-03-01,Equita Ltd,SAR / Challenge,NULL,1/20,Case ID 24650546,Liability Orders not produced. Propensity score 240 assigned.
+2026-03-01,British Gas / Centrica,Challenge,NULL,3/20,EG054013-26,Defective meter. Eight Equality Act breaches.
+2026-04-01,OpenAI Ireland Limited,SAR,NULL,1/20,,Authentication error prevented access.
+2026-04-01,Energy Ombudsman,Complaint,NULL,1/20,EG021819-26 / EG037844-26,Both rulings declined. Disability omitted.
+2026-04-01,Ofgem,Complaint,NULL,1/20,,Formal scheme complaint filed.
+2026-04-01,UK Home Office,FOI / DSAR,NULL,2/20,FOI2026/05685,Acknowledged.
+2026-04-01,Information Commissioner's Office,Pre-Action Protocol,NULL,1/20,IC-4999654-T1Q8,33 days without acknowledgement.
+2026-04-01,MHRA,Safety Concern / SAR,NULL,1/20,CEC 253215,AutoSense OS classification challenge.
+2026-05-01,VWFS Financial Crime Team,DSAR / ICO Complaint,NULL,,IC-521371-M3C2,Prolific Offender label shared without DPA. Article 6(1)(e) misapplied. ICO complaint filed 1 June 2026.
+2026-05-01,Durham Constabulary,SAR / Complaint,NULL,,SAR 2309188,Police attendance re lawful correspondence to MP. BWV confirms no wrongdoing. Professional Standards complaint registered.
+2026-05-01,Department for Business and Trade,FOI,NULL,,FOI2026/06561,Zero results for WEF data verification across entire DBT tenant.
+2026-05-29,Lola McEvoy MP,Parliamentary Standards Complaint,NULL,,PCS302,Police attendance at disabled constituent's home re lawful correspondence. BWV footage reviewed.
+2026-05-29,Darlington Borough Council,TPT Appeal Filed,NULL,,DK00003-2605 / PCN DK7491076A,Evidence filed 1 June. LGO published without human consideration. 14-day window for DBC to contest.
+2026-06-01,Equita Ltd,Enforcement Notice,NULL,,Case ID 24650546,"Formal notice issued. Enforcement Conduct Board CC'd. £3,008.82 disputed. Liability Orders not produced."
+2026-06-01,VWFS Financial Crime Team,ICO Complaint Registered,NULL,,IC-521371-M3C2,Case reference confirmed by ICO.
+2026-06-02,Durham Constabulary,Professional Standards Complaint Registered,NULL,,SAR 2309188,Allocated to a named Professional Standards officer. Date of attendance confirmed 30 March 2026.
+2026-06-03,E.ON Next,Billing Challenge Filed,NULL,,Account A-18BA6CAF,Estimated billing challenged. No smart meter data. April-May spike of £197.73 queried.
+2026-06-03,UK Home Office,Internal Review Filed,NULL,,FOI2026/05301,Kanye West/Ye entry refusal. Original request 7 April 2026 — overdue.
+2026-06-04,Darlington Borough Council,TPT Supplementary Submission,NULL,,DK00003-2605 / PCN DK7491076A,"Supplementary submission filed responding to DBC 11-item evidence pack. Liability transfer document absent. Photographic evidence shows reflective windscreen — not empty vehicle as DBC asserts. Carolyn Pistellato certified to Tribunal no conflict of interest exists while named in active ICO complaint IC-521371-M3C2. Decision option deadline 11 June 2026."
+2026-06-04,E.ON Next,Article 15(1)(h) SAR to DPO,NULL,,HMCTS 80553951,"Article 15(1)(h) request formally served on named DPO. Deadline 13 June 2026. Two first-name-only agents identified (Jessica / Riya) — no surnames, no job titles, identical response structure consistent with automated triage. E.ON asked for agent surname; system returned question asking for data subject's own surname."
+2026-06-04,Darlington Borough Council / VWFS,ICO Complaint Confirmed Active,NULL,,IC-521371-M3C2 / DBC-3571-26,"Lee Downey (DBC-3571-26) confirmed no data processing agreement for VWFS data sharing. Article 6(1)(e) misapplied. Prolific Offender label communicated to VWFS without disclosure in original SAR."
+2026-06-06,NPCC / IOPC / College of Policing / APP Team / Home Affairs Committee,Policing Impartiality Submissions,NULL,,Henry Nowak / Hampshire Constabulary Inclusion Matters,"Submissions sent to five national policing bodies re two-directional impartiality gap in APP guidance: Home Affairs Committee (Dame Karen Bradley); IOPC (Derrick Campbell); College of Policing (Sir Andy Marsh); APP Team; NPCC (CC Gavin Stephens). Structural NULL — impartiality gap in APP training guidance confirmed."

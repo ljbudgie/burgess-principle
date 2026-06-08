@@ -75,6 +75,17 @@ Current snapshot (7 June 2026): 45 institutions assessed — 1 SOVEREIGN (Wave U
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 
+### Data / CMS Integration
+
+Machine-readable versions of the register and ledger are published at the repository root for CMS or data pipeline consumption:
+
+| File | Description | Raw URL |
+| --- | --- | --- |
+| [`institutional_register.csv`](./institutional_register.csv) | 45 institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
+| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | 36 chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
+
+Finding values are normalised to four classes: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**. Dates are in YYYY-MM-DD format. Partial-month entries use the first of the month.
+
 ---
 
 ## Legal Convergence

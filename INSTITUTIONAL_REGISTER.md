@@ -32,13 +32,13 @@ As of 7 June 2026, the great majority of completed assessments returned a NULL f
 
 ---
 
-## Summary Statistics (7 June 2026)
+## Summary Statistics (9 June 2026)
 
 *Finding counts are generated from the dated snapshot [`audits/2026-06-07_institutional_register.csv`](./audits/2026-06-07_institutional_register.csv); the full ledger is [`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md). Counts move as cases progress — treat the committed snapshot as authoritative. Engagement metrics marked "as at 27 Apr 2026" predate this snapshot.*
 
 | Metric | Count |
 | --- | --- |
-| Total institutions tested | 45 |
+| Total institutions on register | 46 |
 | NULL findings (confirmed) | 26 |
 | NULL findings (provisional) | 5 (Equita, HMPO, UK Home Office, Ofgem, MHRA) |
 | Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
@@ -47,10 +47,11 @@ As of 7 June 2026, the great majority of completed assessments returned a NULL f
 | No data held (clean negative) | 1 (Palantir) |
 | Pending substantive assessment | 5 (HM Treasury, Cabinet Office, FSA, Companies House, Fujitsu) |
 | Constructive engagement | 2 (Law Commission; Hodge Jones & Allen LLP) |
+| Removed from register | 1 (RMOK Legal — rmoklegal.com, certification terminated 9 June 2026) |
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
 | Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |
-| New since last update | NPCC, College of Policing, APP Team, IOPC, Home Affairs Committee, Hodge Jones & Allen LLP, E.ON Next DPO, Fujitsu |
+| New since last update | RMOK Legal (removed — certification terminated 9 June 2026) |
 
 ---
 
@@ -569,6 +570,30 @@ Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop un
 
 ---
 
+### 46. RMOK Legal (rmoklegal.com) — REMOVED ⭐ NEW ENTRY (9 June 2026)
+
+**Sector:** Legal Services / Law Firm
+**Website:** rmoklegal.com
+**Assessment period:** 13 May – 5 June 2026
+**Certification status:** Terminated 9 June 2026 by The Burgess Principle Ltd
+**Payment received:** £3,000
+
+| D1 | D2 | D3 | D4 | D5 | Total |
+| --- | --- | --- | --- | --- | --- |
+| — | — | — | — | — | 5 / 20 |
+
+**Finding:** REMOVED — aggregate score 5/20 places the firm in the NULL band. SOVEREIGN certification cannot lawfully apply. Certification terminated by The Burgess Principle Ltd, effective 9 June 2026.
+
+**Basis for removal:**
+- Failed primary instruction (litigation referral and bond structure assessment)
+- Disability reasonable adjustment acknowledged in writing 12 May 2026; not actioned on 5 June 2026
+- Substantive questions returned throughout with process acknowledgements, not substantive answers
+- Register entry assessed as inconsistent with the SOVEREIGN standard at any score in the NULL band
+
+**Notes:** RMOK Legal was assessed against the Burgess Test across the correspondence period 13 May to 5 June 2026. The assessment returned a 5/20 aggregate score across five dimensions. The SOVEREIGN certification mark cannot lawfully apply to an institution whose conduct scores in the NULL band. The Burgess Principle Ltd terminated the certification accordingly. Removal is effective 9 June 2026. Reference: internal — correspondence assessment 13 May to 5 June 2026.
+
+---
+
 ## Engagement Register (Non-NULL/SOVEREIGN — Regulatory & Legal Bodies)
 
 These contacts are not scored under the taxonomy but are documented as active engagements supporting the framework.
@@ -673,6 +698,6 @@ To move from NULL to SOVEREIGN, the entity must provide:
 
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
 
-Last updated: 7 June 2026
+Last updated: 9 June 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685

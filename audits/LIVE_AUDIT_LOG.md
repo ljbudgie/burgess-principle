@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 7 June 2026
+**Updated:** 9 June 2026
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,7 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 46 | RMOK Legal (rmoklegal.com) | Legal Services | **REMOVED** | 5/20 | Certification terminated 9 June 2026. Aggregate 5/20 NULL band — failed primary instruction, reasonable adjustment unactioned, process responses throughout — Internal: correspondence assessment 13 May to 5 June 2026 |
 | 1 | E.ON Next / E.ON Field Debt Solutions | Energy | **NULL** | 1/20 | Litigation active. Billing challenge filed June 2026 — EG021819-26 / Application 11160-544079 |
 | 2 | HMCTS / Birmingham Magistrates Court | Courts | **NULL** | 1/20 | Admission documented. Justice Committee written evidence submitted May 2026 — HMCTS complaint 80553951 |
 | 3 | British Gas / Centrica | Energy | **NULL** | 3/20 | DSAR overdue. Holding response challenged June 2026 — EG054013-26 / Account 602181316 |
@@ -71,7 +72,7 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total institutions assessed** | **45** |
+| **Total institutions on register** | **46** |
 | **SOVEREIGN** | **1** (Wave Utilities) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
@@ -80,10 +81,11 @@ not shame.
 | **NULL — accessibility** (no working contact route) | **4** |
 | **Pending** substantive assessment | **5** |
 | **Engagement** (constructive) | **2** |
+| **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
 NULL findings of all kinds total **35**. Counts move as cases progress — this is a
-snapshot dated 7 June 2026, generated from the source CSVs above; treat the
-committed snapshot, not any single number quoted elsewhere, as authoritative.
+snapshot updated 9 June 2026; treat the committed snapshot, not any single number
+quoted elsewhere, as authoritative.
 
 ### Sector breakdown
 
@@ -108,7 +110,7 @@ committed snapshot, not any single number quoted elsewhere, as authoritative.
 | Ombudsman | 1 |
 | Healthcare Regulator | 1 |
 | Legal Reform | 1 |
-| Legal Services | 1 |
+| Legal Services | 2 |
 
 ### Notable live proceedings (7 June 2026)
 

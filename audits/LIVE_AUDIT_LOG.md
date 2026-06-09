@@ -19,6 +19,7 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 47 | SSRN / Elsevier | Academic Publishing | **SOVEREIGN** | — | Paper 3 approved 9 June 2026 — NULL at Scale (abstract 6894860). Named human reviewer approved submission. Three-paper series complete: 6759778 (52 views, 9 downloads), 6864621 (27 views, 9 downloads), 6894860 (approved, 1 view, 1 download). Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026 |
 | 46 | RMOK Legal (rmoklegal.com) | Legal Services | **REMOVED** | 5/20 | Certification terminated 9 June 2026. Aggregate 5/20 NULL band — failed primary instruction, reasonable adjustment unactioned, process responses throughout — Internal: correspondence assessment 13 May to 5 June 2026 |
 | 1 | E.ON Next / E.ON Field Debt Solutions | Energy | **NULL** | 1/20 | Litigation active. Billing challenge filed June 2026 — EG021819-26 / Application 11160-544079 |
 | 2 | HMCTS / Birmingham Magistrates Court | Courts | **NULL** | 1/20 | Admission documented. Justice Committee written evidence submitted May 2026 — HMCTS complaint 80553951 |
@@ -72,8 +73,8 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total institutions on register** | **46** |
-| **SOVEREIGN** | **1** (Wave Utilities) |
+| **Total entries** | **47** (46 institutional assessments + 1 academic publication event) |
+| **SOVEREIGN** | **2** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **NULL — confirmed** | **26** |
@@ -111,9 +112,11 @@ quoted elsewhere, as authoritative.
 | Healthcare Regulator | 1 |
 | Legal Reform | 1 |
 | Legal Services | 2 |
+| Academic Publishing | 1 |
 
-### Notable live proceedings (7 June 2026)
+### Notable live proceedings (9 June 2026)
 
+- **SSRN / Elsevier — Paper 3** — *NULL at Scale* (abstract 6894860) approved by named human reviewer 9 June 2026. Three-paper series now complete: Paper 1 (6759778) 52 views / 9 downloads — DISTRIBUTED; Paper 2 (6864621) 27 views / 9 downloads — DISTRIBUTED; Paper 3 (6894860) approved — pending distribution. Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026.
 - **E.ON Next** — HMCTS claim 80553951 (active litigation); Article 15(1)(h) served on named DPO 4 June — agent surnames requested, system returned question to data subject. Deadline 13 June 2026.
 - **Darlington BC** — TPT appeal DK00003-2605 — supplementary submission 4 June; liability transfer document absent; Carolyn Pistellato conflict noted. Decision option deadline **11 June 2026**. LGO 26000967 published "without human consideration".
 - **VWFS / DBC** — ICO complaint IC-521371-M3C2 confirmed active; Lee Downey confirmed no DPA for VWFS data sharing; Prolific Offender label not disclosed in SAR.

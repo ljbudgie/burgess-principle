@@ -7,6 +7,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ## v2.5.3 — June 2026
 
+### Added
+- SSRN Paper 3 approved 9 June 2026 — *NULL at Scale* (abstract 6894860)
+  - Status: APPROVED (pending distribution) | Views: 1 | Downloads: 1
+  - Three-paper series now complete: theory, philosophy, empirical proof
+  - Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026
+- SSRN ledger entry #47 added to `audits/LIVE_AUDIT_LOG.md` — Finding: SOVEREIGN (named human reviewer approved submission)
+
 ### Changed
 - RMOK Legal (rmoklegal.com) removed from certified register — certification terminated 9 June 2026
   - Aggregate score 5/20 (NULL band) across five assessed dimensions
@@ -15,8 +22,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   - Substantive questions returned with process acknowledgements throughout
   - Register entry inconsistent with SOVEREIGN standard; £3,000 paid
 - `INSTITUTIONAL_REGISTER.md` summary statistics updated: total 45 → 46; removed count added
-- `audits/LIVE_AUDIT_LOG.md` summary updated: total 45 → 46; REMOVED row added; Legal Services sector 1 → 2
+- `audits/LIVE_AUDIT_LOG.md` summary updated: total 46 → 47; SSRN SOVEREIGN entry added; Academic Publishing sector added; Legal Services sector 1 → 2
 - `institutional_register.csv` and `live_findings_ledger.csv` updated with RMOK Legal row (Finding: REMOVED)
+- `README.md` Academic Publications section updated — three-paper series with current SSRN stats:
+  - Paper 1 (6759778): DISTRIBUTED | 52 views | 9 downloads
+  - Paper 2 (6864621): DISTRIBUTED | 27 views | 9 downloads
+  - Paper 3 (6894860): APPROVED (pending distribution) | 1 view | 1 download
 
 ---
 

@@ -133,13 +133,16 @@ named human accountability standard is directly relevant.
 **Author:** Lewis James Burgess  
 **ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>
 
+Three-paper series — theory, philosophy, empirical proof.
+
 ---
 
 **Paper 1:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
-**SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778) — publicly available; 8 downloads  
+**SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778)  
+**Status:** DISTRIBUTED | Views: 52 | Downloads: 9  
+First submitted: 13 May 2026 | Last updated: 29 May 2026  
 **Case Study:** The Burgess Test — The Liability Transfer Chain  
-**DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>  
-Published: 29 May 2026
+**DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>
 
 **Cite as:**
 
@@ -148,12 +151,26 @@ Published: 29 May 2026
 ---
 
 **Paper 2:** The Accountability Gap  
-**SSRN Abstract ID:** [6864621](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621) — published  
-Submitted: 1 June 2026. Reclassification from preliminary status obtained via SSRN ticket 260527-026838 (Elise Steele, ssrnsupport@elsevier.com).
+**SSRN Abstract ID:** [6864621](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621)  
+**Status:** DISTRIBUTED | Views: 27 | Downloads: 9  
+First submitted: 1 June 2026 | Last updated: 5 June 2026  
+Reclassification from preliminary status obtained via SSRN ticket 260527-026838 (Elise Steele, ssrnsupport@elsevier.com).
 
 **Cite as:**
 
 > Burgess, L. J. (2026). *The Accountability Gap.* SSRN Abstract 6864621. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621
+
+---
+
+**Paper 3:** NULL at Scale  
+**SSRN Abstract ID:** [6894860](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6894860)  
+**Status:** APPROVED (pending distribution) | Views: 1 | Downloads: 1  
+First submitted: 9 June 2026 | Last updated: 9 June 2026  
+Written evidence submitted to the Justice Committee and ICO ADM consultation: 29 May 2026.
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *NULL at Scale.* SSRN Abstract 6894860. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6894860
 
 ---
 

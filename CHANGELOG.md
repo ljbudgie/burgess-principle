@@ -13,6 +13,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   - Three-paper series now complete: theory, philosophy, empirical proof
   - Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026
 - SSRN ledger entry #47 added to `audits/LIVE_AUDIT_LOG.md` — Finding: SOVEREIGN (named human reviewer approved submission)
+- Public Framer site live at [theburgessprinciple.framer.website](https://theburgessprinciple.framer.website) (custom domain theburgessprinciple.com — DNS transfer in progress)
+  - Tables on site pull live from `institutional_register.csv` and `live_findings_ledger.csv` via raw GitHub URLs — no manual re-upload needed
+  - SEO, dropdowns, and live CSV sync confirmed working (Fin Kendall, Ink Marketing, 4 June 2026)
+- `iris.html`: Framer embed mode (PR #427)
+  - `?embed=1` — strips chrome (header, footer) to bare chat surface for iframe use
+  - `?theme=light|dark` — overrides OS preference to match host site theme
+  - `?context=<string>` — 64-char host-side telemetry tag (no impact on system prompt)
+  - Height reporting via `ResizeObserver` + `postMessage` so Framer can auto-size the iframe
+  - `✦ Run Sovereign Local Mode` pill shown in embed mode to preserve signpost to on-device option
+  - `frame-ancestors` CSP added to `vercel.json` for `theburgessprinciple.com`, `*.framer.app`, `*.framer.website`
 
 ### Changed
 - RMOK Legal (rmoklegal.com) removed from certified register — certification terminated 9 June 2026

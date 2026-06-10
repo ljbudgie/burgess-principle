@@ -135,7 +135,7 @@ named human accountability standard is directly relevant.
 **Author:** Lewis James Burgess  
 **ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>
 
-Three-paper series — theory, philosophy, empirical proof.
+Five-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498).
 
 ---
 
@@ -173,6 +173,28 @@ Written evidence submitted to the Justice Committee and ICO ADM consultation: 29
 **Cite as:**
 
 > Burgess, L. J. (2026). *NULL at Scale.* SSRN Abstract 6894860. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6894860
+
+---
+
+**Paper 4:** [Behavioural consequences — title to be confirmed on distribution]  
+**SSRN Abstract ID:** [6909118](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6909118)  
+**Status:** Submitted — stats to be updated on distribution
+
+**Cite as:**
+
+> Burgess, L. J. (2026). SSRN Abstract 6909118. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6909118
+
+---
+
+**Paper 5:** SOVEREIGN Counsel: Attributable Judgment, Fractional Models, and NULL Drift in Legal Services  
+**SSRN Abstract ID:** [6913498](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6913498)  
+**Status:** SUBMITTED — under review | Views: 0 | Downloads: 0  
+First submitted: 10 June 2026  
+JEL codes: D02, H83, D73. Applies the binary test to legal services — NULL drift in solicitor engagements, fractional models as higher SOVEREIGN density, the self-represented litigant as owning mind, machine-assisted workflow analysis. Closing case study: Parliamentary Standards Commissioner's "we do not provide the names of individuals" response.
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *SOVEREIGN Counsel: Attributable Judgment, Fractional Models, and NULL Drift in Legal Services.* SSRN Abstract 6913498. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6913498
 
 ---
 

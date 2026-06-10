@@ -13,6 +13,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   - Three-paper series now complete: theory, philosophy, empirical proof
   - Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026
 - SSRN ledger entry #47 added to `audits/LIVE_AUDIT_LOG.md` — Finding: SOVEREIGN (named human reviewer approved submission)
+- SSRN Paper 5 submitted 10 June 2026 — *SOVEREIGN Counsel: Attributable Judgment, Fractional Models, and NULL Drift in Legal Services* (abstract 6913498)
+  - Status: SUBMITTED — under review | Views: 0 | Downloads: 0
+  - JEL codes: D02, H83, D73
+  - Applies the binary test to legal services: NULL drift in solicitor engagements, fractional models as higher SOVEREIGN density, self-represented litigant as owning mind, machine-assisted workflow analysis
+  - Closing case study: Parliamentary Standards Commissioner "we do not provide the names of individuals"
+  - SSRN ledger entry #48 added to `audits/LIVE_AUDIT_LOG.md` — Finding: PENDING
+- Five-paper series now submitted in full: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498)
 - Public Framer site live at [theburgessprinciple.framer.website](https://theburgessprinciple.framer.website) (custom domain theburgessprinciple.com — DNS transfer in progress)
   - Tables on site pull live from `institutional_register.csv` and `live_findings_ledger.csv` via raw GitHub URLs — no manual re-upload needed
   - SEO, dropdowns, and live CSV sync confirmed working (Fin Kendall, Ink Marketing, 4 June 2026)

@@ -4,6 +4,17 @@
     { "source": "/(robots\\.txt|sitemap\\.xml|llms\\.txt|manifest\\.json|service-worker\\.js|banner\\.png)", "destination": "/$1" },
     { "source": "/(.*)", "destination": "/" }
   ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://theburgessprinciple.com https://*.theburgessprinciple.com https://*.framer.app https://*.framer.website"
+        }
+      ]
+    }
+  ],
   "functions": {
     "api/chat.py": {
       "maxDuration": 60

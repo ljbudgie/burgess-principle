@@ -44,6 +44,103 @@
       }
     }
 
+    /* Explicit theme overrides (used when ?theme=light|dark forces a value via
+       the data-theme attribute on <html>; higher specificity than :root inside
+       the prefers-color-scheme media query so it wins on either OS setting). */
+    :root[data-theme="light"] {
+      --bg: #f4efe6;
+      --panel: rgba(255, 252, 246, 0.92);
+      --panel-strong: #fffaf2;
+      --border: rgba(102, 85, 60, 0.14);
+      --text: #2b251d;
+      --muted: #7d6c56;
+      --accent: #67533b;
+      --accent-soft: #e6d8c0;
+      --user: #d8e5f5;
+      --iris: #f7f0e4;
+      --notice-bg: #fdecec;
+      --notice-border: #f1c5c5;
+      --notice-text: #6f1f1f;
+      --shadow: 0 22px 60px rgba(71, 52, 24, 0.12);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #1c1814;
+      --panel: rgba(34, 29, 24, 0.92);
+      --panel-strong: #2a2218;
+      --border: rgba(220, 205, 180, 0.16);
+      --text: #ece4d6;
+      --muted: #b9a98e;
+      --accent: #d8c4a3;
+      --accent-soft: #4a3d2c;
+      --user: #2c3a4f;
+      --iris: #2f271d;
+      --notice-bg: #3a2222;
+      --notice-border: #6a3a3a;
+      --notice-text: #ffd8d8;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Embed mode: the page is rendered inside an iframe on another site
+       (e.g. the Framer-hosted theburgessprinciple.com). Strip the page chrome
+       so only the chat surface is visible, and let the host page handle the
+       outer background. Activated by ?embed=1 on the URL. */
+    body.embed-mode {
+      background: transparent;
+    }
+    body.embed-mode html,
+    body.embed-mode {
+      background: transparent;
+    }
+    body.embed-mode .app {
+      padding: 8px;
+      gap: 6px;
+      min-height: 100dvh;
+    }
+    body.embed-mode .topline,
+    body.embed-mode #footerMeta,
+    body.embed-mode .header .name,
+    body.embed-mode .header .subtle {
+      display: none;
+    }
+    body.embed-mode .shell {
+      border-radius: 16px;
+      min-height: calc(100dvh - 16px);
+      backdrop-filter: none;
+      background: var(--panel-strong);
+    }
+    body.embed-mode .header {
+      padding: 10px 14px 0;
+    }
+    /* Sovereign Local Mode pill — only shown in embed mode, where directing
+       users toward the on-device option matters most. */
+    .sovereign-pill {
+      display: none;
+    }
+    body.embed-mode .sovereign-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
+      margin: 0 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--accent-soft);
+      color: var(--text);
+      font-size: 0.82rem;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .sovereign-pill::before {
+      content: "✦";
+      color: var(--accent);
+    }
+    .sovereign-pill:hover,
+    .sovereign-pill:focus-visible {
+      filter: brightness(0.97);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -686,6 +783,13 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
         <p class="subtle">A calm place to talk through what happened and work out your next step.</p>
       </header>
 
+      <a id="sovereignPill" class="sovereign-pill"
+         href="https://github.com/ljbudgie/burgess-principle/blob/main/SOVEREIGN_MODE.md"
+         target="_blank" rel="noopener"
+         title="Run Iris on your own hardware — nothing leaves your device.">
+        Run Sovereign Local Mode
+      </a>
+
       <div id="convToolbar" class="conv-toolbar" role="toolbar" aria-label="Conversation actions">
         <button id="newConversationButton" class="tool-button" type="button" title="Start a new conversation on this device">New</button>
         <button id="exportMarkdownButton" class="tool-button" type="button" title="Download this conversation as Markdown">Export .md</button>
@@ -761,6 +865,81 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
   </div>
 
   <script>
+    /**
+     * Embed mode bootstrap.
+     *
+     * The hosted Iris page (this file) can be iframed into other sites — most
+     * importantly the Framer-built theburgessprinciple.com. To make that
+     * embed feel native rather than "a site inside a site" we read three
+     * optional URL params and act on them before the rest of the script runs:
+     *
+     *   ?embed=1                  hides the outer page chrome (handled by
+     *                             body.embed-mode CSS) and starts posting
+     *                             height messages to the parent window.
+     *   ?theme=light|dark         forces the colour scheme via a data-theme
+     *                             attribute on <html>, overriding the user's
+     *                             OS-level prefers-color-scheme so Iris can
+     *                             match the host page.
+     *   ?context=<short-string>   a free-form hint (e.g. "framer-widget",
+     *                             "framer-page") stored on body.dataset.context
+     *                             for analytics / debugging. Does not touch the
+     *                             canonical system prompt (single-source-of-
+     *                             truth invariant preserved).
+     *
+     * postMessage payload (sent to parent.window):
+     *   { type: "iris:height", value: <pixels:number>, source: "iris" }
+     * The parent can listen for this to size the iframe to content.
+     */
+    (function bootstrapEmbedMode() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var theme = (params.get("theme") || "").toLowerCase();
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+        var context = params.get("context");
+        if (context) {
+          document.body.dataset.context = String(context).slice(0, 64);
+        }
+        var embed = params.get("embed");
+        if (embed === "1" || embed === "true") {
+          document.body.classList.add("embed-mode");
+          // Tell the parent how tall we are so it can size the iframe.
+          var post = function (height) {
+            try {
+              window.parent.postMessage(
+                { type: "iris:height", value: height, source: "iris" },
+                "*"
+              );
+            } catch (_err) {
+              // Cross-origin parents may reject postMessage in strict modes;
+              // we never want this to break the chat itself.
+            }
+          };
+          var lastHeight = 0;
+          var report = function () {
+            var h = Math.max(
+              document.documentElement.scrollHeight,
+              document.body.scrollHeight
+            );
+            if (h && h !== lastHeight) {
+              lastHeight = h;
+              post(h);
+            }
+          };
+          if (typeof ResizeObserver !== "undefined") {
+            new ResizeObserver(report).observe(document.documentElement);
+          }
+          window.addEventListener("load", report);
+          window.addEventListener("resize", report);
+          // First measurement once the layout settles.
+          setTimeout(report, 0);
+        }
+      } catch (_err) {
+        // Defensive: never let URL-param handling block Iris from loading.
+      }
+    })();
+
     const SYSTEM_PROMPT = (function readEmbeddedPrompt() {
       const node = document.getElementById("iris-system-prompt");
       const text = node ? node.textContent.trim() : "";

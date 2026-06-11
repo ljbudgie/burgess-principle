@@ -25,6 +25,9 @@ UK Certification Mark: UK00004343685
 ## Taxonomy Key
 
 Each institution is scored across five dimensions, each 0–4. Total is out of 20.
+Canonical definition with per-score anchors for each dimension:
+[`INSTITUTION_AUDIT_TAXONOMY.md`](./INSTITUTION_AUDIT_TAXONOMY.md) (v1.1 —
+additive; all scores recorded under v1.0 remain valid).
 
 | Band | Score | Meaning |
 | --- | --- | --- |

@@ -16,6 +16,10 @@ As of 7 June 2026, the great majority of completed assessments returned a NULL f
 
 ## Taxonomy Key
 
+Canonical definition with per-score anchors for each dimension:
+[`INSTITUTION_AUDIT_TAXONOMY.md`](./INSTITUTION_AUDIT_TAXONOMY.md) (v1.1 —
+additive; all scores recorded under v1.0 remain valid).
+
 | Band | Score | Meaning |
 | --- | --- | --- |
 | **NULL** | 0–5 | No meaningful human consideration. Full escalation indicated. |

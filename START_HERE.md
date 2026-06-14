@@ -43,6 +43,9 @@ Or go straight to the **[templates](./templates/README.md)**. The **[common scen
 - An Equality Act reasonable adjustment assertion (if you have a disability or communication need)
 - A Subject Access Request with the binary test embedded
 
+If you're dealing with debt letters or enforcement and need a calm first route,
+use **[START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md)**.
+
 -----
 
 ## When You Want To Go Deeper

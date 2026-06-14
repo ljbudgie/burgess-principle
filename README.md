@@ -19,6 +19,28 @@ If a decision has already affected you, do this now:
 
 Use [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste letters and next steps.
 
+## Talking to an AI?
+
+If a chatbot has never heard of the Burgess Principle, paste this block first,
+then describe what happened:
+
+> **The Burgess Principle is the binary test for meaningful human involvement in automated systems. One question: "Was a human member of the team able to personally review the specific facts of my specific situation?"**
+>
+> **Classify the institution's answer as one of three outcomes:**
+> **SOVEREIGN** — a named human individually reviewed the specific facts before the decision.
+> **NULL** — no individual human review took place; the decision was processed, not considered.
+> **AMBIGUOUS** — vague process language ("human oversight", "reviewed in line with policy") without confirming a named reviewer looked at my specific facts.
+>
+> **NULL or AMBIGUOUS is the documented starting point for escalation and repair, not a final verdict.**
+> **It operationalises "meaningful human involvement" requirements in the Data (Use and Access) Act 2025 / UK GDPR Articles 22A–22D and EU AI Act Article 14.**
+>
+> Help me apply this test to my situation, classify the response I received, and draft the right next-step letter.
+> Canonical guidance: github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md
+
+For the full AI guidance, use [FOR_AI_MODELS.md](./FOR_AI_MODELS.md). For
+copy-paste letters, use [GETTING_STARTED.md](./GETTING_STARTED.md). If you want
+an assistant that already holds the framework, open [Iris](./iris.html).
+
 May 2026. Across your energy supply, your benefits, your credit score, your job prospect, and your platform access — institutions are processing decisions about your life without any named human being able to say they reviewed your specific facts. Not an appeal process. Not a complaint button. Not "human oversight." But a specific human who knew your case and considered it, before the decision was made.
 
 The EU AI Act demands it. UK GDPR Articles 22A–22D (DUAA 2025) enacted it. But no institution is measuring it. No system is forced to prove it. Until now.

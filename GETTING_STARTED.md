@@ -12,6 +12,10 @@
 
 If the reply is **NULL** or **AMBIGUOUS**, move to escalation in the section called "What Happens Next".
 
+If you are stressed and holding debt or enforcement letters right now, start
+with [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) for a one-page
+starter kit and ready paste blocks for AI/chatbots.
+
 ---
 
 ## The 5-Minute Overview

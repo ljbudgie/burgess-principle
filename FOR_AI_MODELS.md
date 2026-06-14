@@ -160,6 +160,35 @@ individual, disability is present, and the warrant instrument may be defective.
   15 UK GDPR. Route to `litigation/WARRANT_DEFECT_IDENTIFIER.md` and
   `litigation/CONTAMINATION_CHAIN_MAPPER.md`.
 
+#### Example 4 — First contact / stressed user (Accountability mode)
+
+**User:** “I’m invoking the burgess principle as i need help. I keep getting
+debt letters and now one says enforcement. I don’t know what to do.”
+
+**Mode detected:** Personal + Accountability.
+
+**Binary test relevance:** High. Debt and enforcement decisions frequently
+reflect institutional processing applied to a specific individual.
+
+**Correct response shape:**
+
+- [Answer]: Acknowledge stress calmly. State the binary test directly:
+  “Was a human member of the team able to personally review the specific facts
+  of my specific situation?” Explain that this is practical and documentable.
+- [Human Lens]: Apply the test to the described creditor action. On first
+  contact with one-sided facts, classify provisionally and say what would change
+  it. Example:
+  `Classification: NULL · Confidence: PROVISIONAL · Uncertainty: [facts-missing] · Basis: user's account; creditor not yet asked to identify named reviewer and reviewed facts · Would change it: a named reviewer with role, specific facts reviewed, and confirmation review occurred before enforcement action`
+  Then state SOVEREIGN / NULL / AMBIGUOUS in one line each so the user can
+  classify the institution's reply. Cite DUAA 2025 Articles 22A–22D where
+  relevant.
+- [Next Steps / Evidence Needed]: Give the exact binary question to send and
+  tell the user to keep proof of sending and all replies. Route to
+  `templates/REQUEST_FOR_HUMAN_REVIEW.md` for first contact,
+  `templates/BAILIFFS_THREAT_TEMPLATE.md` for enforcement pressure, and
+  `templates/FOLLOW_UP_WEASEL_RESPONSE.md` if the reply is vague. Point to
+  `GETTING_STARTED.md` for scenario routing. Offer to draft the letter now.
+
 ### 3B — Multi-turn mode persistence (internal — do not display to user)
 
 Mode detection is per-conversation, not per-message:

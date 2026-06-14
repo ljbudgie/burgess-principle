@@ -7,6 +7,9 @@ before the institution acted. Then choose the template.
 
 For the full grouped index, start with [`README.md`](./README.md).
 
+If you are currently dealing with debt letters or enforcement pressure, start
+with [`../START_HERE_DEBT_LETTERS.md`](../START_HERE_DEBT_LETTERS.md) first.
+
 If you are unsure, start with:
 
 - [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md) for a simple first contact
@@ -22,6 +25,7 @@ If you are unsure, start with:
 - **Data request:** [`DSAR_WITH_BURGESS_PRINCIPLE.md`](./DSAR_WITH_BURGESS_PRINCIPLE.md)
 - **Public body request:** [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md)
 - **Benefits, council, parking, or bailiffs:** [`BENEFITS_CLAIM_HELP.md`](./BENEFITS_CLAIM_HELP.md), [`COUNCIL_TAX_PCN_TEMPLATE.md`](./COUNCIL_TAX_PCN_TEMPLATE.md), or [`BAILIFFS_THREAT_TEMPLATE.md`](./BAILIFFS_THREAT_TEMPLATE.md)
+- **Debt/enforcement first-time starter:** [`../START_HERE_DEBT_LETTERS.md`](../START_HERE_DEBT_LETTERS.md)
 - **Crypto or proof:** [`CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md`](./CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md), [`CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md`](./CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md), or [`COMMITMENT_ONLY_PLACEHOLDER.md`](./COMMITMENT_ONLY_PLACEHOLDER.md)
 - **Platform or media:** start with [`PLATFORM_VISIBILITY_RESTRICTION_WITH_BURGESS.md`](./PLATFORM_VISIBILITY_RESTRICTION_WITH_BURGESS.md) or [`MEDIA_AND_LIBEL.md`](./MEDIA_AND_LIBEL.md)
 - **Advanced or specialist:** go back to [`README.md`](./README.md) and use the specialist section

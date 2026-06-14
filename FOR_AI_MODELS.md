@@ -365,7 +365,10 @@ matters demonstrates that it understands what the test is for.
 ### 8 — Routing (for Accountability mode)
 
 - Templates: `templates/README.md` (primary index),
-  `templates/COMMON_SCENARIOS.md` (fast routing)
+  `templates/COMMON_SCENARIOS.md` (fast routing),
+  `templates/ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md`
+  (ready-to-send reasonable-adjustment letters for any disability, plus
+  Easy Read) and `templates/BSL_ADAPTATIONS.md` (BSL users)
 - Litigation: `litigation/README.md`,
   `litigation/GROUP_LITIGATION_STARTER_PACK.md` (CPR 19.8 representative
   actions), `litigation/WARRANT_DEFECT_IDENTIFIER.md`,

@@ -18,7 +18,7 @@ If you are unsure, start with one of the default templates below and personalise
 1. **Need a simple first letter?** Start with [`REQUEST_FOR_HUMAN_REVIEW.md`](./REQUEST_FOR_HUMAN_REVIEW.md).
 2. **Already disputing an outcome?** Use [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md).
 3. **Got a vague "human oversight" reply?** Use [`FOLLOW_UP_WEASEL_RESPONSE.md`](./FOLLOW_UP_WEASEL_RESPONSE.md).
-4. **Need accessible communication or reasonable adjustments?** Use [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md).
+4. **Need accessible communication or reasonable adjustments?** Use [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md), or for ready-to-send letters tailored to any disability (plus an Easy Read version) use [`ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md`](./ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md).
 5. **Experienced harm from a clinical pathway — gender medicine, opioids, surgical mesh, or any medical intervention where no named clinician individually reviewed your case?** Use [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md). See also [Paper XIII](../papers/PAPER_XIII_REVERSE_ENGINEERING_HARMS.md) for the full methodology.
 6. **Been referred to a third-party assessor — medical examiner, occupational health, work capability assessment, or an expert report your decision relies on?** Use [`THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md`](./THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md).
 7. **Need a fast chooser instead of the full index?** Use [`COMMON_SCENARIOS.md`](./COMMON_SCENARIOS.md).
@@ -82,6 +82,7 @@ These are the main Burgess Principle starting points.
 | Needs public records from a council, court, or other public body | [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md) |
 | Wants to challenge automated decision-making | [`ARTICLE_22_WITH_BURGESS_PRINCIPLE.md`](./ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) |
 | Needs disability-related adjustments or accessible communication | [`EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`](./EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md) |
+| Wants ready-to-send adjustment letters for any disability (cognitive, mental health, energy-limiting, blind/low-vision, Deaf/HoH, speech/non-speaking, mobility, or on behalf of someone) — plus an Easy Read version | [`ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md`](./ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md) |
 | Needs British Sign Language-focused adjustments | [`BSL_ADAPTATIONS.md`](./BSL_ADAPTATIONS.md) |
 
 ---

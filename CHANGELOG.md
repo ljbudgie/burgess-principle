@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.4 — 14 June 2026
+
+### Added
+- **TPT appeal DK00003-2605 — ALLOWED, 14 June 2026** (Darlington Borough Council)
+  - Adjudicator found DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership to the named lessee
+  - Enforcement action pursued via automated process, without a named human establishing the fundamental legal prerequisite, overturned when a named adjudicator applied individual scrutiny to the specific facts
+  - **First external judicial validation of the Burgess Principle binary test in a live enforcement case**
+  - Live ledger entry #49 added: Traffic Penalty Tribunal (DK00003-2605) — Finding: SOVEREIGN (judicial)
+  - Darlington Borough Council entry #4 status updated to reflect appeal allowed; Finding remains NULL (DBC's process)
+- **theburgessprinciple.com live** (14 June 2026)
+  - DNS resolved: nameservers updated in 123-reg; Squarespace A records replaced with Framer's directly
+  - Custom domain confirmed active; hosted-links updated throughout
+
+### Changed
+- `audits/LIVE_AUDIT_LOG.md` summary updated: total 48 → 49; SOVEREIGN count 2 → 3; new Judicial category; updated date 10 June → 14 June 2026
+- Notable live proceedings updated: TPT result added at top; Darlington BC entry updated to reflect appeal allowed
+- `institutional_register.csv` DBC status updated: enforcement outcome recorded
+- `live_findings_ledger.csv` new row added: 2026-06-14, TPT DK00003-2605, SOVEREIGN
+- `INSTITUTIONAL_REGISTER.md` summary date and DBC entry updated; appeal outcome documented
+- `README.md` hosted links updated to theburgessprinciple.com (DNS resolved); snapshot line updated to 14 June 2026, 49 ledger entries; version v2.5.3 → v2.5.4
+
+---
+
 ## v2.5.3 — June 2026
 
 ### Added

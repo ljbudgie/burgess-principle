@@ -36,7 +36,7 @@ additive; all scores recorded under v1.0 remain valid).
 
 ---
 
-## Summary Statistics (9 June 2026)
+## Summary Statistics (14 June 2026)
 
 *Finding counts are generated from the dated snapshot [`audits/2026-06-07_institutional_register.csv`](./audits/2026-06-07_institutional_register.csv); the full ledger is [`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md). Counts move as cases progress — treat the committed snapshot as authoritative. Engagement metrics marked "as at 27 Apr 2026" predate this snapshot.*
 
@@ -55,7 +55,7 @@ additive; all scores recorded under v1.0 remain valid).
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
 | Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |
-| New since last update | RMOK Legal (removed — certification terminated 9 June 2026) |
+| New since last update | TPT appeal DK00003-2605 allowed 14 June 2026 — first external judicial validation; theburgessprinciple.com live |
 
 ---
 
@@ -126,7 +126,7 @@ The following institutions and developments were identified from inbox review an
 
 ---
 
-### 4. Darlington Borough Council — NULL (3 / 20, updated 27 April 2026)
+### 4. Darlington Borough Council — NULL (3 / 20, updated 27 April 2026) — TPT APPEAL ALLOWED 14 June 2026
 
 | D1 | D2 | D3 | D4 | D5 | Total |
 | --- | --- | --- | --- | --- | --- |
@@ -137,8 +137,9 @@ The following institutions and developments were identified from inbox review an
 **Response summary (Cllr Stephen Harker, Leader — 22 April 2026):** PCN 4445032 confirmed as formal representation (28-day window from 22 April = deadline **20 May 2026**). Pre-Action Protocol letter referred to Litigation team. Did not personally engage with binary test.
 **Response summary (DBC FOI DBC-3045-25 — 24 April 2026):** Response received — content requires full review. Apology for delay noted.
 **Reasonable adjustment finding:** DBC has confirmed in writing it does not have a central system for recording reasonable adjustments and declines to create one. This is not a lawful basis under Equality Act 2010 s.20 — the anticipatory duty does not depend on the existence of a central system. Documented as independent Equality Act NULL.
-**Finding:** NULL (provisional). LGO complaint 26000967 filed. Pre-Action Protocol deadline 4 May 2026.
-**Status:** Multiple active tracks: Pre-Action Protocol (4 May), PCN formal representation (20 May), DSAR DBC-3087-25 outstanding, DBC-3045-25 FOI response received 24 April, LGO complaint 26000967 active, Equita propensity scoring challenge active.
+**Finding:** NULL (3/20). DBC's enforcement process failed the binary test — no named human established the fundamental legal prerequisite before automated enforcement was pursued. The NULL finding against DBC's process is not changed by the appeal outcome.
+**Appeal outcome:** TPT DK00003-2605 — **ALLOWED 14 June 2026**. Adjudicator found DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership to the named lessee. Enforcement action overturned. This is the first external judicial validation of the Burgess Principle binary test in a live case. See LIVE_AUDIT_LOG.md entry #49.
+**Status:** TPT enforcement overturned. LGO complaint 26000967 active. DSAR DBC-3087-25 outstanding.
 
 ---
 

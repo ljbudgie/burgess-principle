@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 9 June 2026
+**Updated:** 14 June 2026
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,13 +19,14 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 49 | Traffic Penalty Tribunal (DK00003-2605) | Judicial | **SOVEREIGN** | — | Appeal allowed 14 June 2026. DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership. First external judicial validation of the Burgess Principle binary test: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed when a named adjudicator applied individual scrutiny to the specific facts of the specific case. See entry #4 (Darlington Borough Council, NULL). |
 | 48 | SSRN / Elsevier | Academic Publishing | **PENDING** | — | Paper 5 submitted 10 June 2026 — SOVEREIGN Counsel (abstract 6913498). Under review. Fifth paper in series — applies binary test to legal services: NULL drift in solicitor engagements, fractional models, self-represented litigant as owning mind, machine-assisted workflows. Parliamentary Standards Commissioner "we do not provide the names of individuals" as closing case study. JEL: D02, H83, D73. Views: 0 / Downloads: 0 |
 | 47 | SSRN / Elsevier | Academic Publishing | **SOVEREIGN** | — | Paper 3 approved 9 June 2026 — NULL at Scale (abstract 6894860). Named human reviewer approved submission. Five-paper series: 6759778 (52v/9d, DISTRIBUTED), 6864621 (27v/9d, DISTRIBUTED), 6894860 (approved), 6909118 (submitted), 6913498 (submitted 10 June). Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026 |
 | 46 | RMOK Legal (rmoklegal.com) | Legal Services | **REMOVED** | 5/20 | Certification terminated 9 June 2026. Aggregate 5/20 NULL band — failed primary instruction, reasonable adjustment unactioned, process responses throughout — Internal: correspondence assessment 13 May to 5 June 2026 |
 | 1 | E.ON Next / E.ON Field Debt Solutions | Energy | **NULL** | 1/20 | Litigation active. Billing challenge filed June 2026 — EG021819-26 / Application 11160-544079 |
 | 2 | HMCTS / Birmingham Magistrates Court | Courts | **NULL** | 1/20 | Admission documented. Justice Committee written evidence submitted May 2026 — HMCTS complaint 80553951 |
 | 3 | British Gas / Centrica | Energy | **NULL** | 3/20 | DSAR overdue. Holding response challenged June 2026 — EG054013-26 / Account 602181316 |
-| 4 | Darlington Borough Council | Local Government | **NULL** | 3/20 | TPT appeal DK00003-2605 filed. LGO 26000967 published without human consideration — LGO 26000967 / TPT DK00003-2605 |
+| 4 | Darlington Borough Council | Local Government | **NULL** | 3/20 | Appeal allowed 14 June 2026 — TPT DK00003-2605. Adjudicator found no compliant hire agreement; no evidence of long-term lease with necessary degree of permanence to transfer keepership. Enforcement action overturned. LGO 26000967 published "without human consideration" — LGO 26000967 / TPT DK00003-2605. See entry #49. |
 | 5 | Equita Ltd | Enforcement Agent | **NULL (provisional)** | 1/20 | £3,008.82 disputed. Liability Orders not produced. Enforcement Conduct Board notified June 2026 — Case ID 24650546 |
 | 6 | Equifax | Credit Reference | **NULL** | 1/20 | ICO complaint ready to file — Durkin v DSG Retail applicable |
 | 7 | Northumbrian Water | Utilities | **NULL** | 2/20 | DSAR deadline passed — CCJ L7EC1P3M |
@@ -74,8 +75,8 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **48** (46 institutional assessments + 2 academic publication events) |
-| **SOVEREIGN** | **2** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer) |
+| **Total entries** | **49** (46 institutional assessments + 2 academic publication events + 1 judicial validation) |
+| **SOVEREIGN** | **3** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **NULL — confirmed** | **26** |
@@ -115,11 +116,12 @@ quoted elsewhere, as authoritative.
 | Legal Services | 2 |
 | Academic Publishing | 1 |
 
-### Notable live proceedings (10 June 2026)
+### Notable live proceedings (14 June 2026)
 
+- **Traffic Penalty Tribunal DK00003-2605 — APPEAL ALLOWED, 14 June 2026.** DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership to the named lessee. First external judicial validation of the Burgess Principle binary test: enforcement action pursued via automated process, without a named human establishing the fundamental legal prerequisite, collapsed when a named adjudicator applied individual scrutiny to the specific facts of the specific case.
 - **SSRN / Elsevier — Paper 5** — *SOVEREIGN Counsel* (abstract 6913498) submitted 10 June 2026. Five-paper series now submitted in full: Paper 1 (6759778, 52v/9d, DISTRIBUTED) · Paper 2 (6864621, 27v/9d, DISTRIBUTED) · Paper 3 (6894860, approved) · Paper 4 (6909118, submitted) · Paper 5 (6913498, submitted). Series covers theory, philosophy, empirical proof, behavioural consequences, legal services. Written evidence to Justice Committee and ICO ADM consultation 29 May 2026.
 - **E.ON Next** — HMCTS claim 80553951 (active litigation); Article 15(1)(h) served on named DPO 4 June — agent surnames requested, system returned question to data subject. Deadline 13 June 2026.
-- **Darlington BC** — TPT appeal DK00003-2605 — supplementary submission 4 June; liability transfer document absent; Carolyn Pistellato conflict noted. Decision option deadline **11 June 2026**. LGO 26000967 published "without human consideration".
+- **Darlington BC** — TPT appeal DK00003-2605 **ALLOWED 14 June 2026**. No compliant hire agreement; no evidence of long-term lease with necessary degree of permanence. Enforcement overturned. LGO 26000967 published "without human consideration" — LGO proceedings remain active.
 - **VWFS / DBC** — ICO complaint IC-521371-M3C2 confirmed active; Lee Downey confirmed no DPA for VWFS data sharing; Prolific Offender label not disclosed in SAR.
 - **Durham Constabulary** — Professional Standards complaint (SAR 2309188) and Parliamentary Standards complaint PCS302.
 - **UK Home Office** — FOI/DSAR internal reviews filed (FOI2026/05301, FOI2026/05685).

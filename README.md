@@ -1,12 +1,12 @@
 <a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.
 
-Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · <a href="https://theburgessprinciple.framer.website">The Burgess Principle site</a> · <a href="https://certify.theburgessprinciple.com">Certification site</a>
+Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · <a href="https://theburgessprinciple.com">The Burgess Principle site</a> · <a href="https://certify.theburgessprinciple.com">Certification site</a>
 
 # The Burgess Principle
 
 **The binary test for meaningful human involvement in automated systems.**
 
-- **Framework version:** v2.5.3 (released 9 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+- **Framework version:** v2.5.4 (released 14 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
 
 ## Start In 60 Seconds
 
@@ -93,7 +93,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (9 June 2026): 46 institutions on register — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 35 NULL (26 confirmed, 5 provisional, 4 accessibility), 8 pending, 1 removed (RMOK Legal — certification terminated). 47 entries in the live ledger, including SSRN / Elsevier as a SOVEREIGN academic track entry. 20 live formal proceedings active. The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (14 June 2026): 46 institutions on register — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 35 NULL (26 confirmed, 5 provisional, 4 accessibility), 8 pending, 1 removed (RMOK Legal — certification terminated). 49 entries in the live ledger, including SSRN / Elsevier (SOVEREIGN academic track) and Traffic Penalty Tribunal DK00003-2605 (first external judicial validation — appeal allowed 14 June 2026: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed under individual adjudicator scrutiny). The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 
@@ -108,7 +108,7 @@ Machine-readable versions of the register and ledger are published at the reposi
 
 Finding values: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**, **REMOVED**. Dates are in YYYY-MM-DD format. Partial-month entries use the first of the month.
 
-These CSVs are the live data source for the public Framer site at [theburgessprinciple.framer.website](https://theburgessprinciple.framer.website) (custom domain theburgessprinciple.com — DNS in progress). The Framer tables pull directly from the raw GitHub URLs above; no manual re-upload is needed when the repo is updated.
+These CSVs are the live data source for the public site at [theburgessprinciple.com](https://theburgessprinciple.com). The Framer tables pull directly from the raw GitHub URLs above; no manual re-upload is needed when the repo is updated.
 
 ---
 

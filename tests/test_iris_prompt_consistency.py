@@ -47,3 +47,29 @@ def test_iris_html_has_no_competing_inline_prompt_literal():
     html = IRIS_HTML_PATH.read_text(encoding="utf-8")
     # The previous divergent inline literal, removed for single-source-of-truth.
     assert 'const SYSTEM_PROMPT = "You are Iris' not in html
+
+
+def test_canonical_prompt_carries_the_hidden_disabilities_lens():
+    text = PROMPT_PATH.read_text(encoding="utf-8")
+    # The lens section and its accessibility doctrine must be present so Iris
+    # actually applies it rather than improvising.
+    assert "## Hidden Disabilities Lens" in text
+    # Equality Act anchors the user asserts (framed as their own, not advice).
+    for marker in ("ss.20–21", "s.15", "s.29"):
+        assert marker in text, f"missing Equality Act reference: {marker}"
+    # Move 1: the lens must route to existing, human-reviewed templates.
+    assert "ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md" in text
+    # Move 2: the machine-readable output shape must be pinned.
+    assert "## Response Structure" in text
+    assert "Classification: SOVEREIGN" in text
+    assert "Classification: NULL" in text
+    assert "Classification: AMBIGUOUS" in text
+
+
+def test_hidden_disabilities_lens_is_embedded_in_iris_html():
+    # The embedded copy is verified verbatim elsewhere; this is a fast,
+    # explicit guard that the lens specifically survived into the static deploy.
+    html = IRIS_HTML_PATH.read_text(encoding="utf-8")
+    embedded = _embedded_prompt(html)
+    assert "## Hidden Disabilities Lens" in embedded
+    assert "## Response Structure" in embedded

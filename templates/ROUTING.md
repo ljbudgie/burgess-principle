@@ -31,6 +31,7 @@
 | Article 22 / automated decision                      | `ARTICLE_22_WITH_BURGESS_PRINCIPLE.md`                                                           |
 | Disability / reasonable adjustments                  | `EQUALITY_ACT_WITH_BURGESS_PRINCIPLE.md`                                                         |
 | Ready-to-send adjustment letters for any specific disability (cognitive/neurodivergent, mental health, energy-limiting, blind/low-vision, Deaf/HoH, speech/non-speaking, mobility, carer on behalf of) + Easy Read | `ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md`                                           |
+| Hidden / fluctuating disability needing a calm conversational front door before any letter (autism, ADHD, brain fog, chronic illness, executive dysfunction) | Iris persona — Hidden Disabilities Lens in [`iris/system-prompt.md`](../iris/system-prompt.md); then route to `ACCESSIBILITY_REASONABLE_ADJUSTMENTS_WITH_BURGESS.md` |
 | Council tax or PCN                                   | `COUNCIL_TAX_PCN_TEMPLATE.md`                                                                    |
 | Benefits claim dispute                               | `BENEFITS_CLAIM_HELP.md`                                                                         |
 | DWP Universal Credit sanctions                       | `DWP_UNIVERSAL_CREDIT_SANCTIONS_WITH_BURGESS_PRINCIPLE.md`                                       |

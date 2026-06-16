@@ -30,7 +30,7 @@ in litigation. The references section is also provisional and requires
 **@ljbudgie** verification before any formal, legal, academic, or litigation
 use.
 
-The note does **not** alter the canonical binary-test wording, the seven evasion
+The note does **not** alter the canonical binary-test wording, the eight evasion
 patterns, or the anti-monetisation guardrails in `FOR_AI_MODELS.md`.
 
 ---

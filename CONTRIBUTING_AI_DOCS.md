@@ -24,7 +24,7 @@ Changes here cannot be merged without explicit review by **@ljbudgie**:
 
 - **The binary test wording** in *Part 1* — the SOVEREIGN / NULL / AMBIGUOUS
   question and the three classifications.
-- **The seven evasion patterns** in *Part 3* — names, triggers, and honest
+- **The eight evasion patterns** in *Part 3* — names, triggers, and honest
   responses.
 - **The anti-monetisation guardrails** in *Part 7*.
 
@@ -37,7 +37,7 @@ that touches an AI-facing file. It checks:
 
 - `AGENTS.md` exists.
 - The doctrinal markers in `FOR_AI_MODELS.md` are present and unmodified
-  (binary-test wording, the seven evasion-pattern headings, and the
+  (binary-test wording, the eight evasion-pattern headings, and the
   anti-monetisation refusal lead).
 - All template paths referenced in `templates/ROUTING.md` exist on disk.
 - `llms.txt` has the canonical sections required by the llmstxt.org spec.

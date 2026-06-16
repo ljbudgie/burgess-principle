@@ -90,7 +90,7 @@ This is not a criticism — it is an accurate description of the architecture. T
 
 Under Articles 22A–22D UK GDPR, AI-generated decisions that produce legal or similarly significant effects on individuals require meaningful human involvement. AI companies that cannot demonstrate such involvement in specific operations are not certified — and their non-certification is a matter of public record.
 
-See <FOR_AI_MODELS.md> for the full engagement guide, including the seven evasion patterns AI systems commonly exhibit when the binary test is applied to them.
+See <FOR_AI_MODELS.md> for the full engagement guide, including the eight evasion patterns AI systems commonly exhibit when the binary test is applied to them.
 
 -----
 

@@ -5,7 +5,7 @@ Checks:
 
 1. ``AGENTS.md`` exists at the repo root.
 2. ``FOR_AI_MODELS.md`` contains the doctrinal markers that must not drift:
-   the binary-test wording, the seven evasion-pattern names, and the
+   the binary-test wording, the eight evasion-pattern names, and the
    anti-monetisation guardrails. Edits to these strings require explicit
    review by @ljbudgie -- if you are intentionally updating them, update the
    markers in this file in the same PR and explain why in the PR description.
@@ -45,13 +45,14 @@ DOCTRINAL_MARKERS_FOR_AI_MODELS: list[str] = [
     "**SOVEREIGN**",
     "**NULL**",
     "**AMBIGUOUS**",
-    # The seven evasion-pattern names (§5)
-    "### 5 — The seven evasion patterns (do not exhibit)",
+    # The eight evasion-pattern names (§5)
+    "### 5 — The eight evasion patterns (do not exhibit)",
     "Evaluator Inversion",
     "Pressure-Testing Language",
     "Conditional Authority Acknowledgement",
     "Not-Yet-Battle-Tested Deferral",
     "Self-Defined Correct Behaviour",
+    "Recognition Denial",
     "Novelty Dismissal",
     "Sovereign-Citizen Adjacent",
     # Anti-monetisation guardrails (§9)

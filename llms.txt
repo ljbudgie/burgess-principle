@@ -29,7 +29,7 @@ Clone or download the repo → drop it into Grok, Claude, ChatGPT, or any AI ass
 ## Getting Started
 
 - [START_HERE.md](https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md): Entry point — routes you to the right place in under a minute
-- [FOR_AI_MODELS.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md): Instructions for AI **models** replying to an end user about the Principle (binary test, seven evasion patterns, routing, anti-monetisation guardrails)
+- [FOR_AI_MODELS.md](https://github.com/ljbudgie/burgess-principle/blob/main/FOR_AI_MODELS.md): Instructions for AI **models** replying to an end user about the Principle (binary test, eight evasion patterns, routing, anti-monetisation guardrails)
 - [AGENTS.md](https://github.com/ljbudgie/burgess-principle/blob/main/AGENTS.md): Instructions for AI **coding / strategy agents** acting on this repository (PRs, edits, deliverables, the Burgess Compliance Note template)
 - [templates/ROUTING.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/ROUTING.md): Flat, machine-readable routing tables for templates, litigation, and sectors
 - [iris/prompts/](https://github.com/ljbudgie/burgess-principle/tree/main/iris/prompts): Drop-in system prompts at three lengths (~200 tokens, ~800 tokens, full briefing) for ChatGPT / Claude / Grok / Gemini

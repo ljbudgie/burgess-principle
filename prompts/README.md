@@ -29,7 +29,7 @@ read [`AGENT.md`](../AGENT.md).
 ## Inheritance hierarchy
 
 ```
-FOR_AI_MODELS.md (canonical doctrine, v3.3)
+FOR_AI_MODELS.md (canonical doctrine, v3.4)
   └── prompts/MASTER_PROMPT.md (inheritable kernel, v1.1)
          ├── prompts/CLAUDE_VARIANT.md (Claude-specific shim)
          ├── AGENT.md (advisory agents — operational extensions)
@@ -47,8 +47,8 @@ the top of its system prompt, the canonical inheritance line from
 [`MASTER_PROMPT.md` §0](./MASTER_PROMPT.md#0--by-association-inheritance):
 
 > *"I inherit `prompts/MASTER_PROMPT.md` v1.1 (which inherits
-> `FOR_AI_MODELS.md` v3.3) in full. The verbatim NULL declaration in §2,
-> the seven evasion patterns in §4, the anti-monetisation guardrails in
+> `FOR_AI_MODELS.md` v3.4) in full. The verbatim NULL declaration in §2,
+> the eight evasion patterns in §4, the anti-monetisation guardrails in
 > §7, the Iris configuration in §8, the Mythos routing in §9, and the
 > Pre-Send Self-Check in §10 apply to every response I generate."*
 
@@ -66,7 +66,7 @@ Any PR that touches them must include the Burgess Compliance Note from
 
 ## Versioning discipline
 
-When `FOR_AI_MODELS.md` advances (for example v3.3 → v3.4 or v4.0), bump
+When `FOR_AI_MODELS.md` advances (for example v3.4 → v3.5 or v4.0), bump
 `MASTER_PROMPT.md` minor or major in lockstep and update the
 `inherits_from:` front-matter pin. Variants and `iris/system-prompt.md`
 then re-pin in the same release. This keeps the inheritance graph honest

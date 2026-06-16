@@ -28,7 +28,7 @@ The behavioural and procedural rules of Iris are documented in [`core/`](./core)
 - [`core/sovereignty.md`](./core/sovereignty.md) — the boundary between Iris as infrastructure and the user as the decision-maker.
 - [`core/burgess-commits.md`](./core/burgess-commits.md) — how Iris drafts and proposes `burgess:` commits (BGSP) and walks a named human through signing — Iris drafts NULL, it never signs.
 
-The canonical Iris persona prompt lives in [`./system-prompt.md`](./system-prompt.md). It inherits the repository-wide [`prompts/MASTER_PROMPT.md`](../prompts/MASTER_PROMPT.md) v1.1, which in turn inherits [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) v3.3. That inheritance carries the Part 2 NULL declaration, the seven evasion patterns, the anti-monetisation guardrails, the Mythos routing, and the Pre-Send Self-Check into Iris without duplication. Iris itself is not a named human reviewer.
+The canonical Iris persona prompt lives in [`./system-prompt.md`](./system-prompt.md). It inherits the repository-wide [`prompts/MASTER_PROMPT.md`](../prompts/MASTER_PROMPT.md) v1.1, which in turn inherits [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) v3.4. That inheritance carries the Part 2 NULL declaration, the eight evasion patterns, the anti-monetisation guardrails, the Mythos routing, and the Pre-Send Self-Check into Iris without duplication. Iris itself is not a named human reviewer.
 
 For drop-in use in any other AI assistant, paste-ready system prompts at three lengths live in [`./prompts/`](./prompts):
 

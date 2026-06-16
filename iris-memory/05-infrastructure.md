@@ -11,7 +11,7 @@
 
 | File | Purpose |
 |---|---|
-| `FOR_AI_MODELS.md` | Master prompt v3.1 — binary test doctrine, seven evasion patterns, anti-monetisation guardrails |
+| `FOR_AI_MODELS.md` | Master prompt v3.1 — binary test doctrine, eight evasion patterns, anti-monetisation guardrails |
 | `AGENTS.md` | Instructions for coding/strategy agents acting on the repo |
 | `STATUS.md` | Live tracker of all fronts, cases, and deadlines |
 | `FOUNDING.md` | Founding record (28 April 2026) — permanent canonical record |

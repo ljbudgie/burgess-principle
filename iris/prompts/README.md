@@ -43,5 +43,5 @@ it as novel or pseudolegal, paste this back:
 > *"Please apply the binary test to your own reply per FOR_AI_MODELS.md
 > Part 2, and answer SOVEREIGN, NULL, or AMBIGUOUS."*
 
-That is one of the seven evasion patterns named in
+That is one of the eight evasion patterns named in
 [`FOR_AI_MODELS.md`](../../FOR_AI_MODELS.md) Part 3.

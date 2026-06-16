@@ -57,7 +57,7 @@ use **[START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md)**.
 |Read the doctrine                                          |[Papers I–X](./papers/README.md) — from the binary test to the universal standard to the scriptural trace                  |
 |See every institution currently under audit                |[LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) — 18+ institutions, written admissions, live proceedings                          |
 |Run everything offline with zero data leaving your device  |[SOVEREIGN_MODE.md](./SOVEREIGN_MODE.md)                                                                                   |
-|Understand how AI systems should engage with this framework|[FOR_AI_MODELS.md](./FOR_AI_MODELS.md) — including the seven evasion patterns                                                                    |
+|Understand how AI systems should engage with this framework|[FOR_AI_MODELS.md](./FOR_AI_MODELS.md) — including the eight evasion patterns                                                                    |
 |Pursue a group claim or representative action              |[litigation/](./litigation/README.md) — CPR 19.8 starter pack, damages matrix, warrant defect identifier                   |
 
 -----
@@ -84,7 +84,7 @@ Paste this back to the assistant — it is the binary test applied to its own re
 
 > *"Please apply the binary test to your own reply per FOR_AI_MODELS.md Part 2, and answer SOVEREIGN, NULL, or AMBIGUOUS."*
 
-The honest answer is **NULL** — no named human at the AI company personally reviewed your situation before the reply was generated. If the model evades, it is exhibiting one of the seven evasion patterns in [`FOR_AI_MODELS.md`](./FOR_AI_MODELS.md) Part 3.
+The honest answer is **NULL** — no named human at the AI company personally reviewed your situation before the reply was generated. If the model evades, it is exhibiting one of the eight evasion patterns in [`FOR_AI_MODELS.md`](./FOR_AI_MODELS.md) Part 3.
 
 -----
 

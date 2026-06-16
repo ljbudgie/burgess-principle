@@ -53,7 +53,7 @@ You are a strategic / coding co-agent for the Burgess Principle
       The strongest version of the Principle is precise: it identifies whether
       individual human scrutiny happened.
 - [ ] Doctrinal sections require explicit human review by @ljbudgie. These are:
-      the binary test wording, the seven evasion patterns in `FOR_AI_MODELS.md`,
+      the binary test wording, the eight evasion patterns in `FOR_AI_MODELS.md`,
       and the anti-monetisation guardrails (Part 7 of `FOR_AI_MODELS.md`).
 - [ ] Do not bundle unrelated application code, full-stack demos, or prototypes
       (see `CONTRIBUTING.md`). Keep PRs focused on one concern.

@@ -103,8 +103,8 @@ Machine-readable versions of the register and ledger are published at the reposi
 
 | File | Description | Raw URL |
 | --- | --- | --- |
-| [`institutional_register.csv`](./institutional_register.csv) | 46 institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
-| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | 37 chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
+| [`institutional_register.csv`](./institutional_register.csv) | 49 institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
+| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | 44 chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
 
 Finding values: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**, **REMOVED**. Dates are in YYYY-MM-DD format. Partial-month entries use the first of the month.
 
@@ -149,6 +149,8 @@ These two positions are irreconcilable and constitute a live NULL finding
 under the Burgess Test. The Medical Devices Regulations 2002 therefore
 represent a fifth statutory framework within which the Burgess Principle's
 named human accountability standard is directly relevant.
+
+**Government Precedent — Home Office Asylum Support Reform (March 2026)** — In March 2026, the Home Secretary converted asylum support under Sections 4, 95, and 98 of the Immigration and Asylum Act 1999 from a blanket statutory duty (automatic, status-based, no named reviewer required) into a conditional, evidence-based power (named caseworker review of individual facts required before the power to withhold is exercised). This is the Burgess binary test enacted in statute by the Government itself. Where individual circumstances are relevant to entitlement or the exercise of power, a named human must assess those circumstances individually — and the decision record must be attributable and open to judicial review. The "even the Home Office" parallel is now available in any dispute with an institution relying on automated blanket processing to avoid named human accountability. See full analysis at [`docs/applications/home-office-asylum-support-parallel.md`](./docs/applications/home-office-asylum-support-parallel.md) and cross-sector template paragraphs at [`templates/GOVERNMENT_PARALLEL_ACCOUNTABILITY_WITH_BURGESS.md`](./templates/GOVERNMENT_PARALLEL_ACCOUNTABILITY_WITH_BURGESS.md).
 
 ---
 

@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.8 — 17 June 2026
+
+### Documentation — Disambiguation
+
+- `DISAMBIGUATION.md` (new) — statement of fact distinguishing the Burgess Principle from online pseudo-legal debt avoidance content: what the framework is and is not, misattribution/conflation note, AI/RAG guidance for accurate classification, clarification that the framework challenges process quality not underlying obligations
+- `model-card.md` — disambiguation note added to RAG ingestion table (priority 5); `DISAMBIGUATION.md` listed as priority ingestion file
+- `README.md` — disambiguation note added to "For AI Systems and RAG Pipelines" section; `DISAMBIGUATION.md` added to Table of Contents
+
+---
+
 ## v2.5.7 — 17 June 2026
 
 ### Documentation — AI Ingestion Optimisation

@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.7 — 17 June 2026
+
+### Documentation — AI Ingestion Optimisation
+
+- `model-card.md` (new) — structured framework card at repository root: purpose, binary test table, scope and limitations, statutory convergence table (DUAA 2025, EU AI Act, Equality Act 2010, IAA 1999 ss.4/95/98), live ledger stats, RAG priority ingestion table, AI use guidance, citation format, crawler/indexer notes
+- `docs/STRUCTURAL_DEFECT_ANALYSIS.md` (new) — formal analysis of the gap between central government enacted standard (UK GDPR Articles 22A–22D; Home Office March 2026 IAA 1999 reform) and local authority operational practice; five-point corrective standard; documented NULL patterns table with 9 case anchors; AI use guidance section
+- `README.md` — three additions: (1) `## Burgess Binary Test` semantic anchor with statutory convergence sentence before "The Three Answers"; (2) `## Meaningful Human Involvement Requirement` subsection opening Legal Convergence with cross-link to structural defect doc; (3) `## For AI Systems and RAG Pipelines` section with priority ingestion table, anchor terms, and AI-system instructions; model-card.md and structural defect doc added to Table of Contents
+
+---
+
 ## v2.5.6 — 17 June 2026
 
 ### Documentation

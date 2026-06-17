@@ -5,6 +5,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.6 — 17 June 2026
+
+### Documentation
+
+- `docs/applications/home-office-asylum-support-parallel.md` — revised: tighter citations (HC Deb 5 March 2026, IAA 1999 ss.4/95/98), "Why this precedent matters now" box, sharper SOVEREIGN/NULL binary table, cross-links to SOUL.md, ORIGIN.md, GIT_AS_GOVERNANCE.md, LIVE_AUDIT_LOG.md; Restore Britain references removed to maintain framework neutrality
+- `templates/GOVERNMENT_PARALLEL_ACCOUNTABILITY_WITH_BURGESS.md` — revised: "How to use" and "Quick personalisation" boxes added; language tightened throughout; Restore Britain section removed; 7 sector paragraphs retained (energy, councils, medical, banks, EASS/EHRC, Parliamentary Standards, universal CTA); duty/power quick-reference table polished
+
+---
+
 ## v2.5.5 — 17 June 2026
 
 ### Legal/Regulatory Record

@@ -1,5 +1,31 @@
 # Burgess Principle — Current Status
-Last updated: 24 May 2026
+Last updated: 17 June 2026
+
+## Week of 9–17 June 2026 — Key Developments
+
+### Legal / regulatory
+- **TPT DK00003-2605 ALLOWED 14 June** — named officer Carolyn Pistellato confirmed PCN DK7491076A cancelled in writing 17 June. First external judicial validation of the binary test.
+- **Post-TPT enforcement instruction 15 June** — a named DBC officer instructed Equita to continue enforcement on Case 24650546 the day after the win. FOI filed to identify the officer. Forvis Mazars and s.151 Officer Elizabeth Davidson notified.
+- **LGO 26000967 reopened** — Sophie Reckless (caseworker), Jenny Evans (manager), and Shem Marriott-Gray (reviewer) named. Target date 13 July.
+- **s.5 LGHA 1989 referral** acknowledged by Monitoring Officer Amy Wennington outside business hours 16 June.
+- **CMA submission re viagogo** (DMCCA 2024) — supplementary evidence filed 15 June.
+- **ICO complaint IC-526912-Q0X2** filed re British Gas DSAR.
+- **FCA FOI** filed re Equifax accessibility.
+- **IOPC and Durham Professional Standards** supplementary submissions filed 16 June.
+- **OPCC Case HA10857 opened** — Hampshire / Henry Nowak — routed to the Chief Constable's team 17 June.
+- **Operation Bridger correctly characterised**: an MP physical-security programme (introduced after the murders of Jo Cox and Sir David Amess), not counter-terrorism.
+
+### Academic / commercial
+- **theburgessprinciple.com LIVE on Framer** 15 June. DNS conflict resolved directly in 123-reg.
+- **SSRN Paper 6** (*The SOVEREIGN Decline*, 6915798) distributed 17 June. Papers 4 and 5 still in queue.
+- **Dr Sun Young Kim** engaged substantively — validated the SOVEREIGN/NULL distinction.
+- **Scott Ryan** onboarded as first Sales Consultant at 15% founding commission (before 31 July 2026).
+- **Framework introductions sent 17 June** — 11KBW, Cornerstone Barristers, 39 Essex Chambers (re DUAA 2025 / s.5 LGHA 1989).
+- **Jess Asato MP** — framework offered re an xAI/Grok deepfake High Court claim.
+- **Graham Smith (23ES Chambers)** — contacted following the rape gang inquiry report publication 17 June.
+- **Iris v2.5.4** — provider resilience PR merged, timezone fix merged, 101/101 tests passing.
+
+---
 
 ## Certification Mark
 UK00004343685 — ex parte hearing 13 May 2026 — Hearing Officer Darren Smith — decision pending
@@ -14,7 +40,7 @@ Peer review: Submitted
 ## Platform
 Iris: Running locally, Next.js 16, Postgres, Docker
 Public deployment: burgess-principle.vercel.app
-Version: v2.5.1
+Version: v2.5.5
 
 ## Commercial
 Licences signed: 0

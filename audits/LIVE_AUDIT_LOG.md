@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 14 June 2026
+**Updated:** 17 June 2026 (v2.5.5)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,10 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 53 | LGSCO (Sophie Reckless) | Ombudsman | **SOVEREIGN** | — | 17 June 2026. Named caseworker Sophie Reckless assigned; Jenny Evans (manager) and Shem Marriott-Gray (reviewer) named; direct email contact provided; 13 July 2026 target date confirmed. Intake accessibility issue (entry #51) resolved by a named human applying individual scrutiny. LGO 26000967 reopened. |
+| 52 | Darlington Borough Council (Carolyn Pistellato) | Local Government | **SOVEREIGN** | — | 17 June 2026. Written confirmation of PCN DK7491076A cancellation — named officer, written record, specific facts addressed. Follows TPT appeal allowed 14 June (entry #49). See entry #4. |
+| 51 | LGSCO | Ombudsman | **NULL (partially resolved)** | — | 16 June 2026. Inaccessible intake — two published email addresses (advice@lgo.org.uk, ombudsman@lgo.org.uk) bounced; portal-only process with no email route for deaf complainants. FOI filed under EA 2010 anticipatory duty argument. Named caseworker Sophie Reckless subsequently assigned — intake partially resolved (see entry #53). |
+| 50 | Darlington Borough Council | Local Government | **NULL** | — | 15 June 2026. Post-TPT enforcement instruction — named DBC officer instructed Equita to continue enforcement on Case 24650546 the day after the TPT win, despite the adjudicator finding liability was never established. FOI filed to identify the named officer. See entry #4. |
 | 49 | Traffic Penalty Tribunal (DK00003-2605) | Judicial | **SOVEREIGN** | — | Appeal allowed 14 June 2026. DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership. First external judicial validation of the Burgess Principle binary test: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed when a named adjudicator applied individual scrutiny to the specific facts of the specific case. See entry #4 (Darlington Borough Council, NULL). |
 | 48 | SSRN / Elsevier | Academic Publishing | **PENDING** | — | Paper 5 submitted 10 June 2026 — SOVEREIGN Counsel (abstract 6913498). Under review. Fifth paper in series — applies binary test to legal services: NULL drift in solicitor engagements, fractional models, self-represented litigant as owning mind, machine-assisted workflows. Parliamentary Standards Commissioner "we do not provide the names of individuals" as closing case study. JEL: D02, H83, D73. Views: 0 / Downloads: 0 |
 | 47 | SSRN / Elsevier | Academic Publishing | **SOVEREIGN** | — | Paper 3 approved 9 June 2026 — NULL at Scale (abstract 6894860). Named human reviewer approved submission. Five-paper series: 6759778 (52v/9d, DISTRIBUTED), 6864621 (27v/9d, DISTRIBUTED), 6894860 (approved), 6909118 (submitted), 6913498 (submitted 10 June). Written evidence submitted to Justice Committee and ICO ADM consultation 29 May 2026 |
@@ -75,19 +79,19 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **49** (46 institutional assessments + 2 academic publication events + 1 judicial validation) |
-| **SOVEREIGN** | **3** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation) |
+| **Total entries** | **53** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 new entries for the week of 9–17 June 2026) |
+| **SOVEREIGN** | **5** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
-| **NULL — confirmed** | **26** |
+| **NULL — confirmed** | **32** |
 | **NULL — provisional** | **5** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **Pending** substantive assessment | **5** |
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **35**. Counts move as cases progress — this is a
-snapshot updated 10 June 2026; treat the committed snapshot, not any single number
+NULL findings of all kinds total **41**. Counts move as cases progress — this is a
+snapshot updated 17 June 2026; treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -116,8 +120,16 @@ quoted elsewhere, as authoritative.
 | Legal Services | 2 |
 | Academic Publishing | 1 |
 
-### Notable live proceedings (14 June 2026)
+### Notable live proceedings (17 June 2026)
 
+- **Darlington BC / Carolyn Pistellato — PCN DK7491076A CANCELLED, confirmed in writing 17 June 2026.** Named officer, written record, specific facts — a SOVEREIGN response (entry #52) following the TPT appeal allowed 14 June (entry #49). **Post-TPT enforcement instruction 15 June (entry #50, NULL):** a named DBC officer instructed Equita to continue enforcement on Case 24650546 the day after the win; FOI filed to identify the officer. Forvis Mazars value-for-money engagement confirmed (James Collins); s.151 Officer Elizabeth Davidson notified 15–16 June; s.5 LGHA 1989 referral acknowledged by Monitoring Officer Amy Wennington 16 June.
+- **LGSCO — inaccessible intake (entry #51, NULL partially resolved) then named caseworker assigned (entry #53, SOVEREIGN).** Two published email addresses bounced; portal-only process with no email route for deaf complainants; FOI filed. Named caseworker Sophie Reckless then assigned, with Jenny Evans (manager) and Shem Marriott-Gray (reviewer) named, direct email contact provided, and 13 July 2026 target date. LGO 26000967 reopened.
+- **British Gas / Centrica** — DSAR partial response and automated correspondence to the wrong email address; ICO complaint IC-526912-Q0X2 filed 13 June; Nitin Patel confirmed the Privacy Team is actioning the DSAR by email 17 June; BWC Video 1 and 2 submitted to Energy Ombudsman EG054013-26.
+- **viagogo GmbH** — automated pressure selling to the wrong address and EA 2010 failure; CMA submission filed (live DMCCA 2024 enforcement case), supplementary evidence 15 June; order 640614897.
+- **Equifax Limited** — inaccessible portal-only consumer dispute process; FCA FOI filed (FRN 472458) re accessibility supervisory expectations.
+- **E.ON Next** — automated billing to the wrong address during active HMCTS proceedings 80553951; breach notice to ceo@eonnext.com 15 June; ICO complaint IC-494023-N8V3; Article 15(1)(h) deadline passed 13 June.
+- **Hampshire Constabulary / OPCC** — Henry Nowak / Race Action Plan submission; OPCC Case HA10857 opened, routed to the Chief Constable's team 17 June.
+- **Operation Bridger correctly characterised** in all submissions as the MP physical-security programme (post Jo Cox / David Amess murders), **not** counter-terrorism; supplementary submissions filed to IOPC and Durham Professional Standards 16 June.
 - **Traffic Penalty Tribunal DK00003-2605 — APPEAL ALLOWED, 14 June 2026.** DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership to the named lessee. First external judicial validation of the Burgess Principle binary test: enforcement action pursued via automated process, without a named human establishing the fundamental legal prerequisite, collapsed when a named adjudicator applied individual scrutiny to the specific facts of the specific case.
 - **SSRN / Elsevier — Paper 5** — *SOVEREIGN Counsel* (abstract 6913498) submitted 10 June 2026. Five-paper series now submitted in full: Paper 1 (6759778, 52v/9d, DISTRIBUTED) · Paper 2 (6864621, 27v/9d, DISTRIBUTED) · Paper 3 (6894860, approved) · Paper 4 (6909118, submitted) · Paper 5 (6913498, submitted). Series covers theory, philosophy, empirical proof, behavioural consequences, legal services. Written evidence to Justice Committee and ICO ADM consultation 29 May 2026.
 - **E.ON Next** — HMCTS claim 80553951 (active litigation); Article 15(1)(h) served on named DPO 4 June — agent surnames requested, system returned question to data subject. Deadline 13 June 2026.

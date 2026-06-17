@@ -5,6 +5,35 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.5 — 17 June 2026
+
+### Legal/Regulatory Record
+- TPT DK00003-2605 allowed 14 June — entry #49 SOVEREIGN (judicial) confirmed in ledger; Pistellato written cancellation confirmation 17 June — entry #52 SOVEREIGN
+- Post-TPT enforcement instruction by named DBC officer 15 June — entry #50 NULL; FOI filed to identify officer
+- LGSCO inaccessible intake documented — entry #51 NULL; Sophie Reckless named caseworker assigned — entry #53 SOVEREIGN
+- 6 new NULL findings: DBC post-TPT instruction, LGSCO intake, British Gas DSAR, Equifax portal, viagogo automated pressure, E.ON Next wrong-address billing
+- 2 new SOVEREIGN findings: Pistellato written confirmation, LGSCO named caseworker assignment
+- Operation Bridger correctly characterised in all submissions: MP security programme (post Jo Cox/David Amess), not counter-terrorism
+- 3 new institutions added: viagogo GmbH (NULL), Equifax Limited (NULL), Hampshire Constabulary/OPCC (AMBIGUOUS)
+
+### Commercial/Academic
+- theburgessprinciple.com live on Framer (15 June)
+- SSRN Paper 6 distributed (17 June)
+- Framework introductions: 11KBW, Cornerstone, 39 Essex, Jess Asato MP, Graham Smith (23ES)
+- Iris v2.5.4: resilience + timezone fixes, 101/101 tests
+
+### Changed
+- `live_findings_ledger.csv`: 6 new NULL rows added (DBC post-TPT, LGSCO intake, British Gas DSAR, Equifax Limited portal, viagogo, E.ON Next)
+- `audits/LIVE_AUDIT_LOG.md`: entries #50–#53 added; summary updated — total 49 → 53, SOVEREIGN 3 → 5, NULL confirmed 26 → 32, all-NULL 35 → 41; date 14 June → 17 June 2026
+- `institutional_register.csv` and `INSTITUTIONAL_REGISTER.md`: DBC, E.ON Next, British Gas, VWFS, and Durham rows updated; viagogo GmbH, Equifax Limited, and Hampshire Constabulary/OPCC added; summary total 46 → 49, NULL 26 → 32, SOVEREIGN 1 → 3; date updated to 17 June 2026
+- `STATUS.md`: Week of 9–17 June 2026 developments section added; platform version updated to v2.5.5
+- `README.md`: snapshot and framework version updated to v2.5.5 (17 June 2026)
+
+### Version
+- Bump to v2.5.5, released 17 June 2026
+
+---
+
 ## v2.5.4 — 14 June 2026
 
 ### Added

@@ -1,6 +1,6 @@
 # Institutional Register — SOVEREIGN/NULL Compliance Record
 
-**Last updated: 7 June 2026**
+**Last updated: 17 June 2026**
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 
@@ -36,18 +36,18 @@ additive; all scores recorded under v1.0 remain valid).
 
 ---
 
-## Summary Statistics (14 June 2026)
+## Summary Statistics (17 June 2026)
 
 *Finding counts are generated from the dated snapshot [`audits/2026-06-07_institutional_register.csv`](./audits/2026-06-07_institutional_register.csv); the full ledger is [`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md). Counts move as cases progress — treat the committed snapshot as authoritative. Engagement metrics marked "as at 27 Apr 2026" predate this snapshot.*
 
 | Metric | Count |
 | --- | --- |
-| Total institutions on register | 46 |
-| NULL findings (confirmed) | 26 |
+| Total institutions on register | 49 |
+| NULL findings (confirmed) | 32 |
 | NULL findings (provisional) | 5 (Equita, HMPO, UK Home Office, Ofgem, MHRA) |
 | Accessibility NULL findings | 4 (CDDFT Audiology, NHS England AI Directorate, DHSC, AI and Digital Regulations Service) |
 | Partial sovereign findings | 1 (TV Licensing) |
-| SOVEREIGN findings | 1 (Wave Utilities) |
+| SOVEREIGN findings | 3 (Wave Utilities; DBC / Carolyn Pistellato — written PCN cancellation; LGSCO / Sophie Reckless — named caseworker assigned) |
 | No data held (clean negative) | 1 (Palantir) |
 | Pending substantive assessment | 5 (HM Treasury, Cabinet Office, FSA, Companies House, Fujitsu) |
 | Constructive engagement | 2 (Law Commission; Hodge Jones & Allen LLP) |
@@ -55,7 +55,7 @@ additive; all scores recorded under v1.0 remain valid).
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
 | Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |
-| New since last update | TPT appeal DK00003-2605 allowed 14 June 2026 — first external judicial validation; theburgessprinciple.com live |
+| New since last update | 3 institutions added (viagogo GmbH — NULL; Equifax Limited — NULL; Hampshire Constabulary / OPCC — AMBIGUOUS); 6 new NULL findings and 2 new SOVEREIGN findings for the week of 9–17 June 2026; DBC PCN DK7491076A cancelled in writing by named officer (Pistellato) 17 June following TPT win 14 June |
 
 ---
 
@@ -96,7 +96,7 @@ The following institutions and developments were identified from inbox review an
 **Question asked:** Who individually reviewed warrant Application 11160-544079 before forced entry was authorised?
 **Response summary:** Field team investigated themselves. Letter of apology offered. Field notes disclosed "no contact psr's on account Cust is deaf." Warrant RE99022 unsigned on face.
 **Finding:** NULL — CSV batch processing, en bloc granting, no individual judicial scrutiny. Deafness noted only after three visits. Doctrinal anchor for the Burgess Principle.
-**Status:** Ombudsman route exhausted (EG021819-26 — both rulings declined). Final decision omitted disability; directed telephone response to deaf complainant. EHRC Case 16525912 confirmed discrimination. Litigation route active: Deighton Pierce Glynn and Hodge Jones & Allen (referrals sent 24 April 2026).
+**Status:** Ombudsman route exhausted (EG021819-26 — both rulings declined). Final decision omitted disability; directed telephone response to deaf complainant. EHRC Case 16525912 confirmed discrimination. Litigation route active: Deighton Pierce Glynn and Hodge Jones & Allen (referrals sent 24 April 2026). **Updated 15 June 2026:** Article 15(1)(h) deadline passed 13 June with no response. Automated billing statement sent to wrong address ([REDACTED-EMAIL]) on 15 June during active HMCTS proceedings 80553951 — payment demand generated without named human review; £59.25 reversed charge unexplained. Formal breach notice sent to ceo@eonnext.com. ICO complaint IC-494023-N8V3 active.
 
 ---
 
@@ -122,11 +122,11 @@ The following institutions and developments were identified from inbox review an
 **Question asked:** Who individually reviewed account 602181316 before six enforcement visits to business premises?
 **Response summary:** Nitin Patel confirmed contract expired January 2022; meter reading frozen; charged £425 for challenged enforcement visit.
 **Finding:** NULL — defective meter 0681410S; £1,806 demand; eight Equality Act breaches. Bodycam confirmed for six visits.
-**Status:** EG037844-26 prematurely closed 8 April 2026 — 16 days before 8-week threshold, within 20 minutes of receiving response. Re-referral filed 24 April 2026. DSAR extended to 8 June 2026. ICO complaint active.
+**Status:** EG037844-26 prematurely closed 8 April 2026 — 16 days before 8-week threshold, within 20 minutes of receiving response. Re-referral filed 24 April 2026. DSAR extended to 8 June 2026. ICO complaint active. **Updated 17 June 2026:** ICO complaint IC-526912-Q0X2 filed 13 June re DSAR partial response (2 of 6+ BWC videos provided, activation log missing, deadline 13 June passed) and automated correspondence sent to the wrong email address after an email-only reasonable adjustment was notified. Nitin Patel confirmed the Privacy Team is actioning the DSAR by email 17 June. BWC Video 1 and 2 submitted to Energy Ombudsman EG054013-26.
 
 ---
 
-### 4. Darlington Borough Council — NULL (3 / 20, updated 27 April 2026) — TPT APPEAL ALLOWED 14 June 2026
+### 4. Darlington Borough Council — NULL (3 / 20, updated 27 April 2026) — TPT APPEAL ALLOWED 14 June 2026; PCN CANCELLED IN WRITING 17 June 2026
 
 | D1 | D2 | D3 | D4 | D5 | Total |
 | --- | --- | --- | --- | --- | --- |
@@ -139,7 +139,9 @@ The following institutions and developments were identified from inbox review an
 **Reasonable adjustment finding:** DBC has confirmed in writing it does not have a central system for recording reasonable adjustments and declines to create one. This is not a lawful basis under Equality Act 2010 s.20 — the anticipatory duty does not depend on the existence of a central system. Documented as independent Equality Act NULL.
 **Finding:** NULL (3/20). DBC's enforcement process failed the binary test — no named human established the fundamental legal prerequisite before automated enforcement was pursued. The NULL finding against DBC's process is not changed by the appeal outcome.
 **Appeal outcome:** TPT DK00003-2605 — **ALLOWED 14 June 2026**. Adjudicator found DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership to the named lessee. Enforcement action overturned. This is the first external judicial validation of the Burgess Principle binary test in a live case. See LIVE_AUDIT_LOG.md entry #49.
-**Status:** TPT enforcement overturned. LGO complaint 26000967 active. DSAR DBC-3087-25 outstanding.
+**SOVEREIGN follow-up (17 June 2026):** Named officer Carolyn Pistellato confirmed cancellation of PCN DK7491076A in writing — a named officer, a written record, and the specific facts addressed. Recorded as SOVEREIGN (LIVE_AUDIT_LOG.md entry #52).
+**Post-TPT enforcement instruction (15 June 2026) — NULL:** A named DBC officer instructed Equita to continue enforcement on Case 24650546 the day after the TPT win, despite the adjudicator finding liability was never established. FOI filed to identify the named officer (LIVE_AUDIT_LOG.md entry #50). Forvis Mazars value-for-money engagement confirmed — James Collins sharing correspondence with DBC. s.151 Officer Elizabeth Davidson notified 15 and 16 June 2026. s.5 LGHA 1989 referral acknowledged by Monitoring Officer Amy Wennington outside business hours 16 June.
+**Status:** TPT enforcement overturned; PCN DK7491076A cancelled in writing. LGO complaint 26000967 reopened — Sophie Reckless caseworker, Jenny Evans manager, Shem Marriott-Gray reviewer, target date 13 July 2026. DSAR DBC-3087-25 outstanding.
 
 ---
 
@@ -448,6 +450,7 @@ Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop un
 **ICO reference:** IC-521371-M3C2 / DBC-3571-26
 
 **Finding:** NULL — Lee Downey (DBC-3571-26) confirmed in writing: no data processing agreement exists for VWFS data sharing. Article 6(1)(e) was cited but misapplied — sharing with a private finance company is not a task carried out in the public interest. The "Prolific Offender" label was communicated to VWFS without disclosure in the original SAR, constituting a transparency failure under Article 13–14 UK GDPR.
+**Updated 14 June 2026:** TPT win communicated to Nicola Rice — the "Prolific Offender" label was generated by a legally defective process now confirmed by an independent adjudicator. DSAR deadline 22 July 2026.
 **Status:** ICO complaint IC-521371-M3C2 confirmed active (1 June 2026). DBC data sharing track now separate from the VWFS billing/enforcement track.
 
 ---
@@ -460,6 +463,7 @@ Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop un
 **Parliamentary Standards complaint:** PCS302
 
 **Finding:** NULL — Professional Standards complaint registered following police attendance at complainant's home on 30 March 2026 in connection with lawful statutory correspondence sent to Lola McEvoy MP's office. Parliamentary Standards complaint PCS302 filed. BWV footage confirms no wrongdoing by complainant.
+**Updated 16 June 2026:** Operation Bridger confirmed as the MP physical security programme (introduced after the murders of Jo Cox and Sir David Amess) — **not** counter-terrorism. Supplementary submissions filed to IOPC (enquiries@policeconduct.gov.uk) and Durham Professional Standards (complaints@durham.police.uk).
 **Status:** Active — professional standards track and parliamentary track running concurrently.
 
 ---
@@ -599,6 +603,36 @@ Email to `digitalregulations@nice.org.uk` bounced. Multi-agency one-stop-shop un
 
 ---
 
+### 47. viagogo GmbH — NULL ⭐ NEW ENTRY (13 June 2026)
+
+**Sector:** Ticketing Marketplace
+**Reference:** Order 640614897 / CMA DMCCA 2024 enforcement case
+
+**Finding:** NULL — automated pressure selling and Equality Act 2010 failure. Automated price-drop emails were sent to the wrong address (ljbarbers15) after a formal complaint was made on 13 June; the auto-acknowledgment directed a deaf complainant to telephone, with no ADR signposting. viagogo's marketplace disclaimer contradicts its active commercial conduct.
+**Status:** CMA submission filed (live DMCCA 2024 enforcement case opened 18 November 2025). Supplementary evidence filed 15 June (a second automated price-drop email arrived the same day as the CMA submission, again to the wrong address). CMS Committee (Oliver Florence, Corrin Edgerton), CMA press office, Which?, and Good Law Project all notified. Tickets purchased £900 (Order 640614897, Zach Bryan, Belfast, 24 June 2026).
+
+---
+
+### 48. Equifax Limited — NULL ⭐ NEW ENTRY (16 June 2026)
+
+**Sector:** Credit Reference
+**Reference:** Case 260616-6387800 / FCA FRN 472458
+
+**Finding:** NULL — inaccessible consumer dispute process. The Notice of Correction (NOC) dispute process is portal-only, with no published email address, and the complaints address bounced. The response to Case 260616-6387800 was directed to the portal despite an email-only reasonable adjustment.
+**Status:** FOI filed to the FCA (FRN 472458) regarding accessibility supervisory expectations. Seven-day close window noted — case marked not resolved pending an email response. (Distinct from the existing Equifax entry #6, which records an automated-closure NULL on the credit-reference dispute track.)
+
+---
+
+### 49. Hampshire Constabulary / OPCC — AMBIGUOUS ⭐ NEW ENTRY (17 June 2026)
+
+**Sector:** Police / Policing Bodies
+**Reference:** OPCC Case HA10857
+
+**Finding:** AMBIGUOUS — Henry Nowak / Race Action Plan submission. An identifiable route to individual human consideration has opened, but no substantive determination has yet been made.
+**Status:** OPCC Case HA10857 opened and routed to the Chief Constable's team on 17 June 2026.
+
+---
+
 ## Engagement Register (Non-NULL/SOVEREIGN — Regulatory & Legal Bodies)
 
 These contacts are not scored under the taxonomy but are documented as active engagements supporting the framework.
@@ -703,6 +737,6 @@ To move from NULL to SOVEREIGN, the entity must provide:
 
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
 
-Last updated: 9 June 2026
+Last updated: 17 June 2026
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685

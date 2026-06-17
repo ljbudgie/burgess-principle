@@ -6,7 +6,7 @@ Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · 
 
 **The binary test for meaningful human involvement in automated systems.**
 
-- **Framework version:** v2.5.4 (released 14 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+- **Framework version:** v2.5.5 (released 17 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
 
 ## Start In 60 Seconds
 
@@ -93,7 +93,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (14 June 2026): 46 institutions on register — 1 SOVEREIGN (Wave Utilities), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 35 NULL (26 confirmed, 5 provisional, 4 accessibility), 8 pending, 1 removed (RMOK Legal — certification terminated). 49 entries in the live ledger, including SSRN / Elsevier (SOVEREIGN academic track) and Traffic Penalty Tribunal DK00003-2605 (first external judicial validation — appeal allowed 14 June 2026: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed under individual adjudicator scrutiny). The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (17 June 2026): 49 institutions on register — 3 SOVEREIGN (Wave Utilities; Darlington Borough Council / Carolyn Pistellato — written PCN cancellation by a named officer; LGSCO / Sophie Reckless — named caseworker assigned), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 1 ambiguous (Hampshire Constabulary / OPCC), 41 NULL (32 confirmed, 5 provisional, 4 accessibility), pending substantive assessments, 1 removed (RMOK Legal — certification terminated). 53 entries in the live ledger, including SSRN / Elsevier (SOVEREIGN academic track) and Traffic Penalty Tribunal DK00003-2605 (first external judicial validation — appeal allowed 14 June 2026: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed under individual adjudicator scrutiny). The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 

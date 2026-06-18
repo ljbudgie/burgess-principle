@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.5.9 — 17 June 2026
+
+### Documentation — ADM Statutory Analysis and Immigration Mapping
+
+- `ADM_HUMAN_REVIEW.md` (new) — primary statutory anchor: DUAA 2025 s.80 operative definition ("no meaningful human involvement"), two-limb analysis (Art 22A general / s.50A law enforcement), safeguards list, SOVEREIGN/NULL cross-reference, Lords 3 Nov 2025 Report Stage (BSAIA Bill, AI age assessment; column refs TBC), ACS tool (GOV.UK evaluation 29 Apr 2025; 9% pre-use removal rate — precision caveated), APS tool (5% low-confidence), Robin Allen KC legal opinion 17 Mar 2026 (Open Rights Group / Doughty Street / EIN), mapping table (3 rows), reusable Human Review Mandate argument block
+- `LEGAL_MAPPING.md` (new) — master statutory and regulatory cross-reference index: DUAA 2025 s.80 operative definition, two-limb table, EU AI Act, Equality Act 2010, BSAIA 2025 (c.31), IAA 1999 ss.4/95/98 March 2026 reform, Consumer Rights Act 2015 s.49, Medical Devices Regulations 2002, Rights of Entry Act 1954; cross-reference map to all major documents
+- `IMMIGRATION.md` (new) — binary test applied to immigration decision types: asylum determination (ACS/APS, Art 22A, NULL), age assessment (facial estimation AI, Art 22A, NULL, Lords 3 Nov 2025), enforcement prioritisation (s.50A LE limb, NULL, accountability gap recorded); full mapping table; Home Office duty-to-power precedent cross-linked
+- `EU-AI-ACT-MAPPING.md` — related documents section added (cross-links to ADM_HUMAN_REVIEW.md, LEGAL_MAPPING.md, IMMIGRATION.md)
+- `model-card.md` — RAG ingestion table updated (ADM_HUMAN_REVIEW.md, LEGAL_MAPPING.md, IMMIGRATION.md added as priority entries)
+- `README.md` — Table of Contents updated (LEGAL_MAPPING.md, ADM_HUMAN_REVIEW.md, IMMIGRATION.md added)
+
+---
+
 ## v2.5.8 — 17 June 2026
 
 ### Documentation — Disambiguation

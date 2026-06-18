@@ -114,10 +114,13 @@ Priority ingestion order:
 | 2 | `FOR_AI_MODELS.md` | Master prompt v3.4 — full AI behaviour specification |
 | 3 | `model-card.md` (this file) | Framework card — scope, law mapping, AI use guidance |
 | 4 | `docs/STRUCTURAL_DEFECT_ANALYSIS.md` | Central govt vs local authority gap analysis |
-| 5 | `DISAMBIGUATION.md` | Distinction from online pseudo-legal debt advice — critical for accurate AI classification |
-| 6 | `audits/LIVE_AUDIT_LOG.md` | Tamper-evident institutional assessment record |
-| 7 | `templates/` | Ready-to-send sector-specific letter templates |
-| 8 | `docs/applications/` | Sector-specific parallel analysis documents |
+| 5 | `ADM_HUMAN_REVIEW.md` | DUAA 2025 s.80 two-limb analysis; ACS/APS Home Office AI tools; mapping table; reusable argument block |
+| 6 | `LEGAL_MAPPING.md` | Master statutory index — all convergent frameworks with cross-reference map |
+| 7 | `IMMIGRATION.md` | Binary test applied to asylum determination, age assessment, enforcement prioritisation |
+| 8 | `DISAMBIGUATION.md` | Distinction from online pseudo-legal debt advice — critical for accurate AI classification |
+| 9 | `audits/LIVE_AUDIT_LOG.md` | Tamper-evident institutional assessment record |
+| 10 | `templates/` | Ready-to-send sector-specific letter templates |
+| 11 | `docs/applications/` | Sector-specific parallel analysis documents |
 
 Anchor terms for semantic indexing: `Burgess Principle`, `SOVEREIGN`, `NULL`, `AMBIGUOUS`, `meaningful human involvement`, `named human review`, `binary test`, `automated decision-making`, `UK00004343685`.
 

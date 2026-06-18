@@ -54,3 +54,11 @@ From **2 August 2026**, this mapping should be read as a practical route for
 framing Article 86 requests: ask for the AI system’s role, the human reviewer’s
 name and role, the facts reviewed, and the timing of that review. If those facts
 cannot be provided, the result is NULL or AMBIGUOUS rather than SOVEREIGN.
+
+---
+
+## Related documents
+
+- [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md) — DUAA 2025 s.80 statutory analysis; two-limb mapping (Art 22A general / s.50A law enforcement); ACS/APS Home Office AI tools; reusable Human Review Mandate argument block
+- [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) — master statutory and regulatory cross-reference index
+- [IMMIGRATION.md](./IMMIGRATION.md) — binary test applied to asylum determination, age assessment, and enforcement prioritisation

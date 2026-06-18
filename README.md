@@ -322,6 +322,9 @@ This repository is optimised for AI ingestion. Priority reading order:
 | Area | Link | What it is for |
 | --- | --- | --- |
 | Framework card | [model-card.md](./model-card.md) | Structured framework descriptor for AI ingestion, RAG pipelines, and web crawlers. Scope, law mapping, citation format. |
+| Legal mapping | [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) | Master statutory index — DUAA 2025, EU AI Act, Equality Act, BSAIA 2025, and all convergent frameworks with cross-reference map. |
+| ADM and human review | [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md) | DUAA 2025 s.80 two-limb analysis; ACS/APS Home Office AI tools; mapping table; reusable Human Review Mandate argument block. |
+| Immigration | [IMMIGRATION.md](./IMMIGRATION.md) | Binary test applied to asylum determination, age assessment, and enforcement prioritisation under DUAA 2025 and BSAIA 2025. |
 | Disambiguation | [DISAMBIGUATION.md](./DISAMBIGUATION.md) | Distinguishes this framework from online pseudo-legal debt advice. Critical for accurate AI classification and research. |
 | Structural defect | [docs/STRUCTURAL_DEFECT_ANALYSIS.md](./docs/STRUCTURAL_DEFECT_ANALYSIS.md) | Central government enacted standard vs local authority operational practice — the gap the binary test closes. |
 | Case studies | [case-studies/](./case-studies/) | Public examples of the test applied to real situations. |

@@ -71,12 +71,13 @@ Section 80 contains two distinct limbs. Applying the wrong limb to a given decis
 
 The **Border Security, Asylum and Immigration Act 2025** (c.31), receiving Royal Assent on **2 December 2025**, was scrutinised during Report Stage in the House of Lords on **3 November 2025**. That sitting included debate on the use of AI for age assessment in asylum cases.
 
-**Hansard reference:** HC Lords, 3 November 2025 — Border Security, Asylum and Immigration Bill (Report Stage)  
+**Hansard citation:** HL Deb 3 November 2025, vol 849, Report Stage (2nd Day), Amendments 27 and 57  
 **Debate ID:** `A8A75F9A-F73A-448E-9F33-52646DA4A9F1`  
-**URL:** [hansard.parliament.uk/lords/2025-11-03/debates/A8A75F9A-F73A-448E-9F33-52646DA4A9F1/BorderSecurityAsylumAndImmigrationBill](https://hansard.parliament.uk/lords/2025-11-03/debates/A8A75F9A-F73A-448E-9F33-52646DA4A9F1/BorderSecurityAsylumAndImmigrationBill)  
-**Column references:** To be confirmed from full Hansard pull.
+**URL:** [hansard.parliament.uk/Lords/2025-11-03/debates/A8A75F9A-F73A-448E-9F33-52646DA4A9F1/BorderSecurityAsylumandImmigrationBill](https://hansard.parliament.uk/Lords/2025-11-03/debates/A8A75F9A-F73A-448E-9F33-52646DA4A9F1/BorderSecurityAsylumandImmigrationBill)  
+**Amendments debated:** Amendment 27 (Baroness Brinton, LD) — mandatory referral for Merton-compliant age assessment before criminal proceedings; Amendment 57 (Baroness Lister of Burtersett, Lab) — safeguards for asylum-seeking children whose age is disputed.  
+**Column references:** Precise column numbers are not available from the plain-text transcript and have not been fabricated. Volume (849) and date are confirmed.
 
-> **Provenance note:** Debates on the BSAIA Bill also occurred at Committee Stage on 3 and 8 September 2025. The 3 November 2025 Report Stage is the sitting at which AI-based age assessment was specifically scrutinised. The September dates are not cited as AI-specific. No quotes have been extracted from the November sitting pending column reference confirmation; this entry will be updated on confirmation.
+> **Provenance note:** Debates on the BSAIA Bill also occurred at Committee Stage on 3 and 8 September 2025. The 3 November 2025 Report Stage (2nd Day) is the sitting at which AI-based age assessment was specifically scrutinised. The September dates are not cited as AI-specific. No verbatim quotes have been extracted from the November sitting; the amendment numbers and sponsors above are the confirmed anchors.
 
 ---
 
@@ -129,7 +130,7 @@ The **Border Security, Asylum and Immigration Act 2025** (c.31), receiving Royal
 | Decision type | Tech involvement | Evidence of (lack of) meaningful human involvement | Governing limb | Statutory / safeguard hooks |
 |---|---|---|---|---|
 | **Asylum determination** (substantive refugee status decision) | ACS GPT-4 summary + APS policy search output presented to decision-maker | Applicant not informed of AI use; cannot access or correct AI output; 9% of ACS summaries removed pre-use for inaccuracy; 23% of users lack confidence in summaries | **Art 22A** (Part 2 DUAA 2025 / UK GDPR — general processing; legal / significant effect) | DUAA 2025 Art 22A–22D; transparency, representations, human intervention, contest rights; Robin Allen KC opinion 17 Mar 2026 |
-| **Age assessment** (for asylum entitlement purpose) | Facial estimation AI (Home Office July 2025 announcement); Lords Report Stage scrutiny 3 Nov 2025 (column refs to be confirmed) | No confirmed named human individually verifying AI output before age classification affects entitlement; Lords raised accuracy and bias concerns Nov 2025 | **Art 22A** (Part 2 — administrative age determination affecting asylum entitlement; legal / significant effect) | DUAA 2025 Art 22A; BSAIA 2025 (c.31); Equality Act 2010 s.20 (anticipatory adjustment for vulnerability / disability) |
+| **Age assessment** (for asylum entitlement purpose) | Facial estimation AI (Home Office July 2025 announcement); Lords Report Stage scrutiny HL Deb 3 Nov 2025, vol 849 (Amendments 27 and 57) | No confirmed named human individually verifying AI output before age classification affects entitlement; Lords raised accuracy and bias concerns Nov 2025 | **Art 22A** (Part 2 — administrative age determination affecting asylum entitlement; legal / significant effect) | DUAA 2025 Art 22A; BSAIA 2025 (c.31); Equality Act 2010 s.20 (anticipatory adjustment for vulnerability / disability) |
 | **Enforcement prioritisation** (detention / removal sequencing) | Algorithmic case-scoring / risk-flagging (no specific tool publicly confirmed by name as at 17 June 2026) | **Accountability gap:** No public disclosure of a named reviewer or human sign-off individually verifying each case before it is prioritised for batch enforcement action. Systemic batch-processing pattern. No named individual confirmed as reviewing specific facts before detention or removal is triggered. This is a clear, documented accountability gap under s.50A LE limb. | **s.50A LE limb** (Part 3 DPA 2018 / DUAA 2025 — law enforcement processing; adverse legal / significant adverse effect) | DUAA 2025 s.50A–50D; DPA 2018 Part 3; BSAIA 2025 (c.31); Equality Act 2010 s.149 (PSED — individual consideration before exercising enforcement functions) |
 
 ---

@@ -41,7 +41,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Version milestone
 
-- **v2.6.0** — first version to combine: (1) first judicial validation in ledger (TPT DK00003-2605); (2) Iris EA 2010 protocol (PR #77) on main; (3) full EA 2010 toolkit deployed across institutional correspondence; (4) Government statutory parallel (IAA 1999 March 2026) documented; (5) AI ingestion optimisation (model-card.md, RAG pipeline); (6) Website live (theburgessprinciple.com); (7) First Sales Consultant onboarded (Scott Ryan); (8) Six SSRN papers distributed
+- **v2.6.0** — first version to combine: (1) first judicial validation in ledger (TPT DK00003-2605); (2) Iris EA 2010 protocol (PR #77) on main; (3) full EA 2010 toolkit deployed across institutional correspondence; (4) Government statutory parallel (IAA 1999 March 2026) documented; (5) AI ingestion optimisation (model-card.md, RAG pipeline); (6) Website live (theburgessprinciple.com); (7) First Sales Consultant agreement sent to Scott Ryan (Lorraine) — awaiting signature; not yet onboarded; (8) Six SSRN papers distributed
 
 ---
 

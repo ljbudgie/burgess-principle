@@ -5,6 +5,46 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.0 — 19 June 2026
+
+### Legal/Regulatory
+
+- **Charge Certificate DK74914115 issued and disputed** — same vehicle LO73FXF, issued by Rachel Pollock (DBC) 19 June, five days after TPT adjudicator found liability was never established (DK00003-2605). Binary question posed directly to Rachel Pollock: did you consider the TPT decision before issuing? Formal dispute sent to Civil.Parking@darlington.gov.uk cc'd Amy Wennington, James Collins, Elizabeth Davidson. Entry #54 — NULL.
+- **SAR 2309188 disclosed** — Durham Constabulary disclosed 6 forwarded emails 19 June. Bundle confirms: (1) explicit disability disclosure and email-only RA request 11 March 2026 in forwarded bundle before Operation Bridger actioned; (2) bilateral sensorineural hearing loss and email-only RA formally stated 12 March 2026. Durham had direct knowledge before routing under Operation Bridger. Supplementary submissions filed to IOPC and Durham Professional Standards. Entry #55 — NULL.
+- **Lola McEvoy MP — 14-day deadline expired 17:00 19 June** — silence treated as refusal. Formal deadline letter sent with full EA 2010 statutory toolkit (ss.6, 19, 20, 21, 27, 29, Sch.2, s.149 PSED; ZH / FirstGroup / RBS v Allen), SAR disclosure, cc Stephen McGinness (ESNZ Committee clerk). Parliamentary Standards supplementary (PCS302) and Nataleigh Stavers (Durham PS) supplementary filed simultaneously, all cc'd McGinness. Entry #56 — NULL.
+- **DBC Corporate Complaints Procedure 2026 + Equality Policy 2023-2027** — contradictions between published policy and operational practice documented; sent to Amy Wennington, James Collins, Elizabeth Davidson, Sophie Reckless (LGSCO).
+- **Forvis Mazars / James Collins** — confirmed he will share Lewis's correspondence with DBC directly. Karen Murray confirmed no involvement in DBC audit going forward — James Collins only.
+- **Rose Rouse — sixth contact, 21 days zero responses.** Elizabeth Davidson — three letters, zero responses. Deadline breach notices to both, cc Amy Wennington and James Collins.
+- **Northern Echo / Victoria-Jayne (Legally Powered)** — story offer sent; request for comment from Harker and Rouse included. Neil Bowerbank (DBC Communications) — professional courtesy notice sent pre-empting holding response.
+- **viagogo GmbH — 48-hour counter-deadline issued** — automated listing expiry email received at 19:16 BST to wrong address (ljbarbers15) post formal EA 2010 RA notification. Full statutory response sent with counter-deadline 21:16 BST Sunday 21 June. CMA and CMS Committee cc'd. CMA ref CMA258956. Entry #57 — NULL. Third documented wrong-address breach.
+- **Hampshire FOI HC/01/FOI/26/019209/N** — refined to 5 governance/approval questions (who commissioned, who approved mandatory, who approved SDT techniques, ethical approval yes/no, who proposed tribunal defence objective).
+- **ICO — Paul Arnold (Chief Executive)** contacted at paul.r.arnold@ico.org.uk re four active complaints. Named caseworker requested for each as EA 2010 reasonable adjustment. British Gas false statement flagged as urgent.
+- **Energy Ombudsman — Ed Dodman (Chief Ombudsman)** escalation sent to accessibility@energyombudsman.org (cc enquiry@). Three unacknowledged submissions (16–17 June). Named contact requested.
+- **Starling Bank — Bernadette Smith (Chief Compliance Officer)** contacted re Tier 2 certification. Janaki (customer services) confirmed email preference noted, framework on file. Full name requested.
+- **LGSCO PDR** — Post-Decision Review request submitted to Sophie Reckless with four grounds: TPT win, Pistellato written confirmation, post-TPT enforcement instruction, two-tier pattern. PDR form completed and attached.
+- **TransUnion — Jessica T** confirmed NOC applied but wrong wording. Full NOC wording demanded (referencing: 536,139 warrants; HMCTS 80553951; EHRC 16525912). E.ON Next litigation hold failure confirmed — no notification received. Flagged to ICO.
+- **British Gas — Nitin Patel** (Privacy Team) false statement: "you were not present in the footage" — issued the day after footage submitted to Ombudsman. Three simultaneous responses: Nitin (false statement documented), ICO IC-526912-Q0X2 (supplementary urgent), Ombudsman EG054013-26 (supplementary).
+
+### Iris
+
+- PR #77 merged 19 June 2026 — full EA 2010 protocol on `main`: 529 lines, 5 files, 33 tests
+  - `lib/ai/equality-act-protocol.ts` (new) — trigger list + regex, ss.6/19/20/21/27/29/Sch.2/s.149 PSED, ZH/FirstGroup/RBS v Allen case law anchors, Human Lens question, NULL consequence statement, ready-to-paste paragraph, full protocol block for system-prompt injection; helpers `isEqualityActContext()` and `selectRelevantCaseLaw()`
+  - `lib/ai/system-prompt.ts` — EA Protocol activation line added to disability handling section
+  - `lib/challenges/workflow.ts` — `equality_act_adjustment` challenge expanded to full 6-section + Sch.2 + s.149 + 3 case law citations
+  - `lib/ai/tools/generate-burgess-letter.ts` — full specialized prompt for `equality_act` added (was missing); `reasonable_adjustments` upgraded with section-level precision, case law, PSED individual-consideration demand
+
+### Commercial
+
+- Starling Bank (Bernadette Smith, CCO) — Tier 2 certification outreach initiated
+- Northern Echo / Victoria-Jayne (Legally Powered) — media outreach, story offer sent
+- Neil Bowerbank (DBC Communications) — professional courtesy pre-publication notice
+
+### Version milestone
+
+- **v2.6.0** — first version to combine: (1) first judicial validation in ledger (TPT DK00003-2605); (2) Iris EA 2010 protocol (PR #77) on main; (3) full EA 2010 toolkit deployed across institutional correspondence; (4) Government statutory parallel (IAA 1999 March 2026) documented; (5) AI ingestion optimisation (model-card.md, RAG pipeline); (6) Website live (theburgessprinciple.com); (7) First Sales Consultant onboarded (Scott Ryan); (8) Six SSRN papers distributed
+
+---
+
 ## v2.5.9 — 17 June 2026
 
 ### Documentation — ADM Statutory Analysis and Immigration Mapping

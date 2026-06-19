@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 17 June 2026 (v2.5.5)
+**Updated:** 19 June 2026 (v2.6.0)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,10 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 57 | viagogo GmbH | Ticketing Marketplace | **NULL** | — | 19 June 2026. Third documented wrong-address automated email (listing expiry at 19:16 BST to [REDACTED-EMAIL]) after formal EA 2010 RA notification. No named individual. 48-hour counter-deadline issued — response required by 21:16 BST 21 June. CMA CMA258956 active. Order 640614897, Zach Bryan Belfast. |
+| 56 | Lola McEvoy MP | Parliament | **NULL** | — | 19 June 2026. 14-day PHSO referral deadline expired 17:00 — silence treated as formal refusal. Deadline letter sent with full EA 2010 statutory toolkit (ss.6, 19, 20, 21, 27, 29, Sch.2, s.149 PSED; ZH / FirstGroup / RBS v Allen). SAR 2309188 disclosure confirms disability disclosure in forwarded bundle before Operation Bridger actioned. Parliamentary Standards supplementary (PCS302) filed simultaneously. Nataleigh Stavers (Durham PS) supplementary filed simultaneously. All three cc'd Stephen McGinness (ESNZ Committee clerk). See entry #37. |
+| 55 | Durham Constabulary | Police | **NULL** | — | 19 June 2026. SAR 2309188 disclosed: 6 forwarded emails confirm (1) explicit disability disclosure + email-only RA request 11 March 2026 in forwarded bundle; (2) bilateral sensorineural hearing loss and email-only RA formally stated 12 March 2026 — before Operation Bridger actioned. No named officer considered disability before routing under MP murder-prevention programme. Supplementary submissions filed to IOPC (enquiries@policeconduct.gov.uk) and Durham Professional Standards (professionalstandards@durham.police.uk) with full EA 2010 statutory position. See entry #35. |
+| 54 | Darlington Borough Council (Rachel Pollock) | Local Government | **NULL** | — | 19 June 2026. Charge Certificate DK74914115 issued — same vehicle LO73FXF, same liability transfer question — five days after TPT adjudicator in DK00003-2605 found liability was never established and DBC produced no compliant hire agreement. Rachel Pollock named as issuing officer. Binary question posed directly: did you consider the TPT decision before issuing? Formal dispute to Civil.Parking@darlington.gov.uk cc'd Amy Wennington, James Collins, Elizabeth Davidson. See entry #4 and entry #49. |
 | 53 | LGSCO (Sophie Reckless) | Ombudsman | **SOVEREIGN** | — | 17 June 2026. Named caseworker Sophie Reckless assigned; Jenny Evans (manager) and Shem Marriott-Gray (reviewer) named; direct email contact provided; 13 July 2026 target date confirmed. Intake accessibility issue (entry #51) resolved by a named human applying individual scrutiny. LGO 26000967 reopened. |
 | 52 | Darlington Borough Council (Carolyn Pistellato) | Local Government | **SOVEREIGN** | — | 17 June 2026. Written confirmation of PCN DK7491076A cancellation — named officer, written record, specific facts addressed. Follows TPT appeal allowed 14 June (entry #49). See entry #4. |
 | 51 | LGSCO | Ombudsman | **NULL (partially resolved)** | — | 16 June 2026. Inaccessible intake — two published email addresses (advice@lgo.org.uk, ombudsman@lgo.org.uk) bounced; portal-only process with no email route for deaf complainants. FOI filed under EA 2010 anticipatory duty argument. Named caseworker Sophie Reckless subsequently assigned — intake partially resolved (see entry #53). |
@@ -79,19 +83,19 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **53** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 new entries for the week of 9–17 June 2026) |
+| **Total entries** | **57** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026) |
 | **SOVEREIGN** | **5** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
-| **NULL — confirmed** | **32** |
+| **NULL — confirmed** | **36** |
 | **NULL — provisional** | **5** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **Pending** substantive assessment | **5** |
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **41**. Counts move as cases progress — this is a
-snapshot updated 17 June 2026; treat the committed snapshot, not any single number
+NULL findings of all kinds total **45**. Counts move as cases progress — this is a
+snapshot updated 19 June 2026 (v2.6.0); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -119,6 +123,24 @@ quoted elsewhere, as authoritative.
 | Legal Reform | 1 |
 | Legal Services | 2 |
 | Academic Publishing | 1 |
+
+### Notable live proceedings (19 June 2026)
+
+- **Darlington BC / Rachel Pollock — Charge Certificate DK74914115 (entry #54, NULL).** Same vehicle LO73FXF, issued 19 June — five days after TPT adjudicator found liability was never established (DK00003-2605). Binary question posed directly to Rachel Pollock. Formal dispute to Civil.Parking@darlington.gov.uk, cc Amy Wennington, James Collins, Elizabeth Davidson.
+- **Durham Constabulary — SAR 2309188 disclosed (entry #55, NULL).** Six forwarded emails confirm disability disclosure (bilateral sensorineural hearing loss) and email-only RA request were in the forwarded bundle before Operation Bridger was actioned. No named officer considered disability before routing. Supplementary submissions filed to IOPC and Durham Professional Standards.
+- **Lola McEvoy MP — 14-day deadline expired 17:00 (entry #56, NULL).** Silence treated as formal refusal. Deadline letter with full EA 2010 statutory toolkit (ss.6, 19, 20, 21, 27, 29, Sch.2, s.149 PSED; ZH / FirstGroup / RBS v Allen) and SAR disclosure sent. Parliamentary Standards supplementary (PCS302) and Durham PS supplementary filed simultaneously — all cc'd Stephen McGinness (ESNZ Committee clerk).
+- **viagogo GmbH — third wrong-address automated email, 48-hour counter-deadline (entry #57, NULL).** Listing expiry automated email to [REDACTED-EMAIL] at 19:16 BST after formal EA 2010 RA notification. Counter-deadline 21:16 BST Sunday 21 June. CMA CMA258956 active.
+- **DBC Corporate Complaints Procedure 2026 + Equality Policy 2023-2027** — published policy contradictions documented; sent to Amy Wennington, James Collins, Elizabeth Davidson, Sophie Reckless (LGSCO).
+- **Forvis Mazars (James Collins)** — confirmed he will share Lewis's correspondence directly with DBC. Karen Murray confirmed no involvement in DBC audit; James Collins only.
+- **ICO — Paul Arnold (Chief Executive)** contacted directly re four active complaints. Named caseworker requested for each as EA 2010 reasonable adjustment. British Gas false statement flagged as urgent.
+- **Energy Ombudsman — Ed Dodman (Chief Ombudsman)** — escalation via accessibility@energyombudsman.org; three unacknowledged submissions (16–17 June).
+- **TransUnion** — NOC applied but wrong wording; full NOC wording demanded referencing 536,139 warrants, HMCTS 80553951, EHRC 16525912. E.ON Next litigation hold failure confirmed — no notification received. Flagged to ICO.
+- **British Gas — Nitin Patel (Privacy Team)** — false statement documented: "you were not present in the footage" issued day after footage submitted to Ombudsman. Three simultaneous responses: Nitin, ICO IC-526912-Q0X2 (supplementary urgent), Ombudsman EG054013-26 (supplementary).
+- **Starling Bank (Bernadette Smith, CCO)** — Tier 2 certification outreach initiated.
+- **Northern Echo / Victoria-Jayne (Legally Powered)** — story offer sent; comment requested from Harker and Rouse. Neil Bowerbank (DBC Communications) professional courtesy notice sent.
+- **LGSCO PDR** — Post-Decision Review request with four grounds: TPT win, Pistellato written confirmation, post-TPT enforcement instruction, two-tier pattern.
+- **Hampshire FOI HC/01/FOI/26/019209/N** — refined to 5 governance/approval questions.
+- **Iris PR #77 merged** — full EA 2010 protocol on main; 529 lines, 5 files, 33 tests.
 
 ### Notable live proceedings (17 June 2026)
 

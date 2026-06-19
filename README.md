@@ -6,7 +6,7 @@ Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · 
 
 **The binary test for meaningful human involvement in automated systems.**
 
-- **Framework version:** v2.5.5 (released 17 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+- **Framework version:** v2.6.0 (released 19 June 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
 
 ## Start In 60 Seconds
 
@@ -99,7 +99,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (17 June 2026): 49 institutions on register — 3 SOVEREIGN (Wave Utilities; Darlington Borough Council / Carolyn Pistellato — written PCN cancellation by a named officer; LGSCO / Sophie Reckless — named caseworker assigned), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 1 ambiguous (Hampshire Constabulary / OPCC), 41 NULL (32 confirmed, 5 provisional, 4 accessibility), pending substantive assessments, 1 removed (RMOK Legal — certification terminated). 53 entries in the live ledger, including SSRN / Elsevier (SOVEREIGN academic track) and Traffic Penalty Tribunal DK00003-2605 (first external judicial validation — appeal allowed 14 June 2026: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed under individual adjudicator scrutiny). The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (19 June 2026): 51 institutions on register — 3 SOVEREIGN (Wave Utilities; Darlington Borough Council / Carolyn Pistellato — written PCN cancellation by a named officer; LGSCO / Sophie Reckless — named caseworker assigned), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 1 ambiguous (Hampshire Constabulary / OPCC), 45 NULL (36 confirmed, 5 provisional, 4 accessibility), pending substantive assessments, 1 removed (RMOK Legal — certification terminated). 57 entries in the live ledger, including SSRN / Elsevier (SOVEREIGN academic track) and Traffic Penalty Tribunal DK00003-2605 (first external judicial validation — appeal allowed 14 June 2026: automated enforcement pursuit without a named human establishing the fundamental legal prerequisite collapsed under individual adjudicator scrutiny). The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 
@@ -109,8 +109,8 @@ Machine-readable versions of the register and ledger are published at the reposi
 
 | File | Description | Raw URL |
 | --- | --- | --- |
-| [`institutional_register.csv`](./institutional_register.csv) | 49 institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
-| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | 44 chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
+| [`institutional_register.csv`](./institutional_register.csv) | 51 institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
+| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | 49 chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
 
 Finding values: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**, **REMOVED**. Dates are in YYYY-MM-DD format. Partial-month entries use the first of the month.
 

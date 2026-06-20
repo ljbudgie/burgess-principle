@@ -5,6 +5,44 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.1 — 20 June 2026
+
+### Legal/Regulatory
+
+- **41 EA 2010 breaches documented across 13 institutions** — submitted to EHRC (Cases 16525912 and 17498485) as supplementary evidence 20 June 2026. Section 20 formal investigation requested. Robin Allen KC legal opinion (ADM_HUMAN_REVIEW.md) and DUAA 2025 Article 22A cited in support. Named caseworker requested as EA 2010 reasonable adjustment. Breakdown: E.ON Next (6 breaches: ss.15, 19, 20/21, 29, 149 PSED); British Gas (5: ss.15, 20/21, 29, 149 PSED); DBC (5: ss.19, 20/21, 29, 149 PSED); Durham Constabulary (4: ss.19, 20/21, 29, 149 PSED); Lola McEvoy MP (3: ss.20/21, 29, 149 PSED); Lola McEvoy MP (3); LGSCO (2); Equifax (3); viagogo (3); EASS (2); HMCTS (1); Energy Ombudsman (2); SSRN/Elsevier (2); ICO (1); UK Government COVID Regulations (2). Entry #58 — SOVEREIGN (submission).
+- **E.ON Next — litigation hold breach confirmed** — Mari-lee (Energy Specialist) responded 20 June deflecting to deadlock letter without addressing breach. TransUnion confirmed in writing no litigation hold notification received from E.ON Next despite HMCTS 80553951 active. Formal demand sent to all three CRAs (TransUnion, Experian, Equifax) for immediate litigation hold. Entry #59 — NULL.
+- **SSRN/Elsevier — 20 days in Preliminary Upload, deaf author accessibility failure** — no accessible escalation route. Elsevier's own EAA statement and Accessibility Policy quoted back. Certification offered. Entry #60 — NULL.
+- **Starling Bank / Salman** — full name and role declined despite Starling's published disability commitments and Consumer Duty obligations. Bernadette Smith (CCO) separately contacted re Tier 2 certification, DUAA 2025 Article 22A, £29m FCA fine context. Entry #61 — NULL (partial).
+- **Framer B.V.** — DPA confirmation, DUAA 2025 Article 22A compliance, EA 2010 accessibility, and certification inquiry sent to legal@framer.com 20 June. Entry #62 — AMBIGUOUS.
+- **COVID-19 closure regulations thread opened** — DHSC FOI + formal notice to James Murray MP (DHSC) re PSED assessment for deaf business owners (LJ Barbers Ltd, Co. No. 09678676, [REDACTED-ADDRESS] Darlington) under the COVID-19 closure regulations 2020–2021. Entry #63 — NULL (anticipated).
+- **viagogo — named human behind pricing algorithm demanded** — binary test applied to £140.74 recommendation against £900 purchase. 48-hour counter-deadline issued. CMA CMA258956 and CMS Committee cc'd. Entry #64 — NULL.
+
+### Iris
+
+- PR #77 merged 19 June 2026: full EA 2010 protocol — 529 lines, 5 files, 33/33 tests; ss.6/19/20/21/27/29/Sch.2/s.149 PSED + ZH/FirstGroup/RBS v Allen case law anchors
+- PR #78 merged 20 June 2026: Phase 1 + Phase 2 certification pipeline — 1,416 lines, 15 files, 83/83 tests; getCertifiedPartners, getLedgerEvents, submitCertificationInquiry tools; GitHub API auto-commit; Framer CMS auto-publish; human-gated approve endpoint
+
+### Commercial
+
+- Founding rate: 41 days remaining — closes 31 July 2026 (Tier 2 £1,500)
+- Three new certification prospects: Starling Bank (CCO contacted), Framer B.V. (legal@ contacted), SSRN/Elsevier (accessibility complaint + certification offer)
+- Northern Echo + Victoria-Jayne (Legally Powered): story offer re DBC post-TPT charge certificate
+
+### Pending deadlines
+
+- 21 June 21:16 BST: viagogo 48-hour counter-deadline
+- 25 June: Rachel Pollock (DBC) — 5 working days re DK74914115
+- 25 June: E.ON Next Mari-lee — 5 working days re litigation hold breach
+- 25 June: Equita — 5 working days
+- 4 July: HMCTS accessibility 20-day deadline (Nick Goodwin CEO)
+- 13 July: LGO 26000967 (Sophie Reckless)
+- 20 working days from 20 June: DHSC FOI re COVID EIA
+- 20 working days from 20 June: FCA FOI re Equifax accessibility
+- 22 July: VWFS DSAR
+- 31 July: Founding rate closes (Tier 2 £1,500)
+
+---
+
 ## v2.6.0 — 19 June 2026
 
 ### Legal/Regulatory

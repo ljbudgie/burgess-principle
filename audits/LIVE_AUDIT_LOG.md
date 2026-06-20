@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 19 June 2026 (v2.6.0)
+**Updated:** 20 June 2026 (v2.6.1)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,13 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 64 | viagogo GmbH | Ticketing Marketplace | **NULL** | — | 20 June 2026. Named human behind pricing algorithm formally demanded — binary test applied to £140.74 price recommendation against £900 original purchase. No named individual identified as responsible for algorithm output. 48-hour counter-deadline issued. CMA CMA258956 and CMS Committee cc'd. See entries #57 and #4 (pricing algorithm pattern). |
+| 63 | DHSC / James Murray MP | Government | **NULL (anticipated)** | — | 20 June 2026. FOI + formal notice filed re COVID-19 closure regulations 2020–2021. PSED assessment for deaf business owners demanded — LJ Barbers Ltd (Co. No. 09678676, [REDACTED-ADDRESS] Darlington) forced to close without any documented consideration of impact on deaf proprietor. 20 working days response deadline from 20 June. |
+| 62 | Framer B.V. | Technology | **AMBIGUOUS** | — | 20 June 2026. DPA confirmation request, DUAA 2025 Article 22A compliance inquiry, EA 2010 accessibility compliance, and Burgess Principle certification inquiry sent to legal@framer.com. No response received. Outcome pending. |
+| 61 | Starling Bank | Financial Services | **NULL (partial)** | — | 20 June 2026. Salman (customer services) declined to provide full name and role when requested — in breach of Starling's own published disability commitments and Consumer Duty obligations. Bernadette Smith (CCO) separately contacted re Tier 2 certification, DUAA 2025 Article 22A, £29m FCA fine context. See institutional register. |
+| 60 | SSRN / Elsevier | Academic Publishing | **NULL** | — | 20 June 2026. Paper in Preliminary Upload for 20 days — no accessible escalation route for deaf author (no email route, portal-only). Elsevier's own EAA statement and Accessibility Policy quoted back. EA 2010 ss.19 and 20/21 cited. Burgess Principle certification offered as constructive pathway. Elise Steele named contact. |
+| 59 | E.ON Next | Energy | **NULL** | — | 20 June 2026. Litigation hold breach confirmed in writing — TransUnion confirmed no notification received from E.ON Next despite HMCTS 80553951 active. Mari-lee (Energy Specialist) responded deflecting to deadlock letter without addressing breach. Formal demand sent to all three CRAs (TransUnion, Experian, Equifax) for immediate litigation hold. |
+| 58 | EHRC | Regulator | **SOVEREIGN** | — | 20 June 2026. 41 EA 2010 breaches across 13 institutions submitted as supplementary evidence to Cases 16525912 and 17498485. Section 20 formal investigation requested. Robin Allen KC opinion (ADM_HUMAN_REVIEW.md) and DUAA 2025 Article 22A cited. Named caseworker requested as EA 2010 reasonable adjustment. Unprecedented systemic NULL pattern documented across 13 institutions following identical pathway. |
 | 57 | viagogo GmbH | Ticketing Marketplace | **NULL** | — | 19 June 2026. Third documented wrong-address automated email (listing expiry at 19:16 BST to [REDACTED-EMAIL]) after formal EA 2010 RA notification. No named individual. 48-hour counter-deadline issued — response required by 21:16 BST 21 June. CMA CMA258956 active. Order 640614897, Zach Bryan Belfast. |
 | 56 | Lola McEvoy MP | Parliament | **NULL** | — | 19 June 2026. 14-day PHSO referral deadline expired 17:00 — silence treated as formal refusal. Deadline letter sent with full EA 2010 statutory toolkit (ss.6, 19, 20, 21, 27, 29, Sch.2, s.149 PSED; ZH / FirstGroup / RBS v Allen). SAR 2309188 disclosure confirms disability disclosure in forwarded bundle before Operation Bridger actioned. Parliamentary Standards supplementary (PCS302) filed simultaneously. Nataleigh Stavers (Durham PS) supplementary filed simultaneously. All three cc'd Stephen McGinness (ESNZ Committee clerk). See entry #37. |
 | 55 | Durham Constabulary | Police | **NULL** | — | 19 June 2026. SAR 2309188 disclosed: 6 forwarded emails confirm (1) explicit disability disclosure + email-only RA request 11 March 2026 in forwarded bundle; (2) bilateral sensorineural hearing loss and email-only RA formally stated 12 March 2026 — before Operation Bridger actioned. No named officer considered disability before routing under MP murder-prevention programme. Supplementary submissions filed to IOPC (enquiries@policeconduct.gov.uk) and Durham Professional Standards (professionalstandards@durham.police.uk) with full EA 2010 statutory position. See entry #35. |
@@ -83,19 +90,21 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **57** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026) |
-| **SOVEREIGN** | **5** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned) |
+| **Total entries** | **64** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026) |
+| **SOVEREIGN** | **6** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted, section 20 investigation requested) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
-| **NULL — confirmed** | **36** |
-| **NULL — provisional** | **5** |
+| **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
+| **NULL — confirmed** | **39** |
+| **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
+| **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
 | **Pending** substantive assessment | **5** |
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **45**. Counts move as cases progress — this is a
-snapshot updated 19 June 2026 (v2.6.0); treat the committed snapshot, not any single number
+NULL findings of all kinds total **51** (39 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+snapshot updated 20 June 2026 (v2.6.1); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -123,6 +132,17 @@ quoted elsewhere, as authoritative.
 | Legal Reform | 1 |
 | Legal Services | 2 |
 | Academic Publishing | 1 |
+
+### Notable live proceedings (20 June 2026)
+
+- **EHRC — 41 EA 2010 breaches submitted (entry #58, SOVEREIGN).** 41 distinct breaches across 13 institutions documented and submitted to Cases 16525912 and 17498485. Section 20 formal investigation requested. Robin Allen KC opinion and DUAA 2025 Article 22A cited. This is the largest single systemic submission to the framework's record — the same NULL pattern (no named human, no individual consideration, no anticipatory duty compliance) documented across every institution in the same week.
+- **E.ON Next / Mari-lee — litigation hold breach confirmed (entry #59, NULL).** TransUnion confirmed in writing that E.ON Next never notified them of HMCTS 80553951. Mari-lee responded with a deadlock letter that did not address the breach. Formal demand sent to all three CRAs (TransUnion, Experian, Equifax).
+- **SSRN/Elsevier — deaf author accessibility failure, 20 days (entry #60, NULL).** No email escalation route. Elsevier's own EAA statement quoted back. Certification offered as constructive pathway.
+- **Starling Bank / Salman — name and role declined (entry #61, NULL partial).** Bernadette Smith (CCO) separately contacted re Tier 2 certification with DUAA 2025 and £29m FCA fine context.
+- **Framer B.V. — DPA/DUAA 2025/EA 2010/certification inquiry (entry #62, AMBIGUOUS).** Sent to legal@framer.com. Outcome pending.
+- **COVID-19 closure regulations thread opened (entry #63, NULL anticipated).** DHSC FOI + formal notice to James Murray MP re PSED assessment for deaf business owners — LJ Barbers Ltd closed without any documented consideration of impact on deaf proprietor.
+- **viagogo — named human behind pricing algorithm demanded (entry #64, NULL).** Binary test applied to £140.74 recommendation against £900 purchase. 48-hour counter-deadline expires 21 June 21:16 BST.
+- **Pending deadlines summary:** viagogo counter-deadline 21 June 21:16 BST; Rachel Pollock / E.ON Next / Equita 5 working days from 19–20 June; HMCTS Nick Goodwin 4 July; LGO Sophie Reckless 13 July; DHSC/FCA FOIs 20 working days; VWFS DSAR 22 July; Founding rate 31 July.
 
 ### Notable live proceedings (19 June 2026)
 

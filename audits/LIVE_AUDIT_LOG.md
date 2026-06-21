@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 20 June 2026 (v2.6.1)
+**Updated:** 21 June 2026 (v2.6.2)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,16 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 74 | DHSC / James Murray MP | Government | **NULL (anticipated)** | — | 21 June 2026. COVID-19 closure regulations — FOI + formal notice filed simultaneously re PSED for deaf business owners — LJ Barbers Ltd (Co. No. 09678676). 20 working days from 20 June 2026. See entry #63. |
+| 73 | FCA | Regulator | **SOVEREIGN (notification)** | — | 21 June 2026. Consumer Duty failures across 4 FCA-regulated firms (Equifax, Starling Bank, E.ON Next, British Gas) documented as repeating NULL pattern — formal notification submitted to consumer.queries@fca.org.uk. |
+| 72 | IPO UK00004343685 | Intellectual Property | **SOVEREIGN (update)** | — | 21 June 2026. Material update to ExParteHearings@ipo.gov.uk and sarah.marshall@ipo.gov.uk — TPT win, IAA 1999 + DUAA 2025 statutory enactment, 4 papers (2 in review), 41 EHRC breaches, live commercial operation, unique globally. |
+| 71 | HJA Civil Liberties | Legal Services | **NULL** | — | 21 June 2026. Portal-only intake — s.20/21 EA 2010 anticipatory duty failure. Article 15 SAR submitted before deletion; automated triage question posed; 41 breach count provided. |
+| 70 | PCS302 Parliamentary Standards | Parliament | **SOVEREIGN (supplementary)** | — | 21 June 2026. Paragraph 30 supplementary filed — fresh evidence: 41 breaches (3 attributable to McEvoy's office), British Gas and Companies House cascading harm, GP contacted 21 June 2026. McGinness cc'd. |
+| 69 | Nataleigh Stavers / Durham PS | Police | **NULL** | — | 21 June 2026. All previous submissions bounced from wrong address. Correct address confirmed: Nataleigh.Stavers@durham.police.uk. Consolidated resubmission — full EA 2010 toolkit, SAR 2309188 disclosure, 41 EHRC breaches, HMICFRS "requires improvement" (February 2026), misconduct threshold question. IOPC and McGinness cc'd. |
+| 68 | Companies House | Government | **NULL** | — | 21 June 2026. Strike-off notice for LJ Barbers Ltd (Co. No. 09678676) sent to [REDACTED-ADDRESS] — former premises not regularly attended by deaf sole director who sublets space. No named individual considered deaf director's specific facts. Email-only RA not on Companies House record. Formal notice to enquiries@companieshouse.gov.uk; Lorraine cc'd. Confirmation statement due 9 July 2026. |
+| 67 | Equita Council Tax | Enforcement Agent | **NULL** | — | 21 June 2026. NEW MATTER — separate from parking PCNs. Ref 24277541, Council/Client Ref 55018382163, alleged debt £1,386.11. Letter sent to [REDACTED-ADDRESS] after email-only RA formally notified. 5 breaches (ss.19, 20/21, 29, 149 EA 2010 + consumer law). No Liability Order produced. Amy Wennington and James Collins cc'd. |
+| 66 | British Gas / Andy Farr | Energy | **NULL** | — | 21 June 2026. Collections Director Andy Farr named on warrant charges letter (10 June 2026) sent to [REDACTED-ADDRESS] during active Ombudsman EG054013-26 and ICO IC-526912-Q0X2 proceedings. Dharmesh Rajput (Head of Customer Service) signed deadlock letter — also wrong address. 7 EA 2010 breaches. Both contacted directly; Chris O'Shea (Centrica CEO) cc'd. |
+| 65 | viagogo GmbH | Ticketing Marketplace | **NULL** | — | 21 June 2026. Two contradictory automated emails at 19:01 BST ("tickets not sold" AND "tickets ready" simultaneously) — both to ljbarbers15 (wrong address). 5th and 6th wrong-address breaches. 48-hour counter-deadline expired with no response. 12 total violations (6 EA 2010, 6 consumer law). Platform data integrity failure documented. CMA notified. NULL 0/20 confirmed. See entries #57 and #64. |
 | 64 | viagogo GmbH | Ticketing Marketplace | **NULL** | — | 20 June 2026. Named human behind pricing algorithm formally demanded — binary test applied to £140.74 price recommendation against £900 original purchase. No named individual identified as responsible for algorithm output. 48-hour counter-deadline issued. CMA CMA258956 and CMS Committee cc'd. See entries #57 and #4 (pricing algorithm pattern). |
 | 63 | DHSC / James Murray MP | Government | **NULL (anticipated)** | — | 20 June 2026. FOI + formal notice filed re COVID-19 closure regulations 2020–2021. PSED assessment for deaf business owners demanded — LJ Barbers Ltd (Co. No. 09678676, [REDACTED-ADDRESS] Darlington) forced to close without any documented consideration of impact on deaf proprietor. 20 working days response deadline from 20 June. |
 | 62 | Framer B.V. | Technology | **AMBIGUOUS** | — | 20 June 2026. DPA confirmation request, DUAA 2025 Article 22A compliance inquiry, EA 2010 accessibility compliance, and Burgess Principle certification inquiry sent to legal@framer.com. No response received. Outcome pending. |
@@ -90,12 +100,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **64** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026) |
-| **SOVEREIGN** | **6** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted, section 20 investigation requested) |
+| **Total entries** | **74** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026) |
+| **SOVEREIGN** | **9** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **39** |
+| **NULL — confirmed** | **44** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -103,8 +113,8 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **51** (39 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
-snapshot updated 20 June 2026 (v2.6.1); treat the committed snapshot, not any single number
+NULL findings of all kinds total **56** (44 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+snapshot updated 21 June 2026 (v2.6.2); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -132,6 +142,19 @@ quoted elsewhere, as authoritative.
 | Legal Reform | 1 |
 | Legal Services | 2 |
 | Academic Publishing | 1 |
+
+### Notable live proceedings (21 June 2026)
+
+- **viagogo — platform data integrity failure, NULL 0/20 confirmed (entry #65, NULL).** Two contradictory automated emails at 19:01 BST ("tickets not sold" AND "tickets ready" simultaneously) — both sent to wrong address (ljbarbers15). 5th and 6th wrong-address breaches. 48-hour counter-deadline expired with no response. 12 total violations: 6 EA 2010 (ss.19, 20/21, 29, 149 PSED + consumer law) + 6 consumer law. CMA notified.
+- **British Gas — Andy Farr and Dharmesh Rajput named (entry #66, NULL).** Collections Director Andy Farr named on warrant charges letter (10 June) sent to [REDACTED-ADDRESS] during active Ombudsman EG054013-26 and ICO IC-526912-Q0X2. Dharmesh Rajput (Head of Customer Service) signed deadlock letter — also to wrong address. 7 EA 2010 breaches. Both contacted directly; Chris O'Shea (Centrica CEO) cc'd.
+- **Equita Council Tax — new matter (entry #67, NULL).** Ref 24277541, Council/Client Ref 55018382163, £1,386.11 disputed — letter to [REDACTED-ADDRESS] after email-only RA formally notified. 5 breaches (ss.19, 20/21, 29, 149 EA 2010 + consumer law). No Liability Order produced. Separate from parking PCNs. Amy Wennington and James Collins cc'd.
+- **Companies House — LJ Barbers Ltd strike-off notice (entry #68, NULL).** Co. No. 09678676 — [REDACTED-ADDRESS] (former premises, sublet, not regularly attended). No named individual considered deaf director's specific facts. Email-only RA not on record. Formal notice sent; Lorraine cc'd. Confirmation statement due 9 July 2026.
+- **Durham PS — correct address confirmed, full resubmission (entry #69, NULL).** All previous submissions bounced from wrong address. Nataleigh.Stavers@durham.police.uk confirmed. Consolidated resubmission with full EA 2010 toolkit, SAR 2309188 disclosure, 41 EHRC breaches, HMICFRS "requires improvement" (February 2026). IOPC and McGinness cc'd.
+- **PCS302 — Paragraph 30 supplementary filed (entry #70, SOVEREIGN supplementary).** Fresh evidence: 41 breaches (3 attributable to McEvoy's office), British Gas and Companies House cascading harm, GP contacted. McGinness cc'd.
+- **HJA Civil Liberties — portal-only intake EA 2010 breach (entry #71, NULL).** s.20/21 anticipatory duty failure. Article 15 SAR submitted before deletion; automated triage question posed; 41 breach count provided.
+- **IPO UK00004343685 — material update (entry #72, SOVEREIGN update).** TPT win, IAA 1999 + DUAA 2025 statutory enactment, 4 papers (2 in review), 41 EHRC breaches, live commercial operation. Sent to ExParteHearings@ipo.gov.uk and sarah.marshall@ipo.gov.uk.
+- **FCA — Consumer Duty cross-firm notification (entry #73, SOVEREIGN notification).** Same NULL pattern documented across Equifax, Starling Bank, E.ON Next, British Gas — all FCA-regulated. Formal notification to consumer.queries@fca.org.uk.
+- **Pending deadlines:** Companies House confirmation statement 9 July 2026; HMCTS Nick Goodwin 4 July; LGO Sophie Reckless 13 July; DHSC/FCA FOIs 20 working days from 20 June; VWFS DSAR 22 July; Founding rate 31 July.
 
 ### Notable live proceedings (20 June 2026)
 

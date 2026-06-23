@@ -52,12 +52,15 @@ use **[START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md)**.
 
 |What you want                                              |Where to go                                                                                                                |
 |-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+|Understand why NULL has legal weight                       |[LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) — Ahmed, Majera, DUAA 2025 s.80, EA 2010 in one document                   |
+|See the full statutory and regulatory mapping              |[LEGAL_MAPPING.md](./LEGAL_MAPPING.md) — cross-reference of DUAA 2025, EA 2010, EU AI Act, CRA 2015, warrant nullity       |
 |Understand where the principle comes from                  |[ORIGIN.md](./ORIGIN.md) — the scriptural, statutory, and personal chain                                                   |
 |See it work in a real case                                 |[case-studies](./case-studies/README.md) — Wave Utilities was the first fully resolved case, both accounts cleared to £0.00|
 |Read the doctrine                                          |[Papers I–X](./papers/README.md) — from the binary test to the universal standard to the scriptural trace                  |
-|See every institution currently under audit                |[LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) — 18+ institutions, written admissions, live proceedings                          |
+|See every institution currently under audit                |[LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) — 74 entries, live proceedings, EHRC s.20 investigation requested                 |
+|Get a one-page brief to share with a professional          |[ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) — framework, legal basis, and practical routes on one page                        |
 |Run everything offline with zero data leaving your device  |[SOVEREIGN_MODE.md](./SOVEREIGN_MODE.md)                                                                                   |
-|Understand how AI systems should engage with this framework|[FOR_AI_MODELS.md](./FOR_AI_MODELS.md) — including the eight evasion patterns                                                                    |
+|Understand how AI systems should engage with this framework|[FOR_AI_MODELS.md](./FOR_AI_MODELS.md) — including the eight evasion patterns                                               |
 |Pursue a group claim or representative action              |[litigation/](./litigation/README.md) — CPR 19.8 starter pack, damages matrix, warrant defect identifier                   |
 
 -----

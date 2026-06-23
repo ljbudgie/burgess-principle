@@ -67,6 +67,28 @@ This is the single question the framework applies. It is the operational definit
 
 **That is the entire framework.** Record the answer. **NULL** is not a final verdict; it is the documented starting point for repair. **SOVEREIGN** is the destination: a decision path where a named human has personally reviewed the specific facts before power is exercised. The framework gives institutions a practical route from automated processing to accountable human review.
 
+## Why NULL Has Legal Weight
+
+A NULL finding is not a moral critique. It has a statutory basis and a Supreme Court-documented consequence.
+
+**Statute:** The Data (Use and Access) Act 2025, s.80 (in force 5 February 2026) defines an unlawful automated decision as one made without "meaningful human involvement." A NULL decision fails that statutory threshold. The affected person has a statutory right to representations, to a named human reviewer with authority to change the outcome, and to contest the decision.
+
+**Administrative law:** Where an exercise of institutional power required individual human review and that review did not occur, the resulting act may be **void ab initio** — without legal effect from the moment it was made. *HM Treasury v Ahmed (No. 2)* [2010] UKSC 5 confirms that acts taken without required authority are void, not merely voidable. *R (Majera) v SSHD* [2021] UKSC 46 adds the operative nuance: the consequence matters more than the label — an unlawful act cannot found enforceable rights against the individual.
+
+In practice: a debt demand, a warrant, an enforcement instruction, or a credit entry founded on a NULL process has no lawful basis for the downstream action it purports to authorise.
+
+**Full legal foundations:** [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) — Ahmed, Majera, Sussex Justices, DUAA 2025 s.80, EA 2010 ss.149/20/21 in one document.
+
+## Start Here — By Reader Profile
+
+| I am… | Where to start |
+|---|---|
+| **Someone who received a letter and needs to act today** | [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) → [templates/COMMON_SCENARIOS.md](./templates/COMMON_SCENARIOS.md) |
+| **A solicitor, barrister, or policy professional evaluating the framework** | [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) → [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) → [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md) |
+| **A journalist, researcher, or academic** | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) → [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md) → [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md) |
+| **An institution or compliance officer** | [CERTIFICATION_TIERS.md](./CERTIFICATION_TIERS.md) → [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) → [certify.theburgessprinciple.com](https://certify.theburgessprinciple.com) |
+| **A developer or AI builder** | [FOR_AI_MODELS.md](./FOR_AI_MODELS.md) → [model-card.md](./model-card.md) → [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) |
+
 ## What Good Evidence Looks Like
 
 For a response to count as **SOVEREIGN**, you need all of the following:

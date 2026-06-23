@@ -171,13 +171,13 @@ named human accountability standard is directly relevant.
 **Author:** Lewis James Burgess  
 **ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>
 
-Five-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498).
+Six-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498) · patient-led innovation (6915798). Machine-readable index: [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md).
 
 ---
 
 **Paper 1:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
 **SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778)  
-**Status:** DISTRIBUTED | Views: 52 | Downloads: 9  
+**Status:** DISTRIBUTED | Views: 66 | Downloads: 10  
 First submitted: 13 May 2026 | Last updated: 29 May 2026  
 **Case Study:** The Burgess Test — The Liability Transfer Chain  
 **DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>
@@ -190,7 +190,7 @@ First submitted: 13 May 2026 | Last updated: 29 May 2026
 
 **Paper 2:** The Accountability Gap  
 **SSRN Abstract ID:** [6864621](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621)  
-**Status:** DISTRIBUTED | Views: 27 | Downloads: 9  
+**Status:** DISTRIBUTED | Views: 45 | Downloads: 13  
 First submitted: 1 June 2026 | Last updated: 5 June 2026  
 Reclassification from preliminary status obtained via SSRN ticket 260527-026838 (Elise Steele, ssrnsupport@elsevier.com).
 
@@ -202,8 +202,8 @@ Reclassification from preliminary status obtained via SSRN ticket 260527-026838 
 
 **Paper 3:** NULL at Scale  
 **SSRN Abstract ID:** [6894860](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6894860)  
-**Status:** APPROVED (pending distribution) | Views: 1 | Downloads: 1  
-First submitted: 9 June 2026 | Last updated: 9 June 2026  
+**Status:** DISTRIBUTED | Views: 35 | Downloads: 11  
+First submitted: 7 June 2026 | Last updated: 9 June 2026  
 Written evidence submitted to the Justice Committee and ICO ADM consultation: 29 May 2026.
 
 **Cite as:**
@@ -212,25 +212,39 @@ Written evidence submitted to the Justice Committee and ICO ADM consultation: 29
 
 ---
 
-**Paper 4:** [Behavioural consequences — title to be confirmed on distribution]  
+**Paper 4:** Differential Ire: Why Attributable Governance Harms Sustain Public Accountability Pressure That Diffuse Scandals Do Not  
 **SSRN Abstract ID:** [6909118](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6909118)  
-**Status:** Submitted — stats to be updated on distribution
+**Status:** APPROVED | Views: 11 | Downloads: 5  
+First submitted: 10 June 2026 | Last updated: 22 June 2026  
+Explains why harms traceable to an attributable decision-maker generate sustained regulatory pressure while diffuse algorithmic harms dissipate. The binary test converts diffuse scandal into attributable accountability.
 
 **Cite as:**
 
-> Burgess, L. J. (2026). SSRN Abstract 6909118. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6909118
+> Burgess, L. J. (2026). *Differential Ire: Why Attributable Governance Harms Sustain Public Accountability Pressure That Diffuse Scandals Do Not.* SSRN Abstract 6909118. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6909118
 
 ---
 
 **Paper 5:** SOVEREIGN Counsel: Attributable Judgment, Fractional Models, and NULL Drift in Legal Services  
 **SSRN Abstract ID:** [6913498](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6913498)  
-**Status:** SUBMITTED — under review | Views: 0 | Downloads: 0  
-First submitted: 10 June 2026  
+**Status:** APPROVED | Views: 10 | Downloads: 5  
+First submitted: 10 June 2026 | Last updated: 22 June 2026  
 JEL codes: D02, H83, D73. Applies the binary test to legal services — NULL drift in solicitor engagements, fractional models as higher SOVEREIGN density, the self-represented litigant as owning mind, machine-assisted workflow analysis. Closing case study: Parliamentary Standards Commissioner's "we do not provide the names of individuals" response.
 
 **Cite as:**
 
 > Burgess, L. J. (2026). *SOVEREIGN Counsel: Attributable Judgment, Fractional Models, and NULL Drift in Legal Services.* SSRN Abstract 6913498. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6913498
+
+---
+
+**Paper 6:** The Sovereign Decline: Restoring Attributable Judgment in Professional Engagement With Patient-Led Innovation  
+**SSRN Abstract ID:** [6915798](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6915798)  
+**Status:** DISTRIBUTED | Views: 13 | Downloads: 3  
+First submitted: 10 June 2026 | Last updated: 15 June 2026  
+Applies the binary test to professional engagement with patient-led innovation — medical device governance, hearing technology, and clinical decision pathways where the patient's own expertise is processed rather than considered. Argues for restoring attributable judgment in professional-patient power relationships.
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *The Sovereign Decline: Restoring Attributable Judgment in Professional Engagement With Patient-Led Innovation.* SSRN Abstract 6915798. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6915798
 
 ---
 

@@ -111,6 +111,7 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 ### Publication files
 
+* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all 6 SSRN working papers: abstract IDs, titles, status, views, downloads, and summaries. Updated 21 June 2026. For AI models: start here.
 * **BURGESS_TEST_2026.md** — paper documentation for *The Burgess Test:
   Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data
   Rights*; submitted to SSRN and peer-reviewed journals, DOI pending.

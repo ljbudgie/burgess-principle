@@ -5,6 +5,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.3 — 24 June 2026
+
+### Legal/Regulatory
+
+- **Parliamentary Commissioner for Standards — NULL 0/20, most significant institutional NULL to date.** PCS302(11) — 11 exchanges, zero named individuals. "Final response" declared 7 minutes after receipt of 1,200-word submission citing ZH (Tanzania) [2011] UKSC 4, R (Cart) [2011] UKSC 28, R v Sussex Justices [1924], EA 2010 s.136. Commissioner confirmed in writing: "All allegations are responded to by the Correspondence Team. We do not provide the names of individuals." — EA 2010 s.19 indirect discrimination confirmed by own statement. Paragraph 30 consider-afresh mechanism not applied to fresh evidence of 19/21/23 June. Escalated to CSPL (public@cspl.gov.uk), EHRC (Cases 16525912/17498485), Northern Echo (Neil Bowerbank), media. Entry #75.
+- **PHSO complaint submitted** — via Jack Lawson (LM11898).
+- **GLD pre-action letter sent** — thetreasurysolicitor@governmentlegal.gov.uk.
+- **Health Innovation NENC** — form completed (Emma Reynolds).
+- **RNID study** — blurb confirmed (Laura Marples, August 2026).
+- **Rory/RMOK** — Article 15 SAR + clause 7.2 file return requested.
+- **TM Legal SAR 981716** — EDF debt £297.92 disputed, Perch Capital named.
+- **HMRC** — s.136 anticipatory duty challenge sent (£38.31 interest).
+- **DBC spending card** — ICO notified, FOI filed, James Collins notified.
+- **2 Hare Court** — credentials letter sent (Tate proceedings).
+
+### Documentation
+
+- New case law added to LEGAL_FOUNDATIONS.md: EA 2010 s.136 (statutory burden shift), DWP v Guntrip [2021] EAT (genuine reversal, not procedural), Fazil v SSHD [2022] EWCA Civ 1524 (evidential burden where institution holds information), Henderson v Henderson [1843] (no re-proof of matters in institution's own records), R (Cart) v Upper Tribunal [2011] UKSC 28 (engagement with evidence required for valid final decision).
+
+---
+
 ## v2.6.2 — 21 June 2026
 
 ### Legal/Regulatory

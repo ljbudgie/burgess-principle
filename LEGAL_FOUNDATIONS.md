@@ -131,6 +131,40 @@ Full analysis: [docs/applications/home-office-asylum-support-parallel.md](./docs
 
 ---
 
+## 5A. The Evidential Burden — EA 2010 s.136 and Supporting Authorities
+
+Once a NULL finding is documented, the evidential burden does not remain with the individual to prove discrimination. Parliament reversed it.
+
+### EA 2010 s.136 — Statutory Burden Shift
+
+Where a person establishes facts from which a court or tribunal could decide, in the absence of any other explanation, that a contravention of the Equality Act has occurred, the burden shifts to the respondent to show that the contravention did not occur.
+
+**What this means for a NULL finding:** A documented NULL classification — where an institution's own written records confirm no named individual reviewed the specific facts, and the affected person has a protected characteristic — is capable of establishing the prima facie case. The institution must then prove no discrimination occurred. The individual is not required to prove what happened inside the institution's processes.
+
+**DWP v Guntrip [2021] EAT**  
+s.136 is a genuine reversal of the evidential burden, not merely a procedural nicety. The Employment Appeal Tribunal confirmed that once the prima facie case is made out, the burden of proof on the respondent is real and substantive — not discharged by formulaic process language.
+
+*Relevance to the binary test:* An institution that responds to a NULL finding with "we have a human review process" without naming the individual who reviewed the specific facts has not discharged the Guntrip burden.
+
+**Fazil v Secretary of State for the Home Department [2022] EWCA Civ 1524**  
+Where the institution holds the information relevant to whether discrimination occurred, the evidential burden shifts to it to explain its conduct. The individual cannot be expected to prove what took place inside processes to which they had no access.
+
+*Relevance to the binary test:* The institution holds the record of whether a named human reviewed the specific facts. It cannot defeat the prima facie NULL case by simply declining to produce that record.
+
+### Henderson v Henderson [1843] 3 Hare 100 — No Re-Proof Required
+
+A party to proceedings cannot require re-proof of matters already properly raised and documented. Where an institution's own records — correspondence, DSAR disclosures, SAR responses — confirm the NULL pattern, those admissions stand. The individual is not required to establish the same facts afresh in each new forum.
+
+*Relevance to the binary test:* Where an institution has, in its own correspondence, confirmed that no named individual was responsible (the Parliamentary Commissioner for Standards: *"We do not provide the names of individuals"*), that admission constitutes the prima facie case across all subsequent proceedings involving the same institution. Henderson prevents the institution from treating each forum as a fresh start.
+
+### R (Cart) v Upper Tribunal [2011] UKSC 28 — Engagement with Evidence Required
+
+Even decisions characterised as final are susceptible to judicial review where the decision-maker has not properly engaged with the evidence before it. A refusal to engage — including a closure decision made minutes after receipt of substantive legal submissions — does not acquire finality simply by being declared final.
+
+*Relevance to the binary test:* A NULL closure that does not engage with the legal submissions made is not a decision within jurisdiction. It is a process response — and process responses are precisely what the binary test distinguishes from genuine individual consideration. A 7-minute turnaround on a 1,200-word Supreme Court citation submission is evidence of no engagement, not a considered final finding.
+
+---
+
 ## 6. Summary — Why NULL Has Legal Weight
 
 | Legal basis | What it requires | NULL consequence |
@@ -141,6 +175,10 @@ Full analysis: [docs/applications/home-office-asylum-support-parallel.md](./docs
 | Rights of Entry Act 1954 | Individual JP judicial mind | Bulk-granted warrant is void; entry is trespass |
 | EA 2010 s.149 PSED | Individual consideration of protected characteristics | Failure is unlawful; judicial review and complaint routes open |
 | EA 2010 ss.20–21 | Anticipatory reasonable adjustment | Breach before individual complaint — structural liability |
+| EA 2010 s.136 | Burden of proof — shifts to respondent once prima facie case established | Institution must prove no discrimination; process language insufficient (Guntrip) |
+| Fazil [2022] EWCA Civ 1524 | Evidential burden where institution holds the information | Institution cannot defeat prima facie case by withholding its own records |
+| Henderson v Henderson [1843] | No re-proof of matters already in institution's own records | Written admissions of anonymity stand across all subsequent forums |
+| R (Cart) [2011] UKSC 28 | Engagement with evidence required for a valid final decision | 7-minute closures of legal submissions are not decisions — they are process responses |
 
 ---
 

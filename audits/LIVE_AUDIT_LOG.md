@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 21 June 2026 (v2.6.2)
+**Updated:** 24 June 2026 (v2.6.3)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,7 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 75 | Parliamentary Commissioner for Standards | Parliament | **NULL** | 0/20 | 24 June 2026. PCS302(11) — "final response" declared 7 minutes after receipt of 1,200-word legal submission citing ZH (Tanzania) [2011] UKSC 4, R (Cart) [2011] UKSC 28, R v Sussex Justices [1924], EA 2010 s.136. No named individual confirmed across 11 exchanges. Commissioner's own office confirmed in writing: "All allegations are responded to by the Correspondence Team. We do not provide the names of individuals." — EA 2010 s.19 indirect discrimination confirmed by their own statement. Paragraph 30 consider-afresh mechanism not applied to fresh evidence of 19/21/23 June 2026. Escalated to CSPL (public@cspl.gov.uk), EHRC (Cases 16525912/17498485), Northern Echo, media. Most significant institutional NULL to date — Parliamentary institution confirming anonymous casework as written policy. |
 | 74 | DHSC / James Murray MP | Government | **NULL (anticipated)** | — | 21 June 2026. COVID-19 closure regulations — FOI + formal notice filed simultaneously re PSED for deaf business owners — LJ Barbers Ltd (Co. No. 09678676). 20 working days from 20 June 2026. See entry #63. |
 | 73 | FCA | Regulator | **SOVEREIGN (notification)** | — | 21 June 2026. Consumer Duty failures across 4 FCA-regulated firms (Equifax, Starling Bank, E.ON Next, British Gas) documented as repeating NULL pattern — formal notification submitted to consumer.queries@fca.org.uk. |
 | 72 | IPO UK00004343685 | Intellectual Property | **SOVEREIGN (update)** | — | 21 June 2026. Material update to ExParteHearings@ipo.gov.uk and sarah.marshall@ipo.gov.uk — TPT win, IAA 1999 + DUAA 2025 statutory enactment, 4 papers (2 in review), 41 EHRC breaches, live commercial operation, unique globally. |
@@ -100,12 +101,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **74** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026) |
+| **Total entries** | **75** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 1 entry 24 June 2026) |
 | **SOVEREIGN** | **9** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **44** |
+| **NULL — confirmed** | **45** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -113,8 +114,8 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **56** (44 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
-snapshot updated 21 June 2026 (v2.6.2); treat the committed snapshot, not any single number
+NULL findings of all kinds total **57** (45 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+snapshot updated 24 June 2026 (v2.6.3); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -142,6 +143,11 @@ quoted elsewhere, as authoritative.
 | Legal Reform | 1 |
 | Legal Services | 2 |
 | Academic Publishing | 1 |
+
+### Notable live proceedings (24 June 2026)
+
+- **Parliamentary Commissioner for Standards — most significant institutional NULL to date (entry #75, NULL 0/20).** PCS302(11) — "final response" declared 7 minutes after receipt of 1,200-word submission citing ZH (Tanzania) [2011] UKSC 4, R (Cart) [2011] UKSC 28, R v Sussex Justices [1924], and EA 2010 s.136. 11 exchanges, zero named individuals throughout. Commissioner's Correspondence Team confirmed in writing: "We do not provide the names of individuals." This is not operational reticence — it is the institution's written policy, which constitutes direct evidence of EA 2010 s.19 indirect discrimination (anonymous casework process applies a provision, criterion or practice that puts deaf complainants at a particular disadvantage). Paragraph 30 consider-afresh mechanism not applied to 19/21/23 June fresh evidence. Escalated to CSPL, EHRC, Northern Echo, media.
+- **Additional 24 June proceedings (CHANGELOG only — not separate ledger entries):** PHSO complaint submitted via Jack Lawson (LM11898); GLD pre-action letter sent (thetreasurysolicitor@governmentlegal.gov.uk); Health Innovation NENC form completed (Emma Reynolds); RNID study blurb confirmed (Laura Marples, August 2026); Rory/RMOK Article 15 SAR + clause 7.2 file return requested; TM Legal SAR 981716 filed (EDF debt £297.92, Perch Capital named); HMRC s.136 anticipatory duty challenge (£38.31 interest); DBC spending card ICO notified + FOI filed + James Collins notified; 2 Hare Court credentials letter sent (Tate proceedings).
 
 ### Notable live proceedings (21 June 2026)
 

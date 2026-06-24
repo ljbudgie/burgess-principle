@@ -9,6 +9,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Legal/Regulatory
 
+- **Connected by Data / Jeni Tennison — SOVEREIGN.** Jeni Tennison (CEO) named — individual decision applied to specific certification inquiry 24 June 2026. Declined certification. SOVEREIGN classification: named human, individual consideration, before institutional response. The binary test records process, not outcome. Entry #76.
 - **Parliamentary Commissioner for Standards — NULL 0/20, most significant institutional NULL to date.** PCS302(11) — 11 exchanges, zero named individuals. "Final response" declared 7 minutes after receipt of 1,200-word submission citing ZH (Tanzania) [2011] UKSC 4, R (Cart) [2011] UKSC 28, R v Sussex Justices [1924], EA 2010 s.136. Commissioner confirmed in writing: "All allegations are responded to by the Correspondence Team. We do not provide the names of individuals." — EA 2010 s.19 indirect discrimination confirmed by own statement. Paragraph 30 consider-afresh mechanism not applied to fresh evidence of 19/21/23 June. Escalated to CSPL (public@cspl.gov.uk), EHRC (Cases 16525912/17498485), Northern Echo (Neil Bowerbank), media. Entry #75.
 - **PHSO complaint submitted** — via Jack Lawson (LM11898).
 - **GLD pre-action letter sent** — thetreasurysolicitor@governmentlegal.gov.uk.

@@ -117,7 +117,17 @@ Article 8 ECHR rights require individual consideration of the specific person's 
 **FirstGroup plc v Paulley [2017] UKSC 4**  
 The reasonable adjustment duty requires more than a general policy. It requires consideration of the individual's specific situation. A blanket policy, however well-intentioned, does not satisfy the anticipatory duty if it is applied without individual consideration.
 
-For the full EA 2010 protocol: [lib/ai/equality-act-protocol.ts](https://github.com/ljbudgie/burgess-principle/blob/main/institutional_register.csv) and [LEGAL_MAPPING.md](./LEGAL_MAPPING.md).
+### EA 2010 ss.109–110 — Employer and Personal Liability
+
+**s.109 — Employer liability:** Anything done by an employee in the course of their employment is treated as done by the employer, whether or not the employer knew or approved. An organisation cannot escape liability for a discriminatory automated process by pointing to employee-level implementation — the employer is liable for the discriminatory act of the system it deployed.
+
+**s.110 — Personal liability:** An employee or agent who personally commits an act of discrimination is individually liable for that act. Where a named individual directs, instructs, or knowingly permits a discriminatory practice — including the design or maintenance of an anonymous automated process that produces discriminatory outcomes — that individual is personally liable alongside the organisation.
+
+*Relevance to the binary test:* Where a NULL finding establishes that a discriminatory process was implemented, ss.109/110 allow the claim to follow the institutional hierarchy upward to a named individual. The CEO or director who authorised or maintained a system that produces anonymous automated decisions affecting disabled people cannot shelter behind the corporate structure. Personal liability attaches where direction or knowing permission is shown.
+
+*Applied — viagogo / Eric Baker:* Eric Baker (CEO, viagogo) has been named under ss.109/110 in the context of a 14-violation NULL finding including EA 2010 ss.19/20/21 breaches. The platform's automated pricing and communication system produced discriminatory outcomes; Baker, as the directing mind of the organisation, is identified as personally liable alongside the corporate entity.
+
+For the full EA 2010 protocol: [LEGAL_MAPPING.md](./LEGAL_MAPPING.md).
 
 ---
 
@@ -175,6 +185,7 @@ Even decisions characterised as final are susceptible to judicial review where t
 | Rights of Entry Act 1954 | Individual JP judicial mind | Bulk-granted warrant is void; entry is trespass |
 | EA 2010 s.149 PSED | Individual consideration of protected characteristics | Failure is unlawful; judicial review and complaint routes open |
 | EA 2010 ss.20–21 | Anticipatory reasonable adjustment | Breach before individual complaint — structural liability |
+| EA 2010 ss.109–110 | Employer liability (s.109) and personal liability of named individuals (s.110) | Claim follows the hierarchy — named director personally liable where they directed or permitted the discriminatory process |
 | EA 2010 s.136 | Burden of proof — shifts to respondent once prima facie case established | Institution must prove no discrimination; process language insufficient (Guntrip) |
 | Fazil [2022] EWCA Civ 1524 | Evidential burden where institution holds the information | Institution cannot defeat prima facie case by withholding its own records |
 | Henderson v Henderson [1843] | No re-proof of matters already in institution's own records | Written admissions of anonymity stand across all subsequent forums |

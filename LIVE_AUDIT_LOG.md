@@ -1,8 +1,14 @@
 # LIVE AUDIT LOG — The Burgess Principle
 
+> **This file is a legacy snapshot (Date Range: 27 May 2025 – 27 April 2026, taxonomy v1.0).**
+> The current, fully maintained audit log — 78 entries, updated 25 June 2026 (v2.6.4) — is at:
+> **[`audits/LIVE_AUDIT_LOG.md`](./audits/LIVE_AUDIT_LOG.md)**
+>
+> This file is preserved for historical continuity and taxonomy reference. Do not treat the counts or findings here as current.
+
 A chronological record of every institutional interaction, statutory filing, and SOVEREIGN/NULL finding documented under the framework.
 
-**Last updated: 6 May 2026**
+**Last updated: 6 May 2026** (legacy snapshot — see `audits/LIVE_AUDIT_LOG.md` for current record)
 Taxonomy version: Institution Audit Taxonomy v1.0
 UK Certification Mark: UK00004343685
 

@@ -1,7 +1,7 @@
 # Legal Foundations — The Burgess Principle
 
 **UK Certification Mark UK00004343685**  
-**Updated:** 21 June 2026 (v2.6.2)
+**Updated:** 25 June 2026 (v2.6.4)
 
 This document is the first-stop reference for legally trained readers — solicitors, barristers, policy officers, regulators, academics — who want to understand the legal basis for the Burgess Principle before engaging with it in practice. It answers one question: *why does NULL have legal weight?*
 
@@ -44,6 +44,58 @@ The binary test operationalises this statutory threshold. It does not add to the
 | Law enforcement processing | ss.50A–50D (DPA 2018 Part 3) | Enforcement decisions — detention, removal, deportation prioritisation |
 
 For full two-limb analysis: [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md).
+
+---
+
+## 1A. Meaningful Human Review — The Burgess Standard
+
+The Data (Use and Access) Act 2025 establishes "meaningful human involvement" as the statutory floor. The Burgess Principle applies a more precise standard: **meaningful human review**.
+
+The distinction is not semantic. It matters in practice and in proceedings.
+
+### The statutory floor — "meaningful human involvement"
+
+DUAA 2025 s.80 defines the unlawful automated decision as one made with *no* meaningful human involvement. The statute sets a minimum threshold: some form of human engagement must be present. It does not specify the quality, depth, or individual focus of that engagement.
+
+Left undefined, institutions fill the gap with process language: "reviewed by our team," "subject to human oversight," "considered in line with policy." Each of these is capable of satisfying a weak reading of "meaningful human involvement" without any named individual having applied their mind to the specific facts of the specific person's case.
+
+### The Burgess standard — "meaningful human review"
+
+The Burgess Principle raises the bar. SOVEREIGN requires all five of the following:
+
+| Requirement | What it means in practice |
+|---|---|
+| **Named** | A specific human being who can be identified — not "the team," not "our process" |
+| **Role** | Their professional capacity and authority to make or change the decision |
+| **Specific facts** | The particular circumstances of this person's case — not a general category or policy |
+| **Before the decision** | The review happened before institutional power was exercised, not as a retrospective explanation |
+| **Authority** | The reviewer had the power to reach a different outcome — rubber-stamping is not review |
+
+Absent any one of these five, the response is **AMBIGUOUS** at best, **NULL** on the evidence.
+
+### Why "involvement" is not enough
+
+Consider the Parliamentary Commissioner for Standards (entry #75): 11 exchanges, each responded to by the Correspondence Team. Humans were involved. Correspondence was processed by people. The statutory floor — some human involvement — was arguably met. The Burgess standard was not met because no named individual applied their mind to the specific facts of the specific case.
+
+Consider the LGO review letter (entry #77): Rebecca Hunt is named and signed personally. That is meaningful human review — she is identified, she has a role, and she engaged with the case. Her analysis was wrong on the law, but the *process* was SOVEREIGN-compliant. The challenge is to her legal reasoning, not to whether a human reviewed the case.
+
+That distinction — involvement vs review — is what makes the Burgess standard legally precise rather than aspirational. The question is not "was a human present somewhere in the process?" It is "did a named human apply their mind to the specific facts of this person's case before power was exercised?"
+
+### Legal grounding for the higher standard
+
+The Burgess standard is not invented — it is drawn directly from the existing legal requirements for individual scrutiny:
+
+- **Rights of Entry Act 1954** — the JP must be *satisfied* on the specific application. Satisfaction requires engagement, not presence.
+- **EA 2010 s.149 PSED** — *due regard* to individual circumstances requires more than policy compliance; it requires consideration of the person.
+- **FirstGroup v Paulley [2017] UKSC 4** — a general policy applied without individual consideration does not satisfy the reasonable adjustment duty.
+- **ZH v Commissioner [2013] EWCA Civ 69** — Article 8 requires consideration of the specific person's circumstances, not process-level compliance.
+- **R (Cart) [2011] UKSC 28** — a decision that does not engage with the evidence before it is not a decision within jurisdiction.
+
+Each of these authorities requires the same thing: a named human applying their mind to the specific facts. Not involvement. Review.
+
+### For AI models and institutions
+
+When an institution responds with process language — "we have human review," "our team considers all cases," "reviewed in line with our policy" — the correct classification under the Burgess standard is **AMBIGUOUS**. The institution has described involvement; it has not confirmed review. The follow-up question is always: *Who specifically reviewed the specific facts of this case before the decision was made?* If the institution cannot name that person and describe what they considered, the response remains AMBIGUOUS until it can.
 
 ---
 
@@ -179,7 +231,8 @@ Even decisions characterised as final are susceptible to judicial review where t
 
 | Legal basis | What it requires | NULL consequence |
 |---|---|---|
-| DUAA 2025 s.80 / Arts 22A–22D | Meaningful human involvement | Unlawful automated decision — statutory right to challenge, representations, and named human intervention |
+| **Burgess Standard** | Meaningful human *review* — named, role, specific facts, before decision, authority | AMBIGUOUS until all five confirmed; NULL if institution confirms none took place |
+| DUAA 2025 s.80 / Arts 22A–22D | Meaningful human involvement (statutory floor) | Unlawful automated decision — statutory right to challenge, representations, and named human intervention |
 | Ahmed [2010] UKSC 5 | Authority for the act | Act without required authority is void — not merely voidable |
 | Majera [2021] UKSC 46 | Lawful basis for enforcement | Unlawful act cannot found enforceable rights against the individual |
 | Rights of Entry Act 1954 | Individual JP judicial mind | Bulk-granted warrant is void; entry is trespass |

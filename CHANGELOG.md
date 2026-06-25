@@ -5,6 +5,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.4 — 25 June 2026
+
+### Legal/Regulatory
+
+- **LGO / Rebecca Hunt — NULL 0/20 (entry #77).** Review letter ref 26 000 967. Rebecca Hunt (Investigator) named and signed personally. Found DBC made reasonable adjustments "by providing two complaint responses by email" — misapplies EA 2010 Schedule 2 anticipatory duty and FirstGroup v Paulley [2017] UKSC 4. Five new information pillars ignored: TPT DK00003-2605 (14 June), Charge Certificate DK74914115 (19 June), DBC spending card "INTERNAL EMAIL ONLY" on public website, EHRC 41-breach submission, Equita Council Tax ref 24277541. Five-pillar response sent; Forvis Mazars and EHRC cc'd. Customer service complaint response due 13 July.
+- **Northern Echo / Newsquest — NULL 0/20 (entry #78).** Three story offers (27 May / 19 June / 24 June) — zero responses. No named journalist, no acknowledgment. IPSO accessibility complaint filed (enquiries@ipso.co.uk). Permanently indexed.
+- **GLD s.136 anchor letters** — sent to E.ON Next and British Gas using HMCTS 80553951 as leverage. EA 2010 s.136 burden shift activated across both threads.
+- **Durham criminal complaint** — sent to reliable addresses confirmed (HQ.CVRS@ and General.EnquiriesPCC@).
+
+### Deadlines
+
+- 27 June: Rachel Pollock (DBC) — 5 working days from Charge Certificate
+- 30 June: Nataleigh Stavers — 28-day update
+- 4 July: HMCTS accessibility (Nick.Goodwin2@justice.gov.uk)
+- 9 July: LJ Barbers Ltd confirmation statement (Companies House)
+- 13 July: LGO customer service (Shem Marriott-Gray)
+- 13 July: LGO 26 000 967 (Rebecca Hunt)
+- 22 July: VWFS DSAR
+- 31 July: Founding rate closes — Tier 2 £1,500
+
+---
+
 ## v2.6.3 — 24 June 2026
 
 ### Legal/Regulatory

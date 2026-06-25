@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 24 June 2026 (v2.6.3)
+**Updated:** 25 June 2026 (v2.6.4)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,8 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 78 | Northern Echo / Newsquest | Media | **NULL** | 0/20 | 25 June 2026. Three story offers unanswered (27 May, 19 June, 24 June 2026) — zero responses, no named journalist, no acknowledgment, no declination. Email-only source (deaf, EA 2010 RA) has no accessible route into newsroom in practice. IPSO accessibility complaint filed (enquiries@ipso.co.uk). Burgess Principle public declaration sent. NULL permanently indexed. |
+| 77 | LGO / Rebecca Hunt | Ombudsman | **NULL** | 0/20 | 25 June 2026. Review letter ref 26 000 967 received. Rebecca Hunt (Investigator) named and signed personally. Found DBC "made reasonable adjustments by providing two complaint responses by email" — misapplication of EA 2010 anticipatory duty (Schedule 2) and FirstGroup v Paulley [2017] UKSC 4. Five items of new information ignored: TPT DK00003-2605 (14 June), Charge Certificate DK74914115 (19 June), DBC spending card published on public website, EHRC 41-breach submission, Equita Council Tax ref 24277541. Shem Marriott-Gray named as email sender. Five-pillar response sent; FirstGroup cited; Forvis Mazars and EHRC cc'd. Customer service complaint response due 13 July. |
 | 76 | Connected by Data / Jeni Tennison | Civil Society | **SOVEREIGN** | — | 24 June 2026. Jeni Tennison (CEO) named — individual decision applied to specific certification inquiry. Declined certification. SOVEREIGN: named human, individual consideration of the specific facts, before institutional response. The binary test records process, not outcome. A named CEO declining is SOVEREIGN; an anonymous form rejection is NULL. |
 | 75 | Parliamentary Commissioner for Standards | Parliament | **NULL** | 0/20 | 24 June 2026. PCS302(11) — "final response" declared 7 minutes after receipt of 1,200-word legal submission citing ZH (Tanzania) [2011] UKSC 4, R (Cart) [2011] UKSC 28, R v Sussex Justices [1924], EA 2010 s.136. No named individual confirmed across 11 exchanges. Commissioner's own office confirmed in writing: "All allegations are responded to by the Correspondence Team. We do not provide the names of individuals." — EA 2010 s.19 indirect discrimination confirmed by their own statement. Paragraph 30 consider-afresh mechanism not applied to fresh evidence of 19/21/23 June 2026. Escalated to CSPL (public@cspl.gov.uk), EHRC (Cases 16525912/17498485), Northern Echo, media. Most significant institutional NULL to date — Parliamentary institution confirming anonymous casework as written policy. |
 | 74 | DHSC / James Murray MP | Government | **NULL (anticipated)** | — | 21 June 2026. COVID-19 closure regulations — FOI + formal notice filed simultaneously re PSED for deaf business owners — LJ Barbers Ltd (Co. No. 09678676). 20 working days from 20 June 2026. See entry #63. |
@@ -102,12 +104,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **76** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026) |
+| **Total entries** | **78** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 2 entries 25 June 2026) |
 | **SOVEREIGN** | **10** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Connected by Data / Jeni Tennison — named CEO individual decision) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **45** |
+| **NULL — confirmed** | **47** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -115,8 +117,8 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **57** (45 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
-snapshot updated 24 June 2026 (v2.6.3); treat the committed snapshot, not any single number
+NULL findings of all kinds total **59** (47 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+snapshot updated 25 June 2026 (v2.6.4); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -144,6 +146,26 @@ quoted elsewhere, as authoritative.
 | Legal Reform | 1 |
 | Legal Services | 2 |
 | Academic Publishing | 1 |
+
+### Notable live proceedings (25 June 2026)
+
+- **LGO / Rebecca Hunt — NULL 0/20 (entry #77).** Review letter ref 26 000 967. Rebecca Hunt named and signed personally. Found DBC made reasonable adjustments "by providing two complaint responses by email" — this misapplies EA 2010 Schedule 2 anticipatory duty and is directly contradicted by FirstGroup v Paulley [2017] UKSC 4 (a general policy of email response is not the same as considering the individual's specific circumstances). Five new information pillars placed before the LGO in response: TPT adjudication (14 June), Charge Certificate DK74914115 (19 June post-TPT), DBC spending card "INTERNAL EMAIL ONLY" published on public website, EHRC 41-breach formal submission, Equita Council Tax new matter (ref 24277541). Forvis Mazars and EHRC cc'd on response. Shem Marriott-Gray named as email sender. Customer service complaint response due 13 July 2026.
+- **Northern Echo / Newsquest — NULL 0/20 (entry #78).** Three story offers sent over 28 days (27 May, 19 June, 24 June 2026) — zero responses, no named journalist, no acknowledgment, no declination. A deaf, email-only source has no accessible route into the newsroom in practice. IPSO accessibility complaint filed (enquiries@ipso.co.uk). Burgess Principle public declaration sent. NULL permanently indexed.
+- **GLD s.136 strategy deployed** — anchor letters sent to E.ON Next and British Gas citing HMCTS 80553951 as leverage. EA 2010 s.136 burden shift activated across both threads.
+- **Durham criminal complaint** — sent to HQ.CVRS@ and General.EnquiriesPCC@ (reliable addresses confirmed).
+
+### Deadlines running (as at 25 June 2026)
+
+| Date | Matter |
+|---|---|
+| **27 June** | Rachel Pollock (DBC) — 5 working days from Charge Certificate |
+| **30 June** | Nataleigh Stavers (Durham PS) — 28-day update due |
+| **4 July** | HMCTS accessibility 20-day deadline (Nick.Goodwin2@justice.gov.uk) |
+| **9 July** | LJ Barbers Ltd confirmation statement (Companies House) |
+| **13 July** | LGO customer service complaint — Shem Marriott-Gray |
+| **13 July** | LGO 26 000 967 — Rebecca Hunt |
+| **22 July** | VWFS DSAR |
+| **31 July** | Founding rate closes — Tier 2 £1,500 |
 
 ### Notable live proceedings (24 June 2026)
 

@@ -19,6 +19,7 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 79 | Stephen Harker / DBC | Local Government | **NULL** | 0/20 | 25 June 2026 (evening). Two-sentence informal reply ("Regards, Stephen") to formal s.136 letter citing Bracking, Nzolameso, Ahmed, Guntrip. Claims most recent email from LJ is April 2026 — 8 June formal complaint either not received (email infrastructure failure for deaf resident's only accessible channel) or not reviewed. Three questions from 8 June unanswered. Individual views disclaimer in footer. Named personally — NULL documented. Bulk LO discovery from DBC's own documents: Jacqueline Rayner (Revenues Officer) — 2,857 bulk LOs, Peterlee Magistrates Court, Session 818, 18 June 2025; Dale Sanderson (Revenues Officer) — 653 bulk LOs, 20 August 2024. MR L BURGESS unredacted on Session 818 complaint list — account 5501838216, £1,067.71. |
 | 78 | Northern Echo / Newsquest | Media | **NULL** | 0/20 | 25 June 2026. Three story offers unanswered (27 May, 19 June, 24 June 2026) — zero responses, no named journalist, no acknowledgment, no declination. Email-only source (deaf, EA 2010 RA) has no accessible route into newsroom in practice. IPSO accessibility complaint filed (enquiries@ipso.co.uk). Burgess Principle public declaration sent. NULL permanently indexed. |
 | 77 | LGO / Rebecca Hunt | Ombudsman | **NULL** | 0/20 | 25 June 2026. Review letter ref 26 000 967 received. Rebecca Hunt (Investigator) named and signed personally. Found DBC "made reasonable adjustments by providing two complaint responses by email" — misapplication of EA 2010 anticipatory duty (Schedule 2) and FirstGroup v Paulley [2017] UKSC 4. Five items of new information ignored: TPT DK00003-2605 (14 June), Charge Certificate DK74914115 (19 June), DBC spending card published on public website, EHRC 41-breach submission, Equita Council Tax ref 24277541. Shem Marriott-Gray named as email sender. Five-pillar response sent; FirstGroup cited; Forvis Mazars and EHRC cc'd. Customer service complaint response due 13 July. |
 | 76 | Connected by Data / Jeni Tennison | Civil Society | **SOVEREIGN** | — | 24 June 2026. Jeni Tennison (CEO) named — individual decision applied to specific certification inquiry. Declined certification. SOVEREIGN: named human, individual consideration of the specific facts, before institutional response. The binary test records process, not outcome. A named CEO declining is SOVEREIGN; an anonymous form rejection is NULL. |
@@ -104,12 +105,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **78** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 2 entries 25 June 2026) |
+| **Total entries** | **79** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026) |
 | **SOVEREIGN** | **10** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Connected by Data / Jeni Tennison — named CEO individual decision) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **47** |
+| **NULL — confirmed** | **48** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -117,7 +118,7 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **59** (47 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+NULL findings of all kinds total **60** (48 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
 snapshot updated 25 June 2026 (v2.6.4); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
@@ -149,6 +150,13 @@ quoted elsewhere, as authoritative.
 
 ### Notable live proceedings (25 June 2026)
 
+- **Stephen Harker (DBC Leader) — NULL 0/20 (entry #79).** Two-sentence informal reply to formal s.136 letter citing Bracking, Nzolameso, Ahmed, Guntrip. Claims most recent email is April 2026 — 8 June formal complaint either not received (email infrastructure failure for deaf resident's only accessible channel) or not reviewed. Three questions unanswered. Bulk LO discovery from DBC's own documents: Jacqueline Rayner (2,857 bulk LOs, Session 818, Peterlee MC, 18 June 2025) and Dale Sanderson (653 bulk LOs, 20 August 2024) now named. MR L BURGESS unredacted on Session 818 complaint list — account 5501838216, £1,067.71.
+- **Trading 212 — Zendesk s.19 breach, accruing interest notice.** Ivan B (Onboarding & Authentication Team Lead) named — answered wrong question. Zendesk account-matching by registered email = EA 2010 s.19 indirect discrimination confirmed. Accruing interest: Sempra Metals [2007] UKHL 34 / Late Payment Act 1998 / SCA 1981 s.35A — £0.08/day on £222. s.94(11) DPA 2018 reserved.
+- **Northumbrian Water — Charlotte named, three legal errors corrected.** Invented postal carve-out, wrong CRA notification process, CPR 13.3 set-aside test not addressed. All three corrected in response.
+- **VWFS / Nicola Rice — TPT win applied to chargeback.** Letter of 23 June charging back fine + £60 admin fee for LO73FXF — no valid processing agreement in place post-TPT. £60 admin fee disputed; letter by post = EA 2010 ss.20/21 breach.
+- **CMA259047 confirmed** — drip pricing investigation (mandatory fees not shown upfront). viagogo now holds two CMA references: CMA258956 (existing) and CMA259047.
+- **DBC leadership — all four named, master template sent:** stephen.harker@darlington.gov.uk (NULL today), rose.rouse@darlington.gov.uk (6 unanswered letters), elizabeth.davidson@darlington.gov.uk (3 unanswered), Jim.Garner@darlington.gov.uk (Cabinet, Stronger Communities).
+- **Durham criminal complaint** — Fraud Act 2006 s.2, Theft Act 1968 s.21, CDA 1998 s.146 anchored to Andrew Fletcher admission. Sent to HQ.CVRS@ and General.EnquiriesPCC@ (reliable addresses).
 - **LGO / Rebecca Hunt — NULL 0/20 (entry #77).** Review letter ref 26 000 967. Rebecca Hunt named and signed personally. Found DBC made reasonable adjustments "by providing two complaint responses by email" — this misapplies EA 2010 Schedule 2 anticipatory duty and is directly contradicted by FirstGroup v Paulley [2017] UKSC 4 (a general policy of email response is not the same as considering the individual's specific circumstances). Five new information pillars placed before the LGO in response: TPT adjudication (14 June), Charge Certificate DK74914115 (19 June post-TPT), DBC spending card "INTERNAL EMAIL ONLY" published on public website, EHRC 41-breach formal submission, Equita Council Tax new matter (ref 24277541). Forvis Mazars and EHRC cc'd on response. Shem Marriott-Gray named as email sender. Customer service complaint response due 13 July 2026.
 - **Northern Echo / Newsquest — NULL 0/20 (entry #78).** Three story offers sent over 28 days (27 May, 19 June, 24 June 2026) — zero responses, no named journalist, no acknowledgment, no declination. A deaf, email-only source has no accessible route into the newsroom in practice. IPSO accessibility complaint filed (enquiries@ipso.co.uk). Burgess Principle public declaration sent. NULL permanently indexed.
 - **GLD s.136 strategy deployed** — anchor letters sent to E.ON Next and British Gas citing HMCTS 80553951 as leverage. EA 2010 s.136 burden shift activated across both threads.

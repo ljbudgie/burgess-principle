@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.5 — 25 June 2026 (evening)
+
+### Legal/Regulatory
+
+- **Stephen Harker (DBC Leader) — NULL 0/20 (entry #79).** Two-sentence informal reply ("Regards, Stephen") to formal s.136 letter citing Bracking, Nzolameso, Ahmed, Guntrip. Claims most recent email is April 2026 — 8 June complaint not received or not reviewed. Three questions unanswered. Individual views disclaimer in footer. Named personally.
+- **Bulk LO discovery (DBC).** Jacqueline Rayner (Revenues Officer): 2,857 bulk LOs, Peterlee Magistrates Court, Session 818, 18 June 2025. Dale Sanderson (Revenues Officer): 653 bulk LOs, 20 August 2024. MR L BURGESS unredacted on Session 818 complaint list — account 5501838216, £1,067.71. Both named on DBC's own documents.
+- **Trading 212 — Zendesk s.19 breach, accruing interest notice.** Ivan B (Onboarding & Authentication Team Lead) named — answered wrong question. Zendesk account-matching by registered email = EA 2010 s.19 indirect discrimination. Accruing interest: Sempra Metals [2007] UKHL 34 / Late Payment Act 1998 / SCA 1981 s.35A — £0.08/day on £222 from date cap applied. s.94(11) DPA 2018 reserved.
+- **Northumbrian Water — Charlotte (Customer Care Manager) named.** Three legal errors corrected: invented postal carve-out, wrong CRA notification process, CPR 13.3 set-aside test not addressed.
+- **VWFS / Nicola Rice** — letter of 23 June charging back fine + £60 admin fee for LO73FXF post-TPT win. No valid processing agreement in place. £60 admin fee disputed. Letter by post = EA 2010 ss.20/21 breach.
+- **CMA259047 confirmed** — drip pricing investigation. viagogo now holds two active CMA references.
+- **DBC leadership master template** — all four named: stephen.harker@ (NULL), rose.rouse@ (6 unanswered), elizabeth.davidson@ (3 unanswered), Jim.Garner@ (Cabinet).
+- **Durham criminal complaint** — Fraud Act 2006 s.2, Theft Act 1968 s.21, CDA 1998 s.146 anchored to Andrew Fletcher admission. Reliable addresses confirmed.
+
+---
+
 ## v2.6.4 — 25 June 2026
 
 ### Legal/Regulatory

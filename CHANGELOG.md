@@ -5,6 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.6 — 27 June 2026
+
+### Legal/Regulatory
+
+- **EASS (Rachel.D) — NULL 0/20 (entry #80).** Fourth response directing deaf complainant to EHRC — the body that commissioned EASS, which had already confirmed disability discrimination. Telephone reference (0808 800 0082) given four times to person with email-only RA. No named individual across all four responses. s.136 + s.27 letter sent. EHRC whistleblowing cc'd. Permanently indexed.
+- **EA 2010 s.27 victimisation now standard Stage 3.** Protected act = any allegation of EA 2010 contravention. Detriment = adverse conduct following that act. Deployed to: Equita (removal action post-s.136), British Gas (Nitin Patel interception), DBC/Harker (complaint routing to Carolyn Pistellato), viagogo (£761.83 withheld post-s.136 — Theft Act s.21 placed on record), EASS (circular referral post-whistleblowing).
+- **Trading 212 — Day 3, 8 agents.** Martin Ka. confirmed three cards (ending 6414, 0594, 2641). Metodi confirmed ID demand = email change request (not retaliatory — Article 22 concern resolved). EA 2010 Sch.2 question still unanswered across all eight agents. Day 3 interest: £0.24 (Sempra Metals / Late Payment Act 1998 / SCA 1981 s.35A).
+- **Starling Bank — s.136 + s.27 to CCO and CIO.** Automated donotreply@ email while formal EA 2010 complaint active = NULL. Bernadette Smith (CCO) and Harriet Rees (CIO / HM Treasury AI Champion) both served. Agents: Janaki SOVEREIGN, Salman NULL, Simon NULL (Article 9 misapplication), Bianca NULL. DISP 1.6 deadline: 15 August 2026.
+- **HJA (Hodge Jones & Allen) — Chun Wong COLP named (SRA 821023).** Six-day silence on Article 15 SAR following EA 2010 allegation. Portal-only intake = s.19 indirect discrimination. s.136 + s.27 to cwong@hja.net. SRA notified. Article 15 deadline: 21 July 2026.
+- **Trulioo — Article 17(3)(e) timing challenge.** Admission that personal data "no longer held due to retention period" — deletion after challenge raised (11 May 2026)? Timing question unresolved. LexID 35530085 / two DOBs March 2025 unresolved.
+- **GB News — NULL 0/20.** One-sentence response (14 May 2026) to five substantive questions. s.136 + Ofcom Rules 5.1/7.1 letter sent. Whistleblower route to media@gbnews.com. Rees-Mogg/Lowe segment removed, VPN ad inserted. Shareholder question on record.
+- **Durham Constabulary — SAR 2690609 rejected** as "repeated request." Durant v FSA [2003] EWCA Civ 1746 cited in challenge. DPA 2018 Sch.2 para.16 misapplied. "Will not respond further" = EA 2010 breach. ICO, IOPC, Nataleigh Stavers, EHRC cc'd.
+- **Equita — s.27 served.** Paula Mary Jacobs and Simon Andrew Jacobs (Active Directors) identified. welfare@ and clientservices@ confirmed. Statutory vulnerability hold demanded within 24 hours. Taking Control of Goods: National Standards (MoJ 2014) cited.
+- **viagogo — s.27 + Theft Act s.21 + £761.83 refund demanded.** 15 violations total. CMA258956 + CMA259047 active. Durham Economic Crime Team cc'd.
+- **DBC FOI — bulk LO session data 2021–2026.** Hearing dates, cases per session, authorised officers, bulk vs individual process, EIA question (deaf customers + postal summons), Session 818 start/end time (Sussex Justices argument). Forvis Mazars and GLD cc'd.
+
+### New legal authorities in active use
+
+- Durant v FSA [2003] EWCA Civ 1746 — personal data scope (decision about data subject = their personal data)
+- Theft Act 1968 s.21 — blackmail (viagogo withholding £761.83 post-s.136)
+- Taking Control of Goods: National Standards (MoJ 2014) — Equita vulnerability
+- Sempra Metals [2007] UKHL 34 — compound interest on withheld money (T212 £0.08/day)
+- Late Payment of Commercial Debts (Interest) Act 1998
+- Senior Courts Act 1981 s.35A — interest on damages
+
+### New register entries: EASS, HJA, GB News, Trulioo
+
+### Totals: 80 entries | SOVEREIGN 10 | NULL 70 | 70 institutions | 73 ledger events
+
+---
+
 ## v2.6.5 — 25 June 2026 (evening)
 
 ### Legal/Regulatory

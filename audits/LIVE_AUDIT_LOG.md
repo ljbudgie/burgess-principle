@@ -19,6 +19,7 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 80 | EASS (Rachel.D) | Equality / Advisory | **NULL** | 0/20 | 27 June 2026. Fourth response from EASS. Directed deaf complainant to EHRC while acknowledging EHRC already confirmed disability discrimination. Fourth telephone reference (0808 800 0082) to person with email-only reasonable adjustment. Circular referral: EASS directing complainant to its own commissioning body (EHRC commissions EASS). No named individual across all four responses — Rachel.D cited but no surname or role confirmed. s.136 + s.27 letter sent. EHRC whistleblowing cc'd. Permanently indexed. |
 | 79 | Stephen Harker / DBC | Local Government | **NULL** | 0/20 | 25 June 2026 (evening). Two-sentence informal reply ("Regards, Stephen") to formal s.136 letter citing Bracking, Nzolameso, Ahmed, Guntrip. Claims most recent email from LJ is April 2026 — 8 June formal complaint either not received (email infrastructure failure for deaf resident's only accessible channel) or not reviewed. Three questions from 8 June unanswered. Individual views disclaimer in footer. Named personally — NULL documented. Bulk LO discovery from DBC's own documents: Jacqueline Rayner (Revenues Officer) — 2,857 bulk LOs, Peterlee Magistrates Court, Session 818, 18 June 2025; Dale Sanderson (Revenues Officer) — 653 bulk LOs, 20 August 2024. MR L BURGESS unredacted on Session 818 complaint list — account 5501838216, £1,067.71. |
 | 78 | Northern Echo / Newsquest | Media | **NULL** | 0/20 | 25 June 2026. Three story offers unanswered (27 May, 19 June, 24 June 2026) — zero responses, no named journalist, no acknowledgment, no declination. Email-only source (deaf, EA 2010 RA) has no accessible route into newsroom in practice. IPSO accessibility complaint filed (enquiries@ipso.co.uk). Burgess Principle public declaration sent. NULL permanently indexed. |
 | 77 | LGO / Rebecca Hunt | Ombudsman | **NULL** | 0/20 | 25 June 2026. Review letter ref 26 000 967 received. Rebecca Hunt (Investigator) named and signed personally. Found DBC "made reasonable adjustments by providing two complaint responses by email" — misapplication of EA 2010 anticipatory duty (Schedule 2) and FirstGroup v Paulley [2017] UKSC 4. Five items of new information ignored: TPT DK00003-2605 (14 June), Charge Certificate DK74914115 (19 June), DBC spending card published on public website, EHRC 41-breach submission, Equita Council Tax ref 24277541. Shem Marriott-Gray named as email sender. Five-pillar response sent; FirstGroup cited; Forvis Mazars and EHRC cc'd. Customer service complaint response due 13 July. |
@@ -105,12 +106,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **79** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026) |
+| **Total entries** | **80** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026 + 1 entry 27 June 2026) |
 | **SOVEREIGN** | **10** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Connected by Data / Jeni Tennison — named CEO individual decision) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **48** |
+| **NULL — confirmed** | **49** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -118,7 +119,7 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **60** (48 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+NULL findings of all kinds total **61** (49 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
 snapshot updated 25 June 2026 (v2.6.4); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
@@ -150,6 +151,16 @@ quoted elsewhere, as authoritative.
 
 ### Notable live proceedings (25 June 2026)
 
+- **EASS (Rachel.D) — NULL 0/20 (entry #80).** Fourth response directing deaf complainant to EHRC — the body that commissioned EASS, which had already confirmed disability discrimination. Telephone reference given four times to person with email-only RA. No named individual across four responses. s.136 + s.27 sent; EHRC whistleblowing cc'd.
+- **EA 2010 s.27 victimisation now standard Stage 3.** Deployed across five active matters: Equita (Paula/Simon Jacobs — removal action post-s.136), British Gas (Nitin Patel interception), Stephen Harker/DBC (complaint routing), viagogo (£761.83 withheld post-s.136, Theft Act s.21 placed on record), EASS (circular referral post-whistleblowing).
+- **Trading 212 — Day 3, 8 agents.** Martin Ka. gave first substantive answer: three cards confirmed (ending 6414, 0594, 2641). Metodi confirmed ID demand = Ivan's email change request, NOT retaliatory. EA 2010 Schedule 2 assessment question still unanswered across all eight agents. Day 3 interest: £0.24 (£0.08/day Sempra Metals / Late Payment Act / SCA 1981 s.35A).
+- **Starling Bank — s.136 + s.27 to CCO and CIO.** Automated donotreply@ email 23 June while formal complaint active = NULL. Bernadette Smith (CCO) and Harriet Rees (CIO / HM Treasury AI Champion) both served. Agents: Janaki SOVEREIGN, Salman NULL, Simon NULL (Article 9 misapplication), Bianca NULL. DISP 1.6 deadline: 15 August 2026.
+- **HJA (Hodge Jones & Allen) — Chun Wong COLP named.** Six-day silence on Article 15 SAR following EA 2010 allegation. Portal-only intake = s.19 indirect discrimination. s.136 + s.27 sent to cwong@hja.net (SRA 821023). SRA notified. Article 15 deadline: 21 July 2026.
+- **Durham Constabulary — SAR 2690609 rejected** as "repeated request." "Rank and collar number sufficient" — Durant v FSA [2003] EWCA Civ 1746 cited in challenge. DPA 2018 Sch.2 para.16 misapplied. "Will not respond further" = EA 2010 breach. ICO, IOPC, Nataleigh Stavers, EHRC all cc'd.
+- **GB News — NULL 0/20.** One-sentence response to five substantive questions (14 May 2026). s.136 + Ofcom letter sent. Rees-Mogg/Lowe interview: segment removed, VPN ad inserted. Ofcom Rules 5.1/7.1 cited.
+- **Trulioo — Article 17(3)(e) timing challenge.** Admission that personal data "no longer held due to retention period set by customer" — deletion after challenge raised? Timing unresolved. LexID 35530085 / two DOBs March 2025 unresolved.
+- **viagogo — s.27 + Theft Act s.21.** £761.83 withheld post-s.136 = detriment documented. Blackmail provision formally placed on record. 15 violations total. CMA258956 + CMA259047 both active. Durham Economic Crime Team cc'd.
+- **DBC FOI — bulk LO sessions 2021–2026.** Hearing dates, cases per session, authorised officers, bulk vs individual process, EIA question (deaf customers + postal summons), Session 818 start/end time (Sussex Justices argument). Forvis Mazars and GLD cc'd.
 - **Stephen Harker (DBC Leader) — NULL 0/20 (entry #79).** Two-sentence informal reply to formal s.136 letter citing Bracking, Nzolameso, Ahmed, Guntrip. Claims most recent email is April 2026 — 8 June formal complaint either not received (email infrastructure failure for deaf resident's only accessible channel) or not reviewed. Three questions unanswered. Bulk LO discovery from DBC's own documents: Jacqueline Rayner (2,857 bulk LOs, Session 818, Peterlee MC, 18 June 2025) and Dale Sanderson (653 bulk LOs, 20 August 2024) now named. MR L BURGESS unredacted on Session 818 complaint list — account 5501838216, £1,067.71.
 - **Trading 212 — Zendesk s.19 breach, accruing interest notice.** Ivan B (Onboarding & Authentication Team Lead) named — answered wrong question. Zendesk account-matching by registered email = EA 2010 s.19 indirect discrimination confirmed. Accruing interest: Sempra Metals [2007] UKHL 34 / Late Payment Act 1998 / SCA 1981 s.35A — £0.08/day on £222. s.94(11) DPA 2018 reserved.
 - **Northumbrian Water — Charlotte named, three legal errors corrected.** Invented postal carve-out, wrong CRA notification process, CPR 13.3 set-aside test not addressed. All three corrected in response.
@@ -162,18 +173,20 @@ quoted elsewhere, as authoritative.
 - **GLD s.136 strategy deployed** — anchor letters sent to E.ON Next and British Gas citing HMCTS 80553951 as leverage. EA 2010 s.136 burden shift activated across both threads.
 - **Durham criminal complaint** — sent to HQ.CVRS@ and General.EnquiriesPCC@ (reliable addresses confirmed).
 
-### Deadlines running (as at 25 June 2026)
+### Deadlines running (as at 27 June 2026)
 
 | Date | Matter |
 |---|---|
-| **27 June** | Rachel Pollock (DBC) — 5 working days from Charge Certificate |
+| **27 June** | Rachel Pollock (DBC) — 5 working days from Charge Certificate — TODAY |
 | **30 June** | Nataleigh Stavers (Durham PS) — 28-day update due |
 | **4 July** | HMCTS accessibility 20-day deadline (Nick.Goodwin2@justice.gov.uk) |
 | **9 July** | LJ Barbers Ltd confirmation statement (Companies House) |
 | **13 July** | LGO customer service complaint — Shem Marriott-Gray |
 | **13 July** | LGO 26 000 967 — Rebecca Hunt |
+| **21 July** | HJA / Chun Wong — Article 15 SAR deadline |
 | **22 July** | VWFS DSAR |
 | **31 July** | Founding rate closes — Tier 2 £1,500 |
+| **15 August** | Starling Bank — DISP 1.6 eight-week deadline |
 
 ### Notable live proceedings (24 June 2026)
 

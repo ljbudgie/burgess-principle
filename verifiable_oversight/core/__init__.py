@@ -23,6 +23,14 @@ from .storage import (
     CHAIN_CONTEXT,
     GENESIS_HASH,
 )
+from .registry import Institution, InstitutionRegistry
+from .deadlines import (
+    DeadlineStatus,
+    DeadlineProfile,
+    DeadlineResult,
+    DeadlineEngine,
+    STANDARD_PROFILES,
+)
 
 __all__ = [
     "BinaryTest",
@@ -42,4 +50,11 @@ __all__ = [
     "compute_entry_hash",
     "CHAIN_CONTEXT",
     "GENESIS_HASH",
+    "Institution",
+    "InstitutionRegistry",
+    "DeadlineStatus",
+    "DeadlineProfile",
+    "DeadlineResult",
+    "DeadlineEngine",
+    "STANDARD_PROFILES",
 ]

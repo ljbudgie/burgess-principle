@@ -1,7 +1,7 @@
 # Verifiable Human Oversight
 
 **Part of the Burgess Principle ecosystem**  
-**Version:** 0.3.0 (Phase 3 — append-only record storage)  
+**Version:** 0.4.0 (Phase 4 — email, banking & medical domains, institution registry, deadline engine, Iris integration)  
 **Language:** Python 3.11+  
 **Dependencies:** stdlib only for the core test and records. Ed25519 signing is an optional add-on requiring [PyNaCl](https://pypi.org/project/PyNaCl/) (`pip install PyNaCl`).
 
@@ -81,12 +81,19 @@ verifiable-oversight/
 │   ├── decision_record.py   # Sealed record with SHA-256 fingerprint + signature
 │   ├── signing.py           # Ed25519 RecordSigner + verify_record_signature (Phase 2)
 │   ├── storage.py           # Append-only, hash-chained RecordStore (Phase 3)
+│   ├── registry.py          # Institution + InstitutionRegistry (Phase 4B)
+│   ├── deadlines.py         # Statutory deadline profiles + DeadlineEngine (Phase 4B)
 │   └── verifier.py          # Integrity + logical consistency + signature validation
 ├── domains/
 │   ├── base.py              # Abstract domain — extend to add new domains
 │   ├── general.py           # No-extension baseline
 │   ├── communication.py     # EA 2010 ss.20/21 channel accessibility
-│   └── legal.py             # Enforcement, bulk process, burden shift
+│   ├── email.py             # Sovereign email-only application (Phase 4A)
+│   ├── legal.py             # Enforcement, bulk process, burden shift
+│   ├── banking.py           # FCA DISP deadlines; automated credit decisions (Phase 4D)
+│   └── medical.py           # Clinical decision support; consent; MCA 2005 (Phase 4D)
+├── integrations/
+│   └── iris.py              # ConversationAssessor — mid-conversation assessment (Phase 4C)
 ├── templates/
 │   └── decision_record.json # Template for manual record creation
 ├── examples/
@@ -94,7 +101,11 @@ verifiable-oversight/
 │   ├── example_null.py      # EASS Rachel.D — NULL, circular referral
 │   ├── example_ambiguous.py # Trading 212 — AMBIGUOUS pending answer
 │   ├── example_signed.py    # Signed NULL record — Ed25519 non-repudiation
-│   └── example_storage.py   # Append-only oversight ledger — persist & verify (Phase 3)
+│   ├── example_storage.py   # Append-only oversight ledger — persist & verify (Phase 3)
+│   ├── example_email.py     # Email domain — inbound/outbound assessment (Phase 4A)
+│   ├── example_registry_deadlines.py  # Institution registry + deadline engine (Phase 4B)
+│   ├── example_iris_conversation.py   # Iris mid-conversation assessment (Phase 4C)
+│   └── example_banking_medical.py     # Banking + medical domains (Phase 4D)
 └── docs/
     └── specification.md     # Full specification with legal grounding
 ```
@@ -111,9 +122,13 @@ python verifiable_oversight/examples/example_sovereign.py
 python verifiable_oversight/examples/example_ambiguous.py
 python verifiable_oversight/examples/example_signed.py   # requires PyNaCl
 python verifiable_oversight/examples/example_storage.py  # append-only ledger
+python verifiable_oversight/examples/example_email.py    # email inbound/outbound
+python verifiable_oversight/examples/example_registry_deadlines.py  # registry + deadlines
+python verifiable_oversight/examples/example_iris_conversation.py   # mid-conversation
+python verifiable_oversight/examples/example_banking_medical.py     # banking + medical
 ```
 
-No installation required for the first three or the storage example — stdlib
+No installation required for any example except the signed one — stdlib
 only. The signed example additionally requires PyNaCl (`pip install PyNaCl`).
 
 ---
@@ -138,7 +153,10 @@ Each domain extends the core test with domain-specific metadata and validation:
 |---|---|
 | `general` | No extensions — pure binary test |
 | `communication` | Channel vs RA compatibility; automated comms flag; regulatory framework |
+| `email` | Email-only application; inbound/outbound; no portal/telephone/CAPTCHA/app-only barriers; named individual for significant responses; RA confirmed before first substantive exchange |
 | `legal` | Statutory basis; case reference; burden shift; bulk process presumption |
+| `banking` | FCA DISP deadlines; solely-automated credit decisions (UK GDPR Art 22 / DUAA 2025 s.80) |
+| `medical` | Clinical decision-support; consent; Mental Capacity Act 2005 (capacity + best interests) |
 
 To add a new domain, subclass `BaseDomain` and implement `name`, `guidance`, and optionally `validate_domain_metadata` and `_build_domain_metadata`.
 
@@ -270,10 +288,11 @@ python verifiable_oversight/examples/example_storage.py
 
 - **Cryptographic signing** ✅ *(Phase 2)* — Ed25519 private key → `signature` field populated; public key attached for independent, offline verification
 - **Record storage** ✅ *(Phase 3)* — append-only, hash-chained JSON-L ledger; records keyed by fingerprint; chain verified on load and on demand
-- **Iris integration** — Iris can create and verify records on behalf of a user in conversation
-- **Email domain** — sovereign email application; each outbound communication creates a record; each institutional response is assessed on receipt
-- **Banking domain** — FCA DISP deadlines; automated credit decision assessment
-- **Medical domain** — clinical decision support; consent; Mental Capacity Act 2005
+- **Email domain** ✅ *(Phase 4A)* — sovereign email-only application; each outbound communication creates a record; each institutional response is assessed on receipt against the binary test and the non-negotiable accessibility requirements (no portal redirect, no telephone, no CAPTCHA, no app-only verification, named individual for every significant response, RA confirmed and recorded before the first substantive exchange)
+- **Institution registry + deadline engine** ✅ *(Phase 4B)* — case-insensitive, alias-aware `InstitutionRegistry`; `DeadlineEngine` with statutory response profiles (FCA DISP 8 weeks, DSAR one month, and more) classifying a window as PENDING / DUE_TODAY / BREACHED
+- **Iris integration** ✅ *(Phase 4C)* — `ConversationAssessor` creates and verifies records on a user's behalf mid-conversation: AMBIGUOUS while gathering, targeted follow-up questions for each missing element, and a definitive SOVEREIGN/NULL appended to the ledger on finalisation
+- **Banking domain** ✅ *(Phase 4D)* — FCA DISP deadlines; solely-automated credit decision assessment (UK GDPR Art 22 / DUAA 2025 s.80)
+- **Medical domain** ✅ *(Phase 4D)* — clinical decision support; consent; Mental Capacity Act 2005 (capacity assessment + best-interests determination)
 - **Post-quantum companion** — hybrid Ed25519 + ML-DSA/SLH-DSA signatures, reusing the `onchain-protocol` provider architecture
 
 ---

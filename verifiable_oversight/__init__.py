@@ -47,6 +47,13 @@ from .core import (
     compute_entry_hash,
     CHAIN_CONTEXT,
     GENESIS_HASH,
+    Institution,
+    InstitutionRegistry,
+    DeadlineStatus,
+    DeadlineProfile,
+    DeadlineResult,
+    DeadlineEngine,
+    STANDARD_PROFILES,
 )
 
 __all__ = [
@@ -67,6 +74,13 @@ __all__ = [
     "compute_entry_hash",
     "CHAIN_CONTEXT",
     "GENESIS_HASH",
+    "Institution",
+    "InstitutionRegistry",
+    "DeadlineStatus",
+    "DeadlineProfile",
+    "DeadlineResult",
+    "DeadlineEngine",
+    "STANDARD_PROFILES",
 ]
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"

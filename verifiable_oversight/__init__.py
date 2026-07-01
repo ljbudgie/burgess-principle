@@ -83,4 +83,4 @@ __all__ = [
     "STANDARD_PROFILES",
 ]
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"

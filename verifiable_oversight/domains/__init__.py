@@ -16,6 +16,7 @@ from .email import EmailDomain
 from .legal import LegalDomain
 from .banking import BankingDomain
 from .medical import MedicalDomain
+from .capacity import CapacityAssessment
 
 __all__ = [
     "BaseDomain",
@@ -25,4 +26,5 @@ __all__ = [
     "LegalDomain",
     "BankingDomain",
     "MedicalDomain",
+    "CapacityAssessment",
 ]

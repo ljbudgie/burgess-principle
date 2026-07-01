@@ -30,7 +30,9 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
+from ..core.binary_test import Verdict
 from .base import BaseDomain
+from .capacity import CapacityAssessment
 
 
 class MedicalDomain(BaseDomain):
@@ -59,6 +61,23 @@ class MedicalDomain(BaseDomain):
     best_interests_determined : bool, optional
         Whether a best-interests determination (s.4 MCA 2005) was made where the
         person was found to lack capacity.
+    capacity_assessment : CapacityAssessment, optional
+        A structured Mental Capacity Act 2005 capacity assessment. When
+        supplied, its verdict and validation issues are folded into this
+        record. See :meth:`assess_capacity`.
+    clinical_ai_involved : bool, optional
+        Whether a clinical AI / algorithmic decision-support system was involved
+        in the decision.
+    clinical_ai_system : str, optional
+        Name of the clinical AI system, e.g. 'Phonak AutoSense OS 5.0'.
+    mhra_registered : bool, optional
+        Whether the clinical AI system is registered with the MHRA as a medical
+        device.
+    mhra_registration_number : str, optional
+        The MHRA registration number, where held.
+    named_clinician_sign_off : bool, optional
+        Whether a named clinician signed off the specific output before it took
+        effect.
     regulatory_framework : str, optional
         Applicable framework (e.g. 'MCA 2005', 'GMC Good Medical Practice').
     """
@@ -121,7 +140,44 @@ class MedicalDomain(BaseDomain):
                     "(s.4 MCA 2005) was made by a named decision-maker."
                 )
 
+        # Structured MCA capacity assessment (ss.1–4).
+        capacity_verdict = metadata.get("capacity_assessment_verdict")
+        if capacity_verdict == Verdict.NULL.value:
+            issues.append(
+                "MCA 2005 capacity assessment is NULL — no named individual "
+                "assessment for this specific decision at this specific time."
+            )
+        for detail in metadata.get("capacity_assessment_issues", []) or []:
+            issues.append(f"MCA capacity assessment: {detail}")
+
+        # Clinical AI / MHRA.
+        if metadata.get("clinical_ai_involved"):
+            if metadata.get("named_clinician_sign_off") is False:
+                issues.append(
+                    "Clinical AI system was involved but no named clinician "
+                    "signed off the specific output — potential DUAA 2025 s.80 / "
+                    "UK GDPR Art.22 significant automated decision."
+                )
+            if metadata.get("mhra_registered") is False:
+                issues.append(
+                    "Clinical AI system is not recorded as MHRA-registered as a "
+                    "medical device."
+                )
+
         return issues
+
+    def assess_capacity(
+        self, capacity_assessment: Optional[CapacityAssessment] = None
+    ) -> Verdict:
+        """
+        Apply the binary test to a Mental Capacity Act 2005 assessment.
+
+        Returns NULL when no capacity assessment is supplied — the presumption
+        of individual scrutiny is not met without a recorded assessment.
+        """
+        if capacity_assessment is None:
+            return Verdict.NULL
+        return capacity_assessment.assess()
 
     def _build_domain_metadata(
         self,
@@ -133,6 +189,12 @@ class MedicalDomain(BaseDomain):
         capacity_in_doubt: bool = False,
         capacity_assessed: Optional[bool] = None,
         best_interests_determined: Optional[bool] = None,
+        capacity_assessment: Optional[CapacityAssessment] = None,
+        clinical_ai_involved: bool = False,
+        clinical_ai_system: Optional[str] = None,
+        mhra_registered: Optional[bool] = None,
+        mhra_registration_number: Optional[str] = None,
+        named_clinician_sign_off: Optional[bool] = None,
         regulatory_framework: Optional[str] = None,
         **kwargs: Any,
     ) -> dict[str, Any]:
@@ -142,6 +204,7 @@ class MedicalDomain(BaseDomain):
             "cds_treated_as_decision": cds_treated_as_decision,
             "consent_required": consent_required,
             "capacity_in_doubt": capacity_in_doubt,
+            "clinical_ai_involved": clinical_ai_involved,
         }
         if decision_type:
             meta["decision_type"] = decision_type
@@ -151,6 +214,22 @@ class MedicalDomain(BaseDomain):
             meta["capacity_assessed"] = capacity_assessed
         if best_interests_determined is not None:
             meta["best_interests_determined"] = best_interests_determined
+        if capacity_assessment is not None:
+            meta["capacity_assessment_verdict"] = capacity_assessment.assess().value
+            meta["capacity_assessment_issues"] = (
+                capacity_assessment.validation_issues()
+            )
+            meta["capacity_decision_in_question"] = (
+                capacity_assessment.decision_in_question
+            )
+        if clinical_ai_system:
+            meta["clinical_ai_system"] = clinical_ai_system
+        if mhra_registered is not None:
+            meta["mhra_registered"] = mhra_registered
+        if mhra_registration_number:
+            meta["mhra_registration_number"] = mhra_registration_number
+        if named_clinician_sign_off is not None:
+            meta["named_clinician_sign_off"] = named_clinician_sign_off
         if regulatory_framework:
             meta["regulatory_framework"] = regulatory_framework
         meta.update(kwargs)

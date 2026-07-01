@@ -1,7 +1,7 @@
 # Verifiable Human Oversight
 
 **Part of the Burgess Principle ecosystem**  
-**Version:** 0.4.0 (Phase 4 — email, banking & medical domains, institution registry, deadline engine, Iris integration)  
+**Version:** 0.5.0 (Phase 5 — Mental Capacity Act 2005 capacity domain, extending Phase 4 email, banking & medical domains, institution registry, deadline engine, Iris integration)  
 **Language:** Python 3.11+  
 **Dependencies:** stdlib only for the core test and records. Ed25519 signing is an optional add-on requiring [PyNaCl](https://pypi.org/project/PyNaCl/) (`pip install PyNaCl`).
 
@@ -91,7 +91,8 @@ verifiable-oversight/
 │   ├── email.py             # Sovereign email-only application (Phase 4A)
 │   ├── legal.py             # Enforcement, bulk process, burden shift
 │   ├── banking.py           # FCA DISP deadlines; automated credit decisions (Phase 4D)
-│   └── medical.py           # Clinical decision support; consent; MCA 2005 (Phase 4D)
+│   ├── medical.py           # Clinical decision support; consent; MCA 2005 (Phase 4D)
+│   └── capacity.py          # MCA 2005 CapacityAssessment — two-stage test (Phase 5)
 ├── integrations/
 │   └── iris.py              # ConversationAssessor — mid-conversation assessment (Phase 4C)
 ├── templates/
@@ -105,7 +106,8 @@ verifiable-oversight/
 │   ├── example_email.py     # Email domain — inbound/outbound assessment (Phase 4A)
 │   ├── example_registry_deadlines.py  # Institution registry + deadline engine (Phase 4B)
 │   ├── example_iris_conversation.py   # Iris mid-conversation assessment (Phase 4C)
-│   └── example_banking_medical.py     # Banking + medical domains (Phase 4D)
+│   ├── example_banking_medical.py     # Banking + medical domains (Phase 4D)
+│   └── example_capacity.py            # MCA 2005 capacity assessment (Phase 5)
 └── docs/
     └── specification.md     # Full specification with legal grounding
 ```
@@ -156,7 +158,8 @@ Each domain extends the core test with domain-specific metadata and validation:
 | `email` | Email-only application; inbound/outbound; no portal/telephone/CAPTCHA/app-only barriers; named individual for significant responses; RA confirmed before first substantive exchange |
 | `legal` | Statutory basis; case reference; burden shift; bulk process presumption |
 | `banking` | FCA DISP deadlines; solely-automated credit decisions (UK GDPR Art 22 / DUAA 2025 s.80) |
-| `medical` | Clinical decision-support; consent; Mental Capacity Act 2005 (capacity + best interests) |
+| `medical` | Clinical decision-support; consent; Mental Capacity Act 2005 (capacity + best interests); clinical AI / MHRA registration |
+| `capacity` | `CapacityAssessment` — MCA 2005 two-stage test (s.2 diagnostic + s.3 functional), best interests (s.4), least restrictive option (s.1(5)), clinical-AI NULL detection |
 
 To add a new domain, subclass `BaseDomain` and implement `name`, `guidance`, and optionally `validate_domain_metadata` and `_build_domain_metadata`.
 
@@ -293,6 +296,7 @@ python verifiable_oversight/examples/example_storage.py
 - **Iris integration** ✅ *(Phase 4C)* — `ConversationAssessor` creates and verifies records on a user's behalf mid-conversation: AMBIGUOUS while gathering, targeted follow-up questions for each missing element, and a definitive SOVEREIGN/NULL appended to the ledger on finalisation
 - **Banking domain** ✅ *(Phase 4D)* — FCA DISP deadlines; solely-automated credit decision assessment (UK GDPR Art 22 / DUAA 2025 s.80)
 - **Medical domain** ✅ *(Phase 4D)* — clinical decision support; consent; Mental Capacity Act 2005 (capacity assessment + best-interests determination)
+- **Capacity domain** ✅ *(Phase 5)* — `CapacityAssessment` applies the binary test to Mental Capacity Act 2005 decisions: presumption of capacity (s.1(2)), decision- and time-specific two-stage test (s.2 diagnostic + s.3 functional), best interests by a named decision-maker (s.4), least restrictive option (s.1(5)), and NULL detection for clinical AI used without named clinician review (DUAA 2025 s.80 / UK GDPR Art.22)
 - **Post-quantum companion** — hybrid Ed25519 + ML-DSA/SLH-DSA signatures, reusing the `onchain-protocol` provider architecture
 
 ---

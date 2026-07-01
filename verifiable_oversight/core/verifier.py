@@ -11,10 +11,11 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Optional
 
 from .binary_test import Verdict
 from .decision_record import DecisionRecord
+from .signing import SigningError, verify_record_signature
 
 
 @dataclass
@@ -25,6 +26,7 @@ class VerificationReport:
     elements_valid: bool
     issues: list[str]
     summary: str
+    signature_ok: Optional[bool] = None
 
     @property
     def is_valid(self) -> bool:
@@ -36,6 +38,7 @@ class VerificationReport:
             "verdict": self.verdict.value,
             "integrity_ok": self.integrity_ok,
             "elements_valid": self.elements_valid,
+            "signature_ok": self.signature_ok,
             "is_valid": self.is_valid,
             "issues": self.issues,
             "summary": self.summary,
@@ -106,6 +109,23 @@ class Verifier:
             issues.append("NULL verdict declared but no missing elements recorded.")
             elements_valid = False
 
+        # 5. Signature (optional). Unsigned records remain valid — signing is an
+        #    additional guarantee, not a requirement. A signed record whose
+        #    signature does not verify is a hard failure.
+        signature_ok: Optional[bool] = None
+        if record.is_signed:
+            try:
+                signature_ok = verify_record_signature(record)
+            except SigningError as exc:
+                signature_ok = False
+                issues.append(f"Signature could not be verified: {exc}")
+            else:
+                if not signature_ok:
+                    issues.append(
+                        "Signature verification failed — the record is signed but "
+                        "the signature does not match its content or public key."
+                    )
+
         summary = self._build_summary(record, issues)
         return VerificationReport(
             record_id=record.record_id,
@@ -114,6 +134,7 @@ class Verifier:
             elements_valid=elements_valid,
             issues=issues,
             summary=summary,
+            signature_ok=signature_ok,
         )
 
     def verify_batch(self, records: list[DecisionRecord]) -> list[VerificationReport]:

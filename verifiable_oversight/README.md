@@ -1,9 +1,9 @@
 # Verifiable Human Oversight
 
 **Part of the Burgess Principle ecosystem**  
-**Version:** 0.1.0 (Phase 1 — MVP)  
+**Version:** 0.3.0 (Phase 3 — append-only record storage)  
 **Language:** Python 3.11+  
-**Dependencies:** stdlib only (no Pydantic, no third-party packages required for core)
+**Dependencies:** stdlib only for the core test and records. Ed25519 signing is an optional add-on requiring [PyNaCl](https://pypi.org/project/PyNaCl/) (`pip install PyNaCl`).
 
 ---
 
@@ -78,8 +78,10 @@ verifiable-oversight/
 ├── __init__.py              # Top-level package — import BinaryTest, DecisionRecord, Verifier here
 ├── core/
 │   ├── binary_test.py       # Five-element engine → SOVEREIGN / NULL / AMBIGUOUS
-│   ├── decision_record.py   # Sealed record with SHA-256 fingerprint
-│   └── verifier.py          # Integrity + logical consistency validation
+│   ├── decision_record.py   # Sealed record with SHA-256 fingerprint + signature
+│   ├── signing.py           # Ed25519 RecordSigner + verify_record_signature (Phase 2)
+│   ├── storage.py           # Append-only, hash-chained RecordStore (Phase 3)
+│   └── verifier.py          # Integrity + logical consistency + signature validation
 ├── domains/
 │   ├── base.py              # Abstract domain — extend to add new domains
 │   ├── general.py           # No-extension baseline
@@ -90,7 +92,9 @@ verifiable-oversight/
 ├── examples/
 │   ├── example_sovereign.py # LGO Rebecca Hunt — SOVEREIGN process, wrong law
 │   ├── example_null.py      # EASS Rachel.D — NULL, circular referral
-│   └── example_ambiguous.py # Trading 212 — AMBIGUOUS pending answer
+│   ├── example_ambiguous.py # Trading 212 — AMBIGUOUS pending answer
+│   ├── example_signed.py    # Signed NULL record — Ed25519 non-repudiation
+│   └── example_storage.py   # Append-only oversight ledger — persist & verify (Phase 3)
 └── docs/
     └── specification.md     # Full specification with legal grounding
 ```
@@ -102,12 +106,15 @@ verifiable-oversight/
 From the repo root:
 
 ```bash
-python verifiable-oversight/examples/example_null.py
-python verifiable-oversight/examples/example_sovereign.py
-python verifiable-oversight/examples/example_ambiguous.py
+python verifiable_oversight/examples/example_null.py
+python verifiable_oversight/examples/example_sovereign.py
+python verifiable_oversight/examples/example_ambiguous.py
+python verifiable_oversight/examples/example_signed.py   # requires PyNaCl
+python verifiable_oversight/examples/example_storage.py  # append-only ledger
 ```
 
-No installation required. stdlib only.
+No installation required for the first three or the storage example — stdlib
+only. The signed example additionally requires PyNaCl (`pip install PyNaCl`).
 
 ---
 
@@ -141,18 +148,133 @@ To add a new domain, subclass `BaseDomain` and implement `name`, `guidance`, and
 
 Every `DecisionRecord` is sealed with a SHA-256 fingerprint on creation. The fingerprint covers all content fields. Any change to the record after sealing will cause `verify_integrity()` to return `False`.
 
-The `signature` field is reserved for Ed25519 / post-quantum signing (Phase 2). The data model supports it without structural changes — the signing infrastructure connects to the existing [`CRYPTOGRAPHIC_IDENTITY.md`](../CRYPTOGRAPHIC_IDENTITY.md) architecture.
+The `signature` field carries an Ed25519 signature over the fingerprint (Phase 2 — see *Cryptographic signing* below). The data model supports it without structural changes — the signing infrastructure connects to the existing [`CRYPTOGRAPHIC_IDENTITY.md`](../CRYPTOGRAPHIC_IDENTITY.md) architecture.
 
 ---
 
-## Phase 2 roadmap
+## Cryptographic signing (Phase 2)
 
-- **Cryptographic signing** — Ed25519 private key → `signature` field populated; public key published for independent verification
-- **Record storage** — append-only SQLite or JSON-L log; records keyed by fingerprint
+The fingerprint proves a record has **not changed**. A signature proves **who
+produced it**. A `RecordSigner` holds an Ed25519 private key, signs the sealed
+record's fingerprint, and attaches the signature and public key so any third
+party can verify the finding **offline, with no shared secret**.
+
+```python
+from verifiable_oversight import (
+    BinaryTest, DecisionRecord, RecordSigner, Verifier, verify_record_signature,
+)
+
+record = DecisionRecord.create(
+    subject="Fourth response — circular referral to EHRC",
+    institution="EASS",
+    binary_test=BinaryTest(context="No named individual across four responses."),
+)
+
+signer = RecordSigner.generate()   # or RecordSigner(private_key_hex)
+signer.sign(record)                # populates record.signature / public_key / signed_at
+
+record.is_signed                   # True
+record.public_key                  # publish this for independent verification
+verify_record_signature(record)    # True
+
+Verifier().verify(record).signature_ok  # True
+
+# Tamper-evidence: any change after signing breaks both integrity and signature.
+record.subject = "Altered"
+verify_record_signature(record)    # False
+```
+
+**What signing adds:**
+
+- **Non-repudiation** — the record is bound to the holder of a published public key.
+- **Independent verification** — a tribunal, ombudsman, or opposing institution
+  can verify the signature with only the record and the public key.
+- **Backward compatible** — the signature lives *outside* the canonical
+  fingerprint, so signing never changes a record's fingerprint, and unsigned
+  records behave exactly as in Phase 1 (`Verifier` reports `signature_ok=None`).
+
+The signed message is domain-separated and reproducible:
+`SIGNING_CONTEXT + b":" + fingerprint` (see `signing_message`). PyNaCl is required
+only for signing/verification; the stdlib core continues to work without it.
+
+Run the signed example:
+
+```bash
+pip install PyNaCl
+python verifiable_oversight/examples/example_signed.py
+```
+
+---
+
+## Record storage (Phase 3)
+
+A single finding is useful. A durable, ordered *chain* of findings is
+accountability infrastructure — a log of every SOVEREIGN/NULL assessment that
+can be replayed, audited, and independently verified long after the moment it
+was produced.
+
+`RecordStore` is an **append-only, tamper-evident ledger** keyed by fingerprint.
+It is **stdlib only** — records are persisted as JSON-Lines (one record per
+line), so the ledger is human-readable, greppable, and trivially transmittable.
+
+```python
+from verifiable_oversight import BinaryTest, DecisionRecord, RecordStore, Verdict
+
+store = RecordStore("oversight-ledger.jsonl")   # or RecordStore() for in-memory
+
+record = DecisionRecord.create(
+    subject="Fourth response — circular referral to EHRC",
+    institution="EASS",
+    binary_test=BinaryTest(context="No named individual across four responses."),
+)
+
+entry = store.append(record)        # returns the LedgerEntry (record + chain metadata)
+store.get(record.fingerprint)       # retrieve by fingerprint
+store.find(verdict=Verdict.NULL)    # filter by verdict / institution / domain
+store.counts_by_verdict()           # {'SOVEREIGN': …, 'NULL': …, 'AMBIGUOUS': …}
+store.verify_chain()                # True — the whole ledger is intact
+
+# Re-opening a file-backed ledger loads it and re-verifies the chain automatically.
+RecordStore("oversight-ledger.jsonl").verify_chain()   # True
+```
+
+**Three guarantees:**
+
+- **Append-only** — records are only ever added, never edited or deleted in
+  place. Appending an unsealed record, a tampered record (integrity failure), or
+  a duplicate fingerprint raises `StorageError`.
+- **Keyed by fingerprint** — every record is indexed by its SHA-256 fingerprint;
+  the same finding cannot be stored twice, and any record is retrievable in one
+  lookup.
+- **Tamper-evident chain** — each entry stores the hash of the previous entry,
+  forming a hash chain (domain-separated by `CHAIN_CONTEXT`) over the whole
+  ledger. Altering, reordering, or truncating any past entry breaks the chain,
+  which `verify_chain()` detects — on demand and automatically on load — over
+  and above each record's own fingerprint and signature checks.
+
+The chain hash is kept **separate** from the record fingerprint: the fingerprint
+commits to a record's *content*, the chain hash commits to its *position in the
+ledger*. So signing a record never affects the chain, and building the chain
+never changes a record's fingerprint. Signed and unsigned records store
+identically — storage is agnostic to whether a record carries a signature.
+
+Run the storage example:
+
+```bash
+python verifiable_oversight/examples/example_storage.py
+```
+
+---
+
+## Roadmap
+
+- **Cryptographic signing** ✅ *(Phase 2)* — Ed25519 private key → `signature` field populated; public key attached for independent, offline verification
+- **Record storage** ✅ *(Phase 3)* — append-only, hash-chained JSON-L ledger; records keyed by fingerprint; chain verified on load and on demand
 - **Iris integration** — Iris can create and verify records on behalf of a user in conversation
 - **Email domain** — sovereign email application; each outbound communication creates a record; each institutional response is assessed on receipt
 - **Banking domain** — FCA DISP deadlines; automated credit decision assessment
 - **Medical domain** — clinical decision support; consent; Mental Capacity Act 2005
+- **Post-quantum companion** — hybrid Ed25519 + ML-DSA/SLH-DSA signatures, reusing the `onchain-protocol` provider architecture
 
 ---
 

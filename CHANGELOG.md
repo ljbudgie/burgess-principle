@@ -5,6 +5,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.7 — 2 July 2026
+
+### Legal/Regulatory
+
+- **British Gas — Dharmesh Rajput SOVEREIGN 16/20 (entry #81).** 29 June 2026. The Director of Customer Service responded personally to the s.136 letter. Both accounts (602181316 and BGB337948) confirmed on hold during Ombudsman investigation EG054013-26. Anita Tomlin named as a dedicated point of contact going forward. Individual views disclaimer present in the footer. Four questions outstanding — named officer for enforcement visits, false statement of 17 June, Andrew Fletcher position, disability recording correction — passed to Anita Tomlin. A named human applied individual consideration to the specific facts before responding. Contrast entry #66 (same institution, earlier NULL deadlock letter to the wrong address).
+- **HJA Civil Liberties — NULL 0/20 (entry #82).** 2 July 2026. Re-review in the HJA chain (see entry #71). Named COLP Chun Wong personally invited a re-review on 30 June 2026; re-review submitted 1 July 2026 with substantive new material (Andrew Fletcher admission, GLD pre-action letter, DBC bulk LO documents, EHRC written confirmation). The response came from an unsigned "Client Care Team", directed a deaf (email-only RA) complainant to telephone number 020 7242 1222, and showed no awareness of the named invitation, the disability, or the email-only reasonable adjustment — the automated intake queue bypassed the named human entirely. **Automation-Confirmed Dissonance** — the clearest example in the dataset.
+
+### Totals: 82 entries | SOVEREIGN 11 | NULL 71
+
+---
+
 ## v2.6.6 — 27 June 2026
 
 ### Legal/Regulatory

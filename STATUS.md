@@ -1,5 +1,44 @@
 # Burgess Principle — Current Status
-Last updated: 17 June 2026
+Last updated: 2 July 2026
+
+## 2 July 2026 (afternoon) — Key Developments
+
+### FOI — University of Reading IMPS#04381
+
+- **University of Reading FOI IMPS#04381** received 13:45 2 July 2026.
+  Named academic lead: **Dr. Netta Weinstein**, Professor of Clinical and Social Psychology,
+  University of Reading — lead on the Inclusion Matters programme partnership with
+  Hampshire & Isle of Wight Constabulary.
+- **Academic evidence base confirmed** — four peer-reviewed papers including Al-Khouja et al.
+  (2020), Legate & Weinstein (2025), Legate, Weinstein, Graham & Plater (2023), and
+  Weinstein et al. (2023). Ethics approval refs: **2021-002-NW** and **2021-013-NW**.
+- **Ethics gap — critical finding:** University confirmed: *"The University was not aware
+  that completion of the training was linked to pay progression."* Ethics approval was
+  obtained for voluntary research; Hampshire deployed it as mandatory with pay consequences.
+  Ethics committee not informed. Informed consent may not have been fully informed.
+- **International data transfer — critical finding:** Dr. Nicole Legate (Illinois Institute of
+  Technology, Chicago, USA) received attitudinal survey responses from Hampshire officers.
+  UK GDPR Art. 9 concern (race/bias/privilege attitudes may be special category data).
+  No Article 46 mechanism confirmed. No DPIA confirmed.
+- **Financial confirmed:** Hampshire paid University of Reading £12,000. Programme total
+  (per *Telegraph*): £861,737.
+- **Henry Nowak context:** Henry Nowak (18) was murdered 3 December 2025 in Southampton.
+  Hampshire officers handcuffed him as he lay dying. His family has asked that his death
+  not be used to whip up division. The Inclusion Matters programme is relevant as the
+  mandatory DEI training of the force involved. This record documents process accountability
+  — not a verdict on any individual officer or on DEI training as a category.
+- **Follow-up sent** to University of Reading re consent gap, Art. 9 DPIA, REF correspondence.
+
+### Active FOI threads as at 2 July 2026
+
+| Reference | Body | Status |
+| --- | --- | --- |
+| **HC/01/FOI/26/019209/S** | Hampshire Constabulary | Follow-up needed — pay progression governance decision (who approved, when) |
+| **01/FOI/26-53049** | Metropolitan Police Service | Internal review — Q8 (Hampshire connection) strengthened by IMPS#04381 |
+| Cabinet Office (Karen Scipio MBE) | Cabinet Office | Active |
+| **EHRC formal submission** | EHRC | Sent 4 June 2026 |
+
+---
 
 ## Week of 9–17 June 2026 — Key Developments
 

@@ -5,6 +5,69 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.9 — 2 July 2026
+
+### FOI / Investigations — University of Reading IMPS#04381
+
+- **University of Reading FOI IMPS#04381 received 2 July 2026, 13:45.**
+  Full response confirms the following:
+  - **Named academic lead:** Dr. Netta Weinstein, Professor of Clinical and Social Psychology,
+    Department of Psychology, University of Reading — lead on the Inclusion Matters programme
+    partnership with Hampshire & Isle of Wight Constabulary.
+  - **Academic evidence base confirmed** — four peer-reviewed papers: Al-Khouja et al. (2020)
+    *Journal of Moral Education*; Legate & Weinstein (2025) *Perspectives on Psychological
+    Science*; Legate, Weinstein, Graham & Plater (2023) *JCASP*; Weinstein et al. (2023)
+    *Journal of Applied Social Psychology*.
+  - **Ethics approval confirmed** — references 2021-002-NW and 2021-013-NW, University
+    Research Ethics Committee.
+  - **Pay progression — critical finding:** University confirmed "The University was not aware
+    that completion of the training was linked to pay progression." Ethics approval was
+    obtained without disclosure of the pay-consequence. Informed consent may not have
+    been fully informed if pay consequences were not disclosed on the information sheet.
+  - **International data transfer — critical finding:** Dr. Nicole Legate (Illinois Institute of
+    Technology, Chicago, USA) received attitudinal survey responses from Hampshire officers.
+    University characterises this as non-personal data. UK GDPR Art. 9 concern: data about
+    attitudes toward race, bias, and privilege may constitute special category data. No
+    Article 46 transfer mechanism confirmed. No DPIA confirmed.
+  - **Financial:** Hampshire Constabulary paid University of Reading £12,000. Total programme
+    cost per *Telegraph*: £861,737. External consultants: Inclusive Employers Ltd £54,566;
+    Pukka Films £10,238.
+  - **International collaborators (no payment from Hampshire):** Dr. Nicole Legate — IIT
+    Chicago; Dr. Arlen Moller; Dr. Lisa Legault.
+  - **REF submission:** none confirmed.
+- **Ethics gap:** Ethics approval obtained for voluntary research. Hampshire deployed the
+  programme as mandatory with pay consequences. University not informed. Ethics committee
+  not informed. Informed consent forms may not have disclosed the pay link. Consent may
+  not have been genuinely informed; ethics approval obtained on incomplete information.
+- **Henry Nowak context recorded:** Henry Nowak (18) was murdered 3 December 2025 in
+  Southampton. Hampshire Constabulary officers handcuffed him as he lay dying, having
+  told officers repeatedly he had been stabbed and could not breathe. His family has asked
+  that his death not be used to whip up division. The Inclusion Matters programme is
+  relevant because it was the mandatory DEI training operated by the force involved.
+  Questions have been raised about whether the training influenced officer judgment at the
+  scene. This entry records process accountability questions — not a verdict on any
+  individual officer or on DEI training as a category.
+- **Follow-up sent** to University of Reading: clarification on consent gap, Art. 9 DPIA,
+  REF correspondence.
+
+### FOI thread status as at 2 July 2026
+
+- **Hampshire FOI HC/01/FOI/26/019209/S** — follow-up needed on pay progression
+  governance decision (who approved linking mandatory completion to pay progression and when).
+- **MPS FOI 01/FOI/26-53049** — internal review; Q8 (Hampshire connection) now stronger
+  following IMPS#04381.
+- **Cabinet Office (Karen Scipio MBE)** — active.
+- **EHRC formal submission** — sent 4 June 2026.
+
+### AI / Documentation
+
+- **llms.txt** — correction committed to address Google AI mischaracterisation of the
+  Burgess Principle's engagement with the Hampshire / Inclusion Matters case. Clarification
+  added that this is process-accountability work — politically neutral, family-wishes noted,
+  not an anti-DEI position.
+
+---
+
 ## v2.6.8 — 2 July 2026
 
 ### Added

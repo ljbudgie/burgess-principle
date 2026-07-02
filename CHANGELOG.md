@@ -5,6 +5,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.7.0 — 2 July 2026
+
+> **Release summary.** This release marks the first tagged checkpoint since v2.5.3.
+> It consolidates the entire v2.6.x patch series (v2.6.0–v2.6.9) and rolls in the
+> Verifiable Human Oversight module (Phases 1–5), the Advocate Companion ecosystem
+> entry, ACCESSIBILITY.md, NULL Hunter, Decline Compliance checker, and the
+> University of Reading ethics-gap finding. See individual v2.6.x entries below
+> for full detail on each change.
+
+---
+
 ## v2.6.9 — 2 July 2026
 
 ### FOI / Investigations — University of Reading IMPS#04381

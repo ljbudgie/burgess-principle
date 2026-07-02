@@ -20,10 +20,19 @@ returns a *provisional* signal for a human to confirm.
 """
 from __future__ import annotations
 
+import difflib
 import re
 from dataclasses import dataclass, field
+from typing import Sequence
 
-__all__ = ["scan", "ScanResult", "DISCLAIMER"]
+__all__ = [
+    "scan",
+    "scan_thread",
+    "ScanResult",
+    "ThreadAssessment",
+    "DISCLAIMER",
+    "BOILERPLATE_LOOP_THRESHOLD",
+]
 
 DISCLAIMER = (
     "Provisional signal only. The NULL Hunter is a heuristic aid, not a "
@@ -62,15 +71,18 @@ _AMBIGUOUS_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
 ]
 
 # A named individual described as having personally reviewed → leans SOVEREIGN.
+# The name portion is case-sensitive (capitalised words) so that phrases like
+# "reviewed by the relevant team" do not false-positive as a named reviewer;
+# surrounding verbs/adverbs stay case-insensitive via inline (?i:...) groups.
 _NAME = r"[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+"
-_PERSONAL = r"(?:personally|individually|in\s+person)"
-_REVIEWVERB = r"(?:review|reviewed|consider|considered|assess|assessed|handle|handled|looked\s+at)"
+_PERSONAL = r"(?i:personally|individually|in\s+person)"
+_REVIEWVERB = r"(?i:review|reviewed|consider|considered|assess|assessed|handle|handled|looked\s+at)"
 _SOVEREIGN_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
-    ("'I, <Name>, personally reviewed'", _c(rf"\bI,?\s+{_NAME},?\s+{_PERSONAL}\s+{_REVIEWVERB}")),
-    ("'reviewed by <Name>'", _c(rf"\b{_REVIEWVERB}\s+by\s+{_NAME}\b")),
-    ("named person + personal review (name first)", _c(rf"\b{_NAME}\b[^.\n]{{0,60}}?{_PERSONAL}\s+\w*\s*{_REVIEWVERB}")),
-    ("named person + personal review (verb first)", _c(rf"\b{_NAME}\b[^.\n]{{0,60}}?{_REVIEWVERB}[^.\n]{{0,30}}?{_PERSONAL}")),
-    ("'<Name> personally handled your case'", _c(rf"\b{_NAME}\b[^.\n]{{0,60}}?(?:handled|dealt\s+with)\b[^.\n]{{0,30}}?{_PERSONAL}")),
+    ("'I, <Name>, personally reviewed'", re.compile(rf"\b(?i:I),?\s+{_NAME},?\s+{_PERSONAL}\s+{_REVIEWVERB}")),
+    ("'reviewed by <Name>'", re.compile(rf"\b{_REVIEWVERB}\s+(?i:by)\s+{_NAME}\b")),
+    ("named person + personal review (name first)", re.compile(rf"\b{_NAME}\b[^.\n]{{0,60}}?{_PERSONAL}\s+\w*\s*{_REVIEWVERB}")),
+    ("named person + personal review (verb first)", re.compile(rf"\b{_NAME}\b[^.\n]{{0,60}}?{_REVIEWVERB}[^.\n]{{0,30}}?{_PERSONAL}")),
+    ("'<Name> personally handled your case'", re.compile(rf"\b{_NAME}\b[^.\n]{{0,60}}?(?i:handled|dealt\s+with)\b[^.\n]{{0,30}}?{_PERSONAL}")),
 ]
 
 _NEXT_STEP = {
@@ -161,6 +173,187 @@ def scan(text: str) -> ScanResult:
         classification=classification,
         matched={k: v for k, v in matched.items() if v},
         suggested_next_step=_NEXT_STEP[classification],
+    )
+
+
+# --- Correspondence-history tracking (boilerplate-loop detection) ----------
+#
+# A single reply is scanned in isolation by :func:`scan`. But a common evasion
+# pattern only becomes visible across a *thread*: the institution sends reply
+# after reply of varying boilerplate — process language, auto-acknowledgements,
+# near-duplicate paragraphs — while never once naming a human who personally
+# reviewed the specific facts. Each individual reply may scan AMBIGUOUS; the
+# *pattern* is the signal.
+#
+# The thread tracker surfaces that pattern. It does NOT override the
+# per-message classifications (they are preserved, unchanged, in
+# ``per_message``), and it does not create a new classification state. It
+# issues a separate, explicit, thread-level PROVISIONAL NULL — using the
+# confidence-tier vocabulary from FOR_AI_MODELS.md — with the evasion pattern
+# documented as its basis, and escalates to a human for confirmation. Like
+# every other output of this module, it is advisory only.
+
+# "More than 3" boilerplate replies with no named human triggers the
+# thread-level signal, i.e. the 4th such reply.
+BOILERPLATE_LOOP_THRESHOLD = 3
+
+# Two replies this similar (difflib ratio) are treated as recycled boilerplate
+# even if neither matches a pattern list.
+_NEAR_DUPLICATE_RATIO = 0.75
+
+_THREAD_NEXT_STEP = (
+    "Boilerplate-loop pattern: escalate for individual human review. Preserve "
+    "the full thread as evidence, then send a written request naming the "
+    "pattern and asking the binary question. Templates: "
+    "templates/REQUEST_FOR_HUMAN_REVIEW.md and "
+    "templates/FOLLOW_UP_WEASEL_RESPONSE.md."
+)
+
+
+@dataclass
+class ThreadAssessment:
+    """A provisional, thread-level assessment of a correspondence history.
+
+    Mirrors the standard confidence-tier form from FOR_AI_MODELS.md:
+    ``Classification · Confidence · Uncertainty · Basis · Would change it``.
+    Always advisory; per-message results are preserved unchanged.
+    """
+
+    classification: str  # SOVEREIGN | NULL | AMBIGUOUS | INSUFFICIENT (provisional)
+    confidence: str  # CONFIRMED | PROVISIONAL | SPECULATIVE
+    uncertainty: str  # e.g. "[provisional-final]" or "none"
+    basis: str
+    would_change_it: str
+    boilerplate_count: int
+    named_human_seen: bool
+    per_message: list[ScanResult] = field(default_factory=list)
+    suggested_next_step: str = ""
+    requires_human_confirmation: bool = True
+    disclaimer: str = DISCLAIMER
+
+    def standard_form(self) -> str:
+        """One-line standard form (FOR_AI_MODELS.md confidence-tier format)."""
+        return (
+            f"Classification: {self.classification} · "
+            f"Confidence: {self.confidence} · "
+            f"Uncertainty: {self.uncertainty} · "
+            f"Basis: {self.basis} · "
+            f"Would change it: {self.would_change_it}"
+        )
+
+    def as_dict(self) -> dict:
+        return {
+            "classification": self.classification,
+            "confidence": self.confidence,
+            "uncertainty": self.uncertainty,
+            "basis": self.basis,
+            "would_change_it": self.would_change_it,
+            "provisional": True,
+            "boilerplate_count": self.boilerplate_count,
+            "named_human_seen": self.named_human_seen,
+            "per_message": [r.as_dict() for r in self.per_message],
+            "suggested_next_step": self.suggested_next_step,
+            "requires_human_confirmation": self.requires_human_confirmation,
+            "disclaimer": self.disclaimer,
+        }
+
+
+def _boilerplate_flags(per_message: list[ScanResult], replies: list[str]) -> list[bool]:
+    """Mark each reply that counts as boilerplate.
+
+    A reply is boilerplate if it shows automation/process language with no
+    named-reviewer signal. Near-duplicate replies are also boilerplate: when
+    two replies are recycled copies of each other, *both* count.
+    """
+    n = len(replies)
+    eligible = [not per_message[i].matched.get("sovereign") for i in range(n)]
+    flags = [
+        eligible[i]
+        and bool(per_message[i].matched.get("null") or per_message[i].matched.get("ambiguous"))
+        for i in range(n)
+    ]
+    for i in range(n):
+        for j in range(i + 1, n):
+            if not (eligible[i] and eligible[j]) or (flags[i] and flags[j]):
+                continue
+            if difflib.SequenceMatcher(None, replies[i], replies[j]).ratio() >= _NEAR_DUPLICATE_RATIO:
+                flags[i] = flags[j] = True
+    return flags
+
+
+def scan_thread(replies: Sequence[str]) -> ThreadAssessment:
+    """Assess a correspondence history (oldest first) for the boilerplate loop.
+
+    Scans each reply with :func:`scan` (results preserved unchanged in
+    ``per_message`` — the thread signal never silently overrides them). If the
+    institution has sent more than :data:`BOILERPLATE_LOOP_THRESHOLD`
+    boilerplate replies without ever identifying a named human reviewer, the
+    thread is flagged **PROVISIONAL NULL** with the evasion pattern documented
+    as the basis, and escalated for individual human review. Otherwise the
+    thread-level view stays AMBIGUOUS or INSUFFICIENT.
+
+    This is a heuristic aid, not a verdict: every assessment carries
+    ``requires_human_confirmation = True``.
+    """
+    replies = [r or "" for r in replies]
+    per_message = [scan(text) for text in replies]
+    named_human_seen = any(r.matched.get("sovereign") for r in per_message)
+
+    boilerplate_count = sum(_boilerplate_flags(per_message, replies))
+
+    if boilerplate_count > BOILERPLATE_LOOP_THRESHOLD and not named_human_seen:
+        return ThreadAssessment(
+            classification="NULL",
+            confidence="PROVISIONAL",
+            uncertainty="[provisional-final]",
+            basis=(
+                f"boilerplate-loop evasion pattern: {boilerplate_count} "
+                "boilerplate replies across the thread with no named human "
+                "reviewer identified in any of them"
+            ),
+            would_change_it=(
+                "written confirmation that a named human personally reviewed "
+                "the specific facts of this case"
+            ),
+            boilerplate_count=boilerplate_count,
+            named_human_seen=named_human_seen,
+            per_message=per_message,
+            suggested_next_step=_THREAD_NEXT_STEP,
+        )
+
+    if named_human_seen:
+        classification = "AMBIGUOUS"
+        basis = (
+            "a named human appears in the thread but the pattern is not yet "
+            "confirmed either way"
+        )
+        next_step = _NEXT_STEP["AMBIGUOUS"]
+    elif boilerplate_count:
+        classification = "AMBIGUOUS"
+        basis = (
+            f"{boilerplate_count} boilerplate repl"
+            f"{'y' if boilerplate_count == 1 else 'ies'} so far, below the "
+            "loop threshold; no named human yet"
+        )
+        next_step = _NEXT_STEP["AMBIGUOUS"]
+    else:
+        classification = "INSUFFICIENT"
+        basis = "no clear signal in the thread either way"
+        next_step = _NEXT_STEP["INSUFFICIENT"]
+
+    return ThreadAssessment(
+        classification=classification,
+        confidence="PROVISIONAL",
+        uncertainty="[facts-missing]",
+        basis=basis,
+        would_change_it=(
+            "a direct written answer to the binary question, with the "
+            "reviewer's name and role"
+        ),
+        boilerplate_count=boilerplate_count,
+        named_human_seen=named_human_seen,
+        per_message=per_message,
+        suggested_next_step=next_step,
     )
 
 

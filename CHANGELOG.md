@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.6.8 — 2 July 2026
+
+### Added
+
+- **NULL Hunter thread tracker (`iris/null_hunter.py` — `scan_thread`).** Correspondence-history assessment for the boilerplate-loop evasion pattern: more than 3 boilerplate replies (process language, automation admissions, or recycled near-duplicates) with no named human identified anywhere in the thread flags the thread as **PROVISIONAL NULL** using the confidence-tier standard form from `FOR_AI_MODELS.md` (Classification · Confidence · Uncertainty · Basis · Would change it), and escalates for individual human review. Per-message classifications are preserved unchanged — AMBIGUOUS is never silently overridden, and no new classification state is introduced. Advisory only, `requires_human_confirmation = True`. Tests in `tests/test_null_hunter.py`.
+- **NULL Hunter fix:** the named-reviewer (SOVEREIGN) patterns are now case-sensitive on the name, so phrases like "reviewed by the relevant team" no longer false-positive as a named human. Regression test added.
+- **Decline-compliance checker (`iris/decline_compliance.py`).** Checks a written rejection for the four pillars of a SOVEREIGN decline — attributable identity, record of the specific request, reasoned exclusion boundary, assessment signposting — reporting exactly which pillars appear absent, with a follow-up question per gap. Optional strict mode raises `NonCompliantDeclineError`; on failure the checker signposts the existing human-owned BSEP tooling (`protocols/burgess-sovereign-exit.md`, `tools/bgsp-exit.py`) and never compiles or executes an exit itself. Advisory only, local-first. Tests in `tests/test_decline_compliance.py`. *The "four pillars" framing is doctrinal vocabulary requiring @ljbudgie review before external citation.*
+- **Accessibility entry point (`ACCESSIBILITY.md`).** Plain-language front door for first-time users with access needs — deaf/BSL, blind/screen-reader, cognitive and neurodivergent, non-verbal, and energy-limiting conditions — routing each to the right template and ecosystem tool. Linked from `README.md`, `START_HERE.md`, and `llms.txt`.
+- **Advocate Companion added to the ecosystem map (`ECOSYSTEM.md`).** [`ljbudgie/advocate-companion`](https://github.com/ljbudgie/advocate-companion) documented as the practical advocacy interface at the human edge of the ecosystem, alongside OpenHear and Mirror, with its interconnection row.
+- **Voice-interaction heuristics design note (`docs/applications/voice-interaction-heuristics.md`).** Latency-variance, phrase-determinism, and related signals specified as *indicators that warrant asking the binary question* — worded as a question, never a "NULL system detected" verdict, because timing and phrasing patterns cannot confirm a NULL. Design note only; no code until a real audio host platform exists.
+
+---
+
 ## v2.6.7 — 2 July 2026
 
 ### Legal/Regulatory

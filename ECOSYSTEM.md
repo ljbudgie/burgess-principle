@@ -91,6 +91,12 @@ Every other component in the ecosystem applies, implements, or integrates this s
 - **Tested on:** Phonak Naída M70-SP and Signia Insio 7AX.
 - **Relationship to core:** Applies the binary test at the audio-processing boundary; ensures individual review is preserved where assistive technology mediates communication.
 
+### Advocate Companion — practical advocacy interface
+
+- **Repository:** [github.com/ljbudgie/advocate-companion](https://github.com/ljbudgie/advocate-companion)
+- **Role:** Privacy-first advocacy UI — helps people with hidden disabilities, sensory access needs, chronic conditions, and neurodivergence request reasonable adjustments in clear, calm, evidence-aware language. The screen a person can actually use during a stressful interaction: guided conversations, journal records, draft emails, escalation messages, and evidence packs.
+- **Relationship to core:** The accessible front door at the human edge of the ecosystem. Turns the binary test and the letter-template logic into guided workflows while keeping sensitive state local-first and advisory-only.
+
 ### Nexus AI Hub — intelligence layer
 
 - **Repository:** [github.com/ljbudgie/nexus-ai-hub](https://github.com/ljbudgie/nexus-ai-hub)
@@ -130,6 +136,7 @@ Every other component in the ecosystem applies, implements, or integrates this s
 | Iris ↔ Iris | Other Iris nodes | Federation protocol — exchanges signed receipts and Merkle roots |
 | Iris | Nexus AI Hub | Calls into the intelligence layer for higher-order reasoning |
 | OpenHear | Iris / `burgess-principle` | Applies the binary test at the audio boundary |
+| Advocate Companion | `burgess-principle` / OpenHear / Mirror | User-facing advocacy layer — turns templates and rights mapping into guided adjustment requests and evidence packs |
 | `ljbudgie/openclaw` (fork) | `openclaw/openclaw` | PR #68692 — governance adoption |
 | `ljbudgie/hermes-agent` (fork) | `NousResearch/hermes-agent` | PR #12265 — integration proposal |
 

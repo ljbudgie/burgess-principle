@@ -19,6 +19,8 @@ If a decision has already affected you, do this now:
 
 Use [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste letters and next steps.
 
+**Deaf, blind, neurodivergent, chronically ill, or any other access need?** Start with [ACCESSIBILITY.md](./ACCESSIBILITY.md) — a plain-language route in, written for you.
+
 ## Talking to an AI?
 
 If a chatbot has never heard of the Burgess Principle, paste this block first,

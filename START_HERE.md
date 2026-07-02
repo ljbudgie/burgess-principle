@@ -46,6 +46,10 @@ Or go straight to the **[templates](./templates/README.md)**. The **[common scen
 If you're dealing with debt letters or enforcement and need a calm first route,
 use **[START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md)**.
 
+If you are deaf, blind, neurodivergent, chronically ill, or have any other
+access need, **[ACCESSIBILITY.md](./ACCESSIBILITY.md)** is a plain-language
+route in, written for you — including your right to reasonable adjustments.
+
 -----
 
 ## When You Want To Go Deeper

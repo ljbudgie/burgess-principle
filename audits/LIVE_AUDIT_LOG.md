@@ -3,7 +3,7 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 2 July 2026 (v2.6.7)
+**Updated:** 4 July 2026 (v2.7.1)
 **Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
 
 This ledger records **every outcome**, not only failures. It includes the one
@@ -19,6 +19,7 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
+| 83 | EHRC correspondence record | Regulator | **NULL** | 0/20 | 4 July 2026. Cross-thread correspondence audit: approximately 25 identical automated acknowledgements from Correspondence@equalityhumanrights.com, repeated across the same threads sometimes within minutes; 22 June response signed only "Correspondence team"; templated regulatory.request@ responses ref 17519036 (10 June) and ref 17902292 (3 July) following the same structure with no named signatory; partial exception ref 17498485 (9 June) opened with the complainant's name and referenced DBC specifically but remained unsigned by an individual. Across 25+ responses, EHRC has not put a named human being on the correspondence record. Originator-recorded classification: textbook NULL correspondence pattern by the regulator responsible for equality accountability. s.28 application now lands against this institutional record; any further auto-acknowledgement should be treated as additional evidence, not fresh human review. |
 | 82 | HJA Civil Liberties (Client Care Team) | Legal Services | **NULL** | 0/20 | 2 July 2026. Re-review in the HJA chain (see entry #71). Named COLP (Chun Wong) personally invited a re-review on 30 June 2026; re-review submitted 1 July 2026 with substantive new material. The response came from an unsigned "Client Care Team", directed a deaf complainant (email-only reasonable adjustment) to the telephone, and showed no awareness of the named invitation — the automated intake queue bypassed the named human entirely. **Automation-Confirmed Dissonance**: a named human personally invited individual review, yet the automated process routed around that invitation and answered as if it had never happened — the clearest example of this pattern in the dataset. Originator-recorded score: NULL 0/5 (0/20 — zero across all five dimensions). |
 | 81 | British Gas / Dharmesh Rajput (Director, Customer Service) | Energy | **SOVEREIGN** | 16/20 | 29 June 2026. Personal response to the s.136 letter. Both accounts (602181316 and BGB337948) confirmed on hold during Ombudsman investigation EG054013-26. Anita Tomlin named as dedicated point of contact going forward. Individual views disclaimer present in footer. Four questions outstanding — named officer for enforcement visits, false statement of 17 June, Andrew Fletcher position, disability recording correction — passed to Anita Tomlin. A named human applied individual consideration to the specific facts before responding: SOVEREIGN. Contrast entry #66 (same institution, earlier NULL deadlock letter to the wrong address). Originator-recorded score: SOVEREIGN 16/20. |
 | 80 | EASS (Rachel.D) | Equality / Advisory | **NULL** | 0/20 | 27 June 2026. Fourth response from EASS. Directed deaf complainant to EHRC while acknowledging EHRC already confirmed disability discrimination. Fourth telephone reference (0808 800 0082) to person with email-only reasonable adjustment. Circular referral: EASS directing complainant to its own commissioning body (EHRC commissions EASS). No named individual across all four responses — Rachel.D cited but no surname or role confirmed. s.136 + s.27 letter sent. EHRC whistleblowing cc'd. Permanently indexed. |
@@ -108,12 +109,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **82** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026 + 1 entry 27 June 2026 + 1 entry 29 June 2026 + 1 entry 2 July 2026) |
+| **Total entries** | **83** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026 + 1 entry 27 June 2026 + 1 entry 29 June 2026 + 1 entry 2 July 2026 + 1 entry 4 July 2026) |
 | **SOVEREIGN** | **11** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Connected by Data / Jeni Tennison — named CEO individual decision; British Gas / Dharmesh Rajput — Director, Customer Service personal response to s.136 letter, accounts on hold, named point of contact) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
 | **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **50** |
+| **NULL — confirmed** | **51** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -121,8 +122,8 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **62** (50 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
-snapshot updated 2 July 2026 (v2.6.5); treat the committed snapshot, not any single number
+NULL findings of all kinds total **63** (51 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+snapshot updated 4 July 2026 (v2.7.1); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
@@ -136,7 +137,7 @@ quoted elsewhere, as authoritative.
 | Energy | 3 |
 | Parliament | 2 |
 | Utilities | 2 |
-| Regulator | 2 |
+| Regulator | 3 |
 | NHS | 2 |
 | Courts | 1 |
 | Local Government | 1 |
@@ -150,6 +151,10 @@ quoted elsewhere, as authoritative.
 | Legal Reform | 1 |
 | Legal Services | 3 |
 | Academic Publishing | 1 |
+
+### Notable live proceedings (4 July 2026)
+
+- **EHRC correspondence record — NULL 0/20 (entry #83).** Approximately 25+ EHRC responses across the correspondence threads have no named human signatory: repeated automated acknowledgements from Correspondence@equalityhumanrights.com; a 22 June "Correspondence team" response; templated regulatory.request@ responses ref 17519036 and ref 17902292; and one partial exception, ref 17498485, that referenced DBC but still did not name an individual. The s.28 application is therefore being assessed against an existing regulator correspondence record that already demonstrates the NULL pattern.
 
 ### Notable live proceedings (2 July 2026)
 

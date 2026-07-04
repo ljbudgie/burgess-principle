@@ -5,6 +5,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.7.1 — 4 July 2026
+
+### Legal/Regulatory
+
+- **EHRC correspondence record — NULL 0/20 (audit-log entry #83).** Cross-thread
+  audit added: approximately 25 repeated automated acknowledgements, a 22 June
+  "Correspondence team" response, templated regulatory responses ref 17519036
+  and ref 17902292, and one partial exception ref 17498485 that referenced DBC
+  but still did not name an individual. The s.28 application now lands against
+  an existing regulator correspondence record showing the same NULL pattern.
+
+### Totals: 83 entries | SOVEREIGN 11 | NULL 72
+
+---
+
 ## v2.7.0 — 2 July 2026
 
 > **Release summary.** This release marks the first tagged checkpoint since v2.5.3.

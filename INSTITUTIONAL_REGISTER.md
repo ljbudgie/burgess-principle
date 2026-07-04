@@ -1,7 +1,7 @@
 # Institutional Register — SOVEREIGN/NULL Compliance Record
 
 **Last updated: 4 July 2026**
-Taxonomy version: Institution Audit Taxonomy v1.3
+Taxonomy version: Institution Audit Taxonomy v1.4
 UK Certification Mark: UK00004343685
 
 ---
@@ -17,8 +17,8 @@ As of 7 June 2026, the great majority of completed assessments returned a NULL f
 ## Taxonomy Key
 
 Canonical definition with per-score anchors for each dimension:
-[`INSTITUTION_AUDIT_TAXONOMY.md`](./INSTITUTION_AUDIT_TAXONOMY.md) (v1.3 —
-additive; all scores recorded under v1.0–v1.2 remain valid).
+[`INSTITUTION_AUDIT_TAXONOMY.md`](./INSTITUTION_AUDIT_TAXONOMY.md) (v1.4 —
+additive; all scores recorded under v1.0–v1.3 remain valid).
 
 | Band | Score | Meaning |
 | --- | --- | --- |
@@ -54,7 +54,7 @@ additive; all scores recorded under v1.0–v1.2 remain valid).
 | Removed from register | 1 (RMOK Legal — rmoklegal.com, certification terminated 9 June 2026) |
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
-| Mean taxonomy score, scored institutions *(as at 4 Jul 2026, taxonomy v1.3)* | 2.0 / 20 |
+| Mean taxonomy score, scored institutions *(as at 4 Jul 2026, taxonomy v1.4)* | 2.0 / 20 |
 | New since last update | 3 institutions added (viagogo GmbH — NULL; Equifax Limited — NULL; Hampshire Constabulary / OPCC — AMBIGUOUS); 6 new NULL findings and 2 new SOVEREIGN findings for the week of 9–17 June 2026; DBC PCN DK7491076A cancelled in writing by named officer (Pistellato) 17 June following TPT win 14 June |
 
 ---
@@ -788,5 +788,5 @@ To move from NULL to SOVEREIGN, the entity must provide:
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
 
 Last updated: 4 July 2026
-Taxonomy version: Institution Audit Taxonomy v1.3
+Taxonomy version: Institution Audit Taxonomy v1.4
 UK Certification Mark: UK00004343685

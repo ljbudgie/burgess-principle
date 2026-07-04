@@ -1,4 +1,4 @@
-# Institution Audit Taxonomy — v1.3
+# Institution Audit Taxonomy — v1.4
 
 **Canonical definition.** This file is the single authoritative source for the
 taxonomy used to score institutions in
@@ -41,8 +41,9 @@ v1.0 named the five dimensions; v1.1 adds explicit per-score anchors so any
 two auditors scoring the same evidence reach the same number; v1.2 adds
 interpretation notes for recurring evidence patterns without changing any
 anchor; v1.3 adds disability and reasonable-adjustment interpretation notes
-on the same basis. Score only what is evidenced in writing. When evidence is
-genuinely between two anchors, take the lower score.
+on the same basis; v1.4 adds cross-references, edge-case notes, and aggregate
+guidance without changing anchors. Score only what is evidenced in writing.
+When evidence is genuinely between two anchors, take the lower score.
 
 ### D1 — Response to the Burgess Principle binary question
 
@@ -133,6 +134,14 @@ higher D1/D2 anchors:
 - Confirmation of what the reviewer could actually change: a human who cannot
   depart from the automated recommendation is not exercising individual
   review.
+- Where a human reviews only a subset of AI or automated outputs, D2 is scored
+  on the specific decision affecting the specific individual. A sample check,
+  dip sample, QA review, or partial override elsewhere does not evidence D2
+  above 1 for this case unless the written record shows the named reviewer saw
+  this person's facts. If the named reviewer saw this case but could only alter
+  a limited field or downstream consequence, score the evidenced review and
+  record the limitation in the Accountability Profile; do not treat a partial
+  override as full D2 = 4 review.
 
 This aligns with the meaningful-human-involvement expectations in UK GDPR
 Article 22, the EU AI Act human-oversight provisions, and the NIST AI RMF
@@ -212,6 +221,19 @@ the entry's Accountability Profile records: what was disclosed, what
 adjustment was requested, and whether it was acknowledged, delivered, or
 ignored — so adjustment-failure patterns are visible across the register.
 
+The profile should cross-reference the five dimensions back to the binary test
+rather than letting them read as a freestanding compliance score:
+
+- D1 records whether the institution answered the binary question directly.
+- D2 records the evidence that a named human personally reviewed the specific
+  facts before power was exercised.
+- D3 records whether the institution met the relevant clock without using delay
+  to substitute for review.
+- D4 records whether the repair delivered the practical effect of individual
+  human consideration.
+- D5 records whether the institution changed the process so the same NULL
+  pattern is less likely to recur.
+
 ---
 
 ## Scoring rules
@@ -258,10 +280,17 @@ aggregate figures derived from the scored entries (see the summary table in
 
 - mean taxonomy score across scored institutions, dated;
 - NULL prevalence (proportion of scored entries in the NULL band);
-- sector breakdowns where enough entries exist to be meaningful.
+- sector breakdowns where enough entries exist to be meaningful;
+- adjustment success rate, where enough disability or reasonable-adjustment
+  cases exist to be meaningful: the proportion of entries with a disclosed
+  adjustment need where the requested adjustment was delivered and confirmed
+  in writing.
 
 Aggregates are recomputed when entries change and are always dated. They
 describe the register as evidence gathered to date; they are not projections.
+The adjustment success rate is an access metric, not a sixth scoring dimension:
+it helps show whether disability-related NULL patterns are improving without
+altering any D1–D5 score.
 
 ---
 
@@ -294,6 +323,23 @@ Binary question not answered (D1 0); no individual review evidenced (D2 0);
 field team investigated themselves; letter of apology offered (D4 1); no
 systemic change (D5 0).
 
+**Disability adjustment example — NULL (3/20): D1 1, D2 1, D3 1, D4 0, D5 0.**
+The institution acknowledged the complaint but did not answer whether a named
+human reviewed the person's specific facts, including the disclosed access need
+(D1 1). A generic assurance that "the team reviewed the account" gave no
+case-specific disability or adjustment evidence (D2 1). The response arrived
+late after the person was forced through an inaccessible channel (D3 1), no
+adjustment was delivered (D4 0), and the same inaccessible route was used again
+after disclosure (D5 0).
+
+**AI subset-review example — AMBIGUOUS (8/20): D1 2, D2 1, D3 3, D4 1, D5 1.**
+The institution said automated decisions are "subject to human oversight" but
+could not name a reviewer for this person's decision (D1 2). It produced a
+batch QA record showing that 5% of AI outputs were sampled, but no written
+record that this case was reviewed or that the reviewer could change the
+outcome (D2 1). The reply was on time (D3 3), offered only an apology (D4 1),
+and acknowledged no process change beyond the existing sample check (D5 1).
+
 ---
 
 ## Versioning
@@ -304,6 +350,7 @@ systemic change (D5 0).
 | v1.1 | June 2026 | Canonical standalone file. Adds explicit per-score anchors for each dimension and codifies the scoring rules already in practice (provisional findings, clean negative, Accessibility NULL, evidence-in-writing). **Additive only** — dimensions, weights, and bands are unchanged, so every score recorded under v1.0 remains valid without re-scoring. |
 | v1.2 | July 2026 | Interpretation notes for recurring evidence patterns (template letters, weasel responses, speed-is-not-review, delegated self-investigation); evidence guidance for AI-involved processes; non-scoring sector context notes; Accountability Profile; Equality Act cross-link for Accessibility NULL; register-level aggregate statistics; extensibility protocol. **Additive only** — dimensions, weights, bands, and anchors are unchanged, so every score recorded under v1.0 or v1.1 remains valid without re-scoring. |
 | v1.3 | July 2026 | Disability and reasonable-adjustment interpretation notes: a disclosed disability is a specific fact of the case, so responses that ignore it cap D1/D2; unmet adjustments cap D4; institution-created access barriers do not improve D3; repeat adjustment failures score D5 = 0. Accountability Profile records disclosure and adjustment status. **Additive only** — dimensions, weights, bands, and anchors are unchanged, so every score recorded under v1.0–v1.2 remains valid without re-scoring. |
+| v1.4 | July 2026 | Audit-feedback polish: D1–D5 Accountability Profile cross-references to the binary test; AI subset-review / partial-override D2 edge-case guidance; two worked examples covering disability and AI cases; optional adjustment success rate aggregate. **Additive only** — dimensions, weights, bands, and anchors are unchanged, so every score recorded under v1.0–v1.3 remains valid without re-scoring. |
 
 Changes to dimensions, weights, or bands require a major version bump and
 explicit review by @ljbudgie, with existing register entries either re-scored

@@ -1,7 +1,7 @@
 # Institutional Register — SOVEREIGN/NULL Compliance Record
 
-**Last updated: 17 June 2026**
-Taxonomy version: Institution Audit Taxonomy v1.0
+**Last updated: 4 July 2026**
+Taxonomy version: Institution Audit Taxonomy v1.3
 UK Certification Mark: UK00004343685
 
 ---
@@ -54,7 +54,7 @@ additive; all scores recorded under v1.0–v1.2 remain valid).
 | Removed from register | 1 (RMOK Legal — rmoklegal.com, certification terminated 9 June 2026) |
 | Parliamentary contacts documented *(as at 27 Apr 2026)* | 9 |
 | Legal representation *(as at 27 Apr 2026)* | 2 active (Deighton Pierce Glynn; Hodge Jones & Allen); 1 declined |
-| Mean taxonomy score, scored institutions *(as at 27 Apr 2026)* | 2.5 / 20 |
+| Mean taxonomy score, scored institutions *(as at 4 Jul 2026, taxonomy v1.3)* | 2.0 / 20 |
 | New since last update | 3 institutions added (viagogo GmbH — NULL; Equifax Limited — NULL; Hampshire Constabulary / OPCC — AMBIGUOUS); 6 new NULL findings and 2 new SOVEREIGN findings for the week of 9–17 June 2026; DBC PCN DK7491076A cancelled in writing by named officer (Pistellato) 17 June following TPT win 14 June |
 
 ---
@@ -113,11 +113,20 @@ The following institutions and developments were identified from inbox review an
 
 ---
 
-### 3. British Gas / Centrica — NULL (3 / 20)
+### 3. British Gas / Centrica — NULL (2 / 20, re-scored 4 July 2026 under taxonomy v1.3)
 
 | D1 | D2 | D3 | D4 | D5 | Total |
 | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 1 | 1 | 1 | 3 / 20 |
+| 0 | 0 | 1 | 1 | 0 | 2 / 20 |
+
+**Taxonomy v1.3 re-score (4 July 2026):** D5 reduced 1 → 0. Under the v1.3
+disability notes, a repeated failure to apply an adjustment the institution
+has already been told about scores D5 = 0. The written evidence already in
+this entry documents exactly that: automated correspondence sent to the wrong
+email address after an email-only reasonable adjustment was formally notified
+(13 June 2026), and a warrant charges letter posted to [REDACTED-ADDRESS] during
+active Ombudsman and ICO proceedings (10 June 2026). Total moves 3 / 20 →
+2 / 20; band unchanged (NULL).
 
 **Question asked:** Who individually reviewed account 602181316 before six enforcement visits to business premises?
 **Response summary:** Nitin Patel confirmed contract expired January 2022; meter reading frozen; charged £425 for challenged enforcement visit.
@@ -126,18 +135,29 @@ The following institutions and developments were identified from inbox review an
 
 ---
 
-### 4. Darlington Borough Council — NULL (3 / 20, updated 27 April 2026) — TPT APPEAL ALLOWED 14 June 2026; PCN CANCELLED IN WRITING 17 June 2026
+### 4. Darlington Borough Council — NULL (2 / 20, re-scored 4 July 2026 under taxonomy v1.3) — TPT APPEAL ALLOWED 14 June 2026; PCN CANCELLED IN WRITING 17 June 2026
 
 | D1 | D2 | D3 | D4 | D5 | Total |
 | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 2 | 0 | 1 | 3 / 20 |
+| 0 | 0 | 2 | 0 | 0 | 2 / 20 |
+
+**Taxonomy v1.3 re-score (4 July 2026):** D5 reduced 1 → 0. Under the v1.3
+disability notes, a repeated failure to apply an adjustment the institution
+has already been told about is direct evidence of no systemic change (D5 = 0),
+and the Equality Act 2010 anticipatory duty means a per-contact reaction after
+the same disclosure is not a process change. The written evidence already in
+this entry documents exactly that: DBC confirmed in writing it declines to
+record the email-only reasonable adjustment council-wide, and adjustment
+failures recurred after disclosure (Equita instructed to contact by SMS;
+postal correspondence continued to be issued despite the email-only
+adjustment). Total moves 3 / 20 → 2 / 20; band unchanged (NULL).
 
 **Question asked:** Were PCNs individually reviewed before enforcement? Specifically, was PCN 4445032 (issued 13:17, valid ticket displayed from 13:16) issued following individual human review?
 **Response summary (Lee Downey):** PCN enforcement "does not involve a judge — legislative design." Refused to record email-only reasonable adjustment council-wide. DBC-3087-25 DSAR overdue.
 **Response summary (Cllr Stephen Harker, Leader — 22 April 2026):** PCN 4445032 confirmed as formal representation (28-day window from 22 April = deadline **20 May 2026**). Pre-Action Protocol letter referred to Litigation team. Did not personally engage with binary test.
 **Response summary (DBC FOI DBC-3045-25 — 24 April 2026):** Response received — content requires full review. Apology for delay noted.
 **Reasonable adjustment finding:** DBC has confirmed in writing it does not have a central system for recording reasonable adjustments and declines to create one. This is not a lawful basis under Equality Act 2010 s.20 — the anticipatory duty does not depend on the existence of a central system. Documented as independent Equality Act NULL.
-**Finding:** NULL (3/20). DBC's enforcement process failed the binary test — no named human established the fundamental legal prerequisite before automated enforcement was pursued. The NULL finding against DBC's process is not changed by the appeal outcome.
+**Finding:** NULL (2/20, re-scored 4 July 2026 under taxonomy v1.3). DBC's enforcement process failed the binary test — no named human established the fundamental legal prerequisite before automated enforcement was pursued. The NULL finding against DBC's process is not changed by the appeal outcome.
 **Appeal outcome:** TPT DK00003-2605 — **ALLOWED 14 June 2026**. Adjudicator found DBC produced no compliant hire agreement and no evidence of a long-term lease with the necessary degree of permanence to transfer keepership to the named lessee. Enforcement action overturned. This is the first external judicial validation of the Burgess Principle binary test in a live case. See LIVE_AUDIT_LOG.md entry #49.
 **SOVEREIGN follow-up (17 June 2026):** Named officer Carolyn Pistellato confirmed cancellation of PCN DK7491076A in writing — a named officer, a written record, and the specific facts addressed. Recorded as SOVEREIGN (LIVE_AUDIT_LOG.md entry #52).
 **Post-TPT enforcement instruction (15 June 2026) — NULL:** A named DBC officer instructed Equita to continue enforcement on Case 24650546 the day after the TPT win, despite the adjudicator finding liability was never established. FOI filed to identify the named officer (LIVE_AUDIT_LOG.md entry #50). Forvis Mazars value-for-money engagement confirmed — James Collins sharing correspondence with DBC. s.151 Officer Elizabeth Davidson notified 15 and 16 June 2026. s.5 LGHA 1989 referral acknowledged by Monitoring Officer Amy Wennington outside business hours 16 June.
@@ -669,16 +689,46 @@ These contacts are not scored under the taxonomy but are documented as active en
 
 ---
 
-## Aggregate Taxonomy Scores (27 April 2026)
+## Taxonomy v1.3 Re-Score Pass (4 July 2026)
+
+Following the adoption of taxonomy v1.3 (disability and reasonable-adjustment
+interpretation notes — see [`INSTITUTION_AUDIT_TAXONOMY.md`](./INSTITUTION_AUDIT_TAXONOMY.md)),
+every scored entry on the register was reviewed against the new notes. The
+v1.3 notes only cap dimensions — they never raise a score — and were applied
+only where written evidence already documented in the entry triggers a cap.
+No new evidence was introduced.
+
+**Scores changed (2):**
+
+| # | Institution | Change | v1.3 basis |
+| --- | --- | --- | --- |
+| 3 | British Gas / Centrica | 3 / 20 → 2 / 20 (D5 1 → 0) | Repeat adjustment failures after written email-only RA notification (automated correspondence to wrong address 13 June 2026; postal warrant charges letter 10 June 2026). |
+| 4 | Darlington Borough Council | 3 / 20 → 2 / 20 (D5 1 → 0) | Written refusal to record the email-only adjustment council-wide plus recurring adjustment failures after disclosure (SMS instruction to Equita; continued postal correspondence). Anticipatory duty not discharged. |
+
+**Reviewed and unchanged:** all other scored entries. In particular: E.ON Next
+(all affected dimensions already at floor; D4 = 1 is below the v1.3 cap of 2);
+Equita Ltd, Energy Ombudsman, Northumbrian Water, and Trading 212 (disability
+evidence present but every affected dimension already at or below the v1.3
+cap); Wave Utilities and TV Licensing / BBC (no written evidence of a
+disclosed adjustment being ignored — SOVEREIGN and Partial sovereign findings
+stand); RMOK Legal (removed entry, no per-dimension breakdown recorded; the
+unactioned adjustment is already reflected in the 5 / 20 NULL-band aggregate).
+
+No band changed. No headline SOVEREIGN/NULL finding changed — the binary test
+is unaffected by taxonomy scoring.
+
+---
+
+## Aggregate Taxonomy Scores (updated 4 July 2026 — taxonomy v1.3 re-score)
 
 | # | Institution | Domain | Score | Band |
 | --- | --- | --- | --- | --- |
 | 8 | Wave Utilities | Water | 16 / 20 | SOVEREIGN |
 | 13 | TV Licensing / BBC | Broadcasting | 12 / 20 | Partial sovereign |
 | 23 | Food Standards Agency | Government | 4 / 20 | Pending |
-| 3 | British Gas / Centrica | Energy | 3 / 20 | NULL |
 | 9 | iC&R | Debt collection | 3 / 20 | NULL |
-| 4 | Darlington Borough Council | Local government | 3 / 20 | NULL |
+| 3 | British Gas / Centrica | Energy | 2 / 20 (re-scored v1.3) | NULL |
+| 4 | Darlington Borough Council | Local government | 2 / 20 (re-scored v1.3) | NULL |
 | 7 | Northumbrian Water | Water | 2 / 20 | NULL |
 | 10 | Trading 212 | Financial technology | 2 / 20 | NULL |
 | 15 | Vanquis Bank | Consumer credit | 2 / 20 | NULL |
@@ -708,7 +758,7 @@ These contacts are not scored under the taxonomy but are documented as active en
 | 16 | Palantir | Defence / tech | N/A | Clean negative |
 
 **Total scored institutions: 32**
-**Mean score: 2.5 / 20**
+**Mean score: 2.0 / 20 (recomputed 4 July 2026 after taxonomy v1.3 re-score)**
 **NULL rate (confirmed): 82%**
 **Partial sovereign or above: 2 of 32**
 **SOVEREIGN: 1 of 32**
@@ -737,6 +787,6 @@ To move from NULL to SOVEREIGN, the entity must provide:
 
 This register is maintained at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
 
-Last updated: 17 June 2026
-Taxonomy version: Institution Audit Taxonomy v1.0
+Last updated: 4 July 2026
+Taxonomy version: Institution Audit Taxonomy v1.3
 UK Certification Mark: UK00004343685

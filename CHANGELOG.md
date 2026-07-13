@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.7.2 — 13 July 2026
+
+> **Release summary.** Patch release covering audit entries #83–#93 (11 new entries),
+> taxonomy v1.2/v1.3, and the Carolyn Pistellato FOI admission. See CHANGELOG
+> entries v2.7.1 and the audit log for full detail.
+
+---
+
 ## v2.7.1 — 4 July 2026
 
 ### Legal/Regulatory

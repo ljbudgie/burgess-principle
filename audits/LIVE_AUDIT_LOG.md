@@ -3,12 +3,12 @@
 **UK Certification Mark UK00004343685**
 **Framework:** The Burgess Test — Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?
 **Compiled:** 27 May 2026
-**Updated:** 4 July 2026 (v2.7.1)
-**Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv) and [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv) — this table is generated from those snapshots.
+**Updated:** 13 July 2026 (v2.8.0)
+**Source data:** [`audits/2026-06-07_institutional_register.csv`](./2026-06-07_institutional_register.csv), [`audits/2026-06-07_live_audit_log.csv`](./2026-06-07_live_audit_log.csv), and subsequent dated ledger updates.
 
-This ledger records **every outcome**, not only failures. It includes the one
-full **SOVEREIGN** result (Wave Utilities) and a **clean negative** (Palantir —
-no records held, a proper institutional response) alongside the NULL findings.
+This ledger records **every outcome**, not only failures. It includes full
+**SOVEREIGN** results and a **clean negative** (Palantir — no records held, a
+proper institutional response) alongside the NULL findings.
 That is deliberate: the test identifies compliance as readily as its absence.
 NULL is the starting point and the diagnosis; SOVEREIGN is the destination. Help,
 not shame.
@@ -19,7 +19,24 @@ not shame.
 
 | # | Institution | Sector | Finding | Score | Status & key reference |
 |---|---|---|---|---|---|
-| 83 | EHRC correspondence record | Regulator | **NULL** | 0/20 | 4 July 2026. Cross-thread correspondence audit: approximately 25 identical automated acknowledgements from Correspondence@equalityhumanrights.com, repeated across the same threads sometimes within minutes; 22 June response signed only "Correspondence team"; templated regulatory.request@ responses ref 17519036 (10 June) and ref 17902292 (3 July) following the same structure with no named signatory; partial exception ref 17498485 (9 June) opened with the complainant's name and referenced DBC specifically but remained unsigned by an individual. Across 25+ responses, EHRC has not put a named human being on the correspondence record. Originator-recorded classification: textbook NULL correspondence pattern by the regulator responsible for equality accountability. s.28 application now lands against this institutional record; any further auto-acknowledgement should be treated as additional evidence, not fresh human review. |
+| 83 | E.ON Next / Mari-lee | Energy | **NULL** | 2/20 | 4 July 2026. Automated 7-day payment demand for £659.02 sent to [REDACTED-EMAIL] — wrong address despite recorded EA 2010 ss.20/29 email-only RA. Signed "The E.ON Next Team" — no named individual. Sent 11:03 on 4 July, 18 hours after GLD pre-action deadline expired without response. EHRC and ICO cc'd. Reference: A-18BA6CAF / hi@eonnext.com / HMCTS 80553951. |
+| 84 | E.ON Next / Mari-lee | Energy | **NULL** | 2/20 | 6 July 2026. Named response from Mari-lee, Energy Specialist, to the 4 July email. Zero of three questions answered. Volunteered unprompted that E.ON operates a separate "litigation team" handling CCJs — structural admission about enforcement decision-making. Suggested LJ await an LBA from E.ON, reversing the position where LJ is claimant not respondent. Footer disclaimer stated: "Any views or opinions presented are solely those of the author and do not necessarily represent those of the E.ON Group" — named individual accountability marker. Reference: A-18BA6CAF / Mari-lee Energy Specialist / hi@eonnext.com. |
+| 85 | IPO / Darren Smith | Intellectual Property | **SOVEREIGN** | 18/20 | 6 July 2026. Named Senior Ex Parte Hearing Officer emailed from annual leave on a Sunday morning to proactively apologise for delay, confirm he will prioritise the certification mark regulations on return (w/c 14 July), and wish applicant a good week. Individual consideration, named, proactive, case-specific. One of the cleanest SOVEREIGN responses on the register. Reference: UK00004343685 / Darren Smith, Senior Ex Parte Hearing Officer. |
+| 86 | IMPS / University of Reading / Rebecca Daniells | Academic / FOI | **AMBIGUOUS** | 4/20 | 6 July 2026. Initial response evaded the specific question whether sharing requestor correspondence with the academic team is standard FOIA internal review procedure. Two precise follow-up questions pinned the answer: sharing is "a standard step where it is required" and requestor details were redacted — "Yes." Head of section named, escalating from Jawariah. Answered within 16 minutes of follow-up. Redaction claim now testable against internal notes containing pronoun "he." Reference: IMPS#04381 / Rebecca Daniells, Head of Section / vis04imp@reading.ac.uk. |
+| 87 | Shamraz Qayyum / HMCTS North East | Courts | **NULL** | 3/20 | 6 July 2026. Named Legal Adviser engaged with Reg 36 application and asked three threshold questions: genuine dispute, procedural defect, promptness. All three were answered in full same day. Refused 17 minutes later on basis that LJ does not dispute the underlying council tax liability, conflating the debt with validity of the order. Questions 2 (procedural defect — 2,857 orders, no individual consideration) and 3 (promptness) entirely unaddressed. Category error documented: if correct, Reg 36 question 2 would be redundant. Application independently forwarded to Peterlee by Birmingham MC. Reference: Session 818 / Peterlee MC / 5501838216 / NoreplyNorthEastqueries@justice.gov.uk. |
+| 88 | EHRC / Regulatory Hub Team | Regulator | **NULL** | 2/20 | 8 July 2026. s.28 EA 2006 assistance application submitted citing two live EHRC cases (16525912/17498485), HMCTS 80553951, Fletcher admission, and Monitoring Officer written confirmation. Response was a generic triage template from "Regulatory Hub Team" — no named individual, no case number from application, covers five scenarios without identifying which applies, and recommends the EASS telephone number as primary alternative contact to a deaf applicant. Reference: 17755401 / correspondence@equalityhumanrights.com. |
+| 89 | DBC / noreply@revenuesandbenefits | Local Government | **NULL** | 0/20 | 9 July 2026. Automated council tax final notice from noreply inbox, "Please do not reply to this email," addressed to "MR L BURGESS," no named individual, while Reg 36 application live, two EHRC cases active, three FOIs outstanding, Monitoring Officer admission on record, and s.13A(1)(c) application submitted. System answered FOI question 5 (individual consideration before enforcement) before Rachel could. Reference: 5501838216 / noreply@revenuesandbenefits.darlington.gov.uk. |
+| 90 | DBC / Rachel Seddon | Local Government | **NULL** | 1/20 | 9 July 2026. FOI about PCNs on LO73FXF refused under s.14(1) FOIA as vexatious. Stated reason: LJ "had a right of recourse which you chose not to pursue." Factually incorrect — TPT appeal DK00003-2605 was pursued and allowed 14 June 2026, finding DBC failed to establish liability. FOI submitted two days after tribunal win, asking how many other PCNs issued on the same defective basis. s.40(1) redirect to SAR accepted. Internal review requested. Reference: DBC-4144-26 / Rachel Seddon, Complaints & Information Governance Assistant. |
+| 91 | DBC / Rachel Seddon / FOI DBC-4127-26 | Local Government | **NULL** | 1/20 | 9 July 2026. FOI answered: Carolyn Pistellato named as officer who instructed Equita to continue enforcement on 15 June 2026 — the day after TPT allowed appeal DK00003-2605. Question 3: DBC holds "no recorded information" of any internal communication about the instruction. Pistellato instructed post-TPT enforcement with no documented internal consideration of the tribunal decision. Second Pistellato NULL finding, following Charge Certificate DK74914115 withdrawal. Reference: DBC-4127-26 / Carolyn Pistellato, Parking Processing and Appeals Manager. |
+| 92 | Durham Constabulary / Nataleigh Stavers | Police | **NULL** | 0/20 | 9 July 2026. s.136 EA 2010 deadline passed without substantive response to Professional Standards complaint. 28-day rolling update not honoured. Nataleigh Stavers attempted clock restart, corrected 2 July. s.136 burden of proof formally invoked: officer attended deaf person's home, told him to "think about his conduct," confirmed on BWV no offence committed, triggered by lawful protected-act emails to MP. Commissioner Joy Allen cc'd on personal email. Rachel Bacon (CC), IOPC, and EHRC all cc'd. Reference: CUU-4595-26-1100-002 / Nataleigh Stavers / Joy Allen PCC. |
+| 93 | DBC / FOI DBC-4105-26 | Local Government | **NULL** | 0/20 | 10 July 2026. 20-working-day statutory deadline expired at 5pm without response. FOI asks five questions about automated council tax enforcement, including question 5: total number of accounts where a named officer recorded individual consideration before enforcement. The Council's own automated final notice of 9 July answered question 5 by demonstrating zero individual consideration. s.50 ICO referral intended if no response by 17 July. Reference: DBC-4105-26 / freedomofinformation@darlington.gov.uk. |
+| 94 | Energy Ombudsman / Nicola Stavers | Ombudsman | **NULL** | 2/20 | 10 July 2026. EG054013-26 decision issued with six documented factual errors: complainant name misspelt ("Lewis Burges"); EA 2010 argument misframed as "equality act does not exclude you form debt action" when complaint concerned process not exclusion; six site visits listed with no RA analysis for deaf occupant; £100 goodwill for documented statutory breaches; decision's own contact channels inaccessible (telephone/post to email-only complainant); Resolution 4 refers warrant investigation back to respondent for self-report. Appeal submitted on all six grounds. Reference: EG054013-26 / Nicola Stavers DRE Two / 02033652959. |
+| 95 | E.ON Next / Mari-lee | Energy | **NULL** | 2/20 | 12 July 2026. Mari-lee confirmed in writing: "this is part of our standard business procedure and is generated automatically." Named E.ON employee confirming payment demands issued without individual human review as standard procedure. Direct evidence for HMCTS 80553951 and ICO IC-494023-N8V3. UK GDPR Arts. 22A–22D meaningful human involvement requirement engaged. Reference: A-18BA6CAF / Mari-lee Energy Specialist / hi@eonnext.com. |
+| 96 | E.ON Next | Energy | **NULL** | 2/20 | 11 July 2026. Second automated £659.02 demand sent to [REDACTED-EMAIL] at 18:56 — same wrong address as 4 July demand. Seven days after wrong-address failure formally raised, placed on record, and cc'd to EHRC and ICO. Address not corrected until 12 July by Mari-lee — eight days after failure documented. Two EA 2010 ss.20/21 breaches on same account, same month, same wrong address, while EHRC and ICO were in copy. Reference: A-18BA6CAF / [REDACTED-EMAIL]. |
+| 97 | TM Legal / DPO | Legal Services | **NULL** | 0/20 | 8 July 2026. Automated email from numbered inbox (981716@tm-legalservices.uk) — "Your Account Hold Has Ended" — sent during confirmed written hold. DPO confirmed 24 June: "account will remain on hold." No named individual. Telephone offered as contact to deaf person. DPO's own admission of 24 June confirmed: "There is no sole person who reviews each account." System demonstrated that admission in real time. Reference: 981716 / 671178436218 / DPO@tm-legalservices.co.uk. |
+| 98 | SRA / Investigation Officer | Regulator | **NULL** | 1/20 | 13 July 2026. SRA declined to investigate three concerns about HJA. Key findings: (1) "Clients are able to communicate with HJA via the portal as they would via email. The two methods operate virtually the same" — institutional finding that portal and email are equivalent, contradicting disability-specific disadvantage; (2) "We do not administer the Equality Act 2010" — SRA disclaiming jurisdiction over EA compliance by its own regulated firms despite SRA Principle 6 and Code of Conduct; (3) "We do not administer data protection legislation" — declining to examine deletion of data before SAR response as professional conduct issue. No right of appeal. Reference: HJA / Chun Wong COLP / SRA RDPRs Rule 1.1. |
+| 99 | Energy Ombudsman / Nicola Stavers | Ombudsman | **NULL** | 2/20 | 13 July 2026. Email contradiction: 10 July "you can respond to me directly via this email" followed by 13 July "this email is not monitored." Investigator directed deaf complainant to respond via email address then stated three days later that address is unmonitored. Portal pushed as alternative despite email-only RA confirmed by Sharon 4 July. "Kine Regards" sign-off. EA 2010 s.20(3) anticipatory duty raised — email alternative to portal required. Reference: EG054013-26 / NStavers@energyombudsman.org. |
+| 100 | CMA / Philip McCormick | Regulator | **NULL** | 1/20 | 8 July 2026. Fourth CMA reference number, fourth template response. Directed deaf complainant to Citizens Advice Consumer Service by telephone (0808 223 1133) — same inaccessible contact pattern being investigated in respect of viagogo. Binary question applied to CMA's own process: has a named individual on the case team reviewed the specific content of the submissions? EHRC and ICO cc'd. Reference: CMA258956 / CMA259047 / CMA259317 / general.enquiries@cma.gov.uk. |
 | 82 | HJA Civil Liberties (Client Care Team) | Legal Services | **NULL** | 0/20 | 2 July 2026. Re-review in the HJA chain (see entry #71). Named COLP (Chun Wong) personally invited a re-review on 30 June 2026; re-review submitted 1 July 2026 with substantive new material. The response came from an unsigned "Client Care Team", directed a deaf complainant (email-only reasonable adjustment) to the telephone, and showed no awareness of the named invitation — the automated intake queue bypassed the named human entirely. **Automation-Confirmed Dissonance**: a named human personally invited individual review, yet the automated process routed around that invitation and answered as if it had never happened — the clearest example of this pattern in the dataset. Originator-recorded score: NULL 0/5 (0/20 — zero across all five dimensions). |
 | 81 | British Gas / Dharmesh Rajput (Director, Customer Service) | Energy | **SOVEREIGN** | 16/20 | 29 June 2026. Personal response to the s.136 letter. Both accounts (602181316 and BGB337948) confirmed on hold during Ombudsman investigation EG054013-26. Anita Tomlin named as dedicated point of contact going forward. Individual views disclaimer present in footer. Four questions outstanding — named officer for enforcement visits, false statement of 17 June, Andrew Fletcher position, disability recording correction — passed to Anita Tomlin. A named human applied individual consideration to the specific facts before responding: SOVEREIGN. Contrast entry #66 (same institution, earlier NULL deadlock letter to the wrong address). Originator-recorded score: SOVEREIGN 16/20. |
 | 80 | EASS (Rachel.D) | Equality / Advisory | **NULL** | 0/20 | 27 June 2026. Fourth response from EASS. Directed deaf complainant to EHRC while acknowledging EHRC already confirmed disability discrimination. Fourth telephone reference (0808 800 0082) to person with email-only reasonable adjustment. Circular referral: EASS directing complainant to its own commissioning body (EHRC commissions EASS). No named individual across all four responses — Rachel.D cited but no surname or role confirmed. s.136 + s.27 letter sent. EHRC whistleblowing cc'd. Permanently indexed. |
@@ -109,12 +126,12 @@ not shame.
 
 | Metric | Count |
 |---|---|
-| **Total entries** | **83** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026 + 1 entry 27 June 2026 + 1 entry 29 June 2026 + 1 entry 2 July 2026 + 1 entry 4 July 2026) |
-| **SOVEREIGN** | **11** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Connected by Data / Jeni Tennison — named CEO individual decision; British Gas / Dharmesh Rajput — Director, Customer Service personal response to s.136 letter, accounts on hold, named point of contact) |
+| **Total entries** | **100** (46 institutional assessments + 2 academic publication events + 1 judicial validation + 4 entries week of 9–17 June 2026 + 4 entries 19 June 2026 + 7 entries 20 June 2026 + 10 entries 21 June 2026 + 2 entries 24 June 2026 + 3 entries 25 June 2026 + 1 entry 27 June 2026 + 1 entry 29 June 2026 + 1 entry 2 July 2026 + 18 entries 4–13 July 2026) |
+| **SOVEREIGN** | **12** (Wave Utilities — institutional; SSRN / Elsevier — Paper 3 approved by named human reviewer; Traffic Penalty Tribunal DK00003-2605 — first external judicial validation; DBC / Carolyn Pistellato — written PCN cancellation by named officer; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Connected by Data / Jeni Tennison — named CEO individual decision; British Gas / Dharmesh Rajput — Director, Customer Service personal response to s.136 letter, accounts on hold, named point of contact; IPO / Darren Smith — proactive named certification-mark update) |
 | **Partial Sovereign** | **1** (TV Licensing / BBC) |
 | **Clean Negative** (no records held; proper response) | **1** (Palantir) |
-| **AMBIGUOUS** | **2** (Hampshire Constabulary / OPCC; Framer B.V.) |
-| **NULL — confirmed** | **51** |
+| **AMBIGUOUS** | **3** (Hampshire Constabulary / OPCC; Framer B.V.; IMPS / University of Reading / Rebecca Daniells) |
+| **NULL — confirmed** | **66** |
 | **NULL — provisional / anticipated** | **6** |
 | **NULL — accessibility** (no working contact route) | **4** |
 | **NULL — partial** | **2** (TransUnion — wrong NOC wording; Starling Bank — Salman declined name) |
@@ -122,39 +139,56 @@ not shame.
 | **Engagement** (constructive) | **2** |
 | **Removed from register** | **1** (RMOK Legal — certification terminated 9 June 2026) |
 
-NULL findings of all kinds total **63** (51 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
-snapshot updated 4 July 2026 (v2.7.1); treat the committed snapshot, not any single number
+NULL findings of all kinds total **78** (66 confirmed + 6 provisional/anticipated + 4 accessibility + 2 partial). Counts move as cases progress — this is a
+snapshot updated 13 July 2026 (v2.8.0); treat the committed snapshot, not any single number
 quoted elsewhere, as authoritative.
 
 ### Sector breakdown
 
 | Sector | Count |
 |---|---|
-| Government | 9 |
-| Police / Policing Bodies | 5 |
-| Technology | 6 |
-| Financial Services | 3 |
-| Energy | 3 |
-| Parliament | 2 |
+| Government | 12 |
+| Energy | 10 |
+| Local Government | 9 |
+| Regulator | 7 |
+| Technology | 7 |
+| Ombudsman | 6 |
+| Legal Services | 5 |
+| Parliament | 5 |
+| Police | 4 |
+| Financial Services | 4 |
+| Ticketing Marketplace | 3 |
+| Academic Publishing | 3 |
+| Intellectual Property | 2 |
+| Courts | 2 |
+| Enforcement Agent | 2 |
 | Utilities | 2 |
-| Regulator | 3 |
 | NHS | 2 |
-| Courts | 1 |
-| Local Government | 1 |
-| Enforcement Agent | 1 |
+| Academic / FOI | 1 |
+| Equality / Advisory | 1 |
+| Media | 1 |
+| Civil Society | 1 |
+| Judicial | 1 |
 | Credit Reference | 1 |
 | Debt Collection | 1 |
 | Medical Device | 1 |
 | Public Broadcaster | 1 |
-| Ombudsman | 1 |
 | Healthcare Regulator | 1 |
 | Legal Reform | 1 |
-| Legal Services | 3 |
-| Academic Publishing | 1 |
+| National Police Body | 1 |
+| Police Training Body | 1 |
+| Police Training Standards | 1 |
+| Police Oversight | 1 |
+
+### Notable live proceedings (13 July 2026)
+
+- **E.ON Next — automatic-generation admission (entry #95).** Mari-lee confirmed in writing that payment demands are part of standard business procedure and generated automatically, directly evidencing absence of individual human review for HMCTS 80553951 and ICO IC-494023-N8V3.
+- **SRA / HJA — portal-equivalence finding (entry #98).** The SRA declined investigation and treated HJA portal communication as virtually equivalent to email, while disclaiming Equality Act and data-protection jurisdiction as professional-conduct matters.
+- **Energy Ombudsman — contradictory email route (entry #99).** The same investigator directed response by email and then stated the address was unmonitored three days later, despite the email-only reasonable adjustment.
 
 ### Notable live proceedings (4 July 2026)
 
-- **EHRC correspondence record — NULL 0/20 (entry #83).** Approximately 25+ EHRC responses across the correspondence threads have no named human signatory: repeated automated acknowledgements from Correspondence@equalityhumanrights.com; a 22 June "Correspondence team" response; templated regulatory.request@ responses ref 17519036 and ref 17902292; and one partial exception, ref 17498485, that referenced DBC but still did not name an individual. The s.28 application is therefore being assessed against an existing regulator correspondence record that already demonstrates the NULL pattern.
+- **EHRC correspondence record — prior 4 July snapshot note.** Approximately 25+ EHRC responses across the correspondence threads have no named human signatory: repeated automated acknowledgements from Correspondence@equalityhumanrights.com; a 22 June "Correspondence team" response; templated regulatory.request@ responses ref 17519036 and ref 17902292; and one partial exception, ref 17498485, that referenced DBC but still did not name an individual. The s.28 application is therefore being assessed against an existing regulator correspondence record that already demonstrates the NULL pattern.
 
 ### Notable live proceedings (2 July 2026)
 

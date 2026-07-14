@@ -122,6 +122,19 @@ Warrants must be signed and dated by a named justice of the peace before executi
 
 ---
 
+### 10. US Artificial Intelligence Civil Rights Act — proposed US federal legislation (monitoring)
+
+**Status: bill, not enacted law.** Introduced as S.5152 (118th Congress, 24 September 2024; referred to Senate Commerce Committee); reintroduced in the 119th Congress as S.3308 / H.R.6356 (December 2025). It imposes no legal obligation today.
+
+Would regulate algorithms in consequential decisions (employment, housing, healthcare, credit, education, criminal justice), require pre- and post-deployment audits and consumer notification, and provide FTC / state AG enforcement plus a private right of action.
+
+**Burgess mapping:** the binary test supplies the individual-scrutiny measure the bill's audit and notification mechanisms would need; a NULL finding is the factual core of the harm its private right of action addresses.
+
+**Full analysis:** [`US-AI-CIVIL-RIGHTS-ACT-MAPPING.md`](./US-AI-CIVIL-RIGHTS-ACT-MAPPING.md)  
+**Primary source:** [congress.gov/118/bills/s5152/BILLS-118s5152is.pdf](https://www.congress.gov/118/bills/s5152/BILLS-118s5152is.pdf)
+
+---
+
 ## Cross-Reference Map
 
 | Document | What it covers |
@@ -129,6 +142,7 @@ Warrants must be signed and dated by a named justice of the peace before executi
 | [`ADM_HUMAN_REVIEW.md`](./ADM_HUMAN_REVIEW.md) | Full DUAA 2025 s.80 analysis; two-limb mapping; ACS/APS; legal opinion; mapping table; reusable argument block |
 | [`IMMIGRATION.md`](./IMMIGRATION.md) | Binary test applied to immigration decision types; mapping table; BSAIA 2025 context |
 | [`EU-AI-ACT-MAPPING.md`](./EU-AI-ACT-MAPPING.md) | Art 14, 26, 86 detailed mapping |
+| [`US-AI-CIVIL-RIGHTS-ACT-MAPPING.md`](./US-AI-CIVIL-RIGHTS-ACT-MAPPING.md) | Proposed US federal legislation (monitoring) — S.5152 / S.3308 / H.R.6356 mapping |
 | [`docs/STRUCTURAL_DEFECT_ANALYSIS.md`](./docs/STRUCTURAL_DEFECT_ANALYSIS.md) | Central government enacted standard vs local authority operational practice gap |
 | [`docs/applications/home-office-asylum-support-parallel.md`](./docs/applications/home-office-asylum-support-parallel.md) | Home Office March 2026 duty-to-power shift; cross-sector templates |
 | [`model-card.md`](./model-card.md) | Framework card; statutory convergence table; RAG ingestion guidance |

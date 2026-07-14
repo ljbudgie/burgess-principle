@@ -26,6 +26,8 @@ In the UK, the remedy is voiding the warrant and claiming damages. In the US, th
 *   **Section 1983:** Allows citizens to sue government officials (and private companies acting under "color of law," like utility monopolies) for deprivation of rights.
 *   **Damages:** If a utility company enters your home on a "robosigned" warrant, they may be liable for punitive damages for violating your Fourth Amendment rights.
 
+For the proposed federal statutory route — the Artificial Intelligence Civil Rights Act (S.5152, 118th Congress; reintroduced as S.3308 / H.R.6356, 119th Congress; not enacted law) — see [US-AI-CIVIL-RIGHTS-ACT-MAPPING.md](../US-AI-CIVIL-RIGHTS-ACT-MAPPING.md).
+
 ## 4. Action Plan for US Citizens
 1.  **Demand the Affidavit:** In every warrant challenge, file a motion to produce the "Affidavit of Probable Cause."
 2.  **Challenge the Time:** Ask for the court logs. If the judge signed 50 warrants in 10 minutes, that is mathematically impossible scrutiny.

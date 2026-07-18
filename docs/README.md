@@ -29,6 +29,7 @@ the practical routes below rather than reading every file in this folder.
 | [`applications/burgess-witness-concept.md`](./applications/burgess-witness-concept.md) | **Concept / draft** — proposed hardware + cryptographic attestor device (non-repudiable named accountability). Not built; not a product. |
 | [`applications/burgess-attestor-registry.md`](./applications/burgess-attestor-registry.md) | **Concept / draft** — identity & trust-root (CA) design for attestor keys; the registry must pass its own Burgess test. |
 | [`applications/burgess-witness-naming.md`](./applications/burgess-witness-naming.md) | **Proposed / draft** — naming & lexicon for the Witness: family *Burgess Witness*, device *Signet*, act *Seal*. |
+| [`DIGITAL_SIGNATURES_AND_LEGAL_VALIDITY.md`](./DIGITAL_SIGNATURES_AND_LEGAL_VALIDITY.md) | Legal frameworks for electronic signatures (eIDAS/UK eIDAS, ECA 2000, ESIGN/UETA) and how the project's Ed25519 signing achieves legal weight |
 
 ## What belongs here
 

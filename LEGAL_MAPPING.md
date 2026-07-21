@@ -63,9 +63,10 @@ Article 22 UK GDPR (right not to be subject to solely automated decisions with s
 
 **Art 14** — human oversight of high-risk AI systems (applicable from 2 August 2026).  
 **Art 26** — deployer obligations including human oversight, monitoring, record-keeping.  
+**Art 50(1)** — chatbot disclosure obligation: AI systems interacting with natural persons must disclose they are AI (from 2 August 2026). Applies to Intercom, Zendesk, Salesforce, Genesys and equivalents.  
 **Art 86** — right to explanation of AI system role in decisions with legal/significant effects.
 
-**Burgess mapping:** the binary test is the operational measure of "effective human oversight" under Art 14, the record to be kept under Art 26, and the substantive content of the explanation required under Art 86.
+**Burgess mapping:** the binary test is the operational measure of "effective human oversight" under Art 14, the record to be kept under Art 26, and the substantive content of the explanation required under Art 86. **Art 50 and Arts 22A–22D stack:** disclosure that a system is AI simultaneously activates the human involvement question — an institution cannot satisfy Art 50 while remaining NULL under 22A–22D. The binary test is the evidential standard for both obligations together.
 
 **Full analysis:** [`EU-AI-ACT-MAPPING.md`](./EU-AI-ACT-MAPPING.md)
 
@@ -141,7 +142,7 @@ Would regulate algorithms in consequential decisions (employment, housing, healt
 |---|---|
 | [`ADM_HUMAN_REVIEW.md`](./ADM_HUMAN_REVIEW.md) | Full DUAA 2025 s.80 analysis; two-limb mapping; ACS/APS; legal opinion; mapping table; reusable argument block |
 | [`IMMIGRATION.md`](./IMMIGRATION.md) | Binary test applied to immigration decision types; mapping table; BSAIA 2025 context |
-| [`EU-AI-ACT-MAPPING.md`](./EU-AI-ACT-MAPPING.md) | Art 14, 26, 86 detailed mapping |
+| [`EU-AI-ACT-MAPPING.md`](./EU-AI-ACT-MAPPING.md) | Art 14, 26, 50, 86 detailed mapping — includes chatbot disclosure stack |
 | [`US-AI-CIVIL-RIGHTS-ACT-MAPPING.md`](./US-AI-CIVIL-RIGHTS-ACT-MAPPING.md) | Proposed US federal legislation (monitoring) — S.5152 / S.3308 / H.R.6356 mapping |
 | [`docs/STRUCTURAL_DEFECT_ANALYSIS.md`](./docs/STRUCTURAL_DEFECT_ANALYSIS.md) | Central government enacted standard vs local authority operational practice gap |
 | [`docs/applications/home-office-asylum-support-parallel.md`](./docs/applications/home-office-asylum-support-parallel.md) | Home Office March 2026 duty-to-power shift; cross-sector templates |

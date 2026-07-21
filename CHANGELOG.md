@@ -5,6 +5,33 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.8.1 — 21 July 2026
+
+### EU AI Act Article 50 — chatbot disclosure stack
+
+- **`EU-AI-ACT-MAPPING.md` — Article 50(1) section added.** Chatbot disclosure
+  obligation (in force 2 August 2026) mapped to the binary test. Core argument:
+  Article 50 disclosure and Articles 22A–22D human involvement are cumulative, not
+  alternative. The moment a chatbot discloses it is AI (as Art. 50 now requires),
+  it activates the human involvement question under DUAA 2025 s.80. A NULL binary
+  test result in response to an Art. 50-compliant disclosure is a dual breach.
+- **Two-question test documented** for chatbot interactions in the
+  Intercom/Zendesk/Salesforce/Genesys tier: (1) has the system disclosed it is AI?
+  (2) was a named human's mind applied before the decision? Neither question alone
+  achieves compliance.
+- **Three-obligation stack documented** for deployers: Art. 50(1) disclosure
+  (2 Aug 2026) + Arts. 22A–22D meaningful human involvement (5 Feb 2026) +
+  EA 2010 s.19 channel indirect discrimination (ongoing). Live example from
+  dataset: Trading 212 / Zendesk account-matching by registered email.
+- **Act-now framing:** 2 August 2026 is eleven days away. Institutions deploying
+  chatbots in customer-facing significant-decision contexts need both the
+  disclosure and a certifiable human review pathway. Adding disclosure without
+  the human pathway satisfies one obligation while confirming breach of the other.
+- **`LEGAL_MAPPING.md`** updated: Art. 50(1) added to EU AI Act entry; chatbot
+  disclosure stack noted in Burgess mapping summary.
+
+---
+
 ## v2.8.0 — 21 July 2026
 
 > **Release summary.** UK Certification Mark UK00004343685 accepted by IPO

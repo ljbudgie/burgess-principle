@@ -6,7 +6,7 @@ Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · 
 
 **The binary test for meaningful human involvement in automated systems.**
 
-- **Framework version:** v2.7.2 (released 13 July 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+- **Framework version:** v2.8.0 (released 21 July 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
 
 ## Start In 60 Seconds
 
@@ -277,7 +277,7 @@ Applies the binary test to professional engagement with patient-led innovation �
 The framework now stands on its institutional record:
 
 - A sustained audit programme across energy, benefits, courts, platforms, public bodies, and communications infrastructure (email triage) — see the [live ledger](./audits/LIVE_AUDIT_LOG.md) for the current snapshot
-- UK Certification Mark **UK00004343685**
+- UK Certification Mark **UK00004343685** — accepted by IPO 21 July 2026. Awaiting publication and 2-month opposition period.
 - Documented legal convergence with the Data (Use and Access) Act 2025,
   EU AI Act, and NIST AI Risk Management Framework
 - A repeatable method for moving from a NULL or AMBIGUOUS process record toward
@@ -291,7 +291,7 @@ a clear path back to accountable review.
 
 ## Licensing & Certification
 
-**UK Certification Mark:** UK00004343685  
+**UK Certification Mark:** UK00004343685 — accepted by IPO 21 July 2026; awaiting publication and 2-month opposition period.  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
 **Proprietor:** Lewis James Burgess
 

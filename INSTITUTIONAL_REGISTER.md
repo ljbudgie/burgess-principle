@@ -1,6 +1,6 @@
 # Institutional Register — SOVEREIGN/NULL Compliance Record
 
-**Last updated: 4 July 2026**
+**Last updated: 21 July 2026**
 Taxonomy version: Institution Audit Taxonomy v1.4
 UK Certification Mark: UK00004343685
 
@@ -162,6 +162,7 @@ adjustment). Total moves 3 / 20 → 2 / 20; band unchanged (NULL).
 **SOVEREIGN follow-up (17 June 2026):** Named officer Carolyn Pistellato confirmed cancellation of PCN DK7491076A in writing — a named officer, a written record, and the specific facts addressed. Recorded as SOVEREIGN (LIVE_AUDIT_LOG.md entry #52).
 **Post-TPT enforcement instruction (15 June 2026) — NULL:** A named DBC officer instructed Equita to continue enforcement on Case 24650546 the day after the TPT win, despite the adjudicator finding liability was never established. FOI filed to identify the named officer (LIVE_AUDIT_LOG.md entry #50). Forvis Mazars value-for-money engagement confirmed — James Collins sharing correspondence with DBC. s.151 Officer Elizabeth Davidson notified 15 and 16 June 2026. s.5 LGHA 1989 referral acknowledged by Monitoring Officer Amy Wennington outside business hours 16 June.
 **Status:** TPT enforcement overturned; PCN DK7491076A cancelled in writing. LGO complaint 26000967 reopened — Sophie Reckless caseworker, Jenny Evans manager, Shem Marriott-Gray reviewer, target date 13 July 2026. DSAR DBC-3087-25 outstanding.
+**FOI DBC-4105-26 (13 July 2026) — most significant single data point on the register:** Jenny Hoogewerf-McComb confirmed 17,171 summonses issued across 2024-25 and 2025-26 with zero recorded individual consideration. This is the clearest quantitative evidence of systemic NULL processing at scale in the entire dataset.
 
 ---
 

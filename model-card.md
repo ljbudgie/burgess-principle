@@ -1,7 +1,7 @@
 # Framework Card — The Burgess Principle
 
 **Type:** Legal accountability framework / binary decision-quality test  
-**Certification:** UK Certification Mark UK00004343685  
+**Certification:** UK Certification Mark UK00004343685 (accepted by IPO 21 July 2026; awaiting publication and 2-month opposition period)  
 **Licence:** MIT  
 **Version:** v2.5.6 (17 June 2026)  
 **Repository:** github.com/ljbudgie/burgess-principle  

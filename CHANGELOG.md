@@ -5,6 +5,42 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.8.0 — 21 July 2026
+
+> **Release summary.** UK Certification Mark UK00004343685 accepted by IPO
+> following stringent assessment. Darren Smith (Trade Marks Registry) confirmed
+> acceptance of revised regulations. The mark will be published in the Trade
+> Marks Journal for a 2-month opposition period, after which registration and
+> certificate follow if unopposed. Ledger entries #85–#100 added. DBC-4105-26
+> FOI response added to Institutional Register (17,171 summonses, zero recorded
+> individual consideration).
+
+### Certification
+
+- **UK00004343685 — IPO acceptance confirmed 21 July 2026.** Darren Smith
+  (Trade Marks Registry) confirmed acceptance following stringent assessment of
+  revised regulations. Mark proceeds to publication in the Trade Marks Journal
+  and a 2-month opposition period. Registration and certificate follow if
+  unopposed.
+
+### Institutional Register
+
+- **DBC-4105-26 FOI response added.** Jenny Hoogewerf-McComb, 13 July 2026.
+  17,171 summonses issued across 2024-25 and 2025-26, zero recorded individual
+  consideration. Most significant single data point on the register.
+
+### Ledger
+
+- Entries #85–#100 added (18 new entries): E.ON automation admissions, DBC
+  automated final notice, s.14 vexatious classification, Pistellato post-TPT
+  enforcement instruction, DBC-4105-26 breach, Energy Ombudsman decision errors,
+  SRA portal=email finding, Durham Constabulary s.136 silence, CMA fourth
+  template, TM Legal automated demand during hold, EHRC auto-triage.
+
+### Totals: 100 entries | SOVEREIGN 11 | NULL 89
+
+---
+
 ## v2.7.2 — 13 July 2026
 
 > **Release summary.** Patch release covering audit entries #83–#93 (11 new entries),

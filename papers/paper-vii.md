@@ -109,7 +109,7 @@ SOVEREIGN, or NULL.
 
 The Burgess Principle is published under the MIT Licence.
 
-UK Certification Mark Application: UK00004343685
+UK Certification Mark: UK00004343685 (accepted 21 July 2026)
 
 © 2026 Lewis James Burgess. All rights reserved.
 

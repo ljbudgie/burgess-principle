@@ -49,7 +49,14 @@ A chronological record of key events, from the originating incident in December 
 
 ## Papers
 
-- Six papers published, including **Paper VI: "What Would Aristotle Have Said?"** (see [`papers/`](papers/)).
+- **Academic (SSRN) series — authoritative.** The peer-facing, citable record is the
+  seven-paper SSRN series (Abstract IDs 6759778, 6864621, 6894860, 6909118,
+  6913498, 6915798, 7016721). This is the canonical academic reference; see
+  [`papers/SSRN_INDEX.md`](papers/SSRN_INDEX.md).
+- **Repository doctrinal papers — supporting.** A separate set of in-repo essays
+  and doctrinal papers (e.g. **Paper VI: "What Would Aristotle Have Said?"**) live
+  in [`papers/`](papers/). These support the framework but are distinct from, and
+  secondary to, the SSRN academic series above.
 
 ---
 

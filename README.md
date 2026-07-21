@@ -195,28 +195,28 @@ named human accountability standard is directly relevant.
 **Author:** Lewis James Burgess  
 **ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>
 
-Six-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498) · patient-led innovation (6915798). Machine-readable index: [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md).
+Seven-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498) · patient-led innovation (6915798) · institutional psychology (7016721). All seven are DISTRIBUTED on SSRN. Machine-readable index: [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md).
 
 ---
 
-**Paper 1:** The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights  
+**Paper 1:** The Burgess Test: Meaningful Human Involvement under EU AI Act, UK Data Rights, NIST Framework, and Proposed US AI Civil Rights Act  
 **SSRN Abstract ID:** [6759778](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6759778)  
-**Status:** DISTRIBUTED | Views: 66 | Downloads: 10  
+**Status:** DISTRIBUTED  
 First submitted: 13 May 2026 | Last updated: 29 May 2026  
-**Case Study:** The Burgess Test — The Liability Transfer Chain  
+**Abstract:** Core legal foundation of the series. Introduces the binary test — "Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?" — and maps it to EU AI Act Article 14, UK GDPR / DUAA 2025, the NIST AI Risk Management Framework, and the proposed US AI Civil Rights Act. Case study: the liability transfer chain.  
 **DOI:** <a href="https://doi.org/10.5281/zenodo.20449193">10.5281/zenodo.20449193</a>
 
 **Cite as:**
 
-> Burgess, L. J. (2026). *The Burgess Test: Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data Rights.* SSRN Abstract 6759778. Zenodo. https://doi.org/10.5281/zenodo.20449193
+> Burgess, L. J. (2026). *The Burgess Test: Meaningful Human Involvement under EU AI Act, UK Data Rights, NIST Framework, and Proposed US AI Civil Rights Act.* SSRN Abstract 6759778. Zenodo. https://doi.org/10.5281/zenodo.20449193
 
 ---
 
-**Paper 2:** The Accountability Gap  
+**Paper 2:** The Accountability Gap: How Representative Democracy Was Designed to Transfer Power, Not Protect the Individual  
 **SSRN Abstract ID:** [6864621](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6864621)  
-**Status:** DISTRIBUTED | Views: 45 | Downloads: 13  
+**Status:** DISTRIBUTED  
 First submitted: 1 June 2026 | Last updated: 5 June 2026  
-Reclassification from preliminary status obtained via SSRN ticket 260527-026838 (Elise Steele, ssrnsupport@elsevier.com).
+**Abstract:** Political-philosophy arc. Traces the gap between democratic representation and individual protection from Locke through the administrative state, and positions the SOVEREIGN/NULL framework as the remedial instrument where parliamentary accountability ends and institutional power over the individual begins.
 
 **Cite as:**
 
@@ -224,11 +224,11 @@ Reclassification from preliminary status obtained via SSRN ticket 260527-026838 
 
 ---
 
-**Paper 3:** NULL at Scale  
+**Paper 3:** NULL at Scale: The Burgess Principle Applied to an Institutional Accountability Failure  
 **SSRN Abstract ID:** [6894860](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6894860)  
-**Status:** DISTRIBUTED | Views: 35 | Downloads: 11  
+**Status:** DISTRIBUTED  
 First submitted: 7 June 2026 | Last updated: 9 June 2026  
-Written evidence submitted to the Justice Committee and ICO ADM consultation: 29 May 2026.
+**Abstract:** Empirical proof paper. Applies the binary test to a documented institutional accountability failure across multiple institutions, demonstrating the NULL pattern at scale. Written evidence submitted to the Justice Committee and ICO ADM consultation on 29 May 2026.
 
 **Cite as:**
 
@@ -238,9 +238,9 @@ Written evidence submitted to the Justice Committee and ICO ADM consultation: 29
 
 **Paper 4:** Differential Ire: Why Attributable Governance Harms Sustain Public Accountability Pressure That Diffuse Scandals Do Not  
 **SSRN Abstract ID:** [6909118](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6909118)  
-**Status:** APPROVED | Views: 11 | Downloads: 5  
+**Status:** DISTRIBUTED  
 First submitted: 10 June 2026 | Last updated: 22 June 2026  
-Explains why harms traceable to an attributable decision-maker generate sustained regulatory pressure while diffuse algorithmic harms dissipate. The binary test converts diffuse scandal into attributable accountability.
+**Abstract:** Accountability-dynamics paper. Explains why harms traceable to a named attributable decision-maker generate sustained public and regulatory pressure, while diffuse algorithmic harms dissipate. The binary test is the instrument that converts diffuse scandal into attributable accountability.
 
 **Cite as:**
 
@@ -250,9 +250,9 @@ Explains why harms traceable to an attributable decision-maker generate sustaine
 
 **Paper 5:** SOVEREIGN Counsel: Attributable Judgment, Fractional Models, and NULL Drift in Legal Services  
 **SSRN Abstract ID:** [6913498](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6913498)  
-**Status:** APPROVED | Views: 10 | Downloads: 5  
+**Status:** DISTRIBUTED  
 First submitted: 10 June 2026 | Last updated: 22 June 2026  
-JEL codes: D02, H83, D73. Applies the binary test to legal services — NULL drift in solicitor engagements, fractional models as higher SOVEREIGN density, the self-represented litigant as owning mind, machine-assisted workflow analysis. Closing case study: Parliamentary Standards Commissioner's "we do not provide the names of individuals" response.
+**Abstract:** Legal-services arc (JEL: D02, H83, D73). Applies the binary test to solicitor engagements, fractional legal models, and self-represented litigants, and identifies NULL drift where the owning mind is diffused or absent. Closing case study: the Parliamentary Standards Commissioner's "we do not provide the names of individuals" response.
 
 **Cite as:**
 
@@ -262,13 +262,25 @@ JEL codes: D02, H83, D73. Applies the binary test to legal services — NULL dri
 
 **Paper 6:** The Sovereign Decline: Restoring Attributable Judgment in Professional Engagement With Patient-Led Innovation  
 **SSRN Abstract ID:** [6915798](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6915798)  
-**Status:** DISTRIBUTED | Views: 13 | Downloads: 3  
+**Status:** DISTRIBUTED  
 First submitted: 10 June 2026 | Last updated: 15 June 2026  
-Applies the binary test to professional engagement with patient-led innovation — medical device governance, hearing technology, and clinical decision pathways where the patient's own expertise is processed rather than considered. Argues for restoring attributable judgment in professional-patient power relationships.
+**Abstract:** Patient-led-innovation arc. Applies the binary test to professional engagement with patient-led innovation — medical device governance, hearing technology, and clinical decision pathways where the patient's own expertise is processed rather than considered — and argues for restoring attributable judgment in professional–patient power relationships.
 
 **Cite as:**
 
 > Burgess, L. J. (2026). *The Sovereign Decline: Restoring Attributable Judgment in Professional Engagement With Patient-Led Innovation.* SSRN Abstract 6915798. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6915798
+
+---
+
+**Paper 7:** Cognitive Dissonance at Scale: How Named-Individual Accountability Breaks Institutional Rationalisation  
+**SSRN Abstract ID:** [7016721](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7016721)  
+**Status:** DISTRIBUTED  
+First submitted: 29 June 2026 | Last updated: 14 July 2026  
+**Abstract:** Institutional-psychology arc. Examines how naming a specific individual accountable for a decision disrupts the collective rationalisation that lets institutions defend NULL processing. Where diffuse process language sustains institutional self-justification, the binary test's demand for a named reviewer of specific facts breaks the rationalisation and re-attaches responsibility to a person.
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *Cognitive Dissonance at Scale: How Named-Individual Accountability Breaks Institutional Rationalisation.* SSRN Abstract 7016721. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7016721
 
 ---
 

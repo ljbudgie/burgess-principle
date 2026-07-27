@@ -6,7 +6,7 @@ Hosted links: <a href="https://burgess-principle.vercel.app">Vercel Iris</a> · 
 
 **The binary test for meaningful human involvement in automated systems.**
 
-- **Framework version:** v2.8.1 (released 21 July 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
+- **Framework version:** v2.9.0 (released 27 July 2026) — see [CHANGELOG.md](./CHANGELOG.md) for what changed.
 
 ## Start In 60 Seconds
 

@@ -5,6 +5,41 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.9.0 — 27 July 2026
+
+### OpenHear × Iris — build orchestration and rights advisory for hearing sovereignty
+
+- **`iris/openhear_skill.py`** — New Iris skill covering two modes:
+  - **Build Orchestration:** Iris guides deaf and hard-of-hearing citizens through
+    building their own OpenHear hearing device, stage by stage. Eight stages:
+    prerequisites, hardware assembly (PCB 4-layer 65×30mm, 24 LRA haptic actuators),
+    firmware flash (ESP32-S3 + esptool), USB driver setup (Noahlink Wireless dongle
+    VID 0x16F0/PID 0x0003, confirmed against hardware), DSP routing, BLE pairing,
+    Iris Bridge haptic classification feedback, functional test. Diagnostic
+    question-and-answer at each stage; known-issue matching for reported symptoms.
+    Pure standard library, no network calls from the module.
+  - **Rights Advisory:** EA 2010 ss.20/21 anticipatory duty and binary test applied
+    to hearing-device accommodation failures — institution refusal of sovereign
+    builds, NHS-only PCPs, audiologist refusal to engage, workplace accommodation
+    failures. All advisory; `requires_human_confirmation = True` throughout.
+    EA 2010 s.27 victimisation flag at Stage 3. No clinical advice (gain, frequency
+    response, audiological calibration always out of scope).
+  - **Iris Bridge:** haptic pattern mapping — SOVEREIGN → steady triple pulse,
+    AMBIGUOUS → double pulse with pause, NULL → long single hold. Local-first;
+    BLE Web API; no cloud relay.
+- **`iris/prompts/openhear.md`** — Prompt context for Iris activation: when to
+  trigger the skill, framing principles for both modes, scope boundary (clinical
+  restraint), hardware quick-reference, Iris Bridge pattern table.
+- **`docs/applications/openhear-iris-integration.md`** — Full integration
+  documentation: sovereignty framing, build stage table, rights advisory statutory
+  analysis, binary test application to hearing-device contexts, advisory constraints,
+  module reference with example usage.
+- **Scope boundary enforced:** Iris is a build orchestrator and rights advisor —
+  not a clinical tool. DSP gain settings, frequency response, and audiological
+  calibration are explicitly out of scope throughout all outputs.
+
+---
+
 ## v2.8.1 — 21 July 2026
 
 ### EU AI Act Article 50 — chatbot disclosure stack

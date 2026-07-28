@@ -5,6 +5,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.9.1 — 27 July 2026
+
+### Scott Ryan — Sales Consultant onboarded
+
+- **`PARTNERSHIP_LEDGER.md`** — Scott Ryan added as entry #3 (BP-CERT-260727-SR,
+  Tier 3). Signed Sales Consultant Agreement (commission-based, non-exclusive)
+  confirmed 27 July 2026. Scope: outbound lead qualification across leisure,
+  logistics, automotive, professional services, and technology sectors. First
+  confirmed referral: Paul Ramsay, MD of 3D Leisure (120+ sites).
+- **`CERTIFIED_PRACTITIONERS.md`** — BP-CERT-0003 issued to Scott Ryan; valid
+  until 27 July 2027.
+
+---
+
 ## v2.9.0 — 27 July 2026
 
 ### OpenHear × Iris — build orchestration and rights advisory for hearing sovereignty

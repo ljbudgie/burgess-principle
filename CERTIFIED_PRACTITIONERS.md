@@ -67,6 +67,7 @@ This keeps the register a governance record, not a marketing list.
 | --- | --- | --- | --- | --- | --- |
 | BP-CERT-0001 | Lorraine Ewart | Book-keeping | North Yorkshire | Tier 3 | 27 Apr 2027 |
 | BP-CERT-0002 | LJ Barbers | Barbering (brand / network) | ljbarbers.co.uk | Tier 3 | 27 Apr 2027 |
+| BP-CERT-0003 | Scott Ryan | Sales Consultant — outbound lead qualification for certification pipeline | — | Tier 3 | 27 Jul 2027 |
 
 ---
 

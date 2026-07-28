@@ -4,7 +4,7 @@
 
 **Proprietor:** Lewis James Burgess  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
-**Last updated:** 12 May 2026  
+**Last updated:** 27 July 2026  
 **Status:** Public — this ledger is the authoritative record of all certified partners.
 
 IP and certification-mark ownership remain with Lewis James Burgess personally
@@ -37,6 +37,7 @@ certification site in [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | RMOK Legal Consulting Limited | BP-CERT-260512-RMOK | Tier 2 | 2026-05-12T15:57:37Z | Rory O’Keeffe, Solicitor (SRA No. 8008227) | Fractional General Counsel — IP structuring, certification agreements, commercial advisory, EU AI Act compliance | Signed engagement letter dated 12 May 2026; Phase 1 fixed-fee agreement and monthly advisory retainer confirmed | SOVEREIGN | 60 Cannon Street, City of London, EC4N 6NP | ✅ Certified |
 | 2 | Lorraine Ewart (individual) | BP-CERT-260512-LE | Tier 3 | 2026-05-12T15:57:37Z | Lorraine Ewart | Company Secretary, Bookkeeper, Personal Assistant | Written acceptance of role proposal via email dated 12 May 2026; existing profit share agreement (2% annual distributable profits); share certificate issued; company email provisioned | SOVEREIGN | — | ✅ Certified |
+| 3 | Scott Ryan (individual) | BP-CERT-260727-SR | Tier 3 | 2026-07-27T00:00:00Z | Scott Ryan | Sales Consultant — commission-based, non-exclusive. Scope: identify and qualify certification leads across leisure, logistics, automotive, professional services, and technology sectors; warm-introduce qualified prospects to LJ with contact name, company, role, and landscape summary. Does not negotiate pricing, sign agreements, or represent the framework's technical or legal position. First confirmed referral: Paul Ramsay, MD of 3D Leisure (120+ sites). | Signed Sales Consultant Agreement (commission-based, non-exclusive) confirmed 27 July 2026 | SOVEREIGN | — | ✅ Certified |
 
 ---
 

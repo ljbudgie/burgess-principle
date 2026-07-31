@@ -145,7 +145,7 @@ Contact: [contact redacted]
 
 The motive record for these tools is documented in Paper VII, Paper VIII, and the repository commit history. The framework predates the litigation strategy. The originator bears the same risk as the firm. This is access to justice, not a commercial vehicle.
 
-Paper VIII says it plainly: “I built the Burgess Principle because I needed it. I am a deaf barber from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable. Now it is for everyone.”
+Paper VIII says it plainly: “I built the Burgess Principle because I needed it. I am a deaf man from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable. Now it is for everyone.”
 
 -----
 

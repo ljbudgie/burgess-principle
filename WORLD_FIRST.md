@@ -50,7 +50,7 @@ SHA-256 commitment generation. AES-256-GCM local encryption. Ed25519-signed rece
 
 **6. Originated by a single individual, built on a phone**
 
-Lewis James Burgess. Deaf. Darlington. A barber. No law firm. No university. No institution. An iPhone and 600+ timestamped commits.
+Lewis James Burgess. Deaf. Darlington. No law firm. No university. No institution. An iPhone and 600+ timestamped commits.
 
 The system assumed he would not read the warrant. He read it. The system assumed he would not find the defect. He found it. The system assumed he would not build the framework. He built it.
 

@@ -22,7 +22,7 @@ Parliament enacted the standard. The Data (Use and Access) Act 2025, Articles 22
 
 The principle is older than either statute. [ORIGIN.md](./ORIGIN.md) follows it back.
 
-I named it, certified it, and deployed it. UK Certification Mark UK00004343685. Because I needed it. I am a deaf barber from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable.
+I named it, certified it, and deployed it. UK Certification Mark UK00004343685. Because I needed it. I am a deaf man from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable.
 
 Now it is for everyone.
 

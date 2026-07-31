@@ -32,9 +32,9 @@ I want to explain how I arrived at this conclusion, and what I think it means fo
 
 # Part I: What I Saw
 
-I am a deaf barber. I run LJ Barbers. I have bilateral sensorineural hearing loss. I have five self-employed barbers working from my shop. I am not a lawyer, not an academic, not a policy researcher. I cut hair.
+I am a deaf man from Darlington. I have bilateral sensorineural hearing loss. I am not a lawyer, not an academic, not a policy researcher.
 
-But running a small business teaches you something that institutional life is designed to prevent you from seeing: the whole chain. You see the customer, the service, the money, the tax, the council, the utilities, the enforcement, the credit file. You see it end to end, because in a small business you are every department.
+But running a business teaches you something that institutional life is designed to prevent you from seeing: the whole chain. You see the customer, the service, the money, the tax, the council, the utilities, the enforcement, the credit file. You see it end to end, because when you are the founder you are every department.
 
 What I saw, when I started looking, was this.
 
@@ -202,7 +202,7 @@ The certification mark is available to every institution that wants to demonstra
 
 And the litigation framework is available to every firm that sees, as I see, that the class already exists. That it is waiting to be named. That the defendant-side class definition methodology solves the problem that has defeated every representative action since Lloyd v Google. That the work of class definition has already been done — by the institution — by running its automated system, by touching every person in the class in exactly the same way.
 
-I built the Burgess Principle because I needed it. I am a deaf barber from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable.
+I built the Burgess Principle because I needed it. I am a deaf man from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable.
 
 Now it is for everyone.
 

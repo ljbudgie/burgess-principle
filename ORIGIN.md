@@ -20,7 +20,7 @@ The institution exists to serve the person, not the reverse.
 1. **God established SOVEREIGN processing.** Individual consideration applied to the specific person before power is exercised — from Genesis to Revelation.
 1. **Christ stated it.** The institution exists to serve the person. The shepherd exists for the flock. The one Mediator between God and men is a man, Christ Jesus (1 Timothy 2:5) — not an institution, not a process, not a system.
 1. **Parliament enacted it.** The Data (Use and Access) Act 2025, Articles 22A–22D: meaningful human involvement in automated decisions affecting individuals. The statutory standard and the scriptural standard ask the same question.
-1. **Lewis James Burgess named it, certified it, and deployed it.** UK Certification Mark UK00004343685. Ten published papers. Eighteen institutional fronts. Written admissions. A litigation directory. An open-source repository. Built by a deaf barber from Darlington because no institution was applying the pattern to his specific situation — and he needed to make the absence visible, documentable, and legally actionable.
+1. **Lewis James Burgess named it, certified it, and deployed it.** UK Certification Mark UK00004343685. Ten published papers. Eighteen institutional fronts. Written admissions. A litigation directory. An open-source repository. Built by a deaf man from Darlington because no institution was applying the pattern to his specific situation — and he needed to make the absence visible, documentable, and legally actionable.
 
 -----
 

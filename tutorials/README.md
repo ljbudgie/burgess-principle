@@ -161,7 +161,7 @@ Five case studies are currently indexed in this repository. They now use a share
 
 ### CASE_STUDY_WAVE.md — The First Resolved Case
 
-[CASE_STUDY_WAVE.md](../case-studies/CASE_STUDY_WAVE.md) documents the first fully resolved case under the framework. Wave Utilities had issued automated enforcement against a disabled barber. When the SOVEREIGN/NULL question was asked, a single human being — Erica, in Wave's Complex Queries department — individually reviewed the account. The result: automated enforcement stood down, £795.14 in fees removed, and both accounts cleared to zero. The contrast between the automated system (NULL) and Erica's individual review (SOVEREIGN) is the framework in miniature. One human being looked, and everything resolved.
+[CASE_STUDY_WAVE.md](../case-studies/CASE_STUDY_WAVE.md) documents the first fully resolved case under the framework. Wave Utilities had issued automated enforcement against a deaf disabled man. When the SOVEREIGN/NULL question was asked, a single human being — Erica, in Wave's Complex Queries department — individually reviewed the account. The result: automated enforcement stood down, £795.14 in fees removed, and both accounts cleared to zero. The contrast between the automated system (NULL) and Erica's individual review (SOVEREIGN) is the framework in miniature. One human being looked, and everything resolved.
 
 ### CASE_STUDY_PASSPORT.md — An Ongoing Challenge
 

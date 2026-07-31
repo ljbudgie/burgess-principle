@@ -2,7 +2,7 @@
 
 This page is written in plain language. Short sentences. One idea at a time.
 
-The Burgess Principle was built by a deaf barber because nobody was looking at
+The Burgess Principle was built by a deaf man because nobody was looking at
 his specific situation. Access needs are not an afterthought here. They are the
 reason the project exists.
 

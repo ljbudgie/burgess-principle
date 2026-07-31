@@ -123,7 +123,7 @@ A public audit log of institutions assessed against the Burgess Test is maintain
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (27 June 2026): 70 institutions on register — 9 SOVEREIGN (Wave Utilities; DBC / Carolyn Pistellato — written PCN cancellation; LGSCO / Sophie Reckless — named caseworker assigned; EHRC — 41-breach analysis submitted; PCS302 — Paragraph 30 supplementary; IPO — material update; FCA — Consumer Duty cross-firm notification; Traffic Penalty Tribunal — first external judicial validation), 1 Partial Sovereign (TV Licensing), 1 clean negative (Palantir), 2 ambiguous (Hampshire Constabulary / OPCC; Framer B.V.), 61 NULL (49 confirmed, 6 provisional/anticipated, 4 accessibility, 2 partial), pending substantive assessments, 1 removed (RMOK Legal — certification terminated). 73 entries in the live ledger, including TPT DK00003-2605 (first external judicial validation), EHRC 41-breach systemic submission (20 June), and 10 new entries 21 June 2026 (viagogo data integrity failure; British Gas named directors; Equita Council Tax new matter; Companies House LJ Barbers; FCA Consumer Duty cross-firm; IPO material update). The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (31 July 2026): 100 entries in the live ledger — SOVEREIGN 11, NULL 89. Live proceedings active across energy, enforcement, local government, financial services, and equality law. The ledger records compliance as readily as its absence; counts move as cases progress.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 
@@ -133,8 +133,8 @@ Machine-readable versions of the register and ledger are published at the reposi
 
 | File | Description | Raw URL |
 | --- | --- | --- |
-| [`institutional_register.csv`](./institutional_register.csv) | 70 institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
-| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | 73 chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
+| [`institutional_register.csv`](./institutional_register.csv) | Institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
+| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | Chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
 
 Finding values: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**, **REMOVED**. Dates are in YYYY-MM-DD format. Partial-month entries use the first of the month.
 

@@ -431,7 +431,7 @@ The SOVEREIGN findings are always present. They are the counterfactual made visi
 
 ## Conclusion: The Paper and Its Origin
 
-This paper was completed on Saturday, 25 April 2026. It was written by a deaf man from Darlington who retired from barbering to work on this full time.
+This paper was completed on Saturday, 25 April 2026. It was written by a deaf man from Darlington who built this framework because no institution was looking at his specific situation.
 
 I have no memory of the onset of my deafness. I have no recollection of struggling to convey messages — no memory of the transition, the adjustment, the moment the world changed or revealed itself as it had always been. There is no named human being I can point to who individually explained to me what had been decided, what had happened, or what the pathway was that produced the world I woke up into. The clinical and educational systems of my childhood made profound decisions about my sensory experience, my communication method, my developmental trajectory — and they made them without a named individual reviewing the specific facts of my specific situation in a way that has left any record I can access.
 

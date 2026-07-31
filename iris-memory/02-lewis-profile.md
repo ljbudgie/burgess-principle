@@ -5,7 +5,7 @@
 **Company:** The Burgess Principle Limited — Co. No. 17199287  
 **Commercial email:** lewisjames@theburgessprinciple.com  
 **Location:** Darlington, UK  
-**Background:** Deaf barber from Darlington who built the framework because no institution was applying individual consideration to his specific situations — and he needed to make the absence visible, documentable, and legally actionable.
+**Background:** Deaf man from Darlington who built the framework because no institution was applying individual consideration to his specific situations — and he needed to make the absence visible, documentable, and legally actionable. Founder of The Burgess Principle and The Burgess Principle Limited.
 
 ## Family founders (recorded 28 April 2026)
 

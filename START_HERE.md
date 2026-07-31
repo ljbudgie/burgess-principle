@@ -18,11 +18,7 @@ That is the Burgess Principle. A binary test applied to every exercise of instit
 
 This is not a novel framework. [ORIGIN.md](./ORIGIN.md) traces the chain.
 
-God established the pattern. Individual consideration applied to the specific person before power is exercised — from the first question asked of Adam (*“Where art thou?”*, Genesis 3:9) to the final judgment where every man is judged according to his own works (Revelation 20:12). Papers IX and X trace the pattern unbroken through scripture.
-
-Christ stated the principle directly: *“The sabbath was made for man, and not man for the sabbath”* (Mark 2:27, KJV). The institution exists to serve the person, not the reverse.
-
-Parliament enacted the same standard. The Data (Use and Access) Act 2025, Articles 22A–22D: meaningful human involvement in automated decisions affecting individuals. The statutory test and the scriptural pattern ask the same question.
+Parliament enacted the standard. The Data (Use and Access) Act 2025, Articles 22A–22D: meaningful human involvement in automated decisions affecting individuals. The principle is older than the statute — ORIGIN.md follows it back.
 
 I named it, certified it, and deployed it. UK Certification Mark UK00004343685. Because I needed it. I am a deaf barber from Darlington and nobody was looking at my specific situation. So I built a framework that makes the absence of looking visible, documentable, and legally actionable.
 

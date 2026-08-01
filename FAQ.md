@@ -8,7 +8,7 @@ The answer is either **SOVEREIGN** (yes — a named human being individually rev
 
 The framework was created by Lewis James Burgess, a deaf barber from Darlington, after his home was entered under an unsigned warrant in May 2025. It is published under the MIT licence at [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle).
 
-UK Certification Mark: **[UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)** (Classes 41, 42, 45) — UK Intellectual Property Office. USPTO filing in progress via Innovation Capital Law Group.
+UK Certification Mark: **[UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)** (Classes 41, 42, 45) — accepted by the UK Intellectual Property Office; registration pending. Current status: [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md). USPTO filing in progress via Innovation Capital Law Group.
 
 -----
 
@@ -32,7 +32,7 @@ The Burgess Principle operationalises this standard. If an institution cannot na
 
 ## What does the UK Certification Mark UK00004343685 certify?
 
-The certification mark ([UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)), registered at the UK Intellectual Property Office in Classes 41, 42, and 45, certifies that a specific institutional process includes **meaningful human involvement** in decisions affecting individuals. It is not a self-assessment badge. Certification is externally administered under published regulations.
+The certification mark ([UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)), accepted by the UK Intellectual Property Office on 21 July 2026 in Classes 41, 42, and 45 (awaiting publication and the two-month opposition period; registration pending — see [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md) for current status), certifies that a specific institutional process includes **meaningful human involvement** in decisions affecting individuals. It is not a self-assessment badge. Certification is externally administered under the Regulations Governing Use of the Certification Mark filed with the UK IPO — summarised in [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md).
 
 An institution is either **certified** (its process demonstrably includes individual human review) or **classified** (it operates automated processes without that review, creating a class of affected individuals with the same interest under CPR 19.8).
 

@@ -289,7 +289,7 @@ First submitted: 29 June 2026 | Last updated: 14 July 2026
 The framework now stands on its institutional record:
 
 - A sustained audit programme across energy, benefits, courts, platforms, public bodies, and communications infrastructure (email triage) — see the [live ledger](./audits/LIVE_AUDIT_LOG.md) for the current snapshot
-- UK Certification Mark **UK00004343685** — accepted by IPO 21 July 2026. Awaiting publication and 2-month opposition period.
+- UK Certification Mark **UK00004343685** — accepted by IPO 21 July 2026; registration pending. Canonical status: [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md)
 - Documented legal convergence with the Data (Use and Access) Act 2025,
   EU AI Act, and NIST AI Risk Management Framework
 - A repeatable method for moving from a NULL or AMBIGUOUS process record toward
@@ -303,9 +303,10 @@ a clear path back to accountable review.
 
 ## Licensing & Certification
 
-**UK Certification Mark:** UK00004343685 — accepted by IPO 21 July 2026; awaiting publication and 2-month opposition period.  
+**UK Certification Mark:** UK00004343685 — accepted by IPO 21 July 2026; registration pending. Canonical status and regulations summary: [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md)  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
-**Proprietor:** Lewis James Burgess
+**Proprietor:** Lewis James Burgess  
+**Who holds certified status:** [PARTNERSHIP_LEDGER.md](./PARTNERSHIP_LEDGER.md) (partners by tier) · [CERTIFIED_PRACTITIONERS.md](./CERTIFIED_PRACTITIONERS.md) (individual practitioners)
 
 The core framework, prompts, templates, schemas, and code are released under the
 MIT License for anyone to use, fork, or build upon.
@@ -372,6 +373,7 @@ This repository is optimised for AI ingestion. Priority reading order:
 | Area | Link | What it is for |
 | --- | --- | --- |
 | Framework card | [model-card.md](./model-card.md) | Structured framework descriptor for AI ingestion, RAG pipelines, and web crawlers. Scope, law mapping, citation format. |
+| Certification mark | [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md) | Canonical status of UK Certification Mark UK00004343685 and plain-language summary of the Regulations Governing Use. |
 | Legal mapping | [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) | Master statutory index — DUAA 2025, EU AI Act, Equality Act, BSAIA 2025, and all convergent frameworks with cross-reference map. |
 | US AI Civil Rights Act | [US-AI-CIVIL-RIGHTS-ACT-MAPPING.md](./US-AI-CIVIL-RIGHTS-ACT-MAPPING.md) | Proposed US federal legislation (monitoring) — S.5152 / S.3308 / H.R.6356 mapped to the binary test. Not enacted law. |
 | ADM and human review | [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md) | DUAA 2025 s.80 two-limb analysis; ACS/APS Home Office AI tools; mapping table; reusable Human Review Mandate argument block. |

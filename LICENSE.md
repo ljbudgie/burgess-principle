@@ -211,7 +211,9 @@ exercised.
 These terms sit alongside the Regulations Governing Use of the Certification
 Mark filed with the UK Intellectual Property Office under application number
 **UK00004343685**. If those Regulations impose a stricter requirement for use of
-the mark, the Regulations control mark use.
+the mark, the Regulations control mark use. A plain-language summary of the
+Regulations and the mark's current status is maintained in
+[CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md).
 
 Nothing in this document is legal advice. It is the repository's governance
 position for open reuse, attribution, certification, and mark control.

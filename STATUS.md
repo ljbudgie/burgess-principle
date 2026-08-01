@@ -67,7 +67,8 @@ Last updated: 2 July 2026
 ---
 
 ## Certification Mark
-UK00004343685 — ex parte hearing 13 May 2026 — Hearing Officer Darren Smith — decision pending
+UK00004343685 — **accepted by the UK IPO 21 July 2026**; awaiting publication and the two-month opposition period; registration pending.
+Canonical status record: [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md)
 TM21A filed to update contact email
 IPO escalation: TribunalHearings@ipo.gov.uk
 
@@ -182,7 +183,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 
 | Item | Detail | Status |
 | --- | --- | --- |
-| **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | In examination at the UK IPO; Examiner: **Lisa Skeggs** |
+| **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | Accepted by the UK IPO 21 July 2026; registration pending — see [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md) |
 | USPTO filing | Filed via US-licensed attorney | In progress |
 | The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Commercial operator under formal IP Licence Agreement; IP ownership remains personally with **Lewis James Burgess**, Director and PSC |
 

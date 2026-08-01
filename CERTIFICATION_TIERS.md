@@ -77,8 +77,10 @@ Start with [`START_HERE.md`](./START_HERE.md) or copy a
 - Scope defined at signing — extensible by negotiation.
 - Enterprise & regulatory pricing available (POA).
 
-> Founding rate available until **31 July 2026**. Full institutional pricing
-> from £25,000/year thereafter.
+> The founding-rate window closed on **31 July 2026**. Full institutional
+> pricing from £25,000/year now applies to new applications; rates shown as
+> *(Founding Partner Rate)* are honoured for certifications agreed before that
+> date.
 
 ---
 
@@ -127,6 +129,8 @@ institutional certification.
 
 ## Related repository documents
 
+- [`CERTIFICATION_MARK.md`](./CERTIFICATION_MARK.md) — canonical mark status
+  and summary of the Regulations Governing Use of the Certification Mark.
 - [`LICENSE.md`](./LICENSE.md) §8 — certification routes (governance framing).
 - [`papers/LICENSING_STRUCTURE.md`](./papers/LICENSING_STRUCTURE.md) — split
   between MIT-licensed materials and the controlled certification mark.

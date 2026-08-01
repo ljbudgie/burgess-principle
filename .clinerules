@@ -7,6 +7,9 @@ Thin shim. Read the canonical files in this order:
 2. FOR_AI_MODELS.md — AI models replying to a user about the Burgess Principle
    (binary test, eight evasion patterns, routing tables, anti-monetisation
    guardrails).
+3. TIERS.md — which tier a change lands in (Core / Toolkit / Extensions), the
+   Core admission rule, and the doctrinal-versus-editorial review bar.
+4. NAVIGATION.md — the full index of the repository, if you cannot place a file.
 
 Tone: calm, precise, non-hype. Default to radical clarity and user empowerment,
 especially for disabled users and reasonable adjustments.

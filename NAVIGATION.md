@@ -12,23 +12,31 @@ need it.
 - **Wondering what is Core versus optional?** [TIERS.md](./TIERS.md).
 - **Looking for a sibling repository or hosted service?** [ECOSYSTEM.md](./ECOSYSTEM.md).
 
+> **Companion documents:** this file routes readers to the right entry point.
+> [TIERS.md](./TIERS.md) maps the tiers *inside* this repository.
+> [ECOSYSTEM.md](./ECOSYSTEM.md) maps the *sibling repositories* around it.
+
 ---
 
-## The seven entry points
+## Entry points
 
 ### 1. Something has already happened to me and I need to act
 
 You do not need to read anything else first. You need to ask the question in
 writing.
 
-1. [START_HERE.md](./START_HERE.md) — the test in one screen.
-2. [GETTING_STARTED.md](./GETTING_STARTED.md) — copy-paste letters.
-3. [templates/COMMON_SCENARIOS.md](./templates/COMMON_SCENARIOS.md) — routes you
-   to the right letter for your situation.
+**Start at [GETTING_STARTED.md](./GETTING_STARTED.md)** — copy-paste letters,
+and the next step after you send one.
 
-Debt or enforcement letters:
-[START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md).
-Want an assistant that already knows the framework: [Iris](./iris.html).
+If that is not quite your situation:
+
+- [START_HERE.md](./START_HERE.md) — the test in one screen, if you want the
+  shape of it first.
+- [templates/COMMON_SCENARIOS.md](./templates/COMMON_SCENARIOS.md) — routes you
+  to the right letter.
+- [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) — debt and
+  enforcement letters.
+- [Iris](./iris.html) — an assistant that already knows the framework.
 
 ### 2. I have an access need
 
@@ -118,7 +126,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [CERTIFICATION_TIERS.md](./CERTIFICATION_TIERS.md) | What each certification tier requires. |
 | [CERTIFIED_PRACTITIONERS.md](./CERTIFIED_PRACTITIONERS.md) | Register of certified practitioners. |
 | [CHANGELOG.md](./CHANGELOG.md) | What changed, by framework version. |
-| [CHOOSE_YOUR_PATH.md](./CHOOSE_YOUR_PATH.md) | Guided routing for people in a live situation. |
+| [CHOOSE_YOUR_PATH.md](./CHOOSE_YOUR_PATH.md) | Iris quickstart — send a letter, set up Sovereign Mode, or export evidence. |
 | [CLAUDE.md](./CLAUDE.md) | Shim pointing Claude at `AGENTS.md` / `FOR_AI_MODELS.md`. |
 | [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | Conduct standard for participation. |
 | [CONNECTIVITY_MODE.md](./CONNECTIVITY_MODE.md) | Sovereign connectivity choices. |
@@ -148,6 +156,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [LICENSE.md](./LICENSE.md) | MIT licence and certification mark governance. |
 | [LINEAGE.md](./LINEAGE.md) | Historical root of the principle. |
 | [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) | **Legacy snapshot.** Current log is [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md). |
+| [NAVIGATION.md](./NAVIGATION.md) | This file — the index by reader type. |
 | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) | One page for a professional audience. |
 | [OPENHEAR_LICENSING_FRAMEWORK.md](./OPENHEAR_LICENSING_FRAMEWORK.md) | Licensing for the OpenHear hearing-device work. |
 | [ORIGIN.md](./ORIGIN.md) | Where the principle comes from. |
@@ -155,7 +164,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [README.md](./README.md) | Project overview. |
 | [RELEASE_NOTES.md](./RELEASE_NOTES.md) | Notes for a specific release. |
 | [SECURITY.md](./SECURITY.md) | How to report a vulnerability. |
-| [SOUL.md](./SOUL.md) | Living case tracker. Overlaps [STATUS.md](./STATUS.md) — see housekeeping note below. |
+| [SOUL.md](./SOUL.md) | Living case tracker. Overlaps [STATUS.md](./STATUS.md) — tracked as an open decision in [STATUS.md](./STATUS.md#documentation-structure--open-decisions). |
 | [SOVEREIGN_MODE.md](./SOVEREIGN_MODE.md) | Running Iris entirely on your own hardware. |
 | [START_HERE.md](./START_HERE.md) | The shortest way in. |
 | [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) | First steps for debt and enforcement letters. |
@@ -210,20 +219,14 @@ Everything else in the repository, grouped. Nothing here is required reading.
 
 ## Housekeeping notes
 
-Building this index surfaced a small number of overlaps. They are recorded here
-rather than acted on, because each needs an owner decision:
-
-- **[SOUL.md](./SOUL.md)** carries the heading "STATUS — Burgess Principle
-  (Living Tracker)" and duplicates the purpose of [STATUS.md](./STATUS.md), with
-  an older last-updated date. One of the two should become canonical.
-- **[LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md)** already declares itself a legacy
-  snapshot pointing at [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md).
-  That is the pattern later reorganisation should follow: leave a short pointer
-  at the old path rather than deleting it.
-- **[AGENT.md](./AGENT.md)** (advisory-agent prompt) and
-  [AGENTS.md](./AGENTS.md) (repository agent rules) differ by one character and
-  are routinely confused. A rename would help; it is deferred because external
-  references exist.
+Building this index surfaced a small number of overlaps — `SOUL.md` against
+[STATUS.md](./STATUS.md), `AGENT.md` against `AGENTS.md`, and several competing
+routing surfaces. Each needs an owner decision, so they are tracked as open
+items in [STATUS.md](./STATUS.md#documentation-structure--open-decisions) rather
+than buried here. [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) is the working
+example of the pattern any move should follow: leave a short pointer at the old
+path rather than deleting it. The pattern is written down in
+[CONTRIBUTING.md](./CONTRIBUTING.md#moving-or-renaming-a-file-the-pointer-pattern).
 
 ---
 

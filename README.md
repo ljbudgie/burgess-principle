@@ -89,10 +89,10 @@ In practice: a debt demand, a warrant, an enforcement instruction, or a credit e
 | **A solicitor, barrister, or policy professional evaluating the framework** | [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) → [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) → [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md) |
 | **A journalist, researcher, or academic** | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) → [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md) → [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md) |
 | **An institution or compliance officer** | [CERTIFICATION_TIERS.md](./CERTIFICATION_TIERS.md) → [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) → [certify.theburgessprinciple.com](https://certify.theburgessprinciple.com) |
-| **A developer or AI builder** | [FOR_AI_MODELS.md](./FOR_AI_MODELS.md) → [model-card.md](./model-card.md) → [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) |
+| **A developer or AI builder** | [verifiable_oversight/](./verifiable_oversight/) → [verify_scrutiny.py](./verify_scrutiny.py) → [INTEGRATION_CONTRACT.md](./INTEGRATION_CONTRACT.md) (building an AI *product*? [FOR_AI_MODELS.md](./FOR_AI_MODELS.md) and [model-card.md](./model-card.md)) |
 
 **Not sure which row is yours?** [NAVIGATION.md](./NAVIGATION.md) is the full
-index — seven entry points by reader type, plus a map of every file in the
+index — entry points by reader type, plus a map of every file in the
 repository. **Want to know what is essential and what is optional?**
 [TIERS.md](./TIERS.md) separates Core from Toolkit and Extensions.
 

@@ -81,7 +81,7 @@ Every PR description must include a filled-in version of this block:
 
 - **What changes:** <one sentence>
 - **Effect on meaningful human involvement:** <strengthens / neutral — explain how>
-- **Doctrinal sections touched:** <none / list — binary-test wording, the seven
+- **Doctrinal sections touched:** <none / list — binary-test wording, the eight
   evasion patterns, anti-monetisation guardrails — these require @ljbudgie review>
 - **Risk and mitigation:** <licensing, overclaim, or scope risk — and how it is mitigated>
 - **Burgess test applied to this change:** <SOVEREIGN / NULL / AMBIGUOUS — was a

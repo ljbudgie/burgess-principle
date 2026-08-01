@@ -80,6 +80,8 @@ Clone or download the repo → drop it into Grok, Claude, ChatGPT, or any AI ass
 - [templates/ROUTING.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/ROUTING.md): Flat, machine-readable routing tables for templates, litigation, and sectors
 - [iris/prompts/](https://github.com/ljbudgie/burgess-principle/tree/main/iris/prompts): Drop-in system prompts at three lengths (~200 tokens, ~800 tokens, full briefing) for ChatGPT / Claude / Grok / Gemini
 - [SOUL.md](https://github.com/ljbudgie/burgess-principle/blob/main/SOUL.md): The philosophy and origin story behind the framework
+- [NAVIGATION.md](https://github.com/ljbudgie/burgess-principle/blob/main/NAVIGATION.md): Full index of the repository by reader type — the map to everything else
+- [TIERS.md](https://github.com/ljbudgie/burgess-principle/blob/main/TIERS.md): What is Core, what is Toolkit, what is an Extension — take Core alone if that is all you need
 
 ## Routing — which file should I read?
 
@@ -90,6 +92,8 @@ Clone or download the repo → drop it into Grok, Claude, ChatGPT, or any AI ass
 | An **AI agent** about to edit files or open a PR in this repo               | [AGENTS.md](https://github.com/ljbudgie/burgess-principle/blob/main/AGENTS.md)                               |
 | An **AI assistant** that needs the routing tables at inference time         | [templates/ROUTING.md](https://github.com/ljbudgie/burgess-principle/blob/main/templates/ROUTING.md)         |
 | A **user** pasting the repo into ChatGPT / Claude / Grok                    | [iris/prompts/](https://github.com/ljbudgie/burgess-principle/tree/main/iris/prompts) — pick a length        |
+| Anyone who **cannot place a file** or wants the full index                  | [NAVIGATION.md](https://github.com/ljbudgie/burgess-principle/blob/main/NAVIGATION.md)                       |
+| Anyone asking **what is essential and what is optional**                    | [TIERS.md](https://github.com/ljbudgie/burgess-principle/blob/main/TIERS.md)                                 |
 
 ## Templates
 

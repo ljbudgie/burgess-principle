@@ -30,10 +30,40 @@ Before you open a PR, check [TIERS.md](./TIERS.md). The repository is split into
 **Core** (the binary test, its legal basis, the letters, the evidence record),
 **Toolkit** (implementations and tools), and **Extensions** (work built on top).
 
-Core changes require explicit review by @ljbudgie, and the admission rule
-applies: *nothing enters Core unless it strengthens the binary test itself or
-the path an affected person walks from a decision to accountable human review.*
-Toolkit and Extension changes follow ordinary lazy consensus.
+Core changes carry two bars. **Doctrinal** changes — the binary-test wording,
+the three outcomes, the evasion patterns, the anti-monetisation guardrails, any
+statement of legal effect — require explicit review by @ljbudgie. **Editorial**
+changes to Core files — typos, broken links, clearer phrasing, formatting —
+follow ordinary lazy consensus, the same as Toolkit and Extensions. The
+admission rule applies to anything proposed *for* Core: *nothing enters Core
+unless it strengthens the binary test itself or the path an affected person
+walks from a decision to accountable human review.*
+
+Anything not listed in a tier in [TIERS.md](./TIERS.md) is Toolkit by default.
+
+### Moving or Renaming a File: the Pointer Pattern
+
+Documents in this repository are linked from letters people have already sent,
+from search results, and from other repositories. A moved file is a dead end for
+someone who needed it. When a file has to move or be renamed, leave a pointer at
+the old path rather than deleting it:
+
+```markdown
+# OLD_NAME.md — moved
+
+This document now lives at [new/path/NEW_NAME.md](./new/path/NEW_NAME.md).
+
+Moved <date> so that <one-sentence reason>. The old path is kept because
+external references to it exist.
+```
+
+Five lines, nothing more. No duplicated content — a pointer that carries a copy
+of the document will drift from the original. [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md)
+is the working example.
+
+Run `python3 scripts/check_links.py` before opening the PR; it reports every
+stale reference in the repository, so the blast radius of a move is visible
+before it is merged.
 
 ### What We Do Not Merge
 
@@ -92,7 +122,12 @@ is durable accountability work without burning out the people protecting it.
    relative link in tracked markdown and never touches the network. CI runs it
    on every push and pull request. If you have edited an AI-facing document,
    also run `python3 scripts/lint_ai_docs.py`.
-7. Open a Pull Request with a clear description of what you changed and why. The PR template will guide you through the required checklist.
+7. **If you added a document at the repository root**, run
+   `python3 scripts/check_doc_coverage.py`. It fails if the document is not
+   placed in a tier in [TIERS.md](./TIERS.md) or indexed in
+   [NAVIGATION.md](./NAVIGATION.md), so neither map can silently go stale. CI
+   runs it too.
+8. Open a Pull Request with a clear description of what you changed and why. The PR template will guide you through the required checklist.
 
 We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
 

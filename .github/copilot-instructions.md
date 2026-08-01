@@ -5,6 +5,11 @@ Thin shim. Read the canonical files first:
 1. [`AGENTS.md`](../AGENTS.md) — for edits, PRs, plans, compliance notes.
 2. [`FOR_AI_MODELS.md`](../FOR_AI_MODELS.md) — for user-facing doctrine,
    the binary test, evasion patterns, routing, and anti-monetisation guardrails.
+3. [`TIERS.md`](../TIERS.md) — which tier a change lands in (Core / Toolkit /
+   Extensions), the Core admission rule, and the doctrinal-versus-editorial
+   review bar.
+4. [`NAVIGATION.md`](../NAVIGATION.md) — the full index of the repository, if
+   you cannot place a file.
 
 For code that makes or influences a decision affecting an identified individual:
 

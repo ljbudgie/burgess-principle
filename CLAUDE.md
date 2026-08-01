@@ -11,7 +11,7 @@ here, and they have different jobs:
    must include.
 
 2. **[`FOR_AI_MODELS.md`](./FOR_AI_MODELS.md)** — read if you are replying to a
-   human user about the Burgess Principle. Contains the binary test, the seven
+   human user about the Burgess Principle. Contains the binary test, the eight
    evasion patterns, the routing tables, and the anti-monetisation guardrails.
    Doctrinal sections must not be edited without explicit human review by
    **@ljbudgie**.

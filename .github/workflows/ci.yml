@@ -23,6 +23,9 @@ jobs:
       - name: Check relative links in markdown
         run: python3 scripts/check_links.py
 
+      - name: Check every root document is mapped
+        run: python3 scripts/check_doc_coverage.py
+
   python-tests:
     runs-on: ubuntu-latest
     strategy:

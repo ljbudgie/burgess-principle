@@ -8,6 +8,13 @@ The Burgess Principle is the **core standard**. The surrounding repositories imp
 
 ---
 
+> **Companion documents:** this file maps the *sibling repositories* and hosted
+> services around this one. [NAVIGATION.md](./NAVIGATION.md) routes readers to
+> the right entry point inside the repository. [TIERS.md](./TIERS.md) maps the
+> tiers within it.
+
+---
+
 ## 1. Ecosystem map
 
 ```

@@ -95,6 +95,25 @@ Litigation counsel: Under assessment
 
 ---
 
+## Documentation structure — open decisions
+
+Recorded 1 August 2026, when [NAVIGATION.md](./NAVIGATION.md) and
+[TIERS.md](./TIERS.md) were added. Each item needs an owner decision before any
+file moves. Nothing below has been acted on.
+
+| Item | Decision needed | Status |
+| --- | --- | --- |
+| `SOUL.md` vs `STATUS.md` | Both carry the heading "STATUS — Burgess Principle (Living Tracker)" and the same purpose; `SOUL.md` has the older last-updated date. One should become canonical and the other a pointer. | Open |
+| `AGENT.md` vs `AGENTS.md` | Advisory-agent prompt and repository-agent rules differ by one character and are routinely confused. A rename would help. | Deferred — external references exist |
+| Routing surfaces | `README.md`, `START_HERE.md`, `NAVIGATION.md`, `CHOOSE_YOUR_PATH.md`, `templates/ROUTING.md`, and `llms.txt` all route readers. `NAVIGATION.md` is canonical for humans and `templates/ROUTING.md` for machines; the others should shrink to pointers over time. | Open |
+| Narrative files | `ORIGIN.md`, `FOUNDING.md`, `LINEAGE.md`, `TIMELINE.md`, `WORLD_FIRST.md`, `FIRST_SIGNAL.md` are all Extensions and rarely deep-linked — the safest first batch if root-level files are ever moved to `docs/history/`. | Open |
+
+The pointer pattern for any move is set out in
+[CONTRIBUTING.md](./CONTRIBUTING.md#moving-or-renaming-a-file-the-pointer-pattern).
+`LIVE_AUDIT_LOG.md` is the working example.
+
+---
+
 ## Historical tracker through 9 May 2026
 
 The previous living tracker is preserved below for continuity and audit history.

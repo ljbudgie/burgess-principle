@@ -103,10 +103,13 @@ When given a new task, read in this order:
 
 1. This file.
 2. [`FOR_AI_MODELS.md`](./FOR_AI_MODELS.md) — the doctrine you must not weaken.
-3. [`README.md`](./README.md) and [`START_HERE.md`](./START_HERE.md) — the public surface.
-4. [`STATUS.md`](./STATUS.md) — what is live right now.
-5. [`docs/AGENT_90_DAY_PLAN.md`](./docs/AGENT_90_DAY_PLAN.md) — priority order for new work.
-6. [`CONTRIBUTING.md`](./CONTRIBUTING.md) and
+3. [`TIERS.md`](./TIERS.md) — which tier your change lands in, and the Core
+   admission rule. Check this before proposing anything new.
+4. [`README.md`](./README.md) and [`START_HERE.md`](./START_HERE.md) — the public surface.
+5. [`NAVIGATION.md`](./NAVIGATION.md) — the full index if you need a file you cannot place.
+6. [`STATUS.md`](./STATUS.md) — what is live right now.
+7. [`docs/AGENT_90_DAY_PLAN.md`](./docs/AGENT_90_DAY_PLAN.md) — priority order for new work.
+8. [`CONTRIBUTING.md`](./CONTRIBUTING.md) and
    [`CONTRIBUTING_AI_DOCS.md`](./CONTRIBUTING_AI_DOCS.md) — how to submit changes.
 
 ## Success metric for 10/10

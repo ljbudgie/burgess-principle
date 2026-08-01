@@ -24,6 +24,17 @@ Experimental changes or large new features should happen in your own fork first.
 - New country-specific legal equivalent tables or adaptations
 - Shareable graphics or outreach resources that stay in the same respectful tone (add to the `/memes` folder)
 
+### Which Tier Are You Changing?
+
+Before you open a PR, check [TIERS.md](./TIERS.md). The repository is split into
+**Core** (the binary test, its legal basis, the letters, the evidence record),
+**Toolkit** (implementations and tools), and **Extensions** (work built on top).
+
+Core changes require explicit review by @ljbudgie, and the admission rule
+applies: *nothing enters Core unless it strengthens the binary test itself or
+the path an affected person walks from a decision to accountable human review.*
+Toolkit and Extension changes follow ordinary lazy consensus.
+
 ### What We Do Not Merge
 
 - Changes that weaken, complicate, or alter the core binary question
@@ -76,7 +87,12 @@ is durable accountability work without burning out the people protecting it.
 3. Ensure your changes follow the tone and guidelines above.
 4. **Keep your PR focused.** One concern per PR. Do not bundle unrelated features, demos, or prototypes — even if they're interesting. A focused PR is easier to review, less likely to introduce security issues, and more likely to be merged.
 5. **Review your code for security issues** before submitting. Check for XSS, injection, hardcoded secrets, and input-manipulation risks.
-6. Open a Pull Request with a clear description of what you changed and why. The PR template will guide you through the required checklist.
+6. **If you moved or renamed a document, or added links**, run
+   `python3 scripts/check_links.py` from the repo root. It resolves every
+   relative link in tracked markdown and never touches the network. CI runs it
+   on every push and pull request. If you have edited an AI-facing document,
+   also run `python3 scripts/lint_ai_docs.py`.
+7. Open a Pull Request with a clear description of what you changed and why. The PR template will guide you through the required checklist.
 
 We will review PRs with the help of AI tools where useful, but the final decision rests with the maintainer to protect the integrity of the project.
 

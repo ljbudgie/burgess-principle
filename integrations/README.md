@@ -272,10 +272,10 @@ output, classification = burgess_chain.run_with_burgess(
 
 ## Related
 
-- Live case studies: [Wave Utilities (resolved)](../../case-studies/CASE_STUDY_WAVE.md), [FastLogic lending (resolved)](../../case-studies/CASE_STUDY_FINANCIAL_LENDING.md)
+- Live case studies: [Wave Utilities (resolved)](../case-studies/CASE_STUDY_WAVE.md), [FastLogic lending (resolved)](../case-studies/CASE_STUDY_FINANCIAL_LENDING.md)
 - Documentation: [Integration guide](./LANGCHAIN_BURGESS_OVERLAY.md)
-- Institutional adoption tracker: [PUBLIC_LEADERBOARD.md](../../adoption/PUBLIC_LEADERBOARD.md)
-- Regulatory mapping: [NIST_AI_RMF_MAPPING.md](../../papers/NIST_AI_RMF_MAPPING.md)
+- Institutional adoption tracker: [PUBLIC_LEADERBOARD.md](../adoption/PUBLIC_LEADERBOARD.md)
+- Regulatory mapping: [NIST_AI_RMF_MAPPING.md](../papers/NIST_AI_RMF_MAPPING.md)
 ```
 
 ---
@@ -352,12 +352,12 @@ By end of Phase 3 (90 days):
 
 | Resource | Link |
 |---|---|
-| **Burgess overview** | [../../README.md](../../README.md) |
-| **GETTING_STARTED (for end users)** | [../../GETTING_STARTED.md](../../GETTING_STARTED.md) |
-| **Regulatory mapping** | [../../papers/NIST_AI_RMF_MAPPING.md](../../papers/NIST_AI_RMF_MAPPING.md) |
-| **Adoption readiness** | [../../adoption/BURGESS_READY_CHECKLIST.md](../../adoption/BURGESS_READY_CHECKLIST.md) |
-| **Case studies** | [../../case-studies/](../../case-studies/) |
-| **Institutional tracker** | [../../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md](../../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md) |
+| **Burgess overview** | [../README.md](../README.md) |
+| **GETTING_STARTED (for end users)** | [../GETTING_STARTED.md](../GETTING_STARTED.md) |
+| **Regulatory mapping** | [../papers/NIST_AI_RMF_MAPPING.md](../papers/NIST_AI_RMF_MAPPING.md) |
+| **Adoption readiness** | [../adoption/BURGESS_READY_CHECKLIST.md](../adoption/BURGESS_READY_CHECKLIST.md) |
+| **Case studies** | [../case-studies/](../case-studies/) |
+| **Institutional tracker** | [../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md](../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md) |
 
 ---
 

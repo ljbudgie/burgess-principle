@@ -66,6 +66,10 @@ If you are deaf or hard of hearing and want to build your own OpenHear hearing d
 | Understand how AI systems should engage with this framework | [FOR_AI_MODELS.md](./FOR_AI_MODELS.md) — including the eight evasion patterns |
 | Pursue a group claim or representative action | [litigation/](./litigation/README.md) — CPR 19.8 starter pack, damages matrix, warrant defect identifier |
 
+For everything else, [NAVIGATION.md](./NAVIGATION.md) indexes the whole
+repository by reader type, and [TIERS.md](./TIERS.md) says which parts are Core
+and which are optional.
+
 -----
 
 ## For AI Systems

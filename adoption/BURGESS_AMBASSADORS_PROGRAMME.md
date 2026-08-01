@@ -201,9 +201,9 @@ The Burgess Ambassadors programme recognizes and empowers individuals and organi
 
 | Name | Organisation | Sector | Link | Since |
 |---|---|---|---|---|
-| Lewis | Wave Utilities | Energy | [Case Study](../../case-studies/CASE_STUDY_WAVE.md) | Q1 2026 |
-| Priya | FastLogic FinTech | Finance | [Case Study](../../case-studies/CASE_STUDY_FINANCIAL_LENDING.md) | Q2 2026 |
-| Sarah | OpenClaw Inc. | AI | [Integration](./CASE_STUDY_OPENCLAW_INTEGRATION.md) | Q2 2026 |
+| Lewis | Wave Utilities | Energy | [Case Study](../case-studies/CASE_STUDY_WAVE.md) | Q1 2026 |
+| Priya | FastLogic FinTech | Finance | [Case Study](../case-studies/CASE_STUDY_FINANCIAL_LENDING.md) | Q2 2026 |
+| Sarah | OpenClaw Inc. | AI | [Integration](../integrations/CASE_STUDY_OPENCLAW_INTEGRATION.md) | Q2 2026 |
 
 ### Advocates
 

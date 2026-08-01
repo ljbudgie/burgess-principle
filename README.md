@@ -91,6 +91,11 @@ In practice: a debt demand, a warrant, an enforcement instruction, or a credit e
 | **An institution or compliance officer** | [CERTIFICATION_TIERS.md](./CERTIFICATION_TIERS.md) → [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) → [certify.theburgessprinciple.com](https://certify.theburgessprinciple.com) |
 | **A developer or AI builder** | [FOR_AI_MODELS.md](./FOR_AI_MODELS.md) → [model-card.md](./model-card.md) → [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) |
 
+**Not sure which row is yours?** [NAVIGATION.md](./NAVIGATION.md) is the full
+index — seven entry points by reader type, plus a map of every file in the
+repository. **Want to know what is essential and what is optional?**
+[TIERS.md](./TIERS.md) separates Core from Toolkit and Extensions.
+
 ## What Good Evidence Looks Like
 
 For a response to count as **SOVEREIGN**, you need all of the following:

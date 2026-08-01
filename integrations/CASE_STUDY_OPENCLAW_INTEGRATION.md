@@ -397,8 +397,8 @@ Nine frameworks remain: LangChain, LlamaIndex, AutoGen, CrewAI, Hermes, Transfor
 |---|---|
 | **OpenClaw PR #68692** | [github.com/OpenClaw/openclaw](https://github.com/OpenClaw/openclaw) |
 | **Burgess Principle** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
-| **Case Study: Wave Energy** | [../../case-studies/CASE_STUDY_WAVE.md](../../case-studies/CASE_STUDY_WAVE.md) |
-| **Adoption Tracker** | [../../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md](../../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md) |
+| **Case Study: Wave Energy** | [../case-studies/CASE_STUDY_WAVE.md](../case-studies/CASE_STUDY_WAVE.md) |
+| **Adoption Tracker** | [../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md](../adoption/INSTITUTIONAL_ADOPTION_TRACKER.md) |
 | **LangChain Integration** | [./LANGCHAIN_BURGESS_OVERLAY.md](./LANGCHAIN_BURGESS_OVERLAY.md) |
 
 ---

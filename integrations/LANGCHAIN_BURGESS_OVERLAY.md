@@ -598,11 +598,11 @@ output, classification = burgess_chain.run_with_burgess(
 
 | Resource | Link |
 |---|---|
-| **Burgess Principle overview** | [../../README.md](../../README.md) |
-| **For end users** | [../../GETTING_STARTED.md](../../GETTING_STARTED.md) |
-| **Adoption readiness** | [../../adoption/BURGESS_READY_CHECKLIST.md](../../adoption/BURGESS_READY_CHECKLIST.md) |
-| **NIST alignment** | [../../papers/NIST_AI_RMF_MAPPING.md](../../papers/NIST_AI_RMF_MAPPING.md) |
-| **Case studies** | [../../case-studies/](../../case-studies/) |
+| **Burgess Principle overview** | [../README.md](../README.md) |
+| **For end users** | [../GETTING_STARTED.md](../GETTING_STARTED.md) |
+| **Adoption readiness** | [../adoption/BURGESS_READY_CHECKLIST.md](../adoption/BURGESS_READY_CHECKLIST.md) |
+| **NIST alignment** | [../papers/NIST_AI_RMF_MAPPING.md](../papers/NIST_AI_RMF_MAPPING.md) |
+| **Case studies** | [../case-studies/](../case-studies/) |
 | **LangChain docs** | https://python.langchain.com/ |
 
 ---

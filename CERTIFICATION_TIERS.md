@@ -53,8 +53,9 @@ Start with [`START_HERE.md`](./START_HERE.md) or copy a
 | Tier | Name | For | Rate | Apply |
 | ---: | --- | --- | --- | --- |
 | **Tier 03** | Practitioner | Sole traders, advisers & community practitioners | **£500/year + VAT** | [GoCardless](https://pay.gocardless.com/BRT01KR6A669J2J3Q76TYAP45M5K9) |
-| **Tier 02** | Technology & Advocacy | AI platforms, law firms & claims groups | **£2,000/year + VAT** *(Founding Partner Rate)* | [GoCardless](https://pay.gocardless.com/BRT01KR6AB2FS03DDSMMYN75SQ8D8) |
-| **Tier 01** | Institutional | Companies, public bodies & platforms | **from £25,000/year + VAT** *(Founding Partner Rate)* | [GoCardless](https://pay.gocardless.com/BRT01KR6ACSP565CC8WPFGM24PRTY) |
+| **Tier 02** | Technology & Advocacy | AI platforms, law firms & claims groups | **£3,000/year + VAT** (£1,500/year renewal) | [GoCardless](https://pay.gocardless.com/BRT01KR6AB2FS03DDSMMYN75SQ8D8) |
+| **Tier 01** | Institutional | Companies, public bodies & platforms | **from £7,500/year + VAT** (£7,500–£15,000/year + VAT) | [GoCardless](https://pay.gocardless.com/BRT01KR6ACSP565CC8WPFGM24PRTY) |
+| **Public Sector** | Public Sector, NHS, Housing & Charity | NHS bodies, local authorities, social housing providers & registered charities | **Free** | [Email](mailto:lewisjames@theburgessprinciple.com?subject=Public%20sector%20certification%20enquiry) |
 
 ### Tier 03 — Practitioner — £500/year + VAT
 
@@ -63,14 +64,17 @@ Start with [`START_HERE.md`](./START_HERE.md) or copy a
 - Burgess Principle Certified mark for all professional materials.
 - Annual renewal — no lock-in beyond 12 months.
 
-### Tier 02 — Technology & Advocacy — £2,000/year + VAT (Founding Partner Rate)
+### Tier 02 — Technology & Advocacy — £3,000/year + VAT (£1,500/year renewal)
 
 - Burgess gate embedded in product or client methodology.
 - Cannot be bypassed by prompts or process shortcuts.
 - Named accountability officer, defined scope.
 - EU AI Act Articles 14, 26 & 86 compliance evidence.
 
-### Tier 01 — Institutional — from £25,000/year + VAT (Founding Partner Rate)
+> The founding-rate window closed on **31 July 2026**. Full pricing from
+> £3,000/year applies to new applications.
+
+### Tier 01 — Institutional — from £7,500/year + VAT (£7,500–£15,000/year + VAT)
 
 - Named human accountability standard across all decision processes.
 - First right of audit — annual review with the originator.
@@ -78,9 +82,16 @@ Start with [`START_HERE.md`](./START_HERE.md) or copy a
 - Enterprise & regulatory pricing available (POA).
 
 > The founding-rate window closed on **31 July 2026**. Full institutional
-> pricing from £25,000/year now applies to new applications; rates shown as
-> *(Founding Partner Rate)* are honoured for certifications agreed before that
-> date.
+> pricing from £7,500/year applies to new applications.
+
+### Public Sector, NHS, Housing & Charity — Free
+
+- No fee and no VAT for NHS bodies, local authorities, social housing providers,
+  and registered charities.
+- The same evidence standard as every paid tier — no reduced scrutiny.
+- Named human review evidenced before decisions affect identified people.
+- Certification recorded on the public ledger in the same way, renewed annually
+  and free for as long as the standard is met.
 
 ---
 

@@ -17,7 +17,7 @@ the practical routes below rather than reading every file in this folder.
 | Copy a letter or follow-up template | [`../templates/README.md`](../templates/README.md) |
 | Understand the whole repository in five minutes | [`../GETTING_STARTED.md`](../GETTING_STARTED.md) |
 | Use the public certification page | [`index.html`](./index.html) |
-| Confirm what happens after certification payment | [`thank-you.html`](./thank-you.html) |
+| Apply for certification | [`apply/index.html`](./apply/index.html) |
 | Read the agent transformation roadmap | [`AGENT_90_DAY_PLAN.md`](./AGENT_90_DAY_PLAN.md) |
 
 ## Applications & concepts
@@ -45,7 +45,12 @@ strategy agent rules remain in [`../AGENTS.md`](../AGENTS.md).
 ## Certification-site files
 
 - [`index.html`](./index.html) — public certification landing page.
-- [`thank-you.html`](./thank-you.html) — GoCardless post-payment confirmation.
+- [`apply/index.html`](./apply/index.html) — certification application form, served
+  at `/apply`. Submissions are relayed by email to
+  `lewisjames@theburgessprinciple.com`; no payment is taken at application stage.
+  Set the live Formspree form ID in the `ENDPOINT` constant near the bottom of
+  the file. Until that is set, the form falls back to a pre-filled email so no
+  application is lost.
 - [`CNAME`](./CNAME) — custom domain for the certification site.
 
 The certification mark is governed separately from the MIT-licensed repository

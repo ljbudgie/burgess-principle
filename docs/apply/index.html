@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for Certification &mdash; The Burgess Principle</title>
+<meta name="description" content="Apply for Burgess Principle certification. One form, reviewed personally by a named human, answered by email within 48 hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:    #0c0b0a;
+    --paper:  #f5f1eb;
+    --cream:  #ede8e0;
+    --red:    #b8271e;
+    --gold:   #8a6c2a;
+    --mid:    #6e6660;
+    --border: #ccc6be;
+    --white:  #faf8f5;
+    --green:  #2d6a4f;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .bp-header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .bp-mark {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.4rem;
+  }
+
+  .bp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .bp-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .bp-nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .bp-nav a:hover,
+  .bp-nav a:focus {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+
+  /* ── MAIN ── */
+  .bp-main {
+    padding: 3rem;
+    max-width: 720px;
+  }
+
+  .bp-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .bp-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .bp-body {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .bp-body a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
+  }
+
+  /* ── FORM ── */
+  .bp-form {
+    margin-top: 2.5rem;
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .bp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .bp-field label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .bp-required {
+    color: var(--red);
+  }
+
+  .bp-hint {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  .bp-field input,
+  .bp-field select,
+  .bp-field textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 0.75rem 0.85rem;
+    width: 100%;
+  }
+
+  .bp-field textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .bp-field input:focus,
+  .bp-field select:focus,
+  .bp-field textarea:focus {
+    outline: 2px solid var(--red);
+    outline-offset: 1px;
+  }
+
+  .bp-submit {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .bp-submit:hover {
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  .bp-submit[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .bp-error {
+    border-left: 3px solid var(--red);
+    background: #fdf3f2;
+    padding: 1rem 1.25rem;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .bp-error a {
+    color: var(--red);
+  }
+
+  /* Honeypot — hidden from sighted users and assistive technology. */
+  .bp-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* ── CONFIRMATION ── */
+  .bp-confirm {
+    margin-top: 2.5rem;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    padding: 2rem;
+  }
+
+  .bp-confirm-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--green);
+    border: 1px solid var(--green);
+    background: #f0faf4;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bp-confirm p {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+
+  [hidden] { display: none !important; }
+
+  /* ── FOOTER ── */
+  .bp-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .bp-footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    line-height: 1.8;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .bp-header,
+    .bp-main,
+    .bp-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .bp-nav { justify-content: flex-start; }
+    .bp-form { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bp-header">
+  <div>
+    <div class="bp-mark">UK Certification Mark UK00004343685</div>
+    <h1 class="bp-title">The Burgess Principle</h1>
+  </div>
+  <nav class="bp-nav" aria-label="Helpful links">
+    <a href="../">Certification tiers</a>
+    <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">Start here</a>
+  </nav>
+</header>
+
+<main class="bp-main">
+  <p class="bp-label">Apply for certification</p>
+  <h2 class="bp-heading">One form. One named human reads it.</h2>
+  <p class="bp-body">
+    Certification is granted on evidence, not payment. This form starts the
+    conversation: Lewis James Burgess reads every application personally and
+    replies by email. Nothing is charged at this stage.
+  </p>
+  <p class="bp-body">
+    If a decision has already affected you, you do not need certification.
+    Start with the free
+    <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">Start Here guide</a>.
+  </p>
+
+  <form class="bp-form" id="bp-apply-form" novalidate>
+    <div class="bp-field">
+      <label for="bp-name">Full name <span class="bp-required" aria-hidden="true">*</span></label>
+      <p class="bp-hint" id="bp-name-hint">As it should appear on certification.</p>
+      <input type="text" id="bp-name" name="Full name" autocomplete="name"
+             aria-describedby="bp-name-hint" required>
+    </div>
+
+    <div class="bp-field">
+      <label for="bp-email">Email address <span class="bp-required" aria-hidden="true">*</span></label>
+      <input type="email" id="bp-email" name="Email address" autocomplete="email" required>
+    </div>
+
+    <div class="bp-field">
+      <label for="bp-org">Organisation or trading name</label>
+      <p class="bp-hint" id="bp-org-hint">Leave blank if certifying as an individual.</p>
+      <input type="text" id="bp-org" name="Organisation" autocomplete="organization"
+             aria-describedby="bp-org-hint">
+    </div>
+
+    <div class="bp-field">
+      <label for="bp-tier">Certification tier <span class="bp-required" aria-hidden="true">*</span></label>
+      <select id="bp-tier" name="Certification tier" required>
+        <option value="">Select a tier</option>
+        <option data-short="Practitioner" value="Practitioner (£500/year) — Individual practitioners">Practitioner (&pound;500/year) &mdash; Individual practitioners</option>
+        <option data-short="Technology &amp; Advocacy" value="Technology &amp; Advocacy (£3,000/year) — AI platforms, law firms, claims groups">Technology &amp; Advocacy (&pound;3,000/year) &mdash; AI platforms, law firms, claims groups</option>
+        <option data-short="Institutional" value="Institutional (from £7,500/year) — Companies, public bodies, platforms">Institutional (from &pound;7,500/year) &mdash; Companies, public bodies, platforms</option>
+        <option data-short="Public Sector" value="Public Sector / NHS / Housing / Charity — Free">Public Sector / NHS / Housing / Charity &mdash; Free</option>
+      </select>
+    </div>
+
+    <div class="bp-field">
+      <label for="bp-services">Brief description of services <span class="bp-required" aria-hidden="true">*</span></label>
+      <p class="bp-hint" id="bp-services-hint">
+        What will you be applying the framework to? For example: legal advice,
+        AI governance, complaints handling, fleet safety.
+      </p>
+      <textarea id="bp-services" name="Description of services"
+                aria-describedby="bp-services-hint" required></textarea>
+    </div>
+
+    <div class="bp-field">
+      <label for="bp-source">How did you find The Burgess Principle?</label>
+      <select id="bp-source" name="How they found us">
+        <option value="">Prefer not to say</option>
+        <option value="Google">Google</option>
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="Referral">Referral</option>
+        <option value="SSRN">SSRN</option>
+        <option value="GitHub">GitHub</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="bp-hp" aria-hidden="true">
+      <label for="bp-company-website">Do not fill this in</label>
+      <input type="text" id="bp-company-website" name="_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+
+    <p class="bp-error" id="bp-form-error" hidden role="alert"></p>
+
+    <button type="submit" class="bp-submit" id="bp-submit">Send application &rarr;</button>
+
+    <p class="bp-hint">
+      Payment is never taken from this form. If your application is accepted,
+      Lewis will send payment details by email.
+    </p>
+  </form>
+
+  <section class="bp-confirm" id="bp-confirm" hidden tabindex="-1" aria-live="polite">
+    <span class="bp-confirm-badge">Application received</span>
+    <p>Thank you. Your application has been received. Lewis will respond by email within 48 hours.</p>
+    <p>No payment has been taken. Payment setup happens only after your application is confirmed by email.</p>
+  </section>
+</main>
+
+<footer class="bp-footer">
+  <p>
+    The Burgess Principle Limited &middot; Co. No. 17199287<br>
+    UK Certification Mark UK00004343685
+  </p>
+  <p>
+    All correspondence by email only<br>
+    Equality Act 2010 ss.20 &amp; 29
+  </p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Form relay endpoint. Replace the placeholder with the live Formspree form
+  // ID (https://formspree.io/f/xxxxxxxx) once the form is created. Until then
+  // the page falls back to a pre-filled email to the same address, so no
+  // application is ever silently lost.
+  var ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_FORMSPREE_FORM_ID';
+  var RECIPIENT = 'lewisjames@theburgessprinciple.com';
+  var CONFIGURED = ENDPOINT.indexOf('REPLACE_WITH') === -1;
+
+  var form = document.getElementById('bp-apply-form');
+  var submit = document.getElementById('bp-submit');
+  var errorBox = document.getElementById('bp-form-error');
+  var confirmBox = document.getElementById('bp-confirm');
+  var tierSelect = document.getElementById('bp-tier');
+
+  // Preselect a tier when arriving from a tier card, e.g. /apply/?tier=practitioner
+  var TIER_KEYS = {
+    practitioner: 0,
+    technology: 1,
+    institutional: 2,
+    'public-sector': 3
+  };
+  var requestedTier = new URLSearchParams(window.location.search).get('tier');
+  if (requestedTier && Object.prototype.hasOwnProperty.call(TIER_KEYS, requestedTier)) {
+    // +1 skips the "Select a tier" placeholder option.
+    tierSelect.selectedIndex = TIER_KEYS[requestedTier] + 1;
+  }
+
+  function fields() {
+    return [
+      ['Full name', document.getElementById('bp-name').value.trim()],
+      ['Email address', document.getElementById('bp-email').value.trim()],
+      ['Organisation or trading name', document.getElementById('bp-org').value.trim() || 'Individual'],
+      ['Certification tier', tierSelect.value],
+      ['Description of services', document.getElementById('bp-services').value.trim()],
+      ['How they found us', document.getElementById('bp-source').value || 'Not stated']
+    ];
+  }
+
+  function shortTier() {
+    var option = tierSelect.options[tierSelect.selectedIndex];
+    return (option && option.getAttribute('data-short')) || tierSelect.value;
+  }
+
+  function subjectLine(values) {
+    return 'New Certification Application — ' + values[0][1] + ' — ' + shortTier();
+  }
+
+  function bodyText(values) {
+    return values.map(function (pair) {
+      return pair[0] + ':\n' + pair[1];
+    }).join('\n\n');
+  }
+
+  function showError(message, mailtoHref) {
+    errorBox.textContent = message + ' ';
+    if (mailtoHref) {
+      var link = document.createElement('a');
+      link.href = mailtoHref;
+      link.textContent = 'Send it by email instead';
+      errorBox.appendChild(link);
+      errorBox.appendChild(document.createTextNode('.'));
+    }
+    errorBox.hidden = false;
+  }
+
+  function mailtoFor(values) {
+    return 'mailto:' + RECIPIENT +
+      '?subject=' + encodeURIComponent(subjectLine(values)) +
+      '&body=' + encodeURIComponent(bodyText(values));
+  }
+
+  function showConfirmation() {
+    form.hidden = true;
+    confirmBox.hidden = false;
+    confirmBox.focus();
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    errorBox.hidden = true;
+    errorBox.textContent = '';
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var values = fields();
+    var mailto = mailtoFor(values);
+
+    if (!CONFIGURED) {
+      window.location.href = mailto;
+      showConfirmation();
+      return;
+    }
+
+    var payload = new FormData();
+    values.forEach(function (pair) { payload.append(pair[0], pair[1]); });
+    payload.append('_subject', subjectLine(values));
+    payload.append('_replyto', values[1][1]);
+    payload.append('_gotcha', document.getElementById('bp-company-website').value);
+
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: payload
+    }).then(function (response) {
+      if (!response.ok) { throw new Error('Relay rejected the submission'); }
+      showConfirmation();
+    }).catch(function () {
+      submit.disabled = false;
+      submit.textContent = 'Send application →';
+      showError('Your application could not be sent automatically.', mailto);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

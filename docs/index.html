@@ -520,6 +520,21 @@
     .bp-eu-notice { margin-left: 1.5rem; margin-right: 1.5rem; }
     .bp-header-meta { text-align: left; }
     .bp-nav { justify-content: flex-start; }
+    .bp-tier-card { padding: 1.5rem; }
+    .bp-tier-price-block {
+      flex-wrap: wrap;
+      align-items: baseline;
+      row-gap: 0.25rem;
+    }
+    .bp-tier-period {
+      flex: 1 1 100%;
+      line-height: 1.4;
+    }
+    .bp-binary {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .bp-verdict { text-align: center; }
   }
 </style>
 </head>
@@ -621,6 +636,8 @@
         <div class="bp-tier-price-block">
           <span class="bp-tier-price">&pound;500</span>
           <span class="bp-tier-period">/year + VAT</span>
+        </div>
+        <ul class="bp-tier-features">
           <li>Name committed to the public ledger within 24 hours</li>
           <li>Burgess Principle Certified mark for all professional materials</li>
           <li>Annual renewal &mdash; no lock-in beyond 12 months</li>

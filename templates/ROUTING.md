@@ -38,6 +38,8 @@
 | Inaccurate or unfair media coverage                  | `MEDIA_AND_LIBEL.md`                                                                             |
 | Music copyright / Content ID dispute                 | `MUSIC_COPYRIGHT_WITH_BURGESS.md`                                                                |
 | Bailiff threat                                       | `BAILIFFS_THREAT_TEMPLATE.md`                                                                    |
+| Mortgage refusal, remortgage, product transfer, or forbearance | `MORTGAGE_DECISION_WITH_BURGESS.md`                                                     |
+| Insurance claim decline, quote refusal, non-renewal, or automated underwriting | `INSURANCE_DECISION_WITH_BURGESS.md`                                   |
 | FOI request to a public body                         | `FOI_WITH_BURGESS_PRINCIPLE.md`                                                                  |
 | Generic, all-purpose first letter                    | `REQUEST_FOR_HUMAN_REVIEW.md`                                                                    |
 | Mythos, Project Glasswing, frontier AI, autonomous vulnerability discovery, o1-class or hyper-disciplined agents | `papers/PAPER_XI_THE_MYTHOS_THRESHOLD.md` + apply per-deployment binary classification before any capability analysis |
@@ -63,7 +65,7 @@ asks about privacy, mention Sovereign Mode.
 | Energy                | Warrant-based entry, smart meter disputes, Ofgem complaints, Energy Ombudsman escalation. Core templates + audit log entries for E.ON and British Gas.                                    |
 | Education             | School data processing, NPD, attendance monitoring, EdTech platforms, SEND pupils. `SECTOR_EDUCATION.md`. Sovereign Data Review template applies the binary test to every automated output affecting a specific child. Equality Act dimension (ss.15, 19, 20–21) is critical for SEND. |
 | Local government      | Council tax, PCNs, enforcement agents, LGO complaints. Core templates. Contamination-chain mapper traces void liability orders through enforcement to credit entries.                    |
-| Financial services    | Automated credit decisioning, algorithmic underwriting, systematic internalisers, debt collection. Core templates + Paper V (*Data Sovereignty and the Compliance Feedback Loop*).        |
+| Financial services    | Automated credit decisioning, algorithmic underwriting, systematic internalisers, debt collection. Use `MORTGAGE_DECISION_WITH_BURGESS.md` and `INSURANCE_DECISION_WITH_BURGESS.md` for home finance and insurance; `DIRECT_DEBIT_REFUND_WITH_BURGESS.md` for payment disputes; core templates + Paper V (*Data Sovereignty and the Compliance Feedback Loop*). |
 | Healthcare            | Diagnostic algorithms, hearing-aid fitting systems, triage algorithms. Core templates. `github.com/ljbudgie/openhear` addresses sovereign audio processing for hearing-aid users.        |
 | Technology platforms  | Content moderation, automated account decisions, subscription contract variations, recruitment screening. Core templates + Paper VIII for the universal-standard argument.               |
 

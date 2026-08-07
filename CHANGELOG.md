@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## Unreleased
+
+### Mortgage and insurance human-review letters
+
+- **`templates/MORTGAGE_DECISION_WITH_BURGESS.md`** — copy-paste letter for
+  mortgage refusal, product transfer, remortgage delay, or forbearance where
+  individual human underwriting review is unclear.
+- **`templates/INSURANCE_DECISION_WITH_BURGESS.md`** — copy-paste letter for
+  claim decline, quote refusal, non-renewal, or automated underwriting.
+- Wired into `templates/README.md`, `COMMON_SCENARIOS.md`, `ROUTING.md`, and
+  the lending section of `GETTING_STARTED.md`.
+- **`verifiable_oversight/domains/banking.py`** — high-stakes automated types
+  extended with mortgage and insurance decision kinds.
+
+---
+
 ## v2.9.1 — 27 July 2026
 
 ### Scott Ryan — Sales Consultant onboarded

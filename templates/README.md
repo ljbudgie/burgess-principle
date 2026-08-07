@@ -53,6 +53,8 @@ If you want the shortest possible shortlist after the start flow above, use this
 | A public body or public-records request | [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md) |
 | A decision based on a third-party assessor (medical/OH/work capability/expert report) | [`THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md`](./THIRD_PARTY_REFERRAL_REVIEW_WITH_BURGESS_PRINCIPLE.md) |
 | Benefits, council tax, parking, or bailiff pressure | See [Life situations](#life-situations) |
+| Mortgage underwriting, remortgage, or forbearance | [`MORTGAGE_DECISION_WITH_BURGESS.md`](./MORTGAGE_DECISION_WITH_BURGESS.md) |
+| Insurance claim, quote refusal, non-renewal, or underwriting | [`INSURANCE_DECISION_WITH_BURGESS.md`](./INSURANCE_DECISION_WITH_BURGESS.md) |
 | Medical intervention, clinical pathway harm, or iatrogenic injury | See [Life situations](#life-situations) |
 | Tariff refund denied or bulk-processed without individual review; categorical trade sanction applied without individual consideration of your specific business | [`GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md`](./GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) — see also [Paper XII](../papers/PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md) for the Burgess notice framework |
 | Crypto restrictions, proof, or selective disclosure | See [Crypto and proof](#crypto-and-proof) |
@@ -95,6 +97,8 @@ These are the main Burgess Principle starting points.
 | Council tax arrears, council tax enforcement, or parking penalties | [`COUNCIL_TAX_PCN_TEMPLATE.md`](./COUNCIL_TAX_PCN_TEMPLATE.md) |
 | Bailiff threat, enforcement visit, or forced entry concerns | [`BAILIFFS_THREAT_TEMPLATE.md`](./BAILIFFS_THREAT_TEMPLATE.md) |
 | Direct debit dispute or refund issue | [`DIRECT_DEBIT_REFUND_WITH_BURGESS.md`](./DIRECT_DEBIT_REFUND_WITH_BURGESS.md) |
+| Mortgage refusal, product transfer, remortgage delay, or forbearance decision | [`MORTGAGE_DECISION_WITH_BURGESS.md`](./MORTGAGE_DECISION_WITH_BURGESS.md) |
+| Insurance claim decline, quote refusal, non-renewal, or automated underwriting | [`INSURANCE_DECISION_WITH_BURGESS.md`](./INSURANCE_DECISION_WITH_BURGESS.md) |
 | Urgent care or medical review concern | [`URGENT_CARE_REVIEW.md`](./URGENT_CARE_REVIEW.md) |
 | Clinical pathway harm — gender medicine, opioids, surgical mesh, medical device, or any intervention where no named clinician individually reviewed your specific case | [`MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md`](./MEDICAL_REVERSE_ENGINEERING_WITH_BURGESS_PRINCIPLE.md) |
 | Algorithmic medical device concern | [`ALGORITHMIC_MEDICAL_DEVICE_REVIEW_WITH_BURGESS.md`](./ALGORITHMIC_MEDICAL_DEVICE_REVIEW_WITH_BURGESS.md) |

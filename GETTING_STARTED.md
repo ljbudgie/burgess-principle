@@ -187,6 +187,11 @@ Yours faithfully,
 
 Typical evidence to attach: application reference, rejection message, any affordability context the form did not capture.
 
+**Mortgage or insurance instead?** Use the dedicated copy-paste letters:
+
+- Mortgage refusal, product transfer, remortgage, or forbearance → [`templates/MORTGAGE_DECISION_WITH_BURGESS.md`](./templates/MORTGAGE_DECISION_WITH_BURGESS.md)
+- Insurance claim, quote refusal, non-renewal, or automated underwriting → [`templates/INSURANCE_DECISION_WITH_BURGESS.md`](./templates/INSURANCE_DECISION_WITH_BURGESS.md)
+
 ```text
 [Your name]
 [Your address]
@@ -420,7 +425,7 @@ Under the Data (Use and Access) Act 2025, Articles 22A–22D, this admission mea
 
 - **Energy/utilities:** File a complaint with the [Energy Ombudsman](https://www.energyombudsman.org.uk/)
 - **Public benefits:** File with the [Local Government Ombudsman](https://www.lgo.org.uk/) (if local authority) or [Parliamentary Ombudsman](https://www.ombudsman.org.uk/) (if central government)
-- **Lending/credit:** File with the [Financial Ombudsman Service](https://www.financial-ombudsman.org.uk/)
+- **Lending/credit, mortgage, or insurance:** File with the [Financial Ombudsman Service](https://www.financial-ombudsman.org.uk/)
 - **All organisations:** Submit a complaint to the [ICO](https://www.ico.org.uk/) under GDPR Article 22
 
 Keep a simple evidence log with: date sent, date replied, who replied, classification result, and escalation submitted.

@@ -25,6 +25,8 @@ If you are unsure, start with:
 - **Data request:** [`DSAR_WITH_BURGESS_PRINCIPLE.md`](./DSAR_WITH_BURGESS_PRINCIPLE.md)
 - **Public body request:** [`FOI_WITH_BURGESS_PRINCIPLE.md`](./FOI_WITH_BURGESS_PRINCIPLE.md)
 - **Benefits, council, parking, or bailiffs:** [`BENEFITS_CLAIM_HELP.md`](./BENEFITS_CLAIM_HELP.md), [`COUNCIL_TAX_PCN_TEMPLATE.md`](./COUNCIL_TAX_PCN_TEMPLATE.md), or [`BAILIFFS_THREAT_TEMPLATE.md`](./BAILIFFS_THREAT_TEMPLATE.md)
+- **Mortgage decision or forbearance:** [`MORTGAGE_DECISION_WITH_BURGESS.md`](./MORTGAGE_DECISION_WITH_BURGESS.md)
+- **Insurance claim, quote, or non-renewal:** [`INSURANCE_DECISION_WITH_BURGESS.md`](./INSURANCE_DECISION_WITH_BURGESS.md)
 - **Debt/enforcement first-time starter:** [`../START_HERE_DEBT_LETTERS.md`](../START_HERE_DEBT_LETTERS.md)
 - **Crypto or proof:** [`CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md`](./CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md), [`CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md`](./CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md), or [`COMMITMENT_ONLY_PLACEHOLDER.md`](./COMMITMENT_ONLY_PLACEHOLDER.md)
 - **Platform or media:** start with [`PLATFORM_VISIBILITY_RESTRICTION_WITH_BURGESS.md`](./PLATFORM_VISIBILITY_RESTRICTION_WITH_BURGESS.md) or [`MEDIA_AND_LIBEL.md`](./MEDIA_AND_LIBEL.md)
@@ -47,6 +49,8 @@ If you are unsure, start with:
 | It is about benefits | [`BENEFITS_CLAIM_HELP.md`](./BENEFITS_CLAIM_HELP.md) | Built for PIP, Universal Credit, ESA, and similar disputes |
 | It is about council tax, arrears, or a parking penalty | [`COUNCIL_TAX_PCN_TEMPLATE.md`](./COUNCIL_TAX_PCN_TEMPLATE.md) | Covers local authority enforcement and penalties |
 | Bailiffs are threatening action or attendance | [`BAILIFFS_THREAT_TEMPLATE.md`](./BAILIFFS_THREAT_TEMPLATE.md) | Focuses on enforcement pressure and urgency |
+| A mortgage was refused, delayed, or varied without clear human review | [`MORTGAGE_DECISION_WITH_BURGESS.md`](./MORTGAGE_DECISION_WITH_BURGESS.md) | Underwriting, product transfer, remortgage, forbearance |
+| An insurance claim, quote, or renewal was declined by a system path | [`INSURANCE_DECISION_WITH_BURGESS.md`](./INSURANCE_DECISION_WITH_BURGESS.md) | Claims triage, automated underwriting, non-renewal |
 | A crypto exchange froze my account or blocked withdrawals | [`CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md`](./CRYPTO_EXCHANGE_ACCOUNT_RESTRICTION_WITH_BURGESS.md) | For exchange reviews, compliance flags, and source-of-funds challenges |
 | I want to reference a hash, signature, receipt, or on-chain claim | [`CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md`](./CRYPTOGRAPHIC_PROOF_AND_ONCHAIN_NOTICE_WITH_BURGESS.md) | Lets you point to verifiable evidence without exposing full facts |
 | I only want to share a commitment placeholder | [`COMMITMENT_ONLY_PLACEHOLDER.md`](./COMMITMENT_ONLY_PLACEHOLDER.md) | Keeps the underlying facts private while preserving a verifiable reference |

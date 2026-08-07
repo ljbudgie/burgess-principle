@@ -59,6 +59,27 @@ def test_banking_high_stakes_automated_extra_flag():
     assert any("No human review was available" in i for i in issues)
 
 
+def test_banking_mortgage_and_insurance_high_stakes():
+    for decision_type in (
+        "mortgage_decision",
+        "mortgage_forbearance",
+        "insurance_underwriting",
+        "insurance_claim",
+        "insurance_non_renewal",
+    ):
+        record = BankingDomain().create_record(
+            subject=f"Automated {decision_type}",
+            institution="Example Financial Firm plc",
+            binary_test=BinaryTest(context="Scored automatically."),
+            automated_credit_decision=True,
+            decision_type=decision_type,
+            human_review_available=False,
+        )
+        issues = _issues(record)
+        assert any("High-stakes automated decision" in i for i in issues), decision_type
+        assert record.verdict is Verdict.NULL
+
+
 def test_banking_disp_deadline_breach_flagged():
     record = BankingDomain().create_record(
         subject="Complaint past DISP deadline",

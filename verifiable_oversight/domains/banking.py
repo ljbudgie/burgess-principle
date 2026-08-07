@@ -35,6 +35,11 @@ _HIGH_STAKES_AUTOMATED = {
     "funds_freeze",
     "loan_decision",
     "overdraft_withdrawal",
+    "mortgage_decision",
+    "mortgage_forbearance",
+    "insurance_underwriting",
+    "insurance_claim",
+    "insurance_non_renewal",
 }
 
 
@@ -46,7 +51,9 @@ class BankingDomain(BaseDomain):
     -----------------------
     decision_type : str, optional
         Type of decision, e.g. 'credit_refusal', 'account_closure',
-        'funds_freeze', 'loan_decision', 'complaint_response'.
+        'funds_freeze', 'loan_decision', 'mortgage_decision',
+        'mortgage_forbearance', 'insurance_underwriting',
+        'insurance_claim', 'insurance_non_renewal', 'complaint_response'.
     automated_credit_decision : bool, optional
         Whether the decision was made solely by automated means (no meaningful
         human involvement). Engages UK GDPR Art 22 / DUAA 2025 s.80.
@@ -77,10 +84,11 @@ class BankingDomain(BaseDomain):
         return (
             "Banking domain: financial decisions engage two distinct standards.\n\n"
             "First, the binary test. A solely automated credit refusal, account "
-            "closure, or funds freeze is NULL unless a named human reviewed the "
-            "specific facts before the decision took effect. An appeal offered "
-            "after the automated refusal is involvement, not review — it could not "
-            "have changed the original decision.\n\n"
+            "closure, funds freeze, mortgage underwriting decision, or insurance "
+            "claim / underwriting / non-renewal outcome is NULL unless a named "
+            "human reviewed the specific facts before the decision took effect. "
+            "An appeal offered after the automated refusal is involvement, not "
+            "review — it could not have changed the original decision.\n\n"
             "Second, UK GDPR Art 22 / DUAA 2025 s.80. A significant, solely "
             "automated decision about a person requires a lawful basis and the "
             "right to obtain human intervention. Record whether the decision was "

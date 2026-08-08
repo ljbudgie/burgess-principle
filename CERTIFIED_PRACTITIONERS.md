@@ -1,7 +1,7 @@
 # Certified Practitioners Register
 
 **UK Certification Mark: UK00004343685**
-**Last updated: 7 August 2026**
+**Last updated: 8 August 2026**
 
 ---
 
@@ -68,7 +68,6 @@ This keeps the register a governance record, not a marketing list.
 | BP-CERT-0001 | Lorraine Ewart | Book-keeping | North Yorkshire | Tier 3 | 27 Apr 2027 |
 | BP-CERT-0002 | LJ Barbers | Barbering (brand / network) | ljbarbers.co.uk | Tier 3 | 27 Apr 2027 |
 | BP-CERT-0003 | Scott Ryan | Sales Consultant — outbound lead qualification for certification pipeline | — | Tier 3 | 27 Jul 2027 |
-| BP-CERT-0004 | John Kellegher — Kellegher Legal Services Ltd | Winding-up petitions, HMRC correspondence, wills and probate | — | Tier 3 | 7 Aug 2027 |
 
 ---
 

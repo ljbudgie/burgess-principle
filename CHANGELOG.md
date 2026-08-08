@@ -5,19 +5,66 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
-## Unreleased
+## v2.10.0 — 8 August 2026
 
-### Mortgage and insurance human-review letters
+### Certification infrastructure overhaul
+
+- **`CERTIFICATION_MARK.md`** — new canonical status document. Replaces scattered
+  overclaims across the repo with a single authoritative record of the mark's
+  current status: accepted by the UK IPO, publication pending, registration not
+  yet complete. All documents updated to reference this file rather than stating
+  status inline. Founding-rate window formally closed. (#485)
+- **`CERTIFICATION_TIERS.md`** — pricing updated; free public sector tier added
+  for local authorities, NHS bodies, and government agencies. VAT display
+  corrected: paid tiers now show +VAT consistently. (#488, #492, #493)
+- **`docs/apply/index.html`** — certification application form live at `/apply`.
+  Replaces the leaked-token thank-you page (`docs/thank-you.html` removed).
+  Applicants can now submit interest directly without emailing first. (#490)
+- **`INTEGRATION_CONTRACT.md` v2.0** — mark reference updated to canonical
+  status, advisory-only rewording throughout, `/certify/verify` verification
+  endpoint documented, regulatory alignment with DUAA 2025 and EU AI Act, OpenHear
+  gate note added. (#489)
+- **Certify page** — Practitioner tier markup repaired, mobile layout fixed. (#495)
+
+### Repository navigation and tiering
+
+- **`NAVIGATION.md`** — new full repository index by reader type: citizen,
+  institution, developer, legal professional, AI system. Every significant file
+  cross-referenced. (#486)
+- **`TIERS.md`** — Core / Toolkit / Extensions tiering documented. Core = the
+  binary test and its legal basis. Toolkit = templates, scripts, letter packs.
+  Extensions = sector-specific applications (OpenHear, immigration, etc.). (#486)
+- **CI link checker and doc coverage scripts** — `scripts/check_links.py` and
+  `scripts/check_doc_coverage.py` added; GitHub Actions CI workflow enforces
+  completeness. (#486, #487)
+
+### New letter packs
 
 - **`templates/MORTGAGE_DECISION_WITH_BURGESS.md`** — copy-paste letter for
   mortgage refusal, product transfer, remortgage delay, or forbearance where
   individual human underwriting review is unclear.
 - **`templates/INSURANCE_DECISION_WITH_BURGESS.md`** — copy-paste letter for
   claim decline, quote refusal, non-renewal, or automated underwriting.
-- Wired into `templates/README.md`, `COMMON_SCENARIOS.md`, `ROUTING.md`, and
-  the lending section of `GETTING_STARTED.md`.
-- **`verifiable_oversight/domains/banking.py`** — high-stakes automated types
-  extended with mortgage and insurance decision kinds.
+  Wired into `templates/README.md`, `COMMON_SCENARIOS.md`, `ROUTING.md`, and
+  `GETTING_STARTED.md`. (#494)
+- **`verifiable_oversight/domains/banking.py`** — mortgage and insurance decision
+  types added to high-stakes automated decision taxonomy. (#494)
+
+### Practitioner register
+
+- **BP-CERT-0004 issued and withdrawn.** John Kellegher added (#491) and
+  subsequently removed — mandate cancelled, certification withdrawn. Register
+  reflects current state: BP-CERT-0003 (Scott Ryan) is the most recent active
+  entry.
+
+### Identity and documentation
+
+- All self-descriptions updated: "deaf man from Darlington" throughout — barber
+  identity retired from framework documents. Case records (LJ Barbers Ltd,
+  ljbarbers15 email) untouched as factual legal references.
+- START_HERE.md refreshed to current framework state: audit log 100 entries,
+  EU AI Act Art. 50 hook, OpenHear route, verifiable oversight module.
+- README live ledger snapshot updated (100 entries, SOVEREIGN 11, NULL 89).
 
 ---
 

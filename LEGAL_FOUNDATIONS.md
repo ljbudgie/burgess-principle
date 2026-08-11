@@ -1,7 +1,7 @@
 # Legal Foundations — The Burgess Principle
 
 **UK Certification Mark UK00004343685**  
-**Updated:** 25 June 2026 (v2.6.4)
+**Updated:** 11 August 2026 (v2.6.5)
 
 This document is the first-stop reference for legally trained readers — solicitors, barristers, policy officers, regulators, academics — who want to understand the legal basis for the Burgess Principle before engaging with it in practice. It answers one question: *why does NULL have legal weight?*
 
@@ -25,6 +25,8 @@ The operative statutory definition:
 >
 > — Data (Use and Access) Act 2025, s.80  
 > Primary source: [legislation.gov.uk/ukpga/2025/18/section/80](https://www.legislation.gov.uk/ukpga/2025/18/section/80)
+
+**Status as at August 2026:** The Articles 22A–22D regime is fully in force. Commentary and guidance continue to treat “meaningful human involvement” as requiring more than a token gesture — the human must have the authority and competence to change the decision. No appellate judgment has yet given a definitive judicial gloss on the precise quality of that involvement under the new provisions; the statutory text and the long-standing Article 29 Working Party-style guidance remain the primary sources.
 
 **Burgess mapping:**
 
@@ -160,6 +162,8 @@ A NULL finding by a public authority, where the affected person has a protected 
 ### ss.20–21 — Anticipatory Reasonable Adjustment Duty
 
 The anticipatory duty requires service providers to consider, in advance, what adjustments disabled people are likely to need. A system that processes deaf users through phone-only channels, portal-only complaint routes, or automated triage without a named human contact point is in breach of ss.20–21 before any individual complaint is made.
+
+High Court authority in July 2026 (Heather Williams J) has reiterated that the anticipatory duty under ss.20–21 / Schedule 2 is systemic and owed to disabled people as a class. An isolated ad-hoc failure does not automatically establish a breach if the authority has otherwise taken reasonable systemic steps. This does not weaken the individual-consideration requirement established by *FirstGroup v Paulley*; it confirms that the duty is anticipatory and structural while still requiring genuine engagement with the circumstances of the disabled person affected.
 
 ### Case law anchors
 

@@ -26,12 +26,14 @@ The following schemas are published in [`/schemas`](./schemas):
 - `commitment-bundle.v1.json`
 - `sovereign-backup-bundle.v1.json`
 - `extension-pack-manifest.v1.json`
+- `loop-finding.v1.json`
 
 ## Supported local/API endpoints
 
 ### Core verification
 - `POST /verify` — verify Burgess reasoning text against a SHA-256 digest.
 - `POST /scrutiny/assess` — run the pre-decision Burgess gate before a system acts on an identified individual; returns SOVEREIGN, NULL, or AMBIGUOUS with the required next action.
+- `POST /loop/classify` — classify a local correspondence thread for a provisional institutional delay pattern; returns LOOP DETECTED or NO LOOP, the applicable type, and a separate SOVEREIGN/NULL accountability signal. A named human must confirm any finding before publication.
 - `POST /claims/verify` — verify an Ed25519-signed on-chain claim receipt.
 
 ### Certification verification

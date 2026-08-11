@@ -1,0 +1,287 @@
+{
+  "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon.",
+  "samples": [
+    {
+      "id": "insufficiency",
+      "title": "Not sufficient \u2014 again",
+      "blurb": "You answer. They ask for more. You answer. They ask again.",
+      "institution": "Example Council",
+      "named_individual": null,
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "Council",
+          "content_summary": "Your answer is not sufficient; provide more information.",
+          "direction": "institution",
+          "reference": "A"
+        },
+        {
+          "date": "2026-08-03",
+          "sender": "Individual",
+          "content_summary": "I have supplied the requested bank statements and a full written explanation.",
+          "direction": "individual",
+          "reference": "B"
+        },
+        {
+          "date": "2026-08-06",
+          "sender": "Council",
+          "content_summary": "This is still not sufficient. Please provide further information.",
+          "direction": "institution",
+          "reference": "C"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": true,
+        "loop_type": "insufficiency",
+        "loop_count": 1,
+        "days_consumed": 5,
+        "institution": "Example Council",
+        "named_individual": null,
+        "correspondence_refs": [
+          "A",
+          "C"
+        ],
+        "accountability_finding": "NULL",
+        "summary": "LOOP DETECTED: Example Council shows a insufficiency pattern across 1 cycle(s) over 5 day(s), with no named individual identified.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    },
+    {
+      "id": "circular_referral",
+      "title": "Sent back where you started",
+      "blurb": "Each door points to the other door.",
+      "institution": "Equality bodies (example)",
+      "named_individual": null,
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "EHRC",
+          "content_summary": "Please contact EASS.",
+          "direction": "institution",
+          "reference": "A"
+        },
+        {
+          "date": "2026-08-02",
+          "sender": "EASS",
+          "content_summary": "Please contact EHRC.",
+          "direction": "institution",
+          "reference": "B"
+        },
+        {
+          "date": "2026-08-03",
+          "sender": "EHRC",
+          "content_summary": "Please contact EASS.",
+          "direction": "institution",
+          "reference": "C"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": true,
+        "loop_type": "circular_referral",
+        "loop_count": 1,
+        "days_consumed": 2,
+        "institution": "Equality bodies (example)",
+        "named_individual": null,
+        "correspondence_refs": [
+          "A",
+          "B",
+          "C"
+        ],
+        "accountability_finding": "NULL",
+        "summary": "LOOP DETECTED: Equality bodies (example) shows a circular referral pattern across 1 cycle(s) over 2 day(s), with no named individual identified.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    },
+    {
+      "id": "precondition_stacking",
+      "title": "Cannot act until\u2026",
+      "blurb": "Help is postponed until another process finishes.",
+      "institution": "Example Council",
+      "named_individual": null,
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "Council",
+          "content_summary": "We cannot assess discretionary relief until the separate review is complete.",
+          "direction": "institution",
+          "reference": "A"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": true,
+        "loop_type": "precondition_stacking",
+        "loop_count": 1,
+        "days_consumed": 0,
+        "institution": "Example Council",
+        "named_individual": null,
+        "correspondence_refs": [
+          "A"
+        ],
+        "accountability_finding": "NULL",
+        "summary": "LOOP DETECTED: Example Council shows a precondition stacking pattern across 1 cycle(s) over 0 day(s), with no named individual identified.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    },
+    {
+      "id": "template_dismissal",
+      "title": "Same words, different letter",
+      "blurb": "Near-identical replies to different questions.",
+      "institution": "Example Commission",
+      "named_individual": null,
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "Commission",
+          "content_summary": "All points have been addressed.",
+          "direction": "institution",
+          "reference": "A"
+        },
+        {
+          "date": "2026-08-02",
+          "sender": "Commission",
+          "content_summary": "All points have been addressed.",
+          "direction": "institution",
+          "reference": "B"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": true,
+        "loop_type": "template_dismissal",
+        "loop_count": 1,
+        "days_consumed": 1,
+        "institution": "Example Commission",
+        "named_individual": null,
+        "correspondence_refs": [
+          "A",
+          "B"
+        ],
+        "accountability_finding": "NULL",
+        "summary": "LOOP DETECTED: Example Commission shows a template dismissal pattern across 1 cycle(s) over 1 day(s), with no named individual identified.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    },
+    {
+      "id": "identity_loop",
+      "title": "Prove who you are \u2014 again",
+      "blurb": "Identity already given; the demand returns.",
+      "institution": "Example Credit Reference Agency",
+      "named_individual": null,
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "Individual",
+          "content_summary": "I have provided identity documents.",
+          "direction": "individual",
+          "reference": "A"
+        },
+        {
+          "date": "2026-08-02",
+          "sender": "Experian",
+          "content_summary": "Verify your identity before we engage with this dispute.",
+          "direction": "institution",
+          "reference": "B"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": true,
+        "loop_type": "identity_loop",
+        "loop_count": 1,
+        "days_consumed": 1,
+        "institution": "Example Credit Reference Agency",
+        "named_individual": null,
+        "correspondence_refs": [
+          "B"
+        ],
+        "accountability_finding": "NULL",
+        "summary": "LOOP DETECTED: Example Credit Reference Agency shows a identity loop pattern across 1 cycle(s) over 1 day(s), with no named individual identified.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    },
+    {
+      "id": "channel_redirect",
+      "title": "Email-only ignored",
+      "blurb": "A written-only adjustment is met with \u201cplease call\u201d.",
+      "institution": "Example Institution",
+      "named_individual": null,
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "Individual",
+          "content_summary": "My established adjustment is email-only; do not call.",
+          "direction": "individual",
+          "reference": "A"
+        },
+        {
+          "date": "2026-08-02",
+          "sender": "Institution",
+          "content_summary": "Please call us to discuss this.",
+          "direction": "institution",
+          "reference": "B"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": true,
+        "loop_type": "channel_redirect",
+        "loop_count": 1,
+        "days_consumed": 1,
+        "institution": "Example Institution",
+        "named_individual": null,
+        "correspondence_refs": [
+          "B"
+        ],
+        "accountability_finding": "NULL",
+        "summary": "LOOP DETECTED: Example Institution shows a channel redirect pattern across 1 cycle(s) over 1 day(s), with no named individual identified.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    },
+    {
+      "id": "no_loop",
+      "title": "No loop (control)",
+      "blurb": "A plain reply with no classified delay pattern.",
+      "institution": "Example Office",
+      "named_individual": "Alex Rivera",
+      "messages": [
+        {
+          "date": "2026-08-01",
+          "sender": "Alex Rivera",
+          "content_summary": "Thank you. I have reviewed your file personally and will decide by Friday.",
+          "direction": "institution",
+          "reference": "A"
+        }
+      ],
+      "finding": {
+        "schema_version": 1,
+        "loop_detected": false,
+        "loop_type": null,
+        "loop_count": 0,
+        "days_consumed": 0,
+        "institution": "Example Office",
+        "named_individual": "Alex Rivera",
+        "correspondence_refs": [],
+        "accountability_finding": "SOVEREIGN",
+        "summary": "NO LOOP: no classified delay pattern was detected in the supplied correspondence.",
+        "provisional": true,
+        "requires_human_confirmation": true,
+        "disclaimer": "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon."
+      }
+    }
+  ]
+}

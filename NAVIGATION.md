@@ -37,6 +37,7 @@ If that is not quite your situation:
 - [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) — debt and
   enforcement letters.
 - [Iris](./iris.html) — an assistant that already knows the framework.
+- [Loop Storyboard](./loop-storyboard.html) — first-run walkthrough of institutional delay patterns.
 
 ### 2. I have an access need
 

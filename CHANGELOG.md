@@ -5,6 +5,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## Unreleased
+
+### Added
+
+- **Loop Storyboard** (`loop-storyboard.html`) — first-run walkthrough for the
+  institutional delay classifier: sample pattern cards, correspondence timeline
+  with calendar days, dual-signal result panel (delay pattern separate from
+  accountability), and a human-confirmation gate before copying a draft
+  register entry. Sample pack in `examples/loop-storyboard-samples.json`.
+  Linked from Iris starters, `NAVIGATION.md`, `GETTING_STARTED.md`, and
+  `iris/skills/loop/SKILL.md`.
+
+---
+
 ## v2.10.0 — 8 August 2026
 
 ### Certification infrastructure overhaul

@@ -15,4 +15,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Loop Storyboard first-run walkthrough -->
+  <url>
+    <loc>https://burgess-principle.vercel.app/loop-storyboard.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

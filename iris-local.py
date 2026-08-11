@@ -33,6 +33,7 @@ from iris.claim_builder import (
     queue_onchain_fingerprint,
     signature_mode_label,
 )
+from iris.loop_classifier import classify_thread
 from iris.sovereign_profile import (
     load_personal_profile_summary,
     normalize_mirror_greeting_style,
@@ -425,6 +426,28 @@ def create_app(
     async def get_version():
         """Return the running Iris version (single source of truth)."""
         return JSONResponse({"version": IRIS_VERSION})
+
+    @app.post("/loop/classify")
+    async def classify_loop(request: Request):
+        """Classify a local correspondence thread for provisional delay patterns."""
+        try:
+            body = await request.json()
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            return JSONResponse({"error": "Invalid JSON body."}, status_code=400)
+        if not isinstance(body, dict):
+            return JSONResponse({"error": "Request body must be an object."}, status_code=400)
+        try:
+            finding = classify_thread(
+                body.get("messages"),
+                body.get("institution"),
+                body.get("named_individual"),
+            )
+        except ValueError:
+            return JSONResponse(
+                {"error": "Invalid loop classification request."},
+                status_code=400,
+            )
+        return JSONResponse(finding.as_dict())
 
     @app.post("/api/generate-claim")
     async def generate_claim(request: Request):

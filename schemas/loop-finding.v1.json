@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://burgess-principle.vercel.app/schemas/loop-finding.v1.json",
+  "title": "Iris Institutional Delay Loop Finding v1",
+  "type": "object",
+  "required": ["schema_version", "loop_detected", "loop_type", "loop_count", "days_consumed", "institution", "named_individual", "correspondence_refs", "accountability_finding", "summary", "provisional", "requires_human_confirmation", "disclaimer"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "loop_detected": { "type": "boolean" },
+    "loop_type": { "type": ["string", "null"], "enum": ["insufficiency", "circular_referral", "precondition_stacking", "template_dismissal", "identity_loop", "channel_redirect", null] },
+    "loop_count": { "type": "integer", "minimum": 0 },
+    "days_consumed": { "type": "integer", "minimum": 0 },
+    "institution": { "type": "string", "minLength": 1 },
+    "named_individual": { "type": ["string", "null"] },
+    "correspondence_refs": { "type": "array", "items": { "type": "string" } },
+    "accountability_finding": { "type": "string", "enum": ["SOVEREIGN", "NULL"] },
+    "summary": { "type": "string", "minLength": 1 },
+    "provisional": { "type": "boolean", "const": true },
+    "requires_human_confirmation": { "type": "boolean", "const": true },
+    "disclaimer": { "type": "string" }
+  },
+  "additionalProperties": false
+}

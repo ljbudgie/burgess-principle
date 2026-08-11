@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Loop Storyboard — try Iris institutional delay pattern samples before you classify your own correspondence.">
+  <title>Loop Storyboard — Iris</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 252, 246, 0.94);
+      --panel-strong: #fffaf2;
+      --border: rgba(102, 85, 60, 0.14);
+      --text: #2b251d;
+      --muted: #7d6c56;
+      --accent: #67533b;
+      --accent-soft: #e6d8c0;
+      --ok: #2f5d3a;
+      --ok-soft: #dceee0;
+      --warn: #6f1f1f;
+      --warn-soft: #fdecec;
+      --null: #5a3d7a;
+      --null-soft: #efe6f8;
+      --shadow: 0 18px 48px rgba(71, 52, 24, 0.12);
+      --radius: 18px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1814;
+        --panel: rgba(34, 29, 24, 0.94);
+        --panel-strong: #2a2218;
+        --border: rgba(220, 205, 180, 0.16);
+        --text: #ece4d6;
+        --muted: #b9a98e;
+        --accent: #d8c4a3;
+        --accent-soft: #4a3d2c;
+        --ok: #b7e0c0;
+        --ok-soft: #243328;
+        --warn: #ffd8d8;
+        --warn-soft: #3a2222;
+        --null: #e2d2f5;
+        --null-soft: #32263f;
+        --shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 42%),
+        linear-gradient(180deg, #f7f2ea 0%, #efe4d4 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html, body {
+        background:
+          radial-gradient(circle at top, rgba(80,70,55,0.35), transparent 42%),
+          linear-gradient(180deg, #1c1814 0%, #14110e 100%);
+      }
+    }
+
+    body { min-height: 100dvh; }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+
+    .skip-link {
+      position: absolute; left: 8px; top: -100px;
+      background: var(--accent); color: var(--panel-strong);
+      padding: 8px 12px; border-radius: 8px; text-decoration: none; z-index: 10;
+    }
+    .skip-link:focus { top: 8px; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .app {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 16px 48px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .topline {
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .shell {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: grid;
+      gap: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 650;
+    }
+
+    .lede, .note, .meta {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    a.nav, button {
+      font: inherit;
+    }
+
+    a.nav, .ghost, .primary, .card, .copy-btn {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel-strong);
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: var(--panel-strong);
+      border-color: transparent;
+    }
+
+    .primary:disabled, .copy-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      border-radius: 14px;
+      padding: 12px;
+      text-align: left;
+      display: grid;
+      gap: 6px;
+      min-height: 112px;
+    }
+
+    .card[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .card strong { font-size: 0.98rem; }
+    .card span { color: var(--muted); font-size: 0.88rem; line-height: 1.35; }
+
+    .timeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .beat {
+      flex: 1 1 140px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel-strong);
+      padding: 10px 12px;
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .beat .when {
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .beat .who { font-weight: 600; font-size: 0.92rem; }
+    .beat .what { color: var(--text); font-size: 0.9rem; line-height: 1.4; }
+    .beat.institution { border-left: 3px solid var(--accent); }
+    .beat.individual { border-left: 3px solid #5b7ea6; }
+
+    .hero-days {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      width: fit-content;
+    }
+
+    .hero-days strong {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .signals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .signal {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: var(--panel-strong);
+      display: grid;
+      gap: 6px;
+    }
+
+    .signal.loop-yes { background: var(--warn-soft); }
+    .signal.loop-no { background: var(--ok-soft); }
+    .signal.acc-null { background: var(--null-soft); }
+    .signal.acc-sov { background: var(--ok-soft); }
+
+    .signal h2 {
+      margin: 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .signal .value {
+      font-size: 1.15rem;
+      font-weight: 650;
+    }
+
+    .signal .detail { color: var(--muted); font-size: 0.92rem; line-height: 1.4; }
+
+    .confirm-box {
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      background: var(--panel-strong);
+    }
+
+    .confirm-box label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .status {
+      min-height: 1.2em;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    details.paste {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: var(--panel-strong);
+    }
+
+    details.paste summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      margin-top: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      padding: 10px 12px;
+    }
+
+    textarea { min-height: 140px; resize: vertical; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#sampleCards">Skip to sample loops</a>
+  <div class="app">
+    <div class="topline">Was a human there?</div>
+    <section class="shell" aria-labelledby="title">
+      <header>
+        <h1 id="title">Loop Storyboard</h1>
+        <p class="lede">
+          A first-run walkthrough of Iris’s institutional delay classifier.
+          Pick a sample thread, see the timeline and the two separate signals,
+          then confirm before you copy a register draft.
+        </p>
+      </header>
+
+      <div class="nav-row">
+        <a class="nav" href="./iris.html">Back to Iris</a>
+        <a class="nav" href="./iris/skills/loop/SKILL.md">How /loop works</a>
+        <a class="nav" href="./templates/LOOP_FINDING_REGISTER_ENTRY.md">Register template</a>
+      </div>
+
+      <p class="note">
+        Advisory only. This does not decide your underlying case, and it does not
+        replace the Burgess SOVEREIGN / NULL / AMBIGUOUS test for the decision itself.
+        A named human must confirm any finding before it is recorded or published.
+      </p>
+
+      <div>
+        <h2 class="sr-only">Sample delay patterns</h2>
+        <div id="sampleCards" class="cards" role="listbox" aria-label="Sample delay patterns"></div>
+      </div>
+
+      <div id="timelineWrap" hidden>
+        <p class="meta" id="sampleMeta"></p>
+        <div id="timeline" class="timeline" aria-label="Correspondence timeline"></div>
+        <div class="hero-days" aria-live="polite">
+          <strong id="daysValue">0</strong>
+          <span>calendar days in view</span>
+        </div>
+      </div>
+
+      <div id="resultWrap" hidden>
+        <p class="note">These answer different questions.</p>
+        <div class="signals" aria-live="polite">
+          <article id="loopSignal" class="signal">
+            <h2>Delay pattern</h2>
+            <div class="value" id="loopValue">—</div>
+            <div class="detail" id="loopDetail"></div>
+          </article>
+          <article id="accSignal" class="signal">
+            <h2>Accountability</h2>
+            <div class="value" id="accValue">—</div>
+            <div class="detail" id="accDetail"></div>
+          </article>
+        </div>
+        <p class="meta" id="summaryLine"></p>
+        <p class="meta" id="sourceLine"></p>
+
+        <div class="confirm-box">
+          <label>
+            <input id="confirmCheck" type="checkbox">
+            <span>I have read the full correspondence (or this sample) and I confirm this provisional finding before copying a register entry.</span>
+          </label>
+          <div class="actions">
+            <button id="copyBtn" class="copy-btn primary" type="button" disabled>Copy register entry</button>
+            <button id="classifyLiveBtn" class="ghost" type="button">Re-run via local /loop/classify</button>
+          </div>
+          <div id="copyStatus" class="status" role="status"></div>
+        </div>
+      </div>
+
+      <details class="paste">
+        <summary>Paste your own thread (advanced)</summary>
+        <p class="note">
+          JSON body with <code>messages</code>, optional <code>institution</code>,
+          and optional <code>named_individual</code>. Prefer local Iris so nothing leaves your device.
+        </p>
+        <label class="sr-only" for="pasteInput">Loop classify JSON</label>
+        <textarea id="pasteInput" spellcheck="false" placeholder='{"institution":"Example","messages":[{"date":"2026-08-01","sender":"Council","content_summary":"...","direction":"institution","reference":"A"}]}'></textarea>
+        <div class="actions" style="margin-top:10px">
+          <button id="pasteRunBtn" class="primary" type="button">Classify pasted JSON</button>
+        </div>
+        <div id="pasteStatus" class="status" role="status"></div>
+      </details>
+    </section>
+  </div>
+
+  <script>
+    const DISCLAIMER =
+      "Advisory classification only. A named human must confirm this finding before it is recorded, published, or relied upon.";
+
+    const FALLBACK_SAMPLES = {
+      disclaimer: DISCLAIMER,
+      samples: []
+    };
+
+    const els = {
+      cards: document.getElementById("sampleCards"),
+      timelineWrap: document.getElementById("timelineWrap"),
+      timeline: document.getElementById("timeline"),
+      sampleMeta: document.getElementById("sampleMeta"),
+      daysValue: document.getElementById("daysValue"),
+      resultWrap: document.getElementById("resultWrap"),
+      loopSignal: document.getElementById("loopSignal"),
+      loopValue: document.getElementById("loopValue"),
+      loopDetail: document.getElementById("loopDetail"),
+      accSignal: document.getElementById("accSignal"),
+      accValue: document.getElementById("accValue"),
+      accDetail: document.getElementById("accDetail"),
+      summaryLine: document.getElementById("summaryLine"),
+      sourceLine: document.getElementById("sourceLine"),
+      confirmCheck: document.getElementById("confirmCheck"),
+      copyBtn: document.getElementById("copyBtn"),
+      classifyLiveBtn: document.getElementById("classifyLiveBtn"),
+      copyStatus: document.getElementById("copyStatus"),
+      pasteInput: document.getElementById("pasteInput"),
+      pasteRunBtn: document.getElementById("pasteRunBtn"),
+      pasteStatus: document.getElementById("pasteStatus"),
+    };
+
+    let samples = [];
+    let active = null;
+    let activeFinding = null;
+    let activeSource = "sample";
+
+    function prettyType(type) {
+      return type ? type.replaceAll("_", " ") : "none";
+    }
+
+    function dayLabel(messages, index) {
+      if (!messages.length) return "Day —";
+      const start = Date.parse(messages[0].date.slice(0, 10));
+      const current = Date.parse(messages[index].date.slice(0, 10));
+      if (Number.isNaN(start) || Number.isNaN(current)) return messages[index].date.slice(0, 10);
+      const days = Math.round((current - start) / 86400000);
+      return days === 0 ? "Day 0" : `Day ${days}`;
+    }
+
+    function renderCards() {
+      els.cards.innerHTML = "";
+      samples.forEach((sample) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "card";
+        btn.setAttribute("role", "option");
+        btn.setAttribute("aria-pressed", "false");
+        btn.dataset.id = sample.id;
+        btn.innerHTML = `<strong>${sample.title}</strong><span>${sample.blurb}</span>`;
+        btn.addEventListener("click", () => selectSample(sample.id));
+        els.cards.appendChild(btn);
+      });
+    }
+
+    function setPressed(id) {
+      els.cards.querySelectorAll(".card").forEach((card) => {
+        card.setAttribute("aria-pressed", card.dataset.id === id ? "true" : "false");
+      });
+    }
+
+    function renderTimeline(sample) {
+      els.timeline.innerHTML = "";
+      sample.messages.forEach((message, index) => {
+        const beat = document.createElement("article");
+        beat.className = `beat ${message.direction || "institution"}`;
+        beat.innerHTML = `
+          <div class="when">${dayLabel(sample.messages, index)} · ${message.date.slice(0, 10)}</div>
+          <div class="who">${message.sender}${message.reference ? ` · ref ${message.reference}` : ""}</div>
+          <div class="what">${message.content_summary}</div>
+        `;
+        els.timeline.appendChild(beat);
+      });
+      els.timelineWrap.hidden = false;
+      els.sampleMeta.textContent = `${sample.title} — ${sample.institution || "Unspecified institution"}`;
+    }
+
+    function renderFinding(finding, sourceLabel) {
+      activeFinding = finding;
+      activeSource = sourceLabel;
+      els.confirmCheck.checked = false;
+      els.copyBtn.disabled = true;
+      els.copyStatus.textContent = "";
+
+      const loopYes = !!finding.loop_detected;
+      els.loopSignal.className = `signal ${loopYes ? "loop-yes" : "loop-no"}`;
+      els.loopValue.textContent = loopYes ? "LOOP DETECTED" : "NO LOOP";
+      els.loopDetail.textContent = loopYes
+        ? `${prettyType(finding.loop_type)} · ${finding.loop_count} complete cycle(s)`
+        : "No classified delay pattern in this thread.";
+
+      const acc = finding.accountability_finding || "NULL";
+      els.accSignal.className = `signal ${acc === "SOVEREIGN" ? "acc-sov" : "acc-null"}`;
+      els.accValue.textContent = acc;
+      els.accDetail.textContent = finding.named_individual
+        ? `Named individual supplied by you: ${finding.named_individual}`
+        : "No named individual supplied — accountability for the delay pattern is NULL.";
+
+      const days = Number(finding.days_consumed) || 0;
+      els.daysValue.textContent = String(days);
+      els.summaryLine.textContent = finding.summary || "";
+      els.sourceLine.textContent = `${sourceLabel}. ${finding.disclaimer || DISCLAIMER}`;
+      els.resultWrap.hidden = false;
+    }
+
+    function registerMarkdown(finding) {
+      const type = prettyType(finding.loop_type);
+      const result = finding.loop_detected ? "LOOP DETECTED" : "NO LOOP";
+      const named = finding.named_individual || "—";
+      const refs = (finding.correspondence_refs || []).join(", ") || "—";
+      return [
+        "# Institutional Delay Loop Finding — Register Entry (draft)",
+        "",
+        "> **Publication status:** Do not publish this draft until a named human has",
+        "> reviewed the full correspondence and confirmed the classification.",
+        "",
+        "## Finding",
+        "",
+        `- **Institution:** ${finding.institution || "—"}`,
+        `- **Assessment date:** ${new Date().toISOString().slice(0, 10)}`,
+        `- **Loop result:** ${result}`,
+        `- **Loop type:** ${type}`,
+        `- **Complete cycles:** ${finding.loop_count ?? 0}`,
+        `- **Calendar days consumed:** ${finding.days_consumed ?? 0}`,
+        `- **Accountability finding:** ${finding.accountability_finding || "NULL"}`,
+        `- **Named individual, if identified:** ${named}`,
+        `- **Correspondence references:** ${refs}`,
+        "",
+        "## One-sentence summary",
+        "",
+        `> ${finding.summary || ""}`,
+        "",
+        "## Human confirmation",
+        "",
+        "- **Confirmed by (name and role):**",
+        "- **Date confirmed:**",
+        "- **Evidence reviewed:** Full thread, including the references above.",
+        "- **Scope note:** This records a delay-pattern classification. It does not decide",
+        "  the underlying dispute or replace the Burgess assessment of the decision.",
+        "",
+        "## Publication note",
+        "",
+        "This finding is based on documented correspondence and remains open to correction",
+        "if the institution provides further evidence. Publish it alongside, not instead",
+        "of, the relevant SOVEREIGN / NULL / AMBIGUOUS finding.",
+        "",
+        `_${finding.disclaimer || DISCLAIMER}_`,
+        "",
+      ].join("\n");
+    }
+
+    async function classifyLive(payload) {
+      const response = await fetch("/loop/classify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        const message = data && data.error ? data.error : "Local classify endpoint unavailable.";
+        throw new Error(message);
+      }
+      return data;
+    }
+
+    function selectSample(id) {
+      const sample = samples.find((item) => item.id === id);
+      if (!sample) return;
+      active = sample;
+      setPressed(id);
+      renderTimeline(sample);
+      renderFinding(sample.finding, "Offline sample finding (pre-classified locally for first-run demo)");
+    }
+
+    async function rerunActive() {
+      if (!active) {
+        els.copyStatus.textContent = "Choose a sample first.";
+        return;
+      }
+      els.copyStatus.textContent = "Calling local /loop/classify…";
+      try {
+        const finding = await classifyLive({
+          messages: active.messages,
+          institution: active.institution,
+          named_individual: active.named_individual,
+        });
+        renderFinding(finding, "Live local /loop/classify result");
+        els.copyStatus.textContent = "Updated from local endpoint.";
+      } catch (error) {
+        els.copyStatus.textContent =
+          `${error.message} Showing the offline sample finding instead — start Iris local to re-run live.`;
+      }
+    }
+
+    async function runPaste() {
+      els.pasteStatus.textContent = "";
+      let payload;
+      try {
+        payload = JSON.parse(els.pasteInput.value);
+      } catch {
+        els.pasteStatus.textContent = "Paste valid JSON before classifying.";
+        return;
+      }
+      if (!payload || !Array.isArray(payload.messages)) {
+        els.pasteStatus.textContent = "JSON must include a messages array.";
+        return;
+      }
+      active = {
+        id: "pasted",
+        title: "Pasted thread",
+        blurb: "Your correspondence",
+        institution: payload.institution || "Unspecified institution",
+        named_individual: payload.named_individual || null,
+        messages: payload.messages,
+        finding: null,
+      };
+      setPressed(null);
+      renderTimeline(active);
+      els.pasteStatus.textContent = "Calling local /loop/classify…";
+      try {
+        const finding = await classifyLive(payload);
+        renderFinding(finding, "Live local /loop/classify result");
+        els.pasteStatus.textContent = "Classified from pasted JSON.";
+      } catch (error) {
+        els.pasteStatus.textContent =
+          `${error.message} Paste classify needs Iris local (or another host serving /loop/classify).`;
+        els.resultWrap.hidden = true;
+      }
+    }
+
+    els.confirmCheck.addEventListener("change", () => {
+      els.copyBtn.disabled = !els.confirmCheck.checked || !activeFinding;
+      els.copyStatus.textContent = els.confirmCheck.checked
+        ? "Confirmation noted. You can copy a draft register entry."
+        : "";
+    });
+
+    els.copyBtn.addEventListener("click", async () => {
+      if (!activeFinding || !els.confirmCheck.checked) return;
+      const text = registerMarkdown(activeFinding);
+      try {
+        await navigator.clipboard.writeText(text);
+        els.copyStatus.textContent = "Draft register entry copied. Fill the human confirmation fields before any publication.";
+      } catch {
+        els.copyStatus.textContent = "Clipboard blocked. Select and copy from a download instead is not wired; paste failed — try a secure context (https or localhost).";
+      }
+    });
+
+    els.classifyLiveBtn.addEventListener("click", rerunActive);
+    els.pasteRunBtn.addEventListener("click", runPaste);
+
+    async function boot() {
+      try {
+        const response = await fetch("./examples/loop-storyboard-samples.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("sample fetch failed");
+        const data = await response.json();
+        samples = data.samples || [];
+      } catch {
+        samples = FALLBACK_SAMPLES.samples;
+      }
+      if (!samples.length) {
+        els.cards.innerHTML = "<p class='note'>Sample pack missing. Open this page from the repository root or Iris local server.</p>";
+        return;
+      }
+      renderCards();
+      selectSample(samples[0].id);
+    }
+
+    boot();
+  </script>
+</body>
+</html>

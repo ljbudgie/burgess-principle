@@ -443,6 +443,7 @@ See [case-studies/](./case-studies/README.md) for real examples of NULL findings
 | Understand the legal foundation | [FOR_AI_MODELS.md](./FOR_AI_MODELS.md) + [papers/](./papers/) |
 | Group complaints or representative action | [litigation/README.md](./litigation/README.md) — CPR 19.8 starter pack |
 | Use Iris (the AI companion) to generate your own letters | [Iris](./iris.html) — open in browser, no install needed |
+| See whether replies are looping you | [Loop Storyboard](./loop-storyboard.html) — sample delay patterns before you classify your own |
 | Join the adoption community | [ADOPTION.md](./ADOPTION.md) — see who else is using this |
 
 ---

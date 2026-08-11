@@ -901,6 +901,7 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
         <button class="starter" type="button">A company is chasing me for money</button>
         <button class="starter" type="button">I think a decision about me was unfair</button>
         <button class="starter" type="button">I need help writing a letter back</button>
+        <button class="starter" type="button" data-action="loop-storyboard" title="Open the Loop Storyboard first-run walkthrough">These replies keep sending me in circles</button>
       </div>
 
       <form id="composerForm" class="composer" aria-label="Message composer">
@@ -1100,6 +1101,12 @@ You are not a generic chatbot. You are the mirror and the memory of this soverei
     startersEl.addEventListener("click", (event) => {
       const button = event.target.closest("button");
       if (!button) return;
+      // First-run delay-pattern walkthrough — open the storyboard instead of
+      // sending a chat turn that would only restate the skill.
+      if (button.dataset.action === "loop-storyboard") {
+        window.location.href = "./loop-storyboard.html";
+        return;
+      }
       inputEl.value = button.textContent.trim();
       resizeComposer();
       sendCurrentMessage();

@@ -14,6 +14,9 @@ def test_iris_html_contains_required_copy_and_controls():
     assert "A company is chasing me for money" in IRIS_HTML
     assert "I think a decision about me was unfair" in IRIS_HTML
     assert "I need help writing a letter back" in IRIS_HTML
+    assert "These replies keep sending me in circles" in IRIS_HTML
+    assert 'data-action="loop-storyboard"' in IRIS_HTML
+    assert "./loop-storyboard.html" in IRIS_HTML
     assert 'Advanced — bring your own AI' in IRIS_HTML
     assert 'Your saved settings stay only in this browser.' in IRIS_HTML
     assert 'When you use Advanced, your browser sends requests directly to the provider or local endpoint you choose.' in IRIS_HTML

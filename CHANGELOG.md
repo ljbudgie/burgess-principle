@@ -5,17 +5,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
-## Unreleased
+## v2.11.0 — 12 August 2026
 
-### Added
+### Loop Storyboard — institutional delay pattern classifier
 
-- **Loop Storyboard** (`loop-storyboard.html`) — first-run walkthrough for the
-  institutional delay classifier: sample pattern cards, correspondence timeline
-  with calendar days, dual-signal result panel (delay pattern separate from
-  accountability), and a human-confirmation gate before copying a draft
-  register entry. Sample pack in `examples/loop-storyboard-samples.json`.
-  Linked from Iris starters, `NAVIGATION.md`, `GETTING_STARTED.md`, and
-  `iris/skills/loop/SKILL.md`.
+- **`loop-storyboard.html`** — new first-run UI for identifying institutional
+  delay patterns: sample pattern cards (holding response, auto-acknowledgement,
+  referral loop, deadline miss, vexatious classification), correspondence
+  timeline with calendar-day display, dual-signal result panel (delay pattern
+  classified separately from binary test accountability finding), and a
+  human-confirmation gate before a draft register entry is generated. (#496)
+- **`iris/loop_classifier.py`** — Python classifier backing the storyboard.
+  Detects loop patterns from correspondence metadata; returns structured
+  findings with delay signal and binary test result separately scored.
+  Full test suite: `tests/test_loop_classifier.py`, `tests/test_loop_storyboard.py`.
+- **`iris/skills/loop/SKILL.md`** — Iris skill definition for loop detection.
+- **`schemas/loop-finding.v1.json`** — JSON schema for loop finding records.
+- **`templates/LOOP_FINDING_REGISTER_ENTRY.md`** — copy-paste register entry
+  template generated at the storyboard's human-confirmation gate.
+- **`examples/loop-storyboard-samples.json`** — sample pack of real-pattern
+  correspondence scenarios for demonstration and testing.
+- Wired into `iris.html`, `iris-local.py`, `api.py`, `NAVIGATION.md`,
+  `GETTING_STARTED.md`, and `INTEGRATION_CONTRACT.md`.
+
+### Ledger and legal foundations
+
+- **Ledger updated 11 August 2026** — new entries: Durham Constabulary
+  CO/00578/26 (NULL), Northumbrian Water named non-consent, PHSO C-2205631,
+  Audi/VWFS verification loop, Credit Resource Solutions, Experian refresh,
+  Trading 212 open. Full historical CSV restored with correct quoting.
+- **`LEGAL_FOUNDATIONS.md`** — DUAA 2025 fully in force note added;
+  anticipatory duty High Court reminder added.
 
 ---
 

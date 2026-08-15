@@ -1,7 +1,10 @@
 # Portable QR Accountability Receipt
 
-**Status:** Design specification  
+**Status:** Hardened design specification (post-review)  
 **UK Certification Mark:** UK00004343685  
+**Schema family (target):** `openhear-qr-receipt`  
+**Schema version (target):** `openhear-qr-receipt-v1.0.0`  
+**Schema owner:** `github.com/ljbudgie/openhear`  
 **Date:** 15 August 2026  
 **Author:** Lewis James Burgess
 
@@ -9,116 +12,205 @@
 
 ## What this is
 
-A portable, self-contained accountability receipt for the Burgess Principle binary test.
+A portable, offline-verifiable accountability receipt for the Burgess Principle binary test.
 
 It is not a marketing QR.  
-It is not a generic “verify this certificate” link.
+It is not a URL.  
+It is not a probabilistic confidence score.
 
-It is a fact-bound, timestamped evidence artefact that answers one question:
+It is a fact-bound, timestamped, cryptographically bound evidence artefact that answers one question only:
 
 > Was a named human being able to apply their mind to the specific facts of this case before the action was taken?
 
 **SOVEREIGN** — yes.  
-**NULL** — no.  
-**AMBIGUOUS** — unclear on the present record.
+**NULL** — no.
 
-The QR resolves to (or embeds a pointer to) a commitment that locks those specific facts at a specific time. The same artefact can be dropped into a court bundle, FOI file, regulatory complaint, or institutional correspondence as a single exhibit.
-
----
-
-## Why this is different from ordinary certificate QRs
-
-| Ordinary certificate QR | Burgess QR accountability receipt |
-|-------------------------|-----------------------------------|
-| Answers “is this document authentic?” | Answers “did a named human review these specific facts?” |
-| Issuer-specific | Standard-specific (the Principle itself) |
-| Static verification page | Fact-bound, timestamped commitment |
-| Marketing / convenience | Bundle-ready evidence format |
-
-Most QR-on-certificate systems only prove provenance of a document.  
-This one proves (or records the absence of) meaningful human involvement on the facts that matter.
+There is no third legal state. AMBIGUOUS may exist only as an intermediate process state before human confirmation; it is never a final finding on a confirmed receipt.
 
 ---
 
-## Core design rules
+## Dual-signal architecture (hard boundary)
 
-### 1. Fact-bound
-The receipt is worthless without the specific facts it commits to.  
-Those facts are extracted from the existing email / audit trail (who said what, when, what was requested, what was refused or automated).  
-Generic branding (“we care about humans”) is not permitted.
+The receipt is built on two separate signals. They must never be fused into a single pipeline step.
 
-### 2. Timestamped
-The moment the facts were locked becomes part of the evidence.  
-The commitment carries a clear time anchor.
+### Signal 1 — Pattern detection (machine)
+- Deterministic only.
+- Output: structured facts already present in the correspondence / audit trail (who, when, what was requested, what was refused or automated, cycle counts, days consumed).
+- Never claims a legal finding.
+- No confidence floats. Pattern present or absent. Cycle count is integer. Days consumed is integer.
+- No AI-generated summaries, paraphrases, or inferences. Extraction of structured fields only.
+- Template dismissal is verified by string identity or Levenshtein ratio ≥ 0.95, not soft similarity.
 
-### 3. AI-assisted, human-accountable
-An AI may:
-- extract already-existing facts from the correspondence,
-- structure them,
-- and propose the timestamped commitment.
+### Signal 2 — Human confirmation (gated)
+- Human-gated binary finding only.
+- Requires named confirmation with evidence that the specific facts were reviewed.
+- Confirmation gate is a hard boundary, not a “review step” inside one flow.
+- AI must never issue the SOVEREIGN / NULL finding.
 
-An AI must never be the decision-maker on the binary finding.  
-A human (the subject, or a certified practitioner) confirms SOVEREIGN / NULL / AMBIGUOUS before the receipt is finalised.  
-That preserves the SOVEREIGN character of the artefact itself.
-
-### 4. Bundle-ready
-A judge, ICO case officer, MP’s office, or institutional decision-maker can open one artefact instead of reconstructing a multi-email thread.  
-The receipt is designed to travel with the correspondence and to be exhibited without further reconstruction.
-
-### 5. Compatible with existing repo primitives
-This design builds on, and does not replace:
-- commitment bundles (`schemas/commitment-bundle.v1.json`)
-- verifiable oversight decision records
-- sovereign vault / commitment-only workflow
-- loop findings and memory receipts
-
-The QR is a portable handle onto those structures, not a parallel system.
+Treat Signal 1 and Signal 2 as separate microservices in the architecture. The confirmation gate is the legal-technical boundary that protects the certification mark.
 
 ---
 
-## Intended workflow (high level)
+## The QR is not a URL
 
-1. Correspondence / audit trail exists (emails, formal notices, automated replies).
-2. Facts are extracted and structured (AI may assist; human confirms).
-3. Binary finding is confirmed by a human.
-4. Commitment is generated (hash or equivalent) binding facts + finding + timestamp.
-5. QR is generated that resolves to (or embeds a pointer to) that commitment.
-6. QR / receipt is attached to further correspondence or filed as an exhibit.
+### Minimal QR payload (only these fields)
+- `receipt_id`
+- `bundle_hash`
+- `cert_mark` (UK00004343685)
+- `timestamp`
+- `signature`
+
+No URL.  
+No raw content.  
+No correspondence bytes.  
+No audio.  
+No network requirement for verification.
+
+Verification is performed against a local bundle (or offline registry copy) and the relevant public key. Network is optional, never required.
+
+**Anti-pattern (rejected):** QR codes that phone home to a server for verification. That is a marketing QR, not an accountability receipt. If a design proposes `https://…` inside the QR payload, reject it. Any registry URL belongs in schema metadata only, never in the QR payload.
 
 ---
 
-## Use cases
+## Deterministic, not probabilistic
 
-- Attach to letters and emails sent to councils, credit reference agencies, utilities, courts, and regulators.
-- Include in court bundles and FOI / DSAR packs as a single, self-contained exhibit.
-- Hand or display as a physical card when process fails in the moment.
-- Generate from Iris / sovereign vault once the commitment layer is live for a given case.
+| Rejected | Required |
+|----------|----------|
+| Confidence: 0.94 | Pattern present or absent; integers only |
+| AI-generated summary of correspondence | Structured field extraction only; no paraphrase |
+| Probabilistic template matching | String identity or Levenshtein ≥ 0.95 |
+| Soft similarity / NLP sentiment | Forbidden |
+
+---
+
+## Expiry and supersession (event sourcing)
+
+- The **bundle** (underlying facts) is append-only.
+- The **receipt** is a point-in-time attestation.
+
+Fields:
+- `expires_at`: ISO-8601 or null
+- `superseded_by`: receipt_id or null
+
+A receipt expires or is superseded when:
+- the classification is challenged and overturned,
+- new evidence emerges, or
+- a SOVEREIGN exit is achieved (the loop is closed).
+
+Model as event sourcing, not static permanent records.
+
+---
+
+## Boundary: no raw audio, no raw correspondence
+
+At the receipt boundary:
+
+```text
+if any fact is raw bytes / audio / correspondence content:
+    raise RawAudioRejectedError
+```
+
+The receipt contains hashes and references only. Content stays in the sovereign vault / local bundle. This aligns with OpenHear’s existing advocacy layer (`advocacy/gate.py`, `advocacy/bundle.py`): commitments travel; raw facts do not.
+
+---
+
+## Registry is advisory, not authoritative
+
+- Registry function: index, verify, aggregate.
+- Registry authority: none — any party can verify offline.
+- Registry lock-in: none — bundles are portable; schema is open.
+
+If `register.theburgessprinciple.com` (or any future registry) goes down, every correctly formed receipt must still verify against its local bundle and public key.
+
+---
+
+## Wristband / biometric witness (phased)
+
+- Phase 1–2: human confirmation via app UI + cryptographic signature only.  
+  `biometric_witness` field exists and is **null**.
+- Phase 3+: optional wristband witness as biometric hardening.
+- Phase 5+: wristband witness may become default for high-stakes classifications.
+
+Do not front-load hardware dependencies. Schema remains forward-compatible; the field is present and null, not absent.
+
+---
+
+## Schema versioning (forward-compatible)
+
+```json
+{
+  "schema": "openhear-qr-receipt-v1.0.0",
+  "schema_family": "openhear-qr-receipt",
+  "schema_owner": "github.com/ljbudgie/openhear"
+}
+```
+
+Full semver. The owner field prevents fork/re-version attacks. Validation must enforce these fields.
+
+---
+
+## Alignment with existing OpenHear advocacy layer
+
+This design extends, and does not replace:
+
+- `advocacy/gate.py` — PersonGate, Commitment, Receipt, SOVEREIGN / NULL tags, SHA-256 commitments, facts never leave the device by default.
+- `advocacy/bundle.py` — offline export bundle that carries commitment + receipt + tag + hard-coded disclaimers; never raw facts.
+- Existing commitment-bundle and verifiable-oversight primitives in the Burgess Principle repo.
+
+The QR receipt is a portable handle onto the same dual-signal, commitment-first model already enforced in OpenHear’s advocacy boundary.
+
+---
+
+## Required test cases (must pass before commit of implementation)
+
+| Test | Expected result |
+|------|-----------------|
+| Generate receipt → tamper one character in QR → verify | TAMPERED |
+| Generate receipt → wait for expiry → verify | EXPIRED |
+| Generate receipt with NULL Signal 2 → verify without human confirmation | UNVERIFIED (receipt exists; not confirmed) |
+| Generate receipt → challenge with new evidence → superseding receipt | Original SUPERSEDED; new receipt links back |
+| Encode minimal QR → decode → verify against full bundle offline | SOVEREIGN or NULL with no network |
+
+---
+
+## Documentation that must ship with implementation code
+
+Not after. With:
+
+- `docs/QR_RECEIPT_SCHEMA.md` — human-readable schema reference
+- `docs/QR_RECEIPT_INTEGRATION.md` — generate, verify, challenge
+- `examples/qr_receipt_lifecycle.py` — create → confirm → verify → challenge → supersede
+- `examples/qr_receipt_offline_verification.py` — no network, no registry, bundle + public key only
 
 ---
 
 ## What this is not
 
 - Not a substitute for the binary test itself.
-- Not a claim that scanning the QR creates human review where none occurred.
+- Not a claim that scanning creates human review where none occurred.
 - Not an automated decision system.
-- Not a closed or proprietary format — the underlying commitment and finding remain human-legible and challengeable.
+- Not a marketing or phone-home QR.
+- Not a probabilistic or confidence-scored artefact.
+- Not a third state between SOVEREIGN and NULL on a confirmed receipt.
 
 ---
 
-## Next implementation steps (non-blocking)
+## Meta rule for implementers
 
-1. Define a minimal receipt schema that references or embeds an existing commitment-bundle / decision-record.
-2. Specify the QR payload (URL to a receipt page, or offline-capable deep link / short payload).
-3. Wire fact extraction helpers to the existing email / loop / verifiable-oversight tooling.
-4. Ensure the human confirmation gate remains mandatory before any QR is finalised.
-5. Document how a receipt is exhibited in a court or regulatory bundle.
+Every time a change would make the receipt more “user-friendly” or “feature-rich,” ask:
+
+1. Does this compromise the binary test?
+2. Does this create a third state between SOVEREIGN and NULL?
+3. Does this let a machine claim what a human must confirm?
+
+If yes to any → reject. Iterate. That is the point of the certification mark.
 
 ---
 
 ## Status
 
-Design accepted 15 August 2026.  
-Implementation may proceed incrementally against the existing commitment and verifiable-oversight stack.
+Hardened design accepted 15 August 2026 after external architectural review.  
+Phase 1 implementation may proceed against OpenHear’s advocacy layer and the existing commitment / verifiable-oversight stack, subject to the constraints above.
 
 UK Certification Mark UK00004343685  
 Lewis James Burgess  

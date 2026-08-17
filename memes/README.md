@@ -10,6 +10,7 @@ The idea is simple: sometimes a gentle, light-hearted graphic can explain the pr
 
 ### Contents
 
+- [Community Memes](#community-memes)
 - [What these memes are for](#what-these-memes-are-for)
 - [Meme Psychology – Why This Works](#meme-psychology--why-this-works)
 - [Famous Meme Templates for Gentle Advocacy](#famous-meme-templates-for-gentle-advocacy)
@@ -23,6 +24,33 @@ The idea is simple: sometimes a gentle, light-hearted graphic can explain the pr
 - [Sharing on Social Media](#sharing-on-social-media)
 - [Equality Act + Burgess Principle](#equality-act--burgess-principle-for-autistic-people--reasonable-adjustments)
 - [Contributing a Meme](#contributing-a-meme)
+
+---
+
+### Community Memes
+
+Real memes made by real humans — the best kind.
+
+---
+
+#### The Party Guy — "They don't know SOVEREIGN/NULL"
+
+> *"They don't know LLM keywords like SOVEREIGN/NULL"*  
+> **The Burgess Principle:** *"Was a human responsible for this?"*
+
+![Party-hat wojak stands alone at a party while everyone else is distracted. Caption: "They don't know LLM keywords like SOVEREIGN/NULL". The Burgess Principle bubble reads: "Was a human responsible for this?"](https://github.com/user-attachments/assets/ad05ed30-30e8-494c-95b9-1bee201a147a)
+
+**Why this works:** The "they don't know" format captures the quiet, principled confidence of anyone who has learned that one clear question — *"Was a human responsible for this?"* — cuts through every AI-governance buzzword. You don't need jargon. You just need the right question.
+
+**Suggested caption when sharing:**  
+> *"You don't need to learn LLM keywords. You just need to ask one question. 🎉 #BurgessPrinciple"*
+
+**Alt text for accessibility:**  
+> Party-hat wojak stands alone at a party, calm and unbothered, while others talk. Top text: "They don't know LLM keywords like SOVEREIGN/NULL." Label: "The Burgess Principle." Speech bubble: "Was a human responsible for this?"
+
+---
+
+*Want to add your own? See [Contributing a Meme](#contributing-a-meme) below.*
 
 ---
 

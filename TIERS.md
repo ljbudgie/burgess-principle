@@ -149,7 +149,7 @@ Core, Toolkit, or Extensions, and the admission rule does not apply to them.
 | Area | Files |
 |---|---|
 | Contribution and conduct | [CONTRIBUTING.md](./CONTRIBUTING.md), [CONTRIBUTING_AI_DOCS.md](./CONTRIBUTING_AI_DOCS.md), [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md), [GOVERNANCE.md](./GOVERNANCE.md), [SECURITY.md](./SECURITY.md) |
-| Licensing | [LICENSE.md](./LICENSE.md) |
+| Licensing and design rationale | [LICENSE.md](./LICENSE.md), [EPONYMOUS_DESIGN.md](./EPONYMOUS_DESIGN.md), [CITATION.cff](./CITATION.cff) |
 | Project record | [CHANGELOG.md](./CHANGELOG.md), [RELEASE_NOTES.md](./RELEASE_NOTES.md), [STATUS.md](./STATUS.md) |
 | Published site and supporting docs | [docs/](./docs/) — the published site surface, the 90-day plan, and long-form analysis |
 | Sibling repositories | [ECOSYSTEM.md](./ECOSYSTEM.md) — the map outside this repository |

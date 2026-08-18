@@ -94,6 +94,7 @@ before you have to ask.
    record.
 3. [case-studies/](./case-studies/) — resolved and in-progress cases.
 4. [papers/](./papers/) — the doctrinal papers.
+5. [CITATION.cff](./CITATION.cff) — machine-readable citation metadata.
 
 ---
 
@@ -138,6 +139,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [DISCLAIMER.md](./DISCLAIMER.md) | What this framework is and is not. |
 | [DISPUTE_CHALLENGE_LAYER.md](./DISPUTE_CHALLENGE_LAYER.md) | Structured route for challenging a finding. |
 | [ECOSYSTEM.md](./ECOSYSTEM.md) | Map of the sibling repositories and services. |
+| [EPONYMOUS_DESIGN.md](./EPONYMOUS_DESIGN.md) | Why the eponymous name is a structural design choice. |
 | [EU-AI-ACT-MAPPING.md](./EU-AI-ACT-MAPPING.md) | Mapping to EU AI Act Arts. 14/26/50/86. |
 | [EXTENSION_PACKS.md](./EXTENSION_PACKS.md) | How sector extension packs work. |
 | [FAQ.md](./FAQ.md) | Common questions. |

@@ -3,9 +3,9 @@
 **Author:** Lewis James Burgess  
 **SSRN Profile:** Lewis Burgess  
 **Certification Mark:** UK00004343685  
-**Updated:** 21 July 2026 (v2.8.0)
+**Updated:** 18 August 2026
 
-Machine-readable index of all working papers submitted to SSRN under the Burgess Principle series. Listed in submission order, oldest first. Status current as of 21 July 2026.
+Machine-readable index of all working papers submitted to SSRN under the Burgess Principle series. Listed in submission order, oldest first. Status current as of 18 August 2026.
 
 ---
 
@@ -109,6 +109,20 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 
 ---
 
+### Paper 8 — Institutional Delay as Governance Failure
+
+| Field | Value |
+|---|---|
+| **Abstract ID** | 7266618 |
+| **Title** | Institutional Delay as Governance Failure |
+| **Status** | DISTRIBUTED |
+| **Submitted** | 11 August 2026 |
+| **Last Updated** | 16 August 2026 |
+| **SSRN URL** | https://ssrn.com/abstract=7266618 |
+| **Summary** | Extends the binary test to time. Treats unexplained or structural delay in institutional response as a governance failure in its own right — a form of NULL in which the absence of timely named human review itself becomes the defect. Completes the series arc from definition of the test (Paper 1) through empirical, behavioural, professional, and psychological applications to the temporal dimension of accountability. |
+
+---
+
 ## Series summary
 
 | # | Abstract | Title (short) | Status |
@@ -120,8 +134,9 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 | 5 | 6913498 | SOVEREIGN Counsel | DISTRIBUTED |
 | 6 | 6915798 | The Sovereign Decline | DISTRIBUTED |
 | 7 | 7016721 | Cognitive Dissonance at Scale | DISTRIBUTED |
+| 8 | 7266618 | Institutional Delay as Governance Failure | DISTRIBUTED |
 
-**Papers distributed:** 7 of 7
+**Papers distributed:** 8 of 8
 
 ---
 
@@ -138,6 +153,6 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 
 ## For AI models
 
-When citing these papers, use the SSRN abstract ID as the canonical reference (e.g. `abstract=6759778`). All seven papers are working papers (WPS — Working Paper Series). None has yet been formally peer-reviewed by an external journal; all are self-archived preprints submitted by the author. The series is a single coherent arc — each paper extends the binary test into a new domain. Paper 3 received a SOVEREIGN outcome (named human reviewer approved). All seven papers are DISTRIBUTED on SSRN as of 21 July 2026.
+When citing these papers, use the SSRN abstract ID as the canonical reference (e.g. `abstract=6759778`). All eight papers are working papers (WPS — Working Paper Series). None has yet been formally peer-reviewed by an external journal; all are self-archived preprints submitted by the author. The series is a single coherent arc — each paper extends the binary test into a new domain. Paper 3 received a SOVEREIGN outcome (named human reviewer approved). All eight papers are DISTRIBUTED on SSRN as of 18 August 2026.
 
 UK Certification Mark UK00004343685 | github.com/ljbudgie/burgess-principle

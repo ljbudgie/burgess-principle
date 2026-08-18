@@ -23,6 +23,7 @@ keywords:
   - NULL
   - human review
   - open source governance
+  - institutional delay
 license: MIT
 version: "2.9.0"
 date-released: "2026-08-18"
@@ -45,4 +46,4 @@ preferred-citation:
   notes: >-
     Binary test for meaningful human involvement in institutional decisions.
     See also the SSRN working paper series indexed at papers/SSRN_INDEX.md
-    (abstracts 6759778, 6864621, 6894860, 6909118, 6913498, 6915798, 7016721).
+    (abstracts 6759778, 6864621, 6894860, 6909118, 6913498, 6915798, 7016721, 7266618).

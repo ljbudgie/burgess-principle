@@ -200,7 +200,7 @@ named human accountability standard is directly relevant.
 **Author:** Lewis James Burgess  
 **ORCID:** <a href="https://orcid.org/0009-0001-8691-3366">0009-0001-8691-3366</a>
 
-Seven-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498) · patient-led innovation (6915798) · institutional psychology (7016721). All seven are DISTRIBUTED on SSRN. Machine-readable index: [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md).
+Eight-paper series: theory (6759778) · philosophy (6864621) · empirical proof (6894860) · behavioural consequences (6909118) · legal services (6913498) · patient-led innovation (6915798) · institutional psychology (7016721) · institutional delay (7266618). All eight are DISTRIBUTED on SSRN. Machine-readable index: [papers/SSRN_INDEX.md](./papers/SSRN_INDEX.md).
 
 ---
 
@@ -286,6 +286,18 @@ First submitted: 29 June 2026 | Last updated: 14 July 2026
 **Cite as:**
 
 > Burgess, L. J. (2026). *Cognitive Dissonance at Scale: How Named-Individual Accountability Breaks Institutional Rationalisation.* SSRN Abstract 7016721. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7016721
+
+---
+
+**Paper 8:** Institutional Delay as Governance Failure  
+**SSRN Abstract ID:** [7266618](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7266618)  
+**Status:** DISTRIBUTED  
+First submitted: 11 August 2026 | Last updated: 16 August 2026  
+**Abstract:** Extends the binary test to time. Treats unexplained or structural delay in institutional response as a governance failure in its own right — a form of NULL in which the absence of timely named human review itself becomes the defect. Completes the series arc from definition of the test through empirical, behavioural, professional, and psychological applications to the temporal dimension of accountability.
+
+**Cite as:**
+
+> Burgess, L. J. (2026). *Institutional Delay as Governance Failure.* SSRN Abstract 7266618. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7266618
 
 ---
 

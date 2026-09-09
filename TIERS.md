@@ -80,10 +80,10 @@ Additions are exceptional and must clear the admission rule above.
 
 | Area | Files |
 |---|---|
-| The test and the way in | [README.md](./README.md), [START_HERE.md](./START_HERE.md), [GETTING_STARTED.md](./GETTING_STARTED.md), [ACCESSIBILITY.md](./ACCESSIBILITY.md), [NAVIGATION.md](./NAVIGATION.md), [FAQ.md](./FAQ.md), [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md), [TIERS.md](./TIERS.md) (this file) |
+| The test and the way in | [README.md](./README.md), [START_HERE.md](./START_HERE.md), [GETTING_STARTED.md](./GETTING_STARTED.md), [ACCESSIBILITY.md](./ACCESSIBILITY.md), [REGISTER.md](./REGISTER.md), [NAVIGATION.md](./NAVIGATION.md), [FAQ.md](./FAQ.md), [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md), [TIERS.md](./TIERS.md) (this file) |
 | Reference implementation | [verify_scrutiny.py](./verify_scrutiny.py) |
 | Legal basis | [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md), [LEGAL_MAPPING.md](./LEGAL_MAPPING.md), [ADM_HUMAN_REVIEW.md](./ADM_HUMAN_REVIEW.md), [EU-AI-ACT-MAPPING.md](./EU-AI-ACT-MAPPING.md), [US-AI-CIVIL-RIGHTS-ACT-MAPPING.md](./US-AI-CIVIL-RIGHTS-ACT-MAPPING.md) |
-| Scope limits | [DISCLAIMER.md](./DISCLAIMER.md), [DISAMBIGUATION.md](./DISAMBIGUATION.md) — what the framework is not; both bound the legal claims above |
+| Scope limits | [DISCLAIMER.md](./DISCLAIMER.md), [DISAMBIGUATION.md](./DISAMBIGUATION.md), [SPECIFICATION_VS_ENFORCEMENT.md](./SPECIFICATION_VS_ENFORCEMENT.md) — what the framework is not; the last file is the boundary between the normative test and executable layers |
 | Letters and scenarios | [templates/](./templates/), [toolkit/](./toolkit/), [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) |
 | Evidence record | [live_findings_ledger.csv](./live_findings_ledger.csv), [institutional_register.csv](./institutional_register.csv), [audits/](./audits/), [case-studies/](./case-studies/), [INSTITUTIONAL_REGISTER.md](./INSTITUTIONAL_REGISTER.md), [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) (legacy pointer) |
 | AI-facing doctrine | [FOR_AI_MODELS.md](./FOR_AI_MODELS.md), [AGENTS.md](./AGENTS.md), [AGENT.md](./AGENT.md), [CLAUDE.md](./CLAUDE.md), [llms.txt](./llms.txt) |
@@ -115,7 +115,7 @@ it.
 | Data contracts | [schemas/](./schemas/), [INTEGRATION_CONTRACT.md](./INTEGRATION_CONTRACT.md) |
 | Third-party integrations | [integrations/](./integrations/), [INTEGRATIONS.md](./INTEGRATIONS.md) |
 | Litigation tooling | [litigation/](./litigation/) |
-| Audit method | [INSTITUTION_AUDIT_TAXONOMY.md](./INSTITUTION_AUDIT_TAXONOMY.md), [DISPUTE_CHALLENGE_LAYER.md](./DISPUTE_CHALLENGE_LAYER.md), [ACCOUNTABILITY_PROVENANCE_GRAPH.md](./ACCOUNTABILITY_PROVENANCE_GRAPH.md) — how findings are classified, challenged, and traced |
+| Audit method | [INSTITUTION_AUDIT_TAXONOMY.md](./INSTITUTION_AUDIT_TAXONOMY.md), [DISPUTE_CHALLENGE_LAYER.md](./DISPUTE_CHALLENGE_LAYER.md), [ACCOUNTABILITY_PROVENANCE_GRAPH.md](./ACCOUNTABILITY_PROVENANCE_GRAPH.md), [RESIDUAL_TRACKER.md](./RESIDUAL_TRACKER.md) — how findings are classified, challenged, and traced |
 | Doctrine papers | [papers/](./papers/) — papers *apply* the test; they do not restate or amend it |
 | Build, test, and tooling | [scripts/](./scripts/), [tests/](./tests/), [examples/](./examples/), [tutorials/](./tutorials/), [tools/](./tools/) |
 

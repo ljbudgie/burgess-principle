@@ -36,6 +36,7 @@ If that is not quite your situation:
   to the right letter.
 - [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) — debt and
   enforcement letters.
+- [REGISTER.md](./REGISTER.md) — the standing letter register: field, tenor, mode, and the three lines.
 - [Iris](./iris.html) — an assistant that already knows the framework.
 - [Loop Storyboard](./loop-storyboard.html) — first-run walkthrough of institutional delay patterns.
 
@@ -165,10 +166,13 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [ORIGIN.md](./ORIGIN.md) | Where the principle comes from. |
 | [PARTNERSHIP_LEDGER.md](./PARTNERSHIP_LEDGER.md) | Record of partnership approaches and outcomes. |
 | [README.md](./README.md) | Project overview. |
+| [REGISTER.md](./REGISTER.md) | Standing correspondence register — field, tenor, mode, and the three-line header. |
 | [RELEASE_NOTES.md](./RELEASE_NOTES.md) | Notes for a specific release. |
+| [RESIDUAL_TRACKER.md](./RESIDUAL_TRACKER.md) | Residual identifiers: advertising-ID default is NULL; named disablement is SOVEREIGN. |
 | [SECURITY.md](./SECURITY.md) | How to report a vulnerability. |
 | [SOUL.md](./SOUL.md) | Living case tracker. Overlaps [STATUS.md](./STATUS.md) — tracked as an open decision in [STATUS.md](./STATUS.md#documentation-structure--open-decisions). |
 | [SOVEREIGN_MODE.md](./SOVEREIGN_MODE.md) | Running Iris entirely on your own hardware. |
+| [SPECIFICATION_VS_ENFORCEMENT.md](./SPECIFICATION_VS_ENFORCEMENT.md) | Boundary between the normative binary test and executable or cryptographic layers. |
 | [START_HERE.md](./START_HERE.md) | The shortest way in. |
 | [START_HERE_DEBT_LETTERS.md](./START_HERE_DEBT_LETTERS.md) | First steps for debt and enforcement letters. |
 | [STATUS.md](./STATUS.md) | Current status of live fronts and deliverables. |

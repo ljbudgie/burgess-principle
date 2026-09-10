@@ -141,11 +141,17 @@ VALID_CATEGORIES: frozenset[str] = frozenset(
 _ML_DSA_MODULES = (
     ("ML-DSA", "pqcrypto.sign.ml_dsa_65"),
     ("ML-DSA", "pqcrypto.sign.ml_dsa_87"),
+    ("ML-DSA", "pqcrypto.sign.ml_dsa_44"),
     # Older wrappers may still expose ML-DSA variants under Dilithium names.
     ("ML-DSA", "pqcrypto.sign.dilithium3"),
     ("ML-DSA", "pqcrypto.sign.dilithium5"),
 )
+# pqcrypto 1.0 renamed SPHINCS+ modules to SLH-DSA; keep the older names so
+# environments still on 0.x continue to resolve a provider.
 _SLH_DSA_MODULES = (
+    ("SLH-DSA", "pqcrypto.sign.slh_dsa_sha2_128s"),
+    ("SLH-DSA", "pqcrypto.sign.slh_dsa_sha2_256f"),
+    ("SLH-DSA", "pqcrypto.sign.slh_dsa_shake_256f"),
     ("SLH-DSA", "pqcrypto.sign.sphincs_shake_256f_simple"),
     ("SLH-DSA", "pqcrypto.sign.sphincs_sha2_256f_simple"),
 )
@@ -216,6 +222,30 @@ def _normalise_algorithm_name(value: str) -> str:
     return "".join(ch for ch in str(value).lower() if ch.isalnum())
 
 
+def _coerce_keypair(raw_keypair: Any, module: Any) -> tuple[bytes, bytes]:
+    """Normalise a provider keygen result to ``(private_key, public_key)``.
+
+    pqcrypto historically returned ``(public_key, secret_key)``. Prefer explicit
+    size constants when present; otherwise fall back to that historical order.
+    """
+    if not isinstance(raw_keypair, (tuple, list)) or len(raw_keypair) != 2:
+        raise TypeError("post-quantum keygen must return a 2-item keypair")
+
+    first = bytes(raw_keypair[0])
+    second = bytes(raw_keypair[1])
+    public_size = getattr(module, "PUBLIC_KEY_SIZE", None)
+    secret_size = getattr(module, "SECRET_KEY_SIZE", None)
+
+    if isinstance(public_size, int) and isinstance(secret_size, int):
+        if len(first) == secret_size and len(second) == public_size:
+            return first, second
+        if len(first) == public_size and len(second) == secret_size:
+            return second, first
+
+    # Historical pqcrypto order: (public_key, secret_key).
+    return second, first
+
+
 def _load_pqcrypto_provider(
     algorithm: str,
     module_name: str,
@@ -225,22 +255,34 @@ def _load_pqcrypto_provider(
     except ImportError:
         return None
 
+    # pqcrypto 1.0 renamed generate_keypair -> keygen; accept either.
     generate_keypair = getattr(module, "generate_keypair", None)
+    if not callable(generate_keypair):
+        generate_keypair = getattr(module, "keygen", None)
     sign = getattr(module, "sign", None)
     verify = getattr(module, "verify", None)
     if not all(callable(func) for func in (generate_keypair, sign, verify)):
         return None
 
     def _generate() -> tuple[bytes, bytes]:
-        public_key, private_key = generate_keypair()
-        return bytes(private_key), bytes(public_key)
+        return _coerce_keypair(generate_keypair(), module)
 
     def _sign(private_key: bytes, message: bytes) -> bytes:
-        return bytes(sign(private_key, message))
+        try:
+            return bytes(sign(private_key, message))
+        except TypeError:
+            # Some older wrappers used sign(message, secret_key).
+            return bytes(sign(message, private_key))
 
     def _verify(public_key: bytes, message: bytes, signature: bytes) -> bool:
         try:
             result = verify(public_key, message, signature)
+        except TypeError:
+            try:
+                # Some older wrappers used verify(public_key, signature, message).
+                result = verify(public_key, signature, message)
+            except Exception:
+                return False
         except Exception:
             return False
         return True if result is None else bool(result)

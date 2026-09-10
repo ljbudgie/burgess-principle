@@ -105,6 +105,33 @@ class TestLoadPqcryptoProvider:
         finally:
             sys.modules.pop("fake_pq_missing_api", None)
 
+    def test_accepts_pqcrypto_v1_keygen_alias(self):
+        # pqcrypto 1.0 exposes keygen() instead of generate_keypair().
+        import types
+
+        public_key = b"\x01" * 8
+        private_key = b"\x02" * 16
+
+        fake = types.ModuleType("fake_pq_keygen_api")
+        fake.PUBLIC_KEY_SIZE = 8
+        fake.SECRET_KEY_SIZE = 16
+        fake.keygen = lambda: (public_key, private_key)
+        fake.sign = lambda secret, message: b"sig:" + secret[:2] + message
+        fake.verify = lambda public, message, signature: (
+            public == public_key and signature == b"sig:" + private_key[:2] + message
+        )
+        sys.modules["fake_pq_keygen_api"] = fake
+        try:
+            provider = _load_pqcrypto_provider("ML-DSA", "fake_pq_keygen_api")
+            assert isinstance(provider, PostQuantumProvider)
+            got_private, got_public = provider.generate_keypair()
+            assert got_private == private_key
+            assert got_public == public_key
+            signature = provider.sign(private_key, b"msg")
+            assert provider.verify(public_key, b"msg", signature) is True
+        finally:
+            sys.modules.pop("fake_pq_keygen_api", None)
+
     def test_loads_real_ml_dsa_module(self):
         provider = _load_pqcrypto_provider("ML-DSA", "pqcrypto.sign.ml_dsa_65")
         assert isinstance(provider, PostQuantumProvider)

@@ -160,6 +160,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [LICENSE.md](./LICENSE.md) | MIT licence and certification mark governance. |
 | [LINEAGE.md](./LINEAGE.md) | Historical root of the principle. |
 | [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) | **Legacy snapshot.** Current log is [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md). |
+| [NAMED_MIND.md](./NAMED_MIND.md) | Named-officer evidence index and record-class guide. |
 | [NAVIGATION.md](./NAVIGATION.md) | This file — the index by reader type. |
 | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) | One page for a professional audience. |
 | [OPENHEAR_LICENSING_FRAMEWORK.md](./OPENHEAR_LICENSING_FRAMEWORK.md) | Licensing for the OpenHear hearing-device work. |

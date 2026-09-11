@@ -7,6 +7,12 @@ A register is a variety of language that belongs to a situation, not to a
 person (Halliday: field, tenor, mode). Lock the situation. The wording
 can then stay still.
 
+The institutional register scores a body. The named-mind index keeps the
+officer who signed. Use both. Do not merge them.
+
+See [NAMED_MIND.md](./NAMED_MIND.md) for dual role, subsection swap,
+minimum term, and role-without-name — the four patterns from the live files.
+
 ## The three knobs
 
 | Knob | Setting | If it moves |
@@ -61,3 +67,4 @@ It is not legal advice. It helps you prepare for meaningful human review.
 See [README.md](./README.md) for the binary test.
 See [GETTING_STARTED.md](./GETTING_STARTED.md) for copy-paste letters.
 See [ACCESSIBILITY.md](./ACCESSIBILITY.md) for the access route in.
+See [NAMED_MIND.md](./NAMED_MIND.md) for the officer as the exhibit.

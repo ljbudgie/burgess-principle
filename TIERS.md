@@ -115,7 +115,7 @@ it.
 | Data contracts | [schemas/](./schemas/), [INTEGRATION_CONTRACT.md](./INTEGRATION_CONTRACT.md) |
 | Third-party integrations | [integrations/](./integrations/), [INTEGRATIONS.md](./INTEGRATIONS.md) |
 | Litigation tooling | [litigation/](./litigation/) |
-| Audit method | [INSTITUTION_AUDIT_TAXONOMY.md](./INSTITUTION_AUDIT_TAXONOMY.md), [DISPUTE_CHALLENGE_LAYER.md](./DISPUTE_CHALLENGE_LAYER.md), [ACCOUNTABILITY_PROVENANCE_GRAPH.md](./ACCOUNTABILITY_PROVENANCE_GRAPH.md), [RESIDUAL_TRACKER.md](./RESIDUAL_TRACKER.md) — how findings are classified, challenged, and traced |
+| Audit method | [INSTITUTION_AUDIT_TAXONOMY.md](./INSTITUTION_AUDIT_TAXONOMY.md), [DISPUTE_CHALLENGE_LAYER.md](./DISPUTE_CHALLENGE_LAYER.md), [ACCOUNTABILITY_PROVENANCE_GRAPH.md](./ACCOUNTABILITY_PROVENANCE_GRAPH.md), [NAMED_MIND.md](./NAMED_MIND.md), [RESIDUAL_TRACKER.md](./RESIDUAL_TRACKER.md) — how findings are classified, challenged, and traced |
 | Doctrine papers | [papers/](./papers/) — papers *apply* the test; they do not restate or amend it |
 | Build, test, and tooling | [scripts/](./scripts/), [tests/](./tests/), [examples/](./examples/), [tutorials/](./tutorials/), [tools/](./tools/) |
 

@@ -108,6 +108,9 @@ For a response to count as **SOVEREIGN**, you need all of the following:
 
 Anything less should be treated as **AMBIGUOUS** until clarified.
 
+For named-officer evidence, use the [Named-mind index](./NAMED_MIND.md) to
+record the official record class and locator alongside the sentence relied on.
+
 ---
 
 ## Why This Matters Right Now

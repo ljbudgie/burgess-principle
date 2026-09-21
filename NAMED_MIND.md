@@ -190,6 +190,37 @@ this file.
 
 ---
 
+## Public-source exhibit — three-layer split (20–21 September 2026)
+
+This is not a UK file and not a finding. Class **X** until a P, C, F or L
+record exists on *this* repo's live accounts. Do not write Palantir,
+Anthropic, CENTCOM or DSIT from this block. Do not claim the Principle would
+have prevented the strike.
+
+```
+Officer: none on this file
+Role / body: public reporting of an unreleased Pentagon review
+Record class: X
+Locator: Bloomberg investigation published 18–19 September 2026; subsequent UK/US reprints 20–21 September 2026 (Gizmodo, LA Times). Subject: 28 February 2026 strike on Shajareh Tayyebeh school, Minab; officials cited over-reliance on Palantir Maven Smart System and an expectation that the tool would flag stale or contradictory intelligence.
+Date: 18–21 September 2026 (reporting). Event date: 28 February 2026.
+Sentence kept: HITL is not a named closer. A fusion tool that compresses hours into minutes can still ship a stale label. A named attestation records who recommended and who authorised. It does not refresh the underlying record by itself.
+Pattern: other (HITL treated as judgement; large system scrutinised, small repeated act not)
+Clock: none on this repo
+Next official step: none. Cite only if a UK consultation on meaningful human involvement opens. Do not annex the strike to UK00004343685.
+```
+
+Operational stack recorded in public with Paul Blatherwick, LinkedIn,
+20 September 2026 (class X — social post):
+
+1. Runtime check of the output.
+2. Named attestation at the point of act (who, these facts, authority).
+3. Longitudinal measure of the person — not inferred from the signature.
+   A clean name is not proof of independent judgement.
+
+Layer 2 is the Burgess Principle. Layer 3 is not. Do not fold 3 into 2.
+
+---
+
 ## What this file refuses
 
 It does not score an institution from a single email.
@@ -198,6 +229,8 @@ It does not invent a Deputy Chief Constable's name.
 It does not invent a Hansard volume for a person who did not speak.
 It does not claim a refused recovery hold is automatically unlawful.
 It does not treat a price-cap notice as a confession.
+It does not treat a class-X press report as a decision, or as proof that a
+named closer would have changed a targeting outcome.
 It does not replace [`REGISTER.md`](./REGISTER.md).
 
 I reviewed this. I decided this. I am accountable for these sentences.

@@ -73,13 +73,13 @@ welfare question on the accounts in that spend.
 ```
 Officer: Wendy Tarelli
 Role / body: Revenues and Benefits Manager, Darlington Borough Council
-Record class: F
-Locator: FOI DBC-4186-26 (11 September 2026); Jenny Hoogewerf-McComb
-Date: 28 May 2026 (authorisation) / 11 September 2026 (disclosure)
-Sentence kept: authoriser of the £990 HMCTS line, "Application fees for Council Tax Liability Orders."
+Record class: F + L
+Locator: FOI DBC-4186-26 (11 September 2026); paper reminder 16 September 2026 account 55018335332 / summons 268/7584060; nominated correspondent thread 24 September 2026
+Date: 28 May 2026 (authorisation) / 11 September 2026 (disclosure) / 16 September 2026 (signed reminder)
+Sentence kept: authoriser of the £990 HMCTS line, "Application fees for Council Tax Liability Orders." Same name on the 16 September paper reminder to Nicola Patterson.
 Pattern: dual-role
-Clock: internal review window on the FOI
-Next official step: appointed auditor — arrangements by which policy is reached (class S, NAO Code)
+Clock: internal review window on the FOI; Equita hold requested 24 September 2026
+Next official step: appointed auditor — arrangements by which policy is reached (class S, NAO Code); do not treat the paper reminder as a new merits decision
 ```
 
 Why it matters: that is an arrangement, not a policy preference.
@@ -97,8 +97,8 @@ Locator: emails 10 and 11 September 2026, 15:56; account 5501838216; LGFA 1992 s
 Date: 11 September 2026
 Sentence kept: "The Section 13a Discretionary Relief will not be dealt with, until the Council Tax Support review has been completed." Also: both emails are the Council's written response to the appeal.
 Pattern: subsection-swap
-Clock: VTE two months from 11 September 2026 if this is the s.16 response
-Next official step: tribunal notice, not a third letter that restarts "consideration"
+Clock: VTE two months from 11 September 2026 if this is the s.16(7) notification — ~11 November 2026
+Next official step: fresh VTE notice on the 11 September letters. VT00041152 is dead. Do not restart "consideration" with a third letter.
 ```
 
 Why it matters: a policy precondition the Act does not contain, in the
@@ -151,13 +151,110 @@ act, not a second essay.
 Officer: Suzy Smith
 Role / body: Senior Audit Manager, Local Audit Code and Guidance, NAO
 Record class: L + S
-Locator: letter 11 September 2026; DBC-4226-26 thread; NAO Code of Audit Practice
-Date: 11 September 2026
+Locator: letter 11 September 2026; DBC-4226-26 thread; NAO Code of Audit Practice; Lewis to James Collins (Mazars) 25 September 2026 recording her later confirmation that the dual-role arrangement is examinable under the Code
+Date: 11 September 2026 / 25 September 2026
 Sentence kept: auditors may examine the arrangements by which policy decisions are reached and consider the effects of the implementation of policy.
 Pattern: other (code language)
 Clock: operational work stays with the appointed auditor (Mazars)
 Next official step: map Tarelli dual-role (class F) onto that sentence; do not ask the NAO to keep a Darlington file a second time
 ```
+
+---
+
+## Deploy before the emails were read (25 September 2026)
+
+This is the Principle in a police file without the brand. Do not file it as
+certification.
+
+```
+Officer: IO 8534 Emily Kirkup
+Role / body: Professional Standards and Legal Services, Durham Constabulary
+Record class: L + S
+Locator: email 25 September 2026, 10:08 UTC, Emily.Kirkup@durham.police.uk; complaint CO/00578/26 / CO/578/26; OPCC recommendations 28 August 2026 (Sweety Sahani, paragraph 28ZA Schedule 3 PRA 2002)
+Date: 25 September 2026 (acceptance). Event: 30 March 2026 attendance at 3 Alwyn Road.
+Sentence kept: "Durham Constabulary do accept that the emails should have been reviewed prior to the decision to deploy Officers to your address." Systems updated to record disability and reasonable adjustments. Attending officers cleared. Inspector given feedback.
+Pattern: other (closer missing at the point of act)
+Clock: written acceptance to the OPCC; exact CAD/system wording requested 25 September 2026
+Next official step: the system text, not a product pitch. Keep Jack Lawson / Lola's office off this acceptance unless a new deploy happens.
+```
+
+```
+Officer: Sweety Sahani
+Role / body: Head of Business Services / Deputy Monitoring Officer, Durham PCC
+Record class: L + S
+Locator: outcome email 28 August 2026; chase replies 25 September 2026, 08:55 UTC
+Date: 28 August 2026
+Sentence kept: complaint upheld; four recommendations only — outcome wording, Littlefair feedback, apology, deaf flag on systems. No recommendation to adopt the Burgess Principle or the mark.
+Pattern: other (statutory recommendation, not a brand)
+Clock: 28-day force response closed by Kirkup on day 28
+Next official step: copy of the force's written acceptance; stop restating the four points
+```
+
+Why it matters: named closer + these emails + before the deploy. The force
+accepted the test. It did not certify a mark.
+
+---
+
+## Prematurity, not merits (24–25 September 2026)
+
+```
+Officer: Aruna Verma
+Role / body: Senior Member, Valuation Tribunal for England
+Record class: L + S
+Locator: decision on VT00041152, issued 24 September 2026; strike-out notice same date
+Date: 24 September 2026
+Sentence kept: appeal struck out as premature. Grievance dated 18 August 2026; appeal filed 21 August 2026; VTE Procedure Regulations 2009 reg.10.
+Pattern: other (clock, not substance)
+Clock: none on VT00041152 — that file is dead
+Next official step: new appeal citing Singh 10–11 September 2026 as the s.16(7) notification. High Court only if a fresh appeal is refused on the same prematurity story after that date.
+```
+
+```
+Officer: Richard Gath
+Role / body: Valuation Tribunal clerk / Appeal Postmaster
+Record class: L
+Locator: emails 24 September 2026, 15:29 UTC and 25 September 2026, 13:00 UTC; Appeal@appeals.valuationtribunal.gov.uk; VT00041152
+Date: 25 September 2026
+Sentence kept: "the striking out of the appeal was purely on the basis that the appeal was submitted to us too early and not on the substantive arguments."
+Pattern: other (clerk confirming the member's ground)
+Clock: none on this appeal number
+Next official step: accept prematurity; do not argue Gath as if he were the member
+```
+
+Why it matters: merits are untouched. Singh's 11 September letters are the
+live notification, not the 18 August grievance.
+
+---
+
+## Unit sign-off at the ICO (25 September 2026)
+
+```
+Officer: Liz (surname not given)
+Role / body: Reviewing Officer, Public Advice and Data Protection Complaints Services, ICO
+Record class: L / X
+Locator: letter 25 September 2026, case IC-521371-M3C2; sent icocasework@ico.org.uk; VWFS "Prolific Offender"
+Date: 25 September 2026
+Sentence kept: Kiranpreet Sangha dealt with the complaint in line with case-handling guidelines; ICO will not pursue further; case review is the final ICO stage. Directorate signature. First name only.
+Pattern: role-without-name
+Clock: ICO process closed. Court or PHSO via MP is the next desk, not a fourth review.
+Next official step: surname + whether Sangha read the specific email. Then stop on merits.
+```
+
+```
+Officer: Kiranpreet Sangha
+Role / body: Case officer, ICO
+Record class: L
+Locator: emails 26 and 28 August 2026; IC-521371-M3C2
+Date: 26–28 August 2026
+Sentence kept: handling later endorsed by the 25 September review. The phrase itself was not found lawful. The office declined to pursue.
+Pattern: other
+Clock: closed at ICO
+Next official step: Art 17 to VWFS / DBC is a new request, not this review
+```
+
+Do not file the 25 September ICO SAR, or the letter to Paul Arnold and
+Emily Keaney, as named-mind findings. Those are outgoing. They become L when
+a named officer answers.
 
 ---
 
@@ -169,15 +266,38 @@ Class X stays on the clock. It does not become a finding.
 | Officer | Class | Locator | Sentence | Clock |
 | --- | --- | --- | --- | --- |
 | Jon White | L | HMC-4717015, 11 Sep 2026, valuationofficecomplaints@hmrc.gov.uk | Named complaints manager; 20 working days | ~9 October 2026 |
-| Suzy Smith | L + S | NAO letter 11 Sep 2026 | Arrangements and effects; appointed auditor | Mazars |
+| Suzy Smith | L + S | NAO letter 11 Sep 2026; Mazars chase 25 Sep 2026 | Arrangements and effects; appointed auditor | Mazars / James Collins |
 | Jenny Hoogewerf-McComb | F | DBC-4186-26 | Named Tarelli on the £990 line; s.42 on gunnercooke | FOI internal review |
-| Baldev Singh | L + S | 5501838216, 10 and 11 Sep 2026 | Written appeal response; 13A parked | VTE ~11 November 2026 |
+| Baldev Singh | L + S | 5501838216, 10 and 11 Sep 2026 | Written appeal response; 13A parked | Fresh VTE from 11 Sep; ~11 November 2026 |
 | Public Access unit | F / X | HC/01/FOI/26/019981/V | DCC approved; no name; no EIA | Internal review, 2 months |
 | Gavin Foster | L | IPSO 08362-26 | Agreed clarification online and in print | Text, live time, print date |
 | Matthew Brown | L | DAR2380553, 11 Sep 2026 16:52 | Min term / 1 November / no T&Cs timestamp | SAR month |
 | Susan Hall AM | C / X | GLA Police and Crime, 4 Sep 2026 | Would put three questions to the DMPC | Unanswered 11 Sep 2026 |
 | Kaya Comer-Schwartz | X | DMPC / MOPAC | The desk Hall named; no P or L record on this file yet | Do not invent a Hansard code |
-| The E.ON Next Team | X | A-18BA6CAF, hi@eonnext.com, 11 Sep 2026 18:44 | Cap notice; phone CTA; net +£71.02 on their table | Hold. Bundle when CNBC issues a number |
+| The E.ON Next Team | X | A-18BA6CAF, hi@eonnext.com, 11 Sep 2026 18:44 | Cap notice; phone CTA; net +£71.02 on their table | Hold. HWF-A6E-YPV expires 7 October 2026; Elise sent N1 to CNBC 9 Sep |
+
+---
+
+## Named desks opened 24–25 September 2026
+
+Outgoing letters that have not yet produced a name stay off the finding
+column. They sit here as clocks.
+
+| Officer | Class | Locator | Sentence | Clock |
+| --- | --- | --- | --- | --- |
+| Emily Kirkup (IO 8534) | L | CO/00578/26, 25 Sep 2026 10:08 UTC | Emails should have been reviewed before deploy | System wording; written acceptance to OPCC |
+| Sweety Sahani | L | CO/578/26, 28 Aug / 25 Sep 2026 | Four recommendations; no brand | Closed by Kirkup on day 28 |
+| Aruna Verma | L | VT00041152, 24 Sep 2026 | Struck out as premature | File dead. New appeal on Singh letters |
+| Richard Gath | L | VT00041152, 25 Sep 2026 13:00 UTC | Too early, not the merits | Clerk, not the member |
+| Liz (no surname) | L / X | IC-521371-M3C2, 25 Sep 2026 | Final ICO stage; directorate signature | Surname; then court or PHSO |
+| Kiranpreet Sangha | L | IC-521371-M3C2, 26–28 Aug 2026 | Handling endorsed; phrase not ruled lawful | Closed at ICO |
+| Jonathan Miller | L | EG054013-26, 15 Sep 2026; Lewis reply 25 Sep 2026 21:10 | Named ombudsman review | Lynn Crooks / William Myers / TAG DPO as he directed |
+| Jury Central Summoning Bureau | X | Juror 610139521, issued 24 Sep 2026 | Unit summons; Teesside 23 Nov 2026 | Reply sent 25 Sep; named officer not yet on file |
+| James Collins | X | Mazars, 25 Sep 2026 chase | No sentence from him yet | Appointed auditor |
+| Allison Hill / Rebecca E. Baker | X | DBC internal audit, 25 Sep 2026 | NAO-suggested segregation referral; no reply yet | Do not promote to L |
+| Paul Arnold / Emily Keaney | X | ICO, 25 Sep 2026 notice | Two unsigned reviews in one day; outgoing | Becomes L when a surname answers |
+| ICO DPO | X | Art 15 SAR, 25 Sep 2026 | Outgoing | Statutory month |
+| Lewis Morrison / Virgin Customer Relations | X | CD-0284740 / CD-0274224, 25 Sep 2026 | Account ending 3882; outgoing demand | Closure or a named reply |
 
 Do not copy Duncan Bannatyne on the membership thread. He already threatened
 to void the file if other desks were written to.
@@ -185,8 +305,8 @@ to void the file if other desks were written to.
 Hall is class C only for what the Committee wrote. She is class X for the
 three questions until a letter or a minute exists. Comer-Schwartz does not
 become class P by being a public officer. Fahnbulleh, Rayner, Jones and
-Arnold stay off this table until there is a P, C, F or L locator that touches
-this file.
+Arnold stay off the *finding* table until there is a P, C, F or L locator
+that touches this file. Arnold is on the clock table only as an addressee.
 
 ---
 
@@ -231,6 +351,8 @@ It does not claim a refused recovery hold is automatically unlawful.
 It does not treat a price-cap notice as a confession.
 It does not treat a class-X press report as a decision, or as proof that a
 named closer would have changed a targeting outcome.
+It does not treat an OPCC-upheld police complaint as certification of the mark.
+It does not treat a VTE strike-out on prematurity as a decision on 13A.
 It does not replace [`REGISTER.md`](./REGISTER.md).
 
 I reviewed this. I decided this. I am accountable for these sentences.

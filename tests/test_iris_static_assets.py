@@ -104,5 +104,17 @@ def test_worker_is_a_small_anthropic_proxy_without_logging():
     assert 'console.' not in WORKER
 
 
-def test_readme_starts_with_talk_to_iris_line():
-    assert README.startswith('<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.')
+def test_readme_starts_with_letter_first_onboarding():
+    assert README.startswith(
+        '# The Burgess Principle\n\n'
+        'First time here? Start at [START_HERE.md](./START_HERE.md)'
+    )
+
+
+def test_readme_keeps_talk_to_iris_below_path_one():
+    path_one = README.index('## Path 1 — A decision or letter affected you')
+    optional_tools = README.index('## Optional tools — not required for Path 1')
+    iris_link = README.index(
+        '<a href="./iris.html">Talk to Iris</a> — open in your browser, no account or install needed.'
+    )
+    assert path_one < optional_tools < iris_link

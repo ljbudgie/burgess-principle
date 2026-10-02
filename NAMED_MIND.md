@@ -286,18 +286,18 @@ column. They sit here as clocks.
 | Officer | Class | Locator | Sentence | Clock |
 | --- | --- | --- | --- | --- |
 | Emily Kirkup (IO 8534) | L | CO/00578/26, 25 Sep 2026 10:08 UTC | Emails should have been reviewed before deploy | System wording; written acceptance to OPCC |
-| Sweety Sahani | L | CO/578/26, 28 Aug / 25 Sep 2026 | Four recommendations; no brand | Closed by Kirkup on day 28 |
+| Sweety Sahani | L | CO/578/26, 2 Oct 2026 18:31 UTC | Recommendations "fully considered and addressed"; OPCC concluded; no Force notification attached | Finalised at OPCC. System text still with Durham. OOO to 13 Oct |
 | Aruna Verma | L | VT00041152, 24 Sep 2026 | Struck out as premature | File dead. New appeal on Singh letters |
 | Richard Gath | L | VT00041152, 25 Sep 2026 13:00 UTC | Too early, not the merits | Clerk, not the member |
 | Liz (no surname) | L / X | IC-521371-M3C2, 25 Sep 2026 | Final ICO stage; directorate signature | Surname; then court or PHSO |
 | Kiranpreet Sangha | L | IC-521371-M3C2, 26–28 Aug 2026 | Handling endorsed; phrase not ruled lawful | Closed at ICO |
 | Jonathan Miller | L | EG054013-26, 15 Sep 2026; Lewis reply 25 Sep 2026 21:10 | Named ombudsman review | Lynn Crooks / William Myers / TAG DPO as he directed |
-| Jury Central Summoning Bureau | X | Juror 610139521, issued 24 Sep 2026 | Unit summons; Teesside 23 Nov 2026 | Reply sent 25 Sep; named officer not yet on file |
+| Jury Central Summoning Bureau | X | Juror 610139521; auto-reply 30 Sep 2026 | Unit summons; Teesside 23 Nov 2026 | Auto-reply is not a response |
 | James Collins | X | Mazars, 25 Sep 2026 chase | No sentence from him yet | Appointed auditor |
 | Allison Hill / Rebecca E. Baker | X | DBC internal audit, 25 Sep 2026 | NAO-suggested segregation referral; no reply yet | Do not promote to L |
 | Paul Arnold / Emily Keaney | X | ICO, 25 Sep 2026 notice | Two unsigned reviews in one day; outgoing | Becomes L when a surname answers |
 | ICO DPO | X | Art 15 SAR, 25 Sep 2026 | Outgoing | Statutory month |
-| Lewis Morrison / Virgin Customer Relations | X | CD-0284740 / CD-0274224, 25 Sep 2026 | Account ending 3882; outgoing demand | Closure or a named reply |
+| Hayley Cassells | L | Virgin, 2 Oct 2026 15:46 UTC; account 3882 | Email updated; deafness and email-only on Group Portal | FOS live; £107.23 arrears |
 
 Do not copy Duncan Bannatyne on the membership thread. He already threatened
 to void the file if other desks were written to.
@@ -341,7 +341,93 @@ Layer 2 is the Burgess Principle. Layer 3 is not. Do not fold 3 into 2.
 
 ---
 
+## Named desks 26 September – 2 October 2026
+
+A sentence from a named officer is an exhibit. An office "we", an auto-reply,
+or an outgoing chase is a clock. Do not promote the second into the first.
+
+```
+Officer: Hayley Cassells
+Role / body: Customer Support Associate, Small Business Financial Care Team, Virgin Money
+Record class: L
+Locator: email 2 October 2026, 15:46 UTC; SmallBusinessFinancialCareTeam@virginmoney.com; LJ Barbers account ending 3882; FOS CD-0274224
+Date: 2 October 2026
+Sentence kept: correspondence email updated after a signed instruction; deafness recorded on the Group Portal; email-only noted as a reasonable adjustment. Arrears stated as £107.23; account 39 days past due.
+Pattern: other (channel fixed after the fact)
+Clock: FOS referral still live; default process if 90 days past due
+Next official step: confirm the portal flag stops telephone and SMS. Do not treat the flag as certification of the mark.
+```
+
+```
+Officer: Sweety Sahani
+Role / body: Head of OPCC Business Services, Durham PCC
+Record class: L + S
+Locator: email 2 October 2026, 18:31 UTC; CO/578/26; paragraph 28ZA Schedule 3 PRA 2002. Out-of-office same evening, return 13 October 2026.
+Date: 2 October 2026
+Sentence kept: "the recommendations arising from the complaint review outcome have been fully considered and addressed by the Force." OPCC involvement "now concluded." No copy of the Force notification. No system wording.
+Pattern: other (closure without the exhibit)
+Clock: OPCC says finalised. Force system text still not produced.
+Next official step: do not restate the four recommendations to the OPCC. The missing exhibit is Durham's written 28ZA notification and the CAD wording, not another PCC letter.
+```
+
+```
+Officer: Jody Nichols
+Role / body: Health Innovation North East and North Cumbria
+Record class: L
+Locator: email 2 October 2026, 12:04 UTC; OpenHear / HI NENC 1643
+Date: 2 October 2026
+Sentence kept: market research report and extended patent search sent, with an apology for the delay.
+Pattern: other
+Clock: Becky Hanna still unwell
+Next official step: read the report. Do not file the Burgess introduction as an adoption.
+```
+
+```
+Officer: Amy Norton
+Role / body: Denmark Street Surgery
+Record class: L
+Locator: email 1 October 2026, 11:30 UTC; amy.norton@nhs.net; Sedgefield Hospital communication
+Date: 1 October 2026
+Sentence kept: she contacted the hospital about how they communicate with patients who cannot use the usual channel. Lewis has not accepted closure.
+Pattern: other
+Clock: two outstanding points on the GP thread
+Next official step: named hospital officer, not a second surgery summary
+```
+
+```
+Officer: none on the face
+Role / body: Office of Lola McEvoy MP
+Record class: X (unit "we"; office footer)
+Locator: email 30 September 2026, 15:09 UTC; LM11898; Art 15 SAR of 31 August 2026
+Date: 30 September 2026
+Sentence kept: SAR extended by two months because the bundle is over 82MB and cannot yet be compressed for email. Post offered as an alternative, not enforced.
+Pattern: role-without-name
+Clock: extension to about 30 November 2026
+Next official step: digital link. Do not treat "we" as the decision-maker on the Bridger referral.
+```
+
+```
+Officer: Liz (surname still withheld)
+Role / body: Reviewing Officer, ICO
+Record class: L / X
+Locator: letter 1 October 2026; IC-521371-M3C2; icocasework@ico.org.uk
+Date: 1 October 2026
+Sentence kept: ICO is withholding the reviewing officer's surname. Case remains closed at ICO.
+Pattern: role-without-name
+Clock: PHSO complaint opened 1 October 2026 (C-2205631 is the existing Ofgem file; this is a new ICO service complaint)
+Next official step: surname or PHSO. Do not reopen the VWFS merits.
+```
+
+Cabinet Office IR2026/15956 (2 October 2026, FOI2026/13981) is unsigned. Class F / X until a name exists.
+Royal Mail HQ reply of 2 October 2026 is a team holding note. A first name on the signature is not a decision. Class X.
+Jury Central Summoning Bureau auto-reply 30 September 2026 is not a response. Juror 610139521 stays class X.
+PHSO enquiries letter of 1 October 2026 and the ICO fee-notice letter of 1 October 2026 are outgoing. They become L when a named officer answers.
+Dean Haslam (Signal Telecom, Duke Street) asked for a cancel confirmation on 25 September 2026. Record the cease date only if he confirms it.
+
+---
+
 ## What this file refuses
+
 
 It does not score an institution from a single email.
 It does not treat a minimum-term date as a termination.
@@ -353,6 +439,8 @@ It does not treat a class-X press report as a decision, or as proof that a
 named closer would have changed a targeting outcome.
 It does not treat an OPCC-upheld police complaint as certification of the mark.
 It does not treat a VTE strike-out on prematurity as a decision on 13A.
+It does not treat an OPCC closure email as the Force's 28ZA notification.
+It does not treat a Group Portal flag as certification of the mark.
 It does not replace [`REGISTER.md`](./REGISTER.md).
 
 I reviewed this. I decided this. I am accountable for these sentences.

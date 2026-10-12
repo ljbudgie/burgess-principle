@@ -55,6 +55,6 @@ jobs:
           PY
 
       - name: Commit & Push
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore(ledger): add ${{ github.event.client_payload.tier }} - ${{ github.event.client_payload.customer }}"

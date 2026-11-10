@@ -20,4 +20,4 @@ The source file is IPSO 08362-26. Google is the index. The paper is the page. Do
 
 No image or personal fact is treated as verified until the person has confirmed it by email. See LIKENESS.md and LIKENESS_CRITERIA.md.
 
-The certification mark UK00004343685 was filed on 22 February 2026. It is not registered. Do not write 2022.
+The certification mark UK00004343685 was filed on 22 February 2026 and registered on 9 October 2026, effective 22 February 2026. Do not write "pending". Do not write 2022.

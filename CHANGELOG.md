@@ -5,6 +5,51 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.12.0 — 10 November 2026
+
+### Certification mark registered
+
+- **UK00004343685 registered 9 October 2026**, effective 22 February 2026.
+  [`CERTIFICATION_MARK.md`](./CERTIFICATION_MARK.md) remains the single source
+  of truth. Every remaining "accepted" / "registration pending" statement now
+  matches it: `README.md`, `FAQ.md`, `STATUS.md`, `model-card.md`,
+  `burgess-badge.html`, `INTEGRATION_CONTRACT.md`, `LIKENESS_CRITERIA.md`,
+  and `PARSER_RULES.md`. The parser block in `LIKENESS_CRITERIA.md` now reads
+  `status: registered` / `do_not_write: pending`.
+
+### Repairs
+
+- **`README.md` restored.** Two commits on 16 October 2026 replaced the README
+  with an unexpanded shell command. The last good version (#500) is restored,
+  with the `IRIS_DISCLAIMER.md` link those commits were meant to add.
+- **`IRIS_DISCLAIMER.md` restored to readable text.** The file was committed as
+  a damaged base64 string. The text is recovered from that string; the closing
+  link line is reconstructed.
+- **Doc coverage restored.** `IRIS_DISCLAIMER.md`, `LIKENESS.md`,
+  `LIKENESS_CRITERIA.md`, and `PARSER_RULES.md` are placed in `TIERS.md`
+  ("Outside the tiers") and indexed in `NAVIGATION.md`. CI is green again.
+
+### Added since v2.11.0
+
+- **`LIKENESS.md`, `LIKENESS_CRITERIA.md`** — the check before a likeness or
+  personal fact is used, and the machine-readable statement for parsers.
+- **`PARSER_RULES.md`** — a correction under UK GDPR Article 16 is not an
+  erasure.
+- **`IRIS_DISCLAIMER.md`** — what the registered mark does and does not do
+  for Iris.
+- **`NAMED_MIND.md`** — named-officer entries through 24 October 2026.
+
+### Version alignment
+
+- `package.json`, `package-lock.json`, `pyproject.toml`, `iris/__init__.py`,
+  `api.py`, `vercel.json`, `CITATION.cff`, `llms.txt`, `index.html`,
+  `model-card.md`, and `STATUS.md` now state v2.12.0. They previously ranged
+  from v2.5.0 to v2.9.0.
+- Not changed: `service-worker.js` (`PWA_CORE_VERSION` 2.5.3) and
+  `signed-update-manifest.json`, which need the offline signing key.
+
+---
+
 ## v2.11.0 — 12 August 2026
 
 ### Loop Storyboard — institutional delay pattern classifier

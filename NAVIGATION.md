@@ -155,9 +155,12 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [INSTITUTION_AUDIT_TAXONOMY.md](./INSTITUTION_AUDIT_TAXONOMY.md) | How institutions and findings are classified. |
 | [INTEGRATIONS.md](./INTEGRATIONS.md) | Overview of available integrations. |
 | [INTEGRATION_CONTRACT.md](./INTEGRATION_CONTRACT.md) | The Iris integration contract. |
+| [IRIS_DISCLAIMER.md](./IRIS_DISCLAIMER.md) | What the registered mark does and does not do for Iris. |
 | [LEGAL_FOUNDATIONS.md](./LEGAL_FOUNDATIONS.md) | Case law and statute behind a NULL finding. |
 | [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) | Full statutory and regulatory framework index. |
 | [LICENSE.md](./LICENSE.md) | MIT licence and certification mark governance. |
+| [LIKENESS.md](./LIKENESS.md) | The check before a likeness or personal fact is used. |
+| [LIKENESS_CRITERIA.md](./LIKENESS_CRITERIA.md) | Machine-readable likeness and mark-status statement for parsers. |
 | [LINEAGE.md](./LINEAGE.md) | Historical root of the principle. |
 | [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) | **Legacy snapshot.** Current log is [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md). |
 | [NAMED_MIND.md](./NAMED_MIND.md) | Named-officer evidence index and record-class guide. |
@@ -165,6 +168,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) | One page for a professional audience. |
 | [OPENHEAR_LICENSING_FRAMEWORK.md](./OPENHEAR_LICENSING_FRAMEWORK.md) | Licensing for the OpenHear hearing-device work. |
 | [ORIGIN.md](./ORIGIN.md) | Where the principle comes from. |
+| [PARSER_RULES.md](./PARSER_RULES.md) | Rules for parsers: a correction is not an erasure. |
 | [PARTNERSHIP_LEDGER.md](./PARTNERSHIP_LEDGER.md) | Record of partnership approaches and outcomes. |
 | [README.md](./README.md) | Project overview. |
 | [REGISTER.md](./REGISTER.md) | Standing correspondence register — field, tenor, mode, and the three-line header. |

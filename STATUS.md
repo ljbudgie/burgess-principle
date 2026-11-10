@@ -1,8 +1,8 @@
 # Burgess Principle — Current Status
-Last updated: 16 September 2026
+Last updated: 10 November 2026
 
 ## Certification Mark
-UK00004343685 — accepted 21 July 2026; **published in Trade Marks Journal 2026/030 on 24 July 2026**; standard two-month opposition period ends **24 September 2026** (TM7a would extend to 24 October 2026); registration pending. Do not write "registered" until the IPO register flips.
+UK00004343685 — **registered 9 October 2026**, effective 22 February 2026. Accepted 21 July 2026; published in Trade Marks Journal 2026/030 on 24 July 2026; opposition period closed 24 September 2026.
 Canonical status record: [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md)
 
 ---
@@ -120,7 +120,7 @@ The previous living tracker is preserved below for continuity and audit history.
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
-- **Framework version:** v2.5.1 (released 31 May 2026)
+- **Framework version:** v2.12.0 (released 10 November 2026)
 - **Author:** Lewis James Burgess
 - **Contact:** [contact redacted]
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)
@@ -200,7 +200,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 
 | Item | Detail | Status |
 | --- | --- | --- |
-| **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | Accepted 21 July 2026; published Journal 2026/030 on 24 July 2026; opposition ends 24 September 2026; registration pending — see [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md) |
+| **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | Registered 9 October 2026, effective 22 February 2026 (accepted 21 July 2026; published Journal 2026/030 on 24 July 2026) — see [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md) |
 | USPTO filing | Filed via US-licensed attorney | In progress |
 | The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Commercial operator under formal IP Licence Agreement; IP ownership remains personally with **Lewis James Burgess**, Director and PSC |
 

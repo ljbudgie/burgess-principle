@@ -1,3 +1,20 @@
+# Release Notes — v2.12.0
+
+## Documentation and release metadata
+
+Released: 10 November 2026
+
+This release restores the README from its last good version, links Iris's limits
+disclaimer, and brings public certification-mark statements into line with
+`CERTIFICATION_MARK.md`: registered 9 October 2026, effective 22 February 2026.
+It also recovers the Iris disclaimer, maps the four previously unplaced root
+documents, and aligns release metadata to v2.12.0.
+
+`service-worker.js` and `signed-update-manifest.json` remain unchanged. Updating
+the signed manifest requires the offline signing key.
+
+---
+
 # Release Notes — v2.5.1
 
 ## On the Record: Academic Publication, Accessibility, and a Transparent Ledger

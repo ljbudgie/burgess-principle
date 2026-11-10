@@ -49,7 +49,7 @@ from iris.loop_classifier import classify_thread
 app = FastAPI(
     title="Burgess Principle Binary Test",
     description="SOVEREIGN / NULL verification API with optional on-chain claims support.",
-    version="2.5.3",
+    version="2.12.0",
 )
 
 

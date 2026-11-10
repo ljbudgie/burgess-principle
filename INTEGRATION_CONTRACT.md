@@ -3,8 +3,8 @@
 **v2.0 — August 2026**
 
 This contract implements the Burgess Principle (UK Certification Mark
-**UK00004343685**, Classes 41, 42, 45 — accepted by the UK IPO on 21 July 2026;
-publication, opposition period, and registration pending; see
+**UK00004343685**, Classes 41, 42, 45 — registered 9 October 2026, effective
+22 February 2026; see
 [`CERTIFICATION_MARK.md`](./CERTIFICATION_MARK.md) for the authoritative status).
 
 This document defines the small, stable surface that external tools can rely on without weakening Iris's sovereignty-first model.

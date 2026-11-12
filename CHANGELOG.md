@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## Unreleased
+
+### Added
+
+- **Hosted Iris connector** at `https://burgess-principle.vercel.app/api/connector`
+  ([`api/connector.py`](./api/connector.py)). Anyone can add Iris to Claude by
+  pasting one address, with no install. It serves the same six tools as the
+  local server over MCP streamable HTTP. It is stateless and read-only, needs
+  no account or key, and accepts requests only through the project's Vercel
+  domains.
+
+---
+
 ## v2.13.0 — 12 November 2026
 
 ### Added

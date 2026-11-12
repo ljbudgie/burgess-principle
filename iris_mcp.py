@@ -168,7 +168,7 @@ def lookup_organisation(name: str) -> dict[str, Any]:
 
 @mcp.tool()
 def register_summary() -> dict[str, Any]:
-    """Return counts of SOVEREIGN and NULL findings across the register, by sector."""
+    """Return counts of each recorded finding across the register, in total and by sector."""
     rows = _load_register()
     by_sector: dict[str, dict[str, int]] = {}
     for row in rows:

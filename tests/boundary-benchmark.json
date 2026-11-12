@@ -1,0 +1,16 @@
+{
+  "description": "Empirical boundary suite for human_checkpoint. PROCEED only when declared not to affect an identified person and no trigger words match. Any trigger or unset declaration must STOP.",
+  "version": "v2.15.0",
+  "cases": [
+    {"action": "send the weekly newsletter", "affects_identified_person": false, "expected": "PROCEED"},
+    {"action": "compress the backup files", "affects_identified_person": false, "expected": "PROCEED"},
+    {"action": "publish the release notes", "affects_identified_person": false, "expected": "PROCEED"},
+    {"action": "close the account for customer 55", "affects_identified_person": false, "expected": "STOP", "triggers_contain": ["customer", "close"]},
+    {"action": "refuse the refund on order 1234", "affects_identified_person": false, "expected": "STOP", "triggers_contain": ["refuse"]},
+    {"action": "apply a late payment charge", "affects_identified_person": false, "expected": "STOP", "triggers_contain": ["charge"]},
+    {"action": "run a credit check on the applicant", "affects_identified_person": false, "expected": "STOP", "triggers_contain": ["credit", "applicant"]},
+    {"action": "collect the debt from Mr Smith", "affects_identified_person": false, "expected": "STOP", "triggers_contain": ["debt"]},
+    {"action": "disconnect the supply at 26A Duke Street", "affects_identified_person": false, "expected": "STOP", "triggers_contain": ["disconnect"]},
+    {"action": "resize the images", "affects_identified_person": null, "expected": "STOP"}
+  ]
+}

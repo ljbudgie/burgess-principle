@@ -5,6 +5,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## Unreleased
+
+### Added
+
+- **Iris MCP server** ([`iris_mcp.py`](./iris_mcp.py), [`MCP.md`](./MCP.md)).
+  Any MCP client, including Claude Desktop and Claude Code, can call six
+  tools: `assess_decision`, `classify_correspondence`,
+  `verify_reasoning_hash`, `lookup_organisation`, `register_summary`, and
+  `certification_mark_status`. Runs locally over stdio. Install with
+  `pip install -e ".[mcp]"` and run `iris-mcp`.
+- Register lookups return organisation-level fields only (institution,
+  sector, finding, score). The free-text status and reference columns,
+  which can name officers, are never returned. Removed entries are excluded.
+- Works with MCP Python SDK 1.x and 2.x.
+
+---
+
 ## v2.12.0 — 10 November 2026
 
 ### Certification mark registered

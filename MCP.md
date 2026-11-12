@@ -2,9 +2,29 @@
 
 Iris is available as a [Model Context Protocol](https://modelcontextprotocol.io) server. Any MCP client, including Claude Desktop and Claude Code, can call the Burgess Principle test directly.
 
-It runs on your own machine over stdio. Nothing you give it is sent anywhere.
+There are two ways to use it.
 
-## Install
+## Hosted connector (no install)
+
+Add this address to Claude as a custom connector:
+
+```
+https://burgess-principle.vercel.app/api/connector
+```
+
+In Claude, add it as a custom connector in your connector settings. In Claude Code:
+
+```
+claude mcp add --transport http iris https://burgess-principle.vercel.app/api/connector
+```
+
+The hosted connector is read-only and stateless. It needs no account or key, and it keeps nothing you send it once it has replied. It offers the same tools as the local server.
+
+## Local server
+
+The local server runs on your own machine over stdio. Nothing you give it leaves your machine.
+
+### Install
 
 ```
 git clone https://github.com/ljbudgie/burgess-principle.git
@@ -12,7 +32,7 @@ cd burgess-principle
 pip install -e ".[mcp]"
 ```
 
-## Connect
+### Connect
 
 **Claude Code:**
 

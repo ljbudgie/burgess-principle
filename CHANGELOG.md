@@ -5,7 +5,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
-## Unreleased
+## v2.13.0 — 12 November 2026
 
 ### Added
 

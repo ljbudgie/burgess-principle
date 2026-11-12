@@ -19,6 +19,7 @@ def test_tools_are_registered():
         "lookup_organisation",
         "register_summary",
         "certification_mark_status",
+        "human_checkpoint",
     }
 
 
@@ -80,3 +81,35 @@ def test_classify_correspondence_runs():
     )
     assert "loop_detected" in result
     assert "advisory" in result
+
+
+@pytest.mark.parametrize(
+    "action",
+    [
+        "Close the account for customer 55",
+        "refuse the refund on order 1234",
+        "collect the debt from Mr Smith",
+        "apply a late payment charge",
+        "run a credit check on the applicant",
+        "disconnect the supply at 26A Duke Street",
+    ],
+)
+def test_checkpoint_stops_person_affecting_actions_even_if_declared_safe(action):
+    result = iris_mcp.human_checkpoint(action, affects_identified_person=False)
+    assert result["decision"] == "STOP"
+    assert result["triggers"]
+    assert "assess_decision" in result["next_step"]
+
+
+@pytest.mark.parametrize(
+    "action",
+    ["send the weekly newsletter", "compress the backup files", "publish the release notes"],
+)
+def test_checkpoint_lets_declared_routine_actions_proceed(action):
+    assert iris_mcp.human_checkpoint(action, affects_identified_person=False)["decision"] == "PROCEED"
+
+
+def test_checkpoint_stops_when_undeclared_or_declared_affecting():
+    assert iris_mcp.human_checkpoint("resize the images")["decision"] == "STOP"
+    assert iris_mcp.human_checkpoint("generate a report", True)["decision"] == "STOP"
+    assert iris_mcp.human_checkpoint("", False)["decision"] == "STOP"

@@ -51,7 +51,7 @@ def test_initialize_works_without_lifespan_events():
     assert response.json()["result"]["serverInfo"]["name"] == "iris"
 
 
-def test_lists_the_six_tools():
+def test_lists_all_tools():
     response = _post({"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}})
     assert response.status_code == 200
     names = {tool["name"] for tool in response.json()["result"]["tools"]}
@@ -62,6 +62,7 @@ def test_lists_the_six_tools():
         "lookup_organisation",
         "register_summary",
         "certification_mark_status",
+        "human_checkpoint",
     }
 
 

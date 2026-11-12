@@ -18,6 +18,10 @@
   "functions": {
     "api/chat.py": {
       "maxDuration": 60
+    },
+    "api/connector.py": {
+      "maxDuration": 30,
+      "includeFiles": "{iris_mcp.py,verify_scrutiny.py,institutional_register.csv,iris/**}"
     }
   },
   "env": {

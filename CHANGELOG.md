@@ -5,7 +5,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
-## Unreleased
+## v2.14.0 — 12 November 2026
 
 ### Added
 
@@ -15,6 +15,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
   local server over MCP streamable HTTP. It is stateless and read-only, needs
   no account or key, and accepts requests only through the project's Vercel
   domains.
+
+### Fixed
+
+- The `register_summary` tool description now says it counts every recorded
+  finding, not only SOVEREIGN and NULL.
 
 ---
 

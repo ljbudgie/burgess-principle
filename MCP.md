@@ -1,0 +1,52 @@
+# Iris MCP server
+
+Iris is available as a [Model Context Protocol](https://modelcontextprotocol.io) server. Any MCP client, including Claude Desktop and Claude Code, can call the Burgess Principle test directly.
+
+It runs on your own machine over stdio. Nothing you give it is sent anywhere.
+
+## Install
+
+```
+git clone https://github.com/ljbudgie/burgess-principle.git
+cd burgess-principle
+pip install -e ".[mcp]"
+```
+
+## Connect
+
+**Claude Code:**
+
+```
+claude mcp add iris -- iris-mcp
+```
+
+**Claude Desktop:** add this to `claude_desktop_config.json` and restart:
+
+```json
+{
+  "mcpServers": {
+    "iris": { "command": "iris-mcp" }
+  }
+}
+```
+
+If `iris-mcp` is not on your path, use the full path to the Python in your environment with `"args": ["-m", "iris_mcp"]`.
+
+## Tools
+
+| Tool | What it does |
+|---|---|
+| `assess_decision` | Classifies a decision as SOVEREIGN, NULL or AMBIGUOUS from the reviewer's name, role, whether they reviewed the specific facts, and when. |
+| `classify_correspondence` | Detects delay loops in a thread: insufficiency, circular referral, precondition stacking, template dismissal, identity loops, channel redirects. |
+| `verify_reasoning_hash` | Checks that recorded reasoning still matches its SHA-256 hash. |
+| `lookup_organisation` | Returns an organisation's finding and score from the institutional register. |
+| `register_summary` | Counts findings across the register, by sector. |
+| `certification_mark_status` | States the status of UK certification mark UK00004343685. |
+
+It also offers one resource, `iris://framework`, a short statement of the test.
+
+## What it does not do
+
+- It does not return named individuals. Register lookups give organisation-level fields only (institution, sector, finding, score).
+- It does not certify anyone. Certification is granted under the filed regulations; see [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md).
+- Its output is advisory. A named human must confirm any finding before it is relied on or published. See [DISCLAIMER.md](./DISCLAIMER.md).

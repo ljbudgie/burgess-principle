@@ -110,7 +110,7 @@ it.
 |---|---|
 | Verifiable oversight | [verifiable_oversight/](./verifiable_oversight/) — `BinaryTest`, `DecisionRecord`, hash-chained store |
 | Defect tracing | [tracer/](./tracer/) |
-| Services and CLIs | [api.py](./api.py), [api/](./api/), [bgsp.py](./bgsp.py) |
+| Services and CLIs | [api.py](./api.py), [api/](./api/), [bgsp.py](./bgsp.py), [iris_mcp.py](./iris_mcp.py), [MCP.md](./MCP.md) |
 | Iris and prompts | [iris/](./iris/), [iris.html](./iris.html), [iris-local.py](./iris-local.py), [iris-memory/](./iris-memory/), [prompts/](./prompts/), [model-card.md](./model-card.md), [CHOOSE_YOUR_PATH.md](./CHOOSE_YOUR_PATH.md), [ARCHITECTURE.md](./ARCHITECTURE.md) |
 | Data contracts | [schemas/](./schemas/), [INTEGRATION_CONTRACT.md](./INTEGRATION_CONTRACT.md) |
 | Third-party integrations | [integrations/](./integrations/), [INTEGRATIONS.md](./INTEGRATIONS.md) |

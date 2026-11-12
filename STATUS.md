@@ -120,7 +120,7 @@ The previous living tracker is preserved below for continuity and audit history.
 
 A live, dated record of every active front, case reference, statutory deadline, and current status. This document is updated as the record changes.
 
-- **Framework version:** v2.14.0 (released 12 November 2026)
+- **Framework version:** v2.15.0 (released 12 November 2026)
 - **Author:** Lewis James Burgess
 - **Contact:** [contact redacted]
 - **Canonical source:** [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

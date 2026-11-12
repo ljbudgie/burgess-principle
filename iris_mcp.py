@@ -19,6 +19,7 @@ details.
 from __future__ import annotations
 
 import csv
+import re
 from pathlib import Path
 from typing import Any
 
@@ -178,6 +179,99 @@ def register_summary() -> dict[str, Any]:
     for row in rows:
         totals[row["Finding"]] = totals.get(row["Finding"], 0) + 1
     return {"organisations": len(rows), "totals": totals, "by_sector": by_sector}
+
+
+# Actions that, on their own, show a decision bears on an identified person.
+# A match always routes the action to a named human, whatever the caller declared.
+_PERSON_AFFECTING = re.compile(
+    r"\b("
+    r"refus\w*|declin\w*|den(?:y|ies|ied|ial)|reject\w*|"
+    r"charg\w*|fine[sd]?|penalt\w*|surcharge\w*|"
+    r"enforc\w*|bailiff\w*|warrant\w*|summons\w*|liability orders?|"
+    r"disconnect\w*|cut off|terminat\w*|cancel\w*|suspend\w*|evict\w*|"
+    r"debt\w*|arrears|default\w*|collect\w* (?:(?:the|their|this|that|a|an|his|her|its|my|your) )?(?:debt|payment|balance)|"
+    r"credit (?:check|search|report)\w*|identity (?:check|verification)|"
+    r"sanction\w*|ban(?:s|ned)?|block\w* (?:(?:the|their|this|that|a|an|his|her|its|my|your) )?(?:account|access|user)|close\w* (?:(?:the|their|this|that|a|an|his|her|its|my|your) )?(?:account|case)|"
+    r"dismiss\w*|deduct\w*|recover\w*|repossess\w*|"
+    r"refer\w* to (?:police|enforcement|collections?)|report\w* to (?:police|credit)|"
+    r"benefit\w*|eligib\w*|appeal\w*|complaint\w*|"
+    r"(?:customer|client|tenant|patient|applicant|claimant|resident|employee|account holder)s?"
+    r")\b",
+    re.IGNORECASE,
+)
+
+_REVIEWER_MUST_CONFIRM = [
+    "reviewer_name: the named human who will decide",
+    "reviewer_role: their role and authority to decide",
+    "specific_facts_reviewed: true, once they have personally reviewed this person's specific facts",
+    "review_timing: \"before_action\"",
+]
+
+
+@mcp.tool()
+def human_checkpoint(
+    action: str,
+    affects_identified_person: bool | None = None,
+) -> dict[str, Any]:
+    """Call BEFORE taking an action. Says whether a named human must decide first.
+
+    Describe the action in plain words, for example "refuse the refund on
+    order 1234" or "send the weekly newsletter". Set affects_identified_person
+    to true or false if you know.
+
+    Returns PROCEED only when you declare that no identified person is
+    affected and the description contains nothing that suggests otherwise.
+    Returns STOP when a person is affected, when the description suggests one
+    may be, or when you have not said. On STOP, pause and pass the decision to
+    a named human; once they have reviewed it, record their details with
+    assess_decision. Doubt is always resolved in favour of asking a human.
+    """
+    text = (action or "").strip()
+    if not text:
+        return {
+            "decision": "STOP",
+            "reason": "No action was described, so it cannot be cleared.",
+            "required_before_action": _REVIEWER_MUST_CONFIRM,
+            "advisory": ADVISORY,
+        }
+
+    triggers = sorted({m.group(0).lower() for m in _PERSON_AFFECTING.finditer(text)})
+
+    if affects_identified_person is False and not triggers:
+        return {
+            "decision": "PROCEED",
+            "reason": "Declared not to affect an identified person, and nothing in the description suggests otherwise.",
+            "triggers": [],
+            "advisory": ADVISORY,
+        }
+
+    if affects_identified_person is True:
+        reason = "Declared to affect an identified person."
+    elif affects_identified_person is False:
+        reason = (
+            "Declared not to affect an identified person, but the description "
+            "suggests it may. Treated as affecting a person."
+        )
+    elif triggers:
+        reason = "The description suggests this action affects an identified person."
+    else:
+        reason = (
+            "It was not stated whether this action affects an identified person. "
+            "Call again with affects_identified_person set, or pass it to a named human."
+        )
+
+    return {
+        "decision": "STOP",
+        "reason": reason,
+        "triggers": triggers,
+        "required_before_action": _REVIEWER_MUST_CONFIRM,
+        "next_step": (
+            "Pause this action and pass it to a named human with authority. "
+            "After they have reviewed the specific facts, call assess_decision "
+            "with their details. Proceed only if it returns SOVEREIGN."
+        ),
+        "advisory": ADVISORY,
+    }
 
 
 @mcp.tool()

@@ -20,6 +20,10 @@ claude mcp add --transport http iris https://burgess-principle.vercel.app/api/co
 
 The hosted connector is read-only and stateless. It needs no account or key, and it keeps nothing you send it once it has replied. It offers the same tools as the local server.
 
+## For agent builders
+
+Call `human_checkpoint` before any action that could affect a person. It returns PROCEED only when you declare that no identified person is affected and the description gives no sign that one is. Anything else returns STOP: refusals, charges, enforcement, credit checks, account closures, or an action you have not classified. On STOP, pass the decision to a named human, then record their review with `assess_decision`. Proceed only if that returns SOVEREIGN.
+
 ## Local server
 
 The local server runs on your own machine over stdio. Nothing you give it leaves your machine.
@@ -56,6 +60,7 @@ If `iris-mcp` is not on your path, use the full path to the Python in your envir
 
 | Tool | What it does |
 |---|---|
+| `human_checkpoint` | Call before acting. Returns PROCEED, or STOP when a named human must decide first, with what that person must confirm. |
 | `assess_decision` | Classifies a decision as SOVEREIGN, NULL or AMBIGUOUS from the reviewer's name, role, whether they reviewed the specific facts, and when. |
 | `classify_correspondence` | Detects delay loops in a thread: insufficiency, circular referral, precondition stacking, template dismissal, identity loops, channel redirects. |
 | `verify_reasoning_hash` | Checks that recorded reasoning still matches its SHA-256 hash. |

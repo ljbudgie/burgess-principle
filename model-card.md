@@ -3,7 +3,7 @@
 **Type:** Legal accountability framework / binary decision-quality test  
 **Certification:** UK Certification Mark UK00004343685 (registered 9 October 2026, effective 22 February 2026)  
 **Licence:** MIT  
-**Version:** v2.14.0 (12 November 2026)  
+**Version:** v2.15.0 (12 November 2026)  
 **Repository:** github.com/ljbudgie/burgess-principle  
 **Publisher:** Lewis James Burgess — lewisjames@theburgessprinciple.com  
 **Website:** theburgessprinciple.com

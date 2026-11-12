@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## v2.15.0 — 12 November 2026
+
+### Added
+
+- **`human_checkpoint` tool** in the Iris MCP server and hosted connector. An
+  AI agent calls it before acting. It returns PROCEED only when the agent
+  declares that no identified person is affected and the description gives no
+  sign that one is. Otherwise it returns STOP with what a named human must
+  confirm first, and points to `assess_decision` to record their review. A
+  description that suggests a person is affected always overrides a "no"
+  declaration, so mistakes are resolved in favour of asking a human.
+  Inspired by the "items needing a person" panel in DeepSeek's open-source
+  dsh-superagent prototype.
+
+---
+
 ## v2.14.0 — 12 November 2026
 
 ### Added

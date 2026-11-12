@@ -163,6 +163,7 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [LIKENESS_CRITERIA.md](./LIKENESS_CRITERIA.md) | Machine-readable likeness and mark-status statement for parsers. |
 | [LINEAGE.md](./LINEAGE.md) | Historical root of the principle. |
 | [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) | **Legacy snapshot.** Current log is [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md). |
+| [MCP.md](./MCP.md) | Run Iris as an MCP server for Claude and other MCP clients. |
 | [NAMED_MIND.md](./NAMED_MIND.md) | Named-officer evidence index and record-class guide. |
 | [NAVIGATION.md](./NAVIGATION.md) | This file — the index by reader type. |
 | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) | One page for a professional audience. |

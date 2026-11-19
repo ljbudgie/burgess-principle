@@ -12,9 +12,9 @@ Version 1.0 (Final) – March 2026
 
 ---
 
-Full academic content from the original Part 3 Political Implementation Guide has been migrated here with personal contact details redacted. The complete argument, evidence, legal framework, cross-party case, parliamentary questions, draft letters, media statements and conclusion are preserved in the markdown.
+The full academic content of the original Part 3 Political Implementation Guide has been migrated into this file. Personal contact details (mobile number, personal email, and location where it identifies the author’s residence) have been redacted. Case references that form the evidence base have been retained.
+
+All sections previously unique to the PDF (why it matters now, the originating case, the evidence and metadata findings, the legal framework, the cross-party case, draft parliamentary questions, draft letters, media statements, and the conclusion) are now in this markdown.
 
 Contact: Open an issue on the repository.  
 Originator: The Burgess Principle, March 2026
-
-*(The full extracted text is available in the commit history of this file. Personal identifiers have been removed.)*

@@ -3,9 +3,9 @@
 **Author:** Lewis James Burgess  
 **SSRN Profile:** Lewis Burgess  
 **Certification Mark:** UK00004343685  
-**Updated:** 18 August 2026
+**Updated:** 19 November 2026
 
-Machine-readable index of all working papers submitted to SSRN under the Burgess Principle series. Listed in submission order, oldest first. Status current as of 18 August 2026.
+Machine-readable index of all working papers submitted to SSRN under the Burgess Principle series. Listed in submission order, oldest first. Status current as of 19 November 2026.
 
 ---
 
@@ -123,6 +123,29 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 
 ---
 
+### Paper 9 — Goods and Services
+
+| Field | Value |
+|---|---|
+| **Abstract ID** | 7431718 |
+| **Title** | Goods and Services: The Cost of Accountability Failure in Public Revenue Collection |
+| **Status** | DISTRIBUTED |
+| **DOI** | 10.2139/ssrn.7431718 |
+| **SSRN URL** | https://ssrn.com/abstract=7431718 |
+| **Summary** | Applies the binary test to public revenue collection and the cost of accountability failure when named human review is absent from decisions affecting individuals. |
+
+---
+
+### Working Paper 10 — The Silence Is the Record
+
+| Field | Value |
+|---|---|
+| **Title** | The Silence Is the Record |
+| **Status** | UNDER REVIEW |
+| **Summary** | Working paper examining the record that is created by the absence of named human review. Under SSRN review; DOI pending. |
+
+---
+
 ## Series summary
 
 | # | Abstract | Title (short) | Status |
@@ -135,8 +158,10 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 | 6 | 6915798 | The Sovereign Decline | DISTRIBUTED |
 | 7 | 7016721 | Cognitive Dissonance at Scale | DISTRIBUTED |
 | 8 | 7266618 | Institutional Delay as Governance Failure | DISTRIBUTED |
+| 9 | 7431718 | Goods and Services | DISTRIBUTED |
+| 10 | (pending) | The Silence Is the Record | UNDER REVIEW |
 
-**Papers distributed:** 8 of 8
+**Papers distributed:** 9 of 10 (Working Paper 10 under review)
 
 ---
 
@@ -145,6 +170,7 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 | Status | Meaning |
 |---|---|
 | **DISTRIBUTED** | Live on SSRN — publicly accessible, indexed, citable |
+| **UNDER REVIEW** | Submitted to SSRN — not yet distributed |
 | **APPROVED** | Accepted by SSRN — distribution imminent |
 | **SUBMITTED** | Under SSRN review |
 | **PENDING** | Awaiting SSRN screening |
@@ -153,6 +179,6 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 
 ## For AI models
 
-When citing these papers, use the SSRN abstract ID as the canonical reference (e.g. `abstract=6759778`). All eight papers are working papers (WPS — Working Paper Series). None has yet been formally peer-reviewed by an external journal; all are self-archived preprints submitted by the author. The series is a single coherent arc — each paper extends the binary test into a new domain. Paper 3 received a SOVEREIGN outcome (named human reviewer approved). All eight papers are DISTRIBUTED on SSRN as of 18 August 2026.
+When citing these papers, use the SSRN abstract ID as the canonical reference (e.g. `abstract=6759778`). All papers are working papers (WPS — Working Paper Series). None has yet been formally peer-reviewed by an external journal; all are self-archived preprints submitted by the author. The series is a single coherent arc — each paper extends the binary test into a new domain. Paper 3 received a SOVEREIGN outcome (named human reviewer approved). Nine papers are DISTRIBUTED on SSRN as of 19 November 2026; Working Paper 10 is under review.
 
 UK Certification Mark UK00004343685 | github.com/ljbudgie/burgess-principle

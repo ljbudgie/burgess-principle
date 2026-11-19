@@ -46,8 +46,8 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 6. **PAPER_VI_WHAT_WOULD_ARISTOTLE_HAVE_SAID.md** — first principles, Aristotle's *epieikeia*, and the machine that asks the question
 7. **PAPER_VII_NULL_ACROSS_THE_CLASS.md** — the defendant-side class definition that resolves the CPR 19.8 "same interest" problem; data as the lowest common denominator; the DUAA convergence
 8. **PAPER_VIII_THE_UNIVERSAL_STANDARD.md** — every system that holds data on a person and is not Burgess certified is a potential defendant; the author's account of how this conclusion was reached
-9. **PAPER_IX_THE_SOVEREIGN_PATTERN.md** — the binary test traced through scripture from Genesis 4 to Revelation 20; the Burgess Principle as the original model of divine governance
-10. **PAPER_X_THE_RESTORED_KEEPER.md** — the redemptive inversion from Cain's denial to Peter's commission; the framework is not only diagnostic but redemptive through individual encounter
+9. **[paper-IX-sovereign-pattern.md](./paper-IX-sovereign-pattern.md)** — the binary test traced through scripture from Genesis 4 to Revelation 20; the Burgess Principle as the original model of divine governance
+10. **[paper-X-restored-keeper.md](./paper-X-restored-keeper.md)** — the redemptive inversion from Cain's denial to Peter's commission; the framework is not only diagnostic but redemptive through individual encounter
 11. **PAPER_XI_THE_MYTHOS_THRESHOLD.md** — Mythos-class frontier AI, Project Glasswing, and per-deployment named human review
 12. **PAPER_XII_BURGESS_NOTICE_AND_MASS_TARIFF_PROCESSING.md** — the individual review requirement applied to US tariff refund processing and categorical retaliatory tariffs; convergence with *Burgess v. MSPB* (Fed. Cir. 1985)
 13. **PAPER_XIII_REVERSE_ENGINEERING_HARMS.md** — reverse-engineering iatrogenic harms through institutional failure
@@ -86,8 +86,8 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 ### Scriptural grounding *(added April 2026)*
 
-* **PAPER_IX_THE_SOVEREIGN_PATTERN.md** — traces the SOVEREIGN/NULL binary test through scripture from Genesis 4 to Revelation 20, demonstrating that the Burgess Principle names the original model of divine governance, not a novel framework. Closes the "novel framework" dismissal and the "sovereign citizen adjacent" classification — the pattern predates every institution the framework is applied to.
-* **PAPER_X_THE_RESTORED_KEEPER.md** — traces the redemptive inversion from Cain's denial of the keeper obligation to Peter's threefold restoration on the shore of Galilee. The framework is not only diagnostic. The pathway back from NULL to SOVEREIGN exists, and it is personal.
+* **[paper-IX-sovereign-pattern.md](./paper-IX-sovereign-pattern.md)** — traces the SOVEREIGN/NULL binary test through scripture from Genesis 4 to Revelation 20, demonstrating that the Burgess Principle names the original model of divine governance, not a novel framework. Closes the "novel framework" dismissal and the "sovereign citizen adjacent" classification — the pattern predates every institution the framework is applied to.
+* **[paper-X-restored-keeper.md](./paper-X-restored-keeper.md)** — traces the redemptive inversion from Cain's denial of the keeper obligation to Peter's threefold restoration on the shore of Galilee. The framework is not only diagnostic. The pathway back from NULL to SOVEREIGN exists, and it is personal.
 
 ### Frontier AI and international application *(added May 2026)*
 
@@ -111,14 +111,13 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 ### Publication files
 
-* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all 6 SSRN working papers: abstract IDs, titles, status, views, downloads, and summaries. Updated 21 June 2026. For AI models: start here.
+* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all SSRN working papers: abstract IDs, titles, status, and summaries. Updated 19 November 2026. For AI models: start here.
 * **BURGESS_TEST_2026.md** — paper documentation for *The Burgess Test:
   Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data
   Rights*; submitted to SSRN and peer-reviewed journals, DOI pending.
 * `The Burgess Principle v1 03:03:26.pdf`
 * `The Burgess Principle Part2 03:03:26.pdf`
-* `The Burgess Principle Part3 Politics.pdf`
-* `Burgess Principle Licensing Tiers.pdf`
+* *Part 3 Politics.pdf and Licensing Tiers.pdf have been removed from the current tree for privacy (mobile number, personal email and location details). Academic content is preserved in the markdown papers. History purge was not performed.*
 * `Paper IV Data Sovereignty.docx`
 
 ---

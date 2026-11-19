@@ -117,7 +117,7 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
   Rights*; submitted to SSRN and peer-reviewed journals, DOI pending.
 * `The Burgess Principle v1 03:03:26.pdf`
 * `The Burgess Principle Part2 03:03:26.pdf`
-* *Part 3 Politics.pdf and Licensing Tiers.pdf have been removed from the current tree for privacy (mobile number, personal email and location details). Academic content is preserved in the markdown papers. History purge was not performed.*
+* Two earlier publication PDFs have been removed from the current tree for privacy. Academic content is preserved in the markdown papers.
 * `Paper IV Data Sovereignty.docx`
 
 ---

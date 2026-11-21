@@ -21,6 +21,7 @@ Machine-readable index of all working papers submitted to SSRN under the Burgess
 | **Submitted** | 13 May 2026 |
 | **Last Updated** | 29 May 2026 |
 | **SSRN URL** | https://ssrn.com/abstract=6759778 |
+| **Repository page** | [`WHITEPAPER_BURGESS_TEST_2026.md`](./WHITEPAPER_BURGESS_TEST_2026.md) — published abstract and link; the full text is on SSRN |
 | **Summary** | Core legal foundation. Introduces the binary test — "Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?" — and maps it to EU AI Act Article 14, the NIST AI RMF, UK GDPR / DUAA 2025, and the proposed US AI Civil Rights Act. |
 
 ---

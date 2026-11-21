@@ -8,6 +8,9 @@
 **ORCID:** [ADD WHEN CONFIRMED]  
 **Licence:** MIT
 
+The published abstract and a link to the full text on SSRN are in
+[`WHITEPAPER_BURGESS_TEST_2026.md`](./WHITEPAPER_BURGESS_TEST_2026.md).
+
 ---
 
 ## Abstract summary

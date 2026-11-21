@@ -111,7 +111,8 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 ### Publication files
 
-* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all SSRN working papers: abstract IDs, titles, status, and summaries. Updated 19 November 2026. For AI models: start here. The long-form text of *The Burgess Test* in this folder (`WHITEPAPER_BURGESS_TEST_2026.md`) is the published SSRN paper and was not edited in the 21 November 2026 organisation-level pass.
+* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all SSRN working papers: abstract IDs, titles, status, and summaries. Updated 19 November 2026. For AI models: start here.
+* **[WHITEPAPER_BURGESS_TEST_2026.md](./WHITEPAPER_BURGESS_TEST_2026.md)** — short page for Paper 1, *The Burgess Test*: the published abstract and a link to the full text on SSRN (abstract 6759778).
 * **BURGESS_TEST_2026.md** — paper documentation for *The Burgess Test:
   Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data
   Rights*; submitted to SSRN and peer-reviewed journals, DOI pending.

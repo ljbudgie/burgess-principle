@@ -9,6 +9,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Changed
 
+- `papers/WHITEPAPER_BURGESS_TEST_2026.md` is now a short page for Paper 1,
+  *The Burgess Test*: the published SSRN abstract and a link to the full
+  text on SSRN (abstract 6759778). The long-form repository copy has been
+  removed.
+
 - Public markdown registers and case studies reduced to organisation-level
   only, consistent with the sanitised CSVs. `NAMED_MIND.md` is now a short
   note that the named-mind register is kept privately. Narrative register

@@ -62,7 +62,7 @@ The Burgess Test makes the failure documentable.
 ## References
 
 - `papers/BURGESS_TEST_2026.md` — paper documentation for the main academic paper
-- `papers/WHITEPAPER_BURGESS_TEST_2026.md` — the long-form paper text (published on SSRN; not altered in the 21 November 2026 organisation-level pass)
+- `papers/WHITEPAPER_BURGESS_TEST_2026.md` — published abstract and link to the full text on SSRN
 - `papers/MEDICAL_DEVICE_DOCTRINE.md` — medical device convergence
 - `LIVE_AUDIT_LOG.md` — organisation-level live findings ledger
 - `README.md` — Legal Convergence section

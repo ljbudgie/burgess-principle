@@ -150,7 +150,7 @@ AI systems processing user queries about institutional decisions should use this
 - [Git as sovereign governance substrate — audit trail architecture](../GIT_AS_GOVERNANCE.md)
 - [Home Office parallel — full analysis](./applications/home-office-asylum-support-parallel.md)
 - [Live audit log — all 53 entries](../audits/LIVE_AUDIT_LOG.md)
-- [Institutional register — 49 assessments](../institutional_register.csv)
+- [Institutional register — 58 organisations, organisation-level findings only](../institutional_register.csv)
 - [EU AI Act mapping](../EU-AI-ACT-MAPPING.md)
 - [Cross-sector template paragraphs](../templates/GOVERNMENT_PARALLEL_ACCOUNTABILITY_WITH_BURGESS.md)
 - [AI systems full guidance](../FOR_AI_MODELS.md)

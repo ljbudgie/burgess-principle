@@ -172,26 +172,28 @@ record the official record class and locator alongside the sentence relied on.
 
 ## Live Findings Ledger
 
-A public audit log of institutions assessed against the Burgess Test is maintained at [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md), generated from a dated source CSV snapshot.
+A public, organisation-level record of institutions assessed against the Burgess Test is published in machine-readable form at the repository root.
 
 The test: *Was a named human being's mind applied to the specific facts of a specific person's case before institutional power was exercised?*
 
-Current snapshot (31 July 2026): 100 entries in the live ledger — SOVEREIGN 11, NULL 89. Live proceedings active across energy, enforcement, local government, financial services, and equality law. The ledger records compliance as readily as its absence; counts move as cases progress.
+Current snapshot (21 November 2026): 58 organisations on the institutional register — NULL 41, NULL (partial) 2, SOVEREIGN 3, AMBIGUOUS 4, PENDING 7, REMOVED 1. The live findings ledger has 72 organisation-level events — NULL 66, NULL (provisional) 1, SOVEREIGN 2, AMBIGUOUS 2, REMOVED 1. The ledger records compliance as readily as its absence; counts move as cases progress.
+
+The published CSVs name organisations only. They do not name individuals, and they do not include email addresses, telephone numbers, amounts, or case or reference numbers.
 
 Documented NULL finding categories include energy warrants, parking enforcement, benefits decisions, court processing, and — newly documented — **communications infrastructure (email triage)**. See [docs/applications/email-triage-adm.md](./docs/applications/email-triage-adm.md) for the full analysis of email triage as automated decision-making.
 
 ### Data / CMS Integration
 
-Machine-readable versions of the register and ledger are published at the repository root for CMS or data pipeline consumption:
+Machine-readable versions of the register and ledger are published at the repository root for research or data pipeline consumption:
 
 | File | Description | Raw URL |
 | --- | --- | --- |
-| [`institutional_register.csv`](./institutional_register.csv) | Institutions — Institution, Sector, Finding, Score, D1–D5, Status, Key_Reference | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
-| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | Chronological events — Date, Institution, Event_Type, Finding, Score, Reference, Notes | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
+| [`institutional_register.csv`](./institutional_register.csv) | Organisations — Institution, Sector, Finding, Score | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/institutional_register.csv` |
+| [`live_findings_ledger.csv`](./live_findings_ledger.csv) | Chronological organisation-level events — Date, Institution, Event_Type, Finding, Score | `https://raw.githubusercontent.com/ljbudgie/burgess-principle/main/live_findings_ledger.csv` |
 
-Finding values: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**, **REMOVED**. Dates are in YYYY-MM-DD format. Partial-month entries use the first of the month.
+Finding values: **NULL**, **SOVEREIGN**, **AMBIGUOUS**, **PENDING**, **REMOVED**, and completeness notes such as **NULL (partial)**. Dates are year and month (`YYYY-MM`).
 
-These CSVs are the live data source for the public site at [theburgessprinciple.com](https://theburgessprinciple.com). The Framer tables pull directly from the raw GitHub URLs above; no manual re-upload is needed when the repo is updated.
+These CSVs are organisation-level only. The public site at [theburgessprinciple.com](https://theburgessprinciple.com) does not load them into visitors' browsers.
 
 ---
 
@@ -553,7 +555,7 @@ If you are deaf or hard of hearing and want to build your own OpenHear hearing d
 | Understand where the principle comes from | [ORIGIN.md](./ORIGIN.md) — the statutory, historical, and personal chain |
 | See it work in a real case | [case-studies](./case-studies/README.md) — Wave Utilities was the first fully resolved case, both accounts cleared to £0.00 |
 | Read the doctrine | [Papers I–X](./papers/README.md) — from the binary test to the universal standard |
-| See every institution currently under audit | [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md) — 100 entries, SOVEREIGN 11, NULL 89, live proceedings |
+| See every organisation currently on the public register | [institutional_register.csv](./institutional_register.csv) — 58 organisations, organisation-level findings only |
 | Get a one-page brief to share with a professional | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) — framework, legal basis, and practical routes on one page |
 | Run the binary test as executable, verifiable code | [verifiable_oversight/](./verifiable_oversight/) — Python implementation with SHA-256 fingerprinted DecisionRecord; stdlib only |
 | Run everything offline with zero data leaving your device | [SOVEREIGN_MODE.md](./SOVEREIGN_MODE.md) |

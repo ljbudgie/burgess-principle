@@ -10,10 +10,9 @@ Install and run::
 
 See MCP.md for client configuration.
 
-Privacy: the register lookup returns organisation-level findings only
-(institution, sector, finding, score). It never returns the free-text
-status or reference columns, which can contain named officers and case
-details.
+Privacy: the published register is organisation-level only
+(institution, sector, finding, score). It does not name individuals and
+does not include email addresses, amounts, or case references.
 """
 
 from __future__ import annotations

@@ -9,6 +9,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Changed
 
+- `institutional_register.csv`, `live_findings_ledger.csv`, and the dated
+  snapshots under `audits/` are now organisation-level only. Person-level
+  rows, free-text status, notes, references, emails, amounts, and case
+  numbers have been removed. The register columns are Institution, Sector,
+  Finding, and Score. The ledger columns are Date (YYYY-MM), Institution,
+  Event_Type, Finding, and Score. The public site does not load these
+  files into visitors' browsers. Named data from earlier commits remains
+  in git history until a history purge.
+
 - Public certification tiers, fees and proprietor wording aligned with the
   registered Certification Regulations Version 3.0, May 2026. The four
   registered tiers and the section 13.1 fee table now appear on the certify

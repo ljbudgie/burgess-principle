@@ -1,37 +1,44 @@
 # Case Studies Index
 
-This index is here to help people under pressure **quickly find a real example that feels close to their own situation**. If you are dealing with automated threats, confusing letters, or a process that seems to be moving without any real person taking responsibility, start with the table below and follow the nearest match. In Burgess Principle terms, the question is simple: **was there meaningful human review (SOVEREIGN), or was the action carried by system logic without that human accountability (NULL)?** As of April 2026, this is a growing evidence base for readers, researchers, and contributors who want calm, usable records of what happened and what helped.
+This index is here to help people under pressure quickly find a real example that feels close to their own situation. If you are dealing with automated threats, confusing letters, or a process that seems to be moving without any real person taking responsibility, start with the table below and follow the nearest match.
+
+The question is simple: was there meaningful human review (SOVEREIGN), or was the action carried by system logic without that human accountability (NULL)?
+
+These case studies are organisation-level. They do not name individuals, and they do not include email addresses, telephone numbers, amounts, or case or reference numbers.
 
 ## Case Index
 
-| Case / Sector | Trigger / Automated Action | Burgess Principle Application (SOVEREIGN or NULL) | Key Outcome | Status (Resolved / Ongoing) | Main Pattern Shown | Link to Full Case Study | Recommended Starting Template |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Wave Utilities / Water retail | Automated referral to iC&R with premises attendance and disconnection threats | **NULL at referral → SOVEREIGN at resolution** | Both accounts cleared to **£0.00**; **£795.14** removed; enforcement ceased; adjustments recorded | Resolved | A threshold-based debt process can be corrected once a named person reviews the live facts | [Wave Utilities](./CASE_STUDY_WAVE.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
-| TV Licensing / Broadcasting enforcement | Automated threatening letters sent because no licence was recorded for the address | **NULL** | Threatening letters ceased; address recorded as **"No Licence Needed"** until end of March 2027 | Resolved | Enforcement can stop once the false premise is corrected, even without any disclosed human review at the start | [TV Licensing](./CASE_STUDY_TVL.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
-| Lowell Financial Ltd / Purchased consumer debt | Bulk-purchased npower debt pursued through a standard recovery pipeline | **NULL** | Complaint not upheld, but recovery ceased and the account was closed on **13 April 2026** | Resolved | A purchased-debt workflow may be abandoned entirely once a structured challenge forces the record beyond automation | [Lowell Financial Ltd](./CASE_STUDY_LOWELL.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
-| Passport Office / Identity and travel documents | Passport issued through a centralised application and biometric-processing pipeline | **NULL at issuance** | Passport already issued; DSAR, Article 22, and Equality Act challenge sent; response due **29 April 2026** | Ongoing | A core identity document can appear institutionally authorised without any named reviewer being visible on the instrument | [Passport Office](./CASE_STUDY_PASSPORT.md) | [Article 22 challenge](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) |
-| E.ON Next / Energy | Forced entry under an unsigned warrant processed through bulk court architecture | **NULL** | Forced entry occurred; settlement reached; Ombudsman ruling due **6 May 2026** | Ongoing | High-stakes enforcement can still be driven by bulk processing rather than individual scrutiny | [E.ON Next](./CASE_STUDY_EON.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
-| Equita / Council tax and PCN enforcement | Five enforcement statements sent in bulk across linked cases | **NULL** | Five cases remain challenged; no direct answer on human review; no certified orders, compliant notices, or substantive SAR response produced | Ongoing | Institutions may avoid the main accountability question by shifting the exchange into disability gatekeeping or procedure | [Equita](./CASE_STUDY_EQUITA.md) | [Council tax / PCN template](../templates/COUNCIL_TAX_PCN_TEMPLATE.md) |
-| Equifax / Credit file | Two CCJ entries recorded, followed by automated case closure during the challenge | **NULL** | Disputed entries remain live; automated closure received; ICO complaint ready if no substantive review arrives | Ongoing | Automated closure can preserve disputed data while still avoiding the question of who checked it | [Equifax / Credit File](./CASE_STUDY_CREDIT_FILE.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Organisation / sector | Trigger | Finding | Outcome (public summary) | Status | Full study | Starting template |
+| --- | --- | --- | --- | --- | --- | --- |
+| Wave Utilities / water retail | Automated referral to a debt collection agent, with attendance and disconnection threats | NULL at referral, SOVEREIGN at resolution | Enforcement stopped and the accounts were corrected once a named person reviewed the live facts | Resolved | [Wave Utilities](./CASE_STUDY_WAVE.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| TV Licensing / broadcasting enforcement | Automated letters sent because no licence was recorded | Process documented as automated at the outset; public register currently records AMBIGUOUS | The letters ceased and the address was recorded as not requiring a licence for a stated period | Resolved | [TV Licensing](./CASE_STUDY_TVL.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Lowell Financial Ltd / purchased consumer debt | Purchased energy debt pursued through a standard recovery pipeline | NULL | Recovery ceased and the account was closed, even though the complaint was not upheld | Resolved | [Lowell Financial Ltd](./CASE_STUDY_LOWELL.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| HMPO / identity documents | Passport issued through a centralised application pipeline | NULL at issuance | A subject-access and equality challenge was made; the document had already been issued | Recorded | [Passport Office](./CASE_STUDY_PASSPORT.md) | [Article 22 challenge](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) |
+| E.ON Next / energy | Forced entry under a warrant later shown to have been processed in bulk | NULL | A settlement was reached; an ombudsman process was still active at the last public write-up | Recorded | [E.ON Next](./CASE_STUDY_EON.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Equita / council tax and parking enforcement | Multiple enforcement statements issued across linked matters | NULL | The matters were challenged; no evidence of individual review was produced at the last public write-up | Recorded | [Equita](./CASE_STUDY_EQUITA.md) | [Council tax / PCN template](../templates/COUNCIL_TAX_PCN_TEMPLATE.md) |
+| Equifax / credit file | County Court Judgments recorded, followed by automated case closure during the challenge | NULL | The disputed entries remained live; an automated closure did not name a reviewer | Recorded | [Equifax / Credit File](./CASE_STUDY_CREDIT_FILE.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Equality and Human Rights Commission | Correspondence about whether a matter fitted the legal definition of disability discrimination | Organisation-level correspondence record | Two written confirmations were given in a single exchange | Recorded | [EHRC](./CASE_STUDY_EHRC.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| Bannatyne Group Limited / consumer contract | Cancellation handled by process language and current website terms rather than the original agreement | NULL on the contract documents | A senior officer said one person would be appointed, but did not name them or produce the file | Recorded | [Bannatyne](./BANNATYNE_2026-09-05.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| A UK digital lender / affordability (worked example) | Automated underwriting without a documented named review of the applicant's circumstances | NULL, then SOVEREIGN after escalation | A named review was later recorded and the process was redesigned | Worked example | [Financial lending](./CASE_STUDY_FINANCIAL_LENDING.md) | [General dispute](../templates/GENERAL_DISPUTE_WITH_BURGESS_PRINCIPLE.md) |
+| An NHS urgent and emergency department / triage (worked example) | Automated triage category applied before documented clinician review of the specific patient | NULL at the algorithm stage | Used to show why individual clinical judgment must be recorded | Worked example | [Healthcare triage](./CASE_STUDY_HEALTHCARE_TRIAGE.md) | [Article 22 challenge](../templates/ARTICLE_22_WITH_BURGESS_PRINCIPLE.md) |
 
 ## Observed Patterns
 
-- **Automation often acts first.** The recurring issue is not just a bad outcome, but action being taken before anyone is shown to have checked the specific facts.
-- **The reply may stay ambiguous even when the pattern is clear.** Institutions often answer with policy language, workflow language, or channel redirection instead of naming a real reviewer.
-- **Disability and accessibility issues are frequently part of the record.** Several cases involve hearing loss, email-only communication, or adjustment requests being ignored, delayed, or turned into a barrier.
-- **Resolution takes more than one form.** Some cases end when a named person finally reviews the matter; others end when the institution quietly stops or corrects a process that should not have started as it did.
-- **Silence can still be evidential.** A case may resolve because an institution retreats without conceding the point once the record becomes too specific to ignore.
-- **Written records matter.** The strongest cases are the ones where the letters, timestamps, named replies, and outcome documents can be placed side by side.
+- Automation often acts first. The recurring issue is not just a bad outcome, but action being taken before anyone is shown to have checked the specific facts.
+- The reply may stay ambiguous even when the pattern is clear. Institutions often answer with policy language, workflow language, or channel redirection instead of naming a real reviewer.
+- Disability and accessibility issues are frequently part of the record. Several cases involve email-only communication, or adjustment requests being ignored, delayed, or turned into a barrier.
+- Resolution takes more than one form. Some cases end when a named person finally reviews the matter; others end when the institution stops or corrects a process that should not have started as it did.
+- Silence can still be evidential. A case may resolve because an institution retreats without conceding the point once the record becomes too specific to ignore.
+- Written records matter. Keep letters, timestamps, and outcomes. Do not publish names, emails, amounts, or case numbers in a public case study.
 
 ## How to Use This Index
 
-1. **Start with the row that feels closest to your situation.** You do not need a perfect match; you are looking for the nearest pattern.
-2. **Open the full case study** and read the summary, the key SOVEREIGN / NULL question, and the recommended tools.
-3. **Use the starting template** linked in the table to begin a calm, factual first letter.
-4. **Keep your evidence together from the start** — screenshots, letters, emails, reference numbers, deadlines, and any accessibility requests.
-5. **Escalate step by step.** If the first answer is evasive, preserve it and move to the next clean follow-up rather than arguing in circles.
-6. **Use local-first tools if helpful.** If you want a private audit trail, store your record in Sovereign Local Mode or your own local system so the evidence stays under your control.
+1. Start with the row that feels closest to your situation. You do not need a perfect match; you are looking for the nearest pattern.
+2. Open the full case study and read the summary and the main SOVEREIGN / NULL question.
+3. Use the starting template linked in the table to begin a calm, factual first letter.
+4. Keep your evidence together from the start, privately.
+5. Escalate step by step. If the first answer is evasive, preserve it and move to the next clean follow-up rather than arguing in circles.
 
-If you are reading this while something stressful is happening, you are not alone, and you are not expected to solve everything at once. These case studies show a growing pattern: when the human-review question is asked clearly and the record is kept carefully, automated pressure becomes easier to understand, challenge, and sometimes reverse. This collection is still growing, and each careful contribution helps make the next person's path a little clearer.
+If you are reading this while something stressful is happening, you are not alone, and you are not expected to solve everything at once.
 
-*Want to add a comparable record? Start with [CASE_STUDY_TEMPLATE.md](./CASE_STUDY_TEMPLATE.md) so new case studies stay easy to scan, compare, and reuse.*
+Want to add a comparable record? Start with [CASE_STUDY_TEMPLATE.md](./CASE_STUDY_TEMPLATE.md). Public case studies in this repository must stay organisation-level.

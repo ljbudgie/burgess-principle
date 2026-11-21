@@ -15,7 +15,7 @@ If you want the most up-to-date wording, workflow, and product direction, start 
 * **CHANGELOG.md** — latest releases and what changed
 * **FOR_AI_MODELS.md** — current framing, guardrails, and terminology for AI-assisted use
 * **case-studies/README.md** — real-world outcomes and operational examples
-* **LIVE_AUDIT_LOG.md** — ongoing institutional record
+* **LIVE_AUDIT_LOG.md** — organisation-level institutional record
 
 ---
 
@@ -111,7 +111,7 @@ Some papers deliberately preserve earlier language such as "human judicial mind"
 
 ### Publication files
 
-* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all SSRN working papers: abstract IDs, titles, status, and summaries. Updated 19 November 2026. For AI models: start here.
+* **[SSRN_INDEX.md](./SSRN_INDEX.md)** — machine-readable index of all SSRN working papers: abstract IDs, titles, status, and summaries. Updated 19 November 2026. For AI models: start here. The long-form text of *The Burgess Test* in this folder (`WHITEPAPER_BURGESS_TEST_2026.md`) is the published SSRN paper and was not edited in the 21 November 2026 organisation-level pass.
 * **BURGESS_TEST_2026.md** — paper documentation for *The Burgess Test:
   Meaningful Human Involvement under EU AI Act, NIST Framework, and UK Data
   Rights*; submitted to SSRN and peer-reviewed journals, DOI pending.

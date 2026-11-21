@@ -153,8 +153,9 @@ For a response to count as **SOVEREIGN**, you need all of the following:
 
 Anything less should be treated as **AMBIGUOUS** until clarified.
 
-For named-officer evidence, use the [Named-mind index](./NAMED_MIND.md) to
-record the official record class and locator alongside the sentence relied on.
+The [named-mind index](./NAMED_MIND.md) is kept privately and is not published.
+The public record is organisation-level only: see
+[institutional_register.csv](./institutional_register.csv).
 
 ---
 
@@ -553,7 +554,7 @@ If you are deaf or hard of hearing and want to build your own OpenHear hearing d
 | See the full statutory and regulatory mapping | [LEGAL_MAPPING.md](./LEGAL_MAPPING.md) — DUAA 2025, EA 2010, EU AI Act Arts. 14/26/50/86, CRA 2015, warrant nullity |
 | EU AI Act Article 50 — chatbot disclosure stack | [EU-AI-ACT-MAPPING.md](./EU-AI-ACT-MAPPING.md) — obligation in force 2 August 2026; two-question test; three-obligation stack |
 | Understand where the principle comes from | [ORIGIN.md](./ORIGIN.md) — the statutory, historical, and personal chain |
-| See it work in a real case | [case-studies](./case-studies/README.md) — Wave Utilities was the first fully resolved case, both accounts cleared to £0.00 |
+| See it work in a real case | [case-studies](./case-studies/README.md) — Wave Utilities was the first fully resolved case: enforcement stopped and the accounts were corrected after a named review |
 | Read the doctrine | [Papers I–X](./papers/README.md) — from the binary test to the universal standard |
 | See every organisation currently on the public register | [institutional_register.csv](./institutional_register.csv) — 58 organisations, organisation-level findings only |
 | Get a one-page brief to share with a professional | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) — framework, legal basis, and practical routes on one page |

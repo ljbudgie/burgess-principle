@@ -9,6 +9,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ### Changed
 
+- Public markdown registers and case studies reduced to organisation-level
+  only, consistent with the sanitised CSVs. `NAMED_MIND.md` is now a short
+  note that the named-mind register is kept privately. Narrative register
+  and audit-log pages, `STATUS.md`, `SOUL.md`, and the working case-number
+  indexes under `audits/` no longer publish names, emails, amounts, or
+  case references. Published SSRN paper text has not been altered.
+
 - `institutional_register.csv`, `live_findings_ledger.csv`, and the dated
   snapshots under `audits/` are now organisation-level only. Person-level
   rows, free-text status, notes, references, emails, amounts, and case

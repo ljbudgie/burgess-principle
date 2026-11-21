@@ -1,9 +1,8 @@
 # Case Study: The Burgess Test — The Liability Transfer Chain
 
-**Author:** Lewis James Burgess, The Burgess Principle Ltd
-**ORCID:** [0009-0001-8691-3366](https://orcid.org/0009-0001-8691-3366)
-**Version:** v2.5.1 (May 2026)
-**Zenodo DOI:** *to be added on publication*
+**Author:** Lewis James Burgess, The Burgess Principle Ltd  
+**ORCID:** [0009-0001-8691-3366](https://orcid.org/0009-0001-8691-3366)  
+**Version:** v2.5.1 (May 2026), organisation-level public text 21 November 2026  
 **Licence:** MIT (text) / Certification mark separately reserved
 
 ---
@@ -17,10 +16,10 @@ such that, when the Burgess Test is applied, no named human being
 can be identified as having applied their mind to the specific facts
 of a specific person's case before institutional power was exercised.
 
-The case study uses the Phonak AutoSense OS / Medical Devices
-Regulations 2002 chain (MHRA FOI2026/00527) as the worked example,
-read alongside the wider 15-institution NULL findings ledger
-maintained at [`audits/LIVE_AUDIT_LOG.md`](../audits/LIVE_AUDIT_LOG.md).
+The worked example is the Phonak AutoSense OS / Medical Devices
+Regulations 2002 chain, read alongside the organisation-level
+findings in [`live_findings_ledger.csv`](../live_findings_ledger.csv)
+and [`LIVE_AUDIT_LOG.md`](../LIVE_AUDIT_LOG.md).
 
 ## The Burgess Test
 
@@ -36,17 +35,18 @@ A binary outcome is recorded for each link in the chain:
 
 ## The Chain
 
-1. **Manufacturer (Phonak)** — algorithmic fitting via AutoSense OS.
-   Subject Access Request returned no individual clinical review of
-   the specific patient's audiogram.
-2. **Regulator (MHRA)** — FOI2026/00527 confirmed Class IIa status
-   and located clinical suitability with the audiology provider.
-3. **Provider (NHS Foundation Trust)** — no evidence on the record
-   that an individual clinician reviewed device suitability for the
-   specific patient's severe-to-profound asymmetric ski-slope profile.
+1. **Manufacturer (Phonak / Sonova UK Ltd)** — algorithmic fitting via AutoSense OS.
+   A subject access request did not evidence an individual clinical review of
+   the specific patient's hearing profile.
+2. **Regulator (MHRA)** — a freedom-of-information reply confirmed the device
+   class and located clinical suitability with the audiology provider.
+3. **Provider (an NHS audiology service)** — no evidence on the public record
+   that an individual clinician reviewed device suitability for the specific
+   patient.
 
 At each link, responsibility is referred onward. The chain terminates
-without a named human reviewer — a *NULL across the class*.
+without a named human reviewer — a *NULL across the class*. The public
+register records Phonak / Sonova UK Ltd and the MHRA as NULL.
 
 ## Finding
 
@@ -61,7 +61,8 @@ The Burgess Test makes the failure documentable.
 
 ## References
 
-- `papers/BURGESS_TEST_2026.md` — main academic paper
+- `papers/BURGESS_TEST_2026.md` — paper documentation for the main academic paper
+- `papers/WHITEPAPER_BURGESS_TEST_2026.md` — the long-form paper text (published on SSRN; not altered in the 21 November 2026 organisation-level pass)
 - `papers/MEDICAL_DEVICE_DOCTRINE.md` — medical device convergence
-- `audits/LIVE_AUDIT_LOG.md` — live NULL findings ledger
-- `README.md` — Legal Convergence section, fifth pillar
+- `LIVE_AUDIT_LOG.md` — organisation-level live findings ledger
+- `README.md` — Legal Convergence section

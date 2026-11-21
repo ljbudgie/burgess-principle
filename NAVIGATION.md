@@ -162,9 +162,9 @@ Everything else in the repository, grouped. Nothing here is required reading.
 | [LIKENESS.md](./LIKENESS.md) | The check before a likeness or personal fact is used. |
 | [LIKENESS_CRITERIA.md](./LIKENESS_CRITERIA.md) | Machine-readable likeness and mark-status statement for parsers. |
 | [LINEAGE.md](./LINEAGE.md) | Historical root of the principle. |
-| [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) | **Legacy snapshot.** Current log is [audits/LIVE_AUDIT_LOG.md](./audits/LIVE_AUDIT_LOG.md). |
+| [LIVE_AUDIT_LOG.md](./LIVE_AUDIT_LOG.md) | Organisation-level live findings ledger. Machine-readable copy: [live_findings_ledger.csv](./live_findings_ledger.csv). |
 | [MCP.md](./MCP.md) | Run Iris as an MCP server for Claude and other MCP clients. |
-| [NAMED_MIND.md](./NAMED_MIND.md) | Named-officer evidence index and record-class guide. |
+| [NAMED_MIND.md](./NAMED_MIND.md) | Short note: the named-mind register is kept privately, not published. |
 | [NAVIGATION.md](./NAVIGATION.md) | This file — the index by reader type. |
 | [ONE_PAGE_BRIEF.md](./ONE_PAGE_BRIEF.md) | One page for a professional audience. |
 | [OPENHEAR_LICENSING_FRAMEWORK.md](./OPENHEAR_LICENSING_FRAMEWORK.md) | Licensing for the OpenHear hearing-device work. |

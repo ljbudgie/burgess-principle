@@ -3,6 +3,8 @@
 **Use this template to create a calm, factual record that fits the wider [case-studies index](./README.md).**  
 **You do not need to write everything at once. You can take this one step at a time.**
 
+If a case study will be published in this repository, keep it organisation-level. Do not include individual names, email addresses, telephone numbers, amounts, or case or reference numbers.
+
 **Quick Summary**  
 **Keep this to 1–2 sentences.** Say what happened, why it matters, and the main result so far.
 

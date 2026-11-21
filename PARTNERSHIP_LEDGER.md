@@ -2,14 +2,14 @@
 
 ## The Burgess Principle — UK Certification Mark UK00004343685
 
-**Proprietor:** Lewis James Burgess  
+**Proprietor:** The Burgess Principle Ltd  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
 **Last updated:** 27 July 2026  
 **Status:** Public — this ledger is the authoritative record of all certified partners.
 
-IP and certification-mark ownership remain with Lewis James Burgess personally
-unless formally assigned. Partner agreements and certification administration are
-commercial operations of The Burgess Principle Limited under formal IP licence.
+The registered proprietor of UK Certification Mark UK00004343685 is The Burgess
+Principle Ltd. Partner agreements and certification administration are commercial
+operations of the registered proprietor.
 
 > The audit register is public. The partnership ledger is public.  
 > The only thing that moves an institution from one to the other is a signature.

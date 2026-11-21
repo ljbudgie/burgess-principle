@@ -103,11 +103,13 @@ certified use of the mark is separate.
 
 ## 6. Incorporation and IP Ownership
 
-The intellectual property in the Burgess Principle remains owned by **Lewis James
-Burgess personally** unless and until a formal written assignment says otherwise.
+The registered proprietor of UK Certification Mark **UK00004343685** is
+**The Burgess Principle Ltd**, as defined in the Certification Regulations
+Version 3.0, May 2026. Lewis James Burgess is the founder, Director and Person
+of Significant Control.
 
-**The Burgess Principle Limited** is the incorporated commercial operator of the
-framework:
+**The Burgess Principle Ltd** is the incorporated proprietor and commercial
+operator of the certification scheme:
 
 | Field | Detail |
 | --- | --- |
@@ -119,10 +121,9 @@ framework:
 | Director and Person of Significant Control | Lewis James Burgess |
 | Commercial terms contact | lewisjames@theburgessprinciple.com |
 
-The company operates the framework commercially under a formal IP Licence
-Agreement from Lewis James Burgess. That commercial operating structure does not
-alter the MIT licence for repository materials and does not transfer ownership of
-the certification mark or underlying IP away from Lewis James Burgess personally.
+The MIT licence for repository materials is unchanged. It does not grant any
+right to use the certification mark. The registered proprietor of the Mark is
+The Burgess Principle Ltd.
 
 ---
 
@@ -137,8 +138,8 @@ must, at minimum:
    action;
 3. require that reviewer to examine the specific facts of the specific person's
    situation;
-4. record the SOVEREIGN / NULL / AMBIGUOUS outcome and the basis for it;
-5. escalate NULL or AMBIGUOUS outcomes for individual human review rather than
+4. record the SOVEREIGN or NULL determination and the basis for it;
+5. escalate NULL determinations for individual human review rather than
    treating them as approval;
 6. preserve accessibility duties, safety duties, legal obligations, and platform
    security rules; and
@@ -158,19 +159,19 @@ most.
 | Route | Typical applicant | Governance focus |
 | --- | --- | --- |
 | **Open / individual use** | Individuals, researchers, open-source maintainers | MIT use with attribution; no mark claim |
-| **Practitioner certification** | Sole traders, advisers, community practitioners | Each client matter personally reviewed by a named human |
-| **Institutional certification** | Public bodies, companies, platforms, charities | Decision processes affecting identified people include real human scrutiny |
-| **Technology certification** | AI agents, workflow tools, developer platforms | Burgess gate is built before decision logic and cannot be bypassed by prompts |
-| **Litigation / advocacy partners** | Law firms, funders, claims groups, advocates | Use of the framework in client matters with individual review and clear records |
+| **Tier 1 — Global Technology** | Organisations with annual global revenue exceeding £1 billion | Full systems audit; fees in section 13.1 |
+| **Tier 2 — Corporate** | Organisations with annual revenue between £1 million and £1 billion | Process audit of the certified service class; fees in section 13.1 |
+| **Tier 3 — Public Sector** | UK public bodies, including local authorities, NHS trusts, government departments and regulators | Nil application fee and nil annual reassessment fee |
+| **Tier 4 — Litigation Support** | Use of the framework in legal proceedings, regulatory challenges or dispute resolution | Fees and scope by negotiation |
 
-Commercial terms, if any, are handled through The Burgess Principle Limited under
-the formal IP Licence Agreement from Lewis James Burgess. Public interest,
-accessibility, and community uses may be licensed at nominal or no cost where
-that best serves the governance purpose.
+A discretionary practitioner offer, and a discretionary nil-cost offer for
+eligible registered charities and social housing providers, may be made as a
+matter of policy. Those offers are not registered tiers and are never called
+Tier 3. See [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
 
-Published certification rates and application links for the Practitioner,
-Technology & Advocacy, and Institutional tiers are mirrored from the live
-certification site in [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
+Commercial terms are handled through The Burgess Principle Ltd, the registered
+proprietor. Published fees for the registered tiers are mirrored in
+[`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md).
 
 ---
 
@@ -189,8 +190,8 @@ Certification may be refused, suspended, or revoked if a certified party:
 
 - relies on vague process language instead of individual review;
 - uses the mark outside the authorised scope;
-- claims certification for automated decisions that still return NULL or
-  AMBIGUOUS without escalation;
+- claims certification for automated decisions that still return NULL
+  without escalation;
 - misleads affected people about what was reviewed; or
 - undermines accessibility, legal, safety, or security obligations.
 
@@ -208,11 +209,12 @@ exercised.
 
 ## 11. Regulations and Mark Position
 
-These terms sit alongside the Regulations Governing Use of the Certification
-Mark filed with the UK Intellectual Property Office under application number
-**UK00004343685**. If those Regulations impose a stricter requirement for use of
-the mark, the Regulations control mark use. A plain-language summary of the
-Regulations and the mark's current status is maintained in
+These terms sit alongside the Certification Regulations Version 3.0, May 2026,
+filed with the UK Intellectual Property Office for **UK00004343685**. If those
+Regulations impose a stricter requirement for use of the Mark, the Regulations
+control mark use. A clean official copy is at
+[docs/UK00004343685-Certification-Regulations-v3.0.pdf](./docs/UK00004343685-Certification-Regulations-v3.0.pdf).
+A plain-language summary and the mark's current status are maintained in
 [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md).
 
 Nothing in this document is legal advice. It is the repository's governance
@@ -223,9 +225,10 @@ position for open reuse, attribution, certification, and mark control.
 ## 12. Contact
 
 **Lewis James Burgess**  
-Originator, IP proprietor, Director and PSC of The Burgess Principle Limited  
+Founder, Director and PSC of The Burgess Principle Ltd  
 
-**The Burgess Principle Limited**  
+**The Burgess Principle Ltd**  
+Registered proprietor of UK Certification Mark UK00004343685  
 Company number: 17199287  
 Registered office: [registered office redacted]  
 

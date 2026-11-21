@@ -17,17 +17,17 @@ This is not a low bar dressed up as a high one. It is simply the standard that u
 
 ## How Certification Works
 
-The standard and IP remain personally owned by Lewis James Burgess, creator of
-The Burgess Principle (UK Certification Mark UK00004343685). Commercial
-administration and licensing are operated by The Burgess Principle Limited
-(company number 17199287) under formal IP licence.
+The registered proprietor of UK Certification Mark UK00004343685 is The Burgess
+Principle Ltd (company number 17199287). Lewis James Burgess is the founder,
+Director and Person of Significant Control.
 
-**Tier 3 — Practitioner:** Sole traders, advisers, and community practitioners
-whose work is inherently individual and human-centred. The published Tier 3
-rate is **£500/year + VAT** — see [`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md)
-for the full tier table and application route. Existing register entries below
-were issued under earlier nil-cost terms and remain grandfathered for the
-duration of their current certificate.
+**Practitioner (discretionary offer, not a registered tier):** Sole traders,
+advisers and community practitioners whose work is inherently individual and
+human-centred may apply under the discretionary practitioner offer described in
+[`CERTIFICATION_TIERS.md`](./CERTIFICATION_TIERS.md). That offer is not Tier 3.
+Official Tier 3 is the nil-cost public-sector tier. Existing register entries
+below were issued under earlier terms and remain listed for the duration of
+their current certificate.
 
 Certificates are valid for one year and subject to annual review. Each certificate is issued with a unique reference number and listed in this register. Certificates may be displayed on invoices, correspondence, and marketing materials.
 

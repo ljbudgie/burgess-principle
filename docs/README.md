@@ -18,6 +18,7 @@ the practical routes below rather than reading every file in this folder.
 | Understand the whole repository in five minutes | [`../GETTING_STARTED.md`](../GETTING_STARTED.md) |
 | Use the public certification page | [`index.html`](./index.html) |
 | Apply for certification | [`apply/index.html`](./apply/index.html) |
+| Read the registered regulations (Version 3.0) | [`UK00004343685-Certification-Regulations-v3.0.pdf`](./UK00004343685-Certification-Regulations-v3.0.pdf) |
 | Read the agent transformation roadmap | [`AGENT_90_DAY_PLAN.md`](./AGENT_90_DAY_PLAN.md) |
 
 ## Applications & concepts

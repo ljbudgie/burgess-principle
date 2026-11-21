@@ -299,9 +299,12 @@
   <p class="bp-label">Apply for certification</p>
   <h2 class="bp-heading">One form. One named human reads it.</h2>
   <p class="bp-body">
-    Certification is granted on evidence, not payment. This form starts the
-    conversation: Lewis James Burgess reads every application personally and
-    replies by email. Nothing is charged at this stage.
+    Certification is granted on evidence, not payment, under the registered
+    Certification Regulations, Version 3.0, May 2026. This form starts the
+    conversation: Lewis James Burgess reads every application and replies by
+    email. Assessment itself is carried out by a Qualified Assessor appointed
+    by the Proprietor. Nothing is charged at this stage. Tier 3 Public Sector
+    applications have no application or reassessment fee.
   </p>
   <p class="bp-body">
     If a decision has already affected you, you do not need certification.
@@ -333,10 +336,12 @@
       <label for="bp-tier">Certification tier <span class="bp-required" aria-hidden="true">*</span></label>
       <select id="bp-tier" name="Certification tier" required>
         <option value="">Select a tier</option>
-        <option data-short="Practitioner" value="Practitioner (£500/year) — Individual practitioners">Practitioner (&pound;500/year) &mdash; Individual practitioners</option>
-        <option data-short="Technology &amp; Advocacy" value="Technology &amp; Advocacy (£3,000/year) — AI platforms, law firms, claims groups">Technology &amp; Advocacy (&pound;3,000/year) &mdash; AI platforms, law firms, claims groups</option>
-        <option data-short="Institutional" value="Institutional (from £7,500/year) — Companies, public bodies, platforms">Institutional (from &pound;7,500/year) &mdash; Companies, public bodies, platforms</option>
-        <option data-short="Public Sector" value="Public Sector / NHS / Housing / Charity — Free">Public Sector / NHS / Housing / Charity &mdash; Free</option>
+        <option data-short="Tier 1 Global Technology" value="Tier 1 — Global Technology (application £5,000–£50,000)">Tier 1 — Global Technology (application &pound;5,000–&pound;50,000)</option>
+        <option data-short="Tier 2 Corporate" value="Tier 2 — Corporate (application £500–£3,000)">Tier 2 — Corporate (application &pound;500–&pound;3,000)</option>
+        <option data-short="Tier 3 Public Sector" value="Tier 3 — Public Sector (Nil)">Tier 3 — Public Sector (Nil)</option>
+        <option data-short="Tier 4 Litigation Support" value="Tier 4 — Litigation Support (by negotiation)">Tier 4 — Litigation Support (by negotiation)</option>
+        <option data-short="Practitioner (discretionary)" value="Discretionary practitioner offer (fee confirmed in writing; not a registered tier)">Practitioner — discretionary offer (fee confirmed in writing; not a registered tier)</option>
+        <option data-short="Charity or social housing (discretionary)" value="Discretionary charity or social housing offer (nil cost; not registered Tier 3)">Registered charity or social housing — discretionary offer (nil cost; not registered Tier 3)</option>
       </select>
     </div>
 
@@ -373,22 +378,23 @@
     <button type="submit" class="bp-submit" id="bp-submit">Send application &rarr;</button>
 
     <p class="bp-hint">
-      Payment is never taken from this form. If your application is accepted,
-      Lewis will send payment details by email.
+      Payment is never taken from this form. If a fee applies, it will be
+      confirmed by email before assessment begins, within the registered
+      ranges. Tier 3 Public Sector has no payment link.
     </p>
   </form>
 
   <section class="bp-confirm" id="bp-confirm" hidden tabindex="-1" aria-live="polite">
     <span class="bp-confirm-badge">Application received</span>
-    <p>Thank you. Your application has been received. Lewis will respond by email within 48 hours.</p>
-    <p>No payment has been taken. Payment setup happens only after your application is confirmed by email.</p>
+    <p>Thank you. Your application has been received. You will receive a reply by email within 48 hours.</p>
+    <p>No payment has been taken. If a fee applies, it will be confirmed by email before assessment begins.</p>
   </section>
 </main>
 
 <footer class="bp-footer">
   <p>
-    The Burgess Principle Limited &middot; Co. No. 17199287<br>
-    UK Certification Mark UK00004343685
+    The Burgess Principle Ltd &middot; Co. No. 17199287<br>
+    Registered proprietor of UK Certification Mark UK00004343685
   </p>
   <p>
     All correspondence by email only<br>
@@ -416,10 +422,16 @@
 
   // Preselect a tier when arriving from a tier card, e.g. /apply/?tier=practitioner
   var TIER_KEYS = {
-    practitioner: 0,
+    tier1: 0,
+    tier2: 1,
+    tier3: 2,
+    tier4: 3,
+    practitioner: 4,
+    'charity-housing': 5,
+    // Former unofficial keys still land on a sensible option.
     technology: 1,
-    institutional: 2,
-    'public-sector': 3
+    institutional: 0,
+    'public-sector': 2
   };
   var requestedTier = new URLSearchParams(window.location.search).get('tier');
   if (requestedTier && Object.prototype.hasOwnProperty.call(TIER_KEYS, requestedTier)) {

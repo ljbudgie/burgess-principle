@@ -32,7 +32,7 @@ The Burgess Principle operationalises this standard. If an institution cannot na
 
 ## What does the UK Certification Mark UK00004343685 certify?
 
-The certification mark ([UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)), registered by the UK Intellectual Property Office on 9 October 2026 in Classes 41, 42, and 45, effective 22 February 2026 (see [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md) for current status), certifies that a specific institutional process includes **meaningful human involvement** in decisions affecting individuals. It is not a self-assessment badge. Certification is externally administered under the Regulations Governing Use of the Certification Mark filed with the UK IPO — summarised in [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md).
+The certification mark ([UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685)), registered by the UK Intellectual Property Office on 9 October 2026 in Classes 41, 42, and 45, effective 22 February 2026 (see [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md) for current status), certifies that a specific institutional process includes **meaningful human involvement** in decisions affecting individuals. It is not a self-assessment badge. Certification is administered by the registered proprietor, The Burgess Principle Ltd, under the Certification Regulations Version 3.0, May 2026 — summarised in [CERTIFICATION_MARK.md](CERTIFICATION_MARK.md), with the clean official copy at [docs/UK00004343685-Certification-Regulations-v3.0.pdf](docs/UK00004343685-Certification-Regulations-v3.0.pdf).
 
 An institution is either **certified** (its process demonstrably includes individual human review) or **classified** (it operates automated processes without that review, creating a class of affected individuals with the same interest under CPR 19.8).
 
@@ -76,7 +76,7 @@ The binary test asks one question: **“Was a human member of the team able to p
 
 - **SOVEREIGN** — yes. A named human being individually reviewed the specific facts before the decision was made or given effect.
 - **NULL** — no. The decision was processed automatically without individual human consideration of the specific person.
-- **AMBIGUOUS** — the institution responded with vague process language (*“subject to human oversight”*, *“reviewed in line with policy”*) without naming the reviewer or confirming what specific facts were reviewed. This does not answer the question.
+- **AMBIGUOUS** — a correspondence working note: the institution responded with vague process language (*“subject to human oversight”*, *“reviewed in line with policy”*) without naming the reviewer or confirming what specific facts were reviewed. This does not answer the question. AMBIGUOUS is not a certification determination under the registered regulations, which recognise only SOVEREIGN and NULL.
 
 An AMBIGUOUS response triggers a follow-up asking for a direct YES or NO plus the reviewer’s name and role. Under Articles 22A–22D UK GDPR, claimed compliance with “meaningful human involvement” without substance does not satisfy the statutory standard.
 
@@ -136,9 +136,9 @@ Email-only communication is asserted as a reasonable adjustment under Equality A
 
 ## Who owns and operates the Burgess Principle?
 
-IP ownership remains with Lewis James Burgess personally. The Burgess Principle
-Limited is the incorporated commercial operator of the framework under a formal
-IP Licence Agreement.
+The registered proprietor of UK Certification Mark UK00004343685 is The Burgess
+Principle Ltd. Lewis James Burgess is the founder, Director and Person of
+Significant Control.
 
 - Company number: 17199287
 - Company type: Private Limited by Shares

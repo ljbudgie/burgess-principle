@@ -10,7 +10,7 @@
 
 This tracker records:
 - **Verified adoptions:** Organisations that have integrated the Burgess Principle into governance, compliance, or operational frameworks
-- **Active implementations:** Systems currently applying the binary test (SOVEREIGN/NULL/AMBIGUOUS) to decisions affecting individuals
+- **Active implementations:** Systems currently applying the binary test (SOVEREIGN/NULL, with AMBIGUOUS used only as a correspondence working note) to decisions affecting individuals
 - **Certification-mark holders:** Organisations licensed to use UK00004343685 in their marketing or compliance documentation
 - **Public commitments:** Organisations that have publicly stated intent to adopt
 
@@ -92,7 +92,7 @@ Eligibility: Organisations with documented full implementation (Tier 1 adoption 
 
 **Benefit:** Right to display UK00004343685 certification mark in marketing and compliance documentation.
 
-**Cost:** £5,000 annual certification fee (provisional); covers audit + mark license.
+**Cost:** Use of the Mark is charged only in accordance with section 13.1 of the registered Certification Regulations, Version 3.0, May 2026. See [`../CERTIFICATION_TIERS.md`](../CERTIFICATION_TIERS.md). Do not treat the adoption-tracker categories in this file as the registered certification tiers.
 
 ### Tier 2 Governance License (Standard)
 
@@ -105,7 +105,7 @@ Eligibility: Organisations in governance adoption phase (Tier 2 above) or planni
 
 **Benefit:** License to reference "adopting Burgess Principle governance" in internal and external communications (not the certification mark).
 
-**Cost:** £1,500 annual governance license.
+**Cost:** A governance mention in this tracker is not a licence to use the Mark. Official mark fees are in section 13.1 of the registered regulations.
 
 ### Tier 3 Community License (Free)
 
@@ -117,7 +117,7 @@ Eligibility: Any organisation using the framework for internal governance or res
 
 **Benefit:** Free use; community recognition on this tracker.
 
-**Cost:** None (MIT-licensed framework).
+**Cost:** None for MIT-licensed reuse of the repository. This is not official Tier 3, which is the nil-cost public-sector certification route in the registered regulations.
 
 ---
 
@@ -207,7 +207,7 @@ We welcome:
 
 ### Q: Can we get certified right now?
 
-**A:** Not yet. Certification mark (UK00004343685) is in examination. Provisional mark licensing expected Q3 2026. Governance licenses (Tier 2) are available now.
+**A:** Yes. UK Certification Mark UK00004343685 is registered. Apply via [the certification site](https://certify.theburgessprinciple.com/apply/). Fees are those in section 13.1 of the registered regulations (Version 3.0, May 2026).
 
 ### Q: How do we know if an organization is really adopting, not just claiming?
 

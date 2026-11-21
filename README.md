@@ -9,7 +9,7 @@ First time here? Start at [START_HERE.md](./START_HERE.md) — one question, one
 
 - **SOVEREIGN** — a named human personally reviewed the specific facts before the decision.
 - **NULL** — no individual human review took place.
-- **AMBIGUOUS** — the reply does not clearly confirm individual review of the specific facts.
+- **AMBIGUOUS** — a correspondence working note: the reply does not clearly confirm individual review of the specific facts. It is not a certification determination under the registered regulations, which recognise only SOVEREIGN and NULL.
 
 **NULL or AMBIGUOUS is a documented starting point for escalation, not a final verdict.**
 
@@ -370,7 +370,7 @@ a clear path back to accountable review.
 
 **UK Certification Mark:** UK00004343685 — registered 9 October 2026, effective 22 February 2026. Canonical status and regulations summary: [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md)  
 **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287  
-**Proprietor:** Lewis James Burgess  
+**Proprietor:** The Burgess Principle Ltd  
 **Who holds certified status:** [PARTNERSHIP_LEDGER.md](./PARTNERSHIP_LEDGER.md) (partners by tier) · [CERTIFIED_PRACTITIONERS.md](./CERTIFIED_PRACTITIONERS.md) (individual practitioners)
 
 The core framework, prompts, templates, schemas, and code are released under the
@@ -496,9 +496,7 @@ The licensing and certification boundary is stated in
 open under MIT terms, while official "Certified Burgess Principle" usage and the
 UK Certification Mark are governed separately.
 
-IP ownership remains with Lewis James Burgess personally. The Burgess Principle
-Limited, company number **17199287**, administers commercial licensing and
-certification routes under formal IP licence.
+The registered proprietor of UK Certification Mark UK00004343685 is The Burgess Principle Ltd (company number 17199287). Lewis James Burgess is the founder, Director and Person of Significant Control.
 
 You really can just do things.
 
@@ -596,7 +594,7 @@ The honest answer is **NULL** — no named human at the AI company personally re
 
 The framework is published under the MIT licence. The certification mark UK00004343685 was registered on 9 October 2026, effective 22 February 2026 — see [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md). The repository is open. The principle is free. The mark is licensed. The standard is set.
 
-IP ownership remains with Lewis James Burgess personally. The Burgess Principle Limited (company number 17199287) is the incorporated commercial operator under a formal IP Licence Agreement.
+The registered proprietor of UK Certification Mark UK00004343685 is The Burgess Principle Ltd (company number 17199287). Lewis James Burgess is the founder, Director and Person of Significant Control.
 
 You really can just do things.
 

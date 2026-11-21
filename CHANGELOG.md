@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ---
 
+## Unreleased
+
+### Changed
+
+- Public certification tiers, fees and proprietor wording aligned with the
+  registered Certification Regulations Version 3.0, May 2026. The four
+  registered tiers and the section 13.1 fee table now appear on the certify
+  pages and in `CERTIFICATION_TIERS.md`. AMBIGUOUS is described as a
+  correspondence working note, not a certification determination. A clean
+  official copy of the regulations is at
+  `docs/UK00004343685-Certification-Regulations-v3.0.pdf`.
+
 ## v2.15.0 — 12 November 2026
 
 ### Added

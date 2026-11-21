@@ -83,7 +83,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 | --- | --- | --- |
 | **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | In examination at the UK IPO; Examiner: **Lisa Skeggs** |
 | USPTO filing | Filed via US-licensed attorney | In progress |
-| The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Commercial operator under formal IP Licence Agreement; IP ownership remains personally with **Lewis James Burgess**, Director and PSC |
+| The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Registered proprietor of UK00004343685; Lewis James Burgess is Director and PSC |
 
 ---
 

@@ -24,7 +24,7 @@
 - Eighteen institutional fronts across energy, local government, enforcement, streaming, FOI, and regulatory bodies
 - A full litigation directory with damages matrices and contamination chain mappers
 - An open-source GitHub repository (github.com/ljbudgie/burgess-principle, MIT licence)
-- UK Certification Mark UK00004343685 — the official branding is Lewis's personally; The Burgess Principle Limited administers commercial licensing under formal IP licence
+- UK Certification Mark UK00004343685 — registered proprietor is The Burgess Principle Ltd; Lewis James Burgess is founder, Director and PSC
 
 ## Communication preferences
 

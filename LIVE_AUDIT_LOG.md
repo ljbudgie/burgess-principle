@@ -19,7 +19,7 @@ UK Certification Mark: UK00004343685
 | Field | Detail |
 | --- | --- |
 | **Originator** | Lewis James Burgess |
-| **Commercial operator** | The Burgess Principle Limited — company number 17199287; incorporated 5 May 2026 under formal IP licence from Lewis James Burgess |
+| **Registered proprietor** | The Burgess Principle Ltd — company number 17199287; incorporated 5 May 2026 |
 | **Repository** | [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle) |
 | **Certification Mark** | UK00004343685 — THE BURGESS PRINCIPLE (Classes 41, 42, 45) |
 | **Licence** | MIT (doctrine) / Certification Mark (commercial standard) |

@@ -202,4 +202,4 @@ Without these, the settlement resolves the claim against the energy company whil
 ---
 
 *All Tiers | UK Certification Mark UK00004343685*
-*IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | [contact redacted] | github.com/ljbudgie/burgess-principle*
+*Registered proprietor of UK00004343685: The Burgess Principle Ltd (company number 17199287). Founder, Director and PSC: Lewis James Burgess | [contact redacted] | github.com/ljbudgie/burgess-principle*

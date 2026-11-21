@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Burgess Principle — Certification Licensing</title>
-<meta name="description" content="Certification routes for organisations that can evidence named, individual human review under the Burgess Principle.">
+<meta name="description" content="Registered certification tiers for UK Certification Mark UK00004343685, as set out in Certification Regulations Version 3.0, May 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -296,10 +296,41 @@
 
   .bp-tiers-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
+  }
+
+  .bp-disc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  .bp-regs-note {
+    font-size: 13px;
+    color: var(--mid);
+    max-width: 720px;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+  }
+
+  .bp-regs-note a {
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid var(--red);
+  }
+
+  .bp-working-note {
+    font-size: 13px;
+    color: var(--mid);
+    max-width: 620px;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
   }
 
   .bp-tier-card {
@@ -507,7 +538,7 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .bp-tiers-grid { grid-template-columns: 1fr; }
+    .bp-tiers-grid, .bp-disc-grid { grid-template-columns: 1fr; }
     .bp-paths-grid { grid-template-columns: 1fr; }
   }
 
@@ -552,28 +583,34 @@
       <h1 class="bp-title">The Burgess Principle</h1>
     </div>
     <div class="bp-header-meta">
-      <p>The Burgess Principle Limited</p>
+      <p>The Burgess Principle Ltd</p>
+      <p>Registered proprietor</p>
       <p>Co. No. 17199287</p>
       <p>lewisjames@theburgessprinciple.com</p>
       <nav class="bp-nav" aria-label="Helpful links">
         <a href="https://github.com/ljbudgie/burgess-principle/blob/main/START_HERE.md">Start here</a>
         <a href="https://github.com/ljbudgie/burgess-principle/blob/main/templates/README.md">Templates</a>
         <a href="#bp-tiers-title">Certification tiers</a>
+        <a href="UK00004343685-Certification-Regulations-v3.0.pdf">Registered regulations</a>
       </nav>
     </div>
   </header>
 
   <section class="bp-hero">
     <p class="bp-question">
-      &ldquo;Was a human member of the team able to
-      <strong>personally review</strong>
-      the specific facts of my specific situation?&rdquo;
+      &ldquo;Was a named human being's mind applied to the
+      <strong>specific facts</strong>
+      of a specific person's case before institutional power was exercised?&rdquo;
     </p>
     <div class="bp-binary">
-      <span class="bp-verdict bp-verdict-sovereign">SOVEREIGN &mdash; Standard met</span>
-      <span class="bp-verdict bp-verdict-null">NULL &mdash; Standard not met</span>
-      <span class="bp-verdict bp-verdict-ambiguous">AMBIGUOUS &mdash; Not yet answered</span>
+      <span class="bp-verdict bp-verdict-sovereign">SOVEREIGN &mdash; the condition is met</span>
+      <span class="bp-verdict bp-verdict-null">NULL &mdash; the starting point</span>
     </div>
+    <p class="bp-working-note">
+      The registered standard is binary. AMBIGUOUS may be used as a correspondence
+      working note when a reply has not yet answered the question. It is not a
+      certification determination.
+    </p>
     <p class="bp-hero-body">
       Certification is for organisations and practitioners who can evidence that
       named humans personally reviewed the specific facts before decisions affected
@@ -583,8 +620,8 @@
     <p class="bp-hero-body">
       Certification is granted based on evidence, not payment. Assessment,
       renewal, training, and support services may be fee-based, but payment does
-      not confer certification and cannot convert a NULL or AMBIGUOUS finding
-      into a SOVEREIGN finding.
+      not confer certification and cannot convert a NULL determination
+      into a SOVEREIGN determination.
     </p>
     <p class="bp-hero-body">
       The repository materials remain open under MIT terms so adoption,
@@ -625,113 +662,150 @@
   </section>
 
   <section class="bp-tiers-section" id="certification-tiers" aria-labelledby="bp-tiers-title">
-    <h2 class="bp-tiers-label" id="bp-tiers-title">Certification tiers</h2>
+    <h2 class="bp-tiers-label" id="bp-tiers-title">Registered certification tiers</h2>
+    <p class="bp-regs-note">
+      These four tiers, and their fees, are taken from the
+      <a href="UK00004343685-Certification-Regulations-v3.0.pdf">registered Certification Regulations, Version 3.0, May 2026</a>
+      (sections 7 and 13.1). Authorised Users are allocated to a tier on the basis
+      of organisational type and annual revenue. All fees are exclusive of VAT.
+      The exact fee within a range is confirmed in writing before assessment begins.
+      Payment is never taken from the apply form.
+    </p>
     <div class="bp-tiers-grid">
 
-      <!-- TIER 3 -->
       <div class="bp-tier-card">
-        <div class="bp-tier-num">Tier 03</div>
-        <h2 class="bp-tier-name">Practitioner</h2>
-        <p class="bp-tier-sub">Sole traders, advisers &amp; community practitioners</p>
+        <div class="bp-tier-num">Tier 1</div>
+        <h2 class="bp-tier-name">Global Technology</h2>
+        <p class="bp-tier-sub">Organisations with annual global revenue exceeding &pound;1 billion</p>
         <div class="bp-tier-price-block">
-          <span class="bp-tier-price">&pound;500</span>
-          <span class="bp-tier-period">/year + VAT</span>
+          <span class="bp-tier-price">&pound;5,000&ndash;&pound;50,000</span>
+          <span class="bp-tier-period">application, ex VAT</span>
+        </div>
+        <p class="bp-tier-notice">Annual reassessment &pound;5,000&ndash;&pound;25,000, ex VAT</p>
+        <ul class="bp-tier-features">
+          <li>Full systems audit of automated decision-making infrastructure</li>
+          <li>Annual reassessment by a senior Qualified Assessor</li>
+          <li>Quarterly returns required</li>
+        </ul>
+        <a href="apply/?tier=tier1"
+           class="bp-tier-btn">Apply for certification &rarr;</a>
+      </div>
+
+      <div class="bp-tier-card">
+        <div class="bp-tier-num">Tier 2</div>
+        <h2 class="bp-tier-name">Corporate</h2>
+        <p class="bp-tier-sub">Organisations with annual revenue between &pound;1 million and &pound;1 billion</p>
+        <div class="bp-tier-price-block">
+          <span class="bp-tier-price">&pound;500&ndash;&pound;3,000</span>
+          <span class="bp-tier-period">application, ex VAT</span>
+        </div>
+        <p class="bp-tier-notice">Annual reassessment &pound;500&ndash;&pound;2,000, ex VAT</p>
+        <ul class="bp-tier-features">
+          <li>Document review and process audit of the certified service class</li>
+          <li>Named reviewer designation and case records</li>
+          <li>Annual reassessment and quarterly returns</li>
+        </ul>
+        <a href="apply/?tier=tier2"
+           class="bp-tier-btn">Apply for certification &rarr;</a>
+      </div>
+
+      <div class="bp-tier-card">
+        <div class="bp-tier-num">Tier 3</div>
+        <h2 class="bp-tier-name">Public Sector</h2>
+        <p class="bp-tier-sub">UK public bodies, including local authorities, NHS trusts, government departments and regulators</p>
+        <div class="bp-tier-price-block">
+          <span class="bp-tier-price">Nil</span>
+          <span class="bp-tier-period">application and annual reassessment</span>
+        </div>
+        <p class="bp-tier-notice">Section 13.1 of the registered regulations sets both fees at Nil</p>
+        <ul class="bp-tier-features">
+          <li>Same evidence standard as every other registered tier</li>
+          <li>Named human review before power is exercised over the public</li>
+          <li>Annual reassessment at nil cost</li>
+        </ul>
+        <a href="apply/?tier=tier3"
+           class="bp-tier-btn">Apply for certification &rarr;</a>
+      </div>
+
+      <div class="bp-tier-card">
+        <div class="bp-tier-num">Tier 4</div>
+        <h2 class="bp-tier-name">Litigation Support</h2>
+        <p class="bp-tier-sub">Use of the framework in legal proceedings, regulatory challenges or dispute resolution</p>
+        <div class="bp-tier-price-block">
+          <span class="bp-tier-price">By negotiation</span>
+          <span class="bp-tier-period">application and annual reassessment</span>
         </div>
         <ul class="bp-tier-features">
-          <li>Name committed to the public ledger within 24 hours</li>
-          <li>Burgess Principle Certified mark for all professional materials</li>
-          <li>Annual renewal &mdash; no lock-in beyond 12 months</li>
+          <li>Targeted assessment of the decision or process under challenge</li>
+          <li>A documented SOVEREIGN or NULL determination</li>
+          <li>Fees and scope agreed in writing before assessment begins</li>
+        </ul>
+        <a href="apply/?tier=tier4"
+           class="bp-tier-btn">Apply for certification &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bp-tiers-section" id="discretionary-offers" aria-labelledby="bp-disc-title">
+    <h2 class="bp-tiers-label" id="bp-disc-title">Discretionary offers</h2>
+    <p class="bp-regs-note">
+      These offers are made by The Burgess Principle Ltd as a matter of policy.
+      They are not tiers in the registered regulations. Use of the Mark still
+      requires a SOVEREIGN determination under those regulations. They are never
+      called Tier 3.
+    </p>
+    <div class="bp-disc-grid">
+      <div class="bp-tier-card">
+        <div class="bp-tier-num">Discretionary</div>
+        <h2 class="bp-tier-name">Practitioner</h2>
+        <p class="bp-tier-sub">Sole traders, advisers and community practitioners</p>
+        <div class="bp-tier-price-block">
+          <span class="bp-tier-price">Fee confirmed in writing</span>
+          <span class="bp-tier-period">will not exceed the registered Tier 2 ranges</span>
+        </div>
+        <ul class="bp-tier-features">
+          <li>Same evidence standard as the registered tiers</li>
+          <li>Each client matter reviewed by a named human</li>
         </ul>
         <a href="apply/?tier=practitioner"
-           class="bp-tier-btn">Apply for certification &rarr;</a>
+           class="bp-tier-btn">Apply &rarr;</a>
       </div>
-
-      <!-- TIER 2 (FEATURED) -->
-      <div class="bp-tier-card bp-tier-card--featured">
-        <div class="bp-tier-num">Tier 02</div>
-        <h2 class="bp-tier-name">Technology &amp; Advocacy</h2>
-        <p class="bp-tier-sub">AI platforms, law firms &amp; claims groups</p>
-        <div class="bp-tier-price-block">
-          <span class="bp-tier-price">&pound;3,000</span>
-          <span class="bp-tier-period">/year + VAT &mdash; &pound;1,500/year renewal + VAT</span>
-        </div>
-        <ul class="bp-tier-features">
-          <li>Burgess gate embedded in product or client methodology</li>
-          <li>Cannot be bypassed by prompts or process shortcuts</li>
-          <li>Named accountability officer, defined scope</li>
-          <li>EU AI Act Articles 14, 26 &amp; 86 compliance evidence</li>
-        </ul>
-        <p class="bp-tier-notice">
-          The founding-rate window closed 31 July 2026.<br>Full pricing from &pound;3,000/year applies to new applications.
-        </p>
-        <a href="apply/?tier=technology"
-           class="bp-tier-btn">Apply for certification &rarr;</a>
-      </div>
-
-      <!-- TIER 1 -->
       <div class="bp-tier-card">
-        <div class="bp-tier-num">Tier 01</div>
-        <h2 class="bp-tier-name">Institutional</h2>
-        <p class="bp-tier-sub">Companies, public bodies &amp; platforms &mdash; &pound;7,500&ndash;&pound;15,000/year + VAT</p>
+        <div class="bp-tier-num">Discretionary</div>
+        <h2 class="bp-tier-name">Charity or social housing</h2>
+        <p class="bp-tier-sub">Eligible registered charities and social housing providers</p>
         <div class="bp-tier-price-block">
-          <span class="bp-tier-price">from &pound;7,500</span>
-          <span class="bp-tier-period">/year + VAT</span>
+          <span class="bp-tier-price">Nil</span>
+          <span class="bp-tier-period">as a discretion, not the registered Tier 3</span>
         </div>
         <ul class="bp-tier-features">
-          <li>Named human accountability standard across all decision processes</li>
-          <li>First right of audit &mdash; annual review with the originator</li>
-          <li>Scope defined at signing &mdash; extensible by negotiation</li>
-          <li>Enterprise &amp; regulatory pricing available (POA)</li>
+          <li>Same evidence standard as Tier 3 Public Sector</li>
+          <li>This is a policy offer, not a registered tier</li>
         </ul>
-        <p class="bp-tier-notice">
-          The founding-rate window closed 31 July 2026.<br>Full institutional pricing from &pound;7,500/year applies to new applications.
-        </p>
-        <a href="apply/?tier=institutional"
-           class="bp-tier-btn">Apply for certification &rarr;</a>
+        <a href="apply/?tier=charity-housing"
+           class="bp-tier-btn">Apply &rarr;</a>
       </div>
-
-      <!-- PUBLIC SECTOR / NHS / HOUSING / CHARITY -->
-      <div class="bp-tier-card bp-tier-card--wide">
-        <div class="bp-tier-num">Public Sector</div>
-        <h2 class="bp-tier-name">Public Sector, NHS, Housing &amp; Charity</h2>
-        <p class="bp-tier-sub">NHS bodies, local authorities, social housing providers &amp; registered charities</p>
-        <div class="bp-tier-price-block">
-          <span class="bp-tier-price">Free</span>
-          <span class="bp-tier-period">no fee, no VAT</span>
-        </div>
-        <ul class="bp-tier-features">
-          <li>Same evidence standard as every paid tier &mdash; no reduced scrutiny</li>
-          <li>Named human review evidenced before decisions affect identified people</li>
-          <li>Certification recorded on the public ledger in the same way</li>
-          <li>Annual renewal, free for as long as the standard is met</li>
-        </ul>
-        <a href="apply/?tier=public-sector"
-           class="bp-tier-btn">Apply for free certification &rarr;</a>
-      </div>
-
     </div>
   </section>
 
   <section class="bp-paths-section" aria-labelledby="bp-neutrality-title">
     <h2 class="bp-tiers-label" id="bp-neutrality-title">Neutral oversight</h2>
     <p class="bp-hero-body">
-      The Burgess Principle Limited administers certification separately from
-      ordinary MIT reuse. Certification is granted, renewed, refused, suspended,
-      or withdrawn against the published evidence standard, not the applicant's
-      commercial value.
+      The Burgess Principle Ltd is the registered proprietor of the Mark and
+      administers certification separately from ordinary MIT reuse. Assessments
+      are carried out by Qualified Assessors appointed by the Proprietor, under
+      section 11 of the registered regulations. Certification is granted, renewed,
+      refused, suspended or withdrawn against the published evidence standard,
+      not the applicant's commercial value.
     </p>
     <p class="bp-hero-body">
-      Any material commercial, personal, or partnership interest should be
+      Any material commercial, personal or partnership interest should be
       recorded before the certification decision. Where that interest could
-      reasonably affect perceived neutrality, any tier must use an external
-      verifier or defined advisory reviewer before the mark is granted or
-      renewed. Tier 01 (institutional) certification must use external
-      verification unless documented exceptional circumstances explain why a
-      defined advisory reviewer is the only proportionate route. Exceptional
-      circumstances should be limited to a narrow or time-limited scope,
-      documented contact with at least two plausible external verifiers or a
-      record of why fewer exist, and an advisory reviewer with relevant expertise
-      and no material conflict.
+      reasonably affect perceived neutrality, the Proprietor's policy is that
+      an assessment should be carried out by a Qualified Assessor who is
+      independent of that interest, or referred to an external verifier, before
+      the Mark is granted or renewed.
     </p>
   </section>
 
@@ -740,15 +814,16 @@
     <p>
       2 August 2026. The Burgess Principle operationalises Articles 14 (human oversight),
       26 (deployer obligations), and 86 (right to explanation). Certification before the
-      deadline constitutes documented compliance evidence. Enterprise pricing available
-      for organisations seeking pre-deadline institutional certification.
+      deadline constitutes documented compliance evidence. Fees remain those in
+      section 13.1 of the registered regulations.
     </p>
   </div>
 
   <footer class="bp-footer">
     <p>
-      The Burgess Principle Limited &middot; Co. No. 17199287<br>
-      UK Certification Mark UK00004343685
+      The Burgess Principle Ltd &middot; Co. No. 17199287<br>
+      Registered proprietor of UK Certification Mark UK00004343685<br>
+      <a href="UK00004343685-Certification-Regulations-v3.0.pdf" style="color:inherit">Certification Regulations Version 3.0, May 2026</a>
     </p>
     <p>
       All correspondence by email only<br>

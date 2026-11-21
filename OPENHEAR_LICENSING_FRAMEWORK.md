@@ -122,10 +122,10 @@ The defensible advantage is the split between open materials and controlled mark
 use. The repository can remain open under MIT terms. The official certification
 mark remains controlled, traceable, and enforceable.
 
-IP ownership remains with Lewis James Burgess personally. The Burgess Principle
-Limited (company number 17199287, incorporated 5 May 2026, registered office
-[registered office redacted]) is the incorporated commercial operator under
-a formal IP Licence Agreement.
+OpenHear issuer licensing is operated by The Burgess Principle Ltd (company
+number 17199287, incorporated 5 May 2026, registered office [registered office
+redacted]). This scheme is separate from UK Certification Mark UK00004343685,
+whose registered proprietor is The Burgess Principle Ltd.
 
 ---
 

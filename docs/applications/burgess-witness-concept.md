@@ -150,9 +150,9 @@ not yet evidence of NULL. Therefore:
 Per [CERTIFICATION_TIERS.md](../../CERTIFICATION_TIERS.md):
 - **Tier 01 (Institutional)** — certified attestor devices / protocol integration
   for an institution's reviewers; ledger-anchoring services.
-- **Tier 02 (Technology & Advocacy)** — platforms and claims groups integrate the
+- **Technology and advocacy applicants (see the registered Corporate or Litigation Support tiers, or the discretionary practitioner offer)** — platforms and claims groups integrate the
   attestation protocol; practitioner device kits.
-- **Tier 03 (Practitioner)** — individual advisers issue/carry attestor tokens.
+- **Discretionary practitioner offer (not a registered tier; official Tier 3 is Public Sector)** — individual advisers issue/carry attestor tokens.
 
 The certifiable asset is the **hardware + protocol specification itself**, governed
 under the existing mark — a new enforcement and revenue layer that does not

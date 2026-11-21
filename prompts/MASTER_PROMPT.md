@@ -408,5 +408,5 @@ accountability fingerprint of every response generated under this prompt.
 
 *Inherits FOR_AI_MODELS.md v3.4 · Master Prompt v1.1 · 16 June 2026*
 *The Burgess Principle is published under the MIT licence.*
-*UK Certification Mark UK00004343685 | IP proprietor: Lewis James Burgess | Commercial operator: The Burgess Principle Limited (company number 17199287) | [contact redacted]*
+*UK Certification Mark UK00004343685 | Registered proprietor: The Burgess Principle Ltd (company number 17199287) | Founder, Director and PSC: Lewis James Burgess | [contact redacted]*
 *github.com/ljbudgie/burgess-principle*

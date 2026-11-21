@@ -30,14 +30,14 @@ The repository is open. The standard is accountable. The mark is governed.
 | Independent commercial use of MIT materials | Allowed under MIT, provided it does not imply official certification or endorsement |
 | Certification mark / official branding | Controlled separately under UK00004343685 |
 | Certified processes | Must preserve individual human review before action affecting an identified person |
-| Commercial operator | The Burgess Principle Limited, company number 17199287, operating under formal IP licence from Lewis James Burgess |
+| Proprietor | The Burgess Principle Ltd, company number 17199287, registered proprietor of UK00004343685 |
 
 The MIT licence is not a certification grant. The certification mark is not a
 restriction on ordinary MIT reuse.
 
-IP ownership remains with Lewis James Burgess personally. The Burgess Principle
-Limited is the incorporated commercial operator, not a transfer of the underlying
-IP or certification-mark ownership.
+The registered proprietor of UK Certification Mark UK00004343685 is The Burgess
+Principle Ltd. Lewis James Burgess is the founder, Director and Person of
+Significant Control.
 
 ---
 
@@ -51,8 +51,8 @@ A certified process must show that:
    the team able to personally review the specific facts of my specific
    situation?"*;
 3. the reviewer has authority to stop, change, or approve the action;
-4. SOVEREIGN / NULL / AMBIGUOUS outcomes are recorded;
-5. NULL or AMBIGUOUS outcomes are escalated for individual human review, not
+4. SOVEREIGN or NULL determinations are recorded;
+5. NULL determinations are escalated for individual human review, not
    treated as approval; and
 6. accessibility, legal, safety, and security duties remain intact.
 
@@ -65,18 +65,17 @@ Certification is therefore a governance claim, not a marketing label.
 | Route | Typical applicant | Governance focus |
 | --- | --- | --- |
 | Open / individual use | Individuals, researchers, open-source maintainers | MIT use with attribution; no mark claim |
-| Practitioner certification | Sole traders, advisers, community practitioners | Every client matter receives personal review |
+| Tier 2 — Corporate / discretionary practitioner offer | Corporate applicants, or sole traders under the discretionary practitioner offer | Every client matter or certified process receives personal review |
 | Institutional certification | Public bodies, companies, platforms, charities | Decision processes affecting identified people include individual human review |
 | Technology certification | AI agents, workflow tools, developer platforms | The Burgess gate sits before decision logic and cannot be bypassed by prompts |
 | Litigation / advocacy partners | Law firms, funders, claims groups, advocates | Client matters use the framework with individual review and clear records |
 
-Commercial operation is through The Burgess Principle Limited under formal IP
-licence from Lewis James Burgess. Public interest, accessibility, and community
-uses may be licensed at nominal or no cost where that best serves the governance
-purpose.
+Commercial operation is through The Burgess Principle Ltd, the registered
+proprietor. Tier 3 Public Sector certification is provided at nil cost under
+section 13.1 of the registered regulations.
 
-For published certification rates and application links for the Practitioner,
-Technology & Advocacy, and Institutional certification routes, see
+For published certification rates and application links for the registered
+tiers, see
 [`../CERTIFICATION_TIERS.md`](../CERTIFICATION_TIERS.md) — the plain-markdown
 mirror of the live certification site.
 
@@ -106,7 +105,7 @@ certified use of the mark is separate.
 
 Certified uses should be traceable by scope, date, conditions, and verification
 route. Certification may be refused, suspended, or revoked if a party uses vague
-process language, exceeds scope, keeps returning NULL or AMBIGUOUS without
+process language, exceeds scope, keeps returning NULL without
 escalation, misleads affected people, or undermines accessibility, legal, safety,
 or security duties.
 

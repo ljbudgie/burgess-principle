@@ -68,8 +68,8 @@ Not every key is equal, and the registry says so plainly. Assurance maps onto
 
 | Level | Who | Identity verification | Honest label |
 |---|---|---|---|
-| **L0 — Self-asserted** | Individuals, DIY/Tier 03 self-issue | None — the holder simply claims the key | "unverified / self-sovereign"; useful for personal records, not for vouching to third parties |
-| **L1 — Vetted practitioner** | Tier 03 practitioners | Identity checked once; bound to a named individual | "named, identity-verified holder" |
+| **L0 — Self-asserted** | Individuals, DIY/self-issue | None — the holder simply claims the key | "unverified / self-sovereign"; useful for personal records, not for vouching to third parties |
+| **L1 — Vetted practitioner** | Discretionary practitioner applicants (not a registered tier) | Identity checked once; bound to a named individual | "named, identity-verified holder" |
 | **L2 — Institutional** | Tier 01/02 reviewers | Issued under an institutional account; the institution vouches for and is accountable for its reviewers | "named role under an accountable institution" |
 
 The level is part of the public record, so a verifier never mistakes a

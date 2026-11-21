@@ -4,9 +4,8 @@ Source: PARTNERSHIP_LEDGER.md (last updated 12 May 2026)
 
 ## Structure
 
-- **IP owner:** Lewis James Burgess (personally) — the certification mark and IP remain with Lewis unless formally assigned
-- **Commercial operator:** The Burgess Principle Limited — Co. No. 17199287
-- **Administered under:** formal IP licence from Lewis to the company
+- **Registered proprietor of UK00004343685:** The Burgess Principle Ltd — Co. No. 17199287
+- **Founder, Director and PSC:** Lewis James Burgess
 
 > The audit register is public. The partnership ledger is public.
 > The only thing that moves an institution from one to the other is a signature.

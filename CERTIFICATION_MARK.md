@@ -25,8 +25,8 @@ Williams, Registrar.
 | Mark | UK Certification Mark **UK00004343685** |
 | Word | THE BURGESS PRINCIPLE |
 | Classes | 41, 42, 45 |
-| Proprietor | Lewis James Burgess (personal IP ownership) |
-| Commercial operator | The Burgess Principle Limited — Co. No. 17199287, under formal IP licence |
+| Proprietor | The Burgess Principle Ltd, a company incorporated in England and Wales — Co. No. 17199287 |
+| Founder, Director and PSC | Lewis James Burgess |
 | IPO record | [trademarks.ipo.gov.uk — UK00004343685](https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004343685) |
 | Journal | [Trade Marks Journal 2026/030, 24 July 2026](https://www.ipo.gov.uk/tm/t-journal/t-tmj/tm-journals/2026-030/UK00004343685.html) |
 | Effective date | 22 February 2026 (filing date) |
@@ -73,30 +73,33 @@ and, from publication on 24 July 2026, form part of the public record on the
 The Journal notice states that the regulations provisionally accepted by the
 Registrar are open to inspection at the Trade Marks Registry.
 
-In summary, the regulations framework this repository operates under provides
-that:
+In summary, the registered regulations (Version 3.0, May 2026) provide that:
 
-- The mark certifies that a specific institutional process includes
-  **meaningful human involvement** in decisions affecting identified
-  individuals — a named human personally reviewed the specific facts before
-  the decision took effect (the SOVEREIGN standard).
-- Certification is granted on **evidence, not payment**. Payment for
-  assessment, renewal, training, or support does not confer certification and
-  cannot convert a NULL or AMBIGUOUS finding into SOVEREIGN.
-- Certification is **externally administered** by The Burgess Principle
-  Limited under the neutrality and impartiality safeguards published in
-  [CERTIFICATION_TIERS.md](./CERTIFICATION_TIERS.md) (Neutral Oversight and
-  Impartiality). Self-certification is not permitted.
+- The Mark certifies that an organisation's services, systems or processes
+  satisfy the **SOVEREIGN** condition: a named human being's mind was applied
+  to the specific facts of a specific person's case before institutional
+  power was exercised.
+- The Standard is **binary**. The two certification determinations are
+  SOVEREIGN and NULL. AMBIGUOUS is a correspondence working note, not a
+  certification determination under the regulations.
+- Certification is granted on **evidence, not payment**. Payment of a fee
+  does not confer certification and cannot convert a NULL determination into
+  a SOVEREIGN determination.
+- Assessments are carried out by **Qualified Assessors** appointed by the
+  Proprietor, under section 11 of the regulations.
+- Tier 3 Public Sector certification is provided at **nil cost**. Section
+  13.1 sets both the application fee and the annual reassessment fee at Nil.
 - Certified use is recorded publicly — see
   [PARTNERSHIP_LEDGER.md](./PARTNERSHIP_LEDGER.md) and
   [CERTIFIED_PRACTITIONERS.md](./CERTIFIED_PRACTITIONERS.md) — and may be
-  suspended or withdrawn where the evidence standard is no longer met.
+  suspended or withdrawn where the Standard is no longer met.
 - Where the filed Regulations impose a stricter requirement for use of the
-  mark than any repository document, **the Regulations control mark use**
+  Mark than any repository document, **the Regulations control mark use**
   (see [LICENSE.md](./LICENSE.md) §11).
 
-The authoritative text of the filed Regulations is the copy held by the UK
-IPO. This section is a plain-language summary for first-time readers; it does
+The authoritative text of the filed Regulations is the clean official copy
+at [docs/UK00004343685-Certification-Regulations-v3.0.pdf](./docs/UK00004343685-Certification-Regulations-v3.0.pdf).
+This section is a plain-language summary for first-time readers; it does
 not replace the filed text.
 
 ## Related documents
@@ -113,5 +116,5 @@ not replace the filed text.
 ---
 
 *UK Certification Mark UK00004343685 | registered 9 October 2026, effective
-22 February 2026 | Lewis James Burgess | The Burgess Principle Limited —
-Co. No. 17199287*
+22 February 2026 | The Burgess Principle Ltd, Co. No. 17199287, registered
+proprietor | Lewis James Burgess, Director*

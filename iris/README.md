@@ -482,7 +482,7 @@ Whichever mode is used, Iris should make the user's situation **more reviewable*
 
 **The Burgess Principle**  
 UK Certification Mark: UK00004343685  
-IP proprietor: Lewis James Burgess.  
+Registered proprietor of UK00004343685: The Burgess Principle Ltd. Founder, Director and PSC: Lewis James Burgess.  
 Commercial operator: The Burgess Principle Limited (company number 17199287).  
 Contact: [contact redacted]  
 [github.com/ljbudgie/burgess-principle](https://github.com/ljbudgie/burgess-principle)

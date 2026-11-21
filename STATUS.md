@@ -202,7 +202,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 | --- | --- | --- |
 | **UK00004343685** | UK Certification Mark — Classes 41, 42, 45 | Registered 9 October 2026, effective 22 February 2026 (accepted 21 July 2026; published Journal 2026/030 on 24 July 2026) — see [CERTIFICATION_MARK.md](./CERTIFICATION_MARK.md) |
 | USPTO filing | Filed via US-licensed attorney | In progress |
-| The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Commercial operator under formal IP Licence Agreement; IP ownership remains personally with **Lewis James Burgess**, Director and PSC |
+| The Burgess Principle Limited | Incorporated 5 May 2026 — company number **17199287**, Private Limited by Shares, registered office **[registered office redacted]** | Registered proprietor of UK00004343685; Lewis James Burgess is Director and PSC |
 
 ---
 
@@ -224,7 +224,7 @@ Statutory deadline: **20 working days** from receipt for an initial response (FO
 | 4 May 2026 | Burgess SYN packet adoption pass | Updated the public README, Iris guidance, prompt snippets, template entry points, and tool docstrings so the scrutiny gate is presented as the first packet before any system acts on an identified individual. |
 | 4 May 2026 | Test coverage expansion (PR #345) | Added focused tests for personal-profile edge cases (Mirror Mode greeting fallbacks, normalizer defaults, public-key fingerprint casing, Unicode round-trip, disabling Mirror Mode) and for sovereign-core utilities (network snapshot normalization, connectivity tags, trigger presets, sync policy under slow / save-data / offline states, audit/merkle empty and mismatched-proof handling). No production code or public surface changed. |
 | 4 May 2026 | Copilot shim tightened toward Burgess-first decision checks (PR #344) | `.github/copilot-instructions.md` updated so Copilot is instructed to run the Burgess check before decision logic, prefer the reference implementation (`verify_scrutiny.py`) or API (`api.py`), and block / log NULL / escalate on failure. Internal AI-tooling shim only; no doctrinal sections altered. |
-| 6 May 2026 | Incorporation governance recorded | Added The Burgess Principle Limited incorporation details and clarified that commercial operation is under formal IP Licence Agreement while IP ownership remains personally with Lewis James Burgess. |
+| 6 May 2026 | Incorporation governance recorded | Added The Burgess Principle Limited incorporation details. The registered proprietor of UK00004343685 is The Burgess Principle Ltd; Lewis James Burgess is Director and PSC. |
 | 9 May 2026 | Licensing sustainability messaging aligned | Reviewed licensing-related public surfaces and clarified the hybrid model: open MIT materials drive adoption and contribution while certification, consulting, training, sponsorship, and company licensing fund maintenance, enforcement, and standards integrity. |
 | 9 May 2026 | Lightweight governance and neutral certification oversight clarified | Added merit-based maintainer promotion, lazy consensus, advisory review, and impartiality safeguards for certification decisions without creating a standing bureaucracy. |
 | 16 September 2026 | Certification mark dates aligned to Journal 2026/030 | Publication 24 July 2026 and opposition close 24 September 2026 recorded in CERTIFICATION_MARK.md. |

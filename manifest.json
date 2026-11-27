@@ -1,6 +1,6 @@
 {
   "id": "/?app=iris-sovereign-pwa",
-  "name": "Iris — Sovereign Companion",
+  "name": "Iris: Sovereign Companion",
   "short_name": "Iris",
   "description": "Phone-first sovereign advocate PWA for generating, signing, saving, and exporting Burgess Claims offline, with Mirror Mode, local triggers, signed update manifests, and explicit user-controlled activation.",
   "start_url": "/?source=pwa",
@@ -16,7 +16,13 @@
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "/banner.png",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -28,42 +34,42 @@
       "short_name": "Sovereign",
       "description": "Launch Iris into the local-first Burgess review flow with Sovereign Mode badging.",
       "url": "/?shortcut=burgess-check&source=sovereign-mode",
-      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+      "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
     },
     {
       "name": "Mirror claim",
       "short_name": "Mirror",
       "description": "Open Iris and start a Mirror Mode-aware Burgess claim flow on this device.",
       "url": "/?shortcut=mirror-claim",
-      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+      "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
     },
     {
       "name": "Crypto exchange freeze",
       "short_name": "Exchange freeze",
       "description": "Start a Burgess Claim for an exchange freeze or withdrawal hold.",
       "url": "/?shortcut=crypto-exchange",
-      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+      "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
     },
     {
       "name": "Direct debit refund",
       "short_name": "Direct debit",
       "description": "Start a Burgess Claim for a direct debit refund dispute.",
       "url": "/?shortcut=direct-debit",
-      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+      "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
     },
     {
       "name": "Benefits review",
       "short_name": "Benefits",
       "description": "Start a Burgess Claim for a benefits review or dispute.",
       "url": "/?shortcut=benefits",
-      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+      "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
     },
     {
       "name": "Burgess check",
       "short_name": "Burgess",
-      "description": "Run a quick Burgess check — was a human able to personally review the specific facts?",
+      "description": "Run a quick Burgess check: was a human able to personally review the specific facts?",
       "url": "/?shortcut=burgess-check",
-      "icons": [{ "src": "/banner.png", "sizes": "512x512", "type": "image/png" }]
+      "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }]
     }
   ]
 }

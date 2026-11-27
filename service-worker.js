@@ -6,13 +6,13 @@ self.importScripts(
   '/sovereign-core/profile-manager.js',
 );
 
-// === Service Worker v2.5.3 (released 9 June 2026) ===
+// === Service Worker v2.5.4 ===
 // Updated to reflect June 2026 ledger expansion: 45 institutions, 20 live proceedings.
 // Key changes: version bump to v2.5.3; no structural service worker changes.
 // Burgess Compliance: Background tasks remain advisory-only; no substantive SOVEREIGN/NULL judgment
 // is made in the background layer. All escalation and human review decisions surface locally and auditably.
 
-const PWA_CORE_VERSION = '2.5.3';
+const PWA_CORE_VERSION = '2.5.4';
 const STATIC_CACHE_NAME = `burgess-principle-static-${PWA_CORE_VERSION}`;
 const RUNTIME_CACHE_NAME = `burgess-principle-runtime-${PWA_CORE_VERSION}`;
 const API_CACHE_NAME = `burgess-principle-api-${PWA_CORE_VERSION}`;
@@ -40,6 +40,11 @@ const PRECACHE_URLS = [
   '/sovereign-core/audit-engine.js',
   '/sovereign-core/profile-manager.js',
   '/banner.png',
+  '/og-image.png',
+  '/icon-512.png',
+  '/icon-192.png',
+  '/apple-touch-icon.png',
+  '/favicon.ico',
   '/signed-update-manifest.json'
 ];
 const CRITICAL_PATHS = new Set(PRECACHE_URLS);
@@ -73,7 +78,7 @@ async function warmCriticalAssets() {
         const response = await fetch(request);
         await putIfOk(CRITICAL_PATHS.has(path) ? STATIC_CACHE_NAME : RUNTIME_CACHE_NAME, request, response);
       } catch (_error) {
-        // Stay offline-first — the cached shell remains authoritative until connectivity returns.
+        // Stay offline-first: the cached shell remains authoritative until connectivity returns.
       }
     })
   );
@@ -381,7 +386,7 @@ function runLocalPreBurgessInference({ text = '', matchedKeywords = [], source =
       'Was a human member of the team able to review the specific facts personally?',
       'What named person, team, or role can confirm the review?'
     ],
-    rationale: `Local advisory score only for ${trigger.label || 'trigger'} — ${TRIGGER_ADVISORY_MESSAGE}`
+    rationale: `Local advisory score only for ${trigger.label || 'trigger'}: ${TRIGGER_ADVISORY_MESSAGE}`
   };
 }
 
@@ -515,8 +520,8 @@ async function flushFingerprintQueue() {
   if (flushed > 0) {
     await self.registration.showNotification('Fingerprint sync complete', {
       body: `${flushed} claim fingerprint${flushed === 1 ? '' : 's'} staged for privacy-first posting.`,
-      icon: '/banner.png',
-      badge: '/banner.png',
+      icon: '/icon-192.png',
+      badge: '/icon-192.png',
       tag: 'fingerprint-sync'
     });
   }
@@ -530,8 +535,8 @@ async function notifyDueReminders() {
       body: reminder.commitment_hash
         ? `Claim ${reminder.commitment_hash} reached the follow-up point.`
         : 'A saved Burgess Claim reached the follow-up point.',
-      icon: '/banner.png',
-      badge: '/banner.png',
+      icon: '/icon-192.png',
+      badge: '/icon-192.png',
       tag: reminder.id,
       data: { url: '/?shortcut=new-claim' }
     });
@@ -632,8 +637,8 @@ async function processTriggerQueue() {
     });
     await self.registration.showNotification(notification.title, {
       body: notification.body,
-      icon: '/banner.png',
-      badge: '/banner.png',
+      icon: '/icon-192.png',
+      badge: '/icon-192.png',
       tag: `trigger-${trigger.id}`,
       data: {
         url: buildTriggerUrl(trigger.id, firedEntry.id),
@@ -774,11 +779,11 @@ self.addEventListener('periodicsync', event => {
 });
 
 self.addEventListener('push', event => {
-  let title = 'Iris — Sovereign Companion';
+  let title = 'Iris: Sovereign Companion';
   const options = {
-    body: 'Burgess check ready — open Iris?',
-    icon: '/banner.png',
-    badge: '/banner.png',
+    body: 'Burgess check ready: open Iris?',
+    icon: '/icon-192.png',
+    badge: '/icon-192.png',
     tag: 'push-notification',
     data: { url: '/' }
   };

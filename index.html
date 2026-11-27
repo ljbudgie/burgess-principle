@@ -16,13 +16,13 @@
     <meta property="og:image" content="https://burgess-principle.vercel.app/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Burgess Principle. Did a named human with authority apply their mind to the specific facts of this person's case before the decision was taken? Outcomes: SOVEREIGN, AMBIGUOUS, NULL. UK Certification Mark UK00004343685.">
+    <meta property="og:image:alt" content="The Burgess Principle. Did a named human with authority apply their mind to the specific facts of this person's case before the decision was taken? Outcomes: SOVEREIGN or NULL. AMBIGUOUS is treated as NULL until determined otherwise. UK Certification Mark UK00004343685.">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Burgess Principle: was a human there?">
     <meta name="twitter:description" content="Did a named human with authority apply their mind to the specific facts of this person's case before the decision was taken? UK Certification Mark UK00004343685.">
     <meta name="twitter:image" content="https://burgess-principle.vercel.app/og-image.png">
-    <meta name="twitter:image:alt" content="The Burgess Principle. Did a named human with authority apply their mind to the specific facts of this person's case before the decision was taken? Outcomes: SOVEREIGN, AMBIGUOUS, NULL. UK Certification Mark UK00004343685.">
+    <meta name="twitter:image:alt" content="The Burgess Principle. Did a named human with authority apply their mind to the specific facts of this person's case before the decision was taken? Outcomes: SOVEREIGN or NULL. AMBIGUOUS is treated as NULL until determined otherwise. UK Certification Mark UK00004343685.">
     <meta name="theme-color" content="#0a0a0a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -319,9 +319,9 @@
         /* ------------------------------------------------------------------ */
         .binary-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            max-width: 1020px;
+            max-width: 700px;
         }
 
         .binary-card {
@@ -336,11 +336,6 @@
             border-color: rgba(92, 184, 92, 0.2);
         }
 
-        .binary-card-ambiguous {
-            background: linear-gradient(135deg, rgba(212, 175, 119, 0.10) 0%, transparent 100%);
-            border-color: rgba(212, 175, 119, 0.35);
-        }
-
         .binary-card-null {
             background: linear-gradient(135deg, rgba(217, 83, 79, 0.06) 0%, transparent 100%);
             border-color: rgba(217, 83, 79, 0.2);
@@ -353,13 +348,29 @@
         }
 
         .binary-card-sovereign .binary-finding { color: var(--green); }
-        .binary-card-ambiguous .binary-finding { color: var(--gold); }
         .binary-card-null .binary-finding { color: var(--red); }
 
         .binary-meaning {
             font-size: 0.85rem;
             color: var(--text-dim);
             line-height: 1.6;
+        }
+
+        .binary-note {
+            max-width: 700px;
+            margin: 20px 0 0;
+            padding: 14px 18px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(212, 175, 119, 0.28);
+            background: rgba(212, 175, 119, 0.06);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            line-height: 1.55;
+        }
+
+        .binary-note strong {
+            color: var(--gold);
+            font-weight: 600;
         }
 
         /* ------------------------------------------------------------------ */
@@ -1662,22 +1673,19 @@
             <div class="section-label">The Core</div>
             <h2 class="section-title">The Test</h2>
             <p class="section-desc">
-                Every finding under the Burgess Principle resolves to one of three outcomes: SOVEREIGN, AMBIGUOUS, or NULL.
+                Every finding under the Burgess Principle resolves to one of two outcomes: SOVEREIGN or NULL.
             </p>
             <div class="binary-grid">
                 <div class="binary-card binary-card-sovereign">
                     <div class="binary-finding">SOVEREIGN</div>
                     <p class="binary-meaning">A named person with authority applied their mind to the specific facts, shown in their own words.</p>
                 </div>
-                <div class="binary-card binary-card-ambiguous">
-                    <div class="binary-finding">AMBIGUOUS</div>
-                    <p class="binary-meaning">Under active assessment. The record cannot yet support either way.</p>
-                </div>
                 <div class="binary-card binary-card-null">
                     <div class="binary-finding">NULL</div>
                     <p class="binary-meaning">No such person is evidenced. This is the starting point for a named review, not a finding that the decision is void.</p>
                 </div>
             </div>
+            <p class="binary-note"><strong>AMBIGUOUS</strong> is a working note when a reply has not yet answered the question, and it is treated as NULL until determined otherwise.</p>
         </section>
 
         <hr class="section-divider">

@@ -263,12 +263,29 @@ def verify_personal_profile(profile: Mapping[str, Any]) -> bool:
     try:
         module = _onchain_claims_module()
         signed_profile = _select_first_valid(profile, "signed_profile")
+        # The signed payload itself declares whether the profile is hybrid and
+        # which PQ key it uses. Enforce that, so stripping the PQ signature
+        # from a hybrid profile cannot downgrade it to classical-only.
+        expected_pq_keys: dict[str, str] = {}
+        require_pq = False
+        try:
+            signed_fields = json.loads(signed_profile)
+        except (TypeError, ValueError):
+            signed_fields = {}
+        if isinstance(signed_fields, dict) and signed_fields.get("signature_mode") == "hybrid":
+            require_pq = True
+            algorithm = str(signed_fields.get("post_quantum_algorithm", "")).strip()
+            pq_public_key = str(signed_fields.get("post_quantum_public_key_hex", "")).strip()
+            if algorithm and pq_public_key:
+                expected_pq_keys[algorithm.lower()] = pq_public_key
         result = module.verify_signature_bundle(
             signed_profile.encode("utf-8"),
             _select_first_valid(profile, "profile_signature"),
             _select_first_valid(profile, "public_key_hex"),
             signatures=profile.get("profile_signatures"),
             public_keys=profile.get("profile_public_keys"),
+            require_post_quantum=require_pq,
+            expected_post_quantum_public_keys=expected_pq_keys or None,
         )
         if not result.valid:
             return False

@@ -423,8 +423,24 @@ def verify_signature_bundle(
     *,
     signatures: Mapping[str, str] | None = None,
     public_keys: Mapping[str, str] | None = None,
+    require_post_quantum: bool = False,
+    expected_post_quantum_public_keys: Mapping[str, str] | None = None,
 ) -> VerificationResult:
-    """Verify a classical signature and, when present, its PQ companion."""
+    """Verify a classical signature and its post-quantum companion(s).
+
+    Downgrade protection: the PQ signature travels in the same receipt as the
+    classical one, so an attacker can simply delete it. A verifier that only
+    checks PQ signatures *when present* would then accept a stripped hybrid
+    receipt as classical-only. To prevent that:
+
+    * ``require_post_quantum=True`` makes the result invalid unless at least
+      one PQ signature is present and verifies.
+    * ``expected_post_quantum_public_keys`` (algorithm → public key hex, taken
+      from a trusted source such as a signed profile) requires a valid PQ
+      signature for **each** listed algorithm, made with exactly that key.
+
+    Every PQ signature present is verified (not just the first).
+    """
     try:
         from nacl.exceptions import BadSignatureError
         from nacl.signing import VerifyKey
@@ -448,42 +464,67 @@ def verify_signature_bundle(
             details="Signature verification failed — claim may be tampered.",
         )
 
+    def _fail(details: str) -> VerificationResult:
+        return VerificationResult(
+            valid=False,
+            commitment_hash=message.hex(),
+            public_key=public_key_hex,
+            details=details,
+            signature_mode="hybrid",
+        )
+
     signature_map = dict(signatures or {})
     public_key_map = dict(public_keys or {})
+    expected_map = {
+        _normalise_algorithm_name(algorithm): str(key).strip().lower()
+        for algorithm, key in dict(expected_post_quantum_public_keys or {}).items()
+        if _normalise_algorithm_name(algorithm) != "ed25519"
+    }
+
+    verified: dict[str, str] = {}  # normalised algorithm -> display name
     for algorithm, pq_signature in signature_map.items():
-        if _normalise_algorithm_name(algorithm) == "ed25519":
+        normalised = _normalise_algorithm_name(algorithm)
+        if normalised == "ed25519":
             continue
         pq_public_key = public_key_map.get(algorithm) or public_key_map.get(algorithm.lower())
         if not pq_public_key:
-            return VerificationResult(
-                valid=False,
-                commitment_hash=message.hex(),
-                public_key=public_key_hex,
-                details=f"{algorithm} public key missing from hybrid receipt.",
-                signature_mode="hybrid",
-            )
+            return _fail(f"{algorithm} public key missing from hybrid receipt.")
         _validate_hex_string(pq_signature, f"{algorithm} signature")
         _validate_hex_string(pq_public_key, f"{algorithm} public key")
+        if normalised in expected_map and pq_public_key.strip().lower() != expected_map[normalised]:
+            return _fail(
+                f"{algorithm} public key does not match the expected (trusted) key — "
+                "hybrid receipt is invalid."
+            )
         provider = _resolve_post_quantum_provider(algorithm)
         if not provider.verify(
             bytes.fromhex(pq_public_key),
             message,
             bytes.fromhex(pq_signature),
         ):
-            return VerificationResult(
-                valid=False,
-                commitment_hash=message.hex(),
-                public_key=public_key_hex,
-                details=f"{provider.algorithm} verification failed — hybrid receipt is invalid.",
-                signature_mode="hybrid",
-            )
+            return _fail(f"{provider.algorithm} verification failed — hybrid receipt is invalid.")
+        verified[normalised] = provider.algorithm
+
+    missing = sorted(set(expected_map) - set(verified))
+    if missing:
+        return _fail(
+            "Post-quantum signature missing for expected algorithm(s): "
+            + ", ".join(missing)
+            + " — possible downgrade (PQ signature stripped)."
+        )
+    if require_post_quantum and not verified:
+        return _fail(
+            "Post-quantum signature required but none present — possible downgrade "
+            "(PQ signature stripped)."
+        )
+
+    if verified:
+        names = " and ".join(sorted(verified.values()))
         return VerificationResult(
             valid=True,
             commitment_hash=message.hex(),
             public_key=public_key_hex,
-            details=(
-                f"Hybrid signature verified — Ed25519 and {provider.algorithm} proofs are valid."
-            ),
+            details=f"Hybrid signature verified — Ed25519 and {names} proofs are valid.",
             signature_mode="hybrid",
         )
 
@@ -628,6 +669,8 @@ def verify_onchain_receipt(
     *,
     signatures: Mapping[str, str] | None = None,
     public_keys: Mapping[str, str] | None = None,
+    require_post_quantum: bool = False,
+    expected_post_quantum_public_keys: Mapping[str, str] | None = None,
 ) -> VerificationResult:
     """Verify an on-chain Burgess Claim receipt.
 
@@ -655,6 +698,8 @@ def verify_onchain_receipt(
         public_key_hex,
         signatures=signatures,
         public_keys=public_keys,
+        require_post_quantum=require_post_quantum,
+        expected_post_quantum_public_keys=expected_post_quantum_public_keys,
     )
     return VerificationResult(
         valid=result.valid,

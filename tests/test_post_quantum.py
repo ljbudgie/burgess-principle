@@ -495,3 +495,112 @@ class TestSovereignProfileHybridReal:
         )
         assert loaded["signature_mode"] == "hybrid"
         assert verify_personal_profile(loaded) is True
+
+
+# ---------------------------------------------------------------------------
+# Downgrade protection: stripping the PQ signature from a hybrid receipt
+# ---------------------------------------------------------------------------
+
+
+class TestPostQuantumStrippingDowngrade:
+    def _hybrid(self, message: bytes):
+        bundle = build_signature_bundle(message, PRIVATE_KEY, post_quantum=True)
+        algo_key = bundle["post_quantum_algorithm"].lower()
+        return bundle, algo_key
+
+    def test_stripped_signature_passes_without_policy_documenting_old_behaviour(self):
+        message = b"strip me"
+        bundle, _ = self._hybrid(message)
+        # With no policy, a classical-only check still succeeds (backward
+        # compatible) — callers must state what they expect.
+        result = verify_signature_bundle(
+            message, bundle["signature"], bundle["public_keys"]["ed25519"]
+        )
+        assert result.valid is True
+        assert result.signature_mode == "classical"
+
+    def test_require_post_quantum_rejects_stripped_receipt(self):
+        message = b"strip me"
+        bundle, _ = self._hybrid(message)
+        result = verify_signature_bundle(
+            message,
+            bundle["signature"],
+            bundle["public_keys"]["ed25519"],
+            signatures={},
+            public_keys={},
+            require_post_quantum=True,
+        )
+        assert result.valid is False
+        assert "downgrade" in result.details.lower()
+
+    def test_expected_pq_key_rejects_stripped_receipt(self):
+        message = b"strip me"
+        bundle, algo_key = self._hybrid(message)
+        stripped_sigs = {k: v for k, v in bundle["signatures"].items() if k != algo_key}
+        result = verify_signature_bundle(
+            message,
+            bundle["signature"],
+            bundle["public_keys"]["ed25519"],
+            signatures=stripped_sigs,
+            public_keys=bundle["public_keys"],
+            expected_post_quantum_public_keys={algo_key: bundle["public_keys"][algo_key]},
+        )
+        assert result.valid is False
+        assert "downgrade" in result.details.lower()
+
+    def test_expected_pq_key_rejects_substituted_pq_key(self):
+        message = b"swap key"
+        bundle, algo_key = self._hybrid(message)
+        attacker, attacker_algo = self._hybrid(message)
+        assert attacker_algo == algo_key
+        # Attacker re-signs with their own PQ key but keeps the victim's Ed25519.
+        sigs = dict(bundle["signatures"])
+        keys = dict(bundle["public_keys"])
+        sigs[algo_key] = attacker["signatures"][algo_key]
+        keys[algo_key] = attacker["public_keys"][algo_key]
+        if bundle["public_keys"][algo_key] == attacker["public_keys"][algo_key]:
+            pytest.skip("provider generated identical keys")
+        result = verify_signature_bundle(
+            message,
+            bundle["signature"],
+            bundle["public_keys"]["ed25519"],
+            signatures=sigs,
+            public_keys=keys,
+            expected_post_quantum_public_keys={algo_key: bundle["public_keys"][algo_key]},
+        )
+        assert result.valid is False
+        assert "expected" in result.details.lower()
+
+    def test_intact_hybrid_receipt_passes_with_policy(self):
+        message = b"intact"
+        bundle, algo_key = self._hybrid(message)
+        result = verify_signature_bundle(
+            message,
+            bundle["signature"],
+            bundle["public_keys"]["ed25519"],
+            signatures=bundle["signatures"],
+            public_keys=bundle["public_keys"],
+            require_post_quantum=True,
+            expected_post_quantum_public_keys={algo_key: bundle["public_keys"][algo_key]},
+        )
+        assert result.valid is True
+        assert result.signature_mode == "hybrid"
+
+    def test_onchain_receipt_passes_policy_through(self):
+        commitment = "ab" * 32
+        bundle = build_signature_bundle(bytes.fromhex(commitment), PRIVATE_KEY, post_quantum=True)
+        result = verify_onchain_receipt(
+            commitment,
+            bundle["signature"],
+            bundle["public_keys"]["ed25519"],
+            require_post_quantum=True,
+        )
+        assert result.valid is False
+
+    def test_hybrid_profile_with_stripped_pq_signature_fails(self):
+        profile = build_personal_profile(name="Stripped", post_quantum=True)
+        assert verify_personal_profile(profile) is True
+        stripped = dict(profile)
+        stripped.pop("profile_signatures", None)
+        stripped.pop("profile_public_keys", None)
+        assert verify_personal_profile(stripped) is False
